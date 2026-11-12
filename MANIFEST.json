@@ -1,0 +1,107 @@
+{
+  "package": "Rubiknetic Documentation v1.0",
+  "date": "2026-11-12",
+  "status": "Planning documentation only; all implementation gates unstarted",
+  "files": [
+    {
+      "path": "CLAUDE.md",
+      "size_bytes": 4941,
+      "sha256": "fc7886dcf4bd4213ad925240bd288ea68c5e8565c9a667bf9b5aca597fd4a5a8"
+    },
+    {
+      "path": "README.md",
+      "size_bytes": 6929,
+      "sha256": "1e4d33af5a9df2493e564456868f96a588b633b682982b79f80e79dc40b33920"
+    },
+    {
+      "path": "RUBIKNETIC_MASTER_SPEC.md",
+      "size_bytes": 17814,
+      "sha256": "7505ac444b63593c9dacb3e4e03064156079feedc1a4cd5b025846171b39abe6"
+    },
+    {
+      "path": "START_HERE.md",
+      "size_bytes": 3266,
+      "sha256": "75ae84818da62e64d360d137db30c3479dc97980386adbfe437b74f9cf77e04f"
+    },
+    {
+      "path": "docs/CUBE_MECHANICS_RESEARCH.md",
+      "size_bytes": 5293,
+      "sha256": "7113d36e383baef6bd89db3937ec30f62e9faa9d71fa8314430a27450d0af6ad"
+    },
+    {
+      "path": "docs/DECISION_LOG.md",
+      "size_bytes": 4569,
+      "sha256": "69859495246ab4c7ce94021f61a02ecc44bf407ef7214682ad87b2ea6b9db7e0"
+    },
+    {
+      "path": "docs/GRIPPER_DESIGN_RESEARCH.md",
+      "size_bytes": 5666,
+      "sha256": "e58435c870ad6aeecbc16567c47520528d7f8bc2a8f6479c16190f17150abc82"
+    },
+    {
+      "path": "docs/REFERENCES_SEED.md",
+      "size_bytes": 3635,
+      "sha256": "a08b2f51a9a60fc0b4fd1b481571a677020c5ff30da82fd7fe10dfe2446a8dfd"
+    },
+    {
+      "path": "docs/RESEARCH_PLAN.md",
+      "size_bytes": 5950,
+      "sha256": "56bfb827680b730d452bf5e8457f133523f48a65947054fe0d22d097df9ead11"
+    },
+    {
+      "path": "docs/RL_EXPERIMENT_SPEC.md",
+      "size_bytes": 7386,
+      "sha256": "3781ca20c379169200ce63cdededde4a2098368f73ebb48b57c11b0475352de5"
+    },
+    {
+      "path": "docs/SYSTEM_ARCHITECTURE.md",
+      "size_bytes": 7142,
+      "sha256": "d8c4057972e68f69a366b4cfa31e6eb1d85d397e451645095ccc6652a44b1c86"
+    },
+    {
+      "path": "docs/VALIDATION_PLAN.md",
+      "size_bytes": 8796,
+      "sha256": "b8f26a06c78e1a680cf7a5eee52edcff7f4a0baed17c75f514daede53ffc19ff"
+    },
+    {
+      "path": "phases/PHASE_0_RESEARCH.md",
+      "size_bytes": 2973,
+      "sha256": "768a60b0e3d3393b2e163d5c9ef1a03f0dfea1ad432520a8d985e10e393488f4"
+    },
+    {
+      "path": "phases/PHASE_1_PHYSICS.md",
+      "size_bytes": 2625,
+      "sha256": "5ba6857d9b427e5fdcd624e5bfba609d064fcd3f6b42ae0fb25fbcb2f15bc118"
+    },
+    {
+      "path": "phases/PHASE_2_ROBOT_INTEGRATION.md",
+      "size_bytes": 2407,
+      "sha256": "1c6d00ea3523acf5c7004bbc846671932b3debd693e105f3810762a1ac127c0b"
+    },
+    {
+      "path": "phases/PHASE_3_REINFORCEMENT_LEARNING.md",
+      "size_bytes": 2032,
+      "sha256": "bf3ea8ead610bc8e742216c623b908bb1c3abd81dfd35451f3c68d70c407826d"
+    },
+    {
+      "path": "phases/PHASE_4_BIMANUAL_AUTONOMY.md",
+      "size_bytes": 1922,
+      "sha256": "c39a2934939c92ed2f11b0a88b061202696ff887d2a340d439d40ef0765bbd78"
+    },
+    {
+      "path": "phases/PHASE_5_PERCEPTION.md",
+      "size_bytes": 1861,
+      "sha256": "fb8584d41b348ebea5e70bab9bad5bfe645ee29886e16dfb3bad9a9326aea24b"
+    },
+    {
+      "path": "phases/PHASE_6_FULL_CUBE_SOLVING.md",
+      "size_bytes": 1783,
+      "sha256": "57860b5e4e18a93212bcccf9fc8aff9aabb2f2642f792257b2fff07c4ba37167"
+    },
+    {
+      "path": "phases/PHASE_7_EVALUATION.md",
+      "size_bytes": 2039,
+      "sha256": "39e75ac8b80b1f929c975298a2eaedffcfb80b7e24ba1ed86f2f4e5a4a4b9e72"
+    }
+  ]
+}

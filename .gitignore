@@ -1,0 +1,69 @@
+# ---------------------------------------------------------------
+# Rubiknetic .gitignore
+# Versioned experiment *records* (configs, metrics, summaries) belong
+# in experiments/ and ARE tracked. Bulky generated artifacts are not.
+# ---------------------------------------------------------------
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
+
+# Virtual environments
+.venv/
+venv/
+env/
+.conda/
+
+# Secrets and local configuration
+.env
+.env.*
+*.pem
+*.key
+secrets/
+*.local.yaml
+*.local.json
+
+# RL / simulation generated outputs (large, reproducible from configs+seeds)
+runs/
+logs/
+wandb/
+tensorboard/
+checkpoints/
+*.ckpt
+*.pt
+*.pth
+*.onnx
+MUJOCO_LOG.TXT
+
+# Large media renders (attach selectively via Git LFS or releases if needed)
+*.mp4
+*.avi
+*.mkv
+*.gif
+
+# Raw datasets
+data/raw/
+datasets/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.swp
+*~
+.vscode/
+.idea/
+
+# Claude Code local session state
+.claude/
