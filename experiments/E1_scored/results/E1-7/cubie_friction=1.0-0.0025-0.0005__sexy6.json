@@ -1,0 +1,191 @@
+{
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0002,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   1.0,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.001,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "radial_preload": 1.0,
+  "radial_stiffness": 500.0,
+  "radial_range": [
+   -0.001,
+   0.0002
+  ],
+  "radial_damping": 0.05,
+  "radial_solreflimit": [
+   0.001,
+   1.0
+  ],
+  "radial_solimplimit": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.045,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.014,
+  "grip_overshoot": 0.006,
+  "pad_slide_damping": 100.0,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.001,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 12.815455986418517,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 5.0,
+  "turn_kv": 0.2,
+  "rig_mass": 0.05,
+  "timestep": 0.0005,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "setup": {
+  "seed": 1000,
+  "misalign_deg": {
+   "U": 0.042771475950125426,
+   "R": 0.20768369401265918,
+   "F": -0.05811640535549212,
+   "D": -0.5935041149106424,
+   "L": 0.05751805124010523,
+   "B": -0.6179274398384225
+  },
+  "grip_force": 12.815455986418517,
+  "turn_s_per_quarter": 1.1014726208766377
+ },
+ "setup_log": [
+  {
+   "type": "layer_misalignment",
+   "face": "U",
+   "deg": 0.042771475950125426
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "R",
+   "deg": 0.20768369401265918
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "F",
+   "deg": -0.05811640535549212
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "D",
+   "deg": -0.5935041149106424
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "L",
+   "deg": 0.05751805124010523
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "B",
+   "deg": -0.6179274398384225
+  }
+ ],
+ "t0_observed_valid": true,
+ "t0_solved": true,
+ "radial_offset_mm_t0": 0.35497317465993383,
+ "sequence": "R U R' U' R U R' U' R U R' U' R U R' U' R U R' U' R U R' U'",
+ "seed": 1000,
+ "per_move": [
+  {
+   "move": "R",
+   "observed_move": "R",
+   "inference_error": null,
+   "observed_valid": true,
+   "turn_error_deg": 1.3098460736721123,
+   "turn_error_spread_deg": 0.1869731242331909,
+   "nontarget_drift_deg": 0.10198308265874922,
+   "penetration_mm": 0.2852731714392632,
+   "radial_change_mm_so_far": 0.19185129222803327,
+   "radial_outward_mm_so_far": 0.19185129222803327,
+   "radial_inward_mm_so_far": 0.09729784782559064,
+   "radial_above_nominal_mm_so_far": 3.469446951953614e-15,
+   "max_turner_torque_Nm": 0.6652594359704178,
+   "t_pad_force_s": 0.6084999999999884,
+   "t_layer_motion_s": 0.9044999999999558,
+   "causal": true,
+   "ok_oracle": true,
+   "ok_turn_error": true,
+   "ok_drift": true,
+   "ok_penetration": true,
+   "ok_radial_pop": true,
+   "ok_causal": true,
+   "ok_all": true
+  }
+ ],
+ "aborted": "NumericalFailure: mjWARN_BADQVEL at t~3.7095s step 7419 (dof 37); state was auto-reset by MuJoCo",
+ "wall_time_s": 8.289941233000718,
+ "final_matches_oracle": false,
+ "expected_final_solved": true,
+ "moves_completed_ok": 1,
+ "edit_audit_violations": [],
+ "numerical_failures": [
+  "mjWARN_BADQVEL at t~3.7095s step 7419 (dof 37); state was auto-reset by MuJoCo"
+ ],
+ "wrench_log_entries": 0,
+ "sim_time_s": 0.0005,
+ "integrity_ok": false,
+ "pass": false,
+ "experiment": "E1-7",
+ "trial_id": "cubie_friction=1.0-0.0025-0.0005__sexy6",
+ "kind": "seq",
+ "spec": {
+  "moves": "R U R' U' R U R' U' R U R' U' R U R' U' R U R' U' R U R' U'",
+  "seed": 1000,
+  "overrides": {
+   "cubie_friction": [
+    1.0,
+    0.0025,
+    0.0005
+   ]
+  }
+ },
+ "source_commit": "cfbc5c6bfcb67391384e9e9683f4b05ca6b837e9",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ },
+ "scored": true
+}

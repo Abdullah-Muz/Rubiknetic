@@ -98,7 +98,7 @@ pilot ([`../experiments/E1-0_calibration/README.md`](../experiments/E1-0_calibra
 | Gate | Status |
 | --- | --- |
 | G0 Research | **CONDITIONAL PASS** — 2026-11-12, user approved P-01…P-04. Conditions: O-09…O-13 remain open; P-05…P-07 still pending |
-| G1 Cube physics | **IN PROGRESS** — E1-0 calibration done (unscored); P-09…P-12, P-14 approved; pre-registration approved and frozen; scored M1 runs in progress; no criterion verified yet |
+| G1 Cube physics | **IN PROGRESS — M1 NOT PASSED** (2026-11-12, frozen Option A, commit `cfbc5c6`). E1-1/2/3/5 pass. E1-4 fails 38/40, on the radial pop check only (0.304 and 0.331 mm vs 0.3). E1-6 fails 7/20: E1-6b radial change 0.82–0.89 mm vs 0.5; E1-6c 7/8 numerical failures, and 1/8 non-credible (12.9 mm penetration). E1-7 shows 3 fragility flips. E1-8 measured. See [`../experiments/E1_scored/README.md`](../experiments/E1_scored/README.md). Under the pre-registered mechanism rule, M2 becomes the candidate; awaiting user review |
 | G2 Robot / gripper | **NOT STARTED** |
 | G3 RL | **NOT STARTED** |
 | G4 Bimanual autonomy | **NOT STARTED** |

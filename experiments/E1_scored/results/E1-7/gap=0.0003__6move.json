@@ -1,0 +1,309 @@
+{
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0003,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   0.2,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.001,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "radial_preload": 1.0,
+  "radial_stiffness": 500.0,
+  "radial_range": [
+   -0.001,
+   0.0002
+  ],
+  "radial_damping": 0.05,
+  "radial_solreflimit": [
+   0.001,
+   1.0
+  ],
+  "radial_solimplimit": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.045,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.014,
+  "grip_overshoot": 0.006,
+  "pad_slide_damping": 100.0,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.001,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 12.815455986418517,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 5.0,
+  "turn_kv": 0.2,
+  "rig_mass": 0.05,
+  "timestep": 0.0005,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "setup": {
+  "seed": 1000,
+  "misalign_deg": {
+   "U": 0.042771475950125426,
+   "R": 0.20768369401265918,
+   "F": -0.05811640535549212,
+   "D": -0.5935041149106424,
+   "L": 0.05751805124010523,
+   "B": -0.6179274398384225
+  },
+  "grip_force": 12.815455986418517,
+  "turn_s_per_quarter": 1.1014726208766377
+ },
+ "setup_log": [
+  {
+   "type": "layer_misalignment",
+   "face": "U",
+   "deg": 0.042771475950125426
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "R",
+   "deg": 0.20768369401265918
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "F",
+   "deg": -0.05811640535549212
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "D",
+   "deg": -0.5935041149106424
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "L",
+   "deg": 0.05751805124010523
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "B",
+   "deg": -0.6179274398384225
+  }
+ ],
+ "t0_observed_valid": true,
+ "t0_solved": true,
+ "radial_offset_mm_t0": 0.527228305711655,
+ "sequence": "U U' R R' F F'",
+ "seed": 1000,
+ "per_move": [
+  {
+   "move": "U",
+   "observed_move": "U",
+   "inference_error": null,
+   "observed_valid": true,
+   "turn_error_deg": 0.2713572906718724,
+   "turn_error_spread_deg": 0.004676374298924202,
+   "nontarget_drift_deg": 0.007986286688957208,
+   "penetration_mm": 0.250413824299046,
+   "radial_change_mm_so_far": 0.13627925685111286,
+   "radial_outward_mm_so_far": 0.13627925685111286,
+   "radial_inward_mm_so_far": 0.08879259724000471,
+   "radial_above_nominal_mm_so_far": 3.469446951953614e-15,
+   "max_turner_torque_Nm": 0.22005599967181178,
+   "t_pad_force_s": 0.611999999999988,
+   "t_layer_motion_s": 0.6249999999999866,
+   "causal": true,
+   "ok_oracle": true,
+   "ok_turn_error": true,
+   "ok_drift": true,
+   "ok_penetration": true,
+   "ok_radial_pop": true,
+   "ok_causal": true,
+   "ok_all": true
+  },
+  {
+   "move": "U'",
+   "observed_move": "U'",
+   "inference_error": null,
+   "observed_valid": true,
+   "turn_error_deg": -0.5988630010706366,
+   "turn_error_spread_deg": 0.007470774294233706,
+   "nontarget_drift_deg": 0.030908658146794245,
+   "penetration_mm": 0.24774871348995944,
+   "radial_change_mm_so_far": 0.17139508724400843,
+   "radial_outward_mm_so_far": 0.17139508724400843,
+   "radial_inward_mm_so_far": 0.08879259724000471,
+   "radial_above_nominal_mm_so_far": 3.469446951953614e-15,
+   "max_turner_torque_Nm": 0.6132969583098831,
+   "t_pad_force_s": 2.91300000000014,
+   "t_layer_motion_s": 2.9145000000001406,
+   "causal": true,
+   "ok_oracle": true,
+   "ok_turn_error": true,
+   "ok_drift": true,
+   "ok_penetration": true,
+   "ok_radial_pop": true,
+   "ok_causal": true,
+   "ok_all": true
+  },
+  {
+   "move": "R",
+   "observed_move": "R",
+   "inference_error": null,
+   "observed_valid": true,
+   "turn_error_deg": 0.38968753468378736,
+   "turn_error_spread_deg": 0.022674719312846037,
+   "nontarget_drift_deg": 0.028633960448178317,
+   "penetration_mm": 0.24652260353328015,
+   "radial_change_mm_so_far": 0.17139508724400843,
+   "radial_outward_mm_so_far": 0.17139508724400843,
+   "radial_inward_mm_so_far": 0.08879259724000471,
+   "radial_above_nominal_mm_so_far": 3.469446951953614e-15,
+   "max_turner_torque_Nm": 0.1601299698727663,
+   "t_pad_force_s": 5.21449999999983,
+   "t_layer_motion_s": 5.443499999999703,
+   "causal": true,
+   "ok_oracle": true,
+   "ok_turn_error": true,
+   "ok_drift": true,
+   "ok_penetration": true,
+   "ok_radial_pop": true,
+   "ok_causal": true,
+   "ok_all": true
+  },
+  {
+   "move": "R'",
+   "observed_move": "R'",
+   "inference_error": null,
+   "observed_valid": true,
+   "turn_error_deg": -0.6167023623530064,
+   "turn_error_spread_deg": 0.024451112039884038,
+   "nontarget_drift_deg": 0.024457510620357226,
+   "penetration_mm": 0.23303555540893542,
+   "radial_change_mm_so_far": 0.17139508724400843,
+   "radial_outward_mm_so_far": 0.17139508724400843,
+   "radial_inward_mm_so_far": 0.08879259724000471,
+   "radial_above_nominal_mm_so_far": 3.469446951953614e-15,
+   "max_turner_torque_Nm": 0.6033190931352772,
+   "t_pad_force_s": 7.515999999998554,
+   "t_layer_motion_s": 7.517499999998553,
+   "causal": true,
+   "ok_oracle": true,
+   "ok_turn_error": true,
+   "ok_drift": true,
+   "ok_penetration": true,
+   "ok_radial_pop": true,
+   "ok_causal": true,
+   "ok_all": true
+  },
+  {
+   "move": "F",
+   "observed_move": "F",
+   "inference_error": null,
+   "observed_valid": true,
+   "turn_error_deg": 0.3550438420010913,
+   "turn_error_spread_deg": 0.015551423528393116,
+   "nontarget_drift_deg": 0.005160256370226916,
+   "penetration_mm": 0.2552461882834052,
+   "radial_change_mm_so_far": 0.17139508724400843,
+   "radial_outward_mm_so_far": 0.17139508724400843,
+   "radial_inward_mm_so_far": 0.08879259724000471,
+   "radial_above_nominal_mm_so_far": 3.469446951953614e-15,
+   "max_turner_torque_Nm": 0.260495411479002,
+   "t_pad_force_s": 9.818500000000508,
+   "t_layer_motion_s": 10.058500000000802,
+   "causal": true,
+   "ok_oracle": true,
+   "ok_turn_error": true,
+   "ok_drift": true,
+   "ok_penetration": true,
+   "ok_radial_pop": true,
+   "ok_causal": true,
+   "ok_all": true
+  },
+  {
+   "move": "F'",
+   "observed_move": "F'",
+   "inference_error": null,
+   "observed_valid": true,
+   "turn_error_deg": -0.5930566881752419,
+   "turn_error_spread_deg": 0.017180415618724965,
+   "nontarget_drift_deg": 0.01476983017138161,
+   "penetration_mm": 0.2419602824582072,
+   "radial_change_mm_so_far": 0.17139508724400843,
+   "radial_outward_mm_so_far": 0.17139508724400843,
+   "radial_inward_mm_so_far": 0.08879259724000471,
+   "radial_above_nominal_mm_so_far": 3.469446951953614e-15,
+   "max_turner_torque_Nm": 0.4274792525948392,
+   "t_pad_force_s": 12.11850000000332,
+   "t_layer_motion_s": 12.120500000003322,
+   "causal": true,
+   "ok_oracle": true,
+   "ok_turn_error": true,
+   "ok_drift": true,
+   "ok_penetration": true,
+   "ok_radial_pop": true,
+   "ok_causal": true,
+   "ok_all": true
+  }
+ ],
+ "wall_time_s": 62.96569669099699,
+ "final_matches_oracle": true,
+ "expected_final_solved": true,
+ "moves_completed_ok": 6,
+ "edit_audit_violations": [],
+ "numerical_failures": [],
+ "wrench_log_entries": 0,
+ "sim_time_s": 14.309000000005996,
+ "integrity_ok": true,
+ "pass": true,
+ "experiment": "E1-7",
+ "trial_id": "gap=0.0003__6move",
+ "kind": "seq",
+ "spec": {
+  "moves": "U U' R R' F F'",
+  "seed": 1000,
+  "overrides": {
+   "gap": 0.0003
+  }
+ },
+ "source_commit": "cfbc5c6bfcb67391384e9e9683f4b05ca6b837e9",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ },
+ "scored": true
+}

@@ -1,0 +1,168 @@
+{
+ "experiment": "E1-8",
+ "scored": true,
+ "source_commit": "bf42dc5ae9eddec3a5cfd1443f116b4b7d6b74a3",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ },
+ "logical_cpus": 16,
+ "single_process": [
+  {
+   "scenario": "cube_only",
+   "timestep_s": 0.00025,
+   "raw_steps_per_s": 2042.9109617066931,
+   "raw_realtime_factor": 0.5107277404266732,
+   "audited_steps_per_s": 1693.1427891462895,
+   "audited_realtime_factor": 0.4232856972865724,
+   "mean_contacts": 192.0,
+   "nv": 86
+  },
+  {
+   "scenario": "cube_only",
+   "timestep_s": 0.0005,
+   "raw_steps_per_s": 1916.1270666442047,
+   "raw_realtime_factor": 0.9580635333221024,
+   "audited_steps_per_s": 1637.884694916304,
+   "audited_realtime_factor": 0.818942347458152,
+   "mean_contacts": 192.0,
+   "nv": 86
+  },
+  {
+   "scenario": "cube_only",
+   "timestep_s": 0.001,
+   "raw_steps_per_s": 1638.2639655217993,
+   "raw_realtime_factor": 1.6382639655217992,
+   "audited_steps_per_s": 794.1226998045989,
+   "audited_realtime_factor": 0.7941226998045989,
+   "mean_contacts": 192.0,
+   "nv": 86
+  },
+  {
+   "scenario": "rig_idle",
+   "timestep_s": 0.00025,
+   "raw_steps_per_s": 981.1358125998773,
+   "raw_realtime_factor": 0.24528395314996934,
+   "audited_steps_per_s": 739.066433363819,
+   "audited_realtime_factor": 0.18476660834095476,
+   "mean_contacts": 192.0,
+   "nv": 104
+  },
+  {
+   "scenario": "rig_idle",
+   "timestep_s": 0.0005,
+   "raw_steps_per_s": 957.6556082005752,
+   "raw_realtime_factor": 0.47882780410028764,
+   "audited_steps_per_s": 1922.2347809329483,
+   "audited_realtime_factor": 0.9611173904664742,
+   "mean_contacts": 192.0,
+   "nv": 104
+  },
+  {
+   "scenario": "rig_idle",
+   "timestep_s": 0.001,
+   "raw_steps_per_s": 2158.8534741526432,
+   "raw_realtime_factor": 2.158853474152643,
+   "audited_steps_per_s": 1891.10758568952,
+   "audited_realtime_factor": 1.89110758568952,
+   "mean_contacts": 192.0,
+   "nv": 104
+  },
+  {
+   "scenario": "turning",
+   "timestep_s": 0.00025,
+   "raw_steps_per_s": 608.4592476479183,
+   "raw_realtime_factor": 0.1521148119119796,
+   "audited_steps_per_s": 1089.0863105149404,
+   "audited_realtime_factor": 0.2722715776287351,
+   "mean_contacts": 194.425,
+   "nv": 104
+  },
+  {
+   "scenario": "turning",
+   "timestep_s": 0.0005,
+   "raw_steps_per_s": 621.5351026249142,
+   "raw_realtime_factor": 0.3107675513124571,
+   "audited_steps_per_s": 1065.4800162838437,
+   "audited_realtime_factor": 0.5327400081419219,
+   "mean_contacts": 200.725,
+   "nv": 104
+  },
+  {
+   "scenario": "turning",
+   "timestep_s": 0.001,
+   "raw_steps_per_s": 993.6069169865049,
+   "raw_realtime_factor": 0.9936069169865049,
+   "audited_steps_per_s": 1333.8890635316577,
+   "audited_realtime_factor": 1.3338890635316578,
+   "mean_contacts": 219.025,
+   "nv": 104
+  }
+ ],
+ "parallel_turning_dt0.5ms": [
+  {
+   "processes": 1,
+   "per_process_raw_steps_per_s": [
+    617.5851697779773
+   ],
+   "aggregate_raw_steps_per_s": 617.5851697779773,
+   "aggregate_realtime_factor": 0.30879258488898864,
+   "wall_s": 8.237916812002368
+  },
+  {
+   "processes": 4,
+   "per_process_raw_steps_per_s": [
+    465.65365009602743,
+    495.5178080375081,
+    476.5108449828421,
+    479.78059516314556
+   ],
+   "aggregate_raw_steps_per_s": 1917.4628982795232,
+   "aggregate_realtime_factor": 0.9587314491397616,
+   "wall_s": 10.646805181000673
+  },
+  {
+   "processes": 8,
+   "per_process_raw_steps_per_s": [
+    265.365947839926,
+    263.17584897411786,
+    274.2569310803563,
+    267.6462068907345,
+    268.4554087508463,
+    272.62024869064163,
+    267.173147461311,
+    268.5195147066249
+   ],
+   "aggregate_raw_steps_per_s": 2147.2132543945586,
+   "aggregate_realtime_factor": 1.0736066271972793,
+   "wall_s": 18.92259192599886
+  },
+  {
+   "processes": 16,
+   "per_process_raw_steps_per_s": [
+    148.26808575565786,
+    149.5891301051671,
+    142.09454715184026,
+    165.09315318203716,
+    142.96607679373858,
+    186.6956043633757,
+    184.82547883942348,
+    164.35911662725007,
+    185.07393503223082,
+    164.02377413364633,
+    143.02504764305382,
+    184.2200367963663,
+    148.97752684176206,
+    149.87497129770549,
+    142.92309810498725,
+    163.84016194054092
+   ],
+   "aggregate_raw_steps_per_s": 2565.849744608783,
+   "aggregate_realtime_factor": 1.2829248723043916,
+   "wall_s": 33.790980699999636
+  }
+ ]
+}
