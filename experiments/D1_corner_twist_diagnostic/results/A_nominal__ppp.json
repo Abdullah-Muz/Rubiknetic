@@ -1,0 +1,72 @@
+{
+ "diagnostic": "D1",
+ "scored": false,
+ "config": "A_nominal",
+ "overrides": {},
+ "corner": "ppp",
+ "levels": [
+  {
+   "torque_Nm": 0.02,
+   "twist_about_diagonal_deg": 0.18805226316470933,
+   "total_rotation_deg": 0.18805479108948933,
+   "max_neighbour_rotation_deg": 0.027574591613855854,
+   "penetration_mm": 0.016402784870552894,
+   "radial_out_mm_so_far": 0.02478314196630027,
+   "radial_in_mm_so_far": 0.00023366158381776803,
+   "ncon": 185
+  },
+  {
+   "torque_Nm": 0.05,
+   "twist_about_diagonal_deg": 11.211143729698968,
+   "total_rotation_deg": 11.212829689581302,
+   "max_neighbour_rotation_deg": 2.9356742737347363,
+   "penetration_mm": 0.10770168967840967,
+   "radial_out_mm_so_far": 0.5906824350815145,
+   "radial_in_mm_so_far": 0.012409554332543093,
+   "ncon": 104
+  },
+  {
+   "torque_Nm": 0.1,
+   "twist_about_diagonal_deg": 18.297763010648456,
+   "total_rotation_deg": 18.29827093023824,
+   "max_neighbour_rotation_deg": 4.914611839860998,
+   "penetration_mm": 0.09253312694708492,
+   "radial_out_mm_so_far": 0.6371979591636018,
+   "radial_in_mm_so_far": 0.012409554332543093,
+   "ncon": 88
+  },
+  {
+   "torque_Nm": 0.2,
+   "twist_about_diagonal_deg": 23.538700318712134,
+   "total_rotation_deg": 23.539035725239547,
+   "max_neighbour_rotation_deg": 6.069955015601622,
+   "penetration_mm": 0.16579639695982565,
+   "radial_out_mm_so_far": 0.7199381124322266,
+   "radial_in_mm_so_far": 0.012409554332543093,
+   "ncon": 72
+  },
+  {
+   "torque_Nm": 0.5,
+   "twist_about_diagonal_deg": 34.91385152430864,
+   "total_rotation_deg": 34.91420601691559,
+   "max_neighbour_rotation_deg": 7.9556599803499015,
+   "penetration_mm": 0.2871126945346109,
+   "radial_out_mm_so_far": 0.8529038617627536,
+   "radial_in_mm_so_far": 0.012409554332543093,
+   "ncon": 79
+  },
+  {
+   "torque_Nm": 1.0,
+   "twist_about_diagonal_deg": 17.77614456979426,
+   "total_rotation_deg": 21.252437622070847,
+   "max_neighbour_rotation_deg": 9.46302138292241,
+   "penetration_mm": 7.198675662966824,
+   "radial_out_mm_so_far": 6.06960498300553,
+   "radial_in_mm_so_far": 0.35163432382957077,
+   "ncon": 72
+  }
+ ],
+ "aborted": "NumericalFailure: mjWARN_BADQACC at t~2.3730s step 4746 (dof 43); state was auto-reset by MuJoCo",
+ "wall_s": 10.202440017998015,
+ "sim_s": 0.0005
+}

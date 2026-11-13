@@ -67,3 +67,7 @@ desktop.ini
 
 # Claude Code local session state
 .claude/
+
+# Third-party CAD (GrabCAD terms; not redistributable in this public repo)
+*.snapshot.*.zip
+third_party_cad/

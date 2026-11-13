@@ -1,0 +1,32 @@
+{
+ "diagnostic": "D1",
+ "scored": false,
+ "config": "J_rigid_radius_dmax0.999",
+ "overrides": {
+  "radial_preload": 0.0,
+  "cubie_solimp": [
+   0.99,
+   0.999,
+   0.0005
+  ]
+ },
+ "turning": {
+  "pass": false,
+  "aborted": null,
+  "numerical_failures": [],
+  "final_solved": null,
+  "per_move": [
+   {
+    "move": "U",
+    "observed_move": null,
+    "turn_error_deg": 57.037458654247814,
+    "nontarget_drift_deg": 0.30522348865326393,
+    "penetration_mm": 0.38175275960671984,
+    "radial_above_nominal_mm_so_far": 7.632783294297951e-14,
+    "max_turner_torque_Nm": 1.0,
+    "ok_all": false
+   }
+  ]
+ },
+ "wall_s": 8.596183911999105
+}

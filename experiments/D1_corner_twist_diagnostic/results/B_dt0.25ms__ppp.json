@@ -1,0 +1,84 @@
+{
+ "diagnostic": "D1",
+ "scored": false,
+ "config": "B_dt0.25ms",
+ "overrides": {
+  "timestep": 0.00025
+ },
+ "corner": "ppp",
+ "levels": [
+  {
+   "torque_Nm": 0.02,
+   "twist_about_diagonal_deg": 0.18884460917123722,
+   "total_rotation_deg": 0.18884685319049732,
+   "max_neighbour_rotation_deg": 0.02756209831851793,
+   "penetration_mm": 0.016402679820079584,
+   "radial_out_mm_so_far": 0.024941916647265583,
+   "radial_in_mm_so_far": 0.0002209295707905623,
+   "ncon": 185
+  },
+  {
+   "torque_Nm": 0.05,
+   "twist_about_diagonal_deg": 10.83038314802627,
+   "total_rotation_deg": 10.83159989139514,
+   "max_neighbour_rotation_deg": 2.7839186230726884,
+   "penetration_mm": 0.045652459574868284,
+   "radial_out_mm_so_far": 0.5806424409223812,
+   "radial_in_mm_so_far": 0.00042657194108258745,
+   "ncon": 104
+  },
+  {
+   "torque_Nm": 0.1,
+   "twist_about_diagonal_deg": 18.23548256342249,
+   "total_rotation_deg": 18.235746412284723,
+   "max_neighbour_rotation_deg": 4.847004900990139,
+   "penetration_mm": 0.09240514070457002,
+   "radial_out_mm_so_far": 0.6370930376479594,
+   "radial_in_mm_so_far": 0.00042657194108258745,
+   "ncon": 88
+  },
+  {
+   "torque_Nm": 0.2,
+   "twist_about_diagonal_deg": 23.497599706815546,
+   "total_rotation_deg": 23.497761568648254,
+   "max_neighbour_rotation_deg": 6.009641006698923,
+   "penetration_mm": 0.1657372799690809,
+   "radial_out_mm_so_far": 0.7199448994058486,
+   "radial_in_mm_so_far": 0.00042657194108258745,
+   "ncon": 72
+  },
+  {
+   "torque_Nm": 0.5,
+   "twist_about_diagonal_deg": 34.878684629966,
+   "total_rotation_deg": 34.878826168719634,
+   "max_neighbour_rotation_deg": 7.891204487056032,
+   "penetration_mm": 0.2868081934736012,
+   "radial_out_mm_so_far": 0.8526421309570722,
+   "radial_in_mm_so_far": 0.00042657194108258745,
+   "ncon": 79
+  },
+  {
+   "torque_Nm": 1.0,
+   "twist_about_diagonal_deg": 21.69027835330122,
+   "total_rotation_deg": 22.09933888153615,
+   "max_neighbour_rotation_deg": 7.893958487317711,
+   "penetration_mm": 3.518804677479833,
+   "radial_out_mm_so_far": 2.561388048191164,
+   "radial_in_mm_so_far": 0.00042657194108258745,
+   "ncon": 64
+  },
+  {
+   "torque_Nm": 2.0,
+   "twist_about_diagonal_deg": 103.90342376818843,
+   "total_rotation_deg": 104.18668627367771,
+   "max_neighbour_rotation_deg": 11.734109369099569,
+   "penetration_mm": 8.191353836869675,
+   "radial_out_mm_so_far": 2.561388048191164,
+   "radial_in_mm_so_far": 0.00042657194108258745,
+   "ncon": 62
+  }
+ ],
+ "aborted": "NumericalFailure: mjWARN_BADQACC at t~2.6528s step 10611 (dof 9); state was auto-reset by MuJoCo",
+ "wall_s": 28.53786055599994,
+ "sim_s": 0.00025
+}

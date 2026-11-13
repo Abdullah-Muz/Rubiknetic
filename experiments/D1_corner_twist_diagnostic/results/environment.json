@@ -1,0 +1,7 @@
+{
+ "mujoco": "4.0.1",
+ "numpy": "2.5.4",
+ "python": "3.12.3",
+ "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+ "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+}

@@ -1,0 +1,95 @@
+{
+ "diagnostic": "D1",
+ "scored": false,
+ "config": "H_armature25x",
+ "overrides": {
+  "joint_armature": 2.5e-05
+ },
+ "corner": "ppp",
+ "levels": [
+  {
+   "torque_Nm": 0.02,
+   "twist_about_diagonal_deg": 0.09479232746605978,
+   "total_rotation_deg": 0.09479321837448754,
+   "max_neighbour_rotation_deg": 0.013511663748028058,
+   "penetration_mm": 0.00816554570940938,
+   "radial_out_mm_so_far": 0.012677347405412598,
+   "radial_in_mm_so_far": 0.00011266989216607293,
+   "ncon": 185
+  },
+  {
+   "torque_Nm": 0.05,
+   "twist_about_diagonal_deg": 11.091163397735519,
+   "total_rotation_deg": 11.092043945085075,
+   "max_neighbour_rotation_deg": 2.8681014494716606,
+   "penetration_mm": 0.04287158191708946,
+   "radial_out_mm_so_far": 0.59018048926638,
+   "radial_in_mm_so_far": 0.01874837189532602,
+   "ncon": 97
+  },
+  {
+   "torque_Nm": 0.1,
+   "twist_about_diagonal_deg": 17.02324555993104,
+   "total_rotation_deg": 17.02350904937142,
+   "max_neighbour_rotation_deg": 4.616249316118753,
+   "penetration_mm": 0.048823438435362715,
+   "radial_out_mm_so_far": 0.6346154943224769,
+   "radial_in_mm_so_far": 0.01874837189532602,
+   "ncon": 71
+  },
+  {
+   "torque_Nm": 0.2,
+   "twist_about_diagonal_deg": 20.790405070316623,
+   "total_rotation_deg": 20.790533056960918,
+   "max_neighbour_rotation_deg": 5.4770063235294835,
+   "penetration_mm": 0.0917878820367885,
+   "radial_out_mm_so_far": 0.709011638239318,
+   "radial_in_mm_so_far": 0.01874837189532602,
+   "ncon": 53
+  },
+  {
+   "torque_Nm": 0.5,
+   "twist_about_diagonal_deg": 29.52374395819289,
+   "total_rotation_deg": 29.5238744409903,
+   "max_neighbour_rotation_deg": 7.2292804915518,
+   "penetration_mm": 0.20285466589511436,
+   "radial_out_mm_so_far": 0.8365167317909566,
+   "radial_in_mm_so_far": 0.01874837189532602,
+   "ncon": 63
+  },
+  {
+   "torque_Nm": 1.0,
+   "twist_about_diagonal_deg": 39.70613565647866,
+   "total_rotation_deg": 39.706250856103345,
+   "max_neighbour_rotation_deg": 8.408731604062115,
+   "penetration_mm": 0.2956201603717047,
+   "radial_out_mm_so_far": 0.9423520087940285,
+   "radial_in_mm_so_far": 0.01874837189532602,
+   "ncon": 69
+  },
+  {
+   "torque_Nm": 2.0,
+   "twist_about_diagonal_deg": -99.38162130603523,
+   "total_rotation_deg": 99.41290784509435,
+   "max_neighbour_rotation_deg": 9.002982535077896,
+   "penetration_mm": 6.694943367959121,
+   "radial_out_mm_so_far": 6.556832399019073,
+   "radial_in_mm_so_far": 1.2285712167509275,
+   "ncon": 67
+  },
+  {
+   "torque_Nm": 5.0,
+   "twist_about_diagonal_deg": -54.91021127621778,
+   "total_rotation_deg": 55.121335313716926,
+   "max_neighbour_rotation_deg": 11.146073154383249,
+   "penetration_mm": 11.47033264436396,
+   "radial_out_mm_so_far": 6.556832399019073,
+   "radial_in_mm_so_far": 7.976007790919608,
+   "ncon": 67
+  }
+ ],
+ "after_release_twist_deg": 124.12912680492914,
+ "after_release_observed_valid": false,
+ "wall_s": 13.610368983001536,
+ "sim_s": 3.400000000000303
+}

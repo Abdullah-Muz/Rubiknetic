@@ -1,0 +1,85 @@
+{
+ "diagnostic": "D1",
+ "scored": false,
+ "config": "C_solref0.5ms_dt0.25ms",
+ "overrides": {
+  "timestep": 0.00025,
+  "cubie_solref": [
+   0.0005,
+   1.0
+  ],
+  "radial_solreflimit": [
+   0.0005,
+   1.0
+  ]
+ },
+ "turning": {
+  "pass": true,
+  "aborted": null,
+  "numerical_failures": [],
+  "final_solved": null,
+  "per_move": [
+   {
+    "move": "U",
+    "observed_move": "U",
+    "turn_error_deg": 1.68408064630486,
+    "nontarget_drift_deg": 0.4272940550658102,
+    "penetration_mm": 0.14025749041895022,
+    "radial_above_nominal_mm_so_far": 0.23530967075378884,
+    "max_turner_torque_Nm": 0.7420188300876429,
+    "ok_all": true
+   },
+   {
+    "move": "U'",
+    "observed_move": "U'",
+    "turn_error_deg": -1.5592835458056342,
+    "nontarget_drift_deg": 0.28335359449039205,
+    "penetration_mm": 0.12597037252585047,
+    "radial_above_nominal_mm_so_far": 0.26256081022863614,
+    "max_turner_torque_Nm": 0.7445336630835575,
+    "ok_all": true
+   },
+   {
+    "move": "R",
+    "observed_move": "R",
+    "turn_error_deg": 0.5343714907163672,
+    "nontarget_drift_deg": 0.058096111844141686,
+    "penetration_mm": 0.12014828678982913,
+    "radial_above_nominal_mm_so_far": 0.26256081022863614,
+    "max_turner_torque_Nm": 0.34858102624962395,
+    "ok_all": true
+   },
+   {
+    "move": "R'",
+    "observed_move": "R'",
+    "turn_error_deg": -0.9639124437826219,
+    "nontarget_drift_deg": 0.1457869360613308,
+    "penetration_mm": 0.13085273601973987,
+    "radial_above_nominal_mm_so_far": 0.26256081022863614,
+    "max_turner_torque_Nm": 0.7481011634844474,
+    "ok_all": true
+   },
+   {
+    "move": "F",
+    "observed_move": "F",
+    "turn_error_deg": 0.39825918794642945,
+    "nontarget_drift_deg": 0.023776609149757176,
+    "penetration_mm": 0.09438371846954893,
+    "radial_above_nominal_mm_so_far": 0.26256081022863614,
+    "max_turner_torque_Nm": 0.3610676530569834,
+    "ok_all": true
+   },
+   {
+    "move": "F'",
+    "observed_move": "F'",
+    "turn_error_deg": -0.5950567584447555,
+    "nontarget_drift_deg": 0.0003931712274156033,
+    "penetration_mm": 0.14134197669728452,
+    "radial_above_nominal_mm_so_far": 0.26256081022863614,
+    "max_turner_torque_Nm": 0.5653219089143908,
+    "ok_all": true
+   }
+  ]
+ },
+ "wall_s": 159.3657369350003
+}
