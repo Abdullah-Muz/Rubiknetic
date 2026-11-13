@@ -33,11 +33,49 @@
 | O-07 | Benchmark numerical tolerances and minimum statistical samples? | Pilot variance, sourced mechanical tolerance and pre-registered protocol |
 | O-08 | Final asset licensing and public project branding? | Verify third-party CAD licenses and naming implications before release |
 
+## Phase 0 research log — 2026-11-12
+
+Reports: [`research/PHASE_0_RESEARCH_FINDINGS.md`](research/PHASE_0_RESEARCH_FINDINGS.md) (consolidated), with the source register, cube and gripper reviews, tradeoffs, feasibility assessment and proposed Phase 1/2 experiments in `docs/research/`. **No decision above (D-01…D-15) has been changed.**
+
+### Evidence recorded against existing decisions
+
+| Ref | Decision | Evidence (source IDs from `research/PHASE_0_SOURCE_REGISTER.md`) | Effect |
+|---|---|---|---|
+| EV-01 | D-02 MuJoCo | Open, contact-driven, switch-free 3×3 cube model precedent (S01 §4.2, S02, MIT); torsional/rolling friction and runtime equality toggling documented (S10–S13) | Supports D-02 |
+| EV-02 | D-05 dynamic constraints | `eq_active` exists (S10). Weld activation artifacts reported (S15, S16). `eq_data` re-anchoring "safe with mj_setConst" with state caveats (S10) | Supports the spec's warning that the API ≠ validity; raises P-01 |
+| EV-03 | D-04 custom fingertips | Menagerie xArm pads span ≈37 mm vs 19 mm layer (S19) | Custom fingertips are **necessary**: supports D-04 |
+| EV-04 | D-08 impedance control | Closed-form internal-force estimate under bimanual misalignment (feasibility §5) | Supports D-08 (estimate, not a result) |
+| EV-05 | D-03 xArm7 | J7 ±360°, 3.5 kg payload, ISO flange (S21); G2 10–50 N, replaceable fingers, position-only feedback (S22) | Supports D-03; flags the lack of force feedback |
+| EV-06 | D-11 CPU-only | No throughput measured yet. Dactyl reference compute was 64 V100 GPUs + 29,440 CPU cores (S01) for a far larger learning problem | Neutral; throughput must be measured (E1-8, E2-8) |
+
+### Pending decision requests (awaiting explicit user approval)
+
+| ID | Request | Recommendation |
+|---|---|---|
+| P-01 | Interpretation of D-05: may contact-emergent topology (M1) satisfy "dynamic cubie constraints", with switched welds (M2) as a comparison? | Yes; pilot both |
+| P-02 | Phase 1 cube pilot set M1 + M2 (+ M4 bring-up fixture) | Approve |
+| P-03 | Phase 2 fingertip pilot set C1 + C2 (C6 contingency, C4 third); simulation primitives only, **no CAD** | Approve |
+| P-04 | Coaxial opposed grasp as the primary turning strategy | Approve |
+| P-05 | Canonical findings path `docs/research/` and doc-reference updates (spec §13, RESEARCH_PLAN, PHASE_0, briefs) | Approve (spec edit needs approval) |
+| P-06 | `CONTACT_AND_RL_FINDINGS` full review: now, or deferred to before Phase 3 | Defer |
+| P-07 | Optional bench measurement of real cube turning torque | User's choice |
+| P-08 | Record G0 as `CONDITIONAL` once P-01…P-04 are approved | — |
+
+### New open questions
+
+| Open ID | Question | Evidence / approval needed |
+|---|---|---|
+| O-09 | Real 3×3 face-turn breakaway/running torque and forgiveness angle | No published measurement found; bench test or sourced data |
+| O-10 | Does M1 remain legal and non-jamming under 10–50 N gripper squeeze? | Phase 1 E1-4/E1-6 under probe loads; Phase 2 E2-6 |
+| O-11 | MuJoCo version pin (4.0.x vs 3.x) and Python version | Dependency compatibility check at Phase 1 setup |
+| O-12 | Which G2 model source (Menagerie has the original xArm gripper geometry) and G2 CAD license | UFACTORY downloads/license review |
+| O-13 | xArm7 joint torque ratings (not on the official spec page) | Official UFACTORY documentation |
+
 ## Phase gate status
 
 | Gate | Status |
 | --- | --- |
-| G0 Research | **NOT STARTED** |
+| G0 Research | **IN REVIEW** — Phase 0 findings submitted 2026-11-12; proposed `CONDITIONAL`; **not passed** until user approves P-01…P-04 |
 | G1 Cube physics | **NOT STARTED** |
 | G2 Robot / gripper | **NOT STARTED** |
 | G3 RL | **NOT STARTED** |
