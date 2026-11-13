@@ -179,3 +179,30 @@ def test_observe_rejects_twisted_corner():
     obs = observe(*_poses(g))
     assert not obs.valid
     assert any("twist" in p for p in obs.problems)
+
+
+# ------------------------------------------------- observed-move inference
+
+
+def test_infer_move_identifies_every_move_from_scrambled_states():
+    from rubiknetic.cube_logic import infer_move
+
+    for seed in range(20):
+        g0 = GeometricCube().apply_all(random_scramble(15, seed))
+        assert infer_move(g0, g0) is None
+        for mv in ALL_MOVES:
+            assert infer_move(g0, g0.apply(mv)) == mv
+
+
+def test_infer_move_rejects_two_moves_and_twisted_corner():
+    from rubiknetic.cube_logic import InconsistentTransition, infer_move
+
+    g0 = GeometricCube()
+    with pytest.raises(InconsistentTransition):
+        infer_move(g0, g0.apply_all(parse("R U")))
+    g1 = g0.copy()
+    i = HOME_POSITIONS.index((1, -1, 1))
+    twist = Rotation.from_rotvec(2 * np.pi / 3 * np.array([1, -1, 1]) / np.sqrt(3)).as_matrix()
+    g1.rotations[i] = np.rint(twist).astype(int)
+    with pytest.raises(InconsistentTransition):
+        infer_move(g0, g1)

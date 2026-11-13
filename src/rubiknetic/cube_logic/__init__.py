@@ -10,16 +10,19 @@ from .geometric import HOME_POSITIONS, GeometricCube
 from .notation import ALL_MOVES, Move, invert, parse, to_string
 from .observe import Observation, observe
 from .scramble import random_scramble
+from .transitions import InconsistentTransition, infer_move
 
 __all__ = [
     "ALL_MOVES",
     "CubieCube",
     "GeometricCube",
     "HOME_POSITIONS",
+    "InconsistentTransition",
     "Move",
     "Observation",
     "SOLVED",
     "geometric_to_cubie",
+    "infer_move",
     "invert",
     "observe",
     "parse",

@@ -86,19 +86,19 @@ pilot ([`../experiments/E1-0_calibration/README.md`](../experiments/E1-0_calibra
 
 | ID | Request | Recommendation |
 |---|---|---|
-| P-09 | Accept rig v0 (core fixed to world) for E1 scoring; free-core contact-held variant before Phase 2 | Approve |
-| P-10 | Accept radial retention slide + 1 N preload inside M1 (OpenAI robogym precedent) | Approve |
-| P-11 | Revise E1-6(d) expectation: "no illegal or oracle-mismatched state" (corner cutting allowed) instead of "blocked at 20°" | Approve |
-| P-12 | E1-6(c) corner twist: allow a logged `xfrc_applied` test wrench in negative controls only, or require a physical twist probe | Logged wrench |
-| P-13 | Pre-register E1 thresholds from E1-0 data (penetration ⟨P⟩ 0.2 → 0.5 mm; radial *offset* ≤ 0.5 mm and radial *change* ≤ 0.2 mm; turn error ±2°; non-target drift ≤ 1°; 20 trials) | Review proposal |
-| P-14 | Build M2 (switched welds) as the approved comparison before scored E1 runs, or score M1 first | Score M1 first, then M2 |
+| P-09 | Accept rig v0 (core fixed to world) for E1 scoring; free-core contact-held variant before Phase 2 | **APPROVED 2026-11-12** |
+| P-10 | Accept radial retention slide + 1 N preload inside M1 (OpenAI robogym precedent) | **APPROVED 2026-11-12** |
+| P-11 | Revise E1-6(d) expectation: "no illegal or oracle-mismatched state" (corner cutting allowed) instead of "blocked at 20°" | **APPROVED 2026-11-12** |
+| P-12 | E1-6(c) corner twist: allow a logged `xfrc_applied` test wrench in negative controls only, or require a physical twist probe | **APPROVED 2026-11-12: logged test wrench**, negative controls only |
+| P-13 | Pre-register E1 thresholds from E1-0 data | **APPROVED 2026-11-12** ("Fully approved": thresholds as drafted, penetration 0.5 mm, Option A strict 100 %). **Amendment 1** (user-approved, same day, before any scored trial): E1-1…E1-4 radial criterion becomes a pop check (≤ nominal + 0.3 mm). See [`../experiments/PHASE_1_PREREGISTRATION.md`](../experiments/PHASE_1_PREREGISTRATION.md) |
+| P-14 | Build M2 (switched welds) as the approved comparison before scored E1 runs, or score M1 first | **APPROVED 2026-11-12: score M1 first**, then build M2 |
 
 ## Phase gate status
 
 | Gate | Status |
 | --- | --- |
 | G0 Research | **CONDITIONAL PASS** — 2026-11-12, user approved P-01…P-04. Conditions: O-09…O-13 remain open; P-05…P-07 still pending |
-| G1 Cube physics | **IN PROGRESS** — E1-0 calibration done (unscored); scored E1 runs await P-09…P-13; no criterion verified yet |
+| G1 Cube physics | **IN PROGRESS** — E1-0 calibration done (unscored); P-09…P-12, P-14 approved; pre-registration approved and frozen; scored M1 runs in progress; no criterion verified yet |
 | G2 Robot / gripper | **NOT STARTED** |
 | G3 RL | **NOT STARTED** |
 | G4 Bimanual autonomy | **NOT STARTED** |

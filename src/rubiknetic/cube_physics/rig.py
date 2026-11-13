@@ -33,13 +33,41 @@ class NumericalFailure(RuntimeError):
 
 
 class AuditedSim:
-    def __init__(self, model: mujoco.MjModel, data: mujoco.MjData | None = None):
+    """Steps MuJoCo and audits state integrity.
+
+    ``setup_log`` records every *episode-setup* write made before the first step
+    (allowed, logged). ``allow_test_wrench`` enables the single approved exception
+    to the audit (P-12, E1-6c negative control only): ``set_test_wrench`` writes
+    ``xfrc_applied`` and logs it. ``hooks`` are read-only monitors called after
+    every step."""
+
+    def __init__(self, model: mujoco.MjModel, data: mujoco.MjData | None = None,
+                 allow_test_wrench: bool = False):
         self.m = model
         self.d = data if data is not None else mujoco.MjData(model)
         self._snap: dict[str, np.ndarray] | None = None
         self.steps = 0
         self.violations: list[str] = []
         self.numerical_failures: list[str] = []
+        self.setup_log: list[dict] = []
+        self.wrench_log: list[dict] = []
+        self.allow_test_wrench = allow_test_wrench
+        self.hooks: list = []
+
+    def log_setup(self, entry: dict) -> None:
+        if self.steps:
+            raise EditAuditError("setup writes are only allowed before the first step")
+        self.setup_log.append(entry)
+
+    def set_test_wrench(self, body_id: int, wrench: np.ndarray) -> None:
+        if not self.allow_test_wrench:
+            msg = "test wrench requested but not permitted in this experiment"
+            self.violations.append(msg)
+            raise EditAuditError(msg)
+        self.d.xfrc_applied[body_id] = wrench
+        if self._snap is not None:
+            self._snap["xfrc_applied"] = np.array(self.d.xfrc_applied, copy=True)
+        self.wrench_log.append({"step": self.steps, "body": int(body_id), "wrench": [float(x) for x in wrench]})
 
     def _take(self) -> dict[str, np.ndarray]:
         return {k: np.array(getattr(self.d, k), copy=True) for k in _AUDITED}
@@ -61,6 +89,8 @@ class AuditedSim:
                     self.numerical_failures.append(msg)
                     raise NumericalFailure(msg)
             self._snap = self._take()
+            for h in self.hooks:
+                h(self.d)
 
 
 @dataclass
