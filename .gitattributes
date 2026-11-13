@@ -1,0 +1,7 @@
+# Keep LF in the working tree on every OS so files edited on Windows run
+# unchanged inside WSL2 (shell scripts, MJCF, Python).
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.stl binary
+*.npz binary

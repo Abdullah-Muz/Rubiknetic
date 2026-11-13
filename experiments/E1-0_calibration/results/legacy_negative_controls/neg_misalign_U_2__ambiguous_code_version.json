@@ -1,0 +1,23 @@
+{
+ "experiment": "E1-0 (pilot of E1-6 / E1-5)",
+ "scored": false,
+ "case": "misalign_U:2",
+ "overrides": {},
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "processor": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ },
+ "U_misalignment_deg": -1.900739036753182,
+ "R_layer_rotation_deg": -89.66892015353159,
+ "R_max_turner_torque_Nm": 0.23511542394086427,
+ "observed_valid_after_R_attempt": true,
+ "observe_problems": [],
+ "max_radial_deviation_mm": 0.35686901836879725,
+ "recovered_solved": true,
+ "expectation": "R blocked when U misaligned beyond forgiveness angle; no corruption",
+ "edit_audit_violations": []
+}

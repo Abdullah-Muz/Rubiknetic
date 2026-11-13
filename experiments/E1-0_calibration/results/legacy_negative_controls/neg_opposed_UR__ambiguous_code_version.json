@@ -1,0 +1,29 @@
+{
+ "experiment": "E1-0 (pilot of E1-6 / E1-5)",
+ "scored": false,
+ "case": "opposed_UR",
+ "overrides": {
+  "turn_torque_limit": 2.0
+ },
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "processor": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ },
+ "U_layer_rotation_deg": -21.12291855080326,
+ "R_layer_rotation_deg": -3.806680454316657,
+ "max_turner_torque_Nm": 1.5521276369657766,
+ "max_radial_deviation_mm": 0.3491003198388971,
+ "max_penetration_mm": 0.3675907835931207,
+ "observed_valid": false,
+ "observe_problems": [
+  "position error 0.524 pitch > tol 0.15",
+  "angle error 21.44 deg > tol 15.0"
+ ],
+ "expectation": "jam: not both layers rotate; no separation (radial dev small)",
+ "numerical_failures": [],
+ "edit_audit_violations": []
+}

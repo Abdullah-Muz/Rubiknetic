@@ -52,14 +52,14 @@ Reports: [`research/PHASE_0_RESEARCH_FINDINGS.md`](research/PHASE_0_RESEARCH_FIN
 
 | ID | Request | Recommendation |
 |---|---|---|
-| P-01 | Interpretation of D-05: may contact-emergent topology (M1) satisfy "dynamic cubie constraints", with switched welds (M2) as a comparison? | Yes; pilot both |
-| P-02 | Phase 1 cube pilot set M1 + M2 (+ M4 bring-up fixture) | Approve |
-| P-03 | Phase 2 fingertip pilot set C1 + C2 (C6 contingency, C4 third); simulation primitives only, **no CAD** | Approve |
-| P-04 | Coaxial opposed grasp as the primary turning strategy | Approve |
+| P-01 | Interpretation of D-05: may contact-emergent topology (M1) satisfy "dynamic cubie constraints", with switched welds (M2) as a comparison? | **APPROVED 2026-11-12** (user: "approved") |
+| P-02 | Phase 1 cube pilot set M1 + M2 (+ M4 bring-up fixture) | **APPROVED 2026-11-12** |
+| P-03 | Phase 2 fingertip pilot set C1 + C2 (C6 contingency, C4 third); simulation primitives only, **no CAD** | **APPROVED 2026-11-12** |
+| P-04 | Coaxial opposed grasp as the primary turning strategy | **APPROVED 2026-11-12** |
 | P-05 | Canonical findings path `docs/research/` and doc-reference updates (spec §13, RESEARCH_PLAN, PHASE_0, briefs) | Approve (spec edit needs approval) |
 | P-06 | `CONTACT_AND_RL_FINDINGS` full review: now, or deferred to before Phase 3 | Defer |
 | P-07 | Optional bench measurement of real cube turning torque | User's choice |
-| P-08 | Record G0 as `CONDITIONAL` once P-01…P-04 are approved | — |
+| P-08 | Record G0 as `CONDITIONAL` once P-01…P-04 are approved | **DONE 2026-11-12** (G0 recorded `CONDITIONAL`) |
 
 ### New open questions
 
@@ -71,12 +71,34 @@ Reports: [`research/PHASE_0_RESEARCH_FINDINGS.md`](research/PHASE_0_RESEARCH_FIN
 | O-12 | Which G2 model source (Menagerie has the original xArm gripper geometry) and G2 CAD license | UFACTORY downloads/license review |
 | O-13 | xArm7 joint torque ratings (not on the official spec page) | Official UFACTORY documentation |
 
+## Phase 1 log — 2026-11-12
+
+Work: environment pin, independent cube oracle, M1 MJCF + contact rig + edit/divergence audit, E1-0 calibration
+pilot ([`../experiments/E1-0_calibration/README.md`](../experiments/E1-0_calibration/README.md)). **Unscored: no G1 criterion has been verified.**
+
+| Ref | Item | Status |
+|---|---|---|
+| PH1-01 | Dependency pin: Python 3.12, MuJoCo 4.0.1, NumPy 2.5.4, SciPy 1.18.1, pytest 9.2.0 (`pyproject.toml`, `uv.lock`), WSL2 venv outside OneDrive | Proposed resolution of O-11; awaiting user acceptance |
+| PH1-02 | Cube oracle: two independent models (geometry vs Kociemba tables), 57 tests pass | Done (G1 "Logic" row evidence, not yet signed off) |
+| PH1-03 | E1-0 found a nominal M1 config: all long sequences match the oracle (see E1-0 findings 6, 10) | Calibration result, unscored |
+
+### Pending decision requests (Phase 1)
+
+| ID | Request | Recommendation |
+|---|---|---|
+| P-09 | Accept rig v0 (core fixed to world) for E1 scoring; free-core contact-held variant before Phase 2 | Approve |
+| P-10 | Accept radial retention slide + 1 N preload inside M1 (OpenAI robogym precedent) | Approve |
+| P-11 | Revise E1-6(d) expectation: "no illegal or oracle-mismatched state" (corner cutting allowed) instead of "blocked at 20°" | Approve |
+| P-12 | E1-6(c) corner twist: allow a logged `xfrc_applied` test wrench in negative controls only, or require a physical twist probe | Logged wrench |
+| P-13 | Pre-register E1 thresholds from E1-0 data (penetration ⟨P⟩ 0.2 → 0.5 mm; radial *offset* ≤ 0.5 mm and radial *change* ≤ 0.2 mm; turn error ±2°; non-target drift ≤ 1°; 20 trials) | Review proposal |
+| P-14 | Build M2 (switched welds) as the approved comparison before scored E1 runs, or score M1 first | Score M1 first, then M2 |
+
 ## Phase gate status
 
 | Gate | Status |
 | --- | --- |
-| G0 Research | **IN REVIEW** — Phase 0 findings submitted 2026-11-12; proposed `CONDITIONAL`; **not passed** until user approves P-01…P-04 |
-| G1 Cube physics | **NOT STARTED** |
+| G0 Research | **CONDITIONAL PASS** — 2026-11-12, user approved P-01…P-04. Conditions: O-09…O-13 remain open; P-05…P-07 still pending |
+| G1 Cube physics | **IN PROGRESS** — E1-0 calibration done (unscored); scored E1 runs await P-09…P-13; no criterion verified yet |
 | G2 Robot / gripper | **NOT STARTED** |
 | G3 RL | **NOT STARTED** |
 | G4 Bimanual autonomy | **NOT STARTED** |

@@ -1,0 +1,197 @@
+{
+ "sequence": "F2 B2 L2 R2 U2 D2",
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0002,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   0.2,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.001,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "radial_preload": 1.0,
+  "radial_stiffness": 500.0,
+  "radial_range": [
+   -0.001,
+   0.0002
+  ],
+  "radial_damping": 0.05,
+  "radial_solreflimit": [
+   0.001,
+   1.0
+  ],
+  "radial_solimplimit": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.045,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.014,
+  "grip_overshoot": 0.006,
+  "pad_slide_damping": 100.0,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.001,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 10.0,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 5.0,
+  "turn_kv": 0.2,
+  "rig_mass": 0.05,
+  "timestep": 0.0005,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "timing": {
+  "close_s": 0.3,
+  "turn_s_per_quarter": 1.0,
+  "hold_s": 0.3,
+  "open_s": 0.3,
+  "settle_s": 0.3
+ },
+ "initial_valid_solved": true,
+ "moves_completed": 6,
+ "all_match": true,
+ "edit_audit_violations": [],
+ "numerical_failures": [],
+ "sim_time_s": 19.45000000000002,
+ "wall_time_s": 70.03336470300019,
+ "per_move": [
+  {
+   "move": "F2",
+   "target_layer_rotation_deg_mean": -179.67631275316197,
+   "target_layer_rotation_deg_spread": 0.01527677158819074,
+   "turn_error_deg": 0.3236872468380412,
+   "opposite_layer_rotation_deg_max": 0.005516286639134908,
+   "observed_valid": true,
+   "oracle_match": true,
+   "observe_problems": [],
+   "max_angle_error_deg": 0.33324453874685134,
+   "max_position_error_pitch": 0.02051403313004819,
+   "max_turner_torque_Nm": 0.20051457010245877,
+   "turner_final_deg": -179.99999986261972,
+   "max_penetration_mm": 0.22498101514355337
+  },
+  {
+   "move": "B2",
+   "target_layer_rotation_deg_mean": -179.68604508399082,
+   "target_layer_rotation_deg_spread": 0.015844764434547187,
+   "turn_error_deg": 0.3139549160091697,
+   "opposite_layer_rotation_deg_max": 0.005154998911147725,
+   "observed_valid": true,
+   "oracle_match": true,
+   "observe_problems": [],
+   "max_angle_error_deg": 0.3319104678956825,
+   "max_position_error_pitch": 0.020485097406698835,
+   "max_turner_torque_Nm": 0.34210268069244165,
+   "turner_final_deg": -179.9999998632741,
+   "max_penetration_mm": 0.2147633066259445
+  },
+  {
+   "move": "L2",
+   "target_layer_rotation_deg_mean": -179.64385620919757,
+   "target_layer_rotation_deg_spread": 0.008639795515705373,
+   "turn_error_deg": 0.3561437908024274,
+   "opposite_layer_rotation_deg_max": 0.012958638969255164,
+   "observed_valid": true,
+   "oracle_match": true,
+   "observe_problems": [],
+   "max_angle_error_deg": 0.3187457699792521,
+   "max_position_error_pitch": 0.020365368619199346,
+   "max_turner_torque_Nm": 0.5043718077673631,
+   "turner_final_deg": -179.9999998684462,
+   "max_penetration_mm": 0.18143122793453179
+  },
+  {
+   "move": "R2",
+   "target_layer_rotation_deg_mean": -179.65680127839576,
+   "target_layer_rotation_deg_spread": 0.015522008338876958,
+   "turn_error_deg": 0.3431987216042316,
+   "opposite_layer_rotation_deg_max": 0.006491895213348935,
+   "observed_valid": true,
+   "oracle_match": true,
+   "observe_problems": [],
+   "max_angle_error_deg": 0.32229798066229715,
+   "max_position_error_pitch": 0.020384535675467712,
+   "max_turner_torque_Nm": 0.17934024953411365,
+   "turner_final_deg": -179.99999986663605,
+   "max_penetration_mm": 0.2705209223997387
+  },
+  {
+   "move": "U2",
+   "target_layer_rotation_deg_mean": -179.6258422225347,
+   "target_layer_rotation_deg_spread": 0.0070813905011846145,
+   "turn_error_deg": 0.37415777746531376,
+   "opposite_layer_rotation_deg_max": 0.010831455255556286,
+   "observed_valid": true,
+   "oracle_match": true,
+   "observe_problems": [],
+   "max_angle_error_deg": 0.3413706131170887,
+   "max_position_error_pitch": 0.0206518081582055,
+   "max_turner_torque_Nm": 0.5423473669066645,
+   "turner_final_deg": -179.99999986030952,
+   "max_penetration_mm": 0.1887134343392814
+  },
+  {
+   "move": "D2",
+   "target_layer_rotation_deg_mean": -179.65401812776224,
+   "target_layer_rotation_deg_spread": 0.006780607430101782,
+   "turn_error_deg": 0.345981872237747,
+   "opposite_layer_rotation_deg_max": 0.012822740288565136,
+   "observed_valid": true,
+   "oracle_match": true,
+   "observe_problems": [],
+   "max_angle_error_deg": 0.3472880192885766,
+   "max_position_error_pitch": 0.020530365381162055,
+   "max_turner_torque_Nm": 0.13968869303991083,
+   "turner_final_deg": -179.9999998686943,
+   "max_penetration_mm": 0.2191072028743063
+  }
+ ],
+ "experiment": "E1-0",
+ "scored": false,
+ "tag": "c35_nominal_v2_halfturns",
+ "overrides": {},
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "processor": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ }
+}

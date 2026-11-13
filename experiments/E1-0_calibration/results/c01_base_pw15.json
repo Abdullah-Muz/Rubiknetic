@@ -1,0 +1,105 @@
+{
+ "sequence": "U U' R R' F F'",
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0002,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   0.2,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.002,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.015,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.006,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.002,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 10.0,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 5.0,
+  "turn_kv": 0.2,
+  "rig_mass": 0.05,
+  "timestep": 0.001,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "timing": {
+  "close_s": 0.3,
+  "turn_s_per_quarter": 1.0,
+  "hold_s": 0.3,
+  "open_s": 0.3,
+  "settle_s": 0.3
+ },
+ "initial_valid_solved": true,
+ "moves_completed": 0,
+ "all_match": false,
+ "edit_audit_violations": [],
+ "sim_time_s": 2.6999999999998137,
+ "wall_time_s": 1.782975933000671,
+ "per_move": [
+  {
+   "move": "U",
+   "target_layer_rotation_deg_mean": -78.19756984071162,
+   "target_layer_rotation_deg_spread": 2.1999649568364816,
+   "turn_error_deg": 11.802430159288377,
+   "opposite_layer_rotation_deg_max": 0.03469353066130303,
+   "observed_valid": false,
+   "oracle_match": false,
+   "observe_problems": [
+    "position error 0.269 pitch > tol 0.15"
+   ],
+   "max_angle_error_deg": 13.397257395830165,
+   "max_position_error_pitch": 0.26907000440860823,
+   "max_turner_torque_Nm": 1.0,
+   "turner_final_deg": -89.99999986930239,
+   "max_penetration_mm": 1.9055287695001568
+  }
+ ],
+ "experiment": "E1-0",
+ "scored": false,
+ "tag": "c01_base_pw15",
+ "overrides": {},
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "processor": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ }
+}

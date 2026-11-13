@@ -1,0 +1,20 @@
+{
+ "experiment": "E1-0 (pilot of E1-6 / E1-5)",
+ "scored": false,
+ "case": "open_pads",
+ "overrides": {},
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "machine": "x86_64",
+  "processor": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ },
+ "U_layer_rotation_deg": 1.2409650094368346e-05,
+ "turner_final_deg": -89.99999999969769,
+ "observed_valid": true,
+ "solved": true,
+ "expectation": "no layer motion; state stays solved",
+ "edit_audit_violations": []
+}
