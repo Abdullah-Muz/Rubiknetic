@@ -61,3 +61,19 @@ method.
 **Send back** a short table (measurement, three values, units, notes) or photos of your notes. These
 figures become calibration targets for M2 and D5, recorded as FACT with your measurement method.
 Nothing is changed in any model without your approval.
+
+---
+
+## 6. Gripper G2 fingertip mount (for custom fingertip design, D-04)
+
+This is optional: the G2 STEP CAD may also be used (decision log, P-17). A physical measurement cross-checks it. Use calipers, or a ruler if you
+have nothing better.
+
+1. **Remove one finger** if it comes off safely; otherwise measure it in place.
+2. Record the **screw size**, **number of screws** and **hole spacing** (centre to centre) on the finger mount.
+3. Record the **mounting face**: its width and height, any locating pins or steps, and its distance from the
+   gripper centreline.
+4. Record the finger's **width, height and length**, and the shape of its contact face (flat, ridged or rubber).
+5. **Photograph each step with a ruler in the frame.**
+
+The stroke and force figures (84 mm, 10–50 N) are already sourced from the official manual.

@@ -127,3 +127,24 @@ unlock tolerance. M2 would refuse most turns and fail E1-2 to E1-4 by constructi
 | A5 | **The E1-5 post-activation pose error** uses only the translational constraint rows, in mm, with rotation reported separately in degrees. This fixes a units mix-up in the prototype |
 
 **Unchanged:** every threshold, the pass logic (Option A), the trial counts and the seed range.
+
+## 10. Amendment 2 (2026-11-13, before any scored M2 trial)
+
+**Approved by the user:** "I agree with your recommendations".
+
+**Trigger** (harness smoke checks, unscored seeds 96–97, FACT):
+
+* **Setup against relock.** With the ±0.5° setup (A1), a 9-move sequence got 1/9. U unlocked, but its cubies carry
+  compound setup misalignment above the 0.5° per-cubie relock tolerance, so U never relocked and later turns were
+  refused. With a perfectly square start the same sequence passed 9/9.
+* **E1-6b.** With perpendicular opposed faces, the other face's pads also touch the first layer, so the shears are
+  not equal. One layer dominates, unlocks and completes one legal turn, while the other face is refused.
+  **Correction:** Amendment 1 (A2) wrongly stated that equal opposed torques are "refused by construction". That holds
+  only when the shears are equal.
+
+| # | Change |
+|---|---|
+| B1 | **The per-cubie relock tolerance becomes 1.0°**, equal to the unlock tolerance. The centre-hinge relock tolerance stays 0.5°. Reason: symmetric, so any cube allowed to unlock can relock. It is a model-rule parameter, not a pass threshold. **Conditional:** it is adopted only if an unscored smoke check of the 9-move sequence with the ±0.5° setup passes 9/9 with E1-5 clean. Otherwise the fallback is setup ±0.25° per face, with relock unchanged |
+| B2 | **E1-6b uses M1's categorical criterion:** not both layers ≥ 45°; the state is UNKNOWN, or legal and oracle-consistent with the observed moves; radial change ≤ 0.5 mm. It adds: **never two layers unlocked at the same time.** "Opposed requests must be refused" is withdrawn. **This is a loosening of the approved wording, made before any scored trial and disclosed here.** Reason: one legal turn by the dominant layer is physical and is what M1 was allowed |
+
+**Unchanged:** every other threshold, the pass logic, the trial counts and the seed range.
