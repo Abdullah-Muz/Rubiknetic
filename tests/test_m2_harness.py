@@ -1,6 +1,6 @@
 """Tests for the M2 scored harness (experiments/PHASE_1_M2_PREREGISTRATION.md section 6): frozen thresholds,
 weld re-anchoring, the switch audit exception, refusal of misaligned switches, injected-fault detection, and an
-unscored smoke trial (seed outside 2000-2999)."""
+unscored smoke trial (seed outside the scored range)."""
 
 from __future__ import annotations
 
@@ -31,7 +31,7 @@ def test_thresholds_match_preregistration():
         "switch_dke_rel": 0.01, "switch_dke_abs_J": 1e-3, "switch_post_pos_err_mm": 0.01,
         "twist_max_deg": 2.0, "twist_penetration_mm": 0.5, "e16e_misalignment_deg": 5.0,
     }
-    assert scored_m2.SCORED_SEED_RANGE == (2000, 2999)
+    assert scored_m2.SCORED_SEED_RANGE == (3000, 3999)  # Amendment 4 (D2)
 
 
 def test_switch_rule_matches_preregistration():
@@ -52,7 +52,8 @@ def test_setup_misalignment_amendment_a1():
 
     assert scored_m2.SETUP_MISALIGN_MAX_DEG == 0.25  # Amendment 2 fallback
     worst_all = 0.0
-    for seed in range(2000, 3000):
+    lo, hi = scored_m2.SCORED_SEED_RANGE
+    for seed in range(lo, hi + 1):
         s = scored_m2.draw_setup(seed)
         assert all(abs(v) <= scored_m2.SETUP_MISALIGN_MAX_DEG for v in s.misalign_deg.values())
         for h in HOME_POSITIONS:
@@ -233,3 +234,49 @@ def test_scored_turner_and_e17_factor_amendment_c1():
     labels = " ".join(scored_m2.AMENDMENTS)
     for tag in ("A1", "A2", "A3", "A4", "A5", "B1 FALLBACK", "B2", "C1"):
         assert tag in labels
+
+
+def _check_now(mgr, d):
+    """Run one rule evaluation on the next call (the manager checks every ``check_every`` steps)."""
+    mgr.k = mgr.rule.check_every - 1
+    mgr(d)
+
+
+def test_fresh_grip_blocks_reunlock_amendment_d1():
+    """D1: after a relock, the face may not request again until its own pads' grip has dropped below grip_min_n."""
+    p, m, sim, mgr = _env()
+    d = sim.d
+    mujoco.mj_forward(m, d)
+    strong = {f: (0.0, 5.0) for f in FACES}
+    strong["U"] = (0.30, 5.0)
+    released = {f: (0.0, 0.0) for f in FACES}
+    mgr.needs_release["U"] = True  # as if U had just relocked
+    mgr.request_torques = lambda dd: (strong, False)
+    _check_now(mgr, d)
+    assert mgr.unlocked is None, "a pad-release transient must not re-unlock the face"
+    mgr.request_torques = lambda dd: (released, False)  # pads let go
+    _check_now(mgr, d)
+    assert mgr.needs_release["U"] is False
+    mgr.request_torques = lambda dd: (strong, False)  # a fresh grip with torque: a genuine new request
+    _check_now(mgr, d)
+    assert mgr.unlocked == "U"
+
+
+def test_relock_uses_own_pad_torque_amendment_d0():
+    """D0 (conformity with section 1): relock checks the unlocked face's OWN pad torque, so other faces' pads
+    pressing on the layer (all-contact shear) cannot block the relock (the scored run 1 deadlock)."""
+    p, m, sim, mgr = _env()
+    d = sim.d
+    mujoco.mj_forward(m, d)
+    strong = {f: (0.0, 5.0) for f in FACES}
+    strong["U"] = (0.30, 5.0)
+    mgr.request_torques = lambda dd: (strong, False)
+    _check_now(mgr, d)
+    assert mgr.unlocked == "U"
+    mgr.unlock_time = d.time - 10.0  # "moved" condition satisfied by elapsed time
+    quiet = {f: (0.0, 0.0) for f in FACES}
+    mgr.request_torques = lambda dd: (quiet, False)
+    mgr.shears = lambda dd: {**quiet, "U": (0.50, 0.0)}   # large all-contact shear on U from OTHER pads
+    mgr.pad_torque = lambda dd, face: (0.0, 0.0)          # U's own pads exert nothing
+    _check_now(mgr, d)
+    assert mgr.unlocked is None, "relock must not be blocked by other faces' contacts"

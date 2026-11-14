@@ -173,3 +173,24 @@ the robot's turning controller must finish turns within about 0.5°. D5, the fro
 forgiving cube behaves by comparison.
 
 **Unchanged:** every threshold, the pass logic, the trial counts and the seed range.
+
+## 12. Amendment 4 (2026-11-13, after scored run 1 was found invalid; before any valid scored trial)
+
+**Approved by the user:** "go with A" (option A: fix the harness to match this pre-registration, add a rule against
+the spurious re-unlock, smoke-test, then run a fresh scored run on new seeds).
+
+**Trigger** (FACT): scored run 1 (commit `1b0a5e4`, seeds 2000–2999) is archived as invalid in
+`experiments/E2_scored_m2/results_run1_INVALID/`, which explains the reason in full.
+
+* Its harness relocked on the boundary shear from ALL gripper contacts. That contradicts A2's statement that relock
+  conditions are unchanged.
+* Combined with a spurious re-unlock while the pads release, it deadlocked 38 of the 40 E1-4 trials.
+
+| # | Change |
+|---|---|
+| D0 | **Conformity fix, not a rule change:** the harness's relock check uses the unlocked face's **own pad torque below 0.02 N·m**, exactly as section 1 requires. The shear-dominance rule (A2) applies only to the unlock **request** |
+| D1 | **Fresh-grip rule:** after face F relocks, F cannot request an unlock again until F's own pad grip has dropped below `grip_min_n` (2 N) at least once since that relock. A real new turn of F always re-grips; a pad-release transient does not. Physical state only |
+| D2 | **New scored seed range: 3000–3999**, the same experiment offsets shifted by +1000, so no seed from the invalid run is reused |
+
+**Unchanged:** every threshold, the pass logic, the trial counts, the setup (±0.25°), the turner (C1), and A1–A5,
+B2 and C1.

@@ -1,0 +1,368 @@
+{
+ "model": "M2",
+ "preregistration_amendments": [
+  "A1 setup +/-0.5 deg per face",
+  "A2 shear-dominance unlock (dominance 1.5)",
+  "A3 E1-7 kv = 0.04*kp",
+  "A4 E1-6e perpendicular-face map _PERPENDICULAR",
+  "A5 E1-5 pose error from translational rows (mm)",
+  "B1 FALLBACK in force: setup +/-0.25 deg per face, per-cubie and hinge relock 0.5 deg",
+  "B2 E1-6b: M1 categorical criterion + never two layers unlocked",
+  "C1 scored turner turn_kp 20, turn_kv 0.8; E1-7 turner factor {5, 20}, kv = 0.04*kp"
+ ],
+ "scored_turner": {
+  "turn_kp": 20.0,
+  "turn_kv": 0.8
+ },
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0002,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   0.2,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.001,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "radial_preload": 0.0,
+  "radial_stiffness": 500.0,
+  "radial_range": [
+   -0.001,
+   0.0002
+  ],
+  "radial_damping": 0.05,
+  "radial_solreflimit": [
+   0.001,
+   1.0
+  ],
+  "radial_solimplimit": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.045,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.014,
+  "grip_overshoot": 0.006,
+  "pad_slide_damping": 100.0,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.001,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 18.207656508128913,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 20.0,
+  "turn_kv": 0.8,
+  "rig_mass": 0.05,
+  "timestep": 0.0005,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "switch_rule": {
+  "tol_unlock_deg": 1.0,
+  "pos_tol_pitch": 0.15,
+  "grip_min_n": 2.0,
+  "tau_unlock": 0.05,
+  "tol_lock_deg": 0.5,
+  "tol_lock_cubie_deg": 0.5,
+  "tau_relock": 0.02,
+  "omega_relock": 0.05,
+  "min_move_deg": 45.0,
+  "min_unlocked_s": 1.0,
+  "check_every": 4,
+  "dominance": 1.5
+ },
+ "weld": {
+  "solref": [
+   0.001,
+   1.0
+  ],
+  "solimp": [
+   0.99,
+   0.999,
+   0.0001
+  ]
+ },
+ "setup": {
+  "seed": 2208,
+  "misalign_deg": {
+   "U": 0.16083426158224007,
+   "R": -0.008316690062789733,
+   "F": -0.1314847461688765,
+   "D": 0.08474668496063886,
+   "L": -0.06571833986424469,
+   "B": -0.008181115672051098
+  },
+  "grip_force": 18.207656508128913,
+  "turn_s_per_quarter": 1.1663745115480888
+ },
+ "applied_misalignment_deg": {
+  "U": 0.16083426158224007,
+  "R": -0.008316690062789733,
+  "F": -0.1314847461688765,
+  "D": 0.08474668496063886,
+  "L": -0.06571833986424469,
+  "B": -0.008181115672051098
+ },
+ "setup_log": [
+  {
+   "type": "layer_misalignment",
+   "face": "U",
+   "deg": 0.16083426158224007
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "R",
+   "deg": -0.008316690062789733
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "F",
+   "deg": -0.1314847461688765
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "D",
+   "deg": 0.08474668496063886
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "L",
+   "deg": -0.06571833986424469
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "B",
+   "deg": -0.008181115672051098
+  },
+  {
+   "type": "weld_reanchor_at_setup_pose",
+   "n_welds": 26
+  }
+ ],
+ "t0_observed_valid": true,
+ "t0_solved": true,
+ "radial_offset_mm_t0": 3.122502256758253e-14,
+ "sequence": "L2",
+ "seed": 2208,
+ "per_move": [
+  {
+   "move": "L2",
+   "observed_move": "L2",
+   "inference_error": null,
+   "observed_valid": true,
+   "layer_angle_unwrapped_deg": -179.96144446119237,
+   "turn_error_deg": 0.03855553880762841,
+   "nontarget_drift_deg": 1.0002842609387394e-14,
+   "penetration_mm": 0.2690421850721596,
+   "radial_change_mm_so_far": 9.71445146547012e-14,
+   "radial_above_nominal_mm_so_far": 7.632783294297951e-14,
+   "max_turner_torque_Nm": 0.08047656958530965,
+   "switch_events": [
+    "unlock:L",
+    "relock:L",
+    "unlock:L"
+   ],
+   "t_pad_force_s": 0.5804999999999915,
+   "t_layer_motion_s": 0.856999999999961,
+   "causal": true,
+   "ok_oracle": true,
+   "ok_turn_error": true,
+   "ok_drift": true,
+   "ok_penetration": true,
+   "ok_radial_pop": true,
+   "ok_causal": true,
+   "ok_all": true
+  }
+ ],
+ "wall_time_s": 14.903847147004853,
+ "final_matches_oracle": true,
+ "moves_completed_ok": 1,
+ "switch_log": [
+  {
+   "t": 0.8559999999999611,
+   "kind": "unlock",
+   "face": "L",
+   "members": 8,
+   "pad_torque_Nm": -0.07134880069104022,
+   "max_misalignment_deg": 0.21145279161193073,
+   "rel_speed_rad_s": -2.726547796643035e-15,
+   "pos_err_pre_mm": 0.0,
+   "ke_before": 3.6350917507064046e-07,
+   "penetration_mm": 0.05573891182566114,
+   "activated_ids": [
+    1,
+    8,
+    15,
+    22,
+    29,
+    36,
+    43,
+    50
+   ],
+   "ke_after": 1.513285509274371e-07,
+   "dke": -2.1218062414320336e-07,
+   "impulse_proxy_Ns": 6.336864249041403e-05,
+   "pos_err_post_mm": 0.0,
+   "rot_err_post_deg": 0.0016538623926298783
+  },
+  {
+   "t": 3.1720000000002266,
+   "kind": "relock",
+   "face": "L",
+   "members": 8,
+   "hinge_off_square_deg": 0.11224816153199413,
+   "max_misalignment_deg": 0.2045570100349624,
+   "rel_speed_rad_s": -0.04513032863284073,
+   "pos_err_pre_mm": 0.0,
+   "ke_before": 7.855382766996977e-08,
+   "penetration_mm": 0.2568835399681701,
+   "activated_ids": [
+    0,
+    7,
+    14,
+    21,
+    28,
+    35,
+    42,
+    49,
+    140
+   ],
+   "ke_after": 7.188357343272541e-08,
+   "dke": -6.670254237244361e-09,
+   "impulse_proxy_Ns": 0.00010224294462269747,
+   "pos_err_post_mm": 0.0,
+   "rot_err_post_deg": 0.0007475264275745702
+  },
+  {
+   "t": 3.2800000000002627,
+   "kind": "unlock",
+   "face": "L",
+   "members": 8,
+   "pad_torque_Nm": -0.05024220656903383,
+   "max_misalignment_deg": 0.2082785792428946,
+   "rel_speed_rad_s": 2.1815447064016822e-13,
+   "pos_err_pre_mm": 0.0,
+   "ke_before": 6.320230839773244e-08,
+   "penetration_mm": 0.2484215733929364,
+   "activated_ids": [
+    1,
+    8,
+    15,
+    22,
+    29,
+    36,
+    43,
+    50
+   ],
+   "ke_after": 2.3540407255772104e-07,
+   "dke": 1.722017641599886e-07,
+   "impulse_proxy_Ns": 4.2682833517162404e-05,
+   "pos_err_post_mm": 0.0,
+   "rot_err_post_deg": 0.0019769682532869122
+  }
+ ],
+ "switch_counts": {
+  "unlock": 2,
+  "relock": 1,
+  "refuse": 0
+ },
+ "refusal_episodes": 0,
+ "refusal_episodes_ambiguous": 0,
+ "e1_5": {
+  "n": 3,
+  "n_fail": 0,
+  "checks": [
+   {
+    "t": 0.8559999999999611,
+    "kind": "unlock",
+    "complete": true,
+    "abs_dke_J": 2.1218062414320336e-07,
+    "dke_limit_J": 0.001,
+    "pos_err_post_mm": 0.0,
+    "ok_dke": true,
+    "ok_within_tolerance": true,
+    "ok_pos_err": true,
+    "ok": true
+   },
+   {
+    "t": 3.1720000000002266,
+    "kind": "relock",
+    "complete": true,
+    "abs_dke_J": 6.670254237244361e-09,
+    "dke_limit_J": 0.001,
+    "pos_err_post_mm": 0.0,
+    "ok_dke": true,
+    "ok_within_tolerance": true,
+    "ok_pos_err": true,
+    "ok": true
+   },
+   {
+    "t": 3.2800000000002627,
+    "kind": "unlock",
+    "complete": true,
+    "abs_dke_J": 1.722017641599886e-07,
+    "dke_limit_J": 0.001,
+    "pos_err_post_mm": 0.0,
+    "ok_dke": true,
+    "ok_within_tolerance": true,
+    "ok_pos_err": true,
+    "ok": true
+   }
+  ]
+ },
+ "edit_audit_violations": [],
+ "numerical_failures": [],
+ "wrench_log_entries": 0,
+ "sim_time_s": 4.032500000000485,
+ "integrity_ok": true,
+ "pass": true,
+ "experiment": "E1-3",
+ "trial_id": "L2_s2208",
+ "kind": "seq",
+ "spec": {
+  "moves": "L2",
+  "seed": 2208
+ },
+ "source_commit": "1b0a5e418f673dd23cb6f81cf28a2a9e3446c3af",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ },
+ "scored": true
+}

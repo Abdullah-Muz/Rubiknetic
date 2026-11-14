@@ -1,0 +1,329 @@
+{
+ "model": "M2",
+ "preregistration_amendments": [
+  "A1 setup +/-0.5 deg per face",
+  "A2 shear-dominance unlock (dominance 1.5)",
+  "A3 E1-7 kv = 0.04*kp",
+  "A4 E1-6e perpendicular-face map _PERPENDICULAR",
+  "A5 E1-5 pose error from translational rows (mm)",
+  "B1 FALLBACK in force: setup +/-0.25 deg per face, per-cubie and hinge relock 0.5 deg",
+  "B2 E1-6b: M1 categorical criterion + never two layers unlocked",
+  "C1 scored turner turn_kp 20, turn_kv 0.8; E1-7 turner factor {5, 20}, kv = 0.04*kp"
+ ],
+ "scored_turner": {
+  "turn_kp": 20.0,
+  "turn_kv": 0.8
+ },
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0002,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   0.2,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.001,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "radial_preload": 0.0,
+  "radial_stiffness": 500.0,
+  "radial_range": [
+   -0.001,
+   0.0002
+  ],
+  "radial_damping": 0.05,
+  "radial_solreflimit": [
+   0.001,
+   1.0
+  ],
+  "radial_solimplimit": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.045,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.014,
+  "grip_overshoot": 0.006,
+  "pad_slide_damping": 100.0,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.001,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 18.60884481743419,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 20.0,
+  "turn_kv": 0.8,
+  "rig_mass": 0.05,
+  "timestep": 0.0005,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "switch_rule": {
+  "tol_unlock_deg": 1.0,
+  "pos_tol_pitch": 0.15,
+  "grip_min_n": 2.0,
+  "tau_unlock": 0.05,
+  "tol_lock_deg": 0.5,
+  "tol_lock_cubie_deg": 0.5,
+  "tau_relock": 0.02,
+  "omega_relock": 0.05,
+  "min_move_deg": 45.0,
+  "min_unlocked_s": 1.0,
+  "check_every": 4,
+  "dominance": 1.5
+ },
+ "weld": {
+  "solref": [
+   0.001,
+   1.0
+  ],
+  "solimp": [
+   0.99,
+   0.999,
+   0.0001
+  ]
+ },
+ "setup": {
+  "seed": 2502,
+  "misalign_deg": {
+   "U": 0.12944312366806116,
+   "R": 0.061653046722938476,
+   "F": 0.16589844597812742,
+   "D": -0.21036010310714892,
+   "L": -0.18529663543818015,
+   "B": -0.02654830293114724
+  },
+  "grip_force": 18.60884481743419,
+  "turn_s_per_quarter": 1.0851938870733358
+ },
+ "applied_misalignment_deg": {
+  "U": 0.12944312366806116,
+  "R": 0.061653046722938476,
+  "F": 0.16589844597812742,
+  "D": -0.21036010310714892,
+  "L": -0.18529663543818015,
+  "B": -0.02654830293114724
+ },
+ "setup_log": [
+  {
+   "type": "layer_misalignment",
+   "face": "U",
+   "deg": 0.12944312366806116
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "R",
+   "deg": 0.061653046722938476
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "F",
+   "deg": 0.16589844597812742
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "D",
+   "deg": -0.21036010310714892
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "L",
+   "deg": -0.18529663543818015
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "B",
+   "deg": -0.02654830293114724
+  },
+  {
+   "type": "weld_reanchor_at_setup_pose",
+   "n_welds": 26
+  }
+ ],
+ "t0_observed_valid": true,
+ "t0_solved": true,
+ "radial_offset_mm_t0": 4.163336342344337e-14,
+ "seed": 2502,
+ "commanded_U_misalignment_deg": 2.0,
+ "U_misalignment_deg": 1.8081305212581067,
+ "U_left_unlocked": "U",
+ "R_rotation_deg": -4.031010441614105e-15,
+ "R_phase_switch_events": [
+  {
+   "t": 2.0639999999998566,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  },
+  {
+   "t": 3.418000000000309,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  },
+  {
+   "t": 3.42200000000031,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  },
+  {
+   "t": 3.4620000000003235,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  }
+ ],
+ "observed_valid": false,
+ "outcome": "refused_unknown",
+ "ok_categorical": true,
+ "switch_log": [
+  {
+   "t": 0.8099999999999662,
+   "kind": "unlock",
+   "face": "U",
+   "members": 8,
+   "pad_torque_Nm": 0.1895743093029114,
+   "max_misalignment_deg": 0.3265720971170058,
+   "rel_speed_rad_s": 0.0,
+   "pos_err_pre_mm": 0.0,
+   "ke_before": 2.3253046826546706e-08,
+   "penetration_mm": 0.1144552556741785,
+   "activated_ids": [
+    18,
+    32,
+    53,
+    67,
+    81,
+    102,
+    116,
+    137
+   ],
+   "ke_after": 2.5417057139706726e-08,
+   "dke": 2.1640103131600204e-09,
+   "impulse_proxy_Ns": 0.00017721957423175467,
+   "pos_err_post_mm": 0.0,
+   "rot_err_post_deg": 0.0005549068018102877
+  },
+  {
+   "t": 2.0639999999998566,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  },
+  {
+   "t": 3.418000000000309,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  },
+  {
+   "t": 3.42200000000031,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  },
+  {
+   "t": 3.4620000000003235,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  }
+ ],
+ "switch_counts": {
+  "unlock": 1,
+  "relock": 0,
+  "refuse": 4
+ },
+ "refusal_episodes": 4,
+ "refusal_episodes_ambiguous": 0,
+ "e1_5": {
+  "n": 1,
+  "n_fail": 0,
+  "checks": [
+   {
+    "t": 0.8099999999999662,
+    "kind": "unlock",
+    "complete": true,
+    "abs_dke_J": 2.1640103131600204e-09,
+    "dke_limit_J": 0.001,
+    "pos_err_post_mm": 0.0,
+    "ok_dke": true,
+    "ok_within_tolerance": true,
+    "ok_pos_err": true,
+    "ok": true
+   }
+  ]
+ },
+ "edit_audit_violations": [],
+ "numerical_failures": [],
+ "wrench_log_entries": 0,
+ "sim_time_s": 4.009000000000498,
+ "integrity_ok": true,
+ "ok_no_snap": true,
+ "pass": true,
+ "experiment": "E1-5b",
+ "trial_id": "misturn_+2_s2502",
+ "kind": "misturn",
+ "spec": {
+  "misalign_deg": 2.0,
+  "seed": 2502
+ },
+ "source_commit": "1b0a5e418f673dd23cb6f81cf28a2a9e3446c3af",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ },
+ "scored": true
+}

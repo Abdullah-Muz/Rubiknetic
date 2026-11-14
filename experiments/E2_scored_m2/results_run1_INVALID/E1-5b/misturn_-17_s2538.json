@@ -1,0 +1,297 @@
+{
+ "model": "M2",
+ "preregistration_amendments": [
+  "A1 setup +/-0.5 deg per face",
+  "A2 shear-dominance unlock (dominance 1.5)",
+  "A3 E1-7 kv = 0.04*kp",
+  "A4 E1-6e perpendicular-face map _PERPENDICULAR",
+  "A5 E1-5 pose error from translational rows (mm)",
+  "B1 FALLBACK in force: setup +/-0.25 deg per face, per-cubie and hinge relock 0.5 deg",
+  "B2 E1-6b: M1 categorical criterion + never two layers unlocked",
+  "C1 scored turner turn_kp 20, turn_kv 0.8; E1-7 turner factor {5, 20}, kv = 0.04*kp"
+ ],
+ "scored_turner": {
+  "turn_kp": 20.0,
+  "turn_kv": 0.8
+ },
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0002,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   0.2,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.001,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "radial_preload": 0.0,
+  "radial_stiffness": 500.0,
+  "radial_range": [
+   -0.001,
+   0.0002
+  ],
+  "radial_damping": 0.05,
+  "radial_solreflimit": [
+   0.001,
+   1.0
+  ],
+  "radial_solimplimit": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.045,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.014,
+  "grip_overshoot": 0.006,
+  "pad_slide_damping": 100.0,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.001,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 17.211847841408016,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 20.0,
+  "turn_kv": 0.8,
+  "rig_mass": 0.05,
+  "timestep": 0.0005,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "switch_rule": {
+  "tol_unlock_deg": 1.0,
+  "pos_tol_pitch": 0.15,
+  "grip_min_n": 2.0,
+  "tau_unlock": 0.05,
+  "tol_lock_deg": 0.5,
+  "tol_lock_cubie_deg": 0.5,
+  "tau_relock": 0.02,
+  "omega_relock": 0.05,
+  "min_move_deg": 45.0,
+  "min_unlocked_s": 1.0,
+  "check_every": 4,
+  "dominance": 1.5
+ },
+ "weld": {
+  "solref": [
+   0.001,
+   1.0
+  ],
+  "solimp": [
+   0.99,
+   0.999,
+   0.0001
+  ]
+ },
+ "setup": {
+  "seed": 2538,
+  "misalign_deg": {
+   "U": 0.01329028390234499,
+   "R": 0.12354905836421043,
+   "F": 0.22395423601170406,
+   "D": -0.13781391731052905,
+   "L": 0.18463693056054264,
+   "B": -0.055319766959075534
+  },
+  "grip_force": 17.211847841408016,
+  "turn_s_per_quarter": 1.0518082241994695
+ },
+ "applied_misalignment_deg": {
+  "U": 0.01329028390234499,
+  "R": 0.12354905836421043,
+  "F": 0.22395423601170406,
+  "D": -0.13781391731052905,
+  "L": 0.18463693056054264,
+  "B": -0.055319766959075534
+ },
+ "setup_log": [
+  {
+   "type": "layer_misalignment",
+   "face": "U",
+   "deg": 0.01329028390234499
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "R",
+   "deg": 0.12354905836421043
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "F",
+   "deg": 0.22395423601170406
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "D",
+   "deg": -0.13781391731052905
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "L",
+   "deg": 0.18463693056054264
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "B",
+   "deg": -0.055319766959075534
+  },
+  {
+   "type": "weld_reanchor_at_setup_pose",
+   "n_welds": 26
+  }
+ ],
+ "t0_observed_valid": true,
+ "t0_solved": true,
+ "radial_offset_mm_t0": 5.551115123125783e-14,
+ "seed": 2538,
+ "commanded_U_misalignment_deg": -17.0,
+ "U_misalignment_deg": -16.855611130616726,
+ "U_left_unlocked": "U",
+ "R_rotation_deg": -7.881962378898939e-17,
+ "R_phase_switch_events": [
+  {
+   "t": 2.2319999999999127,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  },
+  {
+   "t": 3.5640000000003575,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  }
+ ],
+ "observed_valid": false,
+ "outcome": "refused_unknown",
+ "ok_categorical": true,
+ "switch_log": [
+  {
+   "t": 0.8199999999999651,
+   "kind": "unlock",
+   "face": "U",
+   "members": 8,
+   "pad_torque_Nm": -0.10330928207283915,
+   "max_misalignment_deg": 0.32122442049199823,
+   "rel_speed_rad_s": 0.0,
+   "pos_err_pre_mm": 0.0,
+   "ke_before": 3.4565156721226847e-09,
+   "penetration_mm": 0.20335284465280512,
+   "activated_ids": [
+    18,
+    32,
+    53,
+    67,
+    81,
+    102,
+    116,
+    137
+   ],
+   "ke_after": 3.1274317889475493e-09,
+   "dke": -3.2908388317513545e-10,
+   "impulse_proxy_Ns": 0.00010758133770925246,
+   "pos_err_post_mm": 0.0,
+   "rot_err_post_deg": 0.0002038007990472901
+  },
+  {
+   "t": 2.2319999999999127,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  },
+  {
+   "t": 3.5640000000003575,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "layer U still unlocked"
+  }
+ ],
+ "switch_counts": {
+  "unlock": 1,
+  "relock": 0,
+  "refuse": 2
+ },
+ "refusal_episodes": 2,
+ "refusal_episodes_ambiguous": 0,
+ "e1_5": {
+  "n": 1,
+  "n_fail": 0,
+  "checks": [
+   {
+    "t": 0.8199999999999651,
+    "kind": "unlock",
+    "complete": true,
+    "abs_dke_J": 3.2908388317513545e-10,
+    "dke_limit_J": 0.001,
+    "pos_err_post_mm": 0.0,
+    "ok_dke": true,
+    "ok_within_tolerance": true,
+    "ok_pos_err": true,
+    "ok": true
+   }
+  ]
+ },
+ "edit_audit_violations": [],
+ "numerical_failures": [],
+ "wrench_log_entries": 0,
+ "sim_time_s": 4.150500000000419,
+ "integrity_ok": true,
+ "ok_no_snap": true,
+ "pass": true,
+ "experiment": "E1-5b",
+ "trial_id": "misturn_-17_s2538",
+ "kind": "misturn",
+ "spec": {
+  "misalign_deg": -17.0,
+  "seed": 2538
+ },
+ "source_commit": "1b0a5e418f673dd23cb6f81cf28a2a9e3446c3af",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ },
+ "scored": true
+}

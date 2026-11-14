@@ -33,7 +33,7 @@ THRESHOLDS_M2 = {
     "twist_penetration_mm": 0.5,         # E1-6c NEW: penetration <= 0.5 mm throughout
     "e16e_misalignment_deg": 5.0,        # E1-6e setup misalignment
 }
-SCORED_SEED_RANGE = (2000, 2999)
+SCORED_SEED_RANGE = (3000, 3999)  # Amendment 4 (D2): new range; 2000-2999 belongs to the invalid run 1
 FROZEN_PATHS_M2 = ["src", "pyproject.toml", "uv.lock", "experiments/PHASE_1_M2_PREREGISTRATION.md",
                    "experiments/E2_scored_m2/run.py", "experiments/E2_scored_m2/analyze.py",
                    "experiments/E2_scored_m2/bench.py"]

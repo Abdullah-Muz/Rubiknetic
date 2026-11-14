@@ -1,0 +1,510 @@
+{
+ "model": "M2",
+ "preregistration_amendments": [
+  "A1 setup +/-0.5 deg per face",
+  "A2 shear-dominance unlock (dominance 1.5)",
+  "A3 E1-7 kv = 0.04*kp",
+  "A4 E1-6e perpendicular-face map _PERPENDICULAR",
+  "A5 E1-5 pose error from translational rows (mm)",
+  "B1 FALLBACK in force: setup +/-0.25 deg per face, per-cubie and hinge relock 0.5 deg",
+  "B2 E1-6b: M1 categorical criterion + never two layers unlocked",
+  "C1 scored turner turn_kp 20, turn_kv 0.8; E1-7 turner factor {5, 20}, kv = 0.04*kp"
+ ],
+ "scored_turner": {
+  "turn_kp": 20.0,
+  "turn_kv": 0.8
+ },
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0002,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   0.2,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.001,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "radial_preload": 0.0,
+  "radial_stiffness": 500.0,
+  "radial_range": [
+   -0.001,
+   0.0002
+  ],
+  "radial_damping": 0.05,
+  "radial_solreflimit": [
+   0.001,
+   1.0
+  ],
+  "radial_solimplimit": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.045,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.014,
+  "grip_overshoot": 0.006,
+  "pad_slide_damping": 100.0,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.001,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 17.673153531308046,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 20.0,
+  "turn_kv": 0.8,
+  "rig_mass": 0.05,
+  "timestep": 0.0005,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "switch_rule": {
+  "tol_unlock_deg": 1.0,
+  "pos_tol_pitch": 0.15,
+  "grip_min_n": 2.0,
+  "tau_unlock": 0.05,
+  "tol_lock_deg": 0.5,
+  "tol_lock_cubie_deg": 0.5,
+  "tau_relock": 0.02,
+  "omega_relock": 0.05,
+  "min_move_deg": 45.0,
+  "min_unlocked_s": 1.0,
+  "check_every": 4,
+  "dominance": 1.5
+ },
+ "weld": {
+  "solref": [
+   0.001,
+   1.0
+  ],
+  "solimp": [
+   0.99,
+   0.999,
+   0.0001
+  ]
+ },
+ "setup": {
+  "seed": 2631,
+  "misalign_deg": {
+   "U": 0.0,
+   "R": 0.0,
+   "F": 0.0,
+   "D": 0.0,
+   "L": 0.0,
+   "B": 0.0
+  },
+  "grip_force": 17.673153531308046,
+  "turn_s_per_quarter": 1.1294092483848865
+ },
+ "applied_misalignment_deg": {
+  "U": 5.0,
+  "R": 0.0,
+  "F": 0.0,
+  "D": 0.0,
+  "L": 0.0,
+  "B": 0.0
+ },
+ "setup_log": [
+  {
+   "type": "layer_misalignment",
+   "face": "U",
+   "deg": 5.0
+  },
+  {
+   "type": "weld_reanchor_at_setup_pose",
+   "n_welds": 26
+  }
+ ],
+ "t0_observed_valid": true,
+ "t0_solved": true,
+ "radial_offset_mm_t0": 1.3877787807814457e-14,
+ "seed": 2631,
+ "face": "R",
+ "misaligned_face": "U",
+ "perpendicular_map_A4": {
+  "U": "R",
+  "D": "R",
+  "R": "U",
+  "L": "U",
+  "F": "U",
+  "B": "U"
+ },
+ "layer_rotation_deg": 7.592945383712557e-15,
+ "events": [
+  {
+   "t": 0.829999999999964,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.010207726223599091,
+    "R": -0.05251576488707701,
+    "F": 0.0017525844204416743,
+    "D": 0.006432579501019867,
+    "L": 0.0,
+    "B": 0.017892414750125214
+   },
+   "max_misalignment_deg": 5.00059620070006,
+   "max_pos_dev_pitch": 0.09095138253918333
+  },
+  {
+   "t": 2.2319999999999127,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.1709045661793251,
+    "R": -1.1308433516044027,
+    "F": 0.22339775522466662,
+    "D": 0.1699215535691298,
+    "L": 0.0,
+    "B": 0.2247528174186001
+   },
+   "max_misalignment_deg": 5.0118328690899006,
+   "max_pos_dev_pitch": 0.09095138253918433
+  },
+  {
+   "t": 2.247999999999918,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.17184542715467815,
+    "R": -1.1516140330545956,
+    "F": 0.22640076262721048,
+    "D": 0.0996532214322515,
+    "L": 0.0,
+    "B": 0.39026935658963147
+   },
+   "max_misalignment_deg": 5.015703299933891,
+   "max_pos_dev_pitch": 0.09095138254037904
+  },
+  {
+   "t": 2.25399999999992,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.14664249066602475,
+    "R": -1.1712707585882036,
+    "F": 0.2504819442987768,
+    "D": 0.08836747542415663,
+    "L": 0.0,
+    "B": 0.4163833202543929
+   },
+   "max_misalignment_deg": 5.01279363658797,
+   "max_pos_dev_pitch": 0.0909513825473196
+  },
+  {
+   "t": 2.259999999999922,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.11841174894881067,
+    "R": -1.1870479129045128,
+    "F": 0.27503009614656315,
+    "D": 0.07314180889728851,
+    "L": 0.0,
+    "B": 0.44641468373810017
+   },
+   "max_misalignment_deg": 5.010359720140383,
+   "max_pos_dev_pitch": 0.09095138254010116
+  },
+  {
+   "t": 2.265999999999924,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.07276353898868324,
+    "R": -1.049479760228851,
+    "F": 0.2680398469047002,
+    "D": 0.04645847333691122,
+    "L": 0.0,
+    "B": 0.4190293639284715
+   },
+   "max_misalignment_deg": 5.004979638047709,
+   "max_pos_dev_pitch": 0.09095138255294799
+  },
+  {
+   "t": 2.271999999999926,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.030000294077080228,
+    "R": -1.0925191488403116,
+    "F": 0.2993285823113826,
+    "D": 0.018154980440576403,
+    "L": 0.0,
+    "B": 0.4940563868701624
+   },
+   "max_misalignment_deg": 5.003114063326606,
+   "max_pos_dev_pitch": 0.09095138254189206
+  },
+  {
+   "t": 2.2759999999999274,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": -0.07572153494292216,
+    "R": -0.42527233982198176,
+    "F": 0.0,
+    "D": 0.0,
+    "L": 0.0,
+    "B": 0.42291344913725076
+   },
+   "max_misalignment_deg": 5.0007134765449965,
+   "max_pos_dev_pitch": 0.09095138255138302
+  }
+ ],
+ "ok_refused": true,
+ "ok_no_motion": true,
+ "ok_state_unchanged": true,
+ "switch_log": [
+  {
+   "t": 0.829999999999964,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.010207726223599091,
+    "R": -0.05251576488707701,
+    "F": 0.0017525844204416743,
+    "D": 0.006432579501019867,
+    "L": 0.0,
+    "B": 0.017892414750125214
+   },
+   "max_misalignment_deg": 5.00059620070006,
+   "max_pos_dev_pitch": 0.09095138253918333
+  },
+  {
+   "t": 2.2319999999999127,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.1709045661793251,
+    "R": -1.1308433516044027,
+    "F": 0.22339775522466662,
+    "D": 0.1699215535691298,
+    "L": 0.0,
+    "B": 0.2247528174186001
+   },
+   "max_misalignment_deg": 5.0118328690899006,
+   "max_pos_dev_pitch": 0.09095138253918433
+  },
+  {
+   "t": 2.247999999999918,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.17184542715467815,
+    "R": -1.1516140330545956,
+    "F": 0.22640076262721048,
+    "D": 0.0996532214322515,
+    "L": 0.0,
+    "B": 0.39026935658963147
+   },
+   "max_misalignment_deg": 5.015703299933891,
+   "max_pos_dev_pitch": 0.09095138254037904
+  },
+  {
+   "t": 2.25399999999992,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.14664249066602475,
+    "R": -1.1712707585882036,
+    "F": 0.2504819442987768,
+    "D": 0.08836747542415663,
+    "L": 0.0,
+    "B": 0.4163833202543929
+   },
+   "max_misalignment_deg": 5.01279363658797,
+   "max_pos_dev_pitch": 0.0909513825473196
+  },
+  {
+   "t": 2.259999999999922,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.11841174894881067,
+    "R": -1.1870479129045128,
+    "F": 0.27503009614656315,
+    "D": 0.07314180889728851,
+    "L": 0.0,
+    "B": 0.44641468373810017
+   },
+   "max_misalignment_deg": 5.010359720140383,
+   "max_pos_dev_pitch": 0.09095138254010116
+  },
+  {
+   "t": 2.265999999999924,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.07276353898868324,
+    "R": -1.049479760228851,
+    "F": 0.2680398469047002,
+    "D": 0.04645847333691122,
+    "L": 0.0,
+    "B": 0.4190293639284715
+   },
+   "max_misalignment_deg": 5.004979638047709,
+   "max_pos_dev_pitch": 0.09095138255294799
+  },
+  {
+   "t": 2.271999999999926,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": 0.030000294077080228,
+    "R": -1.0925191488403116,
+    "F": 0.2993285823113826,
+    "D": 0.018154980440576403,
+    "L": 0.0,
+    "B": 0.4940563868701624
+   },
+   "max_misalignment_deg": 5.003114063326606,
+   "max_pos_dev_pitch": 0.09095138254189206
+  },
+  {
+   "t": 2.2759999999999274,
+   "kind": "refuse",
+   "faces": [
+    "R"
+   ],
+   "reason": "cube misaligned",
+   "ambiguous_loads": false,
+   "shears_Nm": {
+    "U": -0.07572153494292216,
+    "R": -0.42527233982198176,
+    "F": 0.0,
+    "D": 0.0,
+    "L": 0.0,
+    "B": 0.42291344913725076
+   },
+   "max_misalignment_deg": 5.0007134765449965,
+   "max_pos_dev_pitch": 0.09095138255138302
+  }
+ ],
+ "switch_counts": {
+  "unlock": 0,
+  "relock": 0,
+  "refuse": 8
+ },
+ "refusal_episodes": 8,
+ "refusal_episodes_ambiguous": 0,
+ "e1_5": {
+  "n": 0,
+  "n_fail": 0,
+  "checks": []
+ },
+ "edit_audit_violations": [],
+ "numerical_failures": [],
+ "wrench_log_entries": 0,
+ "sim_time_s": 2.8295000000001123,
+ "integrity_ok": true,
+ "pass": true,
+ "experiment": "E1-6",
+ "trial_id": "forcedswitch_R_s2631",
+ "kind": "forced",
+ "spec": {
+  "face": "R",
+  "seed": 2631
+ },
+ "source_commit": "1b0a5e418f673dd23cb6f81cf28a2a9e3446c3af",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics"
+ },
+ "scored": true
+}

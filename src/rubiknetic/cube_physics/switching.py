@@ -142,6 +142,7 @@ class SwitchManager:
         self.movable = [cubie_name(h) for h in MOVABLE]
         self.idx = {cubie_name(h): i for i, h in enumerate(HOME_POSITIONS)}
         self.unlocked: str | None = None
+        self.needs_release = {F: False for F in FACES}  # Amendment 4 (D1) fresh-grip state
         self.members: list[str] = []
         self.refusing = False
         self.pending: dict | None = None
@@ -294,7 +295,13 @@ class SwitchManager:
         pos, rot = self.ro.poses(d)
         if self.unlocked is None:
             req, ambiguous = self.request_torques(d)
-            active = [f for f, (tau, grip) in req.items() if grip > r.grip_min_n and abs(tau) > r.tau_unlock]
+            # Amendment 4 (D1, fresh grip): a face that relocked may not request again until its own pads' grip has
+            # dropped below grip_min_n since that relock (pad-release transients cannot re-unlock it).
+            for F, (_, grip) in req.items():
+                if self.needs_release[F] and grip < r.grip_min_n:
+                    self.needs_release[F] = False
+            active = [f for f, (tau, grip) in req.items()
+                      if grip > r.grip_min_n and abs(tau) > r.tau_unlock and not self.needs_release[f]]
             if not active:
                 self.refusing = False
                 return
@@ -315,6 +322,9 @@ class SwitchManager:
             f = self.unlocked
             others = [g for g in FACES if g != f]
             req_all, _ = self.request_torques(d)
+            for F, (_, grip) in req_all.items():  # Amendment 4 (D1): track releases while a layer is unlocked too
+                if self.needs_release[F] and grip < r.grip_min_n:
+                    self.needs_release[F] = False
             req = {g: req_all[g] for g in others}
             other_active = [g for g, (tau, grip) in req.items() if grip > r.grip_min_n and abs(tau) > r.tau_unlock]
             if other_active and not self.refusing:
@@ -328,7 +338,9 @@ class SwitchManager:
             moved = abs(ang - self.unlock_angle) > r.min_move_deg or d.time - self.unlock_time > r.min_unlocked_s
             if not moved or off > r.tol_lock_deg or abs(d.qvel[self.hinge_v[f]]) > r.omega_relock:
                 return
-            if abs(self.shears(d)[f][0]) >= r.tau_relock:  # A2: boundary shear of the unlocked face
+            # Amendment 4 (D0, conformity with section 1): relock on the unlocked face's OWN pad torque. A2 changed
+            # only the unlock request; using all-contact shear here deadlocked scored run 1.
+            if abs(self.pad_torque(d, f)[0]) >= r.tau_relock:
                 return
             member_err = max(rot_err_deg(rot[self.idx[b]]) for b in self.members)
             if member_err > r.tol_lock_cubie_deg:  # Amendment 2 (B1)
@@ -351,6 +363,7 @@ class SwitchManager:
         self.unlock_time = float(d.time)
 
     def _relock(self, d, f: str, off_deg: float, member_err: float) -> None:
+        self.needs_release[f] = True  # Amendment 4 (D1): F must release its grip before it may request again
         cen = self.centre_of[f]
         deact = [self.eq(weld_name(b, cen)) for b in self.members]
         act = [(self.eq(weld_name(b, "core")), self.relpose(d, self.bid[b], self.core)) for b in self.members]
