@@ -1,0 +1,71 @@
+{
+ "levels": [
+  {
+   "torque_Nm": 0.005,
+   "twist_deg": 0.0038309724947715915,
+   "penetration_mm": 0.0
+  },
+  {
+   "torque_Nm": 0.01,
+   "twist_deg": 0.005541886013525611,
+   "penetration_mm": 0.0
+  },
+  {
+   "torque_Nm": 0.02,
+   "twist_deg": 0.007038248376995568,
+   "penetration_mm": 0.0
+  },
+  {
+   "torque_Nm": 0.05,
+   "twist_deg": 0.008936937543204813,
+   "penetration_mm": 0.0
+  },
+  {
+   "torque_Nm": 0.1,
+   "twist_deg": 0.010570312418636077,
+   "penetration_mm": 0.0
+  },
+  {
+   "torque_Nm": 0.2,
+   "twist_deg": 0.01907251567113257,
+   "penetration_mm": 0.0
+  },
+  {
+   "torque_Nm": 0.5,
+   "twist_deg": 0.04768129380084446,
+   "penetration_mm": 0.0
+  },
+  {
+   "torque_Nm": 1.0,
+   "twist_deg": 0.0953626206233723,
+   "penetration_mm": 0.0
+  },
+  {
+   "torque_Nm": 2.0,
+   "twist_deg": 0.19072550542152775,
+   "penetration_mm": 0.0
+  },
+  {
+   "torque_Nm": 5.0,
+   "twist_deg": 0.4768183867509497,
+   "penetration_mm": 0.0
+  }
+ ],
+ "released_twist_deg": 1.7659300141581398e-15,
+ "valid": true,
+ "solved": true,
+ "switches": {
+  "n_unlock": 0,
+  "n_relock": 0,
+  "n_refuse": 0,
+  "max_abs_dKE_J": 0.0,
+  "max_impulse_proxy_Ns": 0.0,
+  "max_post_pos_err_mm": 0.0,
+  "max_relock_off_square_deg": 0.0,
+  "max_rel_speed_at_switch": 0.0
+ },
+ "mode": "twist",
+ "m1_overrides": {},
+ "wall_s": 5.355468692003342,
+ "scored": false
+}

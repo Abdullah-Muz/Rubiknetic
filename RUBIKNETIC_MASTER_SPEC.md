@@ -22,7 +22,7 @@ Build a reproducible, CPU-first, simulation-based bimanual robotic manipulation 
 | D-03 | **2 × UFACTORY xArm7** | 7-DOF per arm, two separate robot control interfaces; verify imported model kinematics and licenses |
 | D-04 | Parallel-jaw end effectors with **research-led custom fingertips** | Exact gripper variant and geometry **not selected**; full literature/design review before detailed CAD |
 | D-05 | **Dynamic cubie constraints** | A legal 3×3 model with constraint relationships that adapt after face turns; switching is not permitted to supply rotation energy or teleportation |
-| D-06 | **Level C physical manipulation** | Face rotation is driven by modeled robot contacts/torques; no scripted cube angles in evaluated runs |
+| D-06 | **Level C physical manipulation** | Face rotation is driven by modeled robot contacts/torques; no scripted cube angles in evaluated runs. Passive internal cube mechanisms (springs, documented magnet pairs or detents acting between specific pieces, with realistic strengths) may contribute alignment forces, but turns must be initiated and driven by robot contact (P-16, approved 2026-11-13) |
 | D-07 | **Reinforcement learning is in scope** | Hierarchical/residual RL used for selected contact tasks; classical control remains a necessary baseline |
 | D-08 | **E + C + D control** | High-level task hierarchy + bounded residual Cartesian motion corrections + force/impedance-aware low-level control |
 | D-09 | **One learned arm first** | Initial stabilizer classical, turning arm RL-assisted; eventual role swapping and bimanual coordination |

@@ -20,7 +20,7 @@
 
 ## Physics and scientific constraints
 
-- Real cube rotations must be induced by modeled contact forces/torques. No free state edits, hidden face motor, kinematic snapping, target-angle assignment, or high-level solver state injection during evaluation.
+- Real cube rotations must be induced by modeled contact forces/torques, optionally assisted by documented passive internal mechanisms (springs, magnet pairs, detents) that act between specific pieces through a fixed force law inside the physics model (P-16). No free state edits, hidden face motor, kinematic snapping, layer-level or target-aware alignment forces, target-angle assignment, or high-level solver state injection during evaluation.
 - Constraint activation may represent mechanical connectivity when geometrically permitted, **not impose the desired rotation**. Analyze constraint activation impulses, penetration, angular momentum / energy effects, illegal topology, and numerical sensitivity.
 - Maintain an independent combinatorial Rubik's Cube state verifier; verify legal face turns, puzzle group invariants, reversibility, and physical-to-logical agreement. Do not validate a model only against itself.
 - Document abstractions such as equivalent joints or constraint switches; if constraints fail to reproduce credible mechanics, recommend an engineering review, not a fake success.

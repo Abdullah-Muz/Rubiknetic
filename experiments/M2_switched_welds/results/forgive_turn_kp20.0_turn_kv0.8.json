@@ -1,0 +1,83 @@
+{
+ "trials": [
+  {
+   "commanded_deg": 1.0,
+   "U_misaligned_deg": -0.9981152144016828,
+   "U_left_unlocked": "U",
+   "R_turned_deg": 3.2140430459879093e-16,
+   "observed_valid": false,
+   "obs_problems": [
+    "position error 0.240 pitch > tol 0.15"
+   ],
+   "obs_max_angle_err_deg": 9.719815733653485,
+   "obs_max_pos_err": 0.239686294579931,
+   "U_after_R_deg": 9.714995873869956,
+   "R_switch_events": [
+    {
+     "t": 1.837999999999853,
+     "kind": "refuse",
+     "faces": [
+      "R"
+     ],
+     "reason": "layer U still unlocked"
+    },
+    {
+     "t": 3.146000000000218,
+     "kind": "refuse",
+     "faces": [
+      "R"
+     ],
+     "reason": "layer U still unlocked"
+    },
+    {
+     "t": 3.1560000000002213,
+     "kind": "refuse",
+     "faces": [
+      "R"
+     ],
+     "reason": "layer U still unlocked"
+    }
+   ],
+   "peak_R_torque_Nm": 1.0
+  },
+  {
+   "commanded_deg": -3.0,
+   "U_misaligned_deg": 2.997007384418861,
+   "U_left_unlocked": "U",
+   "R_turned_deg": -4.0195853860629005e-16,
+   "observed_valid": false,
+   "obs_problems": [
+    "position error 0.308 pitch > tol 0.15"
+   ],
+   "obs_max_angle_err_deg": 12.513646219859282,
+   "obs_max_pos_err": 0.3083336628739697,
+   "U_after_R_deg": 12.508003534025097,
+   "R_switch_events": [
+    {
+     "t": 1.8599999999998507,
+     "kind": "refuse",
+     "faces": [
+      "R"
+     ],
+     "reason": "layer U still unlocked"
+    },
+    {
+     "t": 3.1780000000002286,
+     "kind": "refuse",
+     "faces": [
+      "R"
+     ],
+     "reason": "layer U still unlocked"
+    }
+   ],
+   "peak_R_torque_Nm": 1.0
+  }
+ ],
+ "mode": "forgive",
+ "m1_overrides": {
+  "turn_kp": 20.0,
+  "turn_kv": 0.8
+ },
+ "wall_s": 13.45539719399676,
+ "scored": false
+}

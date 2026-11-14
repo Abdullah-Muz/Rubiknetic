@@ -1,0 +1,21 @@
+{
+ "valid": true,
+ "solved": true,
+ "max_rotation_deg": 0.0009541936066472164,
+ "penetration_mm": 0.0,
+ "steps_per_s": 2027.247150452361,
+ "switches": {
+  "n_unlock": 0,
+  "n_relock": 0,
+  "n_refuse": 0,
+  "max_abs_dKE_J": 0.0,
+  "max_impulse_proxy_Ns": 0.0,
+  "max_post_pos_err_mm": 0.0,
+  "max_relock_off_square_deg": 0.0,
+  "max_rel_speed_at_switch": 0.0
+ },
+ "mode": "rest",
+ "m1_overrides": {},
+ "wall_s": 3.000496889995702,
+ "scored": false
+}

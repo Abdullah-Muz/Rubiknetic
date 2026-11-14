@@ -1,0 +1,5 @@
+[{"bevel_body": 2.0, "bevel_foot": 1.5, "bevel_inner": 0.0, "taper": 0.0, "taper_start": 19.0, "pad_spacing_deg": 14.0},
+ {"bevel_body": 1.5, "bevel_foot": 1.5, "bevel_inner": 0.0, "taper": 0.0, "taper_start": 19.0, "pad_spacing_deg": 14.0},
+ {"bevel_body": 1.0, "bevel_foot": 0.5, "bevel_inner": 2.0, "taper": 0.0, "taper_start": 19.0, "pad_spacing_deg": 14.0},
+ {"bevel_body": 1.5, "bevel_foot": 0.5, "bevel_inner": 1.0, "taper": 0.3, "taper_start": 20.0, "pad_spacing_deg": 10.0},
+ {"bevel_body": 2.0, "bevel_foot": 0.5, "bevel_inner": 1.0, "taper": 0.1, "taper_start": 20.0, "pad_spacing_deg": 14.0}]
