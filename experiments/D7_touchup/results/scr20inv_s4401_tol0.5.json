@@ -1,0 +1,88 @@
+{
+ "seq": "F2 L2 F' U R F L' R F' U2 B2 L U F' D L' B L' B2 U' U B2 L B' L D' F U' L' B2 U2 F R' L F' R' U' F L2 F2",
+ "seed": 4401,
+ "all_ok": false,
+ "moves_ok": 8,
+ "n_moves": 40,
+ "n_touchups": 1,
+ "max_touchup_err_after": 0.1423545833659125,
+ "max_abs_dKE_J": 2.3411884291834517e-07,
+ "max_misalignment_end": 0.4567326390117574,
+ "moves": [
+  {
+   "move": "F2",
+   "observed": "F2",
+   "ok": true,
+   "peak_torque": 0.05445212445162592,
+   "refusals": []
+  },
+  {
+   "move": "L2",
+   "observed": "L2",
+   "ok": true,
+   "peak_torque": 0.11455144859987251,
+   "refusals": []
+  },
+  {
+   "move": "F'",
+   "observed": "F'",
+   "ok": true,
+   "peak_torque": 0.060246402689237755,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.055447844512330445,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.18572582955023975,
+   "refusals": []
+  },
+  {
+   "move": "F",
+   "observed": "F",
+   "ok": true,
+   "peak_torque": 0.0788269810626332,
+   "refusals": []
+  },
+  {
+   "move": "L'",
+   "observed": "L'",
+   "ok": true,
+   "peak_torque": 0.056050906935851685,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.09880466655194198,
+   "refusals": []
+  },
+  {
+   "move": "F'",
+   "observed": "None",
+   "ok": false,
+   "peak_torque": 1.0,
+   "refusals": [
+    "layer R still unlocked",
+    "layer R still unlocked"
+   ]
+  }
+ ],
+ "touchups": [
+  {
+   "before_move": "F'",
+   "face": "R",
+   "err_before": 0.268540596907381,
+   "err_after": -0.1423545833659125,
+   "refusals": []
+  }
+ ]
+}

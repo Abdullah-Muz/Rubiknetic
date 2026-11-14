@@ -1,0 +1,228 @@
+{
+ "seq": "R U R' U' R U R' U' R U R' U' R U R' U' R U R' U' R U R' U'",
+ "seed": 4302,
+ "all_ok": false,
+ "moves_ok": 15,
+ "n_moves": 24,
+ "n_touchups": 14,
+ "max_touchup_err_after": 0.5438594913502448,
+ "max_abs_dKE_J": 1.4026224488256513e-07,
+ "max_misalignment_end": 0.9109078335745411,
+ "moves": [
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.05760160137665693,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.07013559138431447,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.06393420844954889,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.07920723508984473,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.10055904739316976,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.07286532697652603,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.25016068399758673,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.1099248690632848,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.07875586402595758,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.0600185017712403,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.07763429328639404,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.099835150865065,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.0558952609130834,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.10562003714872024,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.05549383701552202,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "None",
+   "ok": false,
+   "peak_torque": 1.0,
+   "refusals": [
+    "layer R still unlocked",
+    "layer R still unlocked"
+   ]
+  }
+ ],
+ "touchups": [
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.28442195039219925,
+   "err_after": -0.19763932280252786,
+   "refusals": []
+  },
+  {
+   "before_move": "R",
+   "face": "U",
+   "err_before": -0.4822960315659862,
+   "err_after": 0.03942881750639451,
+   "refusals": []
+  },
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.49028987454498696,
+   "err_after": -0.23891649610540663,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": -0.4271032246046772,
+   "err_after": 0.14078695987089895,
+   "refusals": []
+  },
+  {
+   "before_move": "R",
+   "face": "U",
+   "err_before": -0.5420371995410512,
+   "err_after": -0.0382799252470246,
+   "refusals": []
+  },
+  {
+   "before_move": "U",
+   "face": "R",
+   "err_before": 0.6432955754716945,
+   "err_after": -0.03296101520075,
+   "refusals": []
+  },
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.5277143601278771,
+   "err_after": -0.17773774497328265,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": -0.50526374524094,
+   "err_after": 0.3343425975392962,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": 0.3343425975392962,
+   "err_after": 0.028326589435475086,
+   "refusals": []
+  },
+  {
+   "before_move": "R",
+   "face": "U",
+   "err_before": -0.4587121416952713,
+   "err_after": 0.2090004850335892,
+   "refusals": []
+  },
+  {
+   "before_move": "U",
+   "face": "R",
+   "err_before": 0.25911992436545106,
+   "err_after": -0.17623945534884,
+   "refusals": []
+  },
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.3401112704336661,
+   "err_after": -0.1900639681313348,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": -0.5454527057939749,
+   "err_after": -0.5137372533082925,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": -0.5137372533082925,
+   "err_after": 0.5438594913502448,
+   "refusals": []
+  }
+ ]
+}

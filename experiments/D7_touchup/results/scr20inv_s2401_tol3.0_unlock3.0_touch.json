@@ -1,0 +1,84 @@
+{
+ "seq": "D2 U R F B' D' U R F L' D2 U2 R' U' B' F2 U' B' L F' F L' B U F2 B U R U2 D2 L F' R' U' D B F' R' U' D2",
+ "seed": 2401,
+ "all_ok": false,
+ "moves_ok": 4,
+ "n_moves": 40,
+ "n_touchups": 4,
+ "max_touchup_err_after": 0.49648621759530637,
+ "max_abs_dKE_J": 1.3256021573509826e-07,
+ "max_misalignment_end": 0.5275213492043137,
+ "moves": [
+  {
+   "move": "D2",
+   "observed": "D2",
+   "ok": true,
+   "peak_torque": 0.2710062632143604,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.05643574810938651,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.08246551114500633,
+   "refusals": []
+  },
+  {
+   "move": "F",
+   "observed": "F",
+   "ok": true,
+   "peak_torque": 0.35193361994898,
+   "refusals": []
+  },
+  {
+   "move": "B'",
+   "observed": "None",
+   "ok": false,
+   "peak_torque": 1.0,
+   "refusals": [
+    "layer F still unlocked",
+    "layer F still unlocked",
+    "layer F still unlocked",
+    "layer F still unlocked",
+    "layer F still unlocked"
+   ]
+  }
+ ],
+ "touchups": [
+  {
+   "before_move": "F",
+   "face": "R",
+   "err_before": 0.3372418788682901,
+   "err_after": -0.25794379268523104,
+   "refusals": []
+  },
+  {
+   "before_move": "F",
+   "face": "R",
+   "err_before": -0.25794379268523104,
+   "err_after": -0.07298166499590497,
+   "refusals": []
+  },
+  {
+   "before_move": "B'",
+   "face": "F",
+   "err_before": 1.119893409703036,
+   "err_after": -0.2746284198947039,
+   "refusals": []
+  },
+  {
+   "before_move": "B'",
+   "face": "F",
+   "err_before": -0.2746284198947039,
+   "err_after": -0.49648621759530637,
+   "refusals": []
+  }
+ ]
+}

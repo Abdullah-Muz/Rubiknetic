@@ -1,0 +1,351 @@
+{
+ "seq": "R U R' U' R U R' U' R U R' U' R U R' U' R U R' U' R U R' U'",
+ "seed": 2300,
+ "all_ok": true,
+ "moves_ok": 24,
+ "n_moves": 24,
+ "n_touchups": 24,
+ "max_touchup_err_after": 0.6257349716954279,
+ "max_abs_dKE_J": 1.7069732404903044e-07,
+ "max_misalignment_end": 1.1172386795660034,
+ "moves": [
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.0882968185473759,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.05108654129413877,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.06279601983141347,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.05974111798237658,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.10954415642853732,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.07994732103226454,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.05392847530707101,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.07708847799305808,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.06091794847924786,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.33798158452266946,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.17686013915998444,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.08453781350104883,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.05021502161035795,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.09828006477024687,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.05367092184758704,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.3306771391743535,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.2643294724867751,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.14490496319998966,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.1226917527148288,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.07080226159568781,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.15806823918112772,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.0804890139787853,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.3326479978499961,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.07324956237889213,
+   "refusals": []
+  }
+ ],
+ "touchups": [
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.257666245533911,
+   "err_after": -0.15300667530318401,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": -0.2654704548561586,
+   "err_after": 0.19303828093552744,
+   "refusals": []
+  },
+  {
+   "before_move": "R",
+   "face": "U",
+   "err_before": -0.500227258879504,
+   "err_after": 0.21769543407040404,
+   "refusals": []
+  },
+  {
+   "before_move": "U",
+   "face": "R",
+   "err_before": 0.4440276092157044,
+   "err_after": -0.24691318447078275,
+   "refusals": []
+  },
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.379364663256753,
+   "err_after": -0.09657296724430611,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": -0.4713670767250407,
+   "err_after": 0.11354167219229502,
+   "refusals": []
+  },
+  {
+   "before_move": "R",
+   "face": "U",
+   "err_before": -0.38440376835231693,
+   "err_after": 0.2220999863240391,
+   "refusals": []
+  },
+  {
+   "before_move": "U",
+   "face": "R",
+   "err_before": 0.5666355166624026,
+   "err_after": 0.536147959170973,
+   "refusals": []
+  },
+  {
+   "before_move": "U",
+   "face": "R",
+   "err_before": 0.536147959170973,
+   "err_after": -0.6257349716954279,
+   "refusals": []
+  },
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.8156358268128527,
+   "err_after": -0.21336110505828276,
+   "refusals": []
+  },
+  {
+   "before_move": "R'",
+   "face": "R",
+   "err_before": -0.3982027056088362,
+   "err_after": -0.39820270560882376,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": -0.6375123758532514,
+   "err_after": -0.1071773975378239,
+   "refusals": []
+  },
+  {
+   "before_move": "R",
+   "face": "U",
+   "err_before": -0.6441970575126608,
+   "err_after": 0.00922911833849296,
+   "refusals": []
+  },
+  {
+   "before_move": "U",
+   "face": "R",
+   "err_before": 0.3075274598008968,
+   "err_after": -0.13210888611907967,
+   "refusals": []
+  },
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.2659942261178999,
+   "err_after": -0.16948326704168631,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": -0.3099135302788769,
+   "err_after": 0.17382496125508337,
+   "refusals": []
+  },
+  {
+   "before_move": "R",
+   "face": "U",
+   "err_before": -0.41096770418806783,
+   "err_after": 0.12243739401189135,
+   "refusals": []
+  },
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.44019751572787746,
+   "err_after": -0.05985832133801044,
+   "refusals": []
+  },
+  {
+   "before_move": "R'",
+   "face": "R",
+   "err_before": 0.29605638205366347,
+   "err_after": -0.030432766643972677,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": -0.38074893310562513,
+   "err_after": 0.25794736487038444,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": 0.25794736487038444,
+   "err_after": 0.01725973988486995,
+   "refusals": []
+  },
+  {
+   "before_move": "R",
+   "face": "U",
+   "err_before": -0.31158720864362827,
+   "err_after": 0.21899806518974313,
+   "refusals": []
+  },
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.4069571947007851,
+   "err_after": -0.18157688005130174,
+   "refusals": []
+  },
+  {
+   "before_move": "U'",
+   "face": "R",
+   "err_before": -0.28889061751746503,
+   "err_after": 0.14857261619395024,
+   "refusals": []
+  }
+ ]
+}

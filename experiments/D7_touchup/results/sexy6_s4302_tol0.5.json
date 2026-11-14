@@ -1,0 +1,78 @@
+{
+ "seq": "R U R' U' R U R' U' R U R' U' R U R' U' R U R' U' R U R' U'",
+ "seed": 4302,
+ "all_ok": false,
+ "moves_ok": 4,
+ "n_moves": 24,
+ "n_touchups": 3,
+ "max_touchup_err_after": 0.2790610070459364,
+ "max_abs_dKE_J": 3.22990641001706e-07,
+ "max_misalignment_end": 0.4984170119672977,
+ "moves": [
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.05760160137665693,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.07013559138431447,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.06393420844954889,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.056418170860116135,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "None",
+   "ok": false,
+   "peak_torque": 1.0,
+   "refusals": [
+    "layer U still unlocked",
+    "layer U still unlocked",
+    "layer U still unlocked",
+    "layer U still unlocked",
+    "layer U still unlocked",
+    "layer U still unlocked"
+   ]
+  }
+ ],
+ "touchups": [
+  {
+   "before_move": "R'",
+   "face": "U",
+   "err_before": 0.28442195039219925,
+   "err_after": -0.19763932280252786,
+   "refusals": []
+  },
+  {
+   "before_move": "R",
+   "face": "U",
+   "err_before": -0.45064852500390074,
+   "err_after": -0.27108340361978167,
+   "refusals": []
+  },
+  {
+   "before_move": "R",
+   "face": "U",
+   "err_before": -0.27108340361978167,
+   "err_after": 0.2790610070459364,
+   "refusals": []
+  }
+ ]
+}

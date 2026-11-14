@@ -1,0 +1,71 @@
+{
+ "seq": "F2 B2 L2 R2 U2 D2",
+ "seed": 2231,
+ "all_ok": true,
+ "moves_ok": 6,
+ "n_moves": 6,
+ "n_touchups": 2,
+ "max_touchup_err_after": 0.20115388933329437,
+ "max_abs_dKE_J": 1.4511272371862615e-07,
+ "max_misalignment_end": 0.5321824165748194,
+ "moves": [
+  {
+   "move": "F2",
+   "observed": "F2",
+   "ok": true,
+   "peak_torque": 0.13986477800201058,
+   "refusals": []
+  },
+  {
+   "move": "B2",
+   "observed": "B2",
+   "ok": true,
+   "peak_torque": 0.13989800847208755,
+   "refusals": []
+  },
+  {
+   "move": "L2",
+   "observed": "L2",
+   "ok": true,
+   "peak_torque": 0.36767246137734233,
+   "refusals": []
+  },
+  {
+   "move": "R2",
+   "observed": "R2",
+   "ok": true,
+   "peak_torque": 0.3534101137918988,
+   "refusals": []
+  },
+  {
+   "move": "U2",
+   "observed": "U2",
+   "ok": true,
+   "peak_torque": 0.11458048155941469,
+   "refusals": []
+  },
+  {
+   "move": "D2",
+   "observed": "D2",
+   "ok": true,
+   "peak_torque": 0.11200179946374078,
+   "refusals": []
+  }
+ ],
+ "touchups": [
+  {
+   "before_move": "B2",
+   "face": "F",
+   "err_before": 0.3745841644828089,
+   "err_after": -0.19667949953740854,
+   "refusals": []
+  },
+  {
+   "before_move": "L2",
+   "face": "B",
+   "err_before": 0.37636833944528947,
+   "err_after": -0.20115388933329437,
+   "refusals": []
+  }
+ ]
+}

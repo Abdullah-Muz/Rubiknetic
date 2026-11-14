@@ -1,0 +1,122 @@
+{
+ "seq": "D2 U R F B' D' U R F L' D2 U2 R' U' B' F2 U' B' L F' F L' B U F2 B U R U2 D2 L F' R' U' D B F' R' U' D2",
+ "seed": 2401,
+ "all_ok": false,
+ "moves_ok": 14,
+ "n_moves": 40,
+ "n_touchups": 0,
+ "max_touchup_err_after": 0.0,
+ "max_abs_dKE_J": 2.2927750931872578e-07,
+ "max_misalignment_end": 1.200312887843278,
+ "moves": [
+  {
+   "move": "D2",
+   "observed": "D2",
+   "ok": true,
+   "peak_torque": 0.2710062632143604,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.05643574810938651,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.08246551114500633,
+   "refusals": []
+  },
+  {
+   "move": "F",
+   "observed": "F",
+   "ok": true,
+   "peak_torque": 0.22142047249147012,
+   "refusals": []
+  },
+  {
+   "move": "B'",
+   "observed": "B'",
+   "ok": true,
+   "peak_torque": 0.06884188129620353,
+   "refusals": []
+  },
+  {
+   "move": "D'",
+   "observed": "D'",
+   "ok": true,
+   "peak_torque": 0.2764390983062981,
+   "refusals": []
+  },
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "peak_torque": 0.4650792322187769,
+   "refusals": []
+  },
+  {
+   "move": "R",
+   "observed": "R",
+   "ok": true,
+   "peak_torque": 0.11400459264692842,
+   "refusals": []
+  },
+  {
+   "move": "F",
+   "observed": "F",
+   "ok": true,
+   "peak_torque": 0.388452800174484,
+   "refusals": []
+  },
+  {
+   "move": "L'",
+   "observed": "L'",
+   "ok": true,
+   "peak_torque": 0.39190387797017934,
+   "refusals": []
+  },
+  {
+   "move": "D2",
+   "observed": "D2",
+   "ok": true,
+   "peak_torque": 0.2639356840885583,
+   "refusals": []
+  },
+  {
+   "move": "U2",
+   "observed": "U2",
+   "ok": true,
+   "peak_torque": 0.9977826776023164,
+   "refusals": []
+  },
+  {
+   "move": "R'",
+   "observed": "R'",
+   "ok": true,
+   "peak_torque": 0.2691220508321166,
+   "refusals": []
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "peak_torque": 0.7259256476070561,
+   "refusals": []
+  },
+  {
+   "move": "B'",
+   "observed": "None",
+   "ok": false,
+   "peak_torque": 1.0,
+   "refusals": [
+    "layer U still unlocked",
+    "layer U still unlocked"
+   ]
+  }
+ ],
+ "touchups": []
+}
