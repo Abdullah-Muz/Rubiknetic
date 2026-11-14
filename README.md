@@ -2,6 +2,8 @@
 
 # Rubiknetic
 
+[![CI](https://github.com/Abdullah-Muz/Rubiknetic/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/Abdullah-Muz/Rubiknetic/actions/workflows/ci.yml)
+
 ### Learning-Enabled Bimanual Robotic Manipulation for Physically Solving a Rubik's Cube
 
 **Research and architecture stage · No validated physical solves claimed**
