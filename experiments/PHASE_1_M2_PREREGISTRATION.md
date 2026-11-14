@@ -148,3 +148,28 @@ unlock tolerance. M2 would refuse most turns and fail E1-2 to E1-4 by constructi
 | B2 | **E1-6b uses M1's categorical criterion:** not both layers ≥ 45°; the state is UNKNOWN, or legal and oracle-consistent with the observed moves; radial change ≤ 0.5 mm. It adds: **never two layers unlocked at the same time.** "Opposed requests must be refused" is withdrawn. **This is a loosening of the approved wording, made before any scored trial and disclosed here.** Reason: one legal turn by the dominant layer is physical and is what M1 was allowed |
 
 **Unchanged:** every other threshold, the pass logic, the trial counts and the seed range.
+
+## 11. Amendment 3 (2026-11-13, before any scored M2 trial)
+
+**Approved by the user:** "approved".
+
+**Amendment 2 outcome.** B1's condition was not met. In unscored smoke checks with the ±0.5° setup and 1.0° per-cubie
+relock, the 9-move sequence got 1/9 and 1/9 with the default turner, and 4/9, 9/9 and 4/9 with the stiffer one.
+**Amendment 2's pre-approved fallback is therefore in force:** setup **±0.25° per face**, with the per-cubie and
+hinge relock tolerances both **0.5°**.
+
+**Trigger for this amendment** (FACT). The default turner (turn_kp 5) leaves layers 0.8–1.4° from square. That is
+above the 0.5° hinge relock tolerance, so the layer stays unlocked and later turns are refused: the fallback got 7/9
+and 4/9 with it. With **turn_kp 20 and turn_kv 0.8**, the fallback passed **9/9 on all 3 smoke seeds** (95–97), with
+worst error 0.16–0.31°, no E1-5 failures and peak turner torque ≤ 0.18 N·m. E1-6b also passed.
+
+| # | Change |
+|---|---|
+| C1 | **Every scored M2 trial uses the turner at turn_kp 20, turn_kv 0.8.** In E1-7 the turner factor becomes {5, 20}, so the default turner is reported as a sensitivity result. Reason: the turner is the test probe's controller, not the cube model. **Disclosed:** this reduces direct comparability with M1, which was scored with turn_kp 5 |
+
+**Disclosed limitation** (INFERENCE). M2 is unforgiving: it needs every layer within about 0.5° of square, both at
+setup and at the end of each turn. This is reported as a property of M2, and it becomes a **Phase 2 requirement**:
+the robot's turning controller must finish turns within about 0.5°. D5, the frozen reference, characterises how a
+forgiving cube behaves by comparison.
+
+**Unchanged:** every threshold, the pass logic, the trial counts and the seed range.

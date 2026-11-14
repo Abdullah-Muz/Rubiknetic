@@ -1,0 +1,595 @@
+{
+  "status": "UNSCORED Phase 2 prototype smoke test; not validation",
+  "date": "2026-11-13 22:15:50 -0800",
+  "env": {
+    "mujoco": "4.0.1",
+    "numpy": "2.5.4",
+    "python": "3.12.3",
+    "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+    "cpu_count": 16,
+    "threads": 1
+  },
+  "gripper_calibration": {
+    "calib_width_m": 0.057,
+    "theta_at_calib_width_rad": 0.3382947240348444,
+    "d_opening_d_theta_m_per_rad": -0.1028520821827255,
+    "tendon_force_per_grip_N": 0.1028520821827255,
+    "spring_tau_at_calib_Nm": 0.22817052759651557,
+    "spring_offset_N": 2.218433723015458,
+    "theta_open_rad": 0.04580093314284504,
+    "opening_at_theta_open_m": 0.085,
+    "opening_at_theta0_m": 0.08892399999999984,
+    "opening_at_theta_max_m": 0.0016404506342362606,
+    "model_stroke_m": 0.08335954936576374,
+    "pad_axial_travel_m": 0.011241407554208716,
+    "kp": 102.85208218272548,
+    "kv": 2.5713020545681373,
+    "f_max": 4.914433581539759,
+    "grip_force_setting_N": 50.0
+  },
+  "T1_load": {
+    "1305+": {
+      "load_s": 0.494,
+      "nbody": 16,
+      "nq": 13,
+      "nv": 13,
+      "nu": 8,
+      "ngeom": 27,
+      "nmesh": 32,
+      "neq": 3,
+      "ntendon": 1,
+      "timestep": 0.002,
+      "total_mass_kg": 12.0685,
+      "gripper_mass_kg": 0.75143,
+      "arm_forcerange_Nm": [
+        179.4445,
+        179.4445,
+        92.0,
+        92.0,
+        81.558,
+        30.6,
+        30.6
+      ],
+      "gripper_forcerange": 4.91443,
+      "contacts_at_home": 0
+    },
+    "1305+_nogc": {
+      "load_s": 0.495,
+      "nbody": 16,
+      "nq": 13,
+      "nv": 13,
+      "nu": 8,
+      "ngeom": 27,
+      "nmesh": 32,
+      "neq": 3,
+      "ntendon": 1,
+      "timestep": 0.002,
+      "total_mass_kg": 12.0685,
+      "gripper_mass_kg": 0.75143,
+      "arm_forcerange_Nm": [
+        179.4445,
+        179.4445,
+        92.0,
+        92.0,
+        81.558,
+        30.6,
+        30.6
+      ],
+      "gripper_forcerange": 4.91443,
+      "contacts_at_home": 0
+    },
+    "pre-1305": {
+      "load_s": 0.437,
+      "nbody": 16,
+      "nq": 13,
+      "nv": 13,
+      "nu": 8,
+      "ngeom": 19,
+      "nmesh": 16,
+      "neq": 3,
+      "ntendon": 1,
+      "timestep": 0.002,
+      "total_mass_kg": 12.0685,
+      "gripper_mass_kg": 0.75143,
+      "arm_forcerange_Nm": [
+        163.2,
+        163.2,
+        81.6,
+        81.6,
+        81.6,
+        30.6,
+        30.6
+      ],
+      "gripper_forcerange": 4.91443,
+      "contacts_at_home": 0
+    },
+    "pre-1305_nogc": {
+      "load_s": 0.791,
+      "nbody": 16,
+      "nq": 13,
+      "nv": 13,
+      "nu": 8,
+      "ngeom": 19,
+      "nmesh": 16,
+      "neq": 3,
+      "ntendon": 1,
+      "timestep": 0.002,
+      "total_mass_kg": 12.0685,
+      "gripper_mass_kg": 0.75143,
+      "arm_forcerange_Nm": [
+        163.2,
+        163.2,
+        81.6,
+        81.6,
+        81.6,
+        30.6,
+        30.6
+      ],
+      "gripper_forcerange": 4.91443,
+      "contacts_at_home": 0
+    },
+    "1305+_clip": {
+      "J2_range_deg": [
+        -117.0,
+        116.0
+      ],
+      "J4_range_deg": [
+        -6.0,
+        225.0
+      ],
+      "act2_ctrlrange_deg": [
+        -117.0,
+        116.0
+      ],
+      "act4_ctrlrange_deg": [
+        -6.0,
+        225.0
+      ]
+    }
+  },
+  "T2_hold": {
+    "1305+": {
+      "home": {
+        "final_dev_rad": [
+          0.0,
+          0.000548,
+          0.0,
+          0.000863,
+          0.0,
+          0.000195,
+          0.0
+        ],
+        "max_dev_rad": 0.0008629421010493132,
+        "max_dev_joint": 4,
+        "max_total_joint_torque_Nm": [
+          0.0,
+          13.513,
+          0.124,
+          15.543,
+          0.084,
+          1.521,
+          0.0
+        ],
+        "max_torque_fraction_of_limit": 0.16894137736628068,
+        "gravcomp_Nm_final": [
+          0.0,
+          -12.69,
+          0.124,
+          14.679,
+          0.084,
+          -1.365,
+          -0.0
+        ],
+        "passive_Nm_final": [
+          0.0,
+          -0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "finite": true,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 5779.1
+      },
+      "reach": {
+        "final_dev_rad": [
+          0.0,
+          0.000504,
+          0.0,
+          0.000284,
+          0.0,
+          0.000247,
+          0.0
+        ],
+        "max_dev_rad": 0.0005043255454734163,
+        "max_dev_joint": 2,
+        "max_total_joint_torque_Nm": [
+          0.0,
+          21.147,
+          0.327,
+          4.203,
+          0.009,
+          1.691,
+          0.002
+        ],
+        "max_torque_fraction_of_limit": 0.11784434317440959,
+        "gravcomp_Nm_final": [
+          0.0,
+          -20.39,
+          -0.327,
+          3.918,
+          -0.009,
+          -1.494,
+          0.002
+        ],
+        "passive_Nm_final": [
+          0.0,
+          -0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "finite": true,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 3506.5
+      }
+    },
+    "1305+_nogc": {
+      "home": {
+        "final_dev_rad": [
+          0.0,
+          0.009074,
+          0.00012,
+          0.015447,
+          8.3e-05,
+          0.001846,
+          1e-06
+        ],
+        "max_dev_rad": 0.015446637454062606,
+        "max_dev_joint": 4,
+        "max_total_joint_torque_Nm": [
+          0.027,
+          13.611,
+          0.12,
+          15.447,
+          0.083,
+          1.477,
+          0.001
+        ],
+        "max_torque_fraction_of_limit": 0.16790667026979533,
+        "gravcomp_Nm_final": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "passive_Nm_final": [
+          0.0,
+          -0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "finite": true,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 5029.0
+      },
+      "reach": {
+        "final_dev_rad": [
+          0.0,
+          0.014049,
+          0.000329,
+          0.003929,
+          1.1e-05,
+          0.002075,
+          2e-06
+        ],
+        "max_dev_rad": 0.014049030564269094,
+        "max_dev_joint": 2,
+        "max_total_joint_torque_Nm": [
+          0.036,
+          21.074,
+          0.329,
+          3.93,
+          0.023,
+          1.66,
+          0.002
+        ],
+        "max_torque_fraction_of_limit": 0.11743774078496333,
+        "gravcomp_Nm_final": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "passive_Nm_final": [
+          0.0,
+          -0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "finite": true,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 5799.8
+      }
+    },
+    "pre-1305": {
+      "home": {
+        "final_dev_rad": [
+          0.0,
+          0.000548,
+          0.0,
+          0.000863,
+          0.0,
+          0.000195,
+          0.0
+        ],
+        "max_dev_rad": 0.0008629421010493132,
+        "max_dev_joint": 4,
+        "max_total_joint_torque_Nm": [
+          0.0,
+          13.513,
+          0.124,
+          15.543,
+          0.084,
+          1.521,
+          0.0
+        ],
+        "max_torque_fraction_of_limit": 0.19047312154041451,
+        "gravcomp_Nm_final": [
+          0.0,
+          -12.69,
+          0.124,
+          14.679,
+          0.084,
+          -1.365,
+          -0.0
+        ],
+        "passive_Nm_final": [
+          0.0,
+          -0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "finite": true,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 7705.8
+      },
+      "reach": {
+        "final_dev_rad": [
+          0.0,
+          0.000504,
+          0.0,
+          0.000284,
+          0.0,
+          0.000247,
+          0.0
+        ],
+        "max_dev_rad": 0.0005043255454734163,
+        "max_dev_joint": 2,
+        "max_total_joint_torque_Nm": [
+          0.0,
+          21.147,
+          0.327,
+          4.203,
+          0.009,
+          1.691,
+          0.002
+        ],
+        "max_torque_fraction_of_limit": 0.12957426004142367,
+        "gravcomp_Nm_final": [
+          0.0,
+          -20.39,
+          -0.327,
+          3.918,
+          -0.009,
+          -1.494,
+          0.002
+        ],
+        "passive_Nm_final": [
+          0.0,
+          -0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "finite": true,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 6614.3
+      }
+    },
+    "pre-1305_nogc": {
+      "home": {
+        "final_dev_rad": [
+          0.0,
+          0.009074,
+          0.00012,
+          0.015447,
+          8.3e-05,
+          0.001846,
+          1e-06
+        ],
+        "max_dev_rad": 0.015446637454062606,
+        "max_dev_joint": 4,
+        "max_total_joint_torque_Nm": [
+          0.027,
+          13.611,
+          0.12,
+          15.447,
+          0.083,
+          1.477,
+          0.001
+        ],
+        "max_torque_fraction_of_limit": 0.18930654001006336,
+        "gravcomp_Nm_final": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "passive_Nm_final": [
+          0.0,
+          -0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "finite": true,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 6440.7
+      },
+      "reach": {
+        "final_dev_rad": [
+          0.0,
+          0.014049,
+          0.000329,
+          0.003929,
+          1.1e-05,
+          0.002075,
+          2e-06
+        ],
+        "max_dev_rad": 0.014049030564269094,
+        "max_dev_joint": 2,
+        "max_total_joint_torque_Nm": [
+          0.036,
+          21.074,
+          0.329,
+          3.93,
+          0.023,
+          1.66,
+          0.002
+        ],
+        "max_torque_fraction_of_limit": 0.12912718551646662,
+        "gravcomp_Nm_final": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "passive_Nm_final": [
+          0.0,
+          -0.0,
+          -0.0,
+          0.0,
+          -0.0,
+          0.0,
+          -0.0
+        ],
+        "finite": true,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 4636.2
+      }
+    }
+  },
+  "T3_stroke": {
+    "opening_open_mm": 84.73,
+    "opening_closed_mm": 1.64,
+    "stroke_mm": 83.09,
+    "spec_stroke_mm": "84 +/- 1 (G2 UM v2.7.1)",
+    "close_10_90_s": 0.23,
+    "gripper_joint_q_closed_rad": [
+      0.85,
+      0.85,
+      0.85,
+      0.85,
+      0.85,
+      0.85
+    ],
+    "parallelogram_mismatch_rad": 2.95092890112425e-05,
+    "pad_span_vs_STEP": {
+      "gap_mm": 29.16,
+      "pad_z_span_mm": [
+        136.31,
+        176.31
+      ],
+      "pad_face_abs_y_mm": 14.58,
+      "STEP_fingertip_z_mm": [
+        136.3,
+        176.3
+      ],
+      "STEP_face_abs_y_mm": 14.58
+    }
+  },
+  "T4_squeeze": {
+    "setup": {
+      "box_center_m": [
+        0.39959,
+        0.0,
+        0.37549
+      ],
+      "contacts_with_box_at_start": "none"
+    },
+    "settings": {
+      "10N": {
+        "left_pad_normal_N_mean": 10.32,
+        "right_pad_normal_N_mean": 10.32,
+        "left_pad_normal_N_std": 0.583,
+        "other_box_contacts_N_mean": 0.0,
+        "other_contacts_final": {},
+        "tendon_force_mean": 0.8004,
+        "tendon_forcerange": 0.8004,
+        "opening_final_mm": 57.05,
+        "max_penetration_mm": 0.001,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 2744.1,
+        "error_vs_setpoint_N": 0.32
+      },
+      "30N": {
+        "left_pad_normal_N_mean": 29.97,
+        "right_pad_normal_N_mean": 29.97,
+        "left_pad_normal_N_std": 0.119,
+        "other_box_contacts_N_mean": 0.0,
+        "other_contacts_final": {},
+        "tendon_force_mean": 2.8574,
+        "tendon_forcerange": 2.8574,
+        "opening_final_mm": 57.16,
+        "max_penetration_mm": 0.003,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 3294.1,
+        "error_vs_setpoint_N": -0.03
+      },
+      "50N": {
+        "left_pad_normal_N_mean": 49.84,
+        "right_pad_normal_N_mean": 49.84,
+        "left_pad_normal_N_std": 0.062,
+        "other_box_contacts_N_mean": 0.0,
+        "other_contacts_final": {},
+        "tendon_force_mean": 4.9144,
+        "tendon_forcerange": 4.9144,
+        "opening_final_mm": 57.27,
+        "max_penetration_mm": 0.005,
+        "no_xfrc_qfrc_applied": true,
+        "steps_per_s": 3944.5,
+        "error_vs_setpoint_N": -0.16
+      }
+    }
+  }
+}
