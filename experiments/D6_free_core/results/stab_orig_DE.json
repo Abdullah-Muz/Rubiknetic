@@ -1,0 +1,43 @@
+{
+ "study": "D6b",
+ "scored": false,
+ "mode": "orig",
+ "seq": "U U'",
+ "stab_hold": "DE",
+ "moves": [
+  {
+   "move": "U",
+   "observed": "U",
+   "ok": true,
+   "layer_deg": -89.84866887773387,
+   "error_deg": 0.15133112226612866,
+   "drift_deg": 0.002916524402603848,
+   "core_slip_mm": 0.22428704233995866,
+   "core_rot_deg": 9.596330809500908e-06,
+   "peak_turner_torque_Nm": 0.05522269254300717,
+   "unlocked": [
+    "U"
+   ],
+   "refusals": [],
+   "max_abs_dKE_J": 3.770037099768836e-09
+  },
+  {
+   "move": "U'",
+   "observed": "U'",
+   "ok": true,
+   "layer_deg": 89.70691693993328,
+   "error_deg": -0.2930830600667207,
+   "drift_deg": 8.343467374983267e-06,
+   "core_slip_mm": 0.166203578819041,
+   "core_rot_deg": 1.800690134483223e-05,
+   "peak_turner_torque_Nm": 0.05174210107526367,
+   "unlocked": [
+    "U"
+   ],
+   "refusals": [],
+   "max_abs_dKE_J": 4.4425251626024065e-09
+  }
+ ],
+ "all_ok": true,
+ "steps_per_s": 1197.2649124328507
+}

@@ -1,0 +1,53 @@
+{
+ "study": "D6b",
+ "scored": false,
+ "mode": "shear",
+ "seq": "U U'",
+ "stab_hold": "D",
+ "moves": [
+  {
+   "move": "U",
+   "observed": "None",
+   "ok": false,
+   "layer_deg": 9.856206769632894e-10,
+   "error_deg": 90.00000000098562,
+   "drift_deg": 0.006412250350097245,
+   "core_slip_mm": 13.308003771398345,
+   "core_rot_deg": 0.00033802835415729207,
+   "peak_turner_torque_Nm": 1.0,
+   "unlocked": [],
+   "refusals": [
+    "multiple faces",
+    "multiple faces",
+    "multiple faces",
+    "multiple faces",
+    "multiple faces",
+    "multiple faces"
+   ],
+   "max_abs_dKE_J": 0.0
+  },
+  {
+   "move": "U'",
+   "observed": "None",
+   "ok": false,
+   "layer_deg": 67.94159789188548,
+   "error_deg": -22.05840210811452,
+   "drift_deg": 0.002420765480019714,
+   "core_slip_mm": 0.9695634977782801,
+   "core_rot_deg": 0.0004154738031228166,
+   "peak_turner_torque_Nm": 0.053465145050730634,
+   "unlocked": [
+    "U"
+   ],
+   "refusals": [
+    "layer U still unlocked",
+    "layer U still unlocked",
+    "layer U still unlocked",
+    "layer U still unlocked"
+   ],
+   "max_abs_dKE_J": 1.5905408539834353e-08
+  }
+ ],
+ "all_ok": false,
+ "steps_per_s": 862.9541959835265
+}

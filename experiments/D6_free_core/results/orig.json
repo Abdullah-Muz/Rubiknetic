@@ -1,0 +1,54 @@
+{
+ "study": "D6",
+ "scored": false,
+ "mode": "orig",
+ "seq": "U R",
+ "moves": [
+  {
+   "move": "U",
+   "holder": "D",
+   "observed": "D",
+   "ok": false,
+   "layer_deg": -1.3457236887739377e-07,
+   "error_deg": 89.99999986542763,
+   "drift_deg": 89.85554181966147,
+   "core_slip_mm": 0.16008274469414177,
+   "core_rot_deg": 89.84910610049319,
+   "penetration_mm": 0.22686782922924595,
+   "peak_turner_torque_Nm": 0.04905961393569901,
+   "unlocks": 1,
+   "refusals": [],
+   "max_abs_dKE_J": 5.685906267408309e-07
+  },
+  {
+   "move": "R",
+   "holder": "L",
+   "observed": "None",
+   "ok": false,
+   "layer_deg": 0.000998477826675603,
+   "error_deg": 90.00099847782667,
+   "drift_deg": 2.5955068091299864,
+   "core_slip_mm": 7.802060496722039,
+   "core_rot_deg": 19.482051449377337,
+   "penetration_mm": 0.4331210286628782,
+   "peak_turner_torque_Nm": 1.0,
+   "unlocks": 1,
+   "refusals": [
+    "multiple faces",
+    "layer L still unlocked",
+    "layer L still unlocked",
+    "layer L still unlocked",
+    "layer L still unlocked",
+    "layer L still unlocked",
+    "layer L still unlocked",
+    "layer L still unlocked",
+    "layer L still unlocked"
+   ],
+   "max_abs_dKE_J": 8.100580995161304e-06
+  }
+ ],
+ "all_ok": false,
+ "total_core_slip_mm": 13.86964699016569,
+ "total_core_rot_deg": 89.95740578962425,
+ "steps_per_s": 1063.9416578492812
+}

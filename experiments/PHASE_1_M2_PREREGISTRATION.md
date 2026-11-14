@@ -109,3 +109,21 @@ a scripted rotation is never a fallback.
 2. Approve the NEW criteria in section 4 (all tighten or add, none loosen).
 3. Approve the trial counts and seed range.
 4. Approve the harness work in section 6 before any scored run.
+
+## 9. Amendment 1 (2026-11-13, before any scored M2 trial)
+
+**Approved by the user:** "fully approved".
+
+**Trigger** (harness review, FACT, verified independently over seeds 2000–2999): the ±1° per-face setup
+misalignment compounds on corners and edges. The median worst piece is 1.22°, and 83 % of seeds exceed the 1.0°
+unlock tolerance. M2 would refuse most turns and fail E1-2 to E1-4 by construction.
+
+| # | Change |
+|---|---|
+| A1 | **Setup misalignment ±0.5° per face** for every M2 trial that draws a setup. The compound worst piece is ≤ 0.83°, inside the 1.0° unlock tolerance. **Disclosed as easier than M1's ±1° setup.** It is M2's design envelope: M2 needs a near-square cube. Misalignment tolerance is tested separately by E1-5b and E1-6e, which are unchanged |
+| A2 | **The unlock request rule becomes shear-dominance** (study D6, `experiments/D6_free_core/`). For each face F, the shear is the torque about F's axis, in the core frame, that all gripper contacts apply to the cubies currently in F's layer. F requests only if \|shear\| ≥ 0.05 N·m **and** ≥ 1.5× the next face's \|shear\|. Otherwise every face above threshold requests, and the cube refuses (ambiguous loads). All other unlock, relock and refusal conditions in section 1 are unchanged. Reason: in the fixed-core rig it behaves as the original rule; with a hand-held cube (Phase 2) the original rule unlocked the wrong layer. Equal opposed torques (E1-6b) are refused by construction |
+| A3 | **E1-7 turner stiffness factor** uses damping kv = 0.04 × kp (0.2 at kp 5, 0.8 at kp 20) |
+| A4 | **E1-6e** uses the harness's fixed map of which perpendicular face is requested for each misaligned face (`scored_m2._PERPENDICULAR`) |
+| A5 | **The E1-5 post-activation pose error** uses only the translational constraint rows, in mm, with rotation reported separately in degrees. This fixes a units mix-up in the prototype |
+
+**Unchanged:** every threshold, the pass logic (Option A), the trial counts and the seed range.
