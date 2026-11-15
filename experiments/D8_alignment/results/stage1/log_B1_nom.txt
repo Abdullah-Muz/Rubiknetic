@@ -1,0 +1,32 @@
+[B1_nom] snap_+1: {'U_err_after_release_deg': 0.23267321834408078, 'U_err_after_1s_deg': 0.22189454709432357} 128 steps/s
+[B1_nom] snap_-1: {'U_err_after_release_deg': -0.21279853055465192, 'U_err_after_1s_deg': -0.1893897996696299} 106 steps/s
+[B1_nom] snap_+2: {'U_err_after_release_deg': 0.12384955218701704, 'U_err_after_1s_deg': 0.12329629735365269} 75 steps/s
+[B1_nom] snap_-2: {'U_err_after_release_deg': -0.6111560444752497, 'U_err_after_1s_deg': -0.5507389409826076} 121 steps/s
+[B1_nom] snap_+3: {'U_err_after_release_deg': 0.06708628550352583, 'U_err_after_1s_deg': 0.05460243902414533} 135 steps/s
+[B1_nom] snap_-3: {'U_err_after_release_deg': 0.08939217967331117, 'U_err_after_1s_deg': 0.12247306100094577} 68 steps/s
+[B1_nom] snap_+5: {'U_err_after_release_deg': 0.3209252642985261, 'U_err_after_1s_deg': 0.40875404872623844} 157 steps/s
+[B1_nom] snap_-5: {'U_err_after_release_deg': -0.3037872114049135, 'U_err_after_1s_deg': -0.30063665298192405} 139 steps/s
+[B1_nom] snap_+8: {'U_err_after_release_deg': 0.23375107373505752, 'U_err_after_1s_deg': 0.20802507972300227} 140 steps/s
+[B1_nom] snap_-8: {'U_err_after_release_deg': -0.22930749925522753, 'U_err_after_1s_deg': -0.2252402228828578} 128 steps/s
+[B1_nom] forgive_+2: {'pass': True, 'outcome': 'completed'} 115 steps/s
+[B1_nom] forgive_-2: {'pass': True, 'outcome': 'completed'} 139 steps/s
+[B1_nom] forgive_+4: {'pass': True, 'outcome': 'completed'} 134 steps/s
+[B1_nom] forgive_-4: {'pass': True, 'outcome': 'completed'} 121 steps/s
+[B1_nom] forgive_+6: {'pass': True, 'outcome': 'completed'} 100 steps/s
+[B1_nom] forgive_-6: {'pass': True, 'outcome': 'completed'} 108 steps/s
+[B1_nom] forgive_+8: {'pass': True, 'outcome': 'completed'} 202 steps/s
+[B1_nom] forgive_-8: {'pass': True, 'outcome': 'completed'} 99 steps/s
+[B1_nom] forgive_+10: {'pass': True, 'outcome': 'completed'} 126 steps/s
+[B1_nom] forgive_-10: {'pass': True, 'outcome': 'completed'} 115 steps/s
+[B1_nom] forgive_+12: {'pass': True, 'outcome': 'completed'} 206 steps/s
+[B1_nom] forgive_-12: {'pass': True, 'outcome': 'completed'} 203 steps/s
+[B1_nom] seq_6move: {'moves_ok': 6, 'n_moves': 6} 197 steps/s
+[B1_nom] seq_halves: {'moves_ok': 6, 'n_moves': 6} 188 steps/s
+[B1_nom] seq_sexy6_a: {'moves_ok': 24, 'n_moves': 24} 188 steps/s
+[B1_nom] seq_sexy6_b: {'moves_ok': 24, 'n_moves': 24} 166 steps/s
+[B1_nom] seq_scr20inv_a: {'moves_ok': 40, 'n_moves': 40} 187 steps/s
+[B1_nom] seq_scr20inv_b: {'moves_ok': 40, 'n_moves': 40} 151 steps/s
+[B1_nom] opposed_UR_1Nm: {'pass': True} 211 steps/s
+[B1_nom] opposed_UR_2Nm: {'pass': True} 198 steps/s
+[B1_nom] twist_ppp: {'pass': True, 'max_twist_deg': 41.492933206962114} 220 steps/s
+[B1_nom] twist_nnn: {'pass': True, 'max_twist_deg': 38.96379822618817} 226 steps/s

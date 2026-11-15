@@ -1,12 +1,17 @@
 """D8-1b model checks V3-V6 (UNSCORED; must pass before any D8-1b trial). See D8_1b_DESIGN_PROPOSAL.md §5.
 
-V3  accuracy: the runtime hybrid force law vs the fine charge model (full quadrature, arbitrary orientation),
-    (a) for one facing pair over gap 0.5-1.5 mm and lateral offset 0-6 mm, and (b) for the whole 48-magnet cube
-    at home, with the R layer turned 2 deg, and at 20 deg. Criteria: force error <= 5 % of the aligned facing-pair
+V3  accuracy: the runtime hybrid force law vs the fine charge model (arbitrary orientation) at a finer, independent
+    quadrature (32 x 96; the table uses 16 x 48), (a) for one facing pair over gap 0.5-1.5 mm and lateral offset
+    0-6 mm in 0.37 mm steps (off the table's rho nodes), (b) for pairs tilted 2, 5 and 10 deg (must pass up to 5 deg;
+    the largest passing tilt is recorded as the validated range), and (c) for the whole 48-magnet cube at home, with
+    the R layer turned 2 deg, and at 20 deg. (a)-(b) and the finer reference were added on 2026-11-14 after an
+    independent review found the first V3 too weak. Criteria: force error <= 5 % of the aligned facing-pair
     normal force at the nominal gap; per-magnet torque error <= max(5 % of the largest fine torque in the set,
     2e-5 N m). The torque criterion was added on 2026-11-14 after the first full run showed per-magnet torque
     errors (~1e-3 N m) that the force-only criterion missed.
 V4  Newton's third law and angular momentum: sum F = 0 and sum (T + p x F) = 0 over random perturbed cube states.
+    For near pairs the partner torque is set from the balance, so V4 tests the far-field terms and the scatter
+    bookkeeping; the split of a near pair's torque between its two magnets is tested by V3, not V4.
 V5  energy conservation inside MuJoCo: the R layer turns as one rigid body on its centre hinge, every other piece
     fixed; contacts, gravity, damping and friction off; R layer released 3 deg off square; RK4 at 0.5 ms. Criterion: max |E(t) - E0| <= 1 % of the magnet energy exchanged. Also reported for
     the operational integrator (implicitfast).
@@ -29,7 +34,7 @@ from scipy.spatial.transform import Rotation
 
 sys.path.insert(0, str(Path(__file__).parent))
 from magnet_force import MU0, disc_points  # noqa: E402
-from magnets import MagnetParams, MagnetSystem, correction_spline, pair_forces  # noqa: E402
+from magnets import MagnetParams, MagnetSystem, near_field_tables, pair_forces  # noqa: E402
 
 from rubiknetic.cube_logic.geometric import HOME_POSITIONS  # noqa: E402
 from rubiknetic.cube_physics.m1_model import M1Params, build_m1_xml, cubie_name  # noqa: E402
@@ -99,26 +104,63 @@ def turn_layer(m, d, axis: int, sign: int, deg: float) -> None:
             d.qpos[a] = np.radians(deg) * np.sign(np.dot(h, ax))
 
 
+REF_QUAD = (32, 96)        # V3 reference quadrature: independent of (finer than) the table's TABLE_QUAD
+REF_QUAD_CUBE = (24, 72)   # whole-cube near pairs (many pairs); still finer than and different from the table's
+TILTS_DEG = (2.0, 5.0, 10.0)
+TILT_REQUIRED_DEG = 5.0    # V3 must pass up to this tilt; the largest passing tilt is the validated range
+
+
 def v3(spline) -> dict:
-    res = {"pair": [], "cube": []}
+    """Revised 2026-11-14 after an independent review found the first V3 weak: its reference used the table's own
+    quadrature, its offsets sat on the table's rho nodes, and no tilted pairs were tested. Criteria are unchanged
+    (force error <= 5 % of the aligned nominal normal force; torque error <= max(5 % of the largest reference torque in
+    the set, 2e-5 N m)); only the reference and the sample points are harder."""
+    res = {"pair": [], "tilt": [], "cube": [], "ref_quad": REF_QUAD, "ref_quad_cube": REF_QUAD_CUBE}
     L = MP.length
-    Fn_nom = abs(fine_pair(MP, [0, 0, 0], [0, 0, 1], [0, 0, L + 0.001], [0, 0, 1], 16, 48)[0][2])
+    Fn_nom = abs(fine_pair(MP, [0, 0, 0], [0, 0, 1], [0, 0, L + 0.001], [0, 0, 1], *REF_QUAD)[0][2])
     res["Fn_nominal_N"] = Fn_nom
-    worst = 0.0
-    for g in (0.0005, 0.001, 0.0015):
-        for s in np.linspace(0, 0.006, 13):
-            p2, n = [s, 0, L + g], [0, 0, 1]
-            ff, tf, _ = fine_pair(MP, [0, 0, 0], n, p2, n, 16, 48)
-            fh, th, _ = hybrid_pair(MP, spline, [0, 0, 0], n, p2, n)
-            err = float(np.linalg.norm(fh - ff) / Fn_nom)
-            worst = max(worst, err)
-            res["pair"].append({"gap_mm": g * 1e3, "offset_mm": s * 1e3, "fine_N": ff.tolist(), "hybrid_N": fh.tolist(),
-                                "err_rel_Fn": err, "fine_T_Nm": tf.tolist(), "hybrid_T_Nm": th.tolist(),
-                                "T_err_Nm": float(np.linalg.norm(th - tf))})
-    res["pair_worst_err"] = worst
+
+    def compare(rows, p2, n1, n2, **tag):
+        ff, tf, _ = fine_pair(MP, [0, 0, 0], n1, p2, n2, *REF_QUAD)
+        fh, th, _ = hybrid_pair(MP, spline, [0, 0, 0], n1, p2, n2)
+        rows.append({**tag, "fine_N": ff.tolist(), "hybrid_N": fh.tolist(),
+                     "err_rel_Fn": float(np.linalg.norm(fh - ff) / Fn_nom), "fine_T_Nm": tf.tolist(),
+                     "hybrid_T_Nm": th.tolist(), "T_err_Nm": float(np.linalg.norm(th - tf))})
+
+    # (a) parallel facing pair; offsets in 0.37 mm steps (off the 0.25 mm rho nodes, plus exactly 0 for the
+    # alignment point) and gaps between the z nodes
+    z_axis = [0.0, 0.0, 1.0]
+    for g in (0.0005, 0.00075, 0.001, 0.00125, 0.0015):
+        for s in np.arange(0.0, 0.0061, 0.00037):
+            compare(res["pair"], [s, 0, L + g], z_axis, z_axis, gap_mm=g * 1e3, offset_mm=s * 1e3)
     t_scale = max(np.linalg.norm(c["fine_T_Nm"]) for c in res["pair"])
+    res["pair_worst_err"] = max(c["err_rel_Fn"] for c in res["pair"])
     res["pair_worst_T_err_Nm"] = max(c["T_err_Nm"] for c in res["pair"])
     res["pair_T_tol_Nm"] = max(0.05 * t_scale, 2e-5)
+    pair_ok = res["pair_worst_err"] <= 0.05 and res["pair_worst_T_err_Nm"] <= res["pair_T_tol_Nm"]
+    # (b) tilted pairs at the nominal 1.0 mm gap, tilted about the offset direction and about the perpendicular
+    # direction; offsets 0, 0.63, 1.37, 2.11 mm. Three cases (revision 2 added the last two): magnet 2 above and
+    # tilted; magnet 1 (the frame magnet in the force law) tilted; magnet 2 below and tilted (z < 0 branch).
+    # Force and torque are compared on magnet 2.
+    for tilt in TILTS_DEG:
+        for about in ("x", "y"):
+            nt = Rotation.from_euler(about, tilt, degrees=True).apply(z_axis)
+            for s in (0.0, 0.00063, 0.00137, 0.00211):
+                tag = {"tilt_deg": tilt, "about": about, "offset_mm": s * 1e3}
+                compare(res["tilt"], [s, 0, L + 0.001], z_axis, nt, case="upper_tilted", **tag)
+                compare(res["tilt"], [s, 0, L + 0.001], nt, z_axis, case="frame_magnet_tilted", **tag)
+                compare(res["tilt"], [s, 0, -(L + 0.001)], z_axis, nt, case="below_tilted", **tag)
+    res["tilt_T_tol_Nm"] = max(0.05 * max(np.linalg.norm(c["fine_T_Nm"]) for c in res["tilt"]), 2e-5)
+    res["tilt_by_angle"] = {}
+    for tilt in TILTS_DEG:
+        rows = [c for c in res["tilt"] if c["tilt_deg"] == tilt]
+        wf = max(c["err_rel_Fn"] for c in rows)
+        wt = max(c["T_err_Nm"] for c in rows)
+        res["tilt_by_angle"][str(tilt)] = {"worst_err_rel_Fn": wf, "worst_T_err_Nm": wt,
+                                          "pass": bool(wf <= 0.05 and wt <= res["tilt_T_tol_Nm"])}
+    passing = [t for t in TILTS_DEG if all(res["tilt_by_angle"][str(u)]["pass"] for u in TILTS_DEG if u <= t)]
+    res["validated_tilt_deg"] = max(passing) if passing else 0.0
+    tilt_ok = res["validated_tilt_deg"] >= TILT_REQUIRED_DEG
     # whole cube
     m, d = build(M1Params(radial_preload=0.0, rig=False))
     ms = MagnetSystem(m, 0.019, M1Params().gap, MP, CACHE)
@@ -132,7 +174,7 @@ def v3(spline) -> dict:
         Uf = 0.0
         for i, j in zip(ms.ii, ms.jj):
             near = np.linalg.norm(p[j] - p[i]) < MP.r2
-            f, t, u = fine_pair(MP, p[i], n[i], p[j], n[j], *((16, 48) if near else (6, 16)))
+            f, t, u = fine_pair(MP, p[i], n[i], p[j], n[j], *(REF_QUAD_CUBE if near else (6, 16)))
             # torque on i about p_i: total angular momentum balance gives T_i = -(T_j + (p_j - p_i) x f)
             Ff[j] += f
             Ff[i] -= f
@@ -145,8 +187,7 @@ def v3(spline) -> dict:
                             "max_torque_fine_Nm": float(np.abs(Tf).max()), "energy_hybrid_J": Uh, "energy_fine_J": Uf})
     t_cube = max(max(c["max_torque_fine_Nm"] for c in res["cube"]) * 0.05, 2e-5)
     res["cube_T_tol_Nm"] = t_cube
-    res["pass"] = bool(worst <= 0.05 and all(c["max_force_err_rel_Fn"] <= 0.05 for c in res["cube"])
-                       and res["pair_worst_T_err_Nm"] <= res["pair_T_tol_Nm"]
+    res["pass"] = bool(pair_ok and tilt_ok and all(c["max_force_err_rel_Fn"] <= 0.05 for c in res["cube"])
                        and all(c["max_torque_err_Nm"] <= t_cube for c in res["cube"]))
     return res
 
@@ -202,9 +243,9 @@ def build_r_hinge_model(mp1: M1Params) -> tuple[mujoco.MjModel, mujoco.MjData]:
     return m, mujoco.MjData(m)
 
 
-def v5(integrator: str, duration: float = 0.5) -> dict:
+def v5(integrator: str, duration: float = 0.5, timestep: float = 0.0005) -> dict:
     mp1 = M1Params(radial_preload=0.0, rig=False, gravity_z=0.0, joint_damping=0.0, joint_frictionloss=0.0,
-                   integrator=integrator)
+                   integrator=integrator, timestep=timestep)
     m, d = build_r_hinge_model(mp1)
     m.opt.disableflags |= mujoco.mjtDisableBit.mjDSBL_CONTACT
     m.opt.enableflags |= mujoco.mjtEnableBit.mjENBL_ENERGY
@@ -222,7 +263,10 @@ def v5(integrator: str, duration: float = 0.5) -> dict:
         E, U = np.array(E), np.array(U)
         exch = float(U.max() - U.min())
         drift = float(np.abs(E - E[0]).max())
-        return {"integrator": integrator, "duration_s": duration, "energy_exchanged_J": exch, "max_drift_J": drift,
+        half = len(E) // 2
+        return {"integrator": integrator, "duration_s": duration, "timestep_s": timestep,
+                "mean_drift_first_half_J": float(np.mean(E[:half] - E[0])),
+                "mean_drift_second_half_J": float(np.mean(E[half:] - E[0])), "energy_exchanged_J": exch, "max_drift_J": drift,
                 "max_gain_J": float((E - E[0]).max()), "final_drift_J": float(E[-1] - E[0]),
                 "drift_rel": drift / exch if exch > 0 else None, "stats": dict(ms.stats),
                 "pass": bool(exch > 0 and drift <= 0.01 * exch)}
@@ -308,7 +352,7 @@ def throughput() -> dict:
 
 def main() -> None:
     t0 = time.perf_counter()
-    spline = correction_spline(MP, CACHE)
+    spline = near_field_tables(MP, CACHE)
     print(f"table ready ({time.perf_counter() - t0:.0f} s)", flush=True)
     res = {"magnet_params": asdict(MP), "moment_Am2": MP.moment, "Br_T": MP.br, "mujoco": mujoco.__version__}
     res["survey"] = survey(spline)
@@ -321,13 +365,20 @@ def main() -> None:
     print("V5 RK4:", {k: v for k, v in res["V5_rk4"].items() if k != "stats"}, flush=True)
     res["V5_implicitfast"] = v5("implicitfast")
     print("V5 implicitfast:", {k: v for k, v in res["V5_implicitfast"].items() if k != "stats"}, flush=True)
+    # Diagnostic (review finding 7): a real energy gain keeps growing over time; a symplectic-Euler oscillation stays
+    # bounded and shrinks with dt. Not a pass criterion.
+    for dur, dt in ((5.0, 0.0005), (5.0, 0.00025)):
+        key = f"V5_implicitfast_{dur:g}s_dt{dt * 1e3:g}ms"
+        res[key] = v5("implicitfast", dur, dt)
+        print(key, {k: v for k, v in res[key].items() if k != "stats"}, flush=True)
     res["throughput_idle_steps_per_s"] = throughput()
     print("throughput:", res["throughput_idle_steps_per_s"], flush=True)
     res["V3"] = v3(spline)
     v = res["V3"]
     print("V3: pair worst F", round(v["pair_worst_err"], 4), "T", f'{v["pair_worst_T_err_Nm"]:.2e}/{v["pair_T_tol_Nm"]:.2e}',
           "cube", [(c["R_turn_deg"], round(c["max_force_err_rel_Fn"], 4), f'{c["max_torque_err_Nm"]:.1e}')
-                   for c in v["cube"]], f'T tol {v["cube_T_tol_Nm"]:.1e}', "pass", v["pass"])
+                   for c in v["cube"]], f'T tol {v["cube_T_tol_Nm"]:.1e}', "tilt", v["tilt_by_angle"],
+          "validated tilt", v["validated_tilt_deg"], "pass", v["pass"])
     res["all_pass"] = all(res[k]["pass"] for k in ("survey", "V3", "V4", "V5_rk4", "V6"))
     res["wall_s"] = round(time.perf_counter() - t0, 1)
     OUT.mkdir(parents=True, exist_ok=True)

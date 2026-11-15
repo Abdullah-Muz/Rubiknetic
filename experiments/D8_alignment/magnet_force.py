@@ -93,7 +93,9 @@ def main() -> None:
         f"Br_{b}": float(-pair_force(0.002, 0.002, b, 0.00005, 0.0, n_r=40, n_phi=96)[2]) for b in (1.32, 1.38)}
     out["checks"]["V2_supplier_adhesive_N"] = 4.12
 
-    grades = {"N35": 1.19, "N52": 1.45}      # mid-range Br (T) from public grade tables (see README)
+    # mid-range Br (T) from public grade tables (see README). magnets.py uses 1.455 T for N52 (the table midpoint);
+    # the 0.3 % difference affects only this script's recorded N52 rows, not the nominal N35 model.
+    grades = {"N35": 1.19, "N52": 1.45}
     sizes = {"4x2": (0.002, 0.002), "4x1.5": (0.002, 0.0015), "3x1.5": (0.0015, 0.0015)}
     for sz, (a, L) in sizes.items():
         for gname, br in grades.items():

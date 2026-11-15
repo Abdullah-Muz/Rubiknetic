@@ -1,0 +1,36 @@
+[B2_none] snap_+1: {'U_err_after_release_deg': 0.8715563329406878, 'U_err_after_1s_deg': 0.8700759796738184} 342 steps/s
+[B2_none] snap_-1: {'U_err_after_release_deg': -0.8517318985623912, 'U_err_after_1s_deg': -0.853040830647409} 321 steps/s
+[B2_none] snap_+2: {'U_err_after_release_deg': 1.8761654529297758, 'U_err_after_1s_deg': 1.877478640652431} 306 steps/s
+[B2_none] snap_-2: {'U_err_after_release_deg': -1.739224437884729, 'U_err_after_1s_deg': -1.740193637032053} 331 steps/s
+[B2_none] snap_+3: {'U_err_after_release_deg': 2.6931630405901243, 'U_err_after_1s_deg': 2.690404950735746} 140 steps/s
+[B2_none] snap_-3: {'U_err_after_release_deg': -2.6755489959013987, 'U_err_after_1s_deg': -2.675378470391382} 288 steps/s
+[B2_none] snap_+5: {'U_err_after_release_deg': 4.855812705537874, 'U_err_after_1s_deg': 4.857758651463573} 290 steps/s
+[B2_none] snap_-5: {'U_err_after_release_deg': -4.721055947619609, 'U_err_after_1s_deg': -4.720147533470566} 318 steps/s
+[B2_none] snap_+8: {'U_err_after_release_deg': 7.5261966152753335, 'U_err_after_1s_deg': 7.523427522951918} 152 steps/s
+[B2_none] snap_-8: {'U_err_after_release_deg': -5.335549282438185, 'U_err_after_1s_deg': -5.312605007483517} 130 steps/s
+[B2_none] forgive_+2: {'pass': True, 'outcome': 'completed'} 105 steps/s
+[B2_none] forgive_-2: {'pass': True, 'outcome': 'completed'} 114 steps/s
+[B2_none] forgive_+4: {'pass': True, 'outcome': 'completed'} 100 steps/s
+[B2_none] forgive_-4: {'pass': True, 'outcome': 'completed'} 112 steps/s
+[B2_none] forgive_+6: {'pass': True, 'outcome': 'completed'} 126 steps/s
+[B2_none] forgive_-6: {'pass': True, 'outcome': 'completed'} 120 steps/s
+[B2_none] forgive_+8: {'pass': True, 'outcome': 'blocked_unknown'} 175 steps/s
+[B2_none] forgive_-8: {'pass': True, 'outcome': 'completed'} 152 steps/s
+[B2_none] forgive_+10: {'pass': True, 'outcome': 'blocked_unknown'} 177 steps/s
+[B2_none] forgive_-10: {'pass': True, 'outcome': 'completed'} 192 steps/s
+[B2_none] forgive_+12: {'pass': True, 'outcome': 'blocked_unknown'} 358 steps/s
+[B2_none] forgive_-12: {'pass': True, 'outcome': 'completed'} 323 steps/s
+[B2_none] seq_6move: {'moves_ok': 6, 'n_moves': 6} 220 steps/s
+[B2_none] seq_halves: {'moves_ok': 6, 'n_moves': 6} 208 steps/s
+[B2_none] seq_sexy6_a: {'moves_ok': 24, 'n_moves': 24} 213 steps/s
+[B2_none] seq_sexy6_b: {'moves_ok': 24, 'n_moves': 24} 235 steps/s
+[B2_none] seq_scr20inv_a: {'moves_ok': 40, 'n_moves': 40} 211 steps/s
+[B2_none] seq_scr20inv_b: {'moves_ok': 40, 'n_moves': 40} 187 steps/s
+[B2_none] opposed_UR_1Nm: {'pass': False} 377 steps/s
+[B2_none] opposed_UR_2Nm: {'pass': False} 307 steps/s
+WARNING: Nan, Inf or huge value in QACC at DOF 43. The simulation is unstable. Time = 1.3225.
+
+[B2_none] twist_ppp: {'pass': False, 'aborted': 'NumericalFailure: mjWARN_BADQACC at t~1.3230s step 2646 (dof 43); state was auto-reset by MuJoCo'} 0 steps/s
+WARNING: Nan, Inf or huge value in QACC at DOF 0. The simulation is unstable. Time = 1.2815.
+
+[B2_none] twist_nnn: {'pass': False, 'aborted': 'NumericalFailure: mjWARN_BADQACC at t~1.2820s step 2564 (dof 0); state was auto-reset by MuJoCo'} 0 steps/s

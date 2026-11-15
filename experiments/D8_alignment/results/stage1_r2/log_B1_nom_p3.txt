@@ -1,0 +1,5 @@
+[B1_nom] seq_scr20inv_b: {'moves_ok': 40, 'n_moves': 40} 320 steps/s
+[B1_nom] opposed_UR_1Nm: {'pass': True} 441 steps/s
+[B1_nom] opposed_UR_2Nm: {'pass': True} 393 steps/s
+[B1_nom] twist_ppp: {'pass': True, 'max_twist_deg': 41.4884366127218} 456 steps/s
+[B1_nom] twist_nnn: {'pass': True, 'max_twist_deg': 39.1228711708587} 331 steps/s

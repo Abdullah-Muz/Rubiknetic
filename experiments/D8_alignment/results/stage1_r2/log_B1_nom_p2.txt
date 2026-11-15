@@ -1,0 +1,5 @@
+[B1_nom] seq_6move: {'moves_ok': 6, 'n_moves': 6} 257 steps/s
+[B1_nom] seq_halves: {'moves_ok': 6, 'n_moves': 6} 320 steps/s
+[B1_nom] seq_sexy6_a: {'moves_ok': 24, 'n_moves': 24} 316 steps/s
+[B1_nom] seq_sexy6_b: {'moves_ok': 24, 'n_moves': 24} 407 steps/s
+[B1_nom] seq_scr20inv_a: {'moves_ok': 40, 'n_moves': 40} 437 steps/s

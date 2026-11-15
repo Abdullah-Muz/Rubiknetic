@@ -18,11 +18,13 @@ Force law (D8_1b_DESIGN_PROPOSAL.md §5), a fixed function of the poses of the b
   * s = sign(n1 . n2); w = smooth cutoff (1 below R1, 0 above R2, C2 quintic in between).
   * Only facing pairs come within R2 in legal motion, and their axes stay parallel during turns, so the parallel /
     perpendicular branch never switches inside R2 (counted at run time: stats['near_perpendicular'] must stay 0).
-  Forces are -grad U. Torques: dipole m x B for far pairs; for near parallel pairs the exact charge-model torque on
-  the upper magnet (a second table), blended by w, with the partner's torque set by exact angular-momentum balance
-  (T_i + T_j = -rv x F_j). Rotation about the common axis (the turning motion) is exactly conservative (V5).
-  ASSUMPTION: for slightly TILTED pairs the parallel-pair tables stand in for the true tilted-pair energy and torque
-  (tilts are small in legal motion), so energy is conserved only to first order in tilt.
+  Forces are -grad U. Torques: dipole m x B for far pairs; for near pairs, minus the orientation gradient of U on
+  magnet j, with the partner's torque set by exact angular-momentum balance (T_i + T_j = -rv x F_j).
+  REVISION 2 (2026-11-14): revision 1 used parallel-pair tables for tilted pairs as well (energy and a separate exact
+  torque table). The strengthened V3 showed this fails for tilted pairs (force error 4.7 % / 11 % / 23 % at
+  2 / 5 / 10 deg). The correction is now a second-order expansion in the tilt (near_field_tables), built from exact
+  charge-model energies, and every force and torque derives from that single rotation-invariant potential, so energy
+  and angular momentum are conserved for any tilt; its accuracy at a given tilt is what V3 tests.
 Injection: mujoco.set_mjcb_passive adds the generalized forces to qfrc_passive inside mj_step (D5 detent.py
 precedent), so the AuditedSim edit audit is unaffected. The callback reads ONLY body poses (xpos, xmat). It never
 reads controls, time, commands, oracle state or switch state.
@@ -153,6 +155,7 @@ def _dipole_parallel_energy(m_abs: float, rho, z):
 
 
 _TABLE_CACHE: dict = {}
+TABLE_QUAD = (16, 48)      # disc quadrature (radial, angular) used to build the near-field tables
 
 
 def correction_spline(mp: MagnetParams, cache_dir: Path | None = None) -> tuple:
@@ -167,17 +170,124 @@ def correction_spline(mp: MagnetParams, cache_dir: Path | None = None) -> tuple:
     if cache_dir is not None:
         cache_dir.mkdir(parents=True, exist_ok=True)
         path = cache_dir / f"dU_{mp.diameter*1e3:g}x{mp.length*1e3:g}_{mp.br:g}T_s{mp.scale:g}_r{mp.r2*1e3:g}.npz"
-    if path is not None and path.exists() and "tau" in np.load(path):
-        f = np.load(path)
-        tab, tau = f["dU"], f["tau"]
-    else:
+    tab = tau = None
+    if path is not None and path.exists():
+        with np.load(path) as f:
+            # Reuse only a table on the same grid and quadrature (files written before "quad" was stored all used
+            # the 16 x 48 default, the only quadrature this module has ever used for tables).
+            quad = tuple(f["quad"]) if "quad" in f else (16, 48)
+            if ("tau" in f and quad == TABLE_QUAD and np.array_equal(f["rho"], rho)
+                    and np.array_equal(f["z"], zz)):
+                tab, tau = f["dU"], f["tau"]
+    if tab is None:
         R, Z = np.meshgrid(rho, zz, indexing="ij")
         a = mp.diameter / 2
-        tab = _exact_parallel_energy(a, mp.length, mp.moment, R, Z) - _dipole_parallel_energy(mp.moment, R, Z)
-        tau = _exact_parallel_torque(a, mp.length, mp.moment, R, Z)
+        tab = (_exact_parallel_energy(a, mp.length, mp.moment, R, Z, *TABLE_QUAD)
+               - _dipole_parallel_energy(mp.moment, R, Z))
+        tau = _exact_parallel_torque(a, mp.length, mp.moment, R, Z, *TABLE_QUAD)
         if path is not None:
-            np.savez(path, dU=tab, tau=tau, rho=rho, z=zz)
-    spl = (RectBivariateSpline(rho, zz, tab, kx=3, ky=3), RectBivariateSpline(rho, zz, tau, kx=3, ky=3))
+            np.savez(path, dU=tab, tau=tau, rho=rho, z=zz, quad=np.array(TABLE_QUAD))
+    # Fit on the grid mirrored to negative rho (energy even, scalar torque odd in signed rho), so the fitted energy
+    # has zero slope at rho = 0. A one-sided fit leaves a nonzero slope there (measured 15 mN for 4x2 mm at 3 mm),
+    # which is a spurious cusp force toward exact alignment (review finding, 2026-11-14).
+    rho_m = np.concatenate([-rho[:0:-1], rho])
+    tab_m = np.concatenate([tab[:0:-1], tab])
+    tau_m = np.concatenate([-tau[:0:-1], tau])
+    spl = (RectBivariateSpline(rho_m, zz, tab_m, kx=3, ky=3), RectBivariateSpline(rho_m, zz, tau_m, kx=3, ky=3))
+    _TABLE_CACHE[key] = spl
+    return spl
+
+
+# ------------------------------------------------------------------ tilt-aware near-field tables (revision 2)
+TILT_H_DEG = 1.5           # finite-difference tilt used to build the second-order tilt expansion
+
+
+def _exact_energy_tilted(a: float, L: float, m_abs: float, rho: float, z: float, R2: np.ndarray,
+                         n_r: int, n_phi: int) -> float:
+    """Charge-model energy (J): magnet 1 centred at the origin with axis +z; magnet 2 centred at (rho, 0, z) with its
+    body frame rotated by R2 (axis R2 @ z_hat). Magnet 2's quadrature pattern is magnet 1's pattern rotated by R2, so
+    the discretisation is identical for every tilt (no spurious anisotropy)."""
+    sigma = m_abs / (np.pi * a * a * L)
+    pts, w = disc_points(a, n_r, n_phi)
+    P = np.column_stack([pts, np.zeros(len(pts))])
+    ww = w[:, None] * w[None, :]
+    c2 = np.array([rho, 0.0, z])
+    u = 0.0
+    for za, qa in ((+L / 2, 1.0), (-L / 2, -1.0)):
+        x1 = P + np.array([0.0, 0.0, za])
+        for zb, qb in ((+L / 2, 1.0), (-L / 2, -1.0)):
+            x2 = c2 + (P + np.array([0.0, 0.0, zb])) @ R2.T
+            d = x2[None, :, :] - x1[:, None, :]
+            u += qa * qb * float(np.sum(ww / np.sqrt(np.einsum("ijk,ijk->ij", d, d))))
+    return MU0 / (4 * np.pi) * sigma * sigma * u
+
+
+def _dipole_energy(m_abs: float, rv: np.ndarray, n1: np.ndarray, n2: np.ndarray) -> float:
+    r = float(np.linalg.norm(rv))
+    rh = rv / r
+    return MU0 / (4 * np.pi) * m_abs ** 2 * (float(n1 @ n2) - 3 * float(n1 @ rh) * float(n2 @ rh)) / r ** 3
+
+
+def _rot(axis: int, ang: float) -> np.ndarray:
+    c, s = np.cos(ang), np.sin(ang)
+    if axis == 0:
+        return np.array([[1, 0, 0], [0, c, -s], [0, s, c]])
+    return np.array([[c, 0, s], [0, 1, 0], [-s, 0, c]])      # axis == 1 (y)
+
+
+def near_field_tables(mp: MagnetParams, cache_dir: Path | None = None) -> tuple:
+    """Tilt-aware near-field correction C = U_exact - U_dipole for nearly parallel pairs (revision 2, 2026-11-14).
+
+    Frame: magnet 1 axis a, magnet 2 axis u = s n2 (s = sign(n1.n2)), offset rv = p2 - p1, z = rv.a,
+    lat = rv - z a, rho = |lat|, v = u.lat, mu = u.a. Second-order expansion in the tilt of u away from a:
+        C = C0(rho, |z|) + sign(z) A(rho, |z|) v + B(rho, |z|) (1 - mu^2) / 2 + D(rho, |z|) v^2 / 2
+    (C is even in the tilt component normal to the (a, lat) plane by mirror symmetry; the z -> -z reflection flips
+    the in-plane tilt, hence sign(z)). Coefficients from central differences of the exact charge-model energy at
+    +-TILT_H_DEG: A = C_l / rho, B = C_tt, D = (C_ll - C_tt) / rho^2. All four are even in rho and fitted on the
+    mirrored grid, so the potential is smooth through rho = 0. Returns splines (C0, A, B, D) and diagnostics."""
+    key = ("tilt", mp.diameter, mp.length, mp.br, mp.scale, mp.r2, TILT_H_DEG, TABLE_QUAD)
+    if key in _TABLE_CACHE:
+        return _TABLE_CACHE[key]
+    rho = np.linspace(0.0, mp.r2 + 0.001, 37)
+    zz = np.linspace(mp.length + 0.0001, mp.r2 + 0.001, 31)
+    path, data = None, None
+    if cache_dir is not None:
+        cache_dir.mkdir(parents=True, exist_ok=True)
+        path = cache_dir / (f"tilt_{mp.diameter*1e3:g}x{mp.length*1e3:g}_{mp.br:g}T_s{mp.scale:g}_r{mp.r2*1e3:g}"
+                            f"_h{TILT_H_DEG:g}_q{TABLE_QUAD[0]}x{TABLE_QUAD[1]}.npz")
+        if path.exists():
+            with np.load(path) as f:
+                if np.array_equal(f["rho"], rho) and np.array_equal(f["z"], zz):
+                    data = {k: f[k] for k in ("C0", "Cp", "Cm", "Ct")}
+    if data is None:
+        a, L, m = mp.diameter / 2, mp.length, mp.moment
+        h = np.radians(TILT_H_DEG)
+        rots = {"C0": np.eye(3), "Cp": _rot(1, h), "Cm": _rot(1, -h), "Ct": _rot(0, h)}
+        data = {k: np.zeros((len(rho), len(zz))) for k in rots}
+        e1 = np.array([0.0, 0.0, 1.0])
+        for ir, rr in enumerate(rho):
+            for iz, z in enumerate(zz):
+                rv = np.array([rr, 0.0, z])
+                for k, R in rots.items():
+                    data[k][ir, iz] = (_exact_energy_tilted(a, L, m, rr, z, R, *TABLE_QUAD)
+                                       - _dipole_energy(m, rv, e1, R @ e1))
+        if path is not None:
+            np.savez(path, rho=rho, z=zz, h_deg=TILT_H_DEG, quad=np.array(TABLE_QUAD), **data)
+    sh = np.sin(np.radians(TILT_H_DEG))
+    C0, Cp, Cm, Ct = data["C0"], data["Cp"], data["Cm"], data["Ct"]
+    Cl = (Cp - Cm) / (2 * sh)
+    Cll = (Cp + Cm - 2 * C0) / sh ** 2
+    Ctt = 2 * (Ct - C0) / sh ** 2
+    pos = rho[1:]
+    A = Cl[1:] / pos[:, None]
+    D = (Cll[1:] - Ctt[1:]) / pos[:, None] ** 2
+
+    def even(x, t, with_zero=True):
+        if with_zero:
+            return RectBivariateSpline(np.concatenate([-x[:0:-1], x]), zz, np.concatenate([t[:0:-1], t]), kx=3, ky=3)
+        return RectBivariateSpline(np.concatenate([-x[::-1], x]), zz, np.concatenate([t[::-1], t]), kx=3, ky=3)
+
+    spl = (even(rho, C0), even(pos, A, False), even(rho, Ctt), even(pos, D, False))
     _TABLE_CACHE[key] = spl
     return spl
 
@@ -237,36 +347,50 @@ def pair_forces(mp: MagnetParams, spline, ii: np.ndarray, jj: np.ndarray, p: np.
     if stats is not None:
         stats["near_perpendicular"] += int(np.sum(near & ~par))
     if par.any():
+        # Tilt-aware near-field correction (revision 2): U_c = s w(r) C(rho, |z|, v, mu), see near_field_tables.
+        # It is a function of the rotation invariants z = rv.a, rho, v = u.lat, mu = u.a only, so forces are its exact
+        # gradient, the torque on j is -u x dU_c/du, and the torque on i follows from exact angular-momentum balance.
         k = np.nonzero(par)[0]
         ax = n[i[k]]
-        z = np.einsum("ij,ij->i", rv[k], ax)
-        lat = rv[k] - z[:, None] * ax
+        s = np.sign(cosn[k])
+        u = s[:, None] * n[j[k]]
+        rk = rv[k]
+        z = np.einsum("ij,ij->i", rk, ax)
+        lat = rk - z[:, None] * ax
         rho = np.linalg.norm(lat, axis=1)
         az = np.abs(z)
         if stats is not None:
             stats["clamped_z"] += int(np.sum(az < zmin))
+            # tilt of the pair away from parallel (V3 sets the validated range)
+            tilt = float(np.degrees(np.arccos(min(1.0, float(np.abs(cosn[k]).min())))))
+            stats["max_near_tilt_deg"] = max(stats["max_near_tilt_deg"], tilt)
         azc = np.maximum(az, zmin)
-        s = np.sign(cosn[k])
-        sU, sT = spline
-        dU = s * sU.ev(rho, azc)
-        dUr = s * sU.ev(rho, azc, dx=1)
-        dUz = s * sU.ev(rho, azc, dy=1) * (az >= zmin)
+        zon = (az >= zmin).astype(float)
+        sig = np.where(z >= 0, 1.0, -1.0)
+        mu = np.einsum("ij,ij->i", u, ax)
+        v = np.einsum("ij,ij->i", u, lat)
+        S0, SA, SB, SD = spline
+        C0, C0r, C0z = S0.ev(rho, azc), S0.ev(rho, azc, dx=1), S0.ev(rho, azc, dy=1)
+        A, Ar, Az = SA.ev(rho, azc), SA.ev(rho, azc, dx=1), SA.ev(rho, azc, dy=1)
+        B, Br, Bz = SB.ev(rho, azc), SB.ev(rho, azc, dx=1), SB.ev(rho, azc, dy=1)
+        D, Dr, Dz = SD.ev(rho, azc), SD.ev(rho, azc, dx=1), SD.ev(rho, azc, dy=1)
+        q = 1.0 - mu * mu
+        C = C0 + sig * A * v + 0.5 * B * q + 0.5 * D * v * v
+        C_r = C0r + sig * v * Ar + 0.5 * q * Br + 0.5 * v * v * Dr
+        C_z = (C0z + sig * v * Az + 0.5 * q * Bz + 0.5 * v * v * Dz) * zon
+        C_v = sig * A + D * v
+        C_mu = -B * mu
         w, dw = _cutoff(r[k], mp.r1, mp.r2)
-        U += float(np.sum(w * dU))
+        U += float(np.sum(s * w * C))
         lat_hat = np.where(rho[:, None] > 1e-12, lat / np.maximum(rho, 1e-12)[:, None], 0.0)
-        # grad wrt p_j of w(r) dU(rho, |z|); force on j is minus that, on i plus that
-        grad = (w * dUr)[:, None] * lat_hat + (w * dUz * np.sign(z))[:, None] * ax + (dw * dU)[:, None] * rh[k]
+        # d/d rv of s w C: d rho = lat_hat, d|z| = sign(z) a, d v = u - mu a, d r = rh
+        grad = s[:, None] * ((dw * C)[:, None] * rh[k]
+                             + w[:, None] * (C_r[:, None] * lat_hat + (C_z * sig)[:, None] * ax
+                                             + C_v[:, None] * (u - mu[:, None] * ax)))
         F2[k] -= grad
-        # Torques of near parallel pairs: the exact torque on the upper magnet (table), blended with the dipole torque
-        # by w; the partner gets the remainder so that T_i + T_j = -rv x F_j (exact angular-momentum balance).
-        e_t = _cross(ax, lat_hat)                      # ax x lateral direction (lower -> upper when j is upper)
-        tau = s * sT.ev(rho, azc)
-        up_j = (z >= 0)[:, None]
-        T_up = np.where(up_j, 1.0, -1.0) * tau[:, None] * e_t
-        tot = -_cross(rv[k], F2[k])
-        Tj_exact = np.where(up_j, T_up, tot - T_up)
-        T2[k] = (1 - w)[:, None] * T2[k] + w[:, None] * Tj_exact
-        T1[k] = tot - T2[k]
+        g_u = (s * w)[:, None] * (C_v[:, None] * lat + C_mu[:, None] * ax)     # d(s w C)/du
+        T2[k] = T2[k] - _cross(u, g_u)
+        T1[k] = -_cross(rk, F2[k]) - T2[k]
     Si, Sj = scatter if scatter is not None else scatter_matrices(len(p), i, j)
     F = Sj @ F2 - Si @ F2
     T = Sj @ T2 + Si @ T1
@@ -293,11 +417,16 @@ class MagnetSystem:
         self.bodies = np.unique(self.body)
         self.scatter = scatter_matrices(48, self.ii, self.jj)
         self.body_sum = (self.body[None, :] == self.bodies[:, None]).astype(float)   # (n_bodies, 48)
-        self.spline = correction_spline(mp, cache_dir)
+        self.spline = near_field_tables(mp, cache_dir)
         self.zmin = mp.length + 0.0001
-        self.stats = {"calls": 0, "clamped_z": 0, "near_perpendicular": 0, "max_force_N": 0.0, "list_rebuilds": 0,
-                      "list_pairs": len(self.ii_all)}
+        self.stats: dict = {}
+        self.reset_stats()
         self._buf = np.zeros(model.nv)
+
+    def reset_stats(self) -> None:
+        """Diagnostics only (no effect on forces). Reset at the start of every trial so stats are per trial."""
+        self.stats = {"calls": 0, "clamped_z": 0, "near_perpendicular": 0, "max_force_N": 0.0,
+                      "max_near_tilt_deg": 0.0, "list_rebuilds": 0, "list_pairs": len(self.ii)}
 
     # pure function of body poses -------------------------------------------------------------
     def world(self, xpos: np.ndarray, xmat: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
