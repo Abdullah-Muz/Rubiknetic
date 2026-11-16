@@ -5,9 +5,10 @@ probe (seeds 95-97) found drift > 1 deg in 9/18 moves at the 0.2 mm piece gap an
 configuration amendment, this runs every pre-registered experiment E1-1...E1-6 and E1-5s through the unmodified M4
 runner logic (experiments/E4_scored_m4/run.py: run_trial + apply_m4_criteria) with the piece gap overridden.
 
-Seeds: the scored list shifted by +1000 (7000-7999), disjoint from every scored range. Results are diagnostic only
+Seeds: the scored list shifted by +1000 (7000-7999; 0.1 mm) or by --shift 2000 (8000-8999; 0.05 mm), disjoint from every
+scored range. Results are diagnostic only
 and never count toward G1. The E1-6c threshold is not set, so E1-6c is reported against M1's categorical criterion.
-Usage (WSL, repo root): rehearsal_gap.py <gap_m> [--jobs N]
+Usage (WSL, repo root): rehearsal_gap.py <gap_m> [--jobs N] [--shift S]
 """
 from __future__ import annotations
 
@@ -26,7 +27,7 @@ R = importlib.util.module_from_spec(spec)
 sys.modules["e4run"] = R
 spec.loader.exec_module(R)
 
-SHIFT = 1000
+SHIFT = int(sys.argv[sys.argv.index("--shift") + 1]) if "--shift" in sys.argv else 1000   # 2026-11-16: 0.05 mm uses 2000
 EXPS = ["E1-1", "E1-2", "E1-3", "E1-4", "E1-5", "E1-6", "E1-5s", "E1-6t"]   # E1-6t added 2026-11-15 (P-24)
 
 
