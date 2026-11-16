@@ -1,6 +1,7 @@
 # Proposal: drift and rest criteria for a cube with per-piece play
 
-**Status: revision 3, `PROPOSAL`, awaiting the user's approval.**
+**Status: revision 3, approved 2026-11-15 (user: "all approved") on condition of a third independent review (P-28).
+It is not in force until that review requires no changes.**
 - Revision 2 was approved on 2026-11-16 (user: "all approved"), on condition that a second independent review passed.
   That review (§7) required changes, so per the condition revision 2 is **not in force**. Revision 3 makes those
   changes and goes back to the user.

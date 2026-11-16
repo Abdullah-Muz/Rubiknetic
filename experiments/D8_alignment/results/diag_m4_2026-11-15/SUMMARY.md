@@ -55,7 +55,7 @@ there.
   `experiments/E4_scored_m4/run.py:run_trial`. The test is `tests/test_magnets.py::test_reset_neighbour_list_makes_a_reused_system_match_a_fresh_one`.
   The end-to-end check result is in `history_test_after_fix.jsonl`.
 - The 0.1 mm rehearsal (P-25) ran before this fix. Its per-trial values depend on worker scheduling, but its
-  conclusion does not: drift over 1° appeared in 11 trials and does not depend on the history effect (see §1).
+  conclusion does not: drift over 1° appeared in 10 trials (corrected 2026-11-15 from "11", a counting error; 12 moves in 10 trials; P-28) and does not depend on the history effect (see §1).
 
 ## 4. Magnet size checks (E1-7)
 - **3×1.5 mm N35:** all pass; validated tilt 7.5°.
@@ -103,7 +103,7 @@ UNSCORED. The same seeds and move strings as §1 (paired). The runner includes t
   twist. E1-6b and E1-6c are categorical, so these are reported, not scored.
 - **Limits.**
   - The samples are small: 3 sequences and 4 rest trials. At 0.1 mm this sample passed 3 of 3 sequences, but the
-    204-trial rehearsal found drift failures in 11 trials. A full battery is needed before any conclusion.
+    204-trial rehearsal found drift failures in 10 trials (corrected from "11"; P-28). A full battery is needed before any conclusion.
   - Whether 0.05 mm is a realistic clearance for a real cube is unknown (ASSUMPTION; there are no real-cube clearance
     data, and R1 could measure it).
   - The face gap shrinks with the piece gap (0.85 mm), which strengthens the magnets slightly.
