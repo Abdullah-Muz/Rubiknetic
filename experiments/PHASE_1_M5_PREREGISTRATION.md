@@ -1,9 +1,12 @@
 # Phase 1 (G1) Pre-registration: M5, magnetic contact cube at a 0.05 mm piece gap
 
-**Status: revision 5, NOT IN FORCE.** It was approved on condition that the fifth independent review
-require no changes (P-43). That review required one change, V1 (a missing registered test;
-[`M5_PREREGISTRATION_REVIEW5_2026-11-16.md`](M5_PREREGISTRATION_REVIEW5_2026-11-16.md); P-44), so the draft
-returns to the user.
+**Status: revision 6, approved by the user on 2026-11-16 (P-45) on condition that a narrow independent review of the
+changes since revision 5 (text and code) requires no changes. Not in force until that review's outcome is recorded.**
+- **Revision 5** (P-42) was approved on condition that a fifth independent review of the text and the §6.1 code
+  require no changes (P-43). That review required one change, V1, a missing registered test
+  ([`M5_PREREGISTRATION_REVIEW5_2026-11-16.md`](M5_PREREGISTRATION_REVIEW5_2026-11-16.md); P-44), so revision 5 was
+  never in force. Revision 6 (P-45) adds that test and adopts all twelve optional changes from review 5, as the user
+  approved ("all have been approved"); see §9.
 - **Revision 4** (P-39) was approved on condition that a fourth independent review require no changes (P-40). That
   review required two changes, U1 and U2 ([`M5_PREREGISTRATION_REVIEW4_2026-11-16.md`](M5_PREREGISTRATION_REVIEW4_2026-11-16.md);
   P-41), so revision 4 was never in force. Revision 5 (P-42) makes U1 and U2 and adopts all eleven optional changes
@@ -21,10 +24,11 @@ returns to the user.
   - Before writing revision 3, the author had seen that M4's first scored E1-4 trials failed M1's criteria, which was
     expected.
   - Every revision-3 change comes from review 2's text; none concerns or depends on M4's results.
-  - **Revisions 4 and 5 were written after M4's scored battery finished** (G1 NOT PASSED, 123 / 204; P-37), and the
+  - **Revisions 4 to 6 were written after M4's scored battery finished** (G1 NOT PASSED, 123 / 204; P-37), and the
     author has seen its results.
-    - Every revision-4 change answers an item in review 3, and every revision-5 change answers an item in review 4.
-      Neither review read M4's results.
+    - Every revision-4 change answers an item in review 3, every revision-5 change an item in review 4, and every
+      revision-6 change an item in review 5. None of these reviews used M4's results (review 5 discloses that one
+      grep printed the P-37 row and that nothing depends on it).
     - Some details are the author's own elaborations of the reviews' options (review 4, item 10): the ledger, the
       SHA-256 checks, the start log, the trial-list identity check and the harness-exception rule.
     - The changes concern run procedure, record integrity, tests and wording. **No criterion, threshold, factor value
@@ -155,24 +159,29 @@ returns to the user.
 - **Run procedure** (T1 option (a), U1, U2). M4's `_execute` skips trial files that already exist
   (`run.py:645–648`), and its CLI runs one experiment, or `all`, per call. The M5 scored run is defined as follows.
   - **Record key (U2).** Every record is identified by **(arm, experiment, trial ID)**, where arm is `magnets`
-    (folder `experiments/E5_scored_m5/results/`) or `no_magnets` (folder `results_nomag/`). E1-6n reuses every
-    magnet-arm trial ID (`run.py:689–692`), so the trial ID alone is not unique. The manifest, the ledger, the resume
+    (folder `experiments/E5_scored_m5/results/`) or `no_magnets` (folder `results_nomag/`). E1-6n reuses the
+    trial IDs of E1-2 to E1-6t (`run.py:101`, `689–692`), so the trial ID alone is not unique. The manifest, the ledger, the resume
     rule, the duplicate check and the "not in the manifest" check all use this key.
   - **Scored trial list.** The full M5 list, built by one `all` call: E1-1 to E1-6, E1-5s and E1-6t (204 trials), E1-6n
     and E1-7, from the rules in §2–§4.
   - **Before the first start**, every §6.1 item, including item 5 (the V3 checks for E1-7), is complete and
     committed. Each trial in the list is then either runnable or, for an E1-7 arm only, "not run" for a reason
-    registered in §4. The runner refuses to start if any other trial would be refused. The OneDrive sync of the
-    repository folder is paused for the run (review 4, item 2), because any extra file in a results folder is INVALID.
+    registered in §4. The runner refuses to start if any other trial would be refused.
+  - **OneDrive is exited, not paused, for the whole run, including every resume** (review 4, item 2; review 5, O1),
+    because any extra file in a results folder is INVALID and a pause ends by itself after at most 24 hours. The
+    runner checks this at every scored start (`tasklist.exe`) and refuses while OneDrive is running, or if it cannot
+    check.
   - **First start.** M5 has exactly one first start. The runner refuses unless `results/` and `results_nomag/` are both
-    empty or absent. Before any trial it writes `results/MANIFEST.json` atomically. The manifest holds:
+    empty or absent. Before any trial it writes `results/MANIFEST.json` atomically, from a temporary file kept next
+    to `results/`, not in it (review 5, O2 (a)): a kill before the link leaves `results/` empty, so the first start
+    can be repeated, and a kill after it leaves nothing extra in `results/`. The manifest holds:
     - the source commit and the start time;
     - the full trial list: key, kind, seed and overrides;
     - the E1-7 arms that are "not run", with their reasons;
     - the SHA-256 of the near-field table of every magnet configuration in the list (review 4, item 1). The tables
       are git-ignored (`.gitignore:74`), so the clean-commit check does not cover them;
-    - the MuJoCo, NumPy and Python versions and the CPU model (`scored.environment()`). The platform string is
-      reported but not compared, because a kernel update would change it.
+    - the MuJoCo, NumPy, SciPy and Python versions and the CPU model (`scored.environment()` plus SciPy; review 5,
+      O9). The platform string is reported but not compared, because a kernel update would change it.
 
     **The manifest is never changed or deleted** once written.
   - **Start log.** `results/STARTS.txt` is append-only. Each start appends one line before it runs any trial: its
@@ -181,14 +190,21 @@ returns to the user.
     - that `MANIFEST.json` exists;
     - that the frozen paths (§6.1 item 1) are clean and identical between HEAD and the manifest's commit
       (`git diff <manifest commit> HEAD -- <frozen paths>` is empty). Commits made during the run may touch neither
-      the frozen paths nor the results folders (review 4, item 5). Records always carry the manifest's commit as
-      `source_commit`, and each start's HEAD is in the start log;
+      the frozen paths nor the results folders (review 4, item 5), and the resume diffs the results folders in the
+      same way (review 5, O7). This file is a frozen path, so it is not edited between the first start and the end of
+      the run. Records always carry the manifest's commit as `source_commit`, and each start's HEAD is in the start
+      log;
     - that the trial list, the "not run" set, the table SHA-256s and the compared environment fields the runner
-      builds now equal the manifest's.
+      builds now equal the manifest's;
+    - that no file in the results folders would make the run INVALID (§5), apart from orphan temporary files, which
+      (i) handles (review 5, O1).
 
-    Before running anything, a resume does two things (U1):
+    Before running anything, a resume does two things (U1). It first writes its start-log line, listing both, and
+    only then carries them out (review 5, O2 (b)); a kill in between leaves the files where they were, and the next
+    resume plans them again:
     - **(i) Orphan temporary files.** Every temporary record file left by an interrupted start is moved to
-      `<arm folder>/_interrupted/`, and its name and SHA-256 are written to the start log.
+      `<arm folder>/_interrupted/k<start index>__<experiment>__<name>` (review 5, O2 (c): two orphans of one trial
+      never collide), without overwriting, and its name and SHA-256 are in the start log.
     - **(ii) Missing ledger lines.** For every complete, parseable record that is in the manifest but has no ledger
       line, the resume appends the line, marked "reconciled at start k".
 
@@ -208,8 +224,10 @@ returns to the user.
       `scored`), the configured `params.gap`, and, for magnet jobs, `magnets.layout_gap`, both taken from the job's
       configuration, plus the exception text. Every §5 integrity check applies to it unchanged. It counts as a failed
       trial, not a missing one, and is never retried.
-    - **`MemoryError`, `OSError`, a killed worker, or a stopped parent** is an interruption: no record is written,
-      the runner stops, and the trial is run on resume.
+    - A record is also test-serialised inside the worker, so a record that cannot be saved is a failing record of
+      this kind, not a crash (review 5, O4).
+    - **`MemoryError`, `OSError`, a refusal raised during a trial, a killed worker, or a stopped parent** is an
+      interruption (review 5, O5): no record is written, the runner stops, and the trial is run on resume.
   - **Interruption.** The run is resumed under the rule above. Trials that never wrote a record are run on resume;
     this is completion, not a rerun. A run that cannot be completed from its manifest stays **INCOMPLETE**, and G1 is
     not passed.
@@ -257,7 +275,7 @@ and §5:
 | **E1-6n** | Unchanged in form: a no-magnet rerun on the same seeds, reported only. **E1-6n results never enter Option A** (O6). **Disclosed:** at 0.05 mm the no-magnet arm is expected to jam (P-27), so it shows that the magnets are necessary rather than giving a like-for-like comparison. Rule 3 names the no-magnet arm "the bound" for E1-6b and E1-6c, and at 0.05 mm that bound may say little. The verdict therefore reports the no-magnet E1-6b, E1-6c **and E1-6t** outcomes next to the corresponding magnet trials (E1-6t is subject to rule 3 and is a G1 criterion) |
 | **Turner torque (NEW, reported)** | For every move of E1-2 to E1-4, the per-move peak turner torque, its median / p99 / max, and the number of moves **at the clip, defined as a peak of ≥ 0.999 N·m** (P3). No threshold (§0 item 5) |
 | **E1-7 sensitivity, M5 factors** | M4's factors, with the two gap factors re-centred. **Piece gap 0.025 / 0.05 / 0.1 mm** uses the 0.5× / 1× / 2× rule of M4's Amendment 1 item A1, which for M4 gave 0.05 / 0.1 / 0.2 mm; the user chose it (P-34). A1 itself was never adopted (P-25); only its band rule is reused here. The declined alternative was M1's ±50 % rule (0.025 / 0.05 / 0.075 mm). **Face gap 0.35 / 0.85 / 1.35 mm** (wall 0.15 / 0.4 / 0.65 mm) keeps M4's ±0.5 mm band. **E1-7 nominal values: piece gap 0.05 mm, face gap 0.85 mm (N1)**, so the nominal trial is not run twice under another tag. The magnet size, grade and strength-scale factors are as M4. **Disclosed:** 0.1 mm is known from the P-25 rehearsal to fail M1's drift criterion, so a flip at the upper gap is expected. As for every E1-7 factor, a flip is reported as a fragility, not a G1 failure (M4 §4). 0.025 mm has never been run. **The E1-7 no-magnet arm is expected to jam at 0.05 mm** (P7; P-27) |
-| **E1-7 magnet configurations and V3 (O5, P1)** | **V3 records are matched by size, grade and strength scale.** The M4 runner's `v3_record_for` matches by size only (`run.py:232–243`), so it would reuse the 4×2 N35 record for 4×2 N52 and for the 0.67 strength scale. Grade and scale both change only the Br² strength, so they are treated alike: each needs its own V3 record (review 3, item 8). **4×1.5 N35 failed V3 (P-26).** It is not retested under altered V3 settings, and its arm is reported as "not run: failed V3". **4×2 N52 and the 0.67 strength scale** each need a V3 check at unchanged settings; if one fails, that arm is "not run: failed V3". **Matching rule** (review 4, item 6): only `experiments/D8_alignment/results/d8_1b_checks*.json` files that contain a `V3` block are considered; a record matches when its `magnet_params` diameter, length, grade and scale equal the arm's; `wall` is ignored, because the face-gap arms change only the wall. Exactly one record must match. No match, or more than one, is a refusal that stops the first start (§2), not a "not run" arm. **The 0.35 mm face gap is below the 0.5–1.5 mm face gaps at which V3 tested magnet pairs** (P1; `d8_1b_checks.py:133`). That arm (4×2 N35, scale 1, wall 0.15 mm) runs only if the **0.35 mm pair check** passes; otherwise it is "not run: outside V3". The pair check is V3 part (a) rerun with 0.35 mm added to its gap list and nothing else changed (`experiments/D8_alignment/v3_pair_extension.py`, record `d8_1b_checks_pair0.35mm_4x2_N35_s1.json`, which has no `V3` block): the same offsets, reference quadrature and force models; force error ≤ 5 % of the aligned facing-pair normal force at the nominal 1.0 mm gap; torque error ≤ max(5 % of the largest reference torque, 2e-5 N·m), with that maximum taken over the whole extended set (0.35 mm plus V3's five gaps). It passes if every row passes. **E1-7 counts as complete** when every arm has either run or is "not run" for one of these registered reasons (review 3, item 12). The checks gate E1-7 only, and they must be complete and committed before the first scored trial (§2, §6.1 item 5) |
+| **E1-7 magnet configurations and V3 (O5, P1)** | **V3 records are matched by size, grade and strength scale.** The M4 runner's `v3_record_for` matches by size only (`run.py:232–243`), so it would reuse the 4×2 N35 record for 4×2 N52 and for the 0.67 strength scale. Grade and scale both change only the Br² strength, so they are treated alike: each needs its own V3 record (review 3, item 8). **4×1.5 N35 failed V3 (P-26).** It is not retested under altered V3 settings, and its arm is reported as "not run: failed V3". **4×2 N52 and the 0.67 strength scale** each need a V3 check at unchanged settings; if one fails, that arm is "not run: failed V3". **Matching rule** (review 4, item 6): only `experiments/D8_alignment/results/d8_1b_checks*.json` files that contain a `V3` block are considered; a record matches when its `magnet_params` diameter, length, grade and scale equal the arm's; `wall` is ignored, because the face-gap arms change only the wall. Exactly one record must match. No match, or more than one, is a refusal that stops the first start (§2), not a "not run" arm. **The 0.35 mm face gap is below the 0.5–1.5 mm face gaps at which V3 tested magnet pairs** (P1; `d8_1b_checks.py:133`). That arm (4×2 N35, scale 1, wall 0.15 mm) runs only if the **0.35 mm pair check** passes; otherwise it is "not run: outside V3". The pair check is V3 part (a) rerun with 0.35 mm added to its gap list and nothing else changed (`experiments/D8_alignment/v3_pair_extension.py`, record `d8_1b_checks_pair0.35mm_4x2_N35_s1.json`, which has no `V3` block): the same offsets, reference quadrature and force models; force error ≤ 5 % of the aligned facing-pair normal force at the nominal 1.0 mm gap; torque error ≤ max(5 % of the largest reference torque, 2e-5 N·m), with that maximum taken over the whole extended set (0.35 mm plus V3's five gaps). It passes if every row passes. **Disclosed** (review 5, O10): the pair check extends V3 part (a) only; parts (b) (tilted pairs) and (c) (whole cube) were not extended to 0.35 mm, so that arm uses the nominal record's validated tilt of 5°. This does not affect any verdict, because E1-7 is under neither rule 2 nor rule 3 (`run.py:89–90`). **E1-7 counts as complete** when every arm has either run or is "not run" for one of these registered reasons (review 3, item 12). The checks gate E1-7 only, and they must be complete and committed before the first scored trial (§2, §6.1 item 5) |
 
 ## 5. Pass logic and verdict script (R2)
 - **Option A,** as for M1 and M4: every categorical and quantitative criterion holds in 100 % of scored trials of
@@ -284,11 +302,16 @@ and §5:
     - `startup_checks.gap` is 5e-5 in every magnet record (review 4, item 7);
     - `magnets.params.wall` is 0.15 / 0.65 mm in the E1-7 0.35 / 1.35 mm face-gap arms and 0.4 mm in every other
       magnet record (review 4, item 7; catches the `run.py:211` class of error after the run);
-    - each magnet record's `magnet_table.table_sha256` equals the manifest's for its configuration, and its
+    - each magnet record has a `magnet_table` whose `table_file` is the table for its own configuration
+      (`table_path`, `run.py:215–218`) and whose `table_sha256` equals the manifest's (review 5, O3), and its
       `environment` equals the manifest's in the compared fields (review 4, item 1);
+    - the manifest's "not run" set equals the one re-derived from the committed V3 records (review 5, O3);
     - the run-procedure checks in §2 (record key, manifest, start log, ledger, atomic records).
 
     Any violation gives INVALID. Missing records give INCOMPLETE.
+  - **Verdict order** (review 5, O6): INVALID, then INCOMPLETE, then NOT PASSED, then PASS. An INCOMPLETE run whose
+    present records already fail Option A is reported as "INCOMPLETE (and NOT PASSED)". All but PASS are final, and
+    none passes G1.
 - **Tests (§6.1):**
   - **Positive control (U2):** a complete, valid synthetic record set, including E1-6n and E1-7 with its registered
     "not run" arms, must give PASS, not INVALID.
@@ -301,6 +324,12 @@ and §5:
     not parse; a record with no ledger line; a ledger line with no record; a ledger SHA-256 that does not match its
     record; a duplicate ledger key; an unlogged temporary file; a wrong `startup_checks.gap`; a wrong wall; a table
     SHA-256 that differs from the manifest's.
+  - **Revision 6 (review 5, O3): each of these must also give INVALID**, so that no check can be removed without a
+    test failing: a manifest key set that differs from the registered list; a record spec that differs from the
+    registered trial; a seed that differs from the manifest; record metadata that does not match its key; an orphan in
+    `_interrupted/` that is not logged; any other unexpected file; a magnet record without magnets; a no-magnet record
+    with magnets; a "not run" reason that is not registered; a "not run" set that differs from the re-derived one; a
+    magnet record without a table record; a table file that is not its configuration's.
   - Accepted, not INVALID: a reconciled ledger line and a logged orphan (U1).
 - E1-7 and E1-8 must be completed and published. G1 also needs the user's sign-off.
 - **The G1 verdict text must restate** (O7):
@@ -323,8 +352,8 @@ and §5:
    - **except that in the E1-7 piece-gap arms the factor's value takes precedence for both the cubies and the magnet
      layout (N1).** `rehearsal_gap.py:42` overwrites the gap unconditionally, so it must **not** be copied for E1-7;
    - each record stores `magnets.layout_gap`, the gap passed to `use_magnets` for that trial (review 3, item 1).
-     `MagnetSystem` stores neither the parameters nor the gap (`magnets.py:418–438`), and `describe()` does not
-     record it;
+     `MagnetSystem` stores the magnet parameters but not the piece gap or the `M1Params` (`magnets.py:418–438`), and
+     `describe()` does not record the gap;
    - `mechanism` = "M5" in every record (P4);
    - the V3 lookup matched by size, grade **and strength scale** (§4);
    - the start-up check at 0.05 mm, with the gap recorded in its result (O2; review 3, item 10);
@@ -333,6 +362,8 @@ and §5:
    - E1-4 scrambles drawn from the M5 seed (§3);
    - the run procedure in §2: record key, first-start check of both result folders, manifest, start log, resume rule
      with (i) and (ii), atomic records written by the parent process only, ledger, and the exception rules;
+   - the OneDrive check at every scored start; a refusal to write a smoke run into the scored folders (review 5,
+     O11);
    - the turner-torque report;
    - the re-centred E1-7 factors. M4's face-gap factor computes the wall from M1's nominal 0.2 mm gap (`run.py:211`),
      so M5 must compute it from 0.05 mm;
@@ -342,8 +373,8 @@ and §5:
 2. **Verdict script `experiments/E5_scored_m5/analyze.py`** (§5).
 3. **Unit tests** (none steps the simulation on an M5 seed, P5):
    - the seed list (§2);
-   - **the gap (N1, O3; review 3, item 1).** For every job of the full M5 list, with `params_for` and `use_magnets`
-     intercepted and no stepping: the cubie gap passed to `params_for` equals `expected_gap`, and, for every magnet
+   - **the gap (N1, O3; review 3, item 1).** For every job of the full M5 list, with `scored.Trial` replaced by a
+     stub that records the parameters it receives and stops before any step (review 5, O8): the cubie gap passed to `params_for` equals `expected_gap`, and, for every magnet
      job (review 4, item 9), the magnet positions `p_loc` of the magnet system built for the job equal those of
      `layout(pitch, expected_gap, mp)` (`magnets.py:92`), where `expected_gap` is 2.5e-5 in the 0.025 mm arm, 1e-4 in
      the 0.1 mm arm and 5e-5 in every other trial, E1-7 included. The recorded `magnets.layout_gap` equals
@@ -361,6 +392,13 @@ and §5:
      - (iii) a harness exception gives a failing record with the job metadata and gap fields, which passes every
        integrity check; a `MemoryError` or `OSError` writes no record and stops the run;
    - the start-up check records the 0.05 mm gap;
+   - **revision 6 (review 5):** a resume refused when the manifest commit's frozen paths differ from HEAD's, with the
+     git check on (V1), and allowed from the manifest commit; a resume refused when commits touch the results folders,
+     or when a foreign file is present; a kill after the start-log line but before the moves is recoverable; two
+     orphans of one trial do not collide; the manifest's temporary file never lands in `results/`; a record that cannot
+     be serialised is a failed trial; the smoke folder may not be a scored folder; a scored start is refused while
+     OneDrive runs; the committed V3 records classify the full list as 440 runnable, 2 "not run" (4×1.5 N35, "failed
+     V3") and 0 refused (O12);
    - the verdict-script cases in §5.
 4. **A smoke test** on seeds outside every range, unscored, in a scratch folder (review 4, item 11). It runs the full
    run procedure: manifest, start log, atomic link, ledger, a forced interruption and a resume. It includes one
@@ -383,7 +421,8 @@ and §5:
   experiments, so these values are reported and not judged against 0.5 mm, as for M4.
 
 ## 8. Decisions requested
-1. Approve revision 5, or modify it, after the fifth independent review of this text and the §6.1 code (P-42).
+None open. Revision 6 was approved with its condition (P-45): it takes effect if the narrow review of the changes since
+revision 5 requires no changes.
 
 ## 9. Changes from revision 1
 | Review item | Change |
@@ -448,3 +487,21 @@ and §5:
 | 9 | §6.1 item 3: the `p_loc` comparison covers magnet jobs only |
 | 10 | Status: provenance names the author's own elaborations and the stricter 0.67-scale gate; §2 says the CLI also accepts `all` |
 | 11 | §6.1 item 4: the smoke test exercises the run procedure, an interruption and a resume, E1-6n and every E1-7 magnet configuration |
+
+**Revision 6 (review 5; user: "all have been approved", P-45):**
+
+| Review-5 item | Change |
+|---|---|
+| **V1 (required)** | §6.1 item 3: a test with the git check on: a resume from a HEAD whose frozen paths differ from the manifest commit's is refused, and one from the manifest commit is allowed |
+| O1 | §2: OneDrive exited, not paused, for the whole run; the runner checks at every scored start; a resume refuses if a foreign file is present |
+| O2 | §2: the manifest's temporary file sits outside `results/`; the start-log line is written before orphans are moved or ledger lines reconciled; moved names carry the start index |
+| O3 | §5: a magnet record must have the table record of its own configuration; the "not run" set is re-derived; tests for every check that had none |
+| O4 | §2: records are test-serialised inside the worker |
+| O5 | §2: a refusal during a trial is an interruption |
+| O6 | §5: the verdict order is registered; "INCOMPLETE (and NOT PASSED)" |
+| O7 | §2: the resume diff covers the results folders; this file is not edited during the run |
+| O8 | §2 and §6.1: wording (E1-6n's trial IDs; what `MagnetSystem` stores; how the gap test intercepts) |
+| O9 | §2: SciPy in the manifest and the compared environment |
+| O10 | §4: the pair check covers V3 part (a) only, disclosed |
+| O11 | §6.1 item 1: the smoke folder may not be a scored folder |
+| O12 | §6.1 item 3: a test pins the 440 / 2 / 0 classification |

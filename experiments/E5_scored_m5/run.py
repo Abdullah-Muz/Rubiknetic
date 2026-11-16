@@ -28,6 +28,7 @@ import importlib.util
 import json
 import multiprocessing
 import os
+import subprocess
 import sys
 import time
 import traceback
@@ -37,6 +38,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import numpy as np
+import scipy
 
 HERE = Path(__file__).resolve().parent
 REPO = HERE.parents[1]
@@ -68,7 +70,7 @@ OUT_NOMAG = HERE / "results_nomag"           # arm "no_magnets" (E1-6n)
 ARMS = ("magnets", "no_magnets")
 MANIFEST, STARTS, LEDGER = "MANIFEST.json", "STARTS.txt", "LEDGER.txt"
 INTERRUPTED = "_interrupted"
-ENV_COMPARED = ("mujoco", "numpy", "python", "cpu")
+ENV_COMPARED = ("mujoco", "numpy", "scipy", "python", "cpu")   # SciPy added in revision 6 (review 5, O9)
 PAIR_CHECK = M4.D8 / "results" / "d8_1b_checks_pair0.35mm_4x2_N35_s1.json"
 M5_FROZEN_PATHS = M4.M4_FROZEN_PATHS + [
     "experiments/D8_alignment/results/d8_1b_checks*.json",
@@ -282,6 +284,7 @@ def run_job(job: dict) -> tuple[tuple, dict]:
         if rec.get("magnets") is not None:
             rec["magnets"]["layout_gap"] = layout_gap
         M4.apply_m4_criteria(rec, job["sub"], tilt, ms is not None)
+        json.dumps(rec, default=list)   # review 5, O4: a record that cannot be saved is a failed trial, not a crash
     except (MemoryError, OSError, M4.Refused):
         raise
     except Exception as e:  # noqa: BLE001  (U1 iii: any other harness exception is a failed trial)
@@ -368,11 +371,14 @@ def _norm(x):
 
 
 def write_manifest(dirs: dict, body: dict) -> None:
+    """Review 5, O2 (a): the temporary file lives next to the results folder, not in it, so a kill before the link
+    leaves results/ empty (the first start can be repeated) and a kill after it leaves nothing inside results/.
+    A leftover temporary file from a killed first start is overwritten: no trial can have run without a manifest."""
     out = dirs["magnets"]
     out.mkdir(parents=True, exist_ok=True)
     data = json.dumps({**body, "created": _now()}, indent=1, sort_keys=True, default=list).encode()
-    tmp = out / f".{MANIFEST}.tmp"
-    with open(tmp, "xb") as f:
+    tmp = out.parent / f".{out.name}.{MANIFEST}.tmp"
+    with open(tmp, "wb") as f:
         f.write(data)
         f.flush()
         os.fsync(f.fileno())
@@ -380,8 +386,11 @@ def write_manifest(dirs: dict, body: dict) -> None:
     os.unlink(tmp)
 
 
-def resume_problems(manifest: dict, body: dict, head: str, check_git: bool = True) -> list[str]:
-    """Section 2 resume conditions; an empty list means the resume may proceed."""
+def resume_problems(manifest: dict, body: dict, head: str, check_git: bool = True,
+                    result_paths: tuple = ()) -> list[str]:
+    """Section 2 resume conditions; an empty list means the resume may proceed. result_paths (the results folders,
+    relative to the repository) are diffed like the frozen paths: commits during the run may touch neither
+    (review 5, O7)."""
     probs = []
     for k in ("trials", "not_run", "tables"):
         if _norm(manifest.get(k)) != _norm(body[k]):
@@ -391,26 +400,53 @@ def resume_problems(manifest: dict, body: dict, head: str, check_git: bool = Tru
             probs.append(f"environment field {k} differs from the manifest")
     base = manifest["commit"].split("+")[0]            # smoke manifests carry "<commit>+smoke"
     if check_git and base != head:
-        diff = scored._git("diff", "--name-only", base, head, "--", *manifest["frozen_paths"])
+        # an empty pathspec would diff the whole tree, so each diff runs only with paths
+        diff = scored._git("diff", "--name-only", base, head, "--", *manifest["frozen_paths"])             if manifest["frozen_paths"] else ""
         if diff:
             probs.append(f"frozen paths differ between the manifest commit and HEAD: {diff}")
+        if result_paths:
+            diff = scored._git("diff", "--name-only", base, head, "--", *result_paths)
+            if diff:
+                probs.append(f"commits since the manifest commit touch the results folders: {diff}")
     return probs
 
 
-def prepare_resume(dirs: dict, manifest: dict, start_k: int) -> dict:
-    """U1 (i) move orphan temporary files and (ii) reconcile missing ledger lines. Returns what was done."""
+def foreign_files(dirs: dict, starts: list[dict]) -> list[str]:
+    """Files the verdict script would count as INVALID (section 2), other than orphan temporary files, which a
+    resume moves. A resume refuses if any exist (review 5, O1)."""
+    logged = {(o["arm"], o["moved_to"]) for s in starts for o in s.get("orphans", [])}
+    bad = []
+    for arm in ARMS:
+        root = dirs[arm]
+        if not root.exists():
+            continue
+        for p in root.iterdir():
+            if p.is_file():
+                if not (arm == "magnets" and p.name in (MANIFEST, STARTS, LEDGER)):
+                    bad.append(f"{arm}/{p.name}")
+            elif p.name == INTERRUPTED:
+                bad += [f"{arm}/{f.relative_to(root)}" for f in p.iterdir()
+                        if (arm, str(f.relative_to(root))) not in logged]
+            else:
+                for f in p.iterdir():
+                    if not (f.suffix == ".json" or (f.name.startswith(".") and f.name.endswith(".json.tmp"))):
+                        bad.append(f"{arm}/{p.name}/{f.name}")
+    return bad
+
+
+def plan_resume(dirs: dict, manifest: dict, start_k: int) -> dict:
+    """U1 (i) orphan temporary files to move and (ii) records whose ledger line is missing. Nothing is changed here:
+    the plan is written to the start log first, then carried out by apply_resume (review 5, O2 b). Each moved name
+    carries the start index, so two orphans of one trial never collide (O2 c)."""
     orphans, reconciled = [], []
     for arm in ARMS:
         root = dirs[arm]
         if not root.exists():
             continue
         for tmp in sorted(root.glob("*/.*.json.tmp")):
-            data = tmp.read_bytes()
-            dest = root / INTERRUPTED / f"{tmp.parent.name}__{tmp.name}"
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            os.replace(tmp, dest)
+            dest = root / INTERRUPTED / f"k{start_k}__{tmp.parent.name}__{tmp.name}"
             orphans.append({"arm": arm, "path": str(tmp.relative_to(root)), "moved_to": str(dest.relative_to(root)),
-                            "sha256": _sha(data)})
+                            "sha256": _sha(tmp.read_bytes())})
     ledger_keys = {(x["arm"], x["exp"], x["tid"]) for x in read_lines(dirs["magnets"] / LEDGER)}
     for t in manifest["trials"]:
         key = (t["arm"], t["exp"], t["tid"])
@@ -418,10 +454,21 @@ def prepare_resume(dirs: dict, manifest: dict, start_k: int) -> dict:
         if p.exists() and key not in ledger_keys:
             data = p.read_bytes()
             json.loads(data)                       # a record that does not parse stops the resume (INVALID)
-            _append_line(dirs["magnets"] / LEDGER, {"start": start_k, "arm": key[0], "exp": key[1], "tid": key[2],
-                                                    "sha256": _sha(data), "reconciled": True})
-            reconciled.append(list(key))
+            reconciled.append({"key": list(key), "sha256": _sha(data)})
     return {"orphans": orphans, "reconciled": reconciled}
+
+
+def apply_resume(dirs: dict, plan: dict, start_k: int) -> None:
+    for o in plan["orphans"]:
+        root = dirs[o["arm"]]
+        src, dest = root / o["path"], root / o["moved_to"]
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        os.link(src, dest)                         # fails rather than overwrite
+        os.unlink(src)
+    for r in plan["reconciled"]:
+        arm, exp, tid = r["key"]
+        _append_line(dirs["magnets"] / LEDGER, {"start": start_k, "arm": arm, "exp": exp, "tid": tid,
+                                                "sha256": r["sha256"], "reconciled": True})
 
 
 # ---- the run procedure ---------------------------------------------------------------------------------------------
@@ -441,13 +488,18 @@ def execute(dirs: dict, jobs: list[dict], not_run: list[tuple[dict, str]], commi
         start_k, done = 1, {"orphans": [], "reconciled": []}
     else:
         manifest = json.loads(man_path.read_text())
-        probs = resume_problems(manifest, body, head, check_git)
+        starts = read_lines(out / STARTS)
+        rel = tuple(str(d.resolve().relative_to(REPO)) for d in dirs.values() if d.resolve().is_relative_to(REPO))
+        probs = resume_problems(manifest, body, head, check_git, rel)
+        probs += [f"file that would make the run INVALID: {f}" for f in foreign_files(dirs, starts)]
         if probs:
             raise SystemExit("refusing resume:\n  " + "\n  ".join(probs))
         commit = manifest["commit"]
-        start_k = len(read_lines(out / STARTS)) + 1
-        done = prepare_resume(dirs, manifest, start_k)
-    _append_line(out / STARTS, {"k": start_k, "time": _now(), "head": head, **done})
+        start_k = len(starts) + 1
+        done = plan_resume(dirs, manifest, start_k)
+    _append_line(out / STARTS, {"k": start_k, "time": _now(), "head": head, **done})    # the plan is logged first
+    if start_k > 1:
+        apply_resume(dirs, done, start_k)
     for j in jobs:
         j["commit"], j["startup"] = commit, startup
     todo = [j for j in jobs if not record_path(dirs, key_of(j)).exists()]
@@ -488,12 +540,26 @@ def execute(dirs: dict, jobs: list[dict], not_run: list[tuple[dict, str]], commi
     return written
 
 
+def onedrive_running() -> bool:
+    """Review 5, O1: OneDrive must be exited (not paused) for every scored start. Refuses if it cannot be checked."""
+    try:
+        out = subprocess.run(["tasklist.exe", "/FI", "IMAGENAME eq OneDrive.exe", "/NH"], capture_output=True,
+                             text=True, check=True, timeout=60).stdout
+    except (OSError, subprocess.SubprocessError) as e:
+        raise SystemExit(f"refusing: cannot check whether OneDrive is running ({e})") from e
+    return "onedrive.exe" in out.lower()
+
+
 def require_m5_clean_commit() -> str:
     commit = scored.require_clean_commit()                       # M1 frozen paths
     dirty = scored._git("status", "--porcelain", "--", *M5_FROZEN_PATHS)
     if dirty:
         raise SystemExit("refusing to run scored trials: uncommitted changes in M5 frozen paths:\n" + dirty)
     return commit
+
+
+def environment() -> dict:
+    return {**scored.environment(), "scipy": scipy.__version__}
 
 
 def startup_check() -> dict:
@@ -531,6 +597,13 @@ def main(argv: list[str] | None = None) -> None:
         raise SystemExit("'smoke' requires --smoke-dir, and --smoke-dir is only for 'smoke'")
     if a.stop_after is not None and not smoke:
         raise SystemExit("--stop-after is for the smoke test only")
+    if smoke:                                    # review 5, O11: never write a smoke run into the scored folders
+        sd = a.smoke_dir.resolve()
+        if sd == HERE.resolve() or any(sd == p.resolve() or sd.is_relative_to(p.resolve()) for p in (OUT, OUT_NOMAG)):
+            raise SystemExit(f"refusing: --smoke-dir {a.smoke_dir} would write into the scored folders")
+    if not smoke and not a.dry_run and onedrive_running():
+        raise SystemExit("refusing: OneDrive is running. Exit it (not pause) for the whole scored run "
+                         "(pre-registration section 2).")
     head = scored._git("rev-parse", "HEAD")
     if smoke:
         commit = head + "+smoke"
@@ -540,7 +613,7 @@ def main(argv: list[str] | None = None) -> None:
         commit = require_m5_clean_commit()
         if M4.E16C_THRESHOLD is None:
             raise SystemExit("refusing: E1-6c threshold not set (M4 pre-registration)")
-    env = scored.environment()
+    env = environment()
     tilt = M4.nominal_validated_tilt()
     jobs = smoke_jobs(commit, env, tilt) if smoke else build_m5_jobs(commit, env, tilt)
     run, not_run, refused = prepare(jobs)

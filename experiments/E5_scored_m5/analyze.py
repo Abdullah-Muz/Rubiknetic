@@ -158,11 +158,16 @@ def load(dirs: dict) -> dict:
     return {"manifest": manifest, "violations": v, "records": records, "starts": starts, "ledger": ledger}
 
 
-def check_records(st: dict, registered: list[dict] | None, expect_scored: bool) -> None:
-    """Per-record integrity (section 5) against the manifest and the registered list; adds to st['violations']."""
+def check_records(st: dict, registered: list[dict] | None, expect_scored: bool,
+                  derived_not_run: dict | None = None) -> None:
+    """Per-record integrity (section 5) against the manifest and the registered list; adds to st['violations'].
+    derived_not_run: {key: reason} re-derived from the committed V3 records (review 5, O3); compared with the
+    manifest's "not run" set."""
     v, man, recs = st["violations"], st["manifest"], st["records"]
     trials = {(t["arm"], t["exp"], t["tid"]): t for t in man["trials"]}
     not_run = {(t["arm"], t["exp"], t["tid"]): t for t in man["not_run"]}
+    if derived_not_run is not None and {k: t["reason"] for k, t in not_run.items()} != derived_not_run:
+        v.append("the manifest's 'not run' set differs from the one re-derived from the V3 records")
     for k, t in not_run.items():
         if t["exp"] != "E1-7" or t["reason"] not in ("failed V3", "outside V3"):
             v.append(f"'not run' {k} with an unregistered reason {t['reason']!r}")
@@ -214,7 +219,11 @@ def check_records(st: dict, registered: list[dict] | None, expect_scored: bool) 
                 if not _close((r.get("startup_checks") or {}).get("gap"), R.GAP):
                     v.append(f"{tag}: startup_checks.gap {(r.get('startup_checks') or {}).get('gap')}")
                 tab = r.get("magnet_table") or {}
-                if man["tables"].get(tab.get("table_file")) != tab.get("table_sha256"):
+                mp = R.magnet_params_for(dict(t["overrides"]))
+                want = R.M4._rel(R.M4.table_path(mp)) if mp is not None else None
+                if not tab.get("table_file") or tab.get("table_file") != want:
+                    v.append(f"{tag}: table file {tab.get('table_file')!r} is not {want!r}")
+                elif man["tables"].get(tab["table_file"]) != tab.get("table_sha256"):
                     v.append(f"{tag}: table SHA-256 differs from the manifest")
         elif mag:
             v.append(f"{tag}: no-magnet record carries magnets")
@@ -244,10 +253,14 @@ def verdict(st: dict) -> dict:
     e16m_ok = bool(p_ok) and all(x is True for x in p_ok)        # as M4's analyze.py:66-70
     counts_ok = all(rows[e]["n"] == EXPECTED[e] for e in ROWS)
     option_a = counts_ok and all(rows[e]["passed"] == rows[e]["n"] for e in ROWS) and e16m_ok
+    # Registered order (section 5, revision 6): INVALID > INCOMPLETE > NOT PASSED > PASS. An INCOMPLETE run whose
+    # present records already fail Option A is reported as "INCOMPLETE (and NOT PASSED)" (review 5, O6).
+    present_fail = (any(rows[e]["passed"] < rows[e]["n"] for e in ROWS)
+                    or any(x is False for x in p_ok))
     if st["violations"]:
         word = "INVALID"
     elif st["missing"] or not counts_ok:
-        word = "INCOMPLETE"
+        word = "INCOMPLETE (and NOT PASSED)" if present_fail else "INCOMPLETE"
     elif not option_a:
         word = "NOT PASSED"
     else:
@@ -256,11 +269,12 @@ def verdict(st: dict) -> dict:
                                                    "pass": e16m_ok, "seq_trials": seq_trials}, "by": by}
 
 
-def analyse(dirs: dict, registered: list[dict] | None, expect_scored: bool = True) -> tuple[dict, dict]:
+def analyse(dirs: dict, registered: list[dict] | None, expect_scored: bool = True,
+            derived_not_run: dict | None = None) -> tuple[dict, dict]:
     st = load(dirs)
     if st["manifest"] is None:
         return st, {"verdict": "NO RUN", "rows": {}, "e16m": {}, "by": {}}
-    check_records(st, registered, expect_scored)
+    check_records(st, registered, expect_scored, derived_not_run)
     return st, verdict(st)
 
 
@@ -364,9 +378,12 @@ def main(argv: list[str] | None = None) -> None:
         for x in st["violations"]:
             print("  ", x)
         sys.exit(1 if st["violations"] or st["missing"] else 0)
-    env = R.scored.environment()
+    env = R.environment()
     registered = R.build_m5_jobs("analyze", env, R.M4.nominal_validated_tilt())
-    st, vd = analyse({"magnets": R.OUT, "no_magnets": R.OUT_NOMAG}, registered)
+    _run, nr, refused = R.prepare([dict(j) for j in registered])
+    derived = {R.key_of(j): reason for j, reason in nr}
+    derived.update({R.key_of(j): f"refused: {m}" for j, m in refused})
+    st, vd = analyse({"magnets": R.OUT, "no_magnets": R.OUT_NOMAG}, registered, derived_not_run=derived)
     text = report(st, vd)
     if not a.print and st["manifest"] is not None:
         (HERE / "RESULTS.md").write_text(text)           # outside results/: only registered files live there

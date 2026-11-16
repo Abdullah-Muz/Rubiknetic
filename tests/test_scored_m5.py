@@ -32,7 +32,7 @@ def _load(name, rel):
 A = _load("e5_scored_m5_analyze", "experiments/E5_scored_m5/analyze.py")
 R = A.R                                               # the runner module the analyzer uses
 M4_FRESH = _load("e4_unpatched_for_m5_tests", "experiments/E4_scored_m4/run.py")   # M4 as registered, unpatched
-ENV = {"mujoco": "4.0.1", "numpy": "x", "python": "3.12", "cpu": "test", "platform": "p"}
+ENV = {"mujoco": "4.0.1", "numpy": "x", "scipy": "y", "python": "3.12", "cpu": "test", "platform": "p"}
 GAP_TAGS = {"gap=2.5e-05": 2.5e-5, "gap=0.0001": 1e-4}
 
 
@@ -221,8 +221,9 @@ def _split(jobs):
         if j["tid"].startswith("magnet=4x1.5_N35__"):
             not_run.append((j, "failed V3"))
         else:
-            if j["magnets"] and R.magnet_params_for(dict(j["kw"].get("overrides", {}))) is not None:
-                j["magnet_info"] = {"table_file": "tables/t.npz", "table_sha256": "abc"}
+            mp = R.magnet_params_for(dict(j["kw"].get("overrides", {}))) if j["magnets"] else None
+            if mp is not None:
+                j["magnet_info"] = {"table_file": R.M4._rel(R.M4.table_path(mp)), "table_sha256": "abc"}
             run.append(j)
     return run, not_run
 
@@ -322,7 +323,8 @@ def _only(key, **fields):
     ("startup_checks.gap", _only(K_SEQ, startup_checks={"gap": 2e-4})),
     ("wall", _only(("magnets", "E1-7", "face_gap_mm=0.35__6move"),
                    magnets={"params": {"wall": 0.4e-3}, "layout_gap": 5e-5})),
-    ("table SHA-256", _only(K_SEQ, magnet_table={"table_file": "tables/t.npz", "table_sha256": "zzz"})),
+    ("table SHA-256", _only(K_SEQ, magnet_table={"table_file": R.M4._rel(R.M4.table_path(MagnetParams())),
+                                                  "table_sha256": "zzz"})),
     ("environment", _only(K_SEQ, environment={**ENV, "mujoco": "9"})),
 ])
 def test_record_integrity_violations_are_invalid(tmp_path, needle, mutate):
@@ -425,7 +427,7 @@ def test_resume_refused_when_the_configuration_changed(tmp_path, change):
     elif change == "tables":
         for j in run:
             if j.get("magnet_info"):
-                j["magnet_info"] = {"table_file": "tables/t.npz", "table_sha256": "changed"}
+                j["magnet_info"] = {**j["magnet_info"], "table_sha256": "changed"}
     else:
         env["cpu"] = "other"
     with pytest.raises(SystemExit, match="refusing resume"):
@@ -448,7 +450,7 @@ def test_resume_moves_orphans_and_reconciles_ledger_lines(tmp_path):
     assert n == 18
     starts = [json.loads(x) for x in (tmp_path / "results" / R.STARTS).read_text().splitlines()]
     assert len(starts) == 2 and len(starts[1]["orphans"]) == 1 and len(starts[1]["reconciled"]) == 1
-    assert not orphan.exists() and (d["magnets"] / R.INTERRUPTED / "E1-1__.rest_s10019.json.tmp").exists()
+    assert not orphan.exists() and (d["magnets"] / R.INTERRUPTED / "k2__E1-1__.rest_s10019.json.tmp").exists()
     st, _vd = A.analyse(d, jobs)
     assert st["violations"] == [] and st["missing"] == []
     assert sum(1 for x in st["ledger"] if x["reconciled"]) == 1
@@ -496,3 +498,203 @@ def test_manifest_is_written_once(tmp_path):
     with pytest.raises(FileExistsError):
         R.write_manifest(_dirs(tmp_path), {"a": 2})
     assert json.loads((tmp_path / "results" / R.MANIFEST).read_text())["a"] == 1
+
+
+# ---- revision 6 (review 5) -----------------------------------------------------------------------------------------
+def _fake(j):
+    return R.key_of(j), _fake_record(j)
+
+
+def test_resume_refused_on_a_different_frozen_path_commit(tmp_path):
+    """V1: the git branch of the resume check, with check_git on (cdfc76e predates the runner)."""
+    head, old = scored._git("rev-parse", "HEAD"), scored._git("rev-parse", "cdfc76e")
+    jobs = [j for j in R.build_m5_jobs("c0", ENV, 5.0) if j["exp"] == "E1-1"][:3]
+    run, nr = _split(copy.deepcopy(jobs))
+    with pytest.raises(R.Interrupted):
+        R.execute(_dirs(tmp_path), run, nr, old, ENV, old, {"gap": R.GAP}, 1, runner=_fake, stop_after=1,
+                  log=lambda s: None)
+    run, nr = _split(copy.deepcopy(jobs))
+    with pytest.raises(SystemExit, match="frozen paths differ"):
+        R.execute(_dirs(tmp_path), run, nr, head, ENV, head, {"gap": R.GAP}, 1, runner=_fake, log=lambda s: None)
+
+
+def test_resume_allowed_from_the_manifest_commit(tmp_path):
+    head = scored._git("rev-parse", "HEAD")
+    jobs = [j for j in R.build_m5_jobs("c0", ENV, 5.0) if j["exp"] == "E1-1"][:3]
+    run, nr = _split(copy.deepcopy(jobs))
+    with pytest.raises(R.Interrupted):
+        R.execute(_dirs(tmp_path), run, nr, head, ENV, head, {"gap": R.GAP}, 1, runner=_fake, stop_after=1,
+                  log=lambda s: None)
+    run, nr = _split(copy.deepcopy(jobs))
+    assert R.execute(_dirs(tmp_path), run, nr, head, ENV, head, {"gap": R.GAP}, 1, runner=_fake,
+                     log=lambda s: None) == 2
+
+
+def test_resume_refused_when_commits_touch_the_results_folders():
+    """Review 5, O7: the results folders are diffed like the frozen paths."""
+    head, old = scored._git("rev-parse", "HEAD"), scored._git("rev-parse", "cdfc76e")
+    m = {"trials": [], "not_run": [], "tables": {}, "environment": ENV, "commit": old, "frozen_paths": []}
+    probs = R.resume_problems(m, m, head, True, ("experiments/E5_scored_m5",))
+    assert any("touch the results folders" in p for p in probs)
+    assert R.resume_problems(m, m, head, True, ("experiments/E1_scored",)) == []
+
+
+def _interrupted_run(tmp, stop_after=2):
+    jobs = [j for j in R.build_m5_jobs("c0", ENV, 5.0) if j["exp"] == "E1-1"]
+    with pytest.raises(R.Interrupted):
+        _make(tmp, jobs=copy.deepcopy(jobs), stop_after=stop_after)
+    return jobs
+
+
+def test_resume_refused_when_a_foreign_file_is_present(tmp_path):
+    jobs = _interrupted_run(tmp_path)
+    (tmp_path / "results" / "E1-1" / "rest_s10000-conflict.txt").write_text("x")
+    with pytest.raises(SystemExit, match="would make the run INVALID"):
+        _make(tmp_path, jobs=copy.deepcopy(jobs))
+
+
+def test_kill_after_logging_the_plan_but_before_moving_is_recoverable(tmp_path, monkeypatch):
+    """Review 5, O2 (b): the plan is logged before any orphan is moved, so a kill in between loses nothing."""
+    jobs = _interrupted_run(tmp_path)
+    orphan = tmp_path / "results" / "E1-1" / ".rest_s10019.json.tmp"
+    orphan.write_text("partial")
+
+    def killed(*a, **k):
+        raise SystemExit("killed")
+
+    monkeypatch.setattr(R, "apply_resume", killed)
+    with pytest.raises(SystemExit, match="killed"):
+        _make(tmp_path, jobs=copy.deepcopy(jobs))
+    monkeypatch.undo()
+    _make(tmp_path, jobs=copy.deepcopy(jobs))
+    assert not orphan.exists()
+    st, _vd = A.analyse(_dirs(tmp_path), jobs)
+    assert st["violations"] == [] and st["missing"] == []
+
+
+def test_two_orphans_of_one_trial_do_not_collide(tmp_path):
+    """Review 5, O2 (c): the moved name carries the start index."""
+    jobs = _interrupted_run(tmp_path, stop_after=1)
+    orphan = tmp_path / "results" / "E1-1" / ".rest_s10019.json.tmp"
+    orphan.write_text("first")
+    with pytest.raises(R.Interrupted):
+        _make(tmp_path, jobs=copy.deepcopy(jobs), stop_after=1)
+    orphan.write_text("second")
+    _make(tmp_path, jobs=copy.deepcopy(jobs))
+    moved = sorted(p.read_text() for p in (tmp_path / "results" / R.INTERRUPTED).iterdir())
+    assert moved == ["first", "second"]
+    assert A.analyse(_dirs(tmp_path), jobs)[0]["violations"] == []
+
+
+def test_manifest_temporary_file_never_lands_in_results(tmp_path):
+    """Review 5, O2 (a): a leftover temporary manifest from a killed first start sits outside results/ and is
+    overwritten by the next first start."""
+    (tmp_path / ".results.MANIFEST.json.tmp").write_text("partial")
+    jobs = [j for j in R.build_m5_jobs("c0", ENV, 5.0) if j["exp"] == "E1-1"][:2]
+    _make(tmp_path, jobs=copy.deepcopy(jobs))
+    assert sorted(p.name for p in (tmp_path / "results").iterdir()) == ["E1-1", R.LEDGER, R.MANIFEST, R.STARTS]
+    assert A.analyse(_dirs(tmp_path), jobs)[0]["violations"] == []
+
+
+def _spec(**ch):
+    def f(rec):
+        rec["spec"] = {**rec["spec"], **ch}
+    return f
+
+
+K_NOMAG = ("no_magnets", "E1-2", "U_s10100")
+
+
+@pytest.mark.parametrize("needle, mutate", [
+    ("spec differs from the registered trial", _only(K_SEQ, spec=_spec(moves="U2"))),
+    ("seed differs from the manifest", _only(K_SEQ, spec=_spec(seed=1))),
+    ("metadata does not match its key", _only(K_SEQ, trial_id="U_s1")),
+    ("magnet record without magnets", _only(K_SEQ, magnets=None)),
+    ("no-magnet record carries magnets", _only(K_NOMAG, magnets={"params": {"wall": 0.4e-3}, "layout_gap": 5e-5})),
+    ("table file None", _only(K_SEQ, magnet_table=None)),
+    ("is not", _only(K_SEQ, magnet_table={"table_file": "experiments/other.npz", "table_sha256": "abc"})),
+])
+def test_more_record_violations_are_invalid(tmp_path, needle, mutate):
+    _invalid(tmp_path, needle, mutate)
+
+
+def _unlogged_orphan(tmp):
+    d = tmp / "results" / R.INTERRUPTED
+    d.mkdir()
+    (d / "k9__E1-2__.U_s10100.json.tmp").write_text("x")
+
+
+def _stray(tmp):
+    (tmp / "results" / "notes.txt").write_text("x")
+
+
+@pytest.mark.parametrize("needle, after", [
+    ("not logged in the start log", _unlogged_orphan),
+    ("unexpected file", _stray),
+])
+def test_more_file_violations_are_invalid(tmp_path, needle, after):
+    _invalid(tmp_path, needle, after=after)
+
+
+def test_manifest_keys_must_equal_the_registered_list(complete_set):
+    reg = R.build_m5_jobs("c0", ENV, 5.0)[1:]
+    st, vd = A.analyse(_dirs(complete_set), reg)
+    assert vd["verdict"] == "INVALID" and any("differ from the registered list" in v for v in st["violations"])
+
+
+def test_not_run_set_must_equal_the_rederived_one(complete_set):
+    st, vd = A.analyse(_dirs(complete_set), R.build_m5_jobs("c0", ENV, 5.0), derived_not_run={})
+    assert vd["verdict"] == "INVALID" and any("re-derived" in v for v in st["violations"])
+    nr = {("magnets", "E1-7", f"magnet=4x1.5_N35__{s}"): "failed V3" for s in ("6move", "sexy6")}
+    assert A.analyse(_dirs(complete_set), R.build_m5_jobs("c0", ENV, 5.0), derived_not_run=nr)[1]["verdict"] == "PASS"
+
+
+def test_unregistered_not_run_reason_is_invalid(tmp_path):
+    jobs = [j for j in R.build_m5_jobs("c0", ENV, 5.0) if j["exp"] in ("E1-1", "E1-7")]
+    run, nr = _split(copy.deepcopy(jobs))
+    nr = [(j, "other") for j, _r in nr]
+    R.execute(_dirs(tmp_path), run, nr, "c0", ENV, "c0", {"gap": R.GAP}, 1, runner=_fake, check_git=False,
+              log=lambda s: None)
+    st, vd = A.analyse(_dirs(tmp_path), jobs)
+    assert vd["verdict"] == "INVALID" and any("unregistered reason" in v for v in st["violations"])
+
+
+def test_incomplete_with_a_failure_reports_both_words(tmp_path):
+    def m(key, rec):
+        if key == ("magnets", "E1-6t", "std_ppp_pos_s10654"):
+            rec["pass"], rec["fail_reasons"] = False, ["E1-6t"]
+    _make(tmp_path, m)
+    key = ("no_magnets", "E1-2", "U_s10100")
+    R.record_path(_dirs(tmp_path), key).unlink()
+    lines = [x for x in _ledger_lines(tmp_path) if (json.loads(x)["arm"], json.loads(x)["tid"]) != (key[0], key[2])]
+    (tmp_path / "results" / R.LEDGER).write_text("\n".join(lines) + "\n")
+    assert _verdict(tmp_path)[1]["verdict"] == "INCOMPLETE (and NOT PASSED)"
+
+
+def test_unserialisable_record_is_a_failed_trial(monkeypatch):
+    """Review 5, O4."""
+    monkeypatch.setattr(R.M4, "run_trial",
+                        lambda kind, kw, mag: ({"pass": True, "bad": object(), "magnets": None}, None, None))
+    key, rec = R.run_job(_job())
+    assert rec["pass"] is False and "TypeError" in rec["fail_reasons"][0]
+
+
+@pytest.mark.parametrize("where", ["here", "results", "results_nomag", "inside"])
+def test_smoke_dir_may_not_be_the_scored_folders(where):
+    d = {"here": R.HERE, "results": R.OUT, "results_nomag": R.OUT_NOMAG, "inside": R.OUT / "x"}[where]
+    with pytest.raises(SystemExit, match="scored folders"):
+        R.main(["smoke", "--smoke-dir", str(d)])
+
+
+def test_scored_start_refused_while_onedrive_runs(monkeypatch):
+    monkeypatch.setattr(R, "onedrive_running", lambda: True)
+    with pytest.raises(SystemExit, match="OneDrive is running"):
+        R.main(["all"])
+
+
+def test_committed_v3_records_classify_440_runnable_2_not_run_0_refused():
+    """Review 5, O12: the committed V3 and pair-check records give the registered E1-7 outcome."""
+    run, nr, refused = R.prepare(R.build_m5_jobs("c", ENV, 5.0))
+    assert (len(run), len(nr), len(refused)) == (440, 2, 0)
+    assert sorted((j["tid"], r) for j, r in nr) == [("magnet=4x1.5_N35__6move", "failed V3"),
+                                                     ("magnet=4x1.5_N35__sexy6", "failed V3")]
