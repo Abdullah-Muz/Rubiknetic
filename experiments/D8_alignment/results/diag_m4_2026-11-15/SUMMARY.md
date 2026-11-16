@@ -73,3 +73,37 @@ there.
   play by wedging pieces together, at the cost of a higher turning torque and the radial change under opposed torque
   that ruled out B2/B2E. A first follow-up proposed in this session ("lock the radial travel") was based on a wrong
   premise. B1's radius is already rigid, so that test was not run.
+
+## 5. Gap study: 0.05 mm (2026-11-16; `gap_study/`, `scripts/diag_gap.py`, `scripts/gap_an.py`)
+UNSCORED. The same seeds and move strings as §1 (paired). The runner includes the P-26 fix. The magnet wall stays
+0.4 mm, so the face gap is 0.85 mm.
+
+| Arm | Sequences pass (M1 + M4) | Drift median / p99 / max | Worst-piece error after a move (median / max) | Turner torque median / max | Move penetration max | Rest rotation (4) | Max magnet tilt |
+|---|---|---|---|---|---|---|---|
+| 0.2 mm, magnets | 0 / 3 | 0.88 / 1.68 / 1.69° | 1.45 / 2.01° | 0.095 / 0.68 N·m | 0.29 mm | 0.20–0.98° | 4.96° |
+| 0.2 mm, none | 0 / 3 | 0.83 / 1.90 / 1.98° | 2.44 / 5.25° | 0.34 / 1.00 N·m | 0.35 mm | 1.02–1.30° | — |
+| 0.1 mm, magnets | 3 / 3 | 0.55 / 0.95 / 0.97° | 0.97 / 1.50° | 0.098 / 0.70 N·m | 0.31 mm | 0.10–0.77° (1 fail) | 2.66° |
+| **0.05 mm, magnets** | **3 / 3** | **0.30 / 0.63 / 0.70°** | **0.68 / 0.92°** | **0.12 / 0.69 N·m** | **0.29 mm** | **0.10–0.28°** | **1.40°** |
+| 0.05 mm, none | 0 / 3 (one **jam** on the first move: layer 86° short, penetration 0.76 mm, state unreadable) | 0.72 / 1.33 / 1.35° | 1.01 / 5.50° | 0.41 / 1.00 N·m (at the limit) | 0.76 mm | 0.22–0.30° | — |
+
+- **0.05 mm with magnets passed all 21 trials** on every M1 and M4 criterion:
+  - 3 sequences of 40 moves, with all 120 moves oracle-correct;
+  - 4 rest trials;
+  - 4 snaps, each from ±3° or ±5° to ≤ 0.11°;
+  - forgiveness: ±10° completes, ±20° blocked (categorical pass);
+  - opposed torque at 1 and 2 N·m;
+  - corner twist: 23.7° at 5 N·m (about 40° at 0.2 mm), 2.7–2.8 N·m at 15°;
+  - the toy-standard test: 10.4–10.6° at 0.45 N·m, solved after release.
+- **The magnets prevent jamming at the tight fit (FACT for this sample; mechanism INFERENCE).**
+  - Without magnets, 0.05 mm jams or stalls: turner torque saturates at 1.0 N·m, and every forgiveness trial is
+    blocked, even at ±10°.
+  - With magnets, the median turning torque is close to that at 0.2 mm.
+  - INFERENCE: the magnets keep the layers square, so tight edges don't catch.
+- Penetration reported only, under abuse at 0.05 mm with magnets: 0.53 mm at 2 N·m opposed torque; 0.64 mm in corner
+  twist. E1-6b and E1-6c are categorical, so these are reported, not scored.
+- **Limits.**
+  - The samples are small: 3 sequences and 4 rest trials. At 0.1 mm this sample passed 3 of 3 sequences, but the
+    204-trial rehearsal found drift failures in 11 trials. A full battery is needed before any conclusion.
+  - Whether 0.05 mm is a realistic clearance for a real cube is unknown (ASSUMPTION; there are no real-cube clearance
+    data, and R1 could measure it).
+  - The face gap shrinks with the piece gap (0.85 mm), which strengthens the magnets slightly.

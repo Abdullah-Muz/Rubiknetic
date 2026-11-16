@@ -1,0 +1,51 @@
+49 trials
+FAIL g0.05_none/scr20inv_s9400 M1 criteria; E1-4 growth slope None deg/move (limit < 0.005)
+FAIL g0.05_none/scr20inv_s9401 M1 criteria
+FAIL g0.05_none/scr20inv_s9402 M1 criteria; E1-4 growth slope 0.006730617138432223 deg/move (limit < 0.005)
+PASS g0.05_4x2/scr20inv_s9401 
+PASS g0.05_4x2/scr20inv_s9400 
+PASS g0.05_4x2/scr20inv_s9402 
+PASS g0.05_4x2/rest_s9000 
+PASS g0.05_4x2/rest_s9001 
+PASS g0.05_4x2/rest_s9002 
+PASS g0.05_4x2/rest_s9003 
+PASS g0.05_4x2/snap_+3_s9500 
+PASS g0.05_4x2/snap_-3_s9501 
+PASS g0.05_4x2/snap_+5_s9502 
+PASS g0.05_4x2/snap_-5_s9503 
+PASS g0.05_4x2/forgive_+10_s9800 
+PASS g0.05_4x2/forgive_-10_s9801 
+PASS g0.05_4x2/forgive_+20_s9802 
+PASS g0.05_4x2/forgive_-20_s9803 
+PASS g0.05_4x2/opposed_UR_1Nm_s9610 
+PASS g0.05_4x2/opposed_UR_2Nm_s9611 
+PASS g0.05_4x2/twist_ppp_s9626 
+PASS g0.1_4x2/scr20inv_s9400 
+PASS g0.05_4x2/twist_nnn_s9627 
+PASS g0.05_4x2/std_ppp_pos_s9654 
+PASS g0.05_none/rest_s9000 
+PASS g0.05_4x2/std_ppp_neg_s9655 
+PASS g0.05_none/rest_s9001 
+PASS g0.05_none/rest_s9002 
+PASS g0.05_none/forgive_+10_s9800 
+PASS g0.05_none/rest_s9003 
+PASS g0.05_none/forgive_-10_s9801 
+PASS g0.05_none/forgive_+20_s9802 
+PASS g0.05_none/forgive_-20_s9803 
+PASS g0.05_none/opposed_UR_1Nm_s9610 
+PASS g0.05_none/opposed_UR_2Nm_s9611 
+PASS g0.05_none/twist_ppp_s9626 
+PASS g0.05_none/twist_nnn_s9627 
+PASS g0.1_4x2/scr20inv_s9401 
+PASS g0.05_none/std_ppp_pos_s9654 
+PASS g0.05_none/std_ppp_neg_s9655 
+PASS g0.1_4x2/scr20inv_s9402 
+PASS g0.1_4x2/rest_s9000 
+PASS g0.1_4x2/rest_s9002 
+FAIL g0.1_4x2/rest_s9001 M1 criteria
+PASS g0.1_4x2/snap_+3_s9500 
+PASS g0.1_4x2/snap_-3_s9501 
+PASS g0.1_4x2/snap_+5_s9502 
+PASS g0.1_4x2/snap_-5_s9503 
+PASS g0.1_4x2/rest_s9003 
+done
