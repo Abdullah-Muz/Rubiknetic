@@ -1,8 +1,10 @@
 # Phase 1 (G1) Pre-registration: M5, magnetic contact cube at a 0.05 mm piece gap
 
-**Status: revision 7, NOT YET IN FORCE.** The user approved it ("fully approved, proceed", P-47) on condition that a
-very narrow independent review of the revision-7 changes require no changes. It makes W1 and adopts X1–X6 from
-review 6; see §9.
+**Status: revision 7, IN FORCE (P-48).** The user approved it ("fully approved, proceed", P-47) on condition that a
+very narrow independent review of the revision-7 changes require no changes. That review returned ACCEPTABLE AS IS
+with no required changes ([`M5_PREREGISTRATION_REVIEW7_2026-11-16.md`](M5_PREREGISTRATION_REVIEW7_2026-11-16.md)), so
+the condition is met. Its optional items Y1–Y5 are not adopted: this text is frozen from here to the end of the run.
+Revision 7 makes W1 and adopts X1–X6 from review 6; see §9.
 - **Revision 6** (P-45) was approved on condition that a narrow independent review of the changes since revision 5
   require no changes. That review required one change, W1
   ([`M5_PREREGISTRATION_REVIEW6_2026-11-16.md`](M5_PREREGISTRATION_REVIEW6_2026-11-16.md); P-46), so revision 6 was
