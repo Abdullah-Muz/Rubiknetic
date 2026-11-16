@@ -1,9 +1,12 @@
 # Phase 1 (G1) Pre-registration: M5, magnetic contact cube at a 0.05 mm piece gap
 
-**Status: revision 6, NOT IN FORCE.** It was approved on condition that a narrow independent review of the
-changes since revision 5 require no changes (P-45). That review required one change, W1
-([`M5_PREREGISTRATION_REVIEW6_2026-11-16.md`](M5_PREREGISTRATION_REVIEW6_2026-11-16.md); P-46), so the draft
-returns to the user.
+**Status: revision 7, NOT YET IN FORCE.** The user approved it ("fully approved, proceed", P-47) on condition that a
+very narrow independent review of the revision-7 changes require no changes. It makes W1 and adopts X1–X6 from
+review 6; see §9.
+- **Revision 6** (P-45) was approved on condition that a narrow independent review of the changes since revision 5
+  require no changes. That review required one change, W1
+  ([`M5_PREREGISTRATION_REVIEW6_2026-11-16.md`](M5_PREREGISTRATION_REVIEW6_2026-11-16.md); P-46), so revision 6 was
+  never in force.
 - **Revision 5** (P-42) was approved on condition that a fifth independent review of the text and the §6.1 code
   require no changes (P-43). That review required one change, V1, a missing registered test
   ([`M5_PREREGISTRATION_REVIEW5_2026-11-16.md`](M5_PREREGISTRATION_REVIEW5_2026-11-16.md); P-44), so revision 5 was
@@ -26,7 +29,7 @@ returns to the user.
   - Before writing revision 3, the author had seen that M4's first scored E1-4 trials failed M1's criteria, which was
     expected.
   - Every revision-3 change comes from review 2's text; none concerns or depends on M4's results.
-  - **Revisions 4 to 6 were written after M4's scored battery finished** (G1 NOT PASSED, 123 / 204; P-37), and the
+  - **Revisions 4 to 7 were written after M4's scored battery finished** (G1 NOT PASSED, 123 / 204; P-37), and the
     author has seen its results.
     - Every revision-4 change answers an item in review 3, every revision-5 change an item in review 4, and every
       revision-6 change an item in review 5. None of these reviews used M4's results (review 5 discloses that one
@@ -198,8 +201,10 @@ returns to the user.
       log;
     - that the trial list, the "not run" set, the table SHA-256s and the compared environment fields the runner
       builds now equal the manifest's;
-    - that no file in the results folders would make the run INVALID (§5), apart from orphan temporary files, which
-      (i) handles (review 5, O1).
+    - that the results folders hold no file of a kind the verdict script rejects (§5), apart from orphan temporary
+      files, which (i) handles (review 5, O1): only the manifest, start log and ledger at the top of `results/`,
+      logged moved orphans in `_interrupted/`, and, in an experiment folder, temporary record files and the `.json`
+      record of a manifest trial (revision 7, review 6 X3).
 
     Before running anything, a resume does two things (U1). It first writes its start-log line, listing both, and
     only then carries them out (review 5, O2 (b)); a kill in between leaves the files where they were, and the next
@@ -307,7 +312,10 @@ and §5:
     - each magnet record has a `magnet_table` whose `table_file` is the table for its own configuration
       (`table_path`, `run.py:215–218`) and whose `table_sha256` equals the manifest's (review 5, O3), and its
       `environment` equals the manifest's in the compared fields (review 4, item 1);
-    - the manifest's "not run" set equals the one re-derived from the committed V3 records (review 5, O3);
+    - the manifest's "not run" set equals the one re-derived from the committed V3 records (review 5, O3). The
+      re-derivation applies the §4 rule to the committed V3 and pair-check records only; it never reads the
+      git-ignored near-field tables, so a fresh clone gives the same verdict (revision 7, review 6 W1). Refusals of
+      the §4 rule are part of the re-derived set as "refused: …", so a manifest made despite one is INVALID;
     - the run-procedure checks in §2 (record key, manifest, start log, ledger, atomic records).
 
     Any violation gives INVALID. Missing records give INCOMPLETE.
@@ -376,7 +384,8 @@ and §5:
 3. **Unit tests** (none steps the simulation on an M5 seed, P5):
    - the seed list (§2);
    - **the gap (N1, O3; review 3, item 1).** For every job of the full M5 list, with `scored.Trial` replaced by a
-     stub that records the parameters it receives and stops before any step (review 5, O8): the cubie gap passed to `params_for` equals `expected_gap`, and, for every magnet
+     stub that records the parameters it receives and stops before any step (review 5, O8): the cubie gap in the parameters the stub receives equals
+     `expected_gap`, and, for every magnet
      job (review 4, item 9), the magnet positions `p_loc` of the magnet system built for the job equal those of
      `layout(pitch, expected_gap, mp)` (`magnets.py:92`), where `expected_gap` is 2.5e-5 in the 0.025 mm arm, 1e-4 in
      the 0.1 mm arm and 5e-5 in every other trial, E1-7 included. The recorded `magnets.layout_gap` equals
@@ -401,6 +410,11 @@ and §5:
      be serialised is a failed trial; the smoke folder may not be a scored folder; a scored start is refused while
      OneDrive runs; the committed V3 records classify the full list as 440 runnable, 2 "not run" (4×1.5 N35, "failed
      V3") and 0 refused (O12);
+   - **revision 7 (review 6):** with the near-field tables absent, the re-derived "not run" set is unchanged and a
+     complete, valid set is not INVALID, also through the verdict script's command line (W1); the two tests that
+     call the runner's command line cannot reach a real start (X1); a resume from a HEAD that differs from the
+     manifest commit with the frozen paths unchanged is allowed, with git run (X2); a resume refuses a `.json` that is
+     not a manifest trial's record (X3); undecodable `tasklist` output does not crash the OneDrive check (X4);
    - the verdict-script cases in §5.
 4. **A smoke test** on seeds outside every range, unscored, in a scratch folder (review 4, item 11). It runs the full
    run procedure: manifest, start log, atomic link, ledger, a forced interruption and a resume. It includes one
@@ -423,8 +437,9 @@ and §5:
   experiments, so these values are reported and not judged against 0.5 mm, as for M4.
 
 ## 8. Decisions requested
-None open. Revision 6 was approved with its condition (P-45): it takes effect if the narrow review of the changes since
-revision 5 requires no changes.
+None open. Revision 7 was approved with its condition (P-47): it takes effect if a very narrow review of the
+revision-7 changes requires no changes. The commit that records that outcome in the Status line comes before the first
+start, because this file is a frozen path (review 6, X6).
 
 ## 9. Changes from revision 1
 | Review item | Change |
@@ -507,3 +522,15 @@ revision 5 requires no changes.
 | O10 | §4: the pair check covers V3 part (a) only, disclosed |
 | O11 | §6.1 item 1: the smoke folder may not be a scored folder |
 | O12 | §6.1 item 3: a test pins the 440 / 2 / 0 classification |
+
+**Revision 7 (review 6; user: "fully approved, proceed", P-47):**
+
+| Review-6 item | Change |
+|---|---|
+| **W1 (required)** | §5: the "not run" set is re-derived from the committed V3 and pair-check records only, never the near-field tables; `run.py` splits the §4 rule (`v3_rule`, `v3_not_run`) from the table check; tests with the tables absent |
+| X1 | §6.1 item 3: the two command-line tests stub the start and point the scored folders at a scratch folder |
+| X2 | §6.1 item 3: a resume test with HEAD ≠ manifest commit and unchanged frozen paths (`ccc6330` → `769eab2`) |
+| X3 | §2: the foreign-file wording is exact, and a `.json` must be a manifest trial's record |
+| X4 | §2 (code): `tasklist` output decoded with replacement; operationally, the repository is kept on the device before OneDrive is exited |
+| X5 | §6.1 item 3 and `analyze.py` wording; the start table's column is "orphans planned (moved)"; a lost line continuation in `run.py` |
+| X6 | §8: the Status-line commit precedes the first start; no commit touches the results folders during the run |

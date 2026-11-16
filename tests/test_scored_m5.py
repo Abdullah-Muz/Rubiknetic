@@ -679,14 +679,26 @@ def test_unserialisable_record_is_a_failed_trial(monkeypatch):
     assert rec["pass"] is False and "TypeError" in rec["fail_reasons"][0]
 
 
+def _no_real_start(monkeypatch, tmp_path):
+    """Review 6, X1: if the check under test ever regresses, the test fails here instead of starting a run."""
+    def unreachable(*a, **k):
+        raise AssertionError("the test reached a real start")
+    monkeypatch.setattr(R, "execute", unreachable)
+    monkeypatch.setattr(R, "startup_check", unreachable)
+    monkeypatch.setattr(R, "OUT", tmp_path / "results")
+    monkeypatch.setattr(R, "OUT_NOMAG", tmp_path / "results_nomag")
+
+
 @pytest.mark.parametrize("where", ["here", "results", "results_nomag", "inside"])
-def test_smoke_dir_may_not_be_the_scored_folders(where):
+def test_smoke_dir_may_not_be_the_scored_folders(where, monkeypatch, tmp_path):
+    _no_real_start(monkeypatch, tmp_path)
     d = {"here": R.HERE, "results": R.OUT, "results_nomag": R.OUT_NOMAG, "inside": R.OUT / "x"}[where]
     with pytest.raises(SystemExit, match="scored folders"):
         R.main(["smoke", "--smoke-dir", str(d)])
 
 
-def test_scored_start_refused_while_onedrive_runs(monkeypatch):
+def test_scored_start_refused_while_onedrive_runs(monkeypatch, tmp_path):
+    _no_real_start(monkeypatch, tmp_path)
     monkeypatch.setattr(R, "onedrive_running", lambda: True)
     with pytest.raises(SystemExit, match="OneDrive is running"):
         R.main(["all"])
@@ -698,3 +710,81 @@ def test_committed_v3_records_classify_440_runnable_2_not_run_0_refused():
     assert (len(run), len(nr), len(refused)) == (440, 2, 0)
     assert sorted((j["tid"], r) for j, r in nr) == [("magnet=4x1.5_N35__6move", "failed V3"),
                                                      ("magnet=4x1.5_N35__sexy6", "failed V3")]
+
+
+# ---- revision 7 (review 6) -----------------------------------------------------------------------------------------
+@pytest.fixture
+def no_tables(monkeypatch, tmp_path):
+    """The git-ignored near-field tables are absent (a fresh clone): every .npz in the tables folder reads as
+    missing; the expected table paths are unchanged."""
+    real_exists, tables = Path.exists, R.M4.TABLES
+
+    def exists(self, *a, **k):
+        return False if self.suffix == ".npz" and self.parent == tables else real_exists(self, *a, **k)
+    monkeypatch.setattr(Path, "exists", exists)
+    return tmp_path
+
+
+def test_rederived_not_run_set_reads_no_tables(no_tables):
+    """Review 6, W1: without the tables the runner refuses, but the verdict script's re-derivation is unchanged."""
+    reg = R.build_m5_jobs("c0", ENV, 5.0)
+    _run, _nr, refused = R.prepare([dict(j) for j in reg])
+    assert len(refused) > 0                                   # the tables really are absent
+    nr = {("magnets", "E1-7", f"magnet=4x1.5_N35__{s}"): "failed V3" for s in ("6move", "sexy6")}
+    assert R.v3_not_run(reg) == nr
+
+
+def test_complete_valid_set_without_tables_is_not_invalid(complete_set, no_tables):
+    """Review 6, W1: a complete, valid set analysed with the tables absent gives PASS, not INVALID."""
+    reg = R.build_m5_jobs("c0", ENV, 5.0)
+    st, vd = A.analyse(_dirs(complete_set), reg, derived_not_run=R.v3_not_run(reg))
+    assert st["violations"] == [] and vd["verdict"] == "PASS"
+
+
+def test_verdict_script_main_never_reads_tables(complete_set, no_tables, monkeypatch, capsys):
+    """Review 6, W1: analyze.main end to end on the complete set, tables absent, the runner's prepare unusable."""
+    def unreachable(*a, **k):
+        raise AssertionError("the verdict script called the runner's availability check")
+    monkeypatch.setattr(R, "prepare", unreachable)
+    monkeypatch.setattr(R.M4, "magnet_availability", unreachable)
+    monkeypatch.setattr(R, "OUT", complete_set / "results")
+    monkeypatch.setattr(R, "OUT_NOMAG", complete_set / "results_nomag")
+    monkeypatch.setattr(R, "environment", lambda: ENV)
+    monkeypatch.setattr(R.M4, "nominal_validated_tilt", lambda: 5.0)
+    A.main(["--print"])
+    out = capsys.readouterr().out
+    assert "INVALID" not in out and "PASS" in out
+
+
+def test_resume_allowed_when_head_moved_but_frozen_paths_did_not():
+    """Review 6, X2: the realistic resume (HEAD != manifest commit, frozen paths and results folders unchanged)
+    runs git and is allowed. ccc6330 -> 769eab2 only added the revision 6 smoke-test folder."""
+    old, new = scored._git("rev-parse", "ccc6330"), scored._git("rev-parse", "769eab2")
+    m = {"trials": [], "not_run": [], "tables": {}, "environment": ENV, "commit": old,
+         "frozen_paths": R.M5_FROZEN_PATHS + scored.FROZEN_PATHS}
+    rel = tuple(str(d.relative_to(REPO)).replace("\\", "/") for d in (R.OUT, R.OUT_NOMAG))
+    assert R.resume_problems(m, m, new, True, rel) == []
+    # the same pair with a frozen path that did change between them is refused (the diff really ran)
+    m2 = {**m, "frozen_paths": ["experiments/E5_scored_m5/smoke_rev6_2026-11-16"]}
+    assert any("frozen paths differ" in x for x in R.resume_problems(m2, m2, new, True, rel))
+
+
+@pytest.mark.parametrize("name", ["rest_s99999.json", "rest_s10000-PC.json"])
+def test_resume_refused_for_a_json_that_is_not_a_manifest_record(tmp_path, name):
+    """Review 6, X3: a .json in an experiment folder must be a manifest trial's record."""
+    jobs = _interrupted_run(tmp_path)
+    (tmp_path / "results" / "E1-1" / name).write_text("{}")
+    with pytest.raises(SystemExit, match="would make the run INVALID"):
+        _make(tmp_path, jobs=copy.deepcopy(jobs))
+
+
+def test_onedrive_check_survives_undecodable_output(monkeypatch):
+    """Review 6, X4: tasklist output is decoded with replacement, so a non-UTF-8 message cannot crash the check."""
+    import subprocess
+
+    def fake_run(cmd, **kw):
+        assert kw.get("errors") == "replace"
+        out = b"INFO: \xe9\xff no tasks".decode("utf-8", errors=kw["errors"])
+        return subprocess.CompletedProcess(cmd, 0, stdout=out, stderr="")
+    monkeypatch.setattr(R.subprocess, "run", fake_run)
+    assert R.onedrive_running() is False

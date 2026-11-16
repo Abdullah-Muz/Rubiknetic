@@ -218,28 +218,55 @@ def smoke_jobs(commit: str, env: dict, validated_tilt: float) -> list[dict]:
 
 
 # ---- availability: runnable / registered "not run" / refused (sections 2 and 4) ------------------------------------
-def classify(job: dict) -> tuple[str, str | None, dict | None]:
-    """('run', None, magnet_info) | ('not_run', reason, None) | ('refused', message, None)."""
+def v3_rule(job: dict) -> tuple[str, str | None]:
+    """Section 4 rule from committed files only (the V3 records and the 0.35 mm pair check): ('run', None) |
+    ('not_run', reason) | ('refused', message). It never reads the git-ignored near-field tables, so the verdict
+    script can re-derive the "not run" set on a fresh clone (revision 7, review 6 W1)."""
     if not job["magnets"]:
-        return "run", None, None
+        return "run", None
     ov = dict(job["kw"].get("overrides", {}))
     face_gap = ov.get("face_gap_mm")
     mp = magnet_params_for(ov)
     if mp is None:
-        return "run", None, None
+        return "run", None
     matches = v3_matches(mp)
     tag = f"{mp.diameter * 1e3:g}x{mp.length * 1e3:g} mm {mp.grade} scale {mp.scale:g}"
     if len(matches) != 1:
-        return "refused", f"{len(matches)} V3 records match {tag} (exactly one required)", None
+        return "refused", f"{len(matches)} V3 records match {tag} (exactly one required)"
     if not matches[0][1]["V3"].get("pass"):
         if job["exp"] == "E1-7":
-            return "not_run", "failed V3", None
-        return "refused", f"V3 failed for {tag} outside E1-7", None
+            return "not_run", "failed V3"
+        return "refused", f"V3 failed for {tag} outside E1-7"
     if face_gap is not None and np.isclose(face_gap, 0.35):
         if not PAIR_CHECK.exists():
-            return "refused", f"0.35 mm pair check {M4._rel(PAIR_CHECK)} missing (section 6.1 item 5)", None
+            return "refused", f"0.35 mm pair check {M4._rel(PAIR_CHECK)} missing (section 6.1 item 5)"
         if not json.loads(PAIR_CHECK.read_text())["V3_pair_extension"]["pass"]:
-            return "not_run", "outside V3", None
+            return "not_run", "outside V3"
+    return "run", None
+
+
+def v3_not_run(jobs: list[dict]) -> dict:
+    """{key: reason} of the V3 rule's "not run" and refused outcomes (refusals as "refused: <message>"). Used by the
+    verdict script; reads committed files only."""
+    out = {}
+    for j in jobs:
+        status, msg = v3_rule(j)
+        if status == "not_run":
+            out[key_of(j)] = msg
+        elif status == "refused":
+            out[key_of(j)] = f"refused: {msg}"
+    return out
+
+
+def classify(job: dict) -> tuple[str, str | None, dict | None]:
+    """('run', None, magnet_info) | ('not_run', reason, None) | ('refused', message, None): the V3 rule, then (runner
+    only) the near-field tables must exist on the default grid."""
+    status, msg = v3_rule(job)
+    if status != "run":
+        return status, msg, None
+    mp = magnet_params_for(dict(job["kw"].get("overrides", {}))) if job["magnets"] else None
+    if mp is None:
+        return "run", None, None
     try:
         info = M4.magnet_availability(mp)
     except M4.Refused as e:
@@ -401,7 +428,8 @@ def resume_problems(manifest: dict, body: dict, head: str, check_git: bool = Tru
     base = manifest["commit"].split("+")[0]            # smoke manifests carry "<commit>+smoke"
     if check_git and base != head:
         # an empty pathspec would diff the whole tree, so each diff runs only with paths
-        diff = scored._git("diff", "--name-only", base, head, "--", *manifest["frozen_paths"])             if manifest["frozen_paths"] else ""
+        diff = (scored._git("diff", "--name-only", base, head, "--", *manifest["frozen_paths"])
+                if manifest["frozen_paths"] else "")
         if diff:
             probs.append(f"frozen paths differ between the manifest commit and HEAD: {diff}")
         if result_paths:
@@ -411,10 +439,12 @@ def resume_problems(manifest: dict, body: dict, head: str, check_git: bool = Tru
     return probs
 
 
-def foreign_files(dirs: dict, starts: list[dict]) -> list[str]:
+def foreign_files(dirs: dict, starts: list[dict], manifest: dict) -> list[str]:
     """Files the verdict script would count as INVALID (section 2), other than orphan temporary files, which a
-    resume moves. A resume refuses if any exist (review 5, O1)."""
+    resume moves. A resume refuses if any exist (review 5, O1). A .json file counts only if it is the record path
+    of a manifest trial (revision 7, review 6 X3)."""
     logged = {(o["arm"], o["moved_to"]) for s in starts for o in s.get("orphans", [])}
+    records = {record_path(dirs, (t["arm"], t["exp"], t["tid"])) for t in manifest["trials"]}
     bad = []
     for arm in ARMS:
         root = dirs[arm]
@@ -429,7 +459,7 @@ def foreign_files(dirs: dict, starts: list[dict]) -> list[str]:
                         if (arm, str(f.relative_to(root))) not in logged]
             else:
                 for f in p.iterdir():
-                    if not (f.suffix == ".json" or (f.name.startswith(".") and f.name.endswith(".json.tmp"))):
+                    if not (f in records or (f.name.startswith(".") and f.name.endswith(".json.tmp"))):
                         bad.append(f"{arm}/{p.name}/{f.name}")
     return bad
 
@@ -491,7 +521,7 @@ def execute(dirs: dict, jobs: list[dict], not_run: list[tuple[dict, str]], commi
         starts = read_lines(out / STARTS)
         rel = tuple(str(d.resolve().relative_to(REPO)) for d in dirs.values() if d.resolve().is_relative_to(REPO))
         probs = resume_problems(manifest, body, head, check_git, rel)
-        probs += [f"file that would make the run INVALID: {f}" for f in foreign_files(dirs, starts)]
+        probs += [f"file that would make the run INVALID: {f}" for f in foreign_files(dirs, starts, manifest)]
         if probs:
             raise SystemExit("refusing resume:\n  " + "\n  ".join(probs))
         commit = manifest["commit"]
@@ -544,7 +574,7 @@ def onedrive_running() -> bool:
     """Review 5, O1: OneDrive must be exited (not paused) for every scored start. Refuses if it cannot be checked."""
     try:
         out = subprocess.run(["tasklist.exe", "/FI", "IMAGENAME eq OneDrive.exe", "/NH"], capture_output=True,
-                             text=True, check=True, timeout=60).stdout
+                             text=True, errors="replace", check=True, timeout=60).stdout
     except (OSError, subprocess.SubprocessError) as e:
         raise SystemExit(f"refusing: cannot check whether OneDrive is running ({e})") from e
     return "onedrive.exe" in out.lower()

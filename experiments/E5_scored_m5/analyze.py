@@ -1,7 +1,9 @@
 """Verdict script for M5 (experiments/PHASE_1_M5_PREREGISTRATION.md, section 5). Reads only; never re-runs a trial.
 
-Verdict order: INVALID (any integrity violation, section 2 and 5) > INCOMPLETE (a manifest key without a record) >
-NOT PASSED (Option A fails) > PASS. PASS here is the quantitative/categorical verdict only: G1 also needs E1-8
+Verdict order: INVALID (any integrity violation, section 2 and 5) > INCOMPLETE (a manifest key without a record;
+reported as "INCOMPLETE (and NOT PASSED)" when the records present already fail Option A) > NOT PASSED (Option A
+fails) > PASS. The manifest's "not run" set is re-derived from the committed V3 and pair-check records only; the
+git-ignored near-field tables are never read (revision 7). PASS here is the quantitative/categorical verdict only: G1 also needs E1-8
 published and the user's sign-off.
 Option A: every stored per-trial `pass` flag is true for the 204 magnet-arm trials of E1-1..E1-6, E1-5s and E1-6t
 (E1-6t included, unlike M4's analyze.py:16-18), and E1-6m <P> (`e16m_P_ok`) holds for every move of E1-2..E1-4.
@@ -301,7 +303,8 @@ def report(st: dict, vd: dict) -> str:
         L += [f"## Missing records (INCOMPLETE): {len(st['missing'])}", ""] + \
              [f"* {'/'.join(k)}" for k in st["missing"][:50]] + [""]
     per_start = Counter(x["start"] for x in st["ledger"])
-    L += ["## Starts (section 2)", "", "| start | time | HEAD | records written | orphans moved | ledger lines reconciled |",
+    L += ["## Starts (section 2)", "",
+          "| start | time | HEAD | records written | orphans planned (moved) | ledger lines reconciled |",
           "|---|---|---|---|---|---|"]
     for s in st["starts"]:
         L.append(f"| {s['k']} | {s['time']} | `{s['head'][:7]}` | {per_start.get(s['k'], 0)} | "
@@ -380,9 +383,7 @@ def main(argv: list[str] | None = None) -> None:
         sys.exit(1 if st["violations"] or st["missing"] else 0)
     env = R.environment()
     registered = R.build_m5_jobs("analyze", env, R.M4.nominal_validated_tilt())
-    _run, nr, refused = R.prepare([dict(j) for j in registered])
-    derived = {R.key_of(j): reason for j, reason in nr}
-    derived.update({R.key_of(j): f"refused: {m}" for j, m in refused})
+    derived = R.v3_not_run(registered)          # revision 7 (review 6, W1): committed files only, no tables
     st, vd = analyse({"magnets": R.OUT, "no_magnets": R.OUT_NOMAG}, registered, derived_not_run=derived)
     text = report(st, vd)
     if not a.print and st["manifest"] is not None:
