@@ -1,6 +1,14 @@
 # Phase 1 (G1) Pre-registration: M5, magnetic contact cube at a 0.05 mm piece gap
 
-**Status: revision 2, `DRAFT PROPOSAL`, awaiting the user's approval and a second independent review.**
+**Status: revision 3, `DRAFT PROPOSAL`, awaiting the user's approval and a third independent review.**
+- **Revision 2** (P-34) was reviewed, and the review required one change, N1
+  ([`M5_PREREGISTRATION_REVIEW2_2026-11-16.md`](M5_PREREGISTRATION_REVIEW2_2026-11-16.md)). Revision 3 (P-35) makes N1
+  and adopts every optional change from that review; see §9.
+- **Provenance (P6).**
+  - Revision 2 was committed (`5e7bbbb`) before any M4 scored result had been viewed.
+  - Before writing revision 3, the author had seen that M4's first scored E1-4 trials failed M1's criteria, which was
+    expected.
+  - Every revision-3 change comes from review 2's text; none concerns or depends on M4's results.
 - **Revision 1** (2026-11-15, P-31) was approved on condition that an independent review require no changes (P-32).
   The review required five changes, so revision 1 was never in force (P-33). Review:
   [`M5_PREREGISTRATION_REVIEW1_2026-11-16.md`](M5_PREREGISTRATION_REVIEW1_2026-11-16.md).
@@ -41,9 +49,10 @@
    - a 21-trial study at 0.05 mm passed (P-27);
    - a full 204-trial rehearsal at 0.05 mm passed every M1 and M4 criterion (P-30).
 2. **How independent the scored test is (R3).**
-   - The rehearsals reused the scored trial slots and **the same move strings** as M4's scored list. Every E1-2, E1-3
-     and E1-5 sequence, the E1-4 `R U R' U'` × 6 trials, and the 20 E1-4 scramble+inverse trials were generated from
-     M1's seeds 1400–1419. Only the random setup draws were new in each rehearsal.
+   - The rehearsals reused the scored trial slots and **the same move strings** as M4's scored list.
+     - The E1-2, E1-3 and E1-5 sequences and the E1-4 `R U R' U'` × 6 trials are fixed by M1's registration.
+     - The 20 E1-4 scramble+inverse sequences were generated from M1's seeds 1400–1419.
+     - Only the random setup draws were new in each rehearsal.
    - **For M5, the 20 E1-4 scrambles are drawn from the M5 seed (§3, O1).** Those 20 sequences are therefore held out.
    - The other move strings are fixed by M1's registration (single face turns, half turns, `R U R' U'` × 6,
      forgiveness and snap offsets). They stay identical to what the rehearsals saw, and only their setup draws are new.
@@ -102,7 +111,10 @@
   | E1-6t | 6640–6655 | 10640–10655 |
   | E1-7 | 6000 | 10000 |
 
-  All M5 seeds lie in 10000–10999. That range is disjoint from:
+  Ranges are first–last. Not every seed between them is used: the exact list is the M4 runner's list + 4000. All M5
+  seeds lie in 10000–10999.
+- **No simulation on M5 seeds before the scored run** (P5). Smoke tests and unit tests use seeds outside every
+  registered range, or do not simulate. That range is disjoint from:
   - M1 (1000–1999) and M2 (2000–3999);
   - the diagnostics (4302, 4401) and stage 1 (5100–5299);
   - **M4's scored battery (6000–6999, in progress, P-32)**;
@@ -139,10 +151,10 @@ The only changes are the reported-only additions and the E1-7 band:
 
 | ID | Change |
 |---|---|
-| **E1-6n** | Unchanged in form: a no-magnet rerun on the same seeds, reported only. **E1-6n results never enter Option A** (O6). **Disclosed:** at 0.05 mm the no-magnet arm is expected to jam (P-27), so it shows that the magnets are necessary rather than giving a like-for-like comparison. Rule 3 names the no-magnet arm "the bound" for E1-6b and E1-6c, and at 0.05 mm that bound may say little. The verdict therefore reports the no-magnet E1-6b and E1-6c outcomes next to each rule-3-labelled magnet trial |
-| **Turner torque (NEW, reported)** | For every move of E1-2 to E1-4, the per-move peak turner torque, its median / p99 / max, and the number of moves at the 1 N·m clip. No threshold (§0 item 5) |
-| **E1-7 sensitivity, M5 factors** | M4's factors, with the two gap factors re-centred: **piece gap 0.025 / 0.05 / 0.1 mm**, by Amendment A1's rule (P-24: 0.5× / 1× / 2× of nominal, which for M4 gave 0.05 / 0.1 / 0.2 mm), as chosen by the user; and **face gap 0.35 / 0.85 / 1.35 mm** (wall 0.15 / 0.4 / 0.65 mm, M4's ±0.5 mm band). The magnet size, grade and strength-scale factors are as M4. **Disclosed:** 0.1 mm is known from the P-25 rehearsal to fail M1's drift criterion, so a flip at the upper gap is expected. As for every E1-7 factor, a flip is reported as a fragility and is not a G1 failure (M4 §4). 0.025 mm has never been run |
-| **E1-7 magnet sizes (O5)** | **4×1.5 N35 failed V3 (P-26).** It is not retested under altered V3 settings; its arm is reported as "not run: failed V3", and E1-7 then counts as complete. The same applies to 4×2 N52 if it fails V3 at its unchanged settings |
+| **E1-6n** | Unchanged in form: a no-magnet rerun on the same seeds, reported only. **E1-6n results never enter Option A** (O6). **Disclosed:** at 0.05 mm the no-magnet arm is expected to jam (P-27), so it shows that the magnets are necessary rather than giving a like-for-like comparison. Rule 3 names the no-magnet arm "the bound" for E1-6b and E1-6c, and at 0.05 mm that bound may say little. The verdict therefore reports the no-magnet E1-6b, E1-6c **and E1-6t** outcomes next to the corresponding magnet trials (E1-6t is subject to rule 3 and is a G1 criterion) |
+| **Turner torque (NEW, reported)** | For every move of E1-2 to E1-4, the per-move peak turner torque, its median / p99 / max, and the number of moves **at the clip, defined as a peak of ≥ 0.999 N·m** (P3). No threshold (§0 item 5) |
+| **E1-7 sensitivity, M5 factors** | M4's factors, with the two gap factors re-centred. **Piece gap 0.025 / 0.05 / 0.1 mm** uses the 0.5× / 1× / 2× rule of M4's Amendment 1 item A1, which for M4 gave 0.05 / 0.1 / 0.2 mm; the user chose it (P-34). A1 itself was never adopted (P-25); only its band rule is reused here. The declined alternative was M1's ±50 % rule (0.025 / 0.05 / 0.075 mm). **Face gap 0.35 / 0.85 / 1.35 mm** (wall 0.15 / 0.4 / 0.65 mm) keeps M4's ±0.5 mm band. **E1-7 nominal values: piece gap 0.05 mm, face gap 0.85 mm (N1)**, so the nominal trial is not run twice under another tag. The magnet size, grade and strength-scale factors are as M4. **Disclosed:** 0.1 mm is known from the P-25 rehearsal to fail M1's drift criterion, so a flip at the upper gap is expected. As for every E1-7 factor, a flip is reported as a fragility, not a G1 failure (M4 §4). 0.025 mm has never been run. **The E1-7 no-magnet arm is expected to jam at 0.05 mm** (P7; P-27) |
+| **E1-7 magnet sizes and V3 (O5, P1)** | **4×1.5 N35 failed V3 (P-26).** It is not retested under altered V3 settings. Its arm is reported as "not run: failed V3", and E1-7 then counts as complete. **4×2 N52 needs its own V3 record, matched by size and grade.** The M4 runner's `v3_record_for` matches by size only (`run.py:232–243`), so it would reuse the N35 record. The M5 runner must match the grade as well, and if N52 fails V3 at unchanged settings, its arm is "not run: failed V3". **The 0.35 mm face gap is below the 0.5–1.5 mm face gaps at which V3 tested magnet pairs** (P1). That arm runs only if a V3 pair check at 0.35 mm passes at unchanged settings; otherwise it is "not run: outside V3". Both checks gate E1-7 only (§6.1 item 5) |
 
 ## 5. Pass logic and verdict script (R2)
 - **Option A,** as for M1 and M4: every categorical and quantitative criterion holds in 100 % of scored trials of
@@ -154,7 +166,15 @@ The only changes are the reported-only additions and the E1-7 band:
   - take each trial's verdict from its stored `pass` flag, which includes E1-6t (`run.py:505`);
   - judge **E1-6m** from the per-move `e16m_P_ok` flags of E1-2 to E1-4, as M4's `analyze.py` does (E1-6m is not in
     the per-trial `pass` flag);
-  - report the reported-only items in §4.
+  - report the reported-only items in §4;
+  - **check every record's integrity (P4):**
+    - the trial ID and seed are in the registered list;
+    - all records carry a single source commit;
+    - `scored` is true;
+    - `params.gap` is 5e-5 (except the E1-7 gap arms);
+    - the `mechanism` label is "M5". The M4 runner writes "M4" (`run.py:658`), so the M5 runner must set it.
+
+    Any violation gives NOT PASSED / INVALID.
 - **Tests (§6.1):** a synthetic record set in which only one E1-6t trial fails must give NOT PASSED. The same must hold
   with only one move failing `e16m_P_ok`, and with one E1-6t record missing.
 - E1-7 and E1-8 must be completed and published. G1 also needs the user's sign-off.
@@ -173,6 +193,13 @@ The only changes are the reported-only additions and the E1-7 band:
    does, with:
    - gap 0.05 mm set in **both** `BASE_OVERRIDES` and every trial's `kw["overrides"]`, so the magnet layout is built for
      0.05 mm (`run.py:602`, O3);
+   - **except that in the E1-7 piece-gap arms the factor's value takes precedence for both the cubies and the magnet
+     layout (N1).**
+     - `rehearsal_gap.py:42` overwrites the gap unconditionally, so it must **not** be copied for E1-7.
+     - **Test:** the cubie gap and the magnet system's `p.gap` are 2.5e-5 in the 0.025 mm arm, 1e-4 in the 0.1 mm arm,
+       and 5e-5 in every other trial, E1-7 included;
+   - `mechanism` = "M5" in every record (P4);
+   - the V3 lookup matched by size **and grade** (§4);
    - the start-up check at 0.05 mm (O2);
    - seeds = M4 seed + 4000 (§2);
    - E1-4 scrambles drawn from the M5 seed (§3);
@@ -191,7 +218,8 @@ The only changes are the reported-only additions and the E1-7 band:
    - the verdict-script cases in §5.
 4. **A smoke test**, one trial per experiment, on seeds outside every range. It is unscored and only checks the
    plumbing.
-5. **For E1-7 only:** the V3 check for 4×2 N52 at unchanged settings (§4).
+5. **For E1-7 only:** the V3 check for 4×2 N52, and a V3 pair check at a 0.35 mm face gap, both at unchanged
+   settings (§4).
 
 ### 6.2 Gates the G1 sign-off only (O4)
 6. **E1-8 on a quiet machine**, with load average and CPU model recorded. This needs the user's other workload paused.
@@ -207,8 +235,9 @@ The only changes are the reported-only additions and the E1-7 band:
   experiments, so these values are reported and not judged against 0.5 mm, as for M4.
 
 ## 8. Decisions requested
-1. Approve revision 2, or modify it.
-2. A second independent review of revision 2 before it is in force. Recommended, and consistent with P-28 and P-32.
+1. Approve revision 3, or modify it.
+2. A third independent review of revision 3 before it is in force. Recommended, and consistent with P-28, P-32 and
+   P-34.
 
 ## 9. Changes from revision 1
 | Review item | Change |
@@ -219,3 +248,20 @@ The only changes are the reported-only additions and the E1-7 band:
 | R4 E1-7 band | §4: Amendment A1's 0.5× / 1× / 2× rule (0.025 / 0.05 / 0.1 mm), chosen by the user (P-34); the known 0.1 mm failure is disclosed |
 | R5 stale text | §2: 6000–6999 is in use by M4's scored run; §8 lists only open decisions; the freeze rule is under Status |
 | O1–O8 | O1 §3; O2 §2; O3 §6.1 item 1; O4 §6; O5 §4; O6 §4; O7 §2 and §5; O8 §0 item 3 |
+
+**Revision 3 (review 2):**
+
+| Review-2 item | Change |
+|---|---|
+| **N1 (required)** | §6.1 item 1: the E1-7 gap factor takes precedence for the cubies and the magnets, with a test. §4: E1-7 nominal = 0.05 mm gap and 0.85 mm face gap |
+| O5 gap | §4 and §6.1: V3 matched by size and grade; N52 needs its own record |
+| O6 | §4: E1-6t is added to the no-magnet side-by-side |
+| O8 | Patent and sources recorded in `R1_real_cube_bench/LITERATURE.md` ("Piece clearance") |
+| P1 | §4: the 0.35 mm face-gap arm needs a V3 pair check, or is "not run: outside V3" |
+| P2 | §4: A1 was never adopted, and the declined ±50 % alternative is named |
+| P3 | §4: the clip is defined as a peak of ≥ 0.999 N·m |
+| P4 | §5: integrity checks in the verdict script; mechanism label "M5" |
+| P5 | §2: no simulation on M5 seeds before the scored run |
+| P6 | Status: a provenance statement |
+| P7 | §4: the E1-7 no-magnet arm is expected to jam |
+| Wording | §0 item 2 (which strings come from which seeds); §2 (seed ranges have gaps) |

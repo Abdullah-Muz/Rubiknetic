@@ -33,3 +33,15 @@ only route to real-cube parity.
 - **Corners do twist in real use.** That argues against M2's "≤ 2° at 5 N·m" as a realism requirement.
 - Any quantitative twist-angle threshold proposed without bench data would be set with knowledge of M4's unscored
   behaviour. It has to be disclosed as such.
+
+## Piece clearance (added 2026-11-16, for the M5 pre-registration §0)
+- **US 6,217,023 B1, "Spatial logic puzzle"** (Kremer; assignee Seven Towns Ltd), a **2×2×2** puzzle, not a 3×3
+  (https://patents.google.com/patent/US6217023B1/en; accessed 2026-11-15 and 2026-11-16). `FACT`: it states "the
+  clearance between pieces being of the order of 0.05 mm and being a matter for trial and error by the puzzle
+  designer". It is the only numeric piece-clearance source found.
+- **lulabs.net, stainless steel cube** (https://lulabs.net/machining/ss-cube/; accessed 2026-11-15). `FACT`: the
+  builder held part tolerances to "within 0.002"" (0.05 mm), which is a dimensional tolerance, not a clearance. The
+  page says moulded commercial cubes have looser tolerances, and that the steel pieces "fit snugly without significant
+  play".
+- No teardown, feeler-gauge or CT measurement of a commercial 3×3's piece clearance was found. A bench measurement
+  (feeler gauge or CT, plus single-piece wobble under a small torque) would settle it.
