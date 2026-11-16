@@ -601,6 +601,7 @@ def run_trial(kind: str, kw: dict, magnets_on: bool) -> tuple[dict, RecordingMag
     info = None if (mp is None or TABLES_PROVIDER is not None) else magnet_availability(mp)  # may raise Refused
     ms = use_magnets(mp, ov.get("gap", M1Params().gap))
     if ms is not None:
+        ms.reset_neighbour_list()   # P-26: result independent of the previous trial in this process (no physics change)
         ms.reset_stats()
     MagnetMonitor.last = None
     t0 = time.perf_counter()

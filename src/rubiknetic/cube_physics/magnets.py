@@ -442,6 +442,17 @@ class MagnetSystem:
         self.stats = {"calls": 0, "clamped_z": 0, "near_perpendicular": 0, "max_force_N": 0.0,
                       "max_near_tilt_deg": 0.0, "list_rebuilds": 0, "list_pairs": len(self.ii)}
 
+    def reset_neighbour_list(self) -> None:
+        """Return the Verlet list to its just-constructed state (all pairs; rebuilt on the next call).
+
+        Call at the start of every trial when one MagnetSystem is reused across trials: the force law does not depend
+        on the list, but the floating-point summation order does, and magnet-coupled trajectories amplify that
+        difference. Without the reset, a trial's result depends on which trial ran before it in the same process
+        (found 2026-11-15, experiments/D8_alignment/results/diag_m4_2026-11-15/SUMMARY.md §3)."""
+        self.ii, self.jj = self.ii_all, self.jj_all
+        self.p_ref = None
+        self.scatter = scatter_matrices(48, self.ii, self.jj)
+
     # pure function of body poses -------------------------------------------------------------
     def world(self, xpos: np.ndarray, xmat: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
         R = xmat[self.body].reshape(-1, 3, 3)

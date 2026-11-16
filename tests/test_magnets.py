@@ -118,6 +118,21 @@ def test_callback_depends_only_on_poses(cube):
     assert np.array_equal(contrib(), base)
 
 
+def test_reset_neighbour_list_makes_a_reused_system_match_a_fresh_one(cube, tables):
+    """P-26: after reset_neighbour_list(), a system that has already run at another pose gives bit-identical
+    forces to a freshly constructed one, so a trial's result cannot depend on the previous trial."""
+    m, d, used = cube
+    _perturb(m, d, np.random.default_rng(11), sigma_deg=8.0)        # a "previous trial" far from the next pose
+    used.forces(*used.world(d.xpos, d.xmat))
+    _perturb(m, d, np.random.default_rng(12))
+    pose = used.world(d.xpos, d.xmat)
+    used.reset_neighbour_list()
+    fresh = M.MagnetSystem(m, 0.019, M1Params().gap, MP, tables=tables)
+    assert used.p_ref is None and np.array_equal(used.ii, fresh.ii) and np.array_equal(used.jj, fresh.jj)
+    for a, b in zip(used.forces(*pose), fresh.forces(*pose)):
+        assert np.array_equal(a, b)
+
+
 def test_installed_magnets_pass_the_audit_and_a_state_write_is_still_caught(cube):
     m, d, ms = cube
     sim = AuditedSim(m, d)

@@ -1,0 +1,31 @@
+29 trials
+FAIL 4x2_N35/scr20inv_s9401 M1 criteria
+FAIL 4x2_N35/scr20inv_s9400 M1 criteria
+FAIL 4x2_N35/scr20inv_s9402 M1 criteria
+FAIL 3x1.5_N35/scr20inv_s9400 M1 criteria
+FAIL none/scr20inv_s9401 M1 criteria
+FAIL none/scr20inv_s9400 M1 criteria
+PASS 4x2_N35/rest_s9000 
+PASS 4x2_N35/rest_s9001 
+FAIL 4x2_N35/rest_s9002 M1 criteria
+FAIL none/scr20inv_s9402 M1 criteria; E1-4 growth slope 0.009549949934722059 deg/move (limit < 0.005)
+FAIL 4x2_N35/snap_+3_s9500 E1-5s |U error after 1 s| = 0.6002592216244022 > 0.5 deg
+PASS 4x2_N35/snap_-3_s9501 
+FAIL 4x2_N35/rest_s9003 M1 criteria
+PASS 4x2_N35/snap_+5_s9502 
+PASS 4x2_N35/snap_-5_s9503 
+PASS 3x1.5_N35/rest_s9000 
+FAIL 3x1.5_N35/rest_s9001 M1 criteria
+PASS 3x1.5_N35/rest_s9002 
+PASS 3x1.5_N35/rest_s9003 
+PASS 3x1.5_N35/snap_+3_s9500 
+FAIL 3x1.5_N35/snap_-3_s9501 E1-5s |U error after 1 s| = -0.5642921957397927 > 0.5 deg
+PASS 3x1.5_N35/snap_+5_s9502 
+FAIL 3x1.5_N35/snap_-5_s9503 E1-5s |U error after 1 s| = -0.6561159634439803 > 0.5 deg
+FAIL none/rest_s9000 M1 criteria
+FAIL none/rest_s9001 M1 criteria
+FAIL none/rest_s9002 M1 criteria
+FAIL none/rest_s9003 M1 criteria
+FAIL 3x1.5_N35/scr20inv_s9401 M1 criteria
+FAIL 3x1.5_N35/scr20inv_s9402 M1 criteria
+done

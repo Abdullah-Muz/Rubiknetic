@@ -1,0 +1,3 @@
+{"tid": "rest_s7004", "list_state_at_start": null, "rebuilds": 1, "pass": true}
+{"tid": "sexy6_s7312", "list_state_at_start": "kept", "rebuilds": 503, "pass": true, "drift12": 0.3909746722218477, "t_motion12": 27.37599999998155, "causal12": true, "max_drift": 0.8643028552701757}
+{"tid": "sexy6_s7312", "list_state_at_start": null, "rebuilds": 505, "pass": true, "drift12": 0.37032574766889476, "t_motion12": 27.128499999982125, "causal12": true, "max_drift": 0.8157248878276802}

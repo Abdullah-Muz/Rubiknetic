@@ -1,0 +1,197 @@
+{
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0002,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   0.2,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.001,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "radial_preload": 0.0,
+  "radial_stiffness": 500.0,
+  "radial_range": [
+   -0.001,
+   0.0002
+  ],
+  "radial_damping": 0.05,
+  "radial_solreflimit": [
+   0.001,
+   1.0
+  ],
+  "radial_solimplimit": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.045,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.014,
+  "grip_overshoot": 0.006,
+  "pad_slide_damping": 100.0,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.001,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 14.905974995525373,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 5.0,
+  "turn_kv": 0.2,
+  "rig_mass": 0.05,
+  "timestep": 0.0005,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "setup": {
+  "seed": 9003,
+  "misalign_deg": {
+   "U": 0.6875137807690952,
+   "R": -0.5631957622749539,
+   "F": 0.4780895811877124,
+   "D": -0.8091196450254337,
+   "L": -0.36589387545117935,
+   "B": 0.03086963630323125
+  },
+  "grip_force": 14.905974995525373,
+  "turn_s_per_quarter": 1.1943790217453851
+ },
+ "setup_log": [
+  {
+   "type": "layer_misalignment",
+   "face": "U",
+   "deg": 0.6875137807690952
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "R",
+   "deg": -0.5631957622749539
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "F",
+   "deg": 0.4780895811877124
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "D",
+   "deg": -0.8091196450254337
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "L",
+   "deg": -0.36589387545117935
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "B",
+   "deg": 0.03086963630323125
+  }
+ ],
+ "t0_observed_valid": true,
+ "t0_solved": true,
+ "radial_offset_mm_t0": 5.551115123125783e-14,
+ "seed": 9003,
+ "rest_rotation_deg": 0.4395553861885024,
+ "radial_change_mm": 1.249000902703301e-13,
+ "radial_above_nominal_mm": 7.632783294297951e-14,
+ "penetration_mm": 0.005696733885502181,
+ "final_solved": true,
+ "ok_solved": true,
+ "ok_rest_rotation": true,
+ "ok_radial_offset": true,
+ "ok_radial_pop": true,
+ "ok_penetration": true,
+ "edit_audit_violations": [],
+ "numerical_failures": [],
+ "wrench_log_entries": 0,
+ "sim_time_s": 10.500000000001341,
+ "integrity_ok": true,
+ "pass": true,
+ "wall_s": 44.83274431499012,
+ "magnets": {
+  "params": {
+   "diameter": 0.003,
+   "length": 0.0015,
+   "grade": "N35",
+   "wall": 0.0004,
+   "scale": 1.0,
+   "r1": 0.005,
+   "r2": 0.008,
+   "far_r1": 0.02,
+   "far_r2": 0.025,
+   "skin": 0.004
+  },
+  "Br_T": 1.19,
+  "moment_Am2": 0.010040625000000001,
+  "magnet_mass_g": 0.07952156404399165,
+  "n_magnets": 48,
+  "n_pairs": 181
+ },
+ "magnet_stats": {
+  "calls": 21001,
+  "clamped_z": 0,
+  "near_perpendicular": 0,
+  "max_force_N": 0.7542185704533538,
+  "max_near_tilt_deg": 3.427526975285506,
+  "list_rebuilds": 1,
+  "list_pairs": 181
+ },
+ "magnet_table": {
+  "table_file": "experiments/D8_alignment/results/tables/tilt_3x1.5_1.19T_s1_r8_h1.5_q16x48.npz",
+  "table_sha256": "106455eaaeb83bb28477db49c8c130296e123fd3b9aeb375c188f531c64dc9a6",
+  "validated_tilt_deg": 7.5,
+  "v3_source": "experiments/D8_alignment/results/d8_1b_checks_3x1.5_N35_s1.json",
+  "v3_source_sha256": "58380840766c05750c1c9b599be04c30b37381f628169f1109874742e0c53b3e"
+ },
+ "config": "3x1.5_N35",
+ "trial_id": "rest_s9003",
+ "kind": "rest",
+ "sub_experiment": "E1-1",
+ "spec": {
+  "seed": 9003,
+  "overrides": {
+   "gap": 0.0002,
+   "magnet": "3x1.5_N35"
+  }
+ },
+ "scored": false,
+ "diagnostic": "2026-11-15 size/gap diagnostic",
+ "pass_m1_criteria": true,
+ "validated_tilt_deg": 5.0,
+ "magnet_outside_validated_range": false,
+ "ok_magnet_validity": true,
+ "fail_reasons": []
+}
