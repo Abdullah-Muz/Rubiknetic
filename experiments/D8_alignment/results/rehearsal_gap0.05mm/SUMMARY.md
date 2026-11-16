@@ -31,7 +31,7 @@
 | E1-5 forgiveness (42) | 42 | |
 | E1-5s snap (20) | 20 | Offsets up to ±8°; U error after 1 s is −0.19 to +0.13° |
 | E1-6 abuse (20) | 20 | E1-6a open-pad rotation 0.02–0.09°. E1-6b opposed torque: radial change 0, penetration 0.38–0.61 mm (reported only). E1-6c corner twist at 5 N·m: 23.6–24.5°, 2.63–2.78 N·m at 15°, penetration 0.64–0.65 mm (reported only) |
-| E1-6t toy-standard (16) | 16 | 10.4–10.9° twist at ±0.45 N·m; penetration 0.18–0.19 mm (reported only) |
+| E1-6t toy-standard (16) | 16 | 10.4–10.9° twist at ±0.45 N·m; final state solved; penetration 0.18–0.19 mm against the E1-6t limit of 0.5 mm (`run.py:505`). The stored field is named `penetration_mm_reported_only`, but for E1-6t it is a criterion |
 
 Over 1,376 moves:
 
