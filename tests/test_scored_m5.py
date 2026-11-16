@@ -1,0 +1,498 @@
+"""Unit tests for the M5 runner and verdict script (PHASE_1_M5_PREREGISTRATION.md section 6.1 item 3).
+No test steps the simulation on an M5 seed (P5): trials are replaced by stand-ins, or stopped before the first step."""
+from __future__ import annotations
+
+import copy
+import importlib.util
+import json
+import sys
+from pathlib import Path
+
+import numpy as np
+import pytest
+
+from rubiknetic.cube_logic import invert, random_scramble
+from rubiknetic.cube_physics import scored
+from rubiknetic.cube_physics.m1_model import M1Params
+from rubiknetic.cube_physics.magnets import MagnetParams, layout, near_field_tables
+
+REPO = Path(__file__).resolve().parents[1]
+
+
+def _load(name, rel):
+    if name in sys.modules:
+        return sys.modules[name]
+    spec = importlib.util.spec_from_file_location(name, REPO / rel)
+    mod = importlib.util.module_from_spec(spec)
+    sys.modules[name] = mod
+    spec.loader.exec_module(mod)
+    return mod
+
+
+A = _load("e5_scored_m5_analyze", "experiments/E5_scored_m5/analyze.py")
+R = A.R                                               # the runner module the analyzer uses
+M4_FRESH = _load("e4_unpatched_for_m5_tests", "experiments/E4_scored_m4/run.py")   # M4 as registered, unpatched
+ENV = {"mujoco": "4.0.1", "numpy": "x", "python": "3.12", "cpu": "test", "platform": "p"}
+GAP_TAGS = {"gap=2.5e-05": 2.5e-5, "gap=0.0001": 1e-4}
+
+
+@pytest.fixture
+def coarse():
+    tabs = near_field_tables(MagnetParams(), None, quad=(4, 12), n_rho=13, n_z=9)
+    R.M4.TABLES_PROVIDER = lambda mp: tabs
+    yield tabs
+    R.M4.TABLES_PROVIDER = None
+    R.M4.restore_process()
+
+
+# ---- seeds and trial list ------------------------------------------------------------------------------------------
+def test_seed_list_is_m4_plus_4000_and_in_range():
+    m4 = M4_FRESH.build_jobs("all", "c", {}, 5.0, False)
+    m5 = R.build_m5_jobs("c", {}, 5.0)
+    assert len(m4) == len(m5) == 442
+    for a, b in zip(m4, m5):
+        assert (a["exp"], a["magnets"], a["kind"]) == (b["exp"], b["magnets"], b["kind"])
+        assert b["kw"]["seed"] == a["kw"]["seed"] + 4000
+        s = a["kw"]["seed"]
+        if a["exp"] != "E1-7":                     # E1-7 tags change with the re-centred gap factors (section 4)
+            assert b["tid"] == a["tid"][: -len(f"_s{s}")] + f"_s{s + 4000}"
+    seeds = [j["kw"]["seed"] for j in m5]
+    assert min(seeds) >= 10000 and max(seeds) <= 10999
+    assert not any(7000 <= s <= 8999 for s in seeds)
+
+
+def test_record_keys_unique_although_e16n_reuses_trial_ids():
+    m5 = R.build_m5_jobs("c", {}, 5.0)
+    keys = [R.key_of(j) for j in m5]
+    assert len(set(keys)) == len(keys) == 442
+    assert len({j["tid"] for j in m5}) < len(m5)          # trial IDs alone repeat (U2)
+
+
+def test_e4_scrambles_drawn_from_the_m5_seed():
+    scr = [j for j in R.build_m5_jobs("c", {}, 5.0) if j["tid"].startswith("scr20inv_") and j["magnets"]]
+    assert [j["kw"]["seed"] for j in scr] == list(range(10400, 10420))
+    for j in scr:
+        sc = random_scramble(20, j["kw"]["seed"])
+        assert j["kw"]["moves"] == " ".join(str(m) for m in sc + invert(sc))
+    old = {j["kw"]["moves"] for j in M4_FRESH.build_jobs("E1-4", "c", {}, 5.0, False)}
+    assert not old & {j["kw"]["moves"] for j in scr if True}
+
+
+def test_e17_factors_recentred():
+    tags = {j["tid"].split("__")[0] for j in R.build_m5_jobs("c", {}, 5.0) if j["exp"] == "E1-7"}
+    assert {"gap=2.5e-05", "gap=0.0001", "face_gap_mm=0.35", "face_gap_mm=1.35", "nominal"} <= tags
+    assert not {"gap=0.0002", "gap=5e-05", "face_gap_mm=0.85", "face_gap_mm=1.0"} & tags
+
+
+# ---- gap: cubies and magnet layout (N1, O3) ------------------------------------------------------------------------
+class _Stop(BaseException):
+    pass
+
+
+def _capture(job_list, monkeypatch):
+    """For each job: the cubie gap reaching scored.Trial and the magnet system installed, with no stepping."""
+    got = []
+
+    def trial_stub(params, setup, **_kw):
+        got.append(params.gap)
+        raise _Stop
+
+    monkeypatch.setattr(scored, "Trial", trial_stub)
+    out = []
+    for j in job_list:
+        got.clear()
+        with pytest.raises(_Stop):
+            R.M4.run_trial(j["kind"], copy.deepcopy(j["kw"]), j["magnets"])
+        ms = R.M4._MS
+        out.append((j, got[0], None if ms is None else ms.p_loc.copy(), None if ms is None else R.M4._MS_KEY[1]))
+    return out
+
+
+def _expected_gap(j):
+    return GAP_TAGS.get(j["tid"].split("__")[0], R.GAP) if j["exp"] == "E1-7" else R.GAP
+
+
+def test_gap_reaches_cubies_and_magnet_layout_in_every_job(coarse, monkeypatch):
+    pitch = M1Params().pitch
+    jobs = R.build_m5_jobs("c", {}, 5.0)
+    n_mag = 0
+    for j, cubie_gap, p_loc, layout_gap in _capture(jobs, monkeypatch):
+        g = _expected_gap(j)
+        assert cubie_gap == g, j["tid"]
+        mp = R.magnet_params_for(dict(j["kw"].get("overrides", {}))) if j["magnets"] else None
+        if mp is None:
+            assert p_loc is None
+            continue
+        n_mag += 1
+        assert layout_gap == g, j["tid"]
+        assert np.allclose(p_loc, [m["pos"] for m in layout(pitch, g, mp)], atol=1e-15), j["tid"]
+    assert n_mag > 250
+
+
+def test_gap_test_fails_under_the_rehearsal_style_overwrite(coarse, monkeypatch):
+    jobs = [j for j in R.build_m5_jobs("c", {}, 5.0) if j["tid"].split("__")[0] in GAP_TAGS]
+    assert len(jobs) == 4
+    for j in jobs:
+        j["kw"]["overrides"]["gap"] = R.GAP                 # rehearsal_gap.py:42 overwrites unconditionally
+    wrong = [j for j, cubie_gap, _p, lg in _capture(jobs, monkeypatch) if cubie_gap != _expected_gap(j)]
+    assert len(wrong) == 4
+
+
+def test_wall_from_the_m5_gap():
+    for fg, wall in ((0.35, 0.15e-3), (0.85, 0.4e-3), (1.35, 0.65e-3)):
+        assert np.isclose(R.magnet_params_for({"face_gap_mm": fg}).wall, wall, rtol=0, atol=1e-15)
+    assert R.magnet_params_for({}).wall == 0.4e-3
+
+
+def test_startup_check_runs_and_records_the_m5_gap(coarse):
+    res = R.startup_check()
+    assert res["pass"] and res["gap"] == R.GAP
+    assert R.M4._MS_KEY[1] == R.GAP
+
+
+# ---- V3 matching (section 4) ---------------------------------------------------------------------------------------
+def _v3_file(d, name, dia, length, grade, scale, ok, wall=0.0004, v3=True):
+    j = {"magnet_params": {"diameter": dia, "length": length, "grade": grade, "scale": scale, "wall": wall}}
+    if v3:
+        j["V3"] = {"pass": ok, "validated_tilt_deg": 5.0}
+    else:
+        j["V3_pair_extension"] = {"pass": ok}
+    (d / name).write_text(json.dumps(j))
+
+
+def test_v3_match_by_size_grade_and_scale_ignoring_wall(tmp_path, monkeypatch):
+    res = tmp_path / "results"
+    res.mkdir()
+    monkeypatch.setattr(R.M4, "D8", tmp_path)
+    _v3_file(res, "d8_1b_checks.json", 0.004, 0.002, "N35", 1.0, True, wall=0.0001)
+    _v3_file(res, "d8_1b_checks_pair0.35mm_4x2_N35_s1.json", 0.004, 0.002, "N35", 1.0, True, v3=False)
+    assert len(R.v3_matches(MagnetParams())) == 1                       # pair record skipped, wall ignored
+    assert R.v3_record_for(MagnetParams(wall=0.00015))["validated_tilt_deg"] == 5.0
+    assert R.v3_matches(MagnetParams(grade="N52")) == []                # grade must match (M4 matched size only)
+    assert R.v3_matches(MagnetParams(scale=0.67)) == []                 # scale must match
+    _v3_file(res, "d8_1b_checks_dup.json", 0.004, 0.002, "N35", 1.0, True)
+    assert R.v3_record_for(MagnetParams()) is None                      # two matches: no record
+
+
+def test_classify_registered_not_run_and_refusals(tmp_path, monkeypatch):
+    res = tmp_path / "results"
+    res.mkdir()
+    monkeypatch.setattr(R.M4, "D8", tmp_path)
+    monkeypatch.setattr(R, "PAIR_CHECK", res / "pair.json")
+    monkeypatch.setattr(R.M4, "magnet_availability", lambda mp: {"table_file": "t", "table_sha256": "s"})
+    _v3_file(res, "d8_1b_checks.json", 0.004, 0.002, "N35", 1.0, True)
+    _v3_file(res, "d8_1b_checks_4x1.5.json", 0.004, 0.0015, "N35", 1.0, False)
+    jobs = {j["tid"]: j for j in R.build_m5_jobs("c", {}, 5.0) if j["exp"] == "E1-7"}
+    assert R.classify(jobs["magnet=4x1.5_N35__6move"])[:2] == ("not_run", "failed V3")
+    assert R.classify(jobs["magnet=4x2_N52__6move"])[0] == "refused"        # no record: not a registered reason
+    assert R.classify(jobs["face_gap_mm=0.35__6move"])[0] == "refused"      # pair check missing
+    _v3_file(res, "pair.json", 0.004, 0.002, "N35", 1.0, False, v3=False)
+    assert R.classify(jobs["face_gap_mm=0.35__6move"])[:2] == ("not_run", "outside V3")
+    _v3_file(res, "pair.json", 0.004, 0.002, "N35", 1.0, True, v3=False)
+    assert R.classify(jobs["face_gap_mm=0.35__6move"])[0] == "run"
+    assert R.classify(jobs["magnet=none__6move"])[0] == "run"
+
+
+# ---- synthetic runs: stand-in trials, real run procedure, real verdict script ---------------------------------------
+def _fake_record(job, mutate=None):
+    ov = job["kw"].get("overrides", {})
+    gap = ov.get("gap", R.GAP)
+    mp = R.magnet_params_for(dict(ov)) if job["magnets"] else None
+    rec = {"params": {"gap": gap}, "pass": True, "fail_reasons": [], "environment": job["env"],
+           "magnets": None if mp is None else {"params": {"wall": mp.wall}, "layout_gap": gap},
+           "magnet_table": job.get("magnet_info"), "magnet_stats": {"max_near_tilt_deg": 1.0}}
+    if job["kind"] == "seq":
+        rec["sequence"] = job["kw"]["moves"]
+        rec["per_move"] = [{"e16m_P_ok": True, "nontarget_drift_deg": 0.1, "max_turner_torque_Nm": 0.2}
+                           for _ in job["kw"]["moves"].split()]
+    rec.update(R._metadata(job))
+    if mutate:
+        mutate(R.key_of(job), rec)
+    return rec
+
+
+def _dirs(tmp):
+    return {"magnets": tmp / "results", "no_magnets": tmp / "results_nomag"}
+
+
+def _split(jobs):
+    run, not_run = [], []
+    for j in jobs:
+        if j["tid"].startswith("magnet=4x1.5_N35__"):
+            not_run.append((j, "failed V3"))
+        else:
+            if j["magnets"] and R.magnet_params_for(dict(j["kw"].get("overrides", {}))) is not None:
+                j["magnet_info"] = {"table_file": "tables/t.npz", "table_sha256": "abc"}
+            run.append(j)
+    return run, not_run
+
+
+def _make(tmp, mutate=None, stop_after=None, jobs=None):
+    jobs = R.build_m5_jobs("c0", ENV, 5.0) if jobs is None else jobs
+    run, not_run = _split(jobs)
+    n = R.execute(_dirs(tmp), run, not_run, "c0", ENV, "c0", {"gap": R.GAP}, 1,
+                  runner=lambda j: (R.key_of(j), _fake_record(j, mutate)), stop_after=stop_after,
+                  check_git=False, log=lambda s: None)
+    return jobs, n
+
+
+def _verdict(tmp, registered=None):
+    reg = R.build_m5_jobs("c0", ENV, 5.0) if registered is None else registered
+    return A.analyse(_dirs(tmp), reg)
+
+
+@pytest.fixture(scope="module")
+def complete_set(tmp_path_factory):
+    tmp = tmp_path_factory.mktemp("complete")
+    _make(tmp)
+    return tmp
+
+
+def test_positive_control_complete_valid_set_passes(complete_set):
+    st, vd = _verdict(complete_set)
+    assert st["violations"] == [] and st["missing"] == []
+    assert vd["verdict"] == "PASS"
+    assert vd["rows"]["E1-6t"] == {"n": 16, "expected": 16, "passed": 16}
+    assert sum(1 for k in st["records"] if k[0] == "no_magnets") == 184
+
+
+def _ledger_lines(tmp):
+    return (tmp / "results" / R.LEDGER).read_text().splitlines()
+
+
+def test_one_failing_e16t_trial_is_not_passed(tmp_path):
+    def m(key, rec):
+        if key == ("magnets", "E1-6t", "std_ppp_pos_s10654"):
+            rec["pass"], rec["fail_reasons"] = False, ["E1-6t"]
+    _make(tmp_path, m)
+    st, vd = _verdict(tmp_path)
+    assert st["violations"] == [] and vd["verdict"] == "NOT PASSED"
+
+
+def test_one_move_failing_e16m_is_not_passed(tmp_path):
+    def m(key, rec):
+        if key == ("magnets", "E1-2", "U_s10100"):
+            rec["per_move"][0]["e16m_P_ok"] = False
+    _make(tmp_path, m)
+    assert _verdict(tmp_path)[1]["verdict"] == "NOT PASSED"
+
+
+def test_missing_e16t_record_is_incomplete(tmp_path):
+    _make(tmp_path)
+    key = ("magnets", "E1-6t", "std_ppp_pos_s10654")
+    R.record_path(_dirs(tmp_path), key).unlink()
+    lines = [x for x in _ledger_lines(tmp_path) if json.loads(x)["tid"] != key[2] or json.loads(x)["arm"] != key[0]]
+    (tmp_path / "results" / R.LEDGER).write_text("\n".join(lines) + "\n")
+    st, vd = _verdict(tmp_path)
+    assert st["violations"] == [] and vd["verdict"] == "INCOMPLETE" and st["missing"] == [key]
+
+
+def _invalid(tmp, needle, mutate=None, after=None):
+    _make(tmp, mutate)
+    if after:
+        after(tmp)
+    st, vd = _verdict(tmp)
+    assert vd["verdict"] == "INVALID", st["violations"]
+    assert any(needle in v for v in st["violations"]), st["violations"]
+
+
+K_SEQ = ("magnets", "E1-2", "U_s10100")
+
+
+def _only(key, **fields):
+    def m(k, rec):
+        if k == key:
+            for f, v in fields.items():
+                if callable(v):
+                    v(rec)
+                else:
+                    rec[f] = v
+    return m
+
+
+@pytest.mark.parametrize("needle, mutate", [
+    ("mechanism 'M4'", _only(K_SEQ, mechanism="M4")),
+    ("params.gap", _only(K_SEQ, params={"gap": 2e-4})),
+    ("layout_gap", _only(K_SEQ, magnets={"params": {"wall": 0.4e-3}, "layout_gap": 1e-4})),
+    ("layout_gap", _only(("magnets", "E1-7", "gap=2.5e-05__6move"), params={"gap": 5e-5},
+                         magnets={"params": {"wall": 0.4e-3}, "layout_gap": 5e-5})),
+    ("source commit", _only(K_SEQ, source_commit="other")),
+    ("scored = False", _only(K_SEQ, scored=False)),
+    ("E1-4 sequence", _only(("magnets", "E1-4", "scr20inv_s10400"), sequence="U R")),
+    ("startup_checks.gap", _only(K_SEQ, startup_checks={"gap": 2e-4})),
+    ("wall", _only(("magnets", "E1-7", "face_gap_mm=0.35__6move"),
+                   magnets={"params": {"wall": 0.4e-3}, "layout_gap": 5e-5})),
+    ("table SHA-256", _only(K_SEQ, magnet_table={"table_file": "tables/t.npz", "table_sha256": "zzz"})),
+    ("environment", _only(K_SEQ, environment={**ENV, "mujoco": "9"})),
+])
+def test_record_integrity_violations_are_invalid(tmp_path, needle, mutate):
+    _invalid(tmp_path, needle, mutate)
+
+
+def _extra_record(tmp):
+    R.write_record(_dirs(tmp), ("magnets", "E1-2", "U_s99999"), {"x": 1}, 1)
+
+
+def _garbage(tmp):
+    (tmp / "results" / "E1-2" / "bad.json").write_text("{not json")
+
+
+def _drop_ledger_line(tmp):
+    lines = _ledger_lines(tmp)
+    (tmp / "results" / R.LEDGER).write_text("\n".join(lines[1:]) + "\n")
+
+
+def _extra_ledger_line(tmp):
+    R._append_line(tmp / "results" / R.LEDGER, {"start": 1, "arm": "magnets", "exp": "E1-2", "tid": "nope",
+                                                 "sha256": "0", "reconciled": False})
+
+
+def _bad_sha(tmp):
+    lines = _ledger_lines(tmp)
+    x = json.loads(lines[0])
+    x["sha256"] = "0" * 64
+    (tmp / "results" / R.LEDGER).write_text("\n".join([json.dumps(x)] + lines[1:]) + "\n")
+
+
+def _dup_line(tmp):
+    lines = _ledger_lines(tmp)
+    (tmp / "results" / R.LEDGER).write_text("\n".join(lines + [lines[0]]) + "\n")
+
+
+def _tmp_file(tmp):
+    (tmp / "results" / "E1-2" / ".U_s10100.json.tmp").write_text("{}")
+
+
+@pytest.mark.parametrize("needle, after", [
+    ("record not in the manifest", _extra_record),
+    ("does not parse", _garbage),
+    ("record without a ledger line", _drop_ledger_line),
+    ("ledger line without a record", _extra_ledger_line),
+    ("ledger SHA-256 differs", _bad_sha),
+    ("times in the ledger", _dup_line),
+    ("unlogged temporary file", _tmp_file),
+])
+def test_file_level_violations_are_invalid(tmp_path, needle, after):
+    _invalid(tmp_path, needle, after=after)
+
+
+# ---- run procedure (section 2) -------------------------------------------------------------------------------------
+def test_first_start_refused_when_a_results_folder_is_not_empty(tmp_path):
+    (tmp_path / "results_nomag").mkdir()
+    (tmp_path / "results_nomag" / "x.txt").write_text("x")
+    with pytest.raises(SystemExit, match="refusing first start"):
+        _make(tmp_path)
+
+
+def test_resume_runs_only_missing_keys_including_e16n_twins_and_never_overwrites(tmp_path):
+    jobs = [j for j in R.build_m5_jobs("c0", ENV, 5.0) if j["tid"] in ("U_s10100", "Up_s10102")]
+    assert len(jobs) == 4                                  # magnet and no-magnet arm of two trial IDs
+    jobs.sort(key=lambda j: (j["tid"], j["arm"]))
+    with pytest.raises(R.Interrupted):
+        _make(tmp_path, jobs=copy.deepcopy(jobs), stop_after=1)
+    first = sorted(p for p in (tmp_path).rglob("*.json") if p.name != R.MANIFEST)
+    assert len(first) == 1
+    before = {p: p.read_bytes() for p in first}
+    _, n = _make(tmp_path, jobs=copy.deepcopy(jobs))
+    assert n == 3
+    for p, b in before.items():
+        assert p.read_bytes() == b
+    lines = [json.loads(x) for x in _ledger_lines(tmp_path)]
+    assert sorted((x["arm"], x["tid"]) for x in lines) == sorted((j["arm"], j["tid"]) for j in jobs)
+    assert [x["start"] for x in lines].count(2) == 3
+    st, _vd = A.analyse(_dirs(tmp_path), jobs)
+    assert st["violations"] == []
+
+
+def test_write_record_never_overwrites(tmp_path):
+    key = ("magnets", "E1-2", "U_s1")
+    R.write_record(_dirs(tmp_path), key, {"a": 1}, 1)
+    with pytest.raises(FileExistsError):
+        R.write_record(_dirs(tmp_path), key, {"a": 2}, 1)
+
+
+@pytest.mark.parametrize("change", ["trials", "not_run", "tables", "env"])
+def test_resume_refused_when_the_configuration_changed(tmp_path, change):
+    jobs = [j for j in R.build_m5_jobs("c0", ENV, 5.0) if j["exp"] in ("E1-1", "E1-7")]
+    _make(tmp_path, jobs=copy.deepcopy(jobs), stop_after=None)
+    jobs2 = copy.deepcopy(jobs)
+    run, not_run = _split(jobs2)
+    env = dict(ENV)
+    if change == "trials":
+        run = run[1:]
+    elif change == "not_run":
+        run, not_run = run + [j for j, _ in not_run], []
+    elif change == "tables":
+        for j in run:
+            if j.get("magnet_info"):
+                j["magnet_info"] = {"table_file": "tables/t.npz", "table_sha256": "changed"}
+    else:
+        env["cpu"] = "other"
+    with pytest.raises(SystemExit, match="refusing resume"):
+        R.execute(_dirs(tmp_path), run, not_run, "c0", env, "c0", {"gap": R.GAP}, 1,
+                  runner=lambda j: (R.key_of(j), _fake_record(j)), check_git=False, log=lambda s: None)
+
+
+def test_resume_moves_orphans_and_reconciles_ledger_lines(tmp_path):
+    jobs = [j for j in R.build_m5_jobs("c0", ENV, 5.0) if j["exp"] == "E1-1"]
+    with pytest.raises(R.Interrupted):
+        _make(tmp_path, jobs=copy.deepcopy(jobs), stop_after=2)
+    d = _dirs(tmp_path)
+    # (ii) a record linked but killed before its ledger line
+    lines = _ledger_lines(tmp_path)
+    (tmp_path / "results" / R.LEDGER).write_text("\n".join(lines[:1]) + "\n")
+    # (i) an orphan temporary file of a trial that has no record
+    orphan = d["magnets"] / "E1-1" / ".rest_s10019.json.tmp"
+    orphan.write_text('{"partial": ')
+    _, n = _make(tmp_path, jobs=copy.deepcopy(jobs))
+    assert n == 18
+    starts = [json.loads(x) for x in (tmp_path / "results" / R.STARTS).read_text().splitlines()]
+    assert len(starts) == 2 and len(starts[1]["orphans"]) == 1 and len(starts[1]["reconciled"]) == 1
+    assert not orphan.exists() and (d["magnets"] / R.INTERRUPTED / "E1-1__.rest_s10019.json.tmp").exists()
+    st, _vd = A.analyse(d, jobs)
+    assert st["violations"] == [] and st["missing"] == []
+    assert sum(1 for x in st["ledger"] if x["reconciled"]) == 1
+
+
+def _job(tid="U_s10100", exp="E1-2", magnets=True):
+    return next(copy.deepcopy(j) for j in R.build_m5_jobs("c0", ENV, 5.0)
+                if j["tid"] == tid and j["exp"] == exp and j["magnets"] == magnets)
+
+
+def test_harness_exception_gives_a_failing_record_that_passes_integrity(tmp_path, monkeypatch):
+    def boom(*a, **k):
+        raise ValueError("boom")
+
+    monkeypatch.setattr(R.M4, "run_trial", boom)
+    jobs = [j for j in R.build_m5_jobs("c0", ENV, 5.0) if j["exp"] in ("E1-2", "E1-7")]
+    run, not_run = _split(jobs)
+    R.execute(_dirs(tmp_path), run, not_run, "c0", ENV, "c0", {"gap": R.GAP}, 1, check_git=False,
+              log=lambda s: None)
+    st, vd = A.analyse(_dirs(tmp_path), jobs)
+    assert st["violations"] == [], st["violations"][:5]
+    rec = st["records"][("magnets", "E1-7", "gap=2.5e-05__6move")]
+    assert rec["pass"] is False and "ValueError: boom" in rec["fail_reasons"][0]
+    assert rec["params"]["gap"] == 2.5e-5 and rec["magnets"]["layout_gap"] == 2.5e-5
+    assert rec["mechanism"] == "M5" and rec["trial_id"] == "gap=2.5e-05__6move"
+
+
+@pytest.mark.parametrize("exc", [MemoryError, OSError])
+def test_memory_and_os_errors_are_interruptions_without_a_record(tmp_path, monkeypatch, exc):
+    def boom(*a, **k):
+        raise exc("x")
+
+    monkeypatch.setattr(R.M4, "run_trial", boom)
+    jobs = [_job()]
+    run, not_run = _split(jobs)
+    with pytest.raises(R.Interrupted):
+        R.execute(_dirs(tmp_path), run, not_run, "c0", ENV, "c0", {"gap": R.GAP}, 1, check_git=False,
+                  log=lambda s: None)
+    assert not R.record_path(_dirs(tmp_path), R.key_of(jobs[0])).exists()
+    assert not (tmp_path / "results" / R.LEDGER).exists()
+
+
+def test_manifest_is_written_once(tmp_path):
+    R.write_manifest(_dirs(tmp_path), {"a": 1})
+    with pytest.raises(FileExistsError):
+        R.write_manifest(_dirs(tmp_path), {"a": 2})
+    assert json.loads((tmp_path / "results" / R.MANIFEST).read_text())["a"] == 1
