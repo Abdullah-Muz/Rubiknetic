@@ -1,6 +1,6 @@
 # Phase 1 (G1) Pre-registration: M5, magnetic contact cube at a 0.05 mm piece gap
 
-**Status: revision 3, approved by the user on 2026-11-16 (P-36) on condition that a third independent review requires no changes. Not in force until that review's outcome is recorded.**
+**Status: revision 3, NOT IN FORCE.** It was approved on condition that a third independent review require no changes (P-36). That review required one change, T1 ([`M5_PREREGISTRATION_REVIEW3_2026-11-16.md`](M5_PREREGISTRATION_REVIEW3_2026-11-16.md); P-38), so the draft returns to the user.
 - **Revision 2** (P-34) was reviewed, and the review required one change, N1
   ([`M5_PREREGISTRATION_REVIEW2_2026-11-16.md`](M5_PREREGISTRATION_REVIEW2_2026-11-16.md)). Revision 3 (P-35) makes N1
   and adopts every optional change from that review; see §9.
