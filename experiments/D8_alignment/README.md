@@ -243,3 +243,12 @@ Further results:
   real-cube data to calibrate against; see the literature search) remains the open question for that.
 - The 4.80° operational tilt is close to the validated limit, so a scored run should either extend V3 to cover a
   margin (for example 7.5°) or treat the limit as a run-time abort condition.
+
+### Throughput, single process (`FACT`, 2026-11-15, `results/throughput_2026-11-15/`)
+- Machine: AMD Ryzen 7 250, 16 threads. Load average 4.2 at the start and 10.0 at the end, from unrelated jobs, so not
+  idle.
+- **B1 + magnets: 381 steps/s in a real 24-move trial** (seq_sexy6_a, full harness), against 1,082 without magnets.
+  The stage-1 S5 signal (≥ 300) is met single-process.
+- The bare cube plus rig benchmark, 3 repeats: 495–594 steps/s with magnets, 2,678–5,143 without.
+- The Python force law costs about 1.4 ms per step. A C plugin isn't needed for S5, but would recover roughly 2.8× for
+  Phase 2 training throughput.

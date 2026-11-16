@@ -1,0 +1,205 @@
+{
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0001,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   0.2,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.001,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "radial_preload": 0.0,
+  "radial_stiffness": 500.0,
+  "radial_range": [
+   -0.001,
+   0.0002
+  ],
+  "radial_damping": 0.05,
+  "radial_solreflimit": [
+   0.001,
+   1.0
+  ],
+  "radial_solimplimit": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.045,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.014,
+  "grip_overshoot": 0.006,
+  "pad_slide_damping": 100.0,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.001,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 14.102117774266262,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 5.0,
+  "turn_kv": 0.2,
+  "rig_mass": 0.05,
+  "timestep": 0.0005,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "setup": {
+  "seed": 7568,
+  "misalign_deg": {
+   "U": -0.13655883168794802,
+   "R": -0.2775877546657832,
+   "F": 0.5798628106469361,
+   "D": 0.046354992043465604,
+   "L": -0.77854479184574,
+   "B": 0.7267747813710494
+  },
+  "grip_force": 14.102117774266262,
+  "turn_s_per_quarter": 0.9393175736039188
+ },
+ "setup_log": [
+  {
+   "type": "layer_misalignment",
+   "face": "U",
+   "deg": -0.13655883168794802
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "R",
+   "deg": -0.2775877546657832
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "F",
+   "deg": 0.5798628106469361
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "D",
+   "deg": 0.046354992043465604
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "L",
+   "deg": -0.77854479184574
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "B",
+   "deg": 0.7267747813710494
+  }
+ ],
+ "t0_observed_valid": true,
+ "t0_solved": true,
+ "radial_offset_mm_t0": 4.5102810375396984e-14,
+ "seed": 7568,
+ "delta_deg": 8.0,
+ "U_err_t0_deg": -0.000657036796835736,
+ "U_err_after_release_deg": -0.12572327019310603,
+ "U_err_after_1s_deg": -0.12160569339353285,
+ "misalignment_end": {
+  "max_err_deg": 0.9804431345551504,
+  "max_residual_deg": 1.0285703532507222
+ },
+ "final_observed_valid": true,
+ "final_solved": true,
+ "edit_audit_violations": [],
+ "numerical_failures": [],
+ "wrench_log_entries": 0,
+ "sim_time_s": 2.783500000000097,
+ "integrity_ok": true,
+ "wall_s": 31.49993864100543,
+ "magnets": {
+  "params": {
+   "diameter": 0.004,
+   "length": 0.002,
+   "grade": "N35",
+   "wall": 0.0004,
+   "scale": 1.0,
+   "r1": 0.005,
+   "r2": 0.008,
+   "far_r1": 0.02,
+   "far_r2": 0.025,
+   "skin": 0.004
+  },
+  "Br_T": 1.19,
+  "moment_Am2": 0.023799999999999998,
+  "magnet_mass_g": 0.18849555921538758,
+  "n_magnets": 48,
+  "n_pairs": 182
+ },
+ "magnet_stats": {
+  "calls": 5568,
+  "clamped_z": 0,
+  "near_perpendicular": 0,
+  "max_force_N": 1.8179029744221833,
+  "max_near_tilt_deg": 2.29243909197055,
+  "list_rebuilds": 2,
+  "list_pairs": 182
+ },
+ "magnet_table": {
+  "table_file": "experiments/D8_alignment/results/tables/tilt_4x2_1.19T_s1_r8_h1.5_q16x48.npz",
+  "table_sha256": "c2ff0fcc4443419c8fa06b43cbbae24f5d541843ac9500a1b75bb378ffd2481f",
+  "validated_tilt_deg": 5.0,
+  "v3_source": "experiments/D8_alignment/results/d8_1b_checks.json",
+  "v3_source_sha256": "c5597a66bc01376fc22d9bf9a2aa0c6faabdf70bd0280fa813fd5824da37df36"
+ },
+ "experiment": "E1-5s",
+ "sub_experiment": "E1-5s",
+ "trial_id": "snap_+8_s7568",
+ "kind": "snap",
+ "spec": {
+  "delta_deg": 8.0,
+  "seed": 7568,
+  "overrides": {
+   "gap": 0.0001
+  }
+ },
+ "scored": false,
+ "rehearsal": true,
+ "base_overrides": {
+  "radial_preload": 0.0,
+  "gap": 0.0001
+ },
+ "loadavg_start": 8.02197265625,
+ "ok_snap_state": true,
+ "pass": true,
+ "pass_m1_criteria": true,
+ "validated_tilt_deg": 5.0,
+ "magnet_outside_validated_range": false,
+ "ok_magnet_validity": true,
+ "snap_is_criterion": true,
+ "ok_snap": true,
+ "fail_reasons": []
+}

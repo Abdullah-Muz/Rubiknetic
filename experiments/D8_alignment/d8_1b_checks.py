@@ -2,7 +2,7 @@
 
 V3  accuracy: the runtime hybrid force law vs the fine charge model (arbitrary orientation) at a finer, independent
     quadrature (32 x 96; the table uses 16 x 48), (a) for one facing pair over gap 0.5-1.5 mm and lateral offset
-    0-6 mm in 0.37 mm steps (off the table's rho nodes), (b) for pairs tilted 2, 5 and 10 deg (must pass up to 5 deg;
+    0-6 mm in 0.37 mm steps (off the table's rho nodes), (b) for pairs tilted 2, 5, 7.5 and 10 deg (must pass up to 5 deg;
     the largest passing tilt is recorded as the validated range), and (c) for the whole 48-magnet cube at home, with
     the R layer turned 2 deg, and at 20 deg. (a)-(b) and the finer reference were added on 2026-11-14 after an
     independent review found the first V3 too weak. Criteria: force error <= 5 % of the aligned facing-pair
@@ -106,7 +106,7 @@ def turn_layer(m, d, axis: int, sign: int, deg: float) -> None:
 
 REF_QUAD = (32, 96)        # V3 reference quadrature: independent of (finer than) the table's TABLE_QUAD
 REF_QUAD_CUBE = (24, 72)   # whole-cube near pairs (many pairs); still finer than and different from the table's
-TILTS_DEG = (2.0, 5.0, 10.0)
+TILTS_DEG = (2.0, 5.0, 7.5, 10.0)   # 7.5 added 2026-11-15 (M4 pre-registration draft, section 6 item 2)
 TILT_REQUIRED_DEG = 5.0    # V3 must pass up to this tilt; the largest passing tilt is the validated range
 
 
@@ -350,9 +350,31 @@ def throughput() -> dict:
     return out
 
 
+SIZES = {"3x1.5_N35": (0.003, 0.0015, "N35"), "4x1.5_N35": (0.004, 0.0015, "N35"),
+         "4x2_N35": (0.004, 0.002, "N35"), "4x2_N52": (0.004, 0.002, "N52")}
+
+
 def main() -> None:
+    """Usage: d8_1b_checks.py [--size TAG] [--scale S] [--tables-only]
+    Default: nominal 4x2 mm N35, written to results/d8_1b_checks.json. With --size/--scale (M4 pre-registration E1-7,
+    added 2026-11-15) the same checks run for that magnet and are written to results/d8_1b_checks_<tag>_s<scale>.json;
+    --tables-only builds and caches the near-field tables and stops (used for grades/scales whose relative accuracy
+    is covered by the V3 record at the same size)."""
+    global MP
+    tag, scale = None, 1.0
+    if "--size" in sys.argv:
+        tag = sys.argv[sys.argv.index("--size") + 1]
+    if "--scale" in sys.argv:
+        scale = float(sys.argv[sys.argv.index("--scale") + 1])
+    if tag is not None or scale != 1.0:
+        dia, length, grade = SIZES[tag or "4x2_N35"]
+        MP = MagnetParams(diameter=dia, length=length, grade=grade, scale=scale)
+    out_name = "d8_1b_checks.json" if (tag is None and scale == 1.0) else f"d8_1b_checks_{tag or '4x2_N35'}_s{scale:g}.json"
     t0 = time.perf_counter()
     spline = near_field_tables(MP, CACHE)
+    if "--tables-only" in sys.argv:
+        print(f"tables built for {asdict(MP)} in {time.perf_counter() - t0:.0f} s", flush=True)
+        return
     print(f"table ready ({time.perf_counter() - t0:.0f} s)", flush=True)
     res = {"magnet_params": asdict(MP), "moment_Am2": MP.moment, "Br_T": MP.br, "mujoco": mujoco.__version__}
     res["survey"] = survey(spline)
@@ -382,7 +404,7 @@ def main() -> None:
     res["all_pass"] = all(res[k]["pass"] for k in ("survey", "V3", "V4", "V5_rk4", "V6"))
     res["wall_s"] = round(time.perf_counter() - t0, 1)
     OUT.mkdir(parents=True, exist_ok=True)
-    (OUT / "d8_1b_checks.json").write_text(json.dumps(res, indent=1, default=float))
+    (OUT / out_name).write_text(json.dumps(res, indent=1, default=float))
     print("ALL PASS" if res["all_pass"] else "NOT ALL PASS", f"wall {res['wall_s']} s")
 
 

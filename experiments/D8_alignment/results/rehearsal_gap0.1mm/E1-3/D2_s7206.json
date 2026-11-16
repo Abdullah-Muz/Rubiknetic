@@ -1,0 +1,250 @@
+{
+ "params": {
+  "pitch": 0.019,
+  "gap": 0.0001,
+  "chamfer": 0.0014,
+  "cubie_mass": 0.0034,
+  "cubie_friction": [
+   0.2,
+   0.0025,
+   0.0005
+  ],
+  "cubie_condim": 3,
+  "cubie_solref": [
+   0.001,
+   1.0
+  ],
+  "cubie_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "joint_damping": 0.0005,
+  "joint_frictionloss": 0.0005,
+  "joint_armature": 1e-06,
+  "radial_preload": 0.0,
+  "radial_stiffness": 500.0,
+  "radial_range": [
+   -0.001,
+   0.0002
+  ],
+  "radial_damping": 0.05,
+  "radial_solreflimit": [
+   0.001,
+   1.0
+  ],
+  "radial_solimplimit": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "rig": true,
+  "pad_thickness": 0.005,
+  "pad_width": 0.045,
+  "pad_height": 0.01,
+  "pad_open_clearance": 0.014,
+  "grip_overshoot": 0.006,
+  "pad_slide_damping": 100.0,
+  "pad_friction": [
+   0.8,
+   0.005,
+   0.0001
+  ],
+  "pad_condim": 4,
+  "pad_solref": [
+   0.001,
+   1.0
+  ],
+  "pad_solimp": [
+   0.95,
+   0.99,
+   0.0005
+  ],
+  "grip_force": 17.18972659520053,
+  "grip_kp": 2000.0,
+  "turn_torque_limit": 1.0,
+  "turn_kp": 5.0,
+  "turn_kv": 0.2,
+  "rig_mass": 0.05,
+  "timestep": 0.0005,
+  "gravity_z": -9.81,
+  "integrator": "implicitfast",
+  "cone": "elliptic",
+  "impratio": 10.0,
+  "solver": "Newton",
+  "iterations": 100,
+  "tolerance": 1e-10
+ },
+ "setup": {
+  "seed": 7206,
+  "misalign_deg": {
+   "U": -0.295077757806663,
+   "R": -0.05590547436045257,
+   "F": 0.8446190391640518,
+   "D": 0.8439213571120479,
+   "L": 0.08784863025241929,
+   "B": 0.4776201330168499
+  },
+  "grip_force": 17.18972659520053,
+  "turn_s_per_quarter": 0.8739095811160493
+ },
+ "setup_log": [
+  {
+   "type": "layer_misalignment",
+   "face": "U",
+   "deg": -0.295077757806663
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "R",
+   "deg": -0.05590547436045257
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "F",
+   "deg": 0.8446190391640518
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "D",
+   "deg": 0.8439213571120479
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "L",
+   "deg": 0.08784863025241929
+  },
+  {
+   "type": "layer_misalignment",
+   "face": "B",
+   "deg": 0.4776201330168499
+  }
+ ],
+ "t0_observed_valid": true,
+ "t0_solved": true,
+ "radial_offset_mm_t0": 6.245004513516506e-14,
+ "sequence": "D2",
+ "seed": 7206,
+ "per_move": [
+  {
+   "move": "D2",
+   "observed_move": "D2",
+   "inference_error": null,
+   "observed_valid": true,
+   "turn_error_deg": -0.023430762439417663,
+   "turn_error_spread_deg": 0.15223360241475348,
+   "nontarget_drift_deg": 0.9311857909773276,
+   "penetration_mm": 0.2763221371284237,
+   "radial_change_mm_so_far": 1.3183898417423734e-13,
+   "radial_outward_mm_so_far": 1.1449174941446927e-13,
+   "radial_inward_mm_so_far": 1.3183898417423734e-13,
+   "radial_above_nominal_mm_so_far": 7.632783294297951e-14,
+   "max_turner_torque_Nm": 0.10351525634971814,
+   "t_pad_force_s": 0.584999999999991,
+   "t_layer_motion_s": 0.8474999999999621,
+   "causal": true,
+   "ok_oracle": true,
+   "ok_turn_error": true,
+   "ok_drift": true,
+   "ok_penetration": true,
+   "ok_radial_pop": true,
+   "ok_causal": true,
+   "ok_all": true,
+   "misalignment": {
+    "max_err_deg": 1.0408507020609186,
+    "max_residual_deg": 0.9390151383146664
+   },
+   "magnet_U_before_J": -0.05303460476006858,
+   "magnet_U_after_J": -0.05306172584874357,
+   "magnet_dU_J": -2.7121088674995908e-05,
+   "magnet_W_J": 2.7315885095351457e-05,
+   "magnet_W_displacement_J": -4.6384452138925104e-05,
+   "magnet_U_range_J": 0.007413503803115881,
+   "e16m_residual_J": 1.9479642035554923e-07,
+   "e16m_bound_J": 0.0007913503803115882,
+   "e16m_P_ok": true,
+   "e16m_residual_displacement_J": -7.350554081392101e-05,
+   "layer_magnet_force_peak_N": 5.990155425766459,
+   "layer_magnet_axis_torque_peak_Nm": 0.07164393084395339,
+   "layer_magnet_impulse_Ns": 8.078239278837799,
+   "layer_magnet_axis_angular_impulse_Nms": 0.002990748369923402,
+   "magnet_steps": 5896,
+   "magnet_callback_calls": 5896,
+   "magnet_buf_one_call_per_step": true,
+   "magnet_U0_vs_first_callback_J": 0.0
+  }
+ ],
+ "wall_time_s": 26.963753515999997,
+ "final_matches_oracle": true,
+ "expected_final_solved": false,
+ "moves_completed_ok": 1,
+ "edit_audit_violations": [],
+ "numerical_failures": [],
+ "wrench_log_entries": 0,
+ "sim_time_s": 3.448000000000319,
+ "integrity_ok": true,
+ "pass": true,
+ "misalignment_t0": {
+  "max_err_deg": 1.0982811858764203,
+  "max_residual_deg": 1.2192011255366313
+ },
+ "wall_s": 30.133555954002077,
+ "magnets": {
+  "params": {
+   "diameter": 0.004,
+   "length": 0.002,
+   "grade": "N35",
+   "wall": 0.0004,
+   "scale": 1.0,
+   "r1": 0.005,
+   "r2": 0.008,
+   "far_r1": 0.02,
+   "far_r2": 0.025,
+   "skin": 0.004
+  },
+  "Br_T": 1.19,
+  "moment_Am2": 0.023799999999999998,
+  "magnet_mass_g": 0.18849555921538758,
+  "n_magnets": 48,
+  "n_pairs": 185
+ },
+ "magnet_stats": {
+  "calls": 6897,
+  "clamped_z": 0,
+  "near_perpendicular": 0,
+  "max_force_N": 1.800875672690505,
+  "max_near_tilt_deg": 2.24403435635371,
+  "list_rebuilds": 43,
+  "list_pairs": 185
+ },
+ "magnet_table": {
+  "table_file": "experiments/D8_alignment/results/tables/tilt_4x2_1.19T_s1_r8_h1.5_q16x48.npz",
+  "table_sha256": "c2ff0fcc4443419c8fa06b43cbbae24f5d541843ac9500a1b75bb378ffd2481f",
+  "validated_tilt_deg": 5.0,
+  "v3_source": "experiments/D8_alignment/results/d8_1b_checks.json",
+  "v3_source_sha256": "c5597a66bc01376fc22d9bf9a2aa0c6faabdf70bd0280fa813fd5824da37df36"
+ },
+ "experiment": "E1-3",
+ "sub_experiment": "E1-3",
+ "trial_id": "D2_s7206",
+ "kind": "seq",
+ "spec": {
+  "moves": "D2",
+  "seed": 7206,
+  "overrides": {
+   "gap": 0.0001
+  }
+ },
+ "scored": false,
+ "rehearsal": true,
+ "base_overrides": {
+  "radial_preload": 0.0,
+  "gap": 0.0001
+ },
+ "loadavg_start": 7.9892578125,
+ "pass_m1_criteria": true,
+ "validated_tilt_deg": 5.0,
+ "magnet_outside_validated_range": false,
+ "ok_magnet_validity": true,
+ "fail_reasons": []
+}

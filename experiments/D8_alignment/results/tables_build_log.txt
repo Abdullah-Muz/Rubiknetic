@@ -1,0 +1,4 @@
+tables built for {'diameter': 0.004, 'length': 0.002, 'grade': 'N52', 'wall': 0.0004, 'scale': 1.0, 'r1': 0.005, 'r2': 0.008, 'far_r1': 0.02, 'far_r2': 0.025, 'skin': 0.004} in 493 s
+tables built for {'diameter': 0.004, 'length': 0.002, 'grade': 'N35', 'wall': 0.0004, 'scale': 0.67, 'r1': 0.005, 'r2': 0.008, 'far_r1': 0.02, 'far_r2': 0.025, 'skin': 0.004} in 500 s
+tables built for {'diameter': 0.003, 'length': 0.0015, 'grade': 'N35', 'wall': 0.0004, 'scale': 1.0, 'r1': 0.005, 'r2': 0.008, 'far_r1': 0.02, 'far_r2': 0.025, 'skin': 0.004} in 499 s
+tables built for {'diameter': 0.004, 'length': 0.0015, 'grade': 'N35', 'wall': 0.0004, 'scale': 1.0, 'r1': 0.005, 'r2': 0.008, 'far_r1': 0.02, 'far_r2': 0.025, 'skin': 0.004} in 551 s

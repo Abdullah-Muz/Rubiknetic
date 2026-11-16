@@ -1,0 +1,1 @@
+[B1_nom] seq_sexy6_a: {'moves_ok': 24, 'n_moves': 24} 381 steps/s

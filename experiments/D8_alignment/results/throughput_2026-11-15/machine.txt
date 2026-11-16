@@ -1,0 +1,5 @@
+start loadavg: 4.18 4.87 5.34 5/453 109694
+16
+CPU(s):                                  16
+Model name:                              AMD Ryzen 7 250 w/ Radeon 780M Graphics
+end loadavg: 9.95 7.32 6.16 9/613 118269
