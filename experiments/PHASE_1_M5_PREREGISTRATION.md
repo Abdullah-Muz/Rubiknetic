@@ -1,10 +1,13 @@
 # Phase 1 (G1) Pre-registration: M5, magnetic contact cube at a 0.05 mm piece gap
 
-**Status: revision 7, IN FORCE (P-48).** The user approved it ("fully approved, proceed", P-47) on condition that a
-very narrow independent review of the revision-7 changes require no changes. That review returned ACCEPTABLE AS IS
-with no required changes ([`M5_PREREGISTRATION_REVIEW7_2026-11-16.md`](M5_PREREGISTRATION_REVIEW7_2026-11-16.md)), so
-the condition is met. Its optional items Y1–Y5 are not adopted: this text is frozen from here to the end of the run.
-Revision 7 makes W1 and adopts X1–X6 from review 6; see §9.
+**Status: revision 8, NOT YET IN FORCE.** At the user's request, the working copy moves out of OneDrive to
+`C:\dev\Rubiknetic`, and the OneDrive rule of §2 changes from "OneDrive exited" to "no path the run uses lies in a
+OneDrive folder" (P-49). The user approved it on condition that a very narrow independent review of the revision-8
+changes require no changes. Revision 7 stays in force until then; no scored trial has run. See §9.
+- **Revision 7** (P-47) was approved on condition that a very narrow independent review of the revision-7 changes
+  require no changes. That review returned ACCEPTABLE AS IS
+  ([`M5_PREREGISTRATION_REVIEW7_2026-11-16.md`](M5_PREREGISTRATION_REVIEW7_2026-11-16.md)), and revision 7 came into
+  force (P-48). Its optional items Y1–Y5 were not adopted. Revision 7 makes W1 and adopts X1–X6 from review 6.
 - **Revision 6** (P-45) was approved on condition that a narrow independent review of the changes since revision 5
   require no changes. That review required one change, W1
   ([`M5_PREREGISTRATION_REVIEW6_2026-11-16.md`](M5_PREREGISTRATION_REVIEW6_2026-11-16.md); P-46), so revision 6 was
@@ -31,10 +34,11 @@ Revision 7 makes W1 and adopts X1–X6 from review 6; see §9.
   - Before writing revision 3, the author had seen that M4's first scored E1-4 trials failed M1's criteria, which was
     expected.
   - Every revision-3 change comes from review 2's text; none concerns or depends on M4's results.
-  - **Revisions 4 to 7 were written after M4's scored battery finished** (G1 NOT PASSED, 123 / 204; P-37), and the
+  - **Revisions 4 to 8 were written after M4's scored battery finished** (G1 NOT PASSED, 123 / 204; P-37), and the
     author has seen its results.
     - Every revision-4 change answers an item in review 3, every revision-5 change an item in review 4, and every
-      revision-6 change an item in review 5. None of these reviews used M4's results (review 5 discloses that one
+      revision-6 change an item in review 5, and every revision-7 change an item in review 6. Revision 8 answers the
+      user's request to stop depending on OneDrive. None of these reviews used M4's results (review 5 discloses that one
       grep printed the P-37 row and that nothing depends on it).
     - Some details are the author's own elaborations of the reviews' options (review 4, item 10): the ledger, the
       SHA-256 checks, the start log, the trial-list identity check and the harness-exception rule.
@@ -174,10 +178,13 @@ Revision 7 makes W1 and adopts X1–X6 from review 6; see §9.
   - **Before the first start**, every §6.1 item, including item 5 (the V3 checks for E1-7), is complete and
     committed. Each trial in the list is then either runnable or, for an E1-7 arm only, "not run" for a reason
     registered in §4. The runner refuses to start if any other trial would be refused.
-  - **OneDrive is exited, not paused, for the whole run, including every resume** (review 4, item 2; review 5, O1),
-    because any extra file in a results folder is INVALID and a pause ends by itself after at most 24 hours. The
-    runner checks this at every scored start (`tasklist.exe`) and refuses while OneDrive is running, or if it cannot
-    check.
+  - **No path the run uses lies in a OneDrive folder** (revision 8; replaces "OneDrive is exited" of review 4,
+    item 2 and review 5, O1), because any extra file in a results folder (for example a sync conflict copy) is
+    INVALID. The working copy is `C:\dev\Rubiknetic`, a clone of the repository with the git-ignored near-field
+    tables copied over (their SHA-256s are in the manifest). At every start other than a dry run, scored or smoke,
+    the runner resolves links and refuses if the repository, either results folder, the smoke folder, M4's runner or
+    the imported `rubiknetic` package has a path component named "OneDrive" or "OneDrive - …", or if the package is
+    not imported from this repository's `src/`. OneDrive itself may run.
   - **First start.** M5 has exactly one first start. The runner refuses unless `results/` and `results_nomag/` are both
     empty or absent. Before any trial it writes `results/MANIFEST.json` atomically, from a temporary file kept next
     to `results/`, not in it (review 5, O2 (a)): a kill before the link leaves `results/` empty, so the first start
@@ -374,7 +381,7 @@ and §5:
    - E1-4 scrambles drawn from the M5 seed (§3);
    - the run procedure in §2: record key, first-start check of both result folders, manifest, start log, resume rule
      with (i) and (ii), atomic records written by the parent process only, ledger, and the exception rules;
-   - the OneDrive check at every scored start; a refusal to write a smoke run into the scored folders (review 5,
+   - the location check at every start (revision 8; it replaces the OneDrive-process check); a refusal to write a smoke run into the scored folders (review 5,
      O11);
    - the turner-torque report;
    - the re-centred E1-7 factors. M4's face-gap factor computes the wall from M1's nominal 0.2 mm gap (`run.py:211`),
@@ -417,6 +424,10 @@ and §5:
      call the runner's command line cannot reach a real start (X1); a resume from a HEAD that differs from the
      manifest commit with the frozen paths unchanged is allowed, with git run (X2); a resume refuses a `.json` that is
      not a manifest trial's record (X3); undecodable `tasklist` output does not crash the OneDrive check (X4);
+   - **revision 8:** the OneDrive-process tests are replaced. A scored start is refused when a results folder is in a
+     folder named "OneDrive", "OneDrive - …" or "onedrive", and a smoke start when the smoke folder is; the path
+     check follows links and ignores names such as "OneDriveTemp"; a package imported from another repository is
+     refused; this working copy passes the check;
    - the verdict-script cases in §5.
 4. **A smoke test** on seeds outside every range, unscored, in a scratch folder (review 4, item 11). It runs the full
    run procedure: manifest, start log, atomic link, ledger, a forced interruption and a resume. It includes one
@@ -439,8 +450,8 @@ and §5:
   experiments, so these values are reported and not judged against 0.5 mm, as for M4.
 
 ## 8. Decisions requested
-None open. Revision 7 was approved with its condition (P-47): it takes effect if a very narrow review of the
-revision-7 changes requires no changes. The commit that records that outcome in the Status line comes before the first
+None open. Revision 8 was approved with its condition (P-49): it takes effect if a very narrow review of the
+revision-8 changes requires no changes. The commit that records that outcome in the Status line comes before the first
 start, because this file is a frozen path (review 6, X6).
 
 ## 9. Changes from revision 1
@@ -536,3 +547,11 @@ start, because this file is a frozen path (review 6, X6).
 | X4 | §2 (code): `tasklist` output decoded with replacement; operationally, the repository is kept on the device before OneDrive is exited |
 | X5 | §6.1 item 3 and `analyze.py` wording; the start table's column is "orphans planned (moved)"; a lost line continuation in `run.py` |
 | X6 | §8: the Status-line commit precedes the first start; no commit touches the results folders during the run |
+
+**Revision 8 (user request, P-49; not from a review):**
+
+| Item | Change |
+|---|---|
+| OneDrive | §2: the working copy moves to `C:\dev\Rubiknetic` (a clone at `d9933fe`, the git-ignored tables and licensed CAD copied with identical SHA-256s; the WSL environment's editable install of `rubiknetic` repointed to it). The rule "OneDrive exited" becomes "no path the run uses lies in a OneDrive folder, and the package comes from this repository"; `onedrive_running` is replaced by `location_problems` / `require_local_location`, applied at every start other than a dry run |
+| Tests | §6.1 item 3: the OneDrive-process tests are replaced by the location tests |
+| Provenance | Status: the revision-7 and revision-8 changes are named (review 7, Y2) |

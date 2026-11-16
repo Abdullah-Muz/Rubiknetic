@@ -697,10 +697,11 @@ def test_smoke_dir_may_not_be_the_scored_folders(where, monkeypatch, tmp_path):
         R.main(["smoke", "--smoke-dir", str(d)])
 
 
-def test_scored_start_refused_while_onedrive_runs(monkeypatch, tmp_path):
-    _no_real_start(monkeypatch, tmp_path)
-    monkeypatch.setattr(R, "onedrive_running", lambda: True)
-    with pytest.raises(SystemExit, match="OneDrive is running"):
+@pytest.mark.parametrize("folder", ["OneDrive", "OneDrive - Example Org", "onedrive"])
+def test_scored_start_refused_when_a_results_folder_is_in_onedrive(monkeypatch, tmp_path, folder):
+    """Revision 8 (replaces the OneDrive-process test of review 5, O1)."""
+    _no_real_start(monkeypatch, tmp_path / folder / "Rubiknetic")
+    with pytest.raises(SystemExit, match="must not use a OneDrive folder"):
         R.main(["all"])
 
 
@@ -778,13 +779,39 @@ def test_resume_refused_for_a_json_that_is_not_a_manifest_record(tmp_path, name)
         _make(tmp_path, jobs=copy.deepcopy(jobs))
 
 
-def test_onedrive_check_survives_undecodable_output(monkeypatch):
-    """Review 6, X4: tasklist output is decoded with replacement, so a non-UTF-8 message cannot crash the check."""
-    import subprocess
+def test_location_problems_flags_onedrive_folders_and_a_foreign_package(tmp_path):
+    """Revision 8: the path check and the package check, on synthetic paths."""
+    repo = tmp_path / "dev" / "Rubiknetic"
+    pkg = repo / "src" / "rubiknetic" / "cube_physics" / "scored.py"
+    assert R.location_problems({"repository": repo, "results": repo / "x" / "results"}, pkg, repo, repo) == []
+    assert R.location_problems({"OneDriveTemp": tmp_path / "OneDriveTemp"}, pkg, repo, repo) == []
+    for name in ("OneDrive", "OneDrive - Org", "ONEDRIVE"):
+        probs = R.location_problems({"results": tmp_path / name / "Desktop" / "r"}, pkg, repo, repo)
+        assert len(probs) == 1 and "inside a OneDrive folder" in probs[0]
+    other = tmp_path / "OneDrive" / "Desktop" / "Rubiknetic"
+    probs = R.location_problems({}, other / "src" / "rubiknetic" / "cube_physics" / "scored.py", other, repo)
+    assert len(probs) == 1 and "not from" in probs[0]
+    assert len(R.location_problems({}, pkg, other, repo)) == 1         # package's own REPO differs
 
-    def fake_run(cmd, **kw):
-        assert kw.get("errors") == "replace"
-        out = b"INFO: \xe9\xff no tasks".decode("utf-8", errors=kw["errors"])
-        return subprocess.CompletedProcess(cmd, 0, stdout=out, stderr="")
-    monkeypatch.setattr(R.subprocess, "run", fake_run)
-    assert R.onedrive_running() is False
+
+def test_location_problems_follow_links(tmp_path):
+    """Revision 8: a link to a OneDrive folder is caught after resolving it."""
+    target = tmp_path / "OneDrive" / "results"
+    target.mkdir(parents=True)
+    link = tmp_path / "dev" / "results"
+    link.parent.mkdir()
+    link.symlink_to(target, target_is_directory=True)
+    repo = tmp_path / "dev"
+    pkg = repo / "src" / "rubiknetic" / "x.py"
+    assert any("OneDrive" in x for x in R.location_problems({"results": link}, pkg, repo, repo))
+
+
+def test_this_checkout_passes_the_location_check():
+    """Revision 8: the real paths of this working copy (outside OneDrive, package from its own src/)."""
+    R.require_local_location(None)
+
+
+def test_smoke_start_refused_when_the_smoke_folder_is_in_onedrive(monkeypatch, tmp_path):
+    _no_real_start(monkeypatch, tmp_path)
+    with pytest.raises(SystemExit, match="must not use a OneDrive folder"):
+        R.main(["smoke", "--smoke-dir", str(tmp_path / "OneDrive" / "smoke")])

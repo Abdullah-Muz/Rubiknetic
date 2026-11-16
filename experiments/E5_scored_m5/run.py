@@ -12,6 +12,8 @@ unchanged as a module; this file changes only the items the pre-registration lis
   * the run procedure of section 2: record key (arm, experiment, trial ID), first start, MANIFEST.json, STARTS.txt,
     resume with orphan handling (i) and ledger reconciliation (ii), atomic records written by the parent only,
     LEDGER.txt, harness exceptions as failing records (iii), MemoryError / OSError / a killed worker as interruptions.
+  * revision 8: every start (not a dry run) refuses if a path the run uses lies in a OneDrive folder, or if the
+    rubiknetic package is not imported from this repository.
 
 Usage (WSL, from repo root):
     ~/.venvs/rubiknetic/bin/python experiments/E5_scored_m5/run.py all [--jobs N] [--dry-run]
@@ -28,7 +30,7 @@ import importlib.util
 import json
 import multiprocessing
 import os
-import subprocess
+import re
 import sys
 import time
 import traceback
@@ -570,14 +572,34 @@ def execute(dirs: dict, jobs: list[dict], not_run: list[tuple[dict, str]], commi
     return written
 
 
-def onedrive_running() -> bool:
-    """Review 5, O1: OneDrive must be exited (not paused) for every scored start. Refuses if it cannot be checked."""
-    try:
-        out = subprocess.run(["tasklist.exe", "/FI", "IMAGENAME eq OneDrive.exe", "/NH"], capture_output=True,
-                             text=True, errors="replace", check=True, timeout=60).stdout
-    except (OSError, subprocess.SubprocessError) as e:
-        raise SystemExit(f"refusing: cannot check whether OneDrive is running ({e})") from e
-    return "onedrive.exe" in out.lower()
+ONEDRIVE_DIR = re.compile(r"(?i)^onedrive\b")    # "OneDrive", "OneDrive - <organisation>"
+
+
+def location_problems(paths: dict, package_file: Path, package_repo: Path, repo: Path) -> list[str]:
+    """Revision 8 (replaces the OneDrive-process check of review 5, O1): no path the run reads or writes may lie in a
+    OneDrive-synced folder, and the rubiknetic package must be imported from this repository. OneDrive may run.
+    paths: {label: path}; every path is checked after resolving links."""
+    probs = []
+    for label, path in paths.items():
+        real = Path(path).resolve()
+        hits = [c for c in real.parts if ONEDRIVE_DIR.match(c)]
+        if hits:
+            probs.append(f"{label} {real} is inside a OneDrive folder ({hits[0]!r})")
+    src = (Path(repo) / "src").resolve()
+    if not Path(package_file).resolve().is_relative_to(src) or Path(package_repo).resolve() != Path(repo).resolve():
+        probs.append(f"the rubiknetic package is imported from {Path(package_file).resolve()}, not from {src}")
+    return probs
+
+
+def require_local_location(smoke_dir: Path | None) -> None:
+    paths = {"repository": REPO, "results folder": OUT, "no-magnet results folder": OUT_NOMAG,
+             "M4 runner": Path(M4.__file__), "rubiknetic package": Path(scored.__file__)}
+    if smoke_dir is not None:
+        paths["smoke folder"] = smoke_dir
+    probs = location_problems(paths, Path(scored.__file__), scored.REPO, REPO)
+    if probs:
+        raise SystemExit("refusing: the run must not use a OneDrive folder (pre-registration section 2, revision "
+                         "8):\n  " + "\n  ".join(probs))
 
 
 def require_m5_clean_commit() -> str:
@@ -631,9 +653,8 @@ def main(argv: list[str] | None = None) -> None:
         sd = a.smoke_dir.resolve()
         if sd == HERE.resolve() or any(sd == p.resolve() or sd.is_relative_to(p.resolve()) for p in (OUT, OUT_NOMAG)):
             raise SystemExit(f"refusing: --smoke-dir {a.smoke_dir} would write into the scored folders")
-    if not smoke and not a.dry_run and onedrive_running():
-        raise SystemExit("refusing: OneDrive is running. Exit it (not pause) for the whole scored run "
-                         "(pre-registration section 2).")
+    if not a.dry_run:                            # revision 8: every scored or smoke start
+        require_local_location(a.smoke_dir)
     head = scored._git("rev-parse", "HEAD")
     if smoke:
         commit = head + "+smoke"
