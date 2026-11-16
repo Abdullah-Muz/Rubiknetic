@@ -1,0 +1,701 @@
+# Rehearsal report: experiments/E4_scored_m4/results
+Verdicts are the stored ones; nothing is re-judged. Thresholds shown for context are read from scored.py:THRESHOLDS and run.py constants.
+Skipped (partial / unreadable): 0
+
+## Pass/fail per experiment
+| experiment | found / expected | passed | failed | status |
+| E1-1       |  20 /  20        |     14 |      6 | complete |
+| E1-2       |  24 /  24        |      9 |     15 | complete |
+| E1-3       |  22 /  22        |      4 |     18 | complete |
+| E1-4       |  40 /  40        |      0 |     40 | complete |
+| E1-5       |  42 /  42        |     40 |      2 | complete |
+| E1-5s      |  20 /  20        |     20 |      0 | complete |
+| E1-6       |  20 /  20        |     20 |      0 | complete [E1-6a 6/6 of 6, E1-6b 6/6 of 6, E1-6c 8/8 of 8] |
+| E1-6t      |  16 /  16        |     16 |      0 | complete |
+| total      | 204 / 204        |    123 |     81 | |
+
+## Failing trials (stored flags; value vs criterion)
+* E1-1/rest_s6000 (E1-1)
+    stored fail_reasons: ['M1 criteria']
+    ok_rest_rotation: rest_rotation_deg = 0.7419 (criterion <= 0.5 deg)
+* E1-1/rest_s6003 (E1-1)
+    stored fail_reasons: ['M1 criteria']
+    ok_rest_rotation: rest_rotation_deg = 1.031 (criterion <= 0.5 deg)
+* E1-1/rest_s6004 (E1-1)
+    stored fail_reasons: ['M1 criteria']
+    ok_rest_rotation: rest_rotation_deg = 1.002 (criterion <= 0.5 deg)
+* E1-1/rest_s6006 (E1-1)
+    stored fail_reasons: ['M1 criteria']
+    ok_rest_rotation: rest_rotation_deg = 1.028 (criterion <= 0.5 deg)
+* E1-1/rest_s6010 (E1-1)
+    stored fail_reasons: ['M1 criteria']
+    ok_rest_rotation: rest_rotation_deg = 0.5048 (criterion <= 0.5 deg)
+* E1-1/rest_s6011 (E1-1)
+    stored fail_reasons: ['M1 criteria']
+    ok_rest_rotation: rest_rotation_deg = 0.8583 (criterion <= 0.5 deg)
+* E1-2/B_s6120 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 B: ok_drift: nontarget_drift_deg = 1.96 (criterion <= 1.0 deg)
+* E1-2/B_s6121 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 B: ok_drift: nontarget_drift_deg = 1.578 (criterion <= 1.0 deg)
+* E1-2/Bp_s6122 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 B': ok_drift: nontarget_drift_deg = 1.192 (criterion <= 1.0 deg)
+* E1-2/D_s6112 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 D: ok_drift: nontarget_drift_deg = 1.358 (criterion <= 1.0 deg)
+* E1-2/D_s6113 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 D: ok_drift: nontarget_drift_deg = 1.241 (criterion <= 1.0 deg)
+* E1-2/Dp_s6114 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 D': ok_drift: nontarget_drift_deg = 1.255 (criterion <= 1.0 deg)
+* E1-2/Dp_s6115 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 D': ok_drift: nontarget_drift_deg = 1.327 (criterion <= 1.0 deg)
+* E1-2/F_s6108 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F: ok_drift: nontarget_drift_deg = 1.086 (criterion <= 1.0 deg)
+* E1-2/Fp_s6111 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F': ok_drift: nontarget_drift_deg = 1.115 (criterion <= 1.0 deg)
+* E1-2/L_s6117 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 L: ok_drift: nontarget_drift_deg = 1.517 (criterion <= 1.0 deg)
+* E1-2/Lp_s6118 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 L': ok_drift: nontarget_drift_deg = 1.548 (criterion <= 1.0 deg)
+* E1-2/R_s6104 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.135 (criterion <= 1.0 deg)
+* E1-2/R_s6105 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.445 (criterion <= 1.0 deg)
+* E1-2/Rp_s6106 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R': ok_drift: nontarget_drift_deg = 1.565 (criterion <= 1.0 deg)
+* E1-2/Rp_s6107 (E1-2)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R': ok_drift: nontarget_drift_deg = 1.374 (criterion <= 1.0 deg)
+* E1-3/B2_s6210 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 B2: ok_drift: nontarget_drift_deg = 1.487 (criterion <= 1.0 deg)
+* E1-3/B2_s6211 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 B2: ok_drift: nontarget_drift_deg = 1.348 (criterion <= 1.0 deg)
+* E1-3/D2_s6206 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 D2: ok_drift: nontarget_drift_deg = 1.201 (criterion <= 1.0 deg)
+* E1-3/D2_s6207 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 D2: ok_drift: nontarget_drift_deg = 1.472 (criterion <= 1.0 deg)
+* E1-3/F2_s6204 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F2: ok_drift: nontarget_drift_deg = 1.172 (criterion <= 1.0 deg)
+* E1-3/F2_s6205 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F2: ok_drift: nontarget_drift_deg = 1.383 (criterion <= 1.0 deg)
+* E1-3/L2_s6208 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 L2: ok_drift: nontarget_drift_deg = 1.435 (criterion <= 1.0 deg)
+* E1-3/L2_s6209 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 L2: ok_drift: nontarget_drift_deg = 1.323 (criterion <= 1.0 deg)
+* E1-3/halves_s6230 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F2: ok_drift: nontarget_drift_deg = 1.388 (criterion <= 1.0 deg)
+    move 3 L2: ok_drift: nontarget_drift_deg = 1.409 (criterion <= 1.0 deg)
+* E1-3/halves_s6231 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F2: ok_drift: nontarget_drift_deg = 1.399 (criterion <= 1.0 deg)
+* E1-3/halves_s6232 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 3 L2: ok_drift: nontarget_drift_deg = 1.013 (criterion <= 1.0 deg)
+* E1-3/halves_s6233 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F2: ok_drift: nontarget_drift_deg = 1.158 (criterion <= 1.0 deg)
+* E1-3/halves_s6234 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F2: ok_drift: nontarget_drift_deg = 1.402 (criterion <= 1.0 deg)
+* E1-3/halves_s6235 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F2: ok_drift: nontarget_drift_deg = 1.685 (criterion <= 1.0 deg)
+* E1-3/halves_s6236 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F2: ok_drift: nontarget_drift_deg = 1.396 (criterion <= 1.0 deg)
+    move 5 U2: ok_drift: nontarget_drift_deg = 1.007 (criterion <= 1.0 deg)
+* E1-3/halves_s6237 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 3 L2: ok_drift: nontarget_drift_deg = 1.003 (criterion <= 1.0 deg)
+* E1-3/halves_s6238 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 3 L2: ok_drift: nontarget_drift_deg = 1.312 (criterion <= 1.0 deg)
+* E1-3/halves_s6239 (E1-3)
+    stored fail_reasons: ['M1 criteria']
+    move 3 L2: ok_drift: nontarget_drift_deg = 1.383 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6400 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 4 L': ok_drift: nontarget_drift_deg = 1.357 (criterion <= 1.0 deg)
+    move 13 U': ok_drift: nontarget_drift_deg = 1.033 (criterion <= 1.0 deg)
+    move 14 B2: ok_drift: nontarget_drift_deg = 1.1 (criterion <= 1.0 deg)
+    move 19 L2: ok_drift: nontarget_drift_deg = 1.658 (criterion <= 1.0 deg)
+    move 20 D2: ok_drift: nontarget_drift_deg = 1.222 (criterion <= 1.0 deg)
+    move 23 F': ok_drift: nontarget_drift_deg = 1.118 (criterion <= 1.0 deg)
+    move 23 F': ok_causal: t_pad_force_s=59, t_layer_motion_s=58.97; layer motion leads pad force by 30 ms (criterion pad force threshold reached no later than layer motion)
+    move 24 U': ok_drift: nontarget_drift_deg = 1.339 (criterion <= 1.0 deg)
+    move 25 B: ok_drift: nontarget_drift_deg = 1.575 (criterion <= 1.0 deg)
+    move 26 R: ok_drift: nontarget_drift_deg = 1.6 (criterion <= 1.0 deg)
+    move 31 B2: ok_drift: nontarget_drift_deg = 1.157 (criterion <= 1.0 deg)
+    move 34 D': ok_drift: nontarget_drift_deg = 1.483 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6401 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 B': ok_drift: nontarget_drift_deg = 1.116 (criterion <= 1.0 deg)
+    move 2 L: ok_drift: nontarget_drift_deg = 1.245 (criterion <= 1.0 deg)
+    move 5 F2: ok_drift: nontarget_drift_deg = 1.097 (criterion <= 1.0 deg)
+    move 13 L': ok_drift: nontarget_drift_deg = 1.488 (criterion <= 1.0 deg)
+    move 14 D: ok_drift: nontarget_drift_deg = 1.227 (criterion <= 1.0 deg)
+    move 19 R: ok_drift: nontarget_drift_deg = 1.247 (criterion <= 1.0 deg)
+    move 28 L: ok_drift: nontarget_drift_deg = 1.026 (criterion <= 1.0 deg)
+    move 29 B: ok_drift: nontarget_drift_deg = 1.078 (criterion <= 1.0 deg)
+    move 30 L2: ok_drift: nontarget_drift_deg = 1.144 (criterion <= 1.0 deg)
+    move 31 F2: ok_drift: nontarget_drift_deg = 1.14 (criterion <= 1.0 deg)
+    move 34 B: ok_drift: nontarget_drift_deg = 1.004 (criterion <= 1.0 deg)
+    move 36 F2: ok_drift: nontarget_drift_deg = 1.441 (criterion <= 1.0 deg)
+    move 40 B: ok_drift: nontarget_drift_deg = 1.054 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6402 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 2 F2: ok_drift: nontarget_drift_deg = 1.419 (criterion <= 1.0 deg)
+    move 3 L2: ok_drift: nontarget_drift_deg = 1.286 (criterion <= 1.0 deg)
+    move 6 B: ok_drift: nontarget_drift_deg = 1.378 (criterion <= 1.0 deg)
+    move 7 U: ok_drift: nontarget_drift_deg = 1.071 (criterion <= 1.0 deg)
+    move 9 F: ok_drift: nontarget_drift_deg = 1.52 (criterion <= 1.0 deg)
+    move 10 U2: ok_drift: nontarget_drift_deg = 1.259 (criterion <= 1.0 deg)
+    move 20 L2: ok_drift: nontarget_drift_deg = 1.323 (criterion <= 1.0 deg)
+    move 23 L2: ok_drift: nontarget_drift_deg = 1.014 (criterion <= 1.0 deg)
+    move 24 D: ok_drift: nontarget_drift_deg = 1.035 (criterion <= 1.0 deg)
+    move 27 L: ok_drift: nontarget_drift_deg = 1.687 (criterion <= 1.0 deg)
+    move 30 D2: ok_drift: nontarget_drift_deg = 1.098 (criterion <= 1.0 deg)
+    move 33 L': ok_drift: nontarget_drift_deg = 1.573 (criterion <= 1.0 deg)
+    move 34 U': ok_drift: nontarget_drift_deg = 1.37 (criterion <= 1.0 deg)
+    move 35 B': ok_drift: nontarget_drift_deg = 1.536 (criterion <= 1.0 deg)
+    move 37 R2: ok_drift: nontarget_drift_deg = 1.111 (criterion <= 1.0 deg)
+    move 40 R2: ok_drift: nontarget_drift_deg = 1.677 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6403 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 5 D2: ok_drift: nontarget_drift_deg = 1.349 (criterion <= 1.0 deg)
+    move 10 U: ok_drift: nontarget_drift_deg = 1.416 (criterion <= 1.0 deg)
+    move 11 F: ok_drift: nontarget_drift_deg = 1.193 (criterion <= 1.0 deg)
+    move 15 D2: ok_drift: nontarget_drift_deg = 1.323 (criterion <= 1.0 deg)
+    move 19 U2: ok_drift: nontarget_drift_deg = 1.137 (criterion <= 1.0 deg)
+    move 25 U: ok_drift: nontarget_drift_deg = 1.306 (criterion <= 1.0 deg)
+    move 26 D2: ok_drift: nontarget_drift_deg = 1.228 (criterion <= 1.0 deg)
+    move 30 F': ok_drift: nontarget_drift_deg = 1.602 (criterion <= 1.0 deg)
+    move 36 D2: ok_drift: nontarget_drift_deg = 1.322 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6404 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 3 D: ok_drift: nontarget_drift_deg = 1.055 (criterion <= 1.0 deg)
+    move 4 F: ok_drift: nontarget_drift_deg = 1.218 (criterion <= 1.0 deg)
+    move 9 B': ok_drift: nontarget_drift_deg = 1.631 (criterion <= 1.0 deg)
+    move 14 L2: ok_drift: nontarget_drift_deg = 1.446 (criterion <= 1.0 deg)
+    move 15 D': ok_drift: nontarget_drift_deg = 1.087 (criterion <= 1.0 deg)
+    move 18 F': ok_drift: nontarget_drift_deg = 1.076 (criterion <= 1.0 deg)
+    move 24 L: ok_drift: nontarget_drift_deg = 1.699 (criterion <= 1.0 deg)
+    move 26 D: ok_drift: nontarget_drift_deg = 1.047 (criterion <= 1.0 deg)
+    move 28 F': ok_drift: nontarget_drift_deg = 1.671 (criterion <= 1.0 deg)
+    move 34 F: ok_drift: nontarget_drift_deg = 1.56 (criterion <= 1.0 deg)
+    move 35 D: ok_drift: nontarget_drift_deg = 1.317 (criterion <= 1.0 deg)
+    move 38 D': ok_drift: nontarget_drift_deg = 1.522 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6405 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 4 R: ok_drift: nontarget_drift_deg = 1.151 (criterion <= 1.0 deg)
+    move 10 U: ok_drift: nontarget_drift_deg = 1.034 (criterion <= 1.0 deg)
+    move 16 F2: ok_drift: nontarget_drift_deg = 1.478 (criterion <= 1.0 deg)
+    move 17 R: ok_drift: nontarget_drift_deg = 1.321 (criterion <= 1.0 deg)
+    move 18 B: ok_drift: nontarget_drift_deg = 1.521 (criterion <= 1.0 deg)
+    move 24 R': ok_drift: nontarget_drift_deg = 1.269 (criterion <= 1.0 deg)
+    move 25 F2: ok_drift: nontarget_drift_deg = 1.55 (criterion <= 1.0 deg)
+    move 26 L: ok_drift: nontarget_drift_deg = 1.742 (criterion <= 1.0 deg)
+    move 27 U2: ok_drift: nontarget_drift_deg = 1.432 (criterion <= 1.0 deg)
+    move 33 L: ok_drift: nontarget_drift_deg = 1.044 (criterion <= 1.0 deg)
+    move 39 D': ok_drift: nontarget_drift_deg = 1.172 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6406 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 B: ok_drift: nontarget_drift_deg = 1.678 (criterion <= 1.0 deg)
+    move 2 U2: ok_drift: nontarget_drift_deg = 1.353 (criterion <= 1.0 deg)
+    move 4 D: ok_drift: nontarget_drift_deg = 1.624 (criterion <= 1.0 deg)
+    move 8 U': ok_drift: nontarget_drift_deg = 1.022 (criterion <= 1.0 deg)
+    move 13 L': ok_drift: nontarget_drift_deg = 1.414 (criterion <= 1.0 deg)
+    move 16 L2: ok_drift: nontarget_drift_deg = 1.543 (criterion <= 1.0 deg)
+    move 17 B2: ok_drift: nontarget_drift_deg = 1.673 (criterion <= 1.0 deg)
+    move 24 B2: ok_drift: nontarget_drift_deg = 1.188 (criterion <= 1.0 deg)
+    move 25 L2: ok_drift: nontarget_drift_deg = 1.377 (criterion <= 1.0 deg)
+    move 26 F: ok_drift: nontarget_drift_deg = 1.207 (criterion <= 1.0 deg)
+    move 27 R2: ok_drift: nontarget_drift_deg = 1.58 (criterion <= 1.0 deg)
+    move 29 U: ok_drift: nontarget_drift_deg = 1.4 (criterion <= 1.0 deg)
+    move 31 F: ok_drift: nontarget_drift_deg = 1.294 (criterion <= 1.0 deg)
+    move 33 U: ok_drift: nontarget_drift_deg = 1.452 (criterion <= 1.0 deg)
+    move 35 F': ok_drift: nontarget_drift_deg = 1.196 (criterion <= 1.0 deg)
+    move 36 U: ok_drift: nontarget_drift_deg = 1.172 (criterion <= 1.0 deg)
+    move 38 L': ok_drift: nontarget_drift_deg = 1.163 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6407 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 D2: ok_drift: nontarget_drift_deg = 1.611 (criterion <= 1.0 deg)
+    move 4 B2: ok_drift: nontarget_drift_deg = 1.183 (criterion <= 1.0 deg)
+    move 5 U': ok_drift: nontarget_drift_deg = 1.067 (criterion <= 1.0 deg)
+    move 6 L: ok_drift: nontarget_drift_deg = 1.162 (criterion <= 1.0 deg)
+    move 7 D2: ok_drift: nontarget_drift_deg = 1.337 (criterion <= 1.0 deg)
+    move 8 B': ok_drift: nontarget_drift_deg = 1.064 (criterion <= 1.0 deg)
+    move 15 D2: ok_drift: nontarget_drift_deg = 1.21 (criterion <= 1.0 deg)
+    move 18 B2: ok_drift: nontarget_drift_deg = 1.47 (criterion <= 1.0 deg)
+    move 19 D: ok_drift: nontarget_drift_deg = 1.273 (criterion <= 1.0 deg)
+    move 24 L2: ok_drift: nontarget_drift_deg = 1.726 (criterion <= 1.0 deg)
+    move 36 U: ok_drift: nontarget_drift_deg = 1.446 (criterion <= 1.0 deg)
+    move 39 B: ok_drift: nontarget_drift_deg = 1.425 (criterion <= 1.0 deg)
+    move 40 D2: ok_drift: nontarget_drift_deg = 1.401 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6408 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 3 D2: ok_drift: nontarget_drift_deg = 1.292 (criterion <= 1.0 deg)
+    move 5 U': ok_drift: nontarget_drift_deg = 1.215 (criterion <= 1.0 deg)
+    move 8 U: ok_drift: nontarget_drift_deg = 1.087 (criterion <= 1.0 deg)
+    move 10 F: ok_drift: nontarget_drift_deg = 1.728 (criterion <= 1.0 deg)
+    move 19 B: ok_drift: nontarget_drift_deg = 1.03 (criterion <= 1.0 deg)
+    move 25 L: ok_drift: nontarget_drift_deg = 1.055 (criterion <= 1.0 deg)
+    move 31 F': ok_drift: nontarget_drift_deg = 1.46 (criterion <= 1.0 deg)
+    move 34 F2: ok_drift: nontarget_drift_deg = 1.343 (criterion <= 1.0 deg)
+    move 35 D': ok_drift: nontarget_drift_deg = 1.047 (criterion <= 1.0 deg)
+    move 38 D2: ok_drift: nontarget_drift_deg = 1.221 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6409 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 6 B': ok_drift: nontarget_drift_deg = 1.039 (criterion <= 1.0 deg)
+    move 8 F2: ok_drift: nontarget_drift_deg = 1.322 (criterion <= 1.0 deg)
+    move 9 D': ok_drift: nontarget_drift_deg = 1 (criterion <= 1.0 deg)
+    move 13 D': ok_drift: nontarget_drift_deg = 1.422 (criterion <= 1.0 deg)
+    move 15 L': ok_drift: nontarget_drift_deg = 1.178 (criterion <= 1.0 deg)
+    move 15 L': ok_causal: t_pad_force_s=36.37, t_layer_motion_s=36.28; layer motion leads pad force by 92 ms (criterion pad force threshold reached no later than layer motion)
+    move 18 F: ok_drift: nontarget_drift_deg = 1.334 (criterion <= 1.0 deg)
+    move 20 B: ok_drift: nontarget_drift_deg = 1.067 (criterion <= 1.0 deg)
+    move 28 D: ok_drift: nontarget_drift_deg = 1.002 (criterion <= 1.0 deg)
+    move 32 D: ok_drift: nontarget_drift_deg = 1.367 (criterion <= 1.0 deg)
+    move 35 B: ok_drift: nontarget_drift_deg = 1.221 (criterion <= 1.0 deg)
+    move 36 R: ok_drift: nontarget_drift_deg = 1.518 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6410 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 15 U: ok_drift: nontarget_drift_deg = 1.032 (criterion <= 1.0 deg)
+    move 17 R: ok_drift: nontarget_drift_deg = 1.344 (criterion <= 1.0 deg)
+    move 19 F': ok_drift: nontarget_drift_deg = 1.011 (criterion <= 1.0 deg)
+    move 22 F: ok_drift: nontarget_drift_deg = 1.068 (criterion <= 1.0 deg)
+    move 25 F: ok_drift: nontarget_drift_deg = 1.189 (criterion <= 1.0 deg)
+    move 26 U': ok_drift: nontarget_drift_deg = 1.136 (criterion <= 1.0 deg)
+    move 30 L2: ok_drift: nontarget_drift_deg = 1.208 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6411 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 D': ok_drift: nontarget_drift_deg = 1.451 (criterion <= 1.0 deg)
+    move 7 U2: ok_drift: nontarget_drift_deg = 1.22 (criterion <= 1.0 deg)
+    move 11 F': ok_drift: nontarget_drift_deg = 1.633 (criterion <= 1.0 deg)
+    move 13 B': ok_drift: nontarget_drift_deg = 1.161 (criterion <= 1.0 deg)
+    move 29 D': ok_drift: nontarget_drift_deg = 1.214 (criterion <= 1.0 deg)
+    move 33 R': ok_drift: nontarget_drift_deg = 1.335 (criterion <= 1.0 deg)
+    move 36 D2: ok_drift: nontarget_drift_deg = 1.409 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6412 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 L: ok_drift: nontarget_drift_deg = 1.254 (criterion <= 1.0 deg)
+    move 4 D': ok_drift: nontarget_drift_deg = 1.013 (criterion <= 1.0 deg)
+    move 6 R: ok_drift: nontarget_drift_deg = 1.532 (criterion <= 1.0 deg)
+    move 7 U2: ok_drift: nontarget_drift_deg = 1.032 (criterion <= 1.0 deg)
+    move 10 B: ok_drift: nontarget_drift_deg = 1.184 (criterion <= 1.0 deg)
+    move 24 U2: ok_drift: nontarget_drift_deg = 1.073 (criterion <= 1.0 deg)
+    move 26 D': ok_drift: nontarget_drift_deg = 1.247 (criterion <= 1.0 deg)
+    move 36 B': ok_drift: nontarget_drift_deg = 1.018 (criterion <= 1.0 deg)
+    move 39 R2: ok_drift: nontarget_drift_deg = 1.035 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6413 (E1-4)
+    stored fail_reasons: ['M1 criteria', 'E1-4 growth slope 0.005071752541418611 deg/move (limit < 0.005)']
+    ok_growth_slope: misalignment_growth_slope_deg_per_move = 0.005072 (criterion < 0.005 deg/move)
+    move 9 L: ok_drift: nontarget_drift_deg = 1.145 (criterion <= 1.0 deg)
+    move 10 D: ok_drift: nontarget_drift_deg = 1.132 (criterion <= 1.0 deg)
+    move 15 B': ok_drift: nontarget_drift_deg = 1.579 (criterion <= 1.0 deg)
+    move 19 L': ok_drift: nontarget_drift_deg = 1.415 (criterion <= 1.0 deg)
+    move 20 D': ok_drift: nontarget_drift_deg = 1.117 (criterion <= 1.0 deg)
+    move 23 F: ok_drift: nontarget_drift_deg = 1.1 (criterion <= 1.0 deg)
+    move 31 D': ok_drift: nontarget_drift_deg = 1.054 (criterion <= 1.0 deg)
+    move 37 D2: ok_drift: nontarget_drift_deg = 1.013 (criterion <= 1.0 deg)
+    move 38 F2: ok_drift: nontarget_drift_deg = 1.042 (criterion <= 1.0 deg)
+    move 39 L: ok_drift: nontarget_drift_deg = 1.503 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6414 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 F': ok_drift: nontarget_drift_deg = 1.105 (criterion <= 1.0 deg)
+    move 2 R: ok_drift: nontarget_drift_deg = 1.787 (criterion <= 1.0 deg)
+    move 5 L': ok_drift: nontarget_drift_deg = 1.634 (criterion <= 1.0 deg)
+    move 6 U': ok_drift: nontarget_drift_deg = 1.432 (criterion <= 1.0 deg)
+    move 7 B: ok_drift: nontarget_drift_deg = 1.242 (criterion <= 1.0 deg)
+    move 9 R2: ok_drift: nontarget_drift_deg = 1.002 (criterion <= 1.0 deg)
+    move 11 F2: ok_drift: nontarget_drift_deg = 1.004 (criterion <= 1.0 deg)
+    move 18 D2: ok_drift: nontarget_drift_deg = 1.291 (criterion <= 1.0 deg)
+    move 18 D2: ok_causal: t_pad_force_s=40.38, t_layer_motion_s=40.34; layer motion leads pad force by 39 ms (criterion pad force threshold reached no later than layer motion)
+    move 20 D: ok_drift: nontarget_drift_deg = 1.196 (criterion <= 1.0 deg)
+    move 23 D2: ok_drift: nontarget_drift_deg = 1.153 (criterion <= 1.0 deg)
+    move 24 R: ok_drift: nontarget_drift_deg = 1.031 (criterion <= 1.0 deg)
+    move 26 L2: ok_drift: nontarget_drift_deg = 1.346 (criterion <= 1.0 deg)
+    move 31 L': ok_drift: nontarget_drift_deg = 1.449 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6415 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 4 R2: ok_drift: nontarget_drift_deg = 1.161 (criterion <= 1.0 deg)
+    move 6 L: ok_drift: nontarget_drift_deg = 1.215 (criterion <= 1.0 deg)
+    move 15 L2: ok_drift: nontarget_drift_deg = 1.108 (criterion <= 1.0 deg)
+    move 16 F2: ok_drift: nontarget_drift_deg = 1.305 (criterion <= 1.0 deg)
+    move 23 U: ok_drift: nontarget_drift_deg = 1.248 (criterion <= 1.0 deg)
+    move 28 U2: ok_drift: nontarget_drift_deg = 1.138 (criterion <= 1.0 deg)
+    move 30 U: ok_drift: nontarget_drift_deg = 1.186 (criterion <= 1.0 deg)
+    move 31 F2: ok_drift: nontarget_drift_deg = 1.411 (criterion <= 1.0 deg)
+    move 33 F': ok_drift: nontarget_drift_deg = 1.159 (criterion <= 1.0 deg)
+    move 34 R': ok_drift: nontarget_drift_deg = 1.028 (criterion <= 1.0 deg)
+    move 36 B': ok_drift: nontarget_drift_deg = 1.122 (criterion <= 1.0 deg)
+    move 37 R2: ok_drift: nontarget_drift_deg = 1.532 (criterion <= 1.0 deg)
+    move 40 F': ok_drift: nontarget_drift_deg = 1.208 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6416 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 3 F: ok_drift: nontarget_drift_deg = 1.666 (criterion <= 1.0 deg)
+    move 4 U': ok_drift: nontarget_drift_deg = 1.162 (criterion <= 1.0 deg)
+    move 5 B': ok_drift: nontarget_drift_deg = 1.394 (criterion <= 1.0 deg)
+    move 7 D: ok_drift: nontarget_drift_deg = 1.042 (criterion <= 1.0 deg)
+    move 9 B: ok_drift: nontarget_drift_deg = 1.263 (criterion <= 1.0 deg)
+    move 10 D2: ok_drift: nontarget_drift_deg = 1.707 (criterion <= 1.0 deg)
+    move 12 B: ok_drift: nontarget_drift_deg = 1.146 (criterion <= 1.0 deg)
+    move 13 L2: ok_drift: nontarget_drift_deg = 1.707 (criterion <= 1.0 deg)
+    move 16 D: ok_drift: nontarget_drift_deg = 1.063 (criterion <= 1.0 deg)
+    move 25 D': ok_drift: nontarget_drift_deg = 1.124 (criterion <= 1.0 deg)
+    move 26 F: ok_drift: nontarget_drift_deg = 1.373 (criterion <= 1.0 deg)
+    move 27 R2: ok_drift: nontarget_drift_deg = 1.327 (criterion <= 1.0 deg)
+    move 30 R': ok_drift: nontarget_drift_deg = 1.413 (criterion <= 1.0 deg)
+    move 33 R: ok_drift: nontarget_drift_deg = 1.102 (criterion <= 1.0 deg)
+    move 34 D': ok_drift: nontarget_drift_deg = 1.392 (criterion <= 1.0 deg)
+    move 36 B: ok_drift: nontarget_drift_deg = 1.598 (criterion <= 1.0 deg)
+    move 39 R: ok_drift: nontarget_drift_deg = 1.444 (criterion <= 1.0 deg)
+    move 40 U2: ok_drift: nontarget_drift_deg = 1.316 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6417 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 2 R: ok_drift: nontarget_drift_deg = 1.524 (criterion <= 1.0 deg)
+    move 4 L': ok_drift: nontarget_drift_deg = 1.296 (criterion <= 1.0 deg)
+    move 5 F: ok_drift: nontarget_drift_deg = 1.316 (criterion <= 1.0 deg)
+    move 11 D2: ok_drift: nontarget_drift_deg = 1.052 (criterion <= 1.0 deg)
+    move 12 R: ok_drift: nontarget_drift_deg = 1.07 (criterion <= 1.0 deg)
+    move 13 D': ok_drift: nontarget_drift_deg = 1.148 (criterion <= 1.0 deg)
+    move 15 R: ok_drift: nontarget_drift_deg = 1.087 (criterion <= 1.0 deg)
+    move 23 D': ok_drift: nontarget_drift_deg = 1.43 (criterion <= 1.0 deg)
+    move 27 F': ok_drift: nontarget_drift_deg = 1.733 (criterion <= 1.0 deg)
+    move 29 R': ok_drift: nontarget_drift_deg = 1.343 (criterion <= 1.0 deg)
+    move 39 R': ok_drift: nontarget_drift_deg = 1.213 (criterion <= 1.0 deg)
+    move 40 F': ok_drift: nontarget_drift_deg = 1.087 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6418 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 3 L: ok_drift: nontarget_drift_deg = 1.71 (criterion <= 1.0 deg)
+    move 9 F: ok_drift: nontarget_drift_deg = 1.063 (criterion <= 1.0 deg)
+    move 16 R': ok_drift: nontarget_drift_deg = 1.396 (criterion <= 1.0 deg)
+    move 17 F': ok_drift: nontarget_drift_deg = 1.231 (criterion <= 1.0 deg)
+    move 18 R2: ok_drift: nontarget_drift_deg = 1.657 (criterion <= 1.0 deg)
+    move 19 D: ok_drift: nontarget_drift_deg = 1.202 (criterion <= 1.0 deg)
+    move 25 R: ok_drift: nontarget_drift_deg = 1.427 (criterion <= 1.0 deg)
+    move 26 B': ok_drift: nontarget_drift_deg = 1.435 (criterion <= 1.0 deg)
+    move 30 D: ok_drift: nontarget_drift_deg = 1.451 (criterion <= 1.0 deg)
+    move 31 B2: ok_drift: nontarget_drift_deg = 1.091 (criterion <= 1.0 deg)
+    move 38 L': ok_drift: nontarget_drift_deg = 1.631 (criterion <= 1.0 deg)
+    move 39 F2: ok_drift: nontarget_drift_deg = 1.076 (criterion <= 1.0 deg)
+* E1-4/scr20inv_s6419 (E1-4)
+    stored fail_reasons: ['M1 criteria', 'E1-4 growth slope 0.007965908460995366 deg/move (limit < 0.005)']
+    ok_growth_slope: misalignment_growth_slope_deg_per_move = 0.007966 (criterion < 0.005 deg/move)
+    move 5 D2: ok_drift: nontarget_drift_deg = 1.053 (criterion <= 1.0 deg)
+    move 11 R: ok_drift: nontarget_drift_deg = 1.192 (criterion <= 1.0 deg)
+    move 13 B': ok_drift: nontarget_drift_deg = 1.472 (criterion <= 1.0 deg)
+    move 14 D': ok_drift: nontarget_drift_deg = 1.033 (criterion <= 1.0 deg)
+    move 16 B2: ok_drift: nontarget_drift_deg = 1.205 (criterion <= 1.0 deg)
+    move 20 L: ok_drift: nontarget_drift_deg = 1.002 (criterion <= 1.0 deg)
+    move 25 B2: ok_drift: nontarget_drift_deg = 1.224 (criterion <= 1.0 deg)
+    move 27 D: ok_drift: nontarget_drift_deg = 1.132 (criterion <= 1.0 deg)
+    move 28 B: ok_drift: nontarget_drift_deg = 1.028 (criterion <= 1.0 deg)
+    move 31 F': ok_drift: nontarget_drift_deg = 1.139 (criterion <= 1.0 deg)
+    move 34 L': ok_drift: nontarget_drift_deg = 1.432 (criterion <= 1.0 deg)
+    move 35 B: ok_drift: nontarget_drift_deg = 1.095 (criterion <= 1.0 deg)
+    move 36 D2: ok_drift: nontarget_drift_deg = 1.13 (criterion <= 1.0 deg)
+    move 37 F2: ok_drift: nontarget_drift_deg = 1.137 (criterion <= 1.0 deg)
+    move 39 B2: ok_drift: nontarget_drift_deg = 1.124 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6300 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.563 (criterion <= 1.0 deg)
+    move 2 U: ok_drift: nontarget_drift_deg = 1.121 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.201 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.41 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.144 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6301 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.293 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.168 (criterion <= 1.0 deg)
+    move 4 U': ok_causal: t_pad_force_s=7.374, t_layer_motion_s=7.355; layer motion leads pad force by 19 ms (criterion pad force threshold reached no later than layer motion)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.306 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.185 (criterion <= 1.0 deg)
+    move 12 U': ok_drift: nontarget_drift_deg = 1.023 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.204 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.198 (criterion <= 1.0 deg)
+    move 20 U': ok_drift: nontarget_drift_deg = 1.022 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.19 (criterion <= 1.0 deg)
+    move 24 U': ok_drift: nontarget_drift_deg = 1.03 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6302 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.36 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.226 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.22 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.194 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.159 (criterion <= 1.0 deg)
+    move 20 U': ok_drift: nontarget_drift_deg = 1.306 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.278 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6303 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.249 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.33 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.236 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.207 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.258 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.257 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6304 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.112 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.166 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.2 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.31 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.241 (criterion <= 1.0 deg)
+    move 16 U': ok_drift: nontarget_drift_deg = 1.014 (criterion <= 1.0 deg)
+    move 18 U: ok_drift: nontarget_drift_deg = 1.115 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.237 (criterion <= 1.0 deg)
+    move 22 U: ok_drift: nontarget_drift_deg = 1.051 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.175 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6305 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 5 R: ok_drift: nontarget_drift_deg = 1.057 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.248 (criterion <= 1.0 deg)
+    move 8 U': ok_drift: nontarget_drift_deg = 1.088 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.365 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.296 (criterion <= 1.0 deg)
+    move 16 U': ok_drift: nontarget_drift_deg = 1.077 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.12 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.21 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6306 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.789 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.189 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.147 (criterion <= 1.0 deg)
+    move 8 U': ok_drift: nontarget_drift_deg = 1.303 (criterion <= 1.0 deg)
+    move 14 U: ok_drift: nontarget_drift_deg = 1.084 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.152 (criterion <= 1.0 deg)
+    move 16 U': ok_drift: nontarget_drift_deg = 1.004 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.423 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.332 (criterion <= 1.0 deg)
+    move 24 U': ok_drift: nontarget_drift_deg = 1.055 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6307 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.291 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.082 (criterion <= 1.0 deg)
+    move 9 R: ok_drift: nontarget_drift_deg = 1.297 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.104 (criterion <= 1.0 deg)
+    move 12 U': ok_drift: nontarget_drift_deg = 1.047 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.114 (criterion <= 1.0 deg)
+    move 16 U': ok_drift: nontarget_drift_deg = 1.025 (criterion <= 1.0 deg)
+    move 18 U: ok_causal: t_pad_force_s=37.69, t_layer_motion_s=37.65; layer motion leads pad force by 43 ms (criterion pad force threshold reached no later than layer motion)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.218 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.204 (criterion <= 1.0 deg)
+    move 24 U': ok_drift: nontarget_drift_deg = 1.079 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6308 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.03 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.038 (criterion <= 1.0 deg)
+    move 4 U': ok_drift: nontarget_drift_deg = 1.069 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.168 (criterion <= 1.0 deg)
+    move 8 U': ok_drift: nontarget_drift_deg = 1.045 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.188 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.351 (criterion <= 1.0 deg)
+    move 18 U: ok_drift: nontarget_drift_deg = 1.129 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.236 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.185 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6309 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.449 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.206 (criterion <= 1.0 deg)
+    move 4 U': ok_drift: nontarget_drift_deg = 1.409 (criterion <= 1.0 deg)
+    move 10 U: ok_drift: nontarget_drift_deg = 1.168 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.14 (criterion <= 1.0 deg)
+    move 14 U: ok_drift: nontarget_drift_deg = 1.159 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.174 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.187 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6310 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.038 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.277 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.245 (criterion <= 1.0 deg)
+    move 8 U': ok_drift: nontarget_drift_deg = 1.068 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.185 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.139 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6311 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 2 U: ok_drift: nontarget_drift_deg = 1.099 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.24 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.206 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.178 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.133 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.063 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.275 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6312 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.489 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.105 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.149 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.285 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.241 (criterion <= 1.0 deg)
+    move 16 U': ok_drift: nontarget_drift_deg = 1.026 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.285 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.249 (criterion <= 1.0 deg)
+    move 24 U': ok_drift: nontarget_drift_deg = 1.069 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6313 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.323 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.228 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.334 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.161 (criterion <= 1.0 deg)
+    move 20 U': ok_drift: nontarget_drift_deg = 1.13 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.223 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6314 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 3 R': ok_drift: nontarget_drift_deg = 1.247 (criterion <= 1.0 deg)
+    move 4 U': ok_drift: nontarget_drift_deg = 1.168 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.161 (criterion <= 1.0 deg)
+    move 8 U': ok_drift: nontarget_drift_deg = 1.407 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.243 (criterion <= 1.0 deg)
+    move 12 U': ok_drift: nontarget_drift_deg = 1.443 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.252 (criterion <= 1.0 deg)
+    move 18 U: ok_drift: nontarget_drift_deg = 1.176 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.199 (criterion <= 1.0 deg)
+    move 20 U': ok_drift: nontarget_drift_deg = 1.022 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.2 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6315 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 3 R': ok_drift: nontarget_drift_deg = 1.16 (criterion <= 1.0 deg)
+    move 4 U': ok_drift: nontarget_drift_deg = 1.038 (criterion <= 1.0 deg)
+    move 6 U: ok_drift: nontarget_drift_deg = 1.192 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.24 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.187 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.265 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.24 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.143 (criterion <= 1.0 deg)
+    move 24 U': ok_drift: nontarget_drift_deg = 1.001 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6316 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 4 U': ok_drift: nontarget_drift_deg = 1.02 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.188 (criterion <= 1.0 deg)
+    move 8 U': ok_drift: nontarget_drift_deg = 1.02 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.274 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.348 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.201 (criterion <= 1.0 deg)
+    move 20 U': ok_drift: nontarget_drift_deg = 1.06 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.258 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6317 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.389 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.116 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.267 (criterion <= 1.0 deg)
+    move 10 U: ok_drift: nontarget_drift_deg = 1.082 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.211 (criterion <= 1.0 deg)
+    move 14 U: ok_drift: nontarget_drift_deg = 1.138 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.367 (criterion <= 1.0 deg)
+    move 16 U': ok_drift: nontarget_drift_deg = 1.076 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.28 (criterion <= 1.0 deg)
+    move 22 U: ok_drift: nontarget_drift_deg = 1.096 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.233 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6318 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 1 R: ok_drift: nontarget_drift_deg = 1.07 (criterion <= 1.0 deg)
+    move 4 U': ok_drift: nontarget_drift_deg = 1.084 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.209 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.276 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.183 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.281 (criterion <= 1.0 deg)
+* E1-4/sexy6_s6319 (E1-4)
+    stored fail_reasons: ['M1 criteria']
+    move 2 U: ok_drift: nontarget_drift_deg = 1.003 (criterion <= 1.0 deg)
+    move 3 R': ok_drift: nontarget_drift_deg = 1.197 (criterion <= 1.0 deg)
+    move 7 R': ok_drift: nontarget_drift_deg = 1.049 (criterion <= 1.0 deg)
+    move 11 R': ok_drift: nontarget_drift_deg = 1.142 (criterion <= 1.0 deg)
+    move 14 U: ok_drift: nontarget_drift_deg = 1.091 (criterion <= 1.0 deg)
+    move 15 R': ok_drift: nontarget_drift_deg = 1.192 (criterion <= 1.0 deg)
+    move 19 R': ok_drift: nontarget_drift_deg = 1.331 (criterion <= 1.0 deg)
+    move 20 U': ok_drift: nontarget_drift_deg = 1.052 (criterion <= 1.0 deg)
+    move 23 R': ok_drift: nontarget_drift_deg = 1.253 (criterion <= 1.0 deg)
+* E1-5/forgive_+15_s6515 (E1-5)
+    stored fail_reasons: ['rule 2: near-pair tilt 5.193 deg > validated 5 deg']
+    ok_magnet_validity: tilt = 5.193 (criterion <= validated 5.0 deg)
+* E1-5/forgive_+16_s6516 (E1-5)
+    stored fail_reasons: ['rule 2: near-pair tilt 5.176 deg > validated 5 deg']
+    ok_magnet_validity: tilt = 5.176 (criterion <= validated 5.0 deg)
+
+## Distributions (absolute values; median / p90 / p99 / max)
+* per-move non-target drift (deg)                            n= 1376  median 0.856  p90 1.322  p99 1.677  max 1.960 deg
+* per-move turn error |mean| (deg)                           n= 1376  median 0.130  p90 0.296  p99 0.421  max 0.665 deg
+* per-move penetration (mm)                                  n= 1376  median 0.271  p90 0.288  p99 0.296  max 0.311 mm
+* per-move max turner torque (N m)                           n= 1376  median 0.100  p90 0.489  p99 0.679  max 0.863 N m
+* E1-1 rest rotation, per trial (deg)                        n=   20  median 0.341  p90 1.005  p99 1.030  max 1.031 deg
+* E1-1 penetration, per trial (mm)                           n=   20  median 0.012  p90 0.028  p99 0.038  max 0.039 mm
+* E1-6t penetration (reported), per trial (mm)               n=   16  median 0.205  p90 0.205  p99 0.205  max 0.205 mm
+* magnet near-pair tilt, rule-2 (operational) trials (deg)   n=  174  median 3.789  p90 4.674  p99 5.005  max 5.193 deg
+* magnet near-pair tilt, rule-3 (abuse) trials (deg)         n=   30  median 8.723  p90 22.745  p99 23.445  max 23.568 deg
+* max near-pair tilt per sub-experiment (deg): E1-1 4.66, E1-2 4.59, E1-3 4.94, E1-4 4.94, E1-5 5.19, E1-5s 4.43, E1-6a 4.08, E1-6b 7.89, E1-6c 23.57, E1-6t 8.78; rule 2 = ['E1-1', 'E1-2', 'E1-3', 'E1-4', 'E1-5', 'E1-5s', 'E1-6a'], rule 3 = ['E1-6b', 'E1-6c', 'E1-6t'] (run.py)
+* rest rotation outside E1-1, magnet tilt per move, turner torque outside move trials: not stored (magnet tilt is stored once per trial in magnet_stats)
+
+## Drift, causality and oracle
+* moves: 1376; moves with stored ok_drift = False: 440 (cross-check, value > 1.0 deg: 440); trials with such a move: 73; max drift 1.96 deg
+* causality failures (ok_causal = False): 5 moves
+* oracle agreement (ok_oracle = True): 1376 / 1376 moves; final_matches_oracle True in 86 / 86 sequence trials
+* E1-6m <P> energy bound (e16m_P_ok): 1376 / 1376 moves
+* rule-3 'outside validated range' labels: 25 trials
+* trials with a drift move: E1-2/B_s6120, E1-2/B_s6121, E1-2/Bp_s6122, E1-2/D_s6112, E1-2/D_s6113, E1-2/Dp_s6114, E1-2/Dp_s6115, E1-2/F_s6108, E1-2/Fp_s6111, E1-2/L_s6117, E1-2/Lp_s6118, E1-2/R_s6104, E1-2/R_s6105, E1-2/Rp_s6106, E1-2/Rp_s6107, E1-3/B2_s6210, E1-3/B2_s6211, E1-3/D2_s6206, E1-3/D2_s6207, E1-3/F2_s6204, E1-3/F2_s6205, E1-3/L2_s6208, E1-3/L2_s6209, E1-3/halves_s6230, E1-3/halves_s6231, E1-3/halves_s6232, E1-3/halves_s6233, E1-3/halves_s6234, E1-3/halves_s6235, E1-3/halves_s6236, E1-3/halves_s6237, E1-3/halves_s6238, E1-3/halves_s6239, E1-4/scr20inv_s6400, E1-4/scr20inv_s6401, E1-4/scr20inv_s6402, E1-4/scr20inv_s6403, E1-4/scr20inv_s6404, E1-4/scr20inv_s6405, E1-4/scr20inv_s6406, E1-4/scr20inv_s6407, E1-4/scr20inv_s6408, E1-4/scr20inv_s6409, E1-4/scr20inv_s6410, E1-4/scr20inv_s6411, E1-4/scr20inv_s6412, E1-4/scr20inv_s6413, E1-4/scr20inv_s6414, E1-4/scr20inv_s6415, E1-4/scr20inv_s6416, E1-4/scr20inv_s6417, E1-4/scr20inv_s6418, E1-4/scr20inv_s6419, E1-4/sexy6_s6300, E1-4/sexy6_s6301, E1-4/sexy6_s6302, E1-4/sexy6_s6303, E1-4/sexy6_s6304, E1-4/sexy6_s6305, E1-4/sexy6_s6306, E1-4/sexy6_s6307, E1-4/sexy6_s6308, E1-4/sexy6_s6309, E1-4/sexy6_s6310, E1-4/sexy6_s6311, E1-4/sexy6_s6312, E1-4/sexy6_s6313, E1-4/sexy6_s6314, E1-4/sexy6_s6315, E1-4/sexy6_s6316, E1-4/sexy6_s6317, E1-4/sexy6_s6318, E1-4/sexy6_s6319
+
+## Side by side: A = results  vs  B = rehearsal_gap0.05mm
+NOTE: seeds differ between folders (rehearsal_gap.py --shift); an incomplete A is compared with complete B.
+| experiment | A pass/found | B pass/found |
+| E1-1       |   14 /  20   |   20 /  20   |
+| E1-2       |    9 /  24   |   24 /  24   |
+| E1-3       |    4 /  22   |   22 /  22   |
+| E1-4       |    0 /  40   |   40 /  40   |
+| E1-5       |   40 /  42   |   42 /  42   |
+| E1-5s      |   20 /  20   |   20 /  20   |
+| E1-6       |   20 /  20   |   20 /  20   |
+| E1-6t      |   16 /  16   |   16 /  16   |
+
+| quantity                                                   |                      A |                      B |
+| trials passed / found                                      |                123/204 |                204/204 |
+| moves                                                      |                   1376 |                   1376 |
+| moves with drift > limit                                   |                    440 |                      0 |
+| trials with a drift move                                   |                     73 |                      0 |
+| max drift (deg)                                            |                   1.96 |                 0.7422 |
+| causality failures (moves)                                 |                      5 |                      0 |
+| oracle agreement (moves)                                   |              1376/1376 |              1376/1376 |
+| skipped files                                              |                      0 |                      0 |
+| per-move non-target drift (deg)                            | n=1376 med 0.856 p99 1.677 max 1.960 | n=1376 med 0.227 p99 0.649 max 0.742 |
+| per-move turn error |mean| (deg)                           | n=1376 med 0.130 p99 0.421 max 0.665 | n=1376 med 0.057 p99 0.246 max 0.322 |
+| per-move penetration (mm)                                  | n=1376 med 0.271 p99 0.296 max 0.311 | n=1376 med 0.270 p99 0.292 max 0.303 |
+| per-move max turner torque (N m)                           | n=1376 med 0.100 p99 0.679 max 0.863 | n=1376 med 0.214 p99 0.557 max 1.000 |
+| E1-1 rest rotation, per trial (deg)                        | n=20 med 0.341 p99 1.030 max 1.031 | n=20 med 0.104 p99 0.276 max 0.290 |
+| E1-1 penetration, per trial (mm)                           | n=20 med 0.012 p99 0.038 max 0.039 | n=20 med 0.007 p99 0.008 max 0.008 |
+| E1-6t penetration (reported), per trial (mm)               | n=16 med 0.205 p99 0.205 max 0.205 | n=16 med 0.189 p99 0.189 max 0.189 |
+| magnet near-pair tilt, rule-2 (operational) trials (deg)   | n=174 med 3.789 p99 5.005 max 5.193 | n=174 med 1.371 p99 2.074 max 2.083 |
+| magnet near-pair tilt, rule-3 (abuse) trials (deg)         | n=30 med 8.723 p99 23.445 max 23.568 | n=30 med 3.502 p99 12.542 max 12.559 |
+
+## Matched subset: trials of A paired with B by experiment, trial type and seed offset (seed % 1000)
+pairs: 204 of 204 A trials (same pre-registered slot; the seeds differ, so the random setup misalignments differ: not the same initial condition)
+pairs with an identical move sequence: 204 / 204
+| trials passed        | A      123 | B      204 |
+| moves                | A     1376 | B     1376 |
+| drift moves          | A      440 | B        0 |
+| drift trials         | A       73 | B        0 |
+| max drift (deg)      | A     1.96 | B   0.7422 |
+| causality failures   | A        5 | B        0 |
+| oracle ok moves      | A     1376 | B     1376 |
+| drift distribution   | A n= 1376  median 0.856  p90 1.322  p99 1.677  max 1.960 deg |
+|                      | B n= 1376  median 0.227  p90 0.494  p99 0.649  max 0.742 deg |
+
+cross-check analyze._mx over E1-2..E1-4: drift max 1.9595561719408956, turn error max 0.6650799250131563, penetration max 0.3111712531819933

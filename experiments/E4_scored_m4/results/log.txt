@@ -1,0 +1,236 @@
+=== E1-4 2026-11-16T09:26:31-08:00
+start-up checks: {'max_abs_magnet_qfrc': 0.030350938867386386, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 1.734723475976807e-18, 'buf_matches_step_qfrc': 1.734723475976807e-18, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 8.881784197001252e-15, 'displacement_vs_qvel_before': 13.566725129492708, 'integrator': 'implicitfast', 'pass': True}
+commit 1dc578c8d17474d59cc15d9080cf52c215c8ce9c: 40 trials (0 refused)
+FAIL E1-4/scr20inv_s6401 M1 criteria
+FAIL E1-4/scr20inv_s6403 M1 criteria
+FAIL E1-4/scr20inv_s6402 M1 criteria
+FAIL E1-4/scr20inv_s6400 M1 criteria
+FAIL E1-4/scr20inv_s6404 M1 criteria
+FAIL E1-4/scr20inv_s6405 M1 criteria
+FAIL E1-4/scr20inv_s6406 M1 criteria
+FAIL E1-4/scr20inv_s6407 M1 criteria
+FAIL E1-4/scr20inv_s6408 M1 criteria
+FAIL E1-4/scr20inv_s6409 M1 criteria
+FAIL E1-4/scr20inv_s6411 M1 criteria
+FAIL E1-4/scr20inv_s6410 M1 criteria
+FAIL E1-4/scr20inv_s6413 M1 criteria; E1-4 growth slope 0.005071752541418611 deg/move (limit < 0.005)
+FAIL E1-4/scr20inv_s6412 M1 criteria
+FAIL E1-4/scr20inv_s6414 M1 criteria
+FAIL E1-4/scr20inv_s6415 M1 criteria
+FAIL E1-4/scr20inv_s6416 M1 criteria
+FAIL E1-4/scr20inv_s6417 M1 criteria
+FAIL E1-4/scr20inv_s6418 M1 criteria
+FAIL E1-4/scr20inv_s6419 M1 criteria; E1-4 growth slope 0.007965908460995366 deg/move (limit < 0.005)
+FAIL E1-4/sexy6_s6300 M1 criteria
+FAIL E1-4/sexy6_s6301 M1 criteria
+FAIL E1-4/sexy6_s6302 M1 criteria
+FAIL E1-4/sexy6_s6303 M1 criteria
+FAIL E1-4/sexy6_s6305 M1 criteria
+FAIL E1-4/sexy6_s6304 M1 criteria
+FAIL E1-4/sexy6_s6306 M1 criteria
+FAIL E1-4/sexy6_s6307 M1 criteria
+FAIL E1-4/sexy6_s6308 M1 criteria
+FAIL E1-4/sexy6_s6309 M1 criteria
+FAIL E1-4/sexy6_s6311 M1 criteria
+FAIL E1-4/sexy6_s6310 M1 criteria
+FAIL E1-4/sexy6_s6312 M1 criteria
+FAIL E1-4/sexy6_s6313 M1 criteria
+FAIL E1-4/sexy6_s6314 M1 criteria
+FAIL E1-4/sexy6_s6315 M1 criteria
+FAIL E1-4/sexy6_s6316 M1 criteria
+FAIL E1-4/sexy6_s6317 M1 criteria
+FAIL E1-4/sexy6_s6319 M1 criteria
+FAIL E1-4/sexy6_s6318 M1 criteria
+=== E1-4 exit 0 2026-11-16T10:44:01-08:00
+=== E1-2 2026-11-16T10:44:01-08:00
+start-up checks: {'max_abs_magnet_qfrc': 0.030350938867386386, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 1.734723475976807e-18, 'buf_matches_step_qfrc': 1.734723475976807e-18, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 8.881784197001252e-15, 'displacement_vs_qvel_before': 13.566725129492708, 'integrator': 'implicitfast', 'pass': True}
+commit abe4d64228f3f8ca2bac5cc534d4e5914df75e95: 24 trials (0 refused)
+PASS E1-2/Up_s6103 
+PASS E1-2/Up_s6102 
+PASS E1-2/U_s6101 
+PASS E1-2/U_s6100 
+FAIL E1-2/Rp_s6106 M1 criteria
+FAIL E1-2/R_s6105 M1 criteria
+FAIL E1-2/Rp_s6107 M1 criteria
+FAIL E1-2/R_s6104 M1 criteria
+FAIL E1-2/F_s6108 M1 criteria
+PASS E1-2/F_s6109 
+PASS E1-2/Fp_s6110 
+FAIL E1-2/Fp_s6111 M1 criteria
+FAIL E1-2/D_s6112 M1 criteria
+FAIL E1-2/D_s6113 M1 criteria
+FAIL E1-2/Dp_s6115 M1 criteria
+FAIL E1-2/Dp_s6114 M1 criteria
+PASS E1-2/L_s6116 
+FAIL E1-2/L_s6117 M1 criteria
+FAIL E1-2/Lp_s6118 M1 criteria
+PASS E1-2/Lp_s6119 
+FAIL E1-2/B_s6120 M1 criteria
+FAIL E1-2/B_s6121 M1 criteria
+PASS E1-2/Bp_s6123 
+FAIL E1-2/Bp_s6122 M1 criteria
+=== E1-2 exit 0 2026-11-16T10:45:16-08:00
+=== E1-3 2026-11-16T10:45:16-08:00
+start-up checks: {'max_abs_magnet_qfrc': 0.030350938867386386, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 1.734723475976807e-18, 'buf_matches_step_qfrc': 1.734723475976807e-18, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 8.881784197001252e-15, 'displacement_vs_qvel_before': 13.566725129492708, 'integrator': 'implicitfast', 'pass': True}
+commit abe4d64228f3f8ca2bac5cc534d4e5914df75e95: 22 trials (0 refused)
+FAIL E1-3/halves_s6232 M1 criteria
+FAIL E1-3/halves_s6233 M1 criteria
+FAIL E1-3/halves_s6231 M1 criteria
+FAIL E1-3/halves_s6230 M1 criteria
+FAIL E1-3/halves_s6235 M1 criteria
+FAIL E1-3/halves_s6234 M1 criteria
+FAIL E1-3/halves_s6237 M1 criteria
+FAIL E1-3/halves_s6236 M1 criteria
+PASS E1-3/U2_s6200 
+PASS E1-3/U2_s6201 
+PASS E1-3/R2_s6202 
+PASS E1-3/R2_s6203 
+FAIL E1-3/F2_s6204 M1 criteria
+FAIL E1-3/F2_s6205 M1 criteria
+FAIL E1-3/D2_s6206 M1 criteria
+FAIL E1-3/D2_s6207 M1 criteria
+FAIL E1-3/halves_s6238 M1 criteria
+FAIL E1-3/L2_s6208 M1 criteria
+FAIL E1-3/halves_s6239 M1 criteria
+FAIL E1-3/L2_s6209 M1 criteria
+FAIL E1-3/B2_s6210 M1 criteria
+FAIL E1-3/B2_s6211 M1 criteria
+=== E1-3 exit 0 2026-11-16T10:50:22-08:00
+=== E1-5 2026-11-16T10:50:22-08:00
+start-up checks: {'max_abs_magnet_qfrc': 0.030350938867386386, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 1.734723475976807e-18, 'buf_matches_step_qfrc': 1.734723475976807e-18, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 8.881784197001252e-15, 'displacement_vs_qvel_before': 13.566725129492708, 'integrator': 'implicitfast', 'pass': True}
+commit abe4d64228f3f8ca2bac5cc534d4e5914df75e95: 42 trials (0 refused)
+PASS E1-5/forgive_+0_s6500 
+PASS E1-5/forgive_+3_s6503 
+PASS E1-5/forgive_+1_s6501 
+PASS E1-5/forgive_+2_s6502 
+PASS E1-5/forgive_+4_s6504 
+PASS E1-5/forgive_+5_s6505 
+PASS E1-5/forgive_+6_s6506 
+PASS E1-5/forgive_+7_s6507 
+PASS E1-5/forgive_+8_s6508 
+PASS E1-5/forgive_+9_s6509 
+PASS E1-5/forgive_+10_s6510 
+PASS E1-5/forgive_+11_s6511 
+PASS E1-5/forgive_+12_s6512 
+PASS E1-5/forgive_+13_s6513 
+PASS E1-5/forgive_+14_s6514 
+FAIL E1-5/forgive_+15_s6515 rule 2: near-pair tilt 5.193 deg > validated 5 deg
+FAIL E1-5/forgive_+16_s6516 rule 2: near-pair tilt 5.176 deg > validated 5 deg
+PASS E1-5/forgive_+17_s6517 
+PASS E1-5/forgive_+18_s6518 
+PASS E1-5/forgive_+19_s6519 
+PASS E1-5/forgive_+0_s6521 
+PASS E1-5/forgive_+20_s6520 
+PASS E1-5/forgive_-2_s6523 
+PASS E1-5/forgive_-1_s6522 
+PASS E1-5/forgive_-3_s6524 
+PASS E1-5/forgive_-4_s6525 
+PASS E1-5/forgive_-5_s6526 
+PASS E1-5/forgive_-6_s6527 
+PASS E1-5/forgive_-7_s6528 
+PASS E1-5/forgive_-8_s6529 
+PASS E1-5/forgive_-9_s6530 
+PASS E1-5/forgive_-10_s6531 
+PASS E1-5/forgive_-11_s6532 
+PASS E1-5/forgive_-12_s6533 
+PASS E1-5/forgive_-13_s6534 
+PASS E1-5/forgive_-14_s6535 
+PASS E1-5/forgive_-15_s6536 
+PASS E1-5/forgive_-16_s6537 
+PASS E1-5/forgive_-17_s6538 
+PASS E1-5/forgive_-18_s6539 
+PASS E1-5/forgive_-19_s6540 
+PASS E1-5/forgive_-20_s6541 
+=== E1-5 exit 0 2026-11-16T10:54:04-08:00
+=== E1-5s 2026-11-16T10:54:04-08:00
+start-up checks: {'max_abs_magnet_qfrc': 0.030350938867386386, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 1.734723475976807e-18, 'buf_matches_step_qfrc': 1.734723475976807e-18, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 8.881784197001252e-15, 'displacement_vs_qvel_before': 13.566725129492708, 'integrator': 'implicitfast', 'pass': True}
+commit abe4d64228f3f8ca2bac5cc534d4e5914df75e95: 20 trials (0 refused)
+PASS E1-5s/snap_-1_s6551 
+PASS E1-5s/snap_-2_s6552 
+PASS E1-5s/snap_+1_s6551 
+PASS E1-5s/snap_+2_s6552 
+PASS E1-5s/snap_+3_s6553 
+PASS E1-5s/snap_-3_s6553 
+PASS E1-5s/snap_+5_s6555 
+PASS E1-5s/snap_-5_s6555 
+PASS E1-5s/snap_+8_s6558 
+PASS E1-5s/snap_+1_s6561 
+PASS E1-5s/snap_-1_s6561 
+PASS E1-5s/snap_-8_s6558 
+PASS E1-5s/snap_+2_s6562 
+PASS E1-5s/snap_-2_s6562 
+PASS E1-5s/snap_+3_s6563 
+PASS E1-5s/snap_-3_s6563 
+PASS E1-5s/snap_+5_s6565 
+PASS E1-5s/snap_-5_s6565 
+PASS E1-5s/snap_+8_s6568 
+PASS E1-5s/snap_-8_s6568 
+=== E1-5s exit 0 2026-11-16T10:55:16-08:00
+=== E1-6 2026-11-16T10:55:16-08:00
+start-up checks: {'max_abs_magnet_qfrc': 0.030350938867386386, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 1.734723475976807e-18, 'buf_matches_step_qfrc': 1.734723475976807e-18, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 8.881784197001252e-15, 'displacement_vs_qvel_before': 13.566725129492708, 'integrator': 'implicitfast', 'pass': True}
+commit abe4d64228f3f8ca2bac5cc534d4e5914df75e95: 20 trials (0 refused)
+PASS E1-6/openpad_R_s6601 
+PASS E1-6/openpad_F_s6602 
+PASS E1-6/openpad_D_s6603 
+PASS E1-6/openpad_U_s6600 
+PASS E1-6/openpad_L_s6604 
+PASS E1-6/openpad_B_s6605 
+PASS E1-6/opposed_UR_1Nm_s6610 
+PASS E1-6/opposed_UR_2Nm_s6611 
+PASS E1-6/opposed_UF_1Nm_s6612 
+PASS E1-6/opposed_RF_1Nm_s6614 
+PASS E1-6/opposed_UF_2Nm_s6613 
+PASS E1-6/opposed_RF_2Nm_s6615 
+PASS E1-6/twist_nnn_s6620 
+PASS E1-6/twist_nnp_s6621 
+PASS E1-6/twist_npn_s6622 
+PASS E1-6/twist_npp_s6623 
+PASS E1-6/twist_pnn_s6624 
+PASS E1-6/twist_pnp_s6625 
+PASS E1-6/twist_ppn_s6626 
+PASS E1-6/twist_ppp_s6627 
+=== E1-6 exit 0 2026-11-16T10:56:32-08:00
+=== E1-6t 2026-11-16T10:56:32-08:00
+start-up checks: {'max_abs_magnet_qfrc': 0.030350938867386386, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 1.734723475976807e-18, 'buf_matches_step_qfrc': 1.734723475976807e-18, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 8.881784197001252e-15, 'displacement_vs_qvel_before': 13.566725129492708, 'integrator': 'implicitfast', 'pass': True}
+commit abe4d64228f3f8ca2bac5cc534d4e5914df75e95: 16 trials (0 refused)
+PASS E1-6t/std_nnp_pos_s6642 
+PASS E1-6t/std_nnn_pos_s6640 
+PASS E1-6t/std_nnn_neg_s6641 
+PASS E1-6t/std_nnp_neg_s6643 
+PASS E1-6t/std_npn_pos_s6644 
+PASS E1-6t/std_npn_neg_s6645 
+PASS E1-6t/std_npp_pos_s6646 
+PASS E1-6t/std_npp_neg_s6647 
+PASS E1-6t/std_pnn_pos_s6648 
+PASS E1-6t/std_pnp_pos_s6650 
+PASS E1-6t/std_pnn_neg_s6649 
+PASS E1-6t/std_pnp_neg_s6651 
+PASS E1-6t/std_ppn_pos_s6652 
+PASS E1-6t/std_ppp_pos_s6654 
+PASS E1-6t/std_ppn_neg_s6653 
+PASS E1-6t/std_ppp_neg_s6655 
+=== E1-6t exit 0 2026-11-16T11:01:31-08:00
+=== E1-1 2026-11-16T11:01:31-08:00
+start-up checks: {'max_abs_magnet_qfrc': 0.030350938867386386, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 1.734723475976807e-18, 'buf_matches_step_qfrc': 1.734723475976807e-18, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 8.881784197001252e-15, 'displacement_vs_qvel_before': 13.566725129492708, 'integrator': 'implicitfast', 'pass': True}
+commit 0956704f4d7935e57e1abe34f9da51ff04959623: 20 trials (0 refused)
+PASS E1-1/rest_s6001 
+FAIL E1-1/rest_s6003 M1 criteria
+PASS E1-1/rest_s6002 
+FAIL E1-1/rest_s6000 M1 criteria
+FAIL E1-1/rest_s6004 M1 criteria
+FAIL E1-1/rest_s6006 M1 criteria
+PASS E1-1/rest_s6005 
+PASS E1-1/rest_s6007 
+PASS E1-1/rest_s6008 
+PASS E1-1/rest_s6009 
+FAIL E1-1/rest_s6010 M1 criteria
+FAIL E1-1/rest_s6011 M1 criteria
+PASS E1-1/rest_s6013 
+PASS E1-1/rest_s6012 
+PASS E1-1/rest_s6014 
+PASS E1-1/rest_s6015 
+PASS E1-1/rest_s6017 
+PASS E1-1/rest_s6016 
+PASS E1-1/rest_s6018 
+PASS E1-1/rest_s6019 
+=== E1-1 exit 0 2026-11-16T11:04:55-08:00
