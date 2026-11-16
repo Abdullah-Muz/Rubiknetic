@@ -1,9 +1,11 @@
 # Phase 1 (G1) Pre-registration: M5, magnetic contact cube at a 0.05 mm piece gap
 
-**Status: revision 8, NOT YET IN FORCE.** At the user's request, the working copy moves out of OneDrive to
+**Status: revision 8, IN FORCE (P-50).** At the user's request, the working copy moves out of OneDrive to
 `C:\dev\Rubiknetic`, and the OneDrive rule of §2 changes from "OneDrive exited" to "no path the run uses lies in a
 OneDrive folder" (P-49). The user approved it on condition that a very narrow independent review of the revision-8
-changes require no changes. Revision 7 stays in force until then; no scored trial has run. See §9.
+changes require no changes. That review returned ACCEPTABLE AS IS
+([`M5_PREREGISTRATION_REVIEW8_2026-11-16.md`](M5_PREREGISTRATION_REVIEW8_2026-11-16.md)), so the condition is met;
+this text is frozen from here to the end of the run. See §9.
 - **Revision 7** (P-47) was approved on condition that a very narrow independent review of the revision-7 changes
   require no changes. That review returned ACCEPTABLE AS IS
   ([`M5_PREREGISTRATION_REVIEW7_2026-11-16.md`](M5_PREREGISTRATION_REVIEW7_2026-11-16.md)), and revision 7 came into
