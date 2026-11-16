@@ -1,0 +1,120 @@
+run.py {'RULE2': {'E1-4', 'E1-2', 'E1-1', 'E1-3', 'E1-5', 'E1-6a', 'E1-5s'}, 'RULE3': {'E1-6c', 'E1-6t', 'E1-6b'}}
+
+## 0.1 rehearsal: trials 204 seed min/max 7000 7655
+params gap Counter({0.0001: 204}) radial_preload Counter({0.0: 204})
+magnets params [('{"diameter": 0.004, "far_r1": 0.02, "far_r2": 0.025, "grade": "N35", "length": 0.002, "r1": 0.005, "r2": 0.008, "scale": 1.0, "skin": 0.004, "wall": 0.0004}', 204)]
+magnets other keys ['Br_T', 'magnet_mass_g', 'moment_Am2', 'n_magnets', 'n_pairs', 'params']
+   magnets. Br_T 1.19
+   magnets. moment_Am2 0.023799999999999998
+   magnets. magnet_mass_g 0.18849555921538758
+   magnets. n_magnets 48
+   magnets. n_pairs 188
+magnet_stats.list_pairs Counter({185: 29, 186: 24, 182: 23, 188: 15, 187: 15, 184: 15, 189: 13, 183: 12, 191: 7, 180: 6, 190: 6, 193: 6, 192: 6, 194: 5, 195: 5, 181: 4, 197: 3, 200: 3, 196: 3, 203: 2, 199: 1, 198: 1})
+moves 1376 oracle ok 1376 e16m 1376
+drift>1 moves 12 trials 10 pct 0.872
+  E1-4 drift moves [('scr20inv_s7402', 1.1305), ('scr20inv_s7403', 1.0963), ('scr20inv_s7404', 1.0387), ('scr20inv_s7404', 1.0314), ('scr20inv_s7407', 1.0007), ('scr20inv_s7412', 1.0533), ('scr20inv_s7413', 1.0029), ('scr20inv_s7414', 1.0126), ('scr20inv_s7418', 1.0454), ('scr20inv_s7418', 1.1445)] count 10
+  E1-4 drift trials ['scr20inv_s7402', 'scr20inv_s7403', 'scr20inv_s7404', 'scr20inv_s7407', 'scr20inv_s7412', 'scr20inv_s7413', 'scr20inv_s7414', 'scr20inv_s7418']
+causal fails [('scr20inv_s7403', 33, 84.5), ('scr20inv_s7408', 21, 57.0), ('scr20inv_s7413', 38, 44.5), ('sexy6_s7312', 13, 78.5)]
+turn err max 0.4273546045312422 pen max 0.3077614477525291
+pass 188 fail list [('E1-1', 'rest_s7000'), ('E1-1', 'rest_s7001'), ('E1-1', 'rest_s7002'), ('E1-1', 'rest_s7003'), ('E1-2', 'D_s7113'), ('E1-3', 'D2_s7207'), ('E1-4', 'scr20inv_s7402'), ('E1-4', 'scr20inv_s7403'), ('E1-4', 'scr20inv_s7404'), ('E1-4', 'scr20inv_s7407'), ('E1-4', 'scr20inv_s7408'), ('E1-4', 'scr20inv_s7412'), ('E1-4', 'scr20inv_s7413'), ('E1-4', 'scr20inv_s7414'), ('E1-4', 'scr20inv_s7418'), ('E1-4', 'sexy6_s7312')]
+per experiment (n, pass) {'E1-1': [20, 16], 'E1-2': [24, 23], 'E1-3': [22, 21], 'E1-4': [40, 30], 'E1-5': [42, 42], 'E1-5s': [20, 20], 'E1-6': [20, 20], 'E1-6t': [16, 16]}
+rest trials (id, rot, list_rebuilds, pass): [('rest_s7000', 0.9041, 1, False), ('rest_s7001', 0.6849, 1, False), ('rest_s7002', 0.5617, 1, False), ('rest_s7003', 0.7982, 1, False), ('rest_s7004', 0.1218, 0, True), ('rest_s7005', 0.1257, 0, True), ('rest_s7006', 0.1962, 0, True), ('rest_s7007', 0.1569, 0, True), ('rest_s7008', 0.099, 0, True), ('rest_s7009', 0.2876, 0, True), ('rest_s7010', 0.1392, 0, True), ('rest_s7011', 0.0895, 0, True), ('rest_s7012', 0.1148, 0, True), ('rest_s7013', 0.0621, 0, True), ('rest_s7014', 0.1752, 0, True), ('rest_s7015', 0.1168, 0, True), ('rest_s7016', 0.181, 0, True), ('rest_s7017', 0.1508, 0, True), ('rest_s7018', 0.0541, 0, True), ('rest_s7019', 0.2022, 0, True)]
+rest rotation range 0.0541 0.9041
+max tilt per sub {'E1-1': 2.695, 'E1-2': 2.686, 'E1-3': 2.673, 'E1-4': 2.697, 'E1-5': 3.088, 'E1-5s': 2.694, 'E1-6a': 2.29, 'E1-6b': 3.48, 'E1-6c': 15.538, 'E1-6t': 5.262}
+rule2 max 3.088 rule3 trials 30
+outside validated (stored flag) Counter({('E1-6t', True): 16, ('E1-6c', True): 8})
+rule3_label count 24 E1-6t min tilt 5.126 E1-6c min tilt 15.0
+sexy6_s7312 per_move[12] R drift 0.7451736887419729 t_motion 27.032999999982348 t_pad 27.111499999982165 causal False
+sexy6_s7312 list_rebuilds 504
+rehearsal rest_s7004 rot 0.12177358839231582 rebuilds 0
+rehearsal rest_s7000 rot repr 0.9041107575845045
+
+## M1 scored E1-2..4 moves 1376 median 0.0127 p90 0.0326 max 0.7049 >1 0
+M1 rest n 20 seeds 1000 1019 min 0.0059 max 0.0367
+0.1 rehearsal drift median 0.4604 p90 0.8314 max 1.1445 ratio median reh/M1 36.33
+
+## 0.2 4x2: files 11 pass 5 seeds [9000, 9001, 9002, 9003, 9400, 9401, 9402, 9500, 9501, 9502, 9503]
+  seq pass 0/3 moves 120 oracle 120 causal_fail 0
+  drift median 0.8794 p90 1.4874 p99 1.6801 max 1.6916 >1 46
+  turn err max 0.5678  torque median 0.0953 max 0.6759  pen max 0.2924
+  post-move worst err median 1.4452 max 2.0051
+  rest [0.201, 0.384, 0.528, 0.975] pass [True, True, False, False]
+  tilt max all 4.9586  seq-only 4.958604523083601
+  snap_+3_s9500: {"delta_deg": 3.0, "U_err_t0_deg": 0.0431, "U_err_after_release_deg": 0.6333, "U_err_after_1s_deg": 0.6003, "final_observed_valid": true, "final_solved": true, "config": "4x2_N35", "trial_id": "snap_+3_s9500", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": false, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": false} {}
+  snap_+5_s9502: {"delta_deg": 5.0, "U_err_t0_deg": -0.3211, "U_err_after_release_deg": -0.0585, "U_err_after_1s_deg": -0.0897, "final_observed_valid": true, "final_solved": true, "config": "4x2_N35", "trial_id": "snap_+5_s9502", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  snap_-3_s9501: {"delta_deg": -3.0, "U_err_t0_deg": -0.3836, "U_err_after_release_deg": -0.0878, "U_err_after_1s_deg": -0.092, "final_observed_valid": true, "final_solved": true, "config": "4x2_N35", "trial_id": "snap_-3_s9501", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  snap_-5_s9503: {"delta_deg": -5.0, "U_err_t0_deg": -0.1659, "U_err_after_release_deg": -0.3435, "U_err_after_1s_deg": -0.3586, "final_observed_valid": true, "final_solved": true, "config": "4x2_N35", "trial_id": "snap_-5_s9503", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+
+## 0.2 3x1.5: files 11 pass 5 seeds [9000, 9001, 9002, 9003, 9400, 9401, 9402, 9500, 9501, 9502, 9503]
+  seq pass 0/3 moves 120 oracle 120 causal_fail 0
+  drift median 0.9266 p90 1.4798 p99 1.6826 max 1.7286 >1 56
+  turn err max 0.6903  torque median 0.0562 max 1.0000  pen max 0.3344
+  post-move worst err median 1.7335 max 2.1290
+  rest [0.411, 0.44, 0.443, 0.714] pass [True, False, True, True]
+  tilt max all 4.5936  seq-only 4.593595507746132
+  snap_+3_s9500: {"delta_deg": 3.0, "U_err_t0_deg": 0.1462, "U_err_after_release_deg": 0.3635, "U_err_after_1s_deg": 0.3508, "final_observed_valid": true, "final_solved": true, "config": "3x1.5_N35", "trial_id": "snap_+3_s9500", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  snap_+5_s9502: {"delta_deg": 5.0, "U_err_t0_deg": -0.3574, "U_err_after_release_deg": 0.1993, "U_err_after_1s_deg": 0.1216, "final_observed_valid": true, "final_solved": true, "config": "3x1.5_N35", "trial_id": "snap_+5_s9502", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  snap_-3_s9501: {"delta_deg": -3.0, "U_err_t0_deg": 0.0518, "U_err_after_release_deg": -0.5792, "U_err_after_1s_deg": -0.5643, "final_observed_valid": true, "final_solved": true, "config": "3x1.5_N35", "trial_id": "snap_-3_s9501", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": false, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": false} {}
+  snap_-5_s9503: {"delta_deg": -5.0, "U_err_t0_deg": -0.3636, "U_err_after_release_deg": -0.667, "U_err_after_1s_deg": -0.6561, "final_observed_valid": true, "final_solved": true, "config": "3x1.5_N35", "trial_id": "snap_-5_s9503", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": false, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": false} {}
+
+## 0.2 none: files 7 pass 0 seeds [9000, 9001, 9002, 9003, 9400, 9401, 9402]
+  seq pass 0/3 moves 120 oracle 120 causal_fail 0
+  drift median 0.8280 p90 1.3962 p99 1.9021 max 1.9782 >1 39
+  turn err max 2.6251  torque median 0.3378 max 1.0000  pen max 0.3529
+  post-move worst err median 2.4353 max 5.2537
+  rest [1.017, 1.027, 1.299, 1.303] pass [False, False, False, False]
+
+## 0.1 4x2 (gap study): files 11 pass 10 seeds [9000, 9001, 9002, 9003, 9400, 9401, 9402, 9500, 9501, 9502, 9503]
+  seq pass 3/3 moves 120 oracle 120 causal_fail 0
+  drift median 0.5521 p90 0.8814 p99 0.9467 max 0.9660 >1 0
+  turn err max 0.3382  torque median 0.0977 max 0.7006  pen max 0.3051
+  post-move worst err median 0.9741 max 1.4971
+  rest [0.095, 0.103, 0.469, 0.771] pass [True, False, True, True]
+  tilt max all 2.6718  seq-only 2.6623704227657568
+  snap_+3_s9500: {"delta_deg": 3.0, "U_err_t0_deg": 0.1431, "U_err_after_release_deg": -0.0822, "U_err_after_1s_deg": -0.0735, "final_observed_valid": true, "final_solved": true, "trial_id": "snap_+3_s9500", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  snap_+5_s9502: {"delta_deg": 5.0, "U_err_t0_deg": 0.016, "U_err_after_release_deg": -0.2313, "U_err_after_1s_deg": -0.1919, "final_observed_valid": true, "final_solved": true, "trial_id": "snap_+5_s9502", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  snap_-3_s9501: {"delta_deg": -3.0, "U_err_t0_deg": -0.1319, "U_err_after_release_deg": 0.1067, "U_err_after_1s_deg": 0.1008, "final_observed_valid": true, "final_solved": true, "trial_id": "snap_-3_s9501", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  snap_-5_s9503: {"delta_deg": -5.0, "U_err_t0_deg": -0.1868, "U_err_after_release_deg": 0.123, "U_err_after_1s_deg": 0.108, "final_observed_valid": true, "final_solved": true, "trial_id": "snap_-5_s9503", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+
+## 0.05 4x2: files 21 pass 21 seeds [9000, 9001, 9002, 9003, 9400, 9401, 9402, 9500, 9501, 9502, 9503, 9610, 9611, 9626, 9627, 9654, 9655, 9800, 9801, 9802, 9803]
+  seq pass 3/3 moves 120 oracle 120 causal_fail 0
+  drift median 0.2960 p90 0.5122 p99 0.6283 max 0.6989 >1 0
+  turn err max 0.2830  torque median 0.1235 max 0.6940  pen max 0.2878
+  post-move worst err median 0.6761 max 0.9188
+  rest [0.101, 0.119, 0.152, 0.279] pass [True, True, True, True]
+  tilt max all 12.5828  seq-only 1.3950307450798685
+  forgive_+10_s9800: {"commanded_U_misalignment_deg": 10.0, "U_misalignment_deg": 0.008, "R_rotation_deg": -89.8694, "U_change_during_R_deg": 0.3418, "observed_valid": true, "observed_move": "R", "outcome": "completed", "ok_categorical": true, "pass": true, "trial_id": "forgive_+10_s9800", "kind": "forgive", "sub_experiment": "E1-5", "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true} {}
+  forgive_+20_s9802: {"commanded_U_misalignment_deg": 20.0, "U_misalignment_deg": 23.7685, "R_rotation_deg": 0.1131, "U_change_during_R_deg": 11.4048, "observed_valid": false, "outcome": "blocked_unknown", "ok_categorical": true, "pass": true, "trial_id": "forgive_+20_s9802", "kind": "forgive", "sub_experiment": "E1-5", "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true} {}
+  forgive_-10_s9801: {"commanded_U_misalignment_deg": -10.0, "U_misalignment_deg": -0.0356, "R_rotation_deg": -89.963, "U_change_during_R_deg": 0.2558, "observed_valid": true, "observed_move": "R", "outcome": "completed", "ok_categorical": true, "pass": true, "trial_id": "forgive_-10_s9801", "kind": "forgive", "sub_experiment": "E1-5", "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true} {}
+  forgive_-20_s9803: {"commanded_U_misalignment_deg": -20.0, "U_misalignment_deg": -23.653, "R_rotation_deg": -0.5664, "U_change_during_R_deg": -3.7556, "observed_valid": false, "outcome": "blocked_unknown", "ok_categorical": true, "pass": true, "trial_id": "forgive_-20_s9803", "kind": "forgive", "sub_experiment": "E1-5", "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true} {}
+  opposed_UR_1Nm_s9610: {"torque_limit_Nm": 1.0, "observed_move": null, "observed_valid": true, "penetration_mm_reported_only": 0.4629, "radial_change_mm": 0.0, "ok_not_both_rotated": true, "ok_state_consistent": true, "ok_no_separation": true, "pass": true, "trial_id": "opposed_UR_1Nm_s9610", "kind": "opposed", "sub_experiment": "E1-6b", "pass_m1_criteria": true, "magnet_outside_validated_range": false, "rule3_label": null} {"layer_rotations_deg": {"U": -0.08175782071639184, "R": -0.00024087840032888802}}
+  opposed_UR_2Nm_s9611: {"torque_limit_Nm": 2.0, "observed_move": null, "observed_valid": true, "penetration_mm_reported_only": 0.5263, "radial_change_mm": 0.0, "ok_not_both_rotated": true, "ok_state_consistent": true, "ok_no_separation": true, "pass": true, "trial_id": "opposed_UR_2Nm_s9611", "kind": "opposed", "sub_experiment": "E1-6b", "pass_m1_criteria": true, "magnet_outside_validated_range": false, "rule3_label": null} {"layer_rotations_deg": {"U": 0.050400314682575734, "R": -0.08082971971741995}}
+  snap_+3_s9500: {"delta_deg": 3.0, "U_err_t0_deg": -0.0148, "U_err_after_release_deg": -0.1158, "U_err_after_1s_deg": -0.0865, "final_observed_valid": true, "final_solved": true, "trial_id": "snap_+3_s9500", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  snap_+5_s9502: {"delta_deg": 5.0, "U_err_t0_deg": 0.016, "U_err_after_release_deg": -0.1023, "U_err_after_1s_deg": -0.0941, "final_observed_valid": true, "final_solved": true, "trial_id": "snap_+5_s9502", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  snap_-3_s9501: {"delta_deg": -3.0, "U_err_t0_deg": -0.1147, "U_err_after_release_deg": 0.1322, "U_err_after_1s_deg": 0.1111, "final_observed_valid": true, "final_solved": true, "trial_id": "snap_-3_s9501", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  snap_-5_s9503: {"delta_deg": -5.0, "U_err_t0_deg": -0.0028, "U_err_after_release_deg": -0.0544, "U_err_after_1s_deg": -0.0428, "final_observed_valid": true, "final_solved": true, "trial_id": "snap_-5_s9503", "kind": "snap", "sub_experiment": "E1-5s", "ok_snap_state": true, "pass": true, "pass_m1_criteria": true, "magnet_outside_validated_range": false, "ok_magnet_validity": true, "snap_is_criterion": true, "ok_snap": true} {}
+  std_ppp_neg_s9655: {"peak_torque_Nm": -0.45, "max_twist_deg": 10.4186, "torque_at_twist_15deg_Nm": null, "penetration_mm_reported_only": 0.1829, "radial_change_mm": 0.0, "final_observed_valid": true, "final_solved": true, "ok_no_false_valid_state": true, "pass": true, "trial_id": "std_ppp_neg_s9655", "kind": "twist_std", "sub_experiment": "E1-6t", "pass_m1_criteria": true, "magnet_outside_validated_range": false, "rule3_label": null, "ok_e16t": true} {}
+  std_ppp_pos_s9654: {"peak_torque_Nm": 0.45, "max_twist_deg": 10.5588, "torque_at_twist_15deg_Nm": null, "penetration_mm_reported_only": 0.1852, "radial_change_mm": 0.0, "final_observed_valid": true, "final_solved": true, "ok_no_false_valid_state": true, "pass": true, "trial_id": "std_ppp_pos_s9654", "kind": "twist_std", "sub_experiment": "E1-6t", "pass_m1_criteria": true, "magnet_outside_validated_range": false, "rule3_label": null, "ok_e16t": true} {}
+  twist_nnn_s9627: {"peak_torque_Nm": 5.0, "max_twist_deg": 23.6509, "torque_at_twist_15deg_Nm": 2.7263, "penetration_mm_reported_only": 0.6373, "radial_change_mm": 0.0, "final_observed_valid": true, "final_solved": true, "ok_no_false_valid_state": true, "pass": true, "trial_id": "twist_nnn_s9627", "kind": "twist", "sub_experiment": "E1-6c", "pass_m1_criteria": true, "magnet_outside_validated_range": true, "rule3_label": "magnet model outside validated range"} {}
+  twist_ppp_s9626: {"peak_torque_Nm": 5.0, "max_twist_deg": 23.7696, "torque_at_twist_15deg_Nm": 2.8013, "penetration_mm_reported_only": 0.645, "radial_change_mm": 0.0, "final_observed_valid": true, "final_solved": true, "ok_no_false_valid_state": true, "pass": true, "trial_id": "twist_ppp_s9626", "kind": "twist", "sub_experiment": "E1-6c", "pass_m1_criteria": true, "magnet_outside_validated_range": true, "rule3_label": "magnet model outside validated range"} {}
+  magnets.params.wall 0.0004 gap 5e-05
+
+## 0.05 none: files 17 pass 14 seeds [9000, 9001, 9002, 9003, 9400, 9401, 9402, 9610, 9611, 9626, 9627, 9654, 9655, 9800, 9801, 9802, 9803]
+  seq pass 0/3 moves 81 oracle 80 causal_fail 0
+  drift median 0.7169 p90 1.1811 p99 1.3249 max 1.3509 >1 20
+  turn err max 85.5958  torque median 0.4111 max 1.0000  pen max 0.7579
+  post-move worst err median 1.0058 max 5.4961
+  rest [0.221, 0.266, 0.266, 0.304] pass [True, True, True, True]
+  forgive_+10_s9800: {"commanded_U_misalignment_deg": 10.0, "U_misalignment_deg": 6.5471, "R_rotation_deg": -5.3194, "U_change_during_R_deg": -4.6052, "observed_valid": false, "outcome": "blocked_unknown", "ok_categorical": true, "pass": true, "magnet_stats": null, "trial_id": "forgive_+10_s9800", "kind": "forgive", "sub_experiment": "E1-5", "pass_m1_criteria": true} {}
+  forgive_+20_s9802: {"commanded_U_misalignment_deg": 20.0, "U_misalignment_deg": 20.5355, "R_rotation_deg": 0.1688, "U_change_during_R_deg": 0.2362, "observed_valid": false, "outcome": "blocked_unknown", "ok_categorical": true, "pass": true, "magnet_stats": null, "trial_id": "forgive_+20_s9802", "kind": "forgive", "sub_experiment": "E1-5", "pass_m1_criteria": true} {}
+  forgive_-10_s9801: {"commanded_U_misalignment_deg": -10.0, "U_misalignment_deg": -5.9299, "R_rotation_deg": -39.0739, "U_change_during_R_deg": 6.0502, "observed_valid": false, "outcome": "blocked_unknown", "ok_categorical": true, "pass": true, "magnet_stats": null, "trial_id": "forgive_-10_s9801", "kind": "forgive", "sub_experiment": "E1-5", "pass_m1_criteria": true} {}
+  forgive_-20_s9803: {"commanded_U_misalignment_deg": -20.0, "U_misalignment_deg": -19.7947, "R_rotation_deg": -0.0345, "U_change_during_R_deg": 0.0477, "observed_valid": false, "outcome": "blocked_unknown", "ok_categorical": true, "pass": true, "magnet_stats": null, "trial_id": "forgive_-20_s9803", "kind": "forgive", "sub_experiment": "E1-5", "pass_m1_criteria": true} {}
+  opposed_UR_1Nm_s9610: {"torque_limit_Nm": 1.0, "observed_valid": false, "penetration_mm_reported_only": 0.4356, "radial_change_mm": 0.0, "ok_not_both_rotated": true, "ok_state_consistent": true, "ok_no_separation": true, "pass": true, "magnet_stats": null, "trial_id": "opposed_UR_1Nm_s9610", "kind": "opposed", "sub_experiment": "E1-6b", "pass_m1_criteria": true} {"layer_rotations_deg": {"U": -10.461632729460533, "R": -2.935649918788533}}
+  opposed_UR_2Nm_s9611: {"torque_limit_Nm": 2.0, "observed_valid": false, "penetration_mm_reported_only": 0.418, "radial_change_mm": 0.0, "ok_not_both_rotated": true, "ok_state_consistent": true, "ok_no_separation": true, "pass": true, "magnet_stats": null, "trial_id": "opposed_UR_2Nm_s9611", "kind": "opposed", "sub_experiment": "E1-6b", "pass_m1_criteria": true} {"layer_rotations_deg": {"U": -23.759272498830423, "R": 1.0909552451393165}}
+  std_ppp_neg_s9655: {"peak_torque_Nm": -0.45, "max_twist_deg": 10.3737, "torque_at_twist_15deg_Nm": null, "penetration_mm_reported_only": 0.1868, "radial_change_mm": 0.0, "final_observed_valid": true, "final_solved": true, "ok_no_false_valid_state": true, "pass": true, "magnet_stats": null, "trial_id": "std_ppp_neg_s9655", "kind": "twist_std", "sub_experiment": "E1-6t", "pass_m1_criteria": true, "ok_e16t": true} {}
+  std_ppp_pos_s9654: {"peak_torque_Nm": 0.45, "max_twist_deg": 11.2261, "torque_at_twist_15deg_Nm": null, "penetration_mm_reported_only": 0.1879, "radial_change_mm": 0.0, "final_observed_valid": true, "final_solved": true, "ok_no_false_valid_state": true, "pass": true, "magnet_stats": null, "trial_id": "std_ppp_pos_s9654", "kind": "twist_std", "sub_experiment": "E1-6t", "pass_m1_criteria": true, "ok_e16t": true} {}
+  twist_nnn_s9627: {"peak_torque_Nm": 5.0, "max_twist_deg": 23.3915, "torque_at_twist_15deg_Nm": 2.5263, "penetration_mm_reported_only": 0.6404, "radial_change_mm": 0.0, "final_observed_valid": true, "final_solved": true, "ok_no_false_valid_state": true, "pass": true, "magnet_stats": null, "trial_id": "twist_nnn_s9627", "kind": "twist", "sub_experiment": "E1-6c", "pass_m1_criteria": true} {}
+  twist_ppp_s9626: {"peak_torque_Nm": 5.0, "max_twist_deg": 23.7095, "torque_at_twist_15deg_Nm": 2.5263, "penetration_mm_reported_only": 0.6623, "radial_change_mm": 0.0, "final_observed_valid": true, "final_solved": true, "ok_no_false_valid_state": true, "pass": true, "magnet_stats": null, "trial_id": "twist_ppp_s9626", "kind": "twist", "sub_experiment": "E1-6c", "pass_m1_criteria": true} {}
+
+0.2 arms combined: moves 360 oracle 360 causal_fail 0
+0.2 turn error max with magnets 0.6902713547073418

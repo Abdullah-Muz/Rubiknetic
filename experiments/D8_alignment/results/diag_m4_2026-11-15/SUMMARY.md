@@ -1,8 +1,12 @@
 # Why M4 fails the M1 criteria: unscored diagnostic, 2026-11-15
 
 **UNSCORED. Diagnostic only.** Approved by the user ("approved, lets do it") after the 0.1 mm rehearsal failed
-(P-25). Seeds: rehearsal seeds (7000–7999, re-simulated) and new diagnostic seeds 9000–9599, which are outside every
-registered range. Scripts are in `scripts/`. They were run from the session scratchpad, so their absolute paths point
+(P-25). Seeds: rehearsal seeds (7000–7999, re-simulated) and new diagnostic seeds 9000–9599, 9610–9655 and 9800–9803
+*[corrected 2026-11-15, P-29: this line listed only 9000–9599]*, all outside every registered range.
+
+**Corrections, 2026-11-15 (P-29).** An independent audit checked 93 numbers in this file, the 0.1 mm rehearsal
+summary and decision-log entries P-25 to P-27 against the stored data. It found the errors corrected in place below.
+None changes a pass/fail conclusion. Scripts are in `scripts/`. They were run from the session scratchpad, so their absolute paths point
 there.
 
 ## 1. Drift comes from the B1 base's per-piece play, not from the magnets (FACT)
@@ -20,9 +24,14 @@ there.
 - Drift scales with the piece gap. At 0.2 mm the B1 + magnet median is 0.88°; at 0.1 mm it is 0.46°.
 - The D8 README already records this play: "Pieces in B1 sit 1–2° off square" (stage-1 r2).
 - At rest, the magnets do help B1 (0.2–0.98° against 1.0–1.3° without), but not enough to meet 0.5°.
-- Every move in every arm agreed with the oracle (360 / 360). Turn error was at most 0.57° with magnets and 2.6° without.
+- Every move in every arm agreed with the oracle (360 / 360). Turn error was at most 0.57° with 4×2 mm
+  magnets, 0.69° with 3×1.5 mm, and 2.6° without. *[Corrected, P-29: this said "0.57° with magnets", which omitted the 3×1.5 mm arm.]*
 
-## 2. What "drift" is, move by move (time-resolved re-simulations, 5 ms resolution)
+## 2. What "drift" is, move by move (time-resolved re-simulations: moves at 5 ms resolution, rest at 25 ms)
+*[Corrected, P-29: the heading said "5 ms" for all series; the stored rest series are at 25 ms. The P-29 audit also could
+not reproduce three statements in this section from the stored time series with obvious metrics, because the method
+behind them was not recorded: "alternate in sign around the layer", "all six layers shifted at the same moment", and
+"a slow creep of about 0.01°/s". Treat them as **not reproducible from stored data**. They are not shown to be wrong.]*
 - **During moves, the drifting pieces are in the opposite layer and move *toward* square.** In D_s7113 move 0
   (drift 1.057°), piece 25 went from −1.031° to +0.027°. The worst non-target error fell from 1.03° to 0.05°. The
   same happened in D_s7112 (0.82° → 0.12°) and in scr20inv_s7402 move 26 (1.10° → 0.18°). Their pre-move errors
@@ -78,13 +87,16 @@ there.
 UNSCORED. The same seeds and move strings as §1 (paired). The runner includes the P-26 fix. The magnet wall stays
 0.4 mm, so the face gap is 0.85 mm.
 
-| Arm | Sequences pass (M1 + M4) | Drift median / p99 / max | Worst-piece error after a move (median / max) | Turner torque median / max | Move penetration max | Rest rotation (4) | Max magnet tilt |
+| Arm | Sequences pass (M1 + M4) | Drift median / p99 / max | Worst-piece error after a move (median / max) | Turner torque median / max | Move penetration max | Rest rotation (4) | Max magnet tilt (sequences only) |
 |---|---|---|---|---|---|---|---|
 | 0.2 mm, magnets | 0 / 3 | 0.88 / 1.68 / 1.69° | 1.45 / 2.01° | 0.095 / 0.68 N·m | 0.29 mm | 0.20–0.98° | 4.96° |
 | 0.2 mm, none | 0 / 3 | 0.83 / 1.90 / 1.98° | 2.44 / 5.25° | 0.34 / 1.00 N·m | 0.35 mm | 1.02–1.30° | — |
 | 0.1 mm, magnets | 3 / 3 | 0.55 / 0.95 / 0.97° | 0.97 / 1.50° | 0.098 / 0.70 N·m | 0.31 mm | 0.10–0.77° (1 fail) | 2.66° |
 | **0.05 mm, magnets** | **3 / 3** | **0.30 / 0.63 / 0.70°** | **0.68 / 0.92°** | **0.12 / 0.69 N·m** | **0.29 mm** | **0.10–0.28°** | **1.40°** |
 | 0.05 mm, none | 0 / 3 (one **jam** on the first move: layer 86° short, penetration 0.76 mm, state unreadable) | 0.72 / 1.33 / 1.35° | 1.01 / 5.50° | 0.41 / 1.00 N·m (at the limit) | 0.76 mm | 0.22–0.30° | — |
+
+*[Corrected, P-29: the tilt column covers the sequences only. Over all 21 trials of the 0.05 mm magnet arm, tilt
+reached 12.58° in corner twist (rule-3 labelled), 3.45° in the toy-standard test (E1-6t) and 2.00° in opposed torque.]*
 
 - **0.05 mm with magnets passed all 21 trials** on every M1 and M4 criterion:
   - 3 sequences of 40 moves, with all 120 moves oracle-correct;

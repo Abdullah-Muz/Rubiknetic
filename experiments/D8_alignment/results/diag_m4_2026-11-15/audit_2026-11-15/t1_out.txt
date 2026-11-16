@@ -1,0 +1,100 @@
+0.05mm rehearsal (so far): trials 30 (unreadable 0), seq trials with moves 30, moves 1040, torque n 1040 | >=0.99: 1 | ==1.0 exactly: 1 | median 0.194 p95 0.473 p99 0.546 max 1.000000 | >=0.9: 2 >=0.8: 2
+    SAT scr20inv_s8416.json move#22 U2 tq 1.0 te 0.084 drift 0.053 pen 0.300 oracle True obs U2
+    top5: scr20inv_s8416.json#22 U2 1.0000; scr20inv_s8405.json#2 D 0.9852; scr20inv_s8414.json#34 B' 0.6390; scr20inv_s8413.json#37 D2 0.6046; scr20inv_s8400.json#38 U' 0.5980
+0.1mm rehearsal: trials 204 (unreadable 0), seq trials with moves 86, moves 1376, torque n 1376 | >=0.99: 0 | ==1.0 exactly: 0 | median 0.104 p95 0.533 p99 0.652 max 0.876011 | >=0.9: 0 >=0.8: 2
+    top5: sexy6_s7314.json#1 R 0.8760; scr20inv_s7419.json#31 F' 0.8031; scr20inv_s7402.json#23 L2 0.7797; R_s7105.json#1 R 0.7704; sexy6_s7308.json#2 U 0.7492
+gap g0.05_4x2: trials 21 (unreadable 0), seq trials with moves 3, moves 120, torque n 120 | >=0.99: 0 | ==1.0 exactly: 0 | median 0.123 p95 0.475 p99 0.634 max 0.693976 | >=0.9: 0 >=0.8: 0
+    top5: scr20inv_s9402.json#23 L2 0.6940; scr20inv_s9402.json#20 L2 0.6538; scr20inv_s9401.json#40 B 0.5507; scr20inv_s9401.json#35 U' 0.5098; scr20inv_s9402.json#21 L2 0.4915
+gap g0.05_none: trials 17 (unreadable 0), seq trials with moves 3, moves 81, torque n 81 | >=0.99: 11 | ==1.0 exactly: 11 | median 0.411 p95 1.000 p99 1.000 max 1.000000 | >=0.9: 16 >=0.8: 20
+    SAT scr20inv_s9400.json move#1 U2 tq 1.0 te 85.596 drift 0.707 pen 0.758 oracle False obs None
+    SAT scr20inv_s9401.json move#6 U tq 1.0 te 1.012 drift 0.538 pen 0.310 oracle True obs U
+    SAT scr20inv_s9401.json move#20 U tq 1.0 te 0.198 drift 0.124 pen 0.269 oracle True obs U
+    SAT scr20inv_s9401.json move#24 U2 tq 1.0 te -0.036 drift 0.220 pen 0.279 oracle True obs U2
+    SAT scr20inv_s9401.json move#31 F2 tq 1.0 te 0.351 drift 0.978 pen 0.282 oracle True obs F2
+    SAT scr20inv_s9402.json move#7 U tq 1.0 te 0.439 drift 0.234 pen 0.289 oracle True obs U
+    SAT scr20inv_s9402.json move#10 U2 tq 1.0 te 0.173 drift 0.162 pen 0.272 oracle True obs U2
+    SAT scr20inv_s9402.json move#24 D tq 1.0 te 0.058 drift 0.981 pen 0.313 oracle True obs D
+    SAT scr20inv_s9402.json move#25 U' tq 1.0 te -0.723 drift 0.107 pen 0.279 oracle True obs U'
+    SAT scr20inv_s9402.json move#34 U' tq 1.0 te -0.362 drift 0.159 pen 0.286 oracle True obs U'
+    SAT scr20inv_s9402.json move#39 F2 tq 1.0 te 0.078 drift 1.278 pen 0.294 oracle True obs F2
+    top5: scr20inv_s9400.json#1 U2 1.0000; scr20inv_s9401.json#6 U 1.0000; scr20inv_s9401.json#20 U 1.0000; scr20inv_s9401.json#24 U2 1.0000; scr20inv_s9401.json#31 F2 1.0000
+gap g0.1_4x2: trials 11 (unreadable 0), seq trials with moves 3, moves 120, torque n 120 | >=0.99: 0 | ==1.0 exactly: 0 | median 0.098 p95 0.575 p99 0.681 max 0.700606 | >=0.9: 0 >=0.8: 0
+    top5: scr20inv_s9400.json#3 U 0.7006; scr20inv_s9402.json#20 L2 0.6877; scr20inv_s9402.json#23 L2 0.6545; scr20inv_s9402.json#5 U' 0.6451; scr20inv_s9400.json#1 U2 0.6124
+size0.2 4x2_N35: trials 11 (unreadable 0), seq trials with moves 3, moves 120, torque n 120 | >=0.99: 0 | ==1.0 exactly: 0 | median 0.095 p95 0.524 p99 0.601 max 0.675888 | >=0.9: 0 >=0.8: 0
+    top5: scr20inv_s9401.json#35 U' 0.6759; scr20inv_s9400.json#1 U2 0.6027; scr20inv_s9400.json#9 U2 0.5955; scr20inv_s9402.json#36 U 0.5825; scr20inv_s9401.json#40 B 0.5286
+size0.2 3x1.5_N35: trials 11 (unreadable 0), seq trials with moves 3, moves 120, torque n 120 | >=0.99: 2 | ==1.0 exactly: 2 | median 0.056 p95 0.606 p99 0.949 max 1.000000 | >=0.9: 2 >=0.8: 2
+    SAT scr20inv_s9400.json move#1 U2 tq 1.0 te 0.690 drift 0.605 pen 0.296 oracle True obs U2
+    SAT scr20inv_s9401.json move#35 U' tq 1.0 te -0.214 drift 0.691 pen 0.334 oracle True obs U'
+    top5: scr20inv_s9400.json#1 U2 1.0000; scr20inv_s9401.json#35 U' 1.0000; scr20inv_s9400.json#3 U 0.7326; scr20inv_s9402.json#28 U2 0.7200; scr20inv_s9400.json#32 U2 0.6895
+size0.2 none: trials 7 (unreadable 0), seq trials with moves 3, moves 120, torque n 120 | >=0.99: 18 | ==1.0 exactly: 17 | median 0.338 p95 1.000 p99 1.000 max 1.000000 | >=0.9: 18 >=0.8: 19
+    SAT scr20inv_s9400.json move#1 U2 tq 1.0 te 1.811 drift 0.407 pen 0.353 oracle True obs U2
+    SAT scr20inv_s9400.json move#3 U tq 1.0 te 0.175 drift 0.515 pen 0.232 oracle True obs U
+    SAT scr20inv_s9400.json move#9 U2 tq 1.0 te 0.304 drift 0.358 pen 0.222 oracle True obs U2
+    SAT scr20inv_s9400.json move#13 U' tq 1.0 te -0.539 drift 0.722 pen 0.312 oracle True obs U'
+    SAT scr20inv_s9400.json move#28 U tq 1.0 te 1.655 drift 0.545 pen 0.287 oracle True obs U
+    SAT scr20inv_s9400.json move#32 U2 tq 1.0 te 1.160 drift 0.708 pen 0.270 oracle True obs U2
+    SAT scr20inv_s9400.json move#38 U' tq 1.0 te -0.047 drift 0.458 pen 0.320 oracle True obs U'
+    SAT scr20inv_s9401.json move#6 U tq 1.0 te 0.508 drift 0.284 pen 0.275 oracle True obs U
+    SAT scr20inv_s9401.json move#17 U2 tq 1.0 te 0.937 drift 0.198 pen 0.332 oracle True obs U2
+    SAT scr20inv_s9401.json move#20 U tq 1.0 te 0.605 drift 0.554 pen 0.281 oracle True obs U
+    SAT scr20inv_s9401.json move#26 L tq 1.0 te -0.790 drift 0.535 pen 0.285 oracle True obs L
+    SAT scr20inv_s9401.json move#35 U' tq 0.9911838131384698 te -0.202 drift 0.479 pen 0.253 oracle True obs U'
+    SAT scr20inv_s9402.json move#7 U tq 1.0 te 1.225 drift 0.429 pen 0.213 oracle True obs U
+    SAT scr20inv_s9402.json move#13 U2 tq 1.0 te -0.292 drift 0.488 pen 0.221 oracle True obs U2
+    SAT scr20inv_s9402.json move#16 U tq 1.0 te 0.498 drift 0.575 pen 0.289 oracle True obs U
+    SAT scr20inv_s9402.json move#28 U2 tq 1.0 te 0.807 drift 0.533 pen 0.298 oracle True obs U2
+    SAT scr20inv_s9402.json move#31 U2 tq 1.0 te 0.690 drift 0.608 pen 0.277 oracle True obs U2
+    SAT scr20inv_s9402.json move#34 U' tq 1.0 te -1.307 drift 0.828 pen 0.203 oracle True obs U'
+    top5: scr20inv_s9400.json#1 U2 1.0000; scr20inv_s9400.json#3 U 1.0000; scr20inv_s9400.json#9 U2 1.0000; scr20inv_s9400.json#13 U' 1.0000; scr20inv_s9400.json#28 U 1.0000
+M1 scored E1_scored (all): trials 214 (unreadable 1), seq trials with moves 132, moves 2042, torque n 2042 | >=0.99: 2 | ==1.0 exactly: 2 | median 0.351 p95 0.619 p99 0.719 max 1.000000 | >=0.9: 3 >=0.8: 6
+    SAT cubie_friction=1.0-0.0025-0.0005__6move.json move#4 R' tq 1.0 te -5.739 drift 0.190 pen 0.378 oracle True obs R'
+    SAT cubie_friction=1.0-0.0025-0.0005__6move.json move#5 F tq 1.0 te 8.017 drift 0.694 pen 0.313 oracle False obs None
+    top5: cubie_friction=1.0-0.0025-0.0005__6move.json#4 R' 1.0000; cubie_friction=1.0-0.0025-0.0005__6move.json#5 F 1.0000; cubie_friction=1.0-0.0025-0.0005__6move.json#2 U' 0.9323; scr20inv_s1405.json#1 U2 0.8746; cubie_friction=0.5-0.0025-0.0005__6move.json#4 R' 0.8449
+M2 scored E2_scored_m2 (all): trials 0 (bad 0), moves 0, torque stored: 0
+
+=== scr20inv_s8416 detail ===
+setup: {'seed': 8416, 'grip_force': 13.038250793826546, 'turn_s_per_quarter': 1.0083915322889674}
+pass True fail_reasons [] final_matches_oracle True moves_completed_ok 40 sim_time_s 102.95900000030959 wall_time_s 955.9359595309943
+trial medians |x|: {'max_turner_torque_Nm': 0.2321, 'turn_error_deg': 0.0794, 'turn_error_spread_deg': 0.6094, 'nontarget_drift_deg': 0.3578, 'penetration_mm': 0.2747, 'layer_magnet_axis_torque_peak_Nm': 0.0738, 'layer_magnet_force_peak_N': 6.6748, 'magnet_steps': 4417.0, 'magnet_W_J': 0.0, 'magnet_dU_J': 0.0}
+trial max |x|: {'max_turner_torque_Nm': 1.0, 'turn_error_deg': 0.2607, 'turn_error_spread_deg': 1.0151, 'nontarget_drift_deg': 0.6697, 'penetration_mm': 0.3004, 'layer_magnet_axis_torque_peak_Nm': 0.0816, 'layer_magnet_force_peak_N': 6.7071, 'magnet_steps': 6434.0, 'magnet_W_J': 0.0001, 'magnet_dU_J': 0.0001}
+  # 1 U2  tq 0.334683 te +0.036 spr 1.015 drift 0.188 pen 0.274 tpad 0.6050 tmot 0.6060 steps 6434 dt_prev None magTpk 0.0787 post_err 0.447 obs U2 ok_all True
+  # 2 R'  tq 0.096551 te -0.048 spr 0.420 drift 0.290 pen 0.270 tpad 3.8245 tmot 3.8275 steps 4417 dt_prev 3.2195 magTpk 0.0713 post_err 0.700 obs R' ok_all True
+  # 3 F   tq 0.095242 te -0.159 spr 0.798 drift 0.416 pen 0.258 tpad 6.0310 tmot 6.0320 steps 4417 dt_prev 2.2065 magTpk 0.0729 post_err 0.925 obs F ok_all True
+  # 4 U'  tq 0.335388 te -0.220 spr 0.996 drift 0.222 pen 0.269 tpad 8.2385 tmot 8.2395 steps 4417 dt_prev 2.2075 magTpk 0.0795 post_err 0.601 obs U' ok_all True
+  # 5 B'  tq 0.472234 te -0.099 spr 0.744 drift 0.311 pen 0.271 tpad 10.4500 tmot 10.6875 steps 4417 dt_prev 2.2115 magTpk 0.0767 post_err 0.486 obs B' ok_all True
+  # 6 R2  tq 0.107661 te -0.024 spr 0.883 drift 0.413 pen 0.208 tpad 12.6575 tmot 12.6595 steps 6434 dt_prev 2.2075 magTpk 0.0729 post_err 0.709 obs R2 ok_all True
+  # 7 D   tq 0.096296 te +0.033 spr 0.270 drift 0.564 pen 0.283 tpad 15.8760 tmot 16.1105 steps 4417 dt_prev 3.2185 magTpk 0.0739 post_err 0.520 obs D ok_all True
+  # 8 R'  tq 0.441879 te -0.120 spr 0.746 drift 0.529 pen 0.278 tpad 18.0840 tmot 18.0865 steps 4417 dt_prev 2.208 magTpk 0.0752 post_err 0.611 obs R' ok_all True
+  # 9 B   tq 0.436786 te +0.167 spr 0.702 drift 0.480 pen 0.284 tpad 20.2925 tmot 20.2955 steps 4417 dt_prev 2.2085 magTpk 0.0750 post_err 0.615 obs B ok_all True
+  #10 D2  tq 0.111349 te +0.046 spr 0.201 drift 0.357 pen 0.275 tpad 22.5020 tmot 22.7545 steps 6434 dt_prev 2.2095 magTpk 0.0713 post_err 0.681 obs D2 ok_all True
+  #11 R   tq 0.254735 te -0.130 spr 0.751 drift 0.445 pen 0.259 tpad 25.7155 tmot 25.7165 steps 4417 dt_prev 3.2135 magTpk 0.0738 post_err 0.499 obs R ok_all True
+  #12 B   tq 0.097572 te +0.069 spr 0.808 drift 0.358 pen 0.210 tpad 27.9255 tmot 27.9275 steps 4417 dt_prev 2.21 magTpk 0.0750 post_err 0.736 obs B ok_all True
+  #13 L2  tq 0.559459 te +0.070 spr 0.973 drift 0.236 pen 0.277 tpad 30.1345 tmot 30.1600 steps 6434 dt_prev 2.209 magTpk 0.0800 post_err 0.861 obs L2 ok_all True
+  #14 R2  tq 0.395832 te +0.074 spr 0.245 drift 0.114 pen 0.278 tpad 33.3515 tmot 33.3530 steps 6434 dt_prev 3.217 magTpk 0.0712 post_err 0.645 obs R2 ok_all True
+  #15 F'  tq 0.473768 te -0.134 spr 0.680 drift 0.393 pen 0.285 tpad 36.5690 tmot 36.5725 steps 4417 dt_prev 3.2175 magTpk 0.0767 post_err 0.664 obs F' ok_all True
+  #16 D   tq 0.124901 te -0.015 spr 0.219 drift 0.371 pen 0.276 tpad 38.7785 tmot 39.0090 steps 4417 dt_prev 2.2095 magTpk 0.0746 post_err 0.540 obs D ok_all True
+  #17 L   tq 0.093140 te -0.015 spr 0.425 drift 0.370 pen 0.263 tpad 40.9840 tmot 40.9850 steps 4417 dt_prev 2.2055 magTpk 0.0709 post_err 0.648 obs L ok_all True
+  #18 R'  tq 0.436052 te +0.026 spr 0.191 drift 0.145 pen 0.290 tpad 43.1950 tmot 43.4305 steps 4417 dt_prev 2.211 magTpk 0.0714 post_err 0.783 obs R' ok_all True
+  #19 U2  tq 0.109973 te +0.142 spr 1.012 drift 0.327 pen 0.186 tpad 45.4005 tmot 45.4015 steps 6434 dt_prev 2.2055 magTpk 0.0788 post_err 0.397 obs U2 ok_all True
+  #20 D2  tq 0.111753 te +0.076 spr 0.075 drift 0.177 pen 0.274 tpad 48.6200 tmot 48.6220 steps 6434 dt_prev 3.2195 magTpk 0.0713 post_err 0.896 obs D2 ok_all True
+  #21 D2  tq 0.110704 te +0.010 spr 0.060 drift 0.130 pen 0.275 tpad 51.8380 tmot 52.0885 steps 6434 dt_prev 3.218 magTpk 0.0717 post_err 0.722 obs D2 ok_all True
+  #22 U2  tq 1.000000 te +0.084 spr 0.008 drift 0.053 pen 0.300 tpad 55.0540 tmot 55.0560 steps 6434 dt_prev 3.216 magTpk 0.0719 post_err 0.479 obs U2 ok_all True <==
+  #23 R   tq 0.098538 te +0.109 spr 0.585 drift 0.395 pen 0.262 tpad 58.2690 tmot 58.2700 steps 4417 dt_prev 3.215 magTpk 0.0727 post_err 0.771 obs R ok_all True
+  #24 L'  tq 0.461795 te -0.012 spr 0.220 drift 0.132 pen 0.291 tpad 60.4795 tmot 60.4820 steps 4417 dt_prev 2.2105 magTpk 0.0714 post_err 0.865 obs L' ok_all True
+  #25 D'  tq 0.095156 te -0.027 spr 0.349 drift 0.527 pen 0.282 tpad 62.6885 tmot 62.9230 steps 4417 dt_prev 2.209 magTpk 0.0725 post_err 0.788 obs D' ok_all True
+  #26 F   tq 0.262921 te -0.031 spr 0.442 drift 0.598 pen 0.275 tpad 64.8970 tmot 65.1315 steps 4417 dt_prev 2.2085 magTpk 0.0753 post_err 0.635 obs F ok_all True
+  #27 R2  tq 0.107479 te +0.139 spr 0.862 drift 0.319 pen 0.189 tpad 67.1035 tmot 67.1045 steps 6434 dt_prev 2.2065 magTpk 0.0712 post_err 0.628 obs R2 ok_all True
+  #28 L2  tq 0.114094 te +0.069 spr 0.173 drift 0.124 pen 0.277 tpad 70.3225 tmot 70.3270 steps 6434 dt_prev 3.219 magTpk 0.0714 post_err 0.621 obs L2 ok_all True
+  #29 B'  tq 0.097911 te -0.125 spr 0.634 drift 0.448 pen 0.280 tpad 73.5390 tmot 73.5425 steps 4417 dt_prev 3.2165 magTpk 0.0731 post_err 0.696 obs B' ok_all True
+  #30 R'  tq 0.349135 te -0.156 spr 0.847 drift 0.368 pen 0.207 tpad 75.7455 tmot 75.7465 steps 4417 dt_prev 2.2065 magTpk 0.0748 post_err 0.617 obs R' ok_all True
+  #31 D2  tq 0.112297 te -0.052 spr 0.247 drift 0.486 pen 0.276 tpad 77.9565 tmot 78.2085 steps 6434 dt_prev 2.211 magTpk 0.0752 post_err 0.913 obs D2 ok_all True
+  #32 B'  tq 0.292620 te +0.261 spr 1.004 drift 0.213 pen 0.273 tpad 81.1725 tmot 81.1740 steps 4417 dt_prev 3.216 magTpk 0.0796 post_err 0.720 obs B' ok_all True
+  #33 R   tq 0.290021 te -0.016 spr 0.955 drift 0.239 pen 0.272 tpad 83.3810 tmot 83.3945 steps 4417 dt_prev 2.2085 magTpk 0.0795 post_err 0.604 obs R ok_all True
+  #34 D'  tq 0.093263 te +0.113 spr 0.535 drift 0.432 pen 0.261 tpad 85.5895 tmot 85.5905 steps 4417 dt_prev 2.2085 magTpk 0.0738 post_err 0.466 obs D' ok_all True
+  #35 R2  tq 0.215269 te -0.082 spr 0.449 drift 0.298 pen 0.277 tpad 87.7990 tmot 88.0520 steps 6434 dt_prev 2.2095 magTpk 0.0734 post_err 0.598 obs R2 ok_all True
+  #36 B   tq 0.454655 te +0.147 spr 0.679 drift 0.515 pen 0.284 tpad 91.0155 tmot 91.0185 steps 4417 dt_prev 3.2165 magTpk 0.0740 post_err 0.666 obs B ok_all True
+  #37 U   tq 0.394437 te -0.040 spr 0.517 drift 0.164 pen 0.286 tpad 93.2245 tmot 93.4370 steps 4417 dt_prev 2.209 magTpk 0.0812 post_err 0.607 obs U ok_all True
+  #38 F'  tq 0.093701 te -0.160 spr 0.469 drift 0.670 pen 0.258 tpad 95.4320 tmot 95.4340 steps 4417 dt_prev 2.2075 magTpk 0.0728 post_err 0.617 obs F' ok_all True
+  #39 R   tq 0.332258 te +0.133 spr 0.716 drift 0.456 pen 0.224 tpad 97.6405 tmot 97.6425 steps 4417 dt_prev 2.2085 magTpk 0.0736 post_err 0.720 obs R ok_all True
+  #40 U2  tq 0.248914 te -0.090 spr 1.005 drift 0.193 pen 0.273 tpad 99.8490 tmot 99.8535 steps 6434 dt_prev 2.2085 magTpk 0.0816 post_err 0.571 obs U2 ok_all True
+saturating move full record: {"move": "U2", "observed_move": "U2", "inference_error": null, "observed_valid": true, "turn_error_deg": 0.08378245499072179, "turn_error_spread_deg": 0.008090917725013469, "nontarget_drift_deg": 0.05272895693967669, "penetration_mm": 0.3004312751625377, "radial_change_mm_so_far": 1.3183898417423734e-13, "radial_outward_mm_so_far": 1.3183898417423734e-13, "radial_inward_mm_so_far": 1.249000902703301e-13, "radial_above_nominal_mm_so_far": 7.632783294297951e-14, "max_turner_torque_Nm": 1.0, "t_pad_force_s": 55.05400000008085, "t_layer_motion_s": 55.05600000008086, "causal": true, "ok_oracle": true, "ok_turn_error": true, "ok_drift": true, "ok_penetration": true, "ok_radial_pop": true, "ok_causal": true, "ok_all": true, "misalignment": {"max_err_deg": 0.4789723234065344, "max_residual_deg": 0.48358573495051105}, "magnet_U_before_J": -0.05456628805449037, "magnet_U_after_J": -0.054569140518659846, "magnet_dU_J": -2.8524641694782638e-06, "magnet_W_J": 2.776372770510327e-06, "magnet_W_displacement_J": -0.00016686264210945436, "magnet_U_range_J": 0.008457689536105359, "e16m_residual_J": -7.609139896793666e-08, "e16m_bound_J": 0.0008957689536105359, "e16m_P_ok": true, "e16m_residual_displacement_J": -0.00016971510627893262, "layer_magnet_force_peak_N": 6.701226774784043, "layer_magnet_axis_torque_peak_Nm": 0.07185593293167061, "layer_magnet_impulse_Ns": 9.739273810358089, "layer_magnet_axis_angular_impulse_Nms": 0.007507796163457353, "magnet_steps": 6434, "magnet_callback_calls": 6434, "magnet_buf_one_call_per_step": true, "magnet_U0_vs_first_callback_J": 0.0}

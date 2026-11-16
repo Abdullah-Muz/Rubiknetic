@@ -25,7 +25,9 @@ Over 1,376 moves:
 - **E1-6m:** the energy/impulse bound holds on every move.
 
 **Magnet validity:**
-- Operational trials reached a tilt of at most 3.48° (E1-6b). That is within the validated 5°.
+- Operational trials reached a tilt of at most 3.09° (E1-5). That is within the validated 5°. *[Corrected 2026-11-15,
+  P-29: this line said "3.48° (E1-6b)", but the runner treats E1-6b as an abuse (rule-3) trial (`run.py` `RULE3`), so
+  3.48° belongs to the abuse group. The conclusion is unchanged.]*
 - 24 abuse trials went outside the validated range: E1-6c reached 15.5° and E1-6t 5.26°. Rule 3 labels these; it does
   not fail them.
 - The E1-6t passes therefore rest on the magnet model at slightly above its validated tilt.

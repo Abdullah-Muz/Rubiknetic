@@ -1,0 +1,81 @@
+D_s7113_0_gap0.1.json ts drift 1.0566753123923993 rec drift 1.0566753123923993 {'nontarget_drift_deg': True, 'turn_error_deg': True, 't_layer_motion_s': True, 't_pad_force_s': True}
+D_s7112_0_gap0.1.json ts drift 0.8233435600511281 rec drift 0.8233435600511281 {'nontarget_drift_deg': True, 'turn_error_deg': True, 't_layer_motion_s': True, 't_pad_force_s': True}
+scr20inv_s7402_26_gap0.1.json ts drift 1.1304565384529557 rec drift 1.1304565384529557 {'nontarget_drift_deg': True, 'turn_error_deg': True, 't_layer_motion_s': True, 't_pad_force_s': True}
+rest_s7000 ts 0.9041107575845045 rec 0.9041107575845045
+D_s7113_0_gap0.1.json: rows 475 dt median 5.00 ms | worst nt err first 1.031 last 0.051
+   piece 25 err first -1.031 last 0.027 | signs first [1, 1, -1, -1, -1, 1, -1, 1, 1, 1, -1, -1]
+D_s7112_0_gap0.1.json: rows 407 dt median 5.00 ms | worst nt err first 0.816 last 0.123
+scr20inv_s7402_26_gap0.1.json: rows 436 dt median 5.00 ms | worst nt err first 1.096 last 0.184
+rest_s7000: rows 420 dt median 25.0 ms, t range 0.025-10.500
+  [max|comp|] worst first 0.708 last 1.086 max 1.098; biggest step between t=2.425 and 2.450
+     piece 9: before 0.844 after 1.058
+     piece 2: before 0.724 after 1.032
+     pieces with change > 0.1 deg at that step: 3
+     median |d worst/dt| 0.0013 deg/s, mean slope over t>3s -0.0012 deg/s
+  [norm] worst first 0.966 last 1.456 max 1.482; biggest step between t=2.425 and 2.450
+     piece 9: before 1.172 after 1.438
+     piece 2: before 1.046 after 1.307
+     pieces with change > 0.1 deg at that step: 2
+     median |d worst/dt| 0.0035 deg/s, mean slope over t>3s -0.0037 deg/s
+  face-level biggest collective step at t 2.4499999999999855 -> 2.474999999999994 {'U': -0.002, 'R': 0.001, 'F': 0.03, 'D': 0.02, 'L': -0.17, 'B': 0.027}
+d8_1b_checks_3x1.5_N35_s1.json top keys ['magnet_params', 'moment_Am2', 'Br_T', 'mujoco', 'survey', 'V4', 'V6', 'V5_rk4', 'V5_implicitfast', 'V5_implicitfast_5s_dt0.5ms', 'V5_implicitfast_5s_dt0.25ms', 'throughput_idle_steps_per_s', 'V3', 'all_pass', 'wall_s']
+    moment_Am2 0.010040625000000001
+    Br_T 1.19
+    mujoco '4.0.1'
+    V3 {"pair": [{"gap_mm": 0.5, "offset_mm": 0.0, "fine_N": [-1.388716229952661e-16, 5.93655444716655e-17, -1.0964315699294764], "hybrid_N": [0.0, 0.0, -1.1160116661374202], "err_rel_Fn": 0.031796800197451215, "fine_T_Nm": [2.333452778178602e-20, 1.4827713793817537e-20, 1.80515119549069e-20], "hybrid_T_Nm": [0.0, 0.0, 0.0], "T_err_Nm": 3.3018454945809584e-20}, {"gap_mm": 0.5, "offset_mm": 0.37, "fine_N": [-0.23848441437101758, 1.5692322229849314e-17, -1.020491983076556], "hybrid_N": [-0.24271266326049
+    all_pass True
+    wall_s 985.7
+d8_1b_checks_4x1.5_N35_s1.json top keys ['magnet_params', 'moment_Am2', 'Br_T', 'mujoco', 'survey', 'V4', 'V6', 'V5_rk4', 'V5_implicitfast', 'V5_implicitfast_5s_dt0.5ms', 'V5_implicitfast_5s_dt0.25ms', 'throughput_idle_steps_per_s', 'V3', 'all_pass', 'wall_s']
+    moment_Am2 0.017849999999999998
+    Br_T 1.19
+    mujoco '4.0.1'
+    V3 {"pair": [{"gap_mm": 0.5, "offset_mm": 0.0, "fine_N": [3.132804053448993e-16, 8.372473899074948e-17, -1.8068504833383139], "hybrid_N": [0.0, 0.0, -1.8694733443446907], "err_rel_Fn": 0.05648026972534568, "fine_T_Nm": [9.882539239829747e-20, 1.278730085084966e-19, 7.452886481106547e-21], "hybrid_T_Nm": [0.0, 0.0, 0.0], "T_err_Nm": 1.6178229199943909e-19}, {"gap_mm": 0.5, "offset_mm": 0.37, "fine_N": [-0.33756416608141016, -7.621618249950614e-17, -1.7082767851671572], "hybrid_N": [-0.35142575187009
+    all_pass False
+    wall_s 1418.2
+  tilt forgive_+10_s9800.json 1.375 None
+  tilt forgive_+20_s9802.json 1.366 None
+  tilt forgive_-10_s9801.json 1.374 None
+  tilt forgive_-20_s9803.json 1.359 None
+  tilt opposed_UR_1Nm_s9610.json 2.0 None
+  tilt opposed_UR_2Nm_s9611.json 1.962 None
+  tilt rest_s9000.json 1.203 None
+  tilt rest_s9001.json 1.373 None
+  tilt rest_s9002.json 1.378 None
+  tilt rest_s9003.json 1.238 None
+  tilt scr20inv_s9400.json 1.381 None
+  tilt scr20inv_s9401.json 1.392 None
+  tilt scr20inv_s9402.json 1.395 None
+  tilt snap_+3_s9500.json 1.172 None
+  tilt snap_+5_s9502.json 0.92 None
+  tilt snap_-3_s9501.json 1.352 None
+  tilt snap_-5_s9503.json 1.055 None
+  tilt std_ppp_neg_s9655.json 3.453 None
+  tilt std_ppp_pos_s9654.json 3.453 None
+  tilt twist_nnn_s9627.json 12.066 magnet model outside validated range
+  tilt twist_ppp_s9626.json 12.583 magnet model outside validated range
+   g0.1_4x2 rest_s9000.json tilt 2.308 rest 0.1028482017273467 True
+   g0.1_4x2 rest_s9001.json tilt 2.421 rest 0.7708241762419162 False
+   g0.1_4x2 rest_s9002.json tilt 1.654 rest 0.4686647968539905 True
+   g0.1_4x2 rest_s9003.json tilt 1.992 rest 0.09503015486198942 True
+   g0.1_4x2 scr20inv_s9400.json tilt 2.56 rest None True
+   g0.1_4x2 scr20inv_s9401.json tilt 2.522 rest None True
+   g0.1_4x2 scr20inv_s9402.json tilt 2.662 rest None True
+   g0.1_4x2 snap_+3_s9500.json tilt 2.672 rest None True
+   g0.1_4x2 snap_+5_s9502.json tilt 1.817 rest None True
+   g0.1_4x2 snap_-3_s9501.json tilt 2.22 rest None True
+   g0.1_4x2 snap_-5_s9503.json tilt 2.441 rest None True
+  0.2 none rest_s9000.json 1.0266
+  0.2 none rest_s9001.json 1.0165
+  0.2 none rest_s9002.json 1.2986
+  0.2 none rest_s9003.json 1.3031
+  stage1 stage1/B1_nom/twist_nnn.json max_twist 38.96379822618817 gap 0.0002
+  stage1 stage1/B1_nom/twist_ppp.json max_twist 41.492933206962114 gap 0.0002
+  stage1 stage1/B1_none/twist_nnn.json max_twist 38.25077983934105 gap 0.0002
+  stage1 stage1/B1_none/twist_ppp.json max_twist 39.905207664761754 gap 0.0002
+  stage1 stage1_r2/B1_nom/twist_nnn.json max_twist 39.1228711708587 gap 0.0002
+  stage1 stage1_r2/B1_nom/twist_ppp.json max_twist 41.4884366127218 gap 0.0002
+  stage1 stage1_r2/B1_none/twist_nnn.json max_twist 38.25077983934105 gap 0.0002
+  stage1 stage1_r2/B1_none/twist_ppp.json max_twist 39.905207664761754 gap 0.0002
+0.05 rehearsal moves 1088 top penetration [(0.3004, 'scr20inv_s8416', 22), (0.3, 'scr20inv_s8409', 29), (0.3, 'sexy6_s8310', 9), (0.2993, 'scr20inv_s8403', 18)] median 0.2689
+lowest turn_error_spread [(0.0039, 'scr20inv_s8407', 16), (0.0041, 'scr20inv_s8405', 2), (0.0054, 'scr20inv_s8411', 37)]
+gap study mtimes 2026-11-15 20:10 2026-11-15 20:34 ('PST', 'PDT')
