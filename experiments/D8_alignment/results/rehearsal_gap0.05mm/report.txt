@@ -1,0 +1,84 @@
+# Rehearsal report: experiments/D8_alignment/results/rehearsal_gap0.05mm
+Verdicts are the stored ones; nothing is re-judged. Thresholds shown for context are read from scored.py:THRESHOLDS and run.py constants.
+Skipped (partial / unreadable): 0
+
+## Pass/fail per experiment
+| experiment | found / expected | passed | failed | status |
+| E1-1       |  20 /  20        |     20 |      0 | complete |
+| E1-2       |  24 /  24        |     24 |      0 | complete |
+| E1-3       |  22 /  22        |     22 |      0 | complete |
+| E1-4       |  40 /  40        |     40 |      0 | complete |
+| E1-5       |  42 /  42        |     42 |      0 | complete |
+| E1-5s      |  20 /  20        |     20 |      0 | complete |
+| E1-6       |  20 /  20        |     20 |      0 | complete [E1-6a 6/6 of 6, E1-6b 6/6 of 6, E1-6c 8/8 of 8] |
+| E1-6t      |  16 /  16        |     16 |      0 | complete |
+| total      | 204 / 204        |    204 |      0 | |
+
+## Failing trials (stored flags; value vs criterion)
+* none
+
+## Distributions (absolute values; median / p90 / p99 / max)
+* per-move non-target drift (deg)                            n= 1376  median 0.227  p90 0.494  p99 0.649  max 0.742 deg
+* per-move turn error |mean| (deg)                           n= 1376  median 0.057  p90 0.133  p99 0.246  max 0.322 deg
+* per-move penetration (mm)                                  n= 1376  median 0.270  p90 0.283  p99 0.292  max 0.303 mm
+* per-move max turner torque (N m)                           n= 1376  median 0.214  p90 0.462  p99 0.557  max 1.000 N m
+* E1-1 rest rotation, per trial (deg)                        n=   20  median 0.104  p90 0.214  p99 0.276  max 0.290 deg
+* E1-1 penetration, per trial (mm)                           n=   20  median 0.007  p90 0.007  p99 0.008  max 0.008 mm
+* E1-6t penetration (reported), per trial (mm)               n=   16  median 0.189  p90 0.189  p99 0.189  max 0.189 mm
+* magnet near-pair tilt, rule-2 (operational) trials (deg)   n=  174  median 1.371  p90 1.404  p99 2.074  max 2.083 deg
+* magnet near-pair tilt, rule-3 (abuse) trials (deg)         n=   30  median 3.502  p90 12.428  p99 12.542  max 12.559 deg
+* max near-pair tilt per sub-experiment (deg): E1-1 1.41, E1-2 1.44, E1-3 1.40, E1-4 1.43, E1-5 2.08, E1-5s 1.40, E1-6a 1.41, E1-6b 3.06, E1-6c 12.56, E1-6t 3.54; rule 2 = ['E1-1', 'E1-2', 'E1-3', 'E1-4', 'E1-5', 'E1-5s', 'E1-6a'], rule 3 = ['E1-6b', 'E1-6c', 'E1-6t'] (run.py)
+* rest rotation outside E1-1, magnet tilt per move, turner torque outside move trials: not stored (magnet tilt is stored once per trial in magnet_stats)
+
+## Drift, causality and oracle
+* moves: 1376; moves with stored ok_drift = False: 0 (cross-check, value > 1.0 deg: 0); trials with such a move: 0; max drift 0.7422 deg
+* causality failures (ok_causal = False): 0 moves
+* oracle agreement (ok_oracle = True): 1376 / 1376 moves; final_matches_oracle True in 86 / 86 sequence trials
+* E1-6m <P> energy bound (e16m_P_ok): 1376 / 1376 moves
+* rule-3 'outside validated range' labels: 8 trials
+
+## Side by side: A = rehearsal_gap0.05mm  vs  B = rehearsal_gap0.1mm
+NOTE: seeds differ between folders (rehearsal_gap.py --shift); an incomplete A is compared with complete B.
+| experiment | A pass/found | B pass/found |
+| E1-1       |   20 /  20   |   16 /  20   |
+| E1-2       |   24 /  24   |   23 /  24   |
+| E1-3       |   22 /  22   |   21 /  22   |
+| E1-4       |   40 /  40   |   30 /  40   |
+| E1-5       |   42 /  42   |   42 /  42   |
+| E1-5s      |   20 /  20   |   20 /  20   |
+| E1-6       |   20 /  20   |   20 /  20   |
+| E1-6t      |   16 /  16   |   16 /  16   |
+
+| quantity                                                   |                      A |                      B |
+| trials passed / found                                      |                204/204 |                188/204 |
+| moves                                                      |                   1376 |                   1376 |
+| moves with drift > limit                                   |                      0 |                     12 |
+| trials with a drift move                                   |                      0 |                     10 |
+| max drift (deg)                                            |                 0.7422 |                  1.144 |
+| causality failures (moves)                                 |                      0 |                      4 |
+| oracle agreement (moves)                                   |              1376/1376 |              1376/1376 |
+| skipped files                                              |                      0 |                      0 |
+| per-move non-target drift (deg)                            | n=1376 med 0.227 p99 0.649 max 0.742 | n=1376 med 0.460 p99 0.992 max 1.144 |
+| per-move turn error |mean| (deg)                           | n=1376 med 0.057 p99 0.246 max 0.322 | n=1376 med 0.069 p99 0.321 max 0.427 |
+| per-move penetration (mm)                                  | n=1376 med 0.270 p99 0.292 max 0.303 | n=1376 med 0.273 p99 0.292 max 0.308 |
+| per-move max turner torque (N m)                           | n=1376 med 0.214 p99 0.557 max 1.000 | n=1376 med 0.104 p99 0.652 max 0.876 |
+| E1-1 rest rotation, per trial (deg)                        | n=20 med 0.104 p99 0.276 max 0.290 | n=20 med 0.154 p99 0.884 max 0.904 |
+| E1-1 penetration, per trial (mm)                           | n=20 med 0.007 p99 0.008 max 0.008 | n=20 med 0.010 p99 0.025 max 0.025 |
+| E1-6t penetration (reported), per trial (mm)               | n=16 med 0.189 p99 0.189 max 0.189 | n=16 med 0.194 p99 0.196 max 0.196 |
+| magnet near-pair tilt, rule-2 (operational) trials (deg)   | n=174 med 1.371 p99 2.074 max 2.083 | n=174 med 2.346 p99 3.081 max 3.088 |
+| magnet near-pair tilt, rule-3 (abuse) trials (deg)         | n=30 med 3.502 p99 12.542 max 12.559 | n=30 med 5.178 p99 15.510 max 15.538 |
+
+## Matched subset: trials of A paired with B by experiment, trial type and seed offset (seed % 1000)
+pairs: 204 of 204 A trials (same pre-registered slot; the seeds differ, so the random setup misalignments differ: not the same initial condition)
+pairs with an identical move sequence: 204 / 204
+| trials passed        | A      204 | B      188 |
+| moves                | A     1376 | B     1376 |
+| drift moves          | A        0 | B       12 |
+| drift trials         | A        0 | B       10 |
+| max drift (deg)      | A   0.7422 | B    1.144 |
+| causality failures   | A        0 | B        4 |
+| oracle ok moves      | A     1376 | B     1376 |
+| drift distribution   | A n= 1376  median 0.227  p90 0.494  p99 0.649  max 0.742 deg |
+|                      | B n= 1376  median 0.460  p90 0.831  p99 0.992  max 1.144 deg |
+
+cross-check analyze._mx over E1-2..E1-4: drift max 0.7422480306941657, turn error max 0.3216422101827199, penetration max 0.3027129930079343
