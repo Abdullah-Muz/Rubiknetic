@@ -1,7 +1,8 @@
 # Proposal: drift and rest criteria for a cube with per-piece play
 
-**Status: revision 3, approved 2026-11-15 (user: "all approved") on condition of a third independent review (P-28).
-It is not in force until that review requires no changes.**
+**Status: revision 3 is NOT in force.** It was approved on 2026-11-15 (user: "all approved") on condition that a third
+independent review require no changes (P-28). That review required five changes (§7), so the condition failed. The
+revision returns to the user.
 - Revision 2 was approved on 2026-11-16 (user: "all approved"), on condition that a second independent review passed.
   That review (§7) required changes, so per the condition revision 2 is **not in force**. Revision 3 makes those
   changes and goes back to the user.
@@ -155,9 +156,35 @@ All other thresholds are M1 values.
     5. an applicability configuration with an upper limit → §3.4;
     6. fault tests for every counterexample, plus a marginal negative control → §4 items 4–5.
   - **Optional changes, both adopted:** the 3-axis norm for rest, and G1 sign-off.
-- **Revision 3 has not been reviewed.**
+- **Review 3, of revision 3 (2026-11-15): ACCEPTABLE WITH CHANGES.** The full review is in
+  `play_criteria_reviews/review3_2026-11-15.md`. The reviewer was not given §6. The main session checked R1 against
+  the code (`readout.py` `poses()` returns the core frame) and R2's arithmetic.
+  - Review 2's changes are implemented, but the frame wording of change 2 is wrong and the negative control of change 6
+    is under-specified. The move criteria are sound about the turn axis; the rest criteria are not, once rotation
+    about all three axes is considered.
+  - **Required changes:**
+    - **R1. Frame.** a₀, a₁, eₜ and Δ must be in the cube's core frame, not the world frame. In the world frame, a
+      cube held at +3° yaw lets a −1.5° drag of a square piece pass D-A and D-T, although M1 fails it.
+    - **R2. Rest allowance.** Credit only the component toward square, and require ‖rₜ + c·ê₀‖ ≤ 0.5°. The
+      counterexample: a corner 0.25° off square about x settles to square about x and drifts 0.70° about y. It
+      passes R-T (0.743 ≤ 0.75), R-A, R-L and R-S, and fails M1 (0.70 > 0.5). Purely sideways motion up to 0.707°
+      passes.
+    - **R3. R-L reference.** The layer twist must be the rotation since t = 0, by `rotation_about_deg`. Otherwise a
+      layer slipping −0.30° → +0.45° passes.
+    - **R4. "M4-derived" has no operative rule.** Either exclude near-copies of M4, or require that status in the
+      verdict line plus G1 sign-off (the user's choice).
+    - **R5. Marginal negative control.** Pre-specify the away, toward-and-crossing and rest cases, their expected
+      outcomes, and the rule for choosing the piece. As written, a control can be chosen that passes legitimately.
+  - **Optional changes:**
+    - O1: define the pre snapshot as before the close command.
+    - O2: build fault tests so only the named criterion fails, and give the R-S oscillation a frequency.
+    - O3: fix R-S sampling in time and report its noise floor.
+    - O4: specify the applicability-test details.
+    - O5: define rest t = 0, and drop "unwrapped", since the angle is wrapped by arctan2.
+    - O6: justify D-S = 1.5° by M1's implied bound.
 
 ## 8. Decisions requested
-1. Approve revision 3 (yes / no / modify).
-2. A third independent review before it is used (recommended, since revision 3 adds new numbers).
+1. Whether to draft a revision 4 adopting R1–R5, and which optional changes to adopt. Any revision 4 needs your
+   approval and another independent review.
+2. For R4, choose one: exclude near-copies of M4, or flag their status in the verdict line with G1 sign-off.
 3. W1–W4 are needed only once a candidate mechanism is chosen.
