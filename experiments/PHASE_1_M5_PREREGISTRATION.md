@@ -1,6 +1,7 @@
 # Phase 1 (G1) Pre-registration: M5, magnetic contact cube at a 0.05 mm piece gap
 
-**Status: `DRAFT PROPOSAL`, awaiting the user's approval.**
+**Status: `APPROVED 2026-11-16, CONDITIONAL` (P-32).** It is approved on condition that the independent review
+requires no changes. If the review requires changes, the draft returns to the user. Not frozen for scoring.
 - Drafted 2026-11-15 under the condition the user approved in
   [`D8_alignment/results/rehearsal_gap0.05mm/CONDITION.md`](D8_alignment/results/rehearsal_gap0.05mm/CONDITION.md). That
   condition was met (P-30); the user then said "approved" to drafting.
