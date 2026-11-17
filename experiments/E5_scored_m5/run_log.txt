@@ -1,0 +1,448 @@
+launch 2026-11-16T15:57:12-08:00 HEAD ee730d9cd85b2c78bbfc59a5b65d58b50f5654df status[0]
+NOT RUN ('magnets', 'E1-7', 'magnet=4x1.5_N35__6move'): failed V3
+NOT RUN ('magnets', 'E1-7', 'magnet=4x1.5_N35__sexy6'): failed V3
+start-up checks: {'max_abs_magnet_qfrc': 0.03674838541285853, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 8.673617379884035e-19, 'buf_matches_step_qfrc': 8.673617379884035e-19, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 5.329070518200751e-15, 'displacement_vs_qvel_before': 13.54196649619511, 'integrator': 'implicitfast', 'pass': True, 'gap': 5e-05}
+start 1: commit ee730d9cd85b2c78bbfc59a5b65d58b50f5654df; 440 of 440 trials to run; 2 registered not run; orphans moved 0; ledger lines reconciled 0
+PASS magnets/E1-4/scr20inv_s10402 
+PASS magnets/E1-4/scr20inv_s10400 
+PASS magnets/E1-4/scr20inv_s10403 
+PASS magnets/E1-4/scr20inv_s10401 
+PASS magnets/E1-4/scr20inv_s10404 
+PASS magnets/E1-4/scr20inv_s10405 
+PASS magnets/E1-4/scr20inv_s10406 
+PASS magnets/E1-4/scr20inv_s10407 
+PASS magnets/E1-4/scr20inv_s10409 
+PASS magnets/E1-4/scr20inv_s10408 
+PASS magnets/E1-4/scr20inv_s10411 
+PASS magnets/E1-4/scr20inv_s10410 
+PASS magnets/E1-4/scr20inv_s10413 
+PASS magnets/E1-4/scr20inv_s10412 
+PASS magnets/E1-4/scr20inv_s10414 
+PASS magnets/E1-4/scr20inv_s10415 
+PASS magnets/E1-4/scr20inv_s10417 
+FAIL no_magnets/E1-4/scr20inv_s10400 M1 criteria; E1-4 growth slope None deg/move (limit < 0.005)
+PASS magnets/E1-4/scr20inv_s10416 
+FAIL no_magnets/E1-4/scr20inv_s10402 M1 criteria; E1-4 growth slope 4.4538728227075 deg/move (limit < 0.005)
+PASS magnets/E1-4/scr20inv_s10418 
+FAIL no_magnets/E1-4/scr20inv_s10404 M1 criteria; E1-4 growth slope 2.284080978930551 deg/move (limit < 0.005)
+FAIL no_magnets/E1-4/scr20inv_s10403 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10401 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10405 M1 criteria; E1-4 growth slope 0.6444933495362368 deg/move (limit < 0.005)
+PASS magnets/E1-4/scr20inv_s10419 
+FAIL no_magnets/E1-4/scr20inv_s10407 M1 criteria; E1-4 growth slope 0.04521938199153522 deg/move (limit < 0.005)
+FAIL no_magnets/E1-4/scr20inv_s10406 M1 criteria; E1-4 growth slope 0.18559284715914248 deg/move (limit < 0.005)
+FAIL no_magnets/E1-4/scr20inv_s10409 M1 criteria; E1-4 growth slope 0.4737208395008272 deg/move (limit < 0.005)
+FAIL no_magnets/E1-4/scr20inv_s10408 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10411 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10410 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10412 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10413 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10414 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10417 M1 criteria; E1-4 growth slope 0.30725760309174205 deg/move (limit < 0.005)
+FAIL no_magnets/E1-4/scr20inv_s10415 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10416 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10419 M1 criteria
+FAIL no_magnets/E1-4/scr20inv_s10418 M1 criteria
+PASS magnets/E1-4/sexy6_s10301 
+PASS magnets/E1-4/sexy6_s10300 
+PASS magnets/E1-4/sexy6_s10303 
+PASS magnets/E1-4/sexy6_s10302 
+PASS magnets/E1-4/sexy6_s10305 
+PASS magnets/E1-4/sexy6_s10304 
+PASS magnets/E1-4/sexy6_s10307 
+PASS magnets/E1-4/sexy6_s10306 
+PASS magnets/E1-4/sexy6_s10308 
+PASS magnets/E1-4/sexy6_s10309 
+PASS magnets/E1-4/sexy6_s10311 
+PASS magnets/E1-4/sexy6_s10310 
+PASS magnets/E1-4/sexy6_s10312 
+PASS magnets/E1-4/sexy6_s10313 
+PASS magnets/E1-4/sexy6_s10314 
+PASS magnets/E1-4/sexy6_s10315 
+PASS magnets/E1-4/sexy6_s10316 
+PASS magnets/E1-4/sexy6_s10317 
+PASS no_magnets/E1-4/sexy6_s10300 
+PASS no_magnets/E1-4/sexy6_s10301 
+PASS magnets/E1-4/sexy6_s10318 
+PASS magnets/E1-4/sexy6_s10319 
+PASS no_magnets/E1-4/sexy6_s10303 
+PASS no_magnets/E1-4/sexy6_s10302 
+PASS no_magnets/E1-4/sexy6_s10305 
+PASS no_magnets/E1-4/sexy6_s10304 
+FAIL no_magnets/E1-4/sexy6_s10307 M1 criteria
+PASS no_magnets/E1-4/sexy6_s10306 
+PASS no_magnets/E1-4/sexy6_s10308 
+PASS no_magnets/E1-4/sexy6_s10309 
+PASS no_magnets/E1-4/sexy6_s10311 
+PASS no_magnets/E1-4/sexy6_s10310 
+PASS no_magnets/E1-4/sexy6_s10312 
+PASS no_magnets/E1-4/sexy6_s10313 
+PASS no_magnets/E1-4/sexy6_s10315 
+PASS no_magnets/E1-4/sexy6_s10314 
+PASS no_magnets/E1-4/sexy6_s10316 
+PASS no_magnets/E1-4/sexy6_s10317 
+FAIL no_magnets/E1-4/sexy6_s10319 M1 criteria
+PASS no_magnets/E1-4/sexy6_s10318 
+FAIL magnets/E1-7/timestep=0.00075__sexy6 M1 criteria
+PASS magnets/E1-7/nominal__sexy6 
+PASS magnets/E1-7/iterations=50__sexy6 
+PASS magnets/E1-7/timestep=0.00025__sexy6 
+PASS magnets/E1-7/iterations=200__sexy6 
+PASS magnets/E1-7/cubie_friction=0.1-0.0025-0.0005__sexy6 
+PASS magnets/E1-7/cubie_friction=0.5-0.0025-0.0005__sexy6 
+PASS magnets/E1-7/cubie_friction=1.0-0.0025-0.0005__sexy6 
+PASS magnets/E1-7/joint_frictionloss=5e-05__sexy6 
+PASS magnets/E1-7/joint_frictionloss=0.005__sexy6 
+PASS magnets/E1-7/chamfer=0.001__sexy6 
+PASS magnets/E1-7/chamfer=0.002__sexy6 
+PASS magnets/E1-7/gap=0.0001__sexy6 
+PASS magnets/E1-7/gap=2.5e-05__sexy6 
+PASS magnets/E1-7/grip_force=10.0__sexy6 
+PASS magnets/E1-7/grip_force=30.0__sexy6 
+PASS magnets/E1-7/grip_force=50.0__sexy6 
+PASS magnets/E1-7/misalign_max_deg=0.0__sexy6 
+PASS magnets/E1-7/misalign_max_deg=2.0__sexy6 
+PASS magnets/E1-7/magnet=none__sexy6 
+PASS magnets/E1-7/misalign_max_deg=5.0__sexy6 
+PASS magnets/E1-7/magnet=3x1.5_N35__sexy6 
+PASS magnets/E1-7/magnet=4x2_N52__sexy6 
+PASS magnets/E1-7/face_gap_mm=0.35__sexy6 
+PASS magnets/E1-3/halves_s10230 
+PASS magnets/E1-3/halves_s10231 
+PASS magnets/E1-7/face_gap_mm=1.35__sexy6 
+PASS magnets/E1-3/halves_s10232 
+PASS magnets/E1-3/halves_s10233 
+PASS magnets/E1-7/magnet_scale=0.67__sexy6 
+PASS magnets/E1-3/halves_s10234 
+PASS magnets/E1-3/halves_s10235 
+PASS magnets/E1-3/halves_s10237 
+PASS magnets/E1-3/halves_s10236 
+FAIL no_magnets/E1-3/halves_s10231 M1 criteria
+FAIL no_magnets/E1-3/halves_s10230 M1 criteria
+FAIL no_magnets/E1-3/halves_s10232 M1 criteria
+PASS magnets/E1-3/halves_s10239 
+PASS magnets/E1-3/halves_s10238 
+FAIL no_magnets/E1-3/halves_s10233 M1 criteria
+FAIL no_magnets/E1-3/halves_s10236 M1 criteria
+FAIL no_magnets/E1-3/halves_s10234 M1 criteria
+FAIL no_magnets/E1-3/halves_s10235 M1 criteria
+FAIL no_magnets/E1-3/halves_s10237 M1 criteria
+FAIL no_magnets/E1-3/halves_s10238 M1 criteria
+FAIL no_magnets/E1-3/halves_s10239 M1 criteria
+FAIL magnets/E1-7/timestep=0.00075__6move M1 criteria
+PASS magnets/E1-7/nominal__6move 
+PASS magnets/E1-7/iterations=50__6move 
+PASS magnets/E1-7/timestep=0.00025__6move 
+PASS magnets/E1-7/iterations=200__6move 
+PASS magnets/E1-7/cubie_friction=0.1-0.0025-0.0005__6move 
+PASS magnets/E1-7/cubie_friction=0.5-0.0025-0.0005__6move 
+PASS magnets/E1-7/cubie_friction=1.0-0.0025-0.0005__6move 
+PASS magnets/E1-7/joint_frictionloss=5e-05__6move 
+PASS magnets/E1-7/joint_frictionloss=0.005__6move 
+WARNING: Nan, Inf or huge value in QACC at DOF 28. The simulation is unstable. Time = 12.0145.
+
+FAIL magnets/E1-7/chamfer=0.001__6move M1 criteria
+PASS magnets/E1-7/chamfer=0.002__6move 
+PASS magnets/E1-7/gap=2.5e-05__6move 
+PASS magnets/E1-7/gap=0.0001__6move 
+PASS magnets/E1-7/grip_force=10.0__6move 
+PASS magnets/E1-7/grip_force=30.0__6move 
+PASS magnets/E1-7/grip_force=50.0__6move 
+PASS magnets/E1-7/misalign_max_deg=0.0__6move 
+PASS magnets/E1-7/misalign_max_deg=2.0__6move 
+FAIL magnets/E1-7/magnet=none__6move M1 criteria
+PASS magnets/E1-7/misalign_max_deg=5.0__6move 
+PASS magnets/E1-7/magnet=3x1.5_N35__6move 
+PASS magnets/E1-7/face_gap_mm=0.35__6move 
+PASS magnets/E1-7/magnet=4x2_N52__6move 
+PASS magnets/E1-2/U_s10101 
+PASS magnets/E1-2/U_s10100 
+PASS magnets/E1-2/Up_s10102 
+PASS magnets/E1-2/Up_s10103 
+PASS magnets/E1-2/R_s10104 
+PASS magnets/E1-2/R_s10105 
+PASS magnets/E1-7/face_gap_mm=1.35__6move 
+PASS magnets/E1-2/Rp_s10106 
+PASS magnets/E1-2/Rp_s10107 
+PASS magnets/E1-2/F_s10108 
+PASS magnets/E1-2/F_s10109 
+PASS magnets/E1-7/magnet_scale=0.67__6move 
+PASS magnets/E1-2/Fp_s10110 
+PASS magnets/E1-2/Fp_s10111 
+PASS magnets/E1-2/D_s10112 
+PASS magnets/E1-2/D_s10113 
+PASS magnets/E1-2/Dp_s10114 
+PASS magnets/E1-2/Dp_s10115 
+PASS magnets/E1-2/L_s10116 
+PASS magnets/E1-2/L_s10117 
+PASS magnets/E1-2/Lp_s10118 
+PASS magnets/E1-2/Lp_s10119 
+PASS magnets/E1-2/B_s10120 
+PASS magnets/E1-2/B_s10121 
+PASS magnets/E1-2/Bp_s10122 
+PASS magnets/E1-2/Bp_s10123 
+PASS magnets/E1-3/U2_s10201 
+PASS magnets/E1-3/U2_s10200 
+PASS magnets/E1-3/R2_s10202 
+PASS magnets/E1-3/R2_s10203 
+PASS magnets/E1-3/F2_s10205 
+PASS magnets/E1-3/F2_s10204 
+PASS magnets/E1-3/D2_s10206 
+PASS magnets/E1-3/D2_s10207 
+PASS magnets/E1-3/L2_s10208 
+PASS magnets/E1-3/L2_s10209 
+PASS no_magnets/E1-2/U_s10100 
+PASS magnets/E1-3/B2_s10210 
+PASS no_magnets/E1-2/Up_s10102 
+PASS no_magnets/E1-2/U_s10101 
+PASS no_magnets/E1-2/Up_s10103 
+PASS no_magnets/E1-2/R_s10104 
+PASS no_magnets/E1-2/R_s10105 
+PASS magnets/E1-3/B2_s10211 
+PASS no_magnets/E1-2/Rp_s10106 
+PASS no_magnets/E1-2/F_s10108 
+PASS no_magnets/E1-2/Rp_s10107 
+PASS no_magnets/E1-2/D_s10112 
+PASS no_magnets/E1-2/F_s10109 
+PASS no_magnets/E1-2/Fp_s10110 
+PASS no_magnets/E1-2/Fp_s10111 
+PASS no_magnets/E1-2/D_s10113 
+PASS no_magnets/E1-2/L_s10116 
+PASS no_magnets/E1-2/Dp_s10115 
+PASS no_magnets/E1-2/Dp_s10114 
+PASS no_magnets/E1-2/Lp_s10118 
+PASS no_magnets/E1-2/L_s10117 
+PASS no_magnets/E1-2/Lp_s10119 
+PASS no_magnets/E1-2/B_s10120 
+PASS no_magnets/E1-2/B_s10121 
+PASS no_magnets/E1-2/Bp_s10122 
+FAIL no_magnets/E1-2/Bp_s10123 M1 criteria
+PASS no_magnets/E1-3/U2_s10200 
+FAIL no_magnets/E1-3/R2_s10202 M1 criteria
+PASS no_magnets/E1-3/U2_s10201 
+FAIL no_magnets/E1-3/R2_s10203 M1 criteria
+FAIL no_magnets/E1-3/F2_s10204 M1 criteria
+FAIL no_magnets/E1-3/F2_s10205 M1 criteria
+PASS no_magnets/E1-3/D2_s10207 
+PASS no_magnets/E1-3/D2_s10206 
+FAIL no_magnets/E1-3/L2_s10208 M1 criteria
+FAIL no_magnets/E1-3/L2_s10209 M1 criteria
+FAIL no_magnets/E1-3/B2_s10210 M1 criteria
+FAIL no_magnets/E1-3/B2_s10211 M1 criteria
+PASS magnets/E1-1/rest_s10000 
+FAIL magnets/E1-1/rest_s10001 M1 criteria
+PASS magnets/E1-1/rest_s10002 
+PASS magnets/E1-1/rest_s10003 
+PASS magnets/E1-1/rest_s10004 
+PASS magnets/E1-1/rest_s10006 
+PASS magnets/E1-1/rest_s10007 
+PASS magnets/E1-1/rest_s10005 
+PASS magnets/E1-1/rest_s10008 
+PASS magnets/E1-1/rest_s10009 
+PASS magnets/E1-1/rest_s10010 
+PASS magnets/E1-1/rest_s10011 
+PASS magnets/E1-1/rest_s10012 
+PASS magnets/E1-1/rest_s10013 
+PASS magnets/E1-1/rest_s10014 
+PASS magnets/E1-1/rest_s10015 
+PASS magnets/E1-1/rest_s10016 
+PASS magnets/E1-1/rest_s10017 
+PASS magnets/E1-1/rest_s10018 
+PASS magnets/E1-1/rest_s10019 
+PASS magnets/E1-5/forgive_+0_s10500 
+PASS magnets/E1-5/forgive_+1_s10501 
+PASS magnets/E1-5/forgive_+2_s10502 
+PASS magnets/E1-5/forgive_+3_s10503 
+PASS magnets/E1-5/forgive_+4_s10504 
+PASS magnets/E1-5/forgive_+5_s10505 
+PASS magnets/E1-5/forgive_+6_s10506 
+PASS magnets/E1-5/forgive_+7_s10507 
+PASS magnets/E1-5/forgive_+8_s10508 
+PASS magnets/E1-5/forgive_+9_s10509 
+PASS magnets/E1-5/forgive_+11_s10511 
+PASS magnets/E1-5/forgive_+10_s10510 
+PASS magnets/E1-5/forgive_+12_s10512 
+PASS magnets/E1-5/forgive_+13_s10513 
+PASS magnets/E1-5/forgive_+14_s10514 
+PASS magnets/E1-5/forgive_+15_s10515 
+PASS magnets/E1-5/forgive_+16_s10516 
+PASS magnets/E1-5/forgive_+19_s10519 
+PASS magnets/E1-5/forgive_+18_s10518 
+PASS magnets/E1-5/forgive_+17_s10517 
+PASS magnets/E1-5/forgive_+20_s10520 
+PASS magnets/E1-5/forgive_+0_s10521 
+PASS magnets/E1-5/forgive_-1_s10522 
+PASS magnets/E1-5/forgive_-2_s10523 
+PASS magnets/E1-5/forgive_-3_s10524 
+PASS magnets/E1-5/forgive_-4_s10525 
+PASS magnets/E1-5/forgive_-5_s10526 
+PASS magnets/E1-5/forgive_-6_s10527 
+PASS magnets/E1-5/forgive_-7_s10528 
+PASS magnets/E1-5/forgive_-8_s10529 
+PASS magnets/E1-5/forgive_-9_s10530 
+PASS magnets/E1-5/forgive_-10_s10531 
+PASS magnets/E1-5/forgive_-11_s10532 
+PASS magnets/E1-5/forgive_-12_s10533 
+PASS magnets/E1-5/forgive_-13_s10534 
+PASS magnets/E1-5/forgive_-14_s10535 
+PASS magnets/E1-5/forgive_-15_s10536 
+PASS magnets/E1-5/forgive_-16_s10537 
+PASS magnets/E1-5/forgive_-17_s10538 
+PASS magnets/E1-5/forgive_-18_s10539 
+PASS magnets/E1-5/forgive_-19_s10540 
+PASS magnets/E1-5/forgive_-20_s10541 
+PASS magnets/E1-5s/snap_+1_s10551 
+PASS magnets/E1-5s/snap_-1_s10551 
+PASS magnets/E1-5s/snap_+2_s10552 
+PASS magnets/E1-5s/snap_-2_s10552 
+PASS magnets/E1-5s/snap_+3_s10553 
+PASS magnets/E1-5s/snap_-3_s10553 
+PASS magnets/E1-5s/snap_+5_s10555 
+PASS magnets/E1-5s/snap_-5_s10555 
+PASS magnets/E1-5s/snap_+8_s10558 
+PASS magnets/E1-5s/snap_-8_s10558 
+PASS magnets/E1-5s/snap_+1_s10561 
+PASS magnets/E1-5s/snap_-1_s10561 
+PASS magnets/E1-5s/snap_+2_s10562 
+PASS magnets/E1-5s/snap_-2_s10562 
+PASS magnets/E1-5s/snap_+3_s10563 
+PASS magnets/E1-5s/snap_-3_s10563 
+PASS magnets/E1-5s/snap_+5_s10565 
+PASS magnets/E1-5s/snap_-5_s10565 
+PASS magnets/E1-5s/snap_+8_s10568 
+PASS magnets/E1-5s/snap_-8_s10568 
+PASS magnets/E1-6/openpad_U_s10600 
+PASS magnets/E1-6/openpad_R_s10601 
+PASS magnets/E1-6/openpad_F_s10602 
+PASS magnets/E1-6/openpad_D_s10603 
+PASS magnets/E1-6/openpad_L_s10604 
+PASS magnets/E1-6/openpad_B_s10605 
+PASS magnets/E1-6/opposed_UR_1Nm_s10610 
+PASS magnets/E1-6/opposed_UR_2Nm_s10611 
+PASS magnets/E1-6/opposed_UF_1Nm_s10612 
+PASS magnets/E1-6/opposed_UF_2Nm_s10613 
+PASS magnets/E1-6/opposed_RF_1Nm_s10614 
+PASS magnets/E1-6/opposed_RF_2Nm_s10615 
+PASS magnets/E1-6/twist_nnn_s10620 
+PASS magnets/E1-6/twist_nnp_s10621 
+PASS magnets/E1-6/twist_npn_s10622 
+PASS magnets/E1-6/twist_npp_s10623 
+PASS magnets/E1-6/twist_pnn_s10624 
+PASS magnets/E1-6/twist_pnp_s10625 
+PASS magnets/E1-6/twist_ppn_s10626 
+PASS magnets/E1-6/twist_ppp_s10627 
+PASS magnets/E1-6t/std_nnn_pos_s10640 
+PASS magnets/E1-6t/std_nnn_neg_s10641 
+PASS magnets/E1-6t/std_nnp_pos_s10642 
+PASS magnets/E1-6t/std_nnp_neg_s10643 
+PASS magnets/E1-6t/std_npn_pos_s10644 
+PASS magnets/E1-6t/std_npn_neg_s10645 
+PASS magnets/E1-6t/std_npp_pos_s10646 
+PASS magnets/E1-6t/std_npp_neg_s10647 
+PASS magnets/E1-6t/std_pnn_pos_s10648 
+PASS magnets/E1-6t/std_pnn_neg_s10649 
+PASS magnets/E1-6t/std_pnp_pos_s10650 
+PASS magnets/E1-6t/std_pnp_neg_s10651 
+PASS magnets/E1-6t/std_ppn_pos_s10652 
+PASS magnets/E1-6t/std_ppn_neg_s10653 
+PASS no_magnets/E1-5/forgive_+0_s10500 
+PASS no_magnets/E1-5/forgive_+1_s10501 
+PASS no_magnets/E1-5/forgive_+2_s10502 
+PASS magnets/E1-6t/std_ppp_pos_s10654 
+PASS magnets/E1-6t/std_ppp_neg_s10655 
+PASS no_magnets/E1-5/forgive_+3_s10503 
+PASS no_magnets/E1-5/forgive_+4_s10504 
+PASS no_magnets/E1-5/forgive_+5_s10505 
+PASS no_magnets/E1-5/forgive_+6_s10506 
+PASS no_magnets/E1-5/forgive_+7_s10507 
+PASS no_magnets/E1-5/forgive_+8_s10508 
+PASS no_magnets/E1-5/forgive_+9_s10509 
+PASS no_magnets/E1-5/forgive_+10_s10510 
+PASS no_magnets/E1-5/forgive_+11_s10511 
+PASS no_magnets/E1-5/forgive_+12_s10512 
+PASS no_magnets/E1-5/forgive_+13_s10513 
+PASS no_magnets/E1-5/forgive_+14_s10514 
+PASS no_magnets/E1-5/forgive_+15_s10515 
+PASS no_magnets/E1-5/forgive_+17_s10517 
+PASS no_magnets/E1-5/forgive_+16_s10516 
+PASS no_magnets/E1-5/forgive_+18_s10518 
+PASS no_magnets/E1-5/forgive_+0_s10521 
+PASS no_magnets/E1-5/forgive_+19_s10519 
+PASS no_magnets/E1-5/forgive_+20_s10520 
+PASS no_magnets/E1-5/forgive_-1_s10522 
+PASS no_magnets/E1-5/forgive_-2_s10523 
+PASS no_magnets/E1-5/forgive_-3_s10524 
+PASS no_magnets/E1-5/forgive_-4_s10525 
+PASS no_magnets/E1-5/forgive_-5_s10526 
+PASS no_magnets/E1-5/forgive_-6_s10527 
+PASS no_magnets/E1-5/forgive_-7_s10528 
+PASS no_magnets/E1-5/forgive_-8_s10529 
+PASS no_magnets/E1-5/forgive_-9_s10530 
+PASS no_magnets/E1-5/forgive_-10_s10531 
+PASS no_magnets/E1-5/forgive_-11_s10532 
+PASS no_magnets/E1-5/forgive_-12_s10533 
+PASS no_magnets/E1-5/forgive_-14_s10535 
+PASS no_magnets/E1-5/forgive_-13_s10534 
+PASS no_magnets/E1-5/forgive_-16_s10537 
+PASS no_magnets/E1-5/forgive_-15_s10536 
+PASS no_magnets/E1-5/forgive_-17_s10538 
+PASS no_magnets/E1-5/forgive_-18_s10539 
+PASS no_magnets/E1-5/forgive_-19_s10540 
+PASS no_magnets/E1-5s/snap_+1_s10551 
+PASS no_magnets/E1-5/forgive_-20_s10541 
+PASS no_magnets/E1-5s/snap_-1_s10551 
+PASS no_magnets/E1-5s/snap_+2_s10552 
+PASS no_magnets/E1-5s/snap_-2_s10552 
+FAIL no_magnets/E1-5s/snap_+3_s10553 E1-5s |U error after 1 s| = 3.009428848663399 > 0.5 deg
+FAIL no_magnets/E1-5s/snap_-3_s10553 E1-5s |U error after 1 s| = -2.896320867089517 > 0.5 deg
+FAIL no_magnets/E1-5s/snap_-5_s10555 E1-5s |U error after 1 s| = -4.843365459115813 > 0.5 deg
+FAIL no_magnets/E1-5s/snap_+5_s10555 E1-5s |U error after 1 s| = 5.033751253738122 > 0.5 deg
+FAIL no_magnets/E1-5s/snap_+8_s10558 E1-5s |U error after 1 s| = 4.967477437401293 > 0.5 deg
+FAIL no_magnets/E1-5s/snap_-8_s10558 M1 criteria; E1-5s |U error after 1 s| = -6.32066211026018 > 0.5 deg
+PASS no_magnets/E1-5s/snap_+1_s10561 
+PASS no_magnets/E1-5s/snap_-1_s10561 
+PASS no_magnets/E1-5s/snap_+2_s10562 
+PASS no_magnets/E1-5s/snap_-2_s10562 
+FAIL no_magnets/E1-5s/snap_+3_s10563 E1-5s |U error after 1 s| = 3.026250753840909 > 0.5 deg
+FAIL no_magnets/E1-5s/snap_-3_s10563 E1-5s |U error after 1 s| = -2.8351190382740077 > 0.5 deg
+FAIL no_magnets/E1-5s/snap_+5_s10565 E1-5s |U error after 1 s| = 4.942467448438094 > 0.5 deg
+FAIL no_magnets/E1-5s/snap_-5_s10565 E1-5s |U error after 1 s| = -4.901252684377324 > 0.5 deg
+FAIL no_magnets/E1-5s/snap_+8_s10568 M1 criteria; E1-5s |U error after 1 s| = 5.674699078358365 > 0.5 deg
+PASS no_magnets/E1-6/openpad_R_s10601 
+PASS no_magnets/E1-6/openpad_U_s10600 
+FAIL no_magnets/E1-5s/snap_-8_s10568 M1 criteria; E1-5s |U error after 1 s| = -8.054624991774137 > 0.5 deg
+PASS no_magnets/E1-6/openpad_F_s10602 
+PASS no_magnets/E1-6/openpad_D_s10603 
+PASS no_magnets/E1-6/openpad_L_s10604 
+PASS no_magnets/E1-6/openpad_B_s10605 
+PASS no_magnets/E1-6/opposed_UR_1Nm_s10610 
+PASS no_magnets/E1-6/opposed_UF_2Nm_s10613 
+PASS no_magnets/E1-6/opposed_UR_2Nm_s10611 
+PASS no_magnets/E1-6/opposed_UF_1Nm_s10612 
+PASS no_magnets/E1-6/opposed_RF_1Nm_s10614 
+PASS no_magnets/E1-6/opposed_RF_2Nm_s10615 
+PASS no_magnets/E1-6/twist_nnn_s10620 
+PASS no_magnets/E1-6/twist_nnp_s10621 
+PASS no_magnets/E1-6/twist_npn_s10622 
+PASS no_magnets/E1-6/twist_npp_s10623 
+PASS no_magnets/E1-6/twist_pnn_s10624 
+PASS no_magnets/E1-6/twist_pnp_s10625 
+PASS no_magnets/E1-6/twist_ppn_s10626 
+PASS no_magnets/E1-6/twist_ppp_s10627 
+PASS no_magnets/E1-6t/std_nnn_neg_s10641 
+PASS no_magnets/E1-6t/std_nnn_pos_s10640 
+PASS no_magnets/E1-6t/std_nnp_pos_s10642 
+PASS no_magnets/E1-6t/std_nnp_neg_s10643 
+PASS no_magnets/E1-6t/std_npn_pos_s10644 
+PASS no_magnets/E1-6t/std_npn_neg_s10645 
+PASS no_magnets/E1-6t/std_npp_pos_s10646 
+PASS no_magnets/E1-6t/std_npp_neg_s10647 
+PASS no_magnets/E1-6t/std_pnn_pos_s10648 
+PASS no_magnets/E1-6t/std_pnn_neg_s10649 
+PASS no_magnets/E1-6t/std_pnp_pos_s10650 
+PASS no_magnets/E1-6t/std_pnp_neg_s10651 
+PASS no_magnets/E1-6t/std_ppn_neg_s10653 
+PASS no_magnets/E1-6t/std_ppn_pos_s10652 
+PASS no_magnets/E1-6t/std_ppp_pos_s10654 
+PASS no_magnets/E1-6t/std_ppp_neg_s10655 
+complete: 440 records written this start in 11944 s

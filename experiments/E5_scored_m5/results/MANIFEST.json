@@ -1,0 +1,4983 @@
+{
+ "commit": "ee730d9cd85b2c78bbfc59a5b65d58b50f5654df",
+ "created": "2026-11-16T23:58:56+00:00",
+ "environment": {
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "scipy": "1.18.1"
+ },
+ "environment_compared": [
+  "mujoco",
+  "numpy",
+  "scipy",
+  "python",
+  "cpu"
+ ],
+ "frozen_paths": [
+  "experiments/PHASE_1_M4_PREREGISTRATION.md",
+  "experiments/E4_scored_m4/run.py",
+  "experiments/E4_scored_m4/analyze.py",
+  "experiments/D8_alignment/d8_1b_stage1.py",
+  "experiments/D8_alignment/magnets.py",
+  "experiments/D8_alignment/results/d8_1b_checks.json",
+  "experiments/D8_alignment/results/d8_1b_checks*.json",
+  "experiments/D8_alignment/v3_pair_extension.py",
+  "experiments/PHASE_1_M5_PREREGISTRATION.md",
+  "experiments/E5_scored_m5/run.py",
+  "experiments/E5_scored_m5/analyze.py",
+  "src",
+  "pyproject.toml",
+  "uv.lock",
+  "experiments/PHASE_1_PREREGISTRATION.md",
+  "experiments/E1_scored/run.py",
+  "experiments/E1_scored/analyze.py"
+ ],
+ "mechanism": "M5",
+ "not_run": [
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "overrides": {
+    "gap": 5e-05,
+    "magnet": "4x1.5_N35"
+   },
+   "reason": "failed V3",
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "magnet=4x1.5_N35__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "overrides": {
+    "gap": 5e-05,
+    "magnet": "4x1.5_N35"
+   },
+   "reason": "failed V3",
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "magnet=4x1.5_N35__sexy6"
+  }
+ ],
+ "tables": {
+  "experiments/D8_alignment/results/tables/tilt_3x1.5_1.19T_s1_r8_h1.5_q16x48.npz": "106455eaaeb83bb28477db49c8c130296e123fd3b9aeb375c188f531c64dc9a6",
+  "experiments/D8_alignment/results/tables/tilt_4x2_1.19T_s0.67_r8_h1.5_q16x48.npz": "40ae916beddf6825b5321995c933484d47dcca9f51f46ca7498f397ea806f254",
+  "experiments/D8_alignment/results/tables/tilt_4x2_1.19T_s1_r8_h1.5_q16x48.npz": "c2ff0fcc4443419c8fa06b43cbbae24f5d541843ac9500a1b75bb378ffd2481f",
+  "experiments/D8_alignment/results/tables/tilt_4x2_1.455T_s1_r8_h1.5_q16x48.npz": "d9d0d4db6008885420c78b69e53f9530f1b96cfc81cf75f4fe0f222fb86ae626"
+ },
+ "trials": [
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-1",
+   "tid": "rest_s10000"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10001,
+   "sub": "E1-1",
+   "tid": "rest_s10001"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10002,
+   "sub": "E1-1",
+   "tid": "rest_s10002"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10003,
+   "sub": "E1-1",
+   "tid": "rest_s10003"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10004,
+   "sub": "E1-1",
+   "tid": "rest_s10004"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10005,
+   "sub": "E1-1",
+   "tid": "rest_s10005"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10006,
+   "sub": "E1-1",
+   "tid": "rest_s10006"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10007,
+   "sub": "E1-1",
+   "tid": "rest_s10007"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10008,
+   "sub": "E1-1",
+   "tid": "rest_s10008"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10009,
+   "sub": "E1-1",
+   "tid": "rest_s10009"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10010,
+   "sub": "E1-1",
+   "tid": "rest_s10010"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10011,
+   "sub": "E1-1",
+   "tid": "rest_s10011"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10012,
+   "sub": "E1-1",
+   "tid": "rest_s10012"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10013,
+   "sub": "E1-1",
+   "tid": "rest_s10013"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10014,
+   "sub": "E1-1",
+   "tid": "rest_s10014"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10015,
+   "sub": "E1-1",
+   "tid": "rest_s10015"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10016,
+   "sub": "E1-1",
+   "tid": "rest_s10016"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10017,
+   "sub": "E1-1",
+   "tid": "rest_s10017"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10018,
+   "sub": "E1-1",
+   "tid": "rest_s10018"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-1",
+   "kind": "rest",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10019,
+   "sub": "E1-1",
+   "tid": "rest_s10019"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10100,
+   "sub": "E1-2",
+   "tid": "U_s10100"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10101,
+   "sub": "E1-2",
+   "tid": "U_s10101"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10102,
+   "sub": "E1-2",
+   "tid": "Up_s10102"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10103,
+   "sub": "E1-2",
+   "tid": "Up_s10103"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10104,
+   "sub": "E1-2",
+   "tid": "R_s10104"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10105,
+   "sub": "E1-2",
+   "tid": "R_s10105"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10106,
+   "sub": "E1-2",
+   "tid": "Rp_s10106"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10107,
+   "sub": "E1-2",
+   "tid": "Rp_s10107"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10108,
+   "sub": "E1-2",
+   "tid": "F_s10108"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10109,
+   "sub": "E1-2",
+   "tid": "F_s10109"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10110,
+   "sub": "E1-2",
+   "tid": "Fp_s10110"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10111,
+   "sub": "E1-2",
+   "tid": "Fp_s10111"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10112,
+   "sub": "E1-2",
+   "tid": "D_s10112"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10113,
+   "sub": "E1-2",
+   "tid": "D_s10113"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10114,
+   "sub": "E1-2",
+   "tid": "Dp_s10114"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10115,
+   "sub": "E1-2",
+   "tid": "Dp_s10115"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10116,
+   "sub": "E1-2",
+   "tid": "L_s10116"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10117,
+   "sub": "E1-2",
+   "tid": "L_s10117"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10118,
+   "sub": "E1-2",
+   "tid": "Lp_s10118"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10119,
+   "sub": "E1-2",
+   "tid": "Lp_s10119"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10120,
+   "sub": "E1-2",
+   "tid": "B_s10120"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10121,
+   "sub": "E1-2",
+   "tid": "B_s10121"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10122,
+   "sub": "E1-2",
+   "tid": "Bp_s10122"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10123,
+   "sub": "E1-2",
+   "tid": "Bp_s10123"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10200,
+   "sub": "E1-3",
+   "tid": "U2_s10200"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10201,
+   "sub": "E1-3",
+   "tid": "U2_s10201"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10202,
+   "sub": "E1-3",
+   "tid": "R2_s10202"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10203,
+   "sub": "E1-3",
+   "tid": "R2_s10203"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10204,
+   "sub": "E1-3",
+   "tid": "F2_s10204"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10205,
+   "sub": "E1-3",
+   "tid": "F2_s10205"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10206,
+   "sub": "E1-3",
+   "tid": "D2_s10206"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10207,
+   "sub": "E1-3",
+   "tid": "D2_s10207"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10208,
+   "sub": "E1-3",
+   "tid": "L2_s10208"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10209,
+   "sub": "E1-3",
+   "tid": "L2_s10209"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10210,
+   "sub": "E1-3",
+   "tid": "B2_s10210"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10211,
+   "sub": "E1-3",
+   "tid": "B2_s10211"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10230,
+   "sub": "E1-3",
+   "tid": "halves_s10230"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10231,
+   "sub": "E1-3",
+   "tid": "halves_s10231"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10232,
+   "sub": "E1-3",
+   "tid": "halves_s10232"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10233,
+   "sub": "E1-3",
+   "tid": "halves_s10233"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10234,
+   "sub": "E1-3",
+   "tid": "halves_s10234"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10235,
+   "sub": "E1-3",
+   "tid": "halves_s10235"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10236,
+   "sub": "E1-3",
+   "tid": "halves_s10236"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10237,
+   "sub": "E1-3",
+   "tid": "halves_s10237"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10238,
+   "sub": "E1-3",
+   "tid": "halves_s10238"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10239,
+   "sub": "E1-3",
+   "tid": "halves_s10239"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10300,
+   "sub": "E1-4",
+   "tid": "sexy6_s10300"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10301,
+   "sub": "E1-4",
+   "tid": "sexy6_s10301"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10302,
+   "sub": "E1-4",
+   "tid": "sexy6_s10302"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10303,
+   "sub": "E1-4",
+   "tid": "sexy6_s10303"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10304,
+   "sub": "E1-4",
+   "tid": "sexy6_s10304"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10305,
+   "sub": "E1-4",
+   "tid": "sexy6_s10305"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10306,
+   "sub": "E1-4",
+   "tid": "sexy6_s10306"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10307,
+   "sub": "E1-4",
+   "tid": "sexy6_s10307"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10308,
+   "sub": "E1-4",
+   "tid": "sexy6_s10308"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10309,
+   "sub": "E1-4",
+   "tid": "sexy6_s10309"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10310,
+   "sub": "E1-4",
+   "tid": "sexy6_s10310"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10311,
+   "sub": "E1-4",
+   "tid": "sexy6_s10311"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10312,
+   "sub": "E1-4",
+   "tid": "sexy6_s10312"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10313,
+   "sub": "E1-4",
+   "tid": "sexy6_s10313"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10314,
+   "sub": "E1-4",
+   "tid": "sexy6_s10314"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10315,
+   "sub": "E1-4",
+   "tid": "sexy6_s10315"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10316,
+   "sub": "E1-4",
+   "tid": "sexy6_s10316"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10317,
+   "sub": "E1-4",
+   "tid": "sexy6_s10317"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10318,
+   "sub": "E1-4",
+   "tid": "sexy6_s10318"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10319,
+   "sub": "E1-4",
+   "tid": "sexy6_s10319"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10400,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10400"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10401,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10401"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10402,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10402"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10403,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10403"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10404,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10404"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10405,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10405"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10406,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10406"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10407,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10407"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10408,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10408"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10409,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10409"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10410,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10410"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10411,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10411"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10412,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10412"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10413,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10413"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10414,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10414"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10415,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10415"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10416,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10416"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10417,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10417"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10418,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10418"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10419,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10419"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10500,
+   "sub": "E1-5",
+   "tid": "forgive_+0_s10500"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10501,
+   "sub": "E1-5",
+   "tid": "forgive_+1_s10501"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10502,
+   "sub": "E1-5",
+   "tid": "forgive_+2_s10502"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10503,
+   "sub": "E1-5",
+   "tid": "forgive_+3_s10503"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10504,
+   "sub": "E1-5",
+   "tid": "forgive_+4_s10504"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10505,
+   "sub": "E1-5",
+   "tid": "forgive_+5_s10505"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10506,
+   "sub": "E1-5",
+   "tid": "forgive_+6_s10506"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10507,
+   "sub": "E1-5",
+   "tid": "forgive_+7_s10507"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10508,
+   "sub": "E1-5",
+   "tid": "forgive_+8_s10508"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10509,
+   "sub": "E1-5",
+   "tid": "forgive_+9_s10509"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10510,
+   "sub": "E1-5",
+   "tid": "forgive_+10_s10510"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10511,
+   "sub": "E1-5",
+   "tid": "forgive_+11_s10511"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10512,
+   "sub": "E1-5",
+   "tid": "forgive_+12_s10512"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10513,
+   "sub": "E1-5",
+   "tid": "forgive_+13_s10513"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10514,
+   "sub": "E1-5",
+   "tid": "forgive_+14_s10514"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10515,
+   "sub": "E1-5",
+   "tid": "forgive_+15_s10515"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10516,
+   "sub": "E1-5",
+   "tid": "forgive_+16_s10516"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10517,
+   "sub": "E1-5",
+   "tid": "forgive_+17_s10517"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10518,
+   "sub": "E1-5",
+   "tid": "forgive_+18_s10518"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10519,
+   "sub": "E1-5",
+   "tid": "forgive_+19_s10519"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10520,
+   "sub": "E1-5",
+   "tid": "forgive_+20_s10520"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10521,
+   "sub": "E1-5",
+   "tid": "forgive_+0_s10521"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10522,
+   "sub": "E1-5",
+   "tid": "forgive_-1_s10522"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10523,
+   "sub": "E1-5",
+   "tid": "forgive_-2_s10523"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10524,
+   "sub": "E1-5",
+   "tid": "forgive_-3_s10524"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10525,
+   "sub": "E1-5",
+   "tid": "forgive_-4_s10525"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10526,
+   "sub": "E1-5",
+   "tid": "forgive_-5_s10526"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10527,
+   "sub": "E1-5",
+   "tid": "forgive_-6_s10527"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10528,
+   "sub": "E1-5",
+   "tid": "forgive_-7_s10528"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10529,
+   "sub": "E1-5",
+   "tid": "forgive_-8_s10529"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10530,
+   "sub": "E1-5",
+   "tid": "forgive_-9_s10530"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10531,
+   "sub": "E1-5",
+   "tid": "forgive_-10_s10531"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10532,
+   "sub": "E1-5",
+   "tid": "forgive_-11_s10532"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10533,
+   "sub": "E1-5",
+   "tid": "forgive_-12_s10533"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10534,
+   "sub": "E1-5",
+   "tid": "forgive_-13_s10534"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10535,
+   "sub": "E1-5",
+   "tid": "forgive_-14_s10535"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10536,
+   "sub": "E1-5",
+   "tid": "forgive_-15_s10536"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10537,
+   "sub": "E1-5",
+   "tid": "forgive_-16_s10537"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10538,
+   "sub": "E1-5",
+   "tid": "forgive_-17_s10538"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10539,
+   "sub": "E1-5",
+   "tid": "forgive_-18_s10539"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10540,
+   "sub": "E1-5",
+   "tid": "forgive_-19_s10540"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10541,
+   "sub": "E1-5",
+   "tid": "forgive_-20_s10541"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10551,
+   "sub": "E1-5s",
+   "tid": "snap_+1_s10551"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10551,
+   "sub": "E1-5s",
+   "tid": "snap_-1_s10551"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10552,
+   "sub": "E1-5s",
+   "tid": "snap_+2_s10552"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10552,
+   "sub": "E1-5s",
+   "tid": "snap_-2_s10552"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10553,
+   "sub": "E1-5s",
+   "tid": "snap_+3_s10553"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10553,
+   "sub": "E1-5s",
+   "tid": "snap_-3_s10553"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10555,
+   "sub": "E1-5s",
+   "tid": "snap_+5_s10555"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10555,
+   "sub": "E1-5s",
+   "tid": "snap_-5_s10555"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10558,
+   "sub": "E1-5s",
+   "tid": "snap_+8_s10558"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10558,
+   "sub": "E1-5s",
+   "tid": "snap_-8_s10558"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10561,
+   "sub": "E1-5s",
+   "tid": "snap_+1_s10561"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10561,
+   "sub": "E1-5s",
+   "tid": "snap_-1_s10561"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10562,
+   "sub": "E1-5s",
+   "tid": "snap_+2_s10562"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10562,
+   "sub": "E1-5s",
+   "tid": "snap_-2_s10562"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10563,
+   "sub": "E1-5s",
+   "tid": "snap_+3_s10563"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10563,
+   "sub": "E1-5s",
+   "tid": "snap_-3_s10563"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10565,
+   "sub": "E1-5s",
+   "tid": "snap_+5_s10565"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10565,
+   "sub": "E1-5s",
+   "tid": "snap_-5_s10565"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10568,
+   "sub": "E1-5s",
+   "tid": "snap_+8_s10568"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10568,
+   "sub": "E1-5s",
+   "tid": "snap_-8_s10568"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10600,
+   "sub": "E1-6a",
+   "tid": "openpad_U_s10600"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10601,
+   "sub": "E1-6a",
+   "tid": "openpad_R_s10601"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10602,
+   "sub": "E1-6a",
+   "tid": "openpad_F_s10602"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10603,
+   "sub": "E1-6a",
+   "tid": "openpad_D_s10603"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10604,
+   "sub": "E1-6a",
+   "tid": "openpad_L_s10604"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10605,
+   "sub": "E1-6a",
+   "tid": "openpad_B_s10605"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10610,
+   "sub": "E1-6b",
+   "tid": "opposed_UR_1Nm_s10610"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10611,
+   "sub": "E1-6b",
+   "tid": "opposed_UR_2Nm_s10611"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10612,
+   "sub": "E1-6b",
+   "tid": "opposed_UF_1Nm_s10612"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10613,
+   "sub": "E1-6b",
+   "tid": "opposed_UF_2Nm_s10613"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10614,
+   "sub": "E1-6b",
+   "tid": "opposed_RF_1Nm_s10614"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10615,
+   "sub": "E1-6b",
+   "tid": "opposed_RF_2Nm_s10615"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10620,
+   "sub": "E1-6c",
+   "tid": "twist_nnn_s10620"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10621,
+   "sub": "E1-6c",
+   "tid": "twist_nnp_s10621"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10622,
+   "sub": "E1-6c",
+   "tid": "twist_npn_s10622"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10623,
+   "sub": "E1-6c",
+   "tid": "twist_npp_s10623"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10624,
+   "sub": "E1-6c",
+   "tid": "twist_pnn_s10624"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10625,
+   "sub": "E1-6c",
+   "tid": "twist_pnp_s10625"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10626,
+   "sub": "E1-6c",
+   "tid": "twist_ppn_s10626"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10627,
+   "sub": "E1-6c",
+   "tid": "twist_ppp_s10627"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10640,
+   "sub": "E1-6t",
+   "tid": "std_nnn_pos_s10640"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10641,
+   "sub": "E1-6t",
+   "tid": "std_nnn_neg_s10641"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10642,
+   "sub": "E1-6t",
+   "tid": "std_nnp_pos_s10642"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10643,
+   "sub": "E1-6t",
+   "tid": "std_nnp_neg_s10643"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10644,
+   "sub": "E1-6t",
+   "tid": "std_npn_pos_s10644"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10645,
+   "sub": "E1-6t",
+   "tid": "std_npn_neg_s10645"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10646,
+   "sub": "E1-6t",
+   "tid": "std_npp_pos_s10646"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10647,
+   "sub": "E1-6t",
+   "tid": "std_npp_neg_s10647"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10648,
+   "sub": "E1-6t",
+   "tid": "std_pnn_pos_s10648"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10649,
+   "sub": "E1-6t",
+   "tid": "std_pnn_neg_s10649"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10650,
+   "sub": "E1-6t",
+   "tid": "std_pnp_pos_s10650"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10651,
+   "sub": "E1-6t",
+   "tid": "std_pnp_neg_s10651"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10652,
+   "sub": "E1-6t",
+   "tid": "std_ppn_pos_s10652"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10653,
+   "sub": "E1-6t",
+   "tid": "std_ppn_neg_s10653"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10654,
+   "sub": "E1-6t",
+   "tid": "std_ppp_pos_s10654"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10655,
+   "sub": "E1-6t",
+   "tid": "std_ppp_neg_s10655"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10100,
+   "sub": "E1-2",
+   "tid": "U_s10100"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10101,
+   "sub": "E1-2",
+   "tid": "U_s10101"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10102,
+   "sub": "E1-2",
+   "tid": "Up_s10102"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10103,
+   "sub": "E1-2",
+   "tid": "Up_s10103"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10104,
+   "sub": "E1-2",
+   "tid": "R_s10104"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10105,
+   "sub": "E1-2",
+   "tid": "R_s10105"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10106,
+   "sub": "E1-2",
+   "tid": "Rp_s10106"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10107,
+   "sub": "E1-2",
+   "tid": "Rp_s10107"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10108,
+   "sub": "E1-2",
+   "tid": "F_s10108"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10109,
+   "sub": "E1-2",
+   "tid": "F_s10109"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10110,
+   "sub": "E1-2",
+   "tid": "Fp_s10110"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10111,
+   "sub": "E1-2",
+   "tid": "Fp_s10111"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10112,
+   "sub": "E1-2",
+   "tid": "D_s10112"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10113,
+   "sub": "E1-2",
+   "tid": "D_s10113"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10114,
+   "sub": "E1-2",
+   "tid": "Dp_s10114"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10115,
+   "sub": "E1-2",
+   "tid": "Dp_s10115"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10116,
+   "sub": "E1-2",
+   "tid": "L_s10116"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10117,
+   "sub": "E1-2",
+   "tid": "L_s10117"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10118,
+   "sub": "E1-2",
+   "tid": "Lp_s10118"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10119,
+   "sub": "E1-2",
+   "tid": "Lp_s10119"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10120,
+   "sub": "E1-2",
+   "tid": "B_s10120"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10121,
+   "sub": "E1-2",
+   "tid": "B_s10121"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10122,
+   "sub": "E1-2",
+   "tid": "Bp_s10122"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-2",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10123,
+   "sub": "E1-2",
+   "tid": "Bp_s10123"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10200,
+   "sub": "E1-3",
+   "tid": "U2_s10200"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10201,
+   "sub": "E1-3",
+   "tid": "U2_s10201"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10202,
+   "sub": "E1-3",
+   "tid": "R2_s10202"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10203,
+   "sub": "E1-3",
+   "tid": "R2_s10203"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10204,
+   "sub": "E1-3",
+   "tid": "F2_s10204"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10205,
+   "sub": "E1-3",
+   "tid": "F2_s10205"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10206,
+   "sub": "E1-3",
+   "tid": "D2_s10206"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10207,
+   "sub": "E1-3",
+   "tid": "D2_s10207"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10208,
+   "sub": "E1-3",
+   "tid": "L2_s10208"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10209,
+   "sub": "E1-3",
+   "tid": "L2_s10209"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10210,
+   "sub": "E1-3",
+   "tid": "B2_s10210"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10211,
+   "sub": "E1-3",
+   "tid": "B2_s10211"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10230,
+   "sub": "E1-3",
+   "tid": "halves_s10230"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10231,
+   "sub": "E1-3",
+   "tid": "halves_s10231"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10232,
+   "sub": "E1-3",
+   "tid": "halves_s10232"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10233,
+   "sub": "E1-3",
+   "tid": "halves_s10233"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10234,
+   "sub": "E1-3",
+   "tid": "halves_s10234"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10235,
+   "sub": "E1-3",
+   "tid": "halves_s10235"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10236,
+   "sub": "E1-3",
+   "tid": "halves_s10236"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10237,
+   "sub": "E1-3",
+   "tid": "halves_s10237"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10238,
+   "sub": "E1-3",
+   "tid": "halves_s10238"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-3",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10239,
+   "sub": "E1-3",
+   "tid": "halves_s10239"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10300,
+   "sub": "E1-4",
+   "tid": "sexy6_s10300"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10301,
+   "sub": "E1-4",
+   "tid": "sexy6_s10301"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10302,
+   "sub": "E1-4",
+   "tid": "sexy6_s10302"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10303,
+   "sub": "E1-4",
+   "tid": "sexy6_s10303"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10304,
+   "sub": "E1-4",
+   "tid": "sexy6_s10304"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10305,
+   "sub": "E1-4",
+   "tid": "sexy6_s10305"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10306,
+   "sub": "E1-4",
+   "tid": "sexy6_s10306"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10307,
+   "sub": "E1-4",
+   "tid": "sexy6_s10307"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10308,
+   "sub": "E1-4",
+   "tid": "sexy6_s10308"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10309,
+   "sub": "E1-4",
+   "tid": "sexy6_s10309"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10310,
+   "sub": "E1-4",
+   "tid": "sexy6_s10310"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10311,
+   "sub": "E1-4",
+   "tid": "sexy6_s10311"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10312,
+   "sub": "E1-4",
+   "tid": "sexy6_s10312"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10313,
+   "sub": "E1-4",
+   "tid": "sexy6_s10313"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10314,
+   "sub": "E1-4",
+   "tid": "sexy6_s10314"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10315,
+   "sub": "E1-4",
+   "tid": "sexy6_s10315"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10316,
+   "sub": "E1-4",
+   "tid": "sexy6_s10316"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10317,
+   "sub": "E1-4",
+   "tid": "sexy6_s10317"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10318,
+   "sub": "E1-4",
+   "tid": "sexy6_s10318"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10319,
+   "sub": "E1-4",
+   "tid": "sexy6_s10319"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10400,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10400"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10401,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10401"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10402,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10402"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10403,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10403"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10404,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10404"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10405,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10405"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10406,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10406"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10407,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10407"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10408,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10408"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10409,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10409"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10410,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10410"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10411,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10411"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10412,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10412"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10413,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10413"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10414,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10414"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10415,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10415"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10416,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10416"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10417,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10417"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10418,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10418"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-4",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10419,
+   "sub": "E1-4",
+   "tid": "scr20inv_s10419"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10500,
+   "sub": "E1-5",
+   "tid": "forgive_+0_s10500"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10501,
+   "sub": "E1-5",
+   "tid": "forgive_+1_s10501"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10502,
+   "sub": "E1-5",
+   "tid": "forgive_+2_s10502"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10503,
+   "sub": "E1-5",
+   "tid": "forgive_+3_s10503"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10504,
+   "sub": "E1-5",
+   "tid": "forgive_+4_s10504"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10505,
+   "sub": "E1-5",
+   "tid": "forgive_+5_s10505"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10506,
+   "sub": "E1-5",
+   "tid": "forgive_+6_s10506"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10507,
+   "sub": "E1-5",
+   "tid": "forgive_+7_s10507"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10508,
+   "sub": "E1-5",
+   "tid": "forgive_+8_s10508"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10509,
+   "sub": "E1-5",
+   "tid": "forgive_+9_s10509"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10510,
+   "sub": "E1-5",
+   "tid": "forgive_+10_s10510"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10511,
+   "sub": "E1-5",
+   "tid": "forgive_+11_s10511"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10512,
+   "sub": "E1-5",
+   "tid": "forgive_+12_s10512"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10513,
+   "sub": "E1-5",
+   "tid": "forgive_+13_s10513"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10514,
+   "sub": "E1-5",
+   "tid": "forgive_+14_s10514"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10515,
+   "sub": "E1-5",
+   "tid": "forgive_+15_s10515"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10516,
+   "sub": "E1-5",
+   "tid": "forgive_+16_s10516"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10517,
+   "sub": "E1-5",
+   "tid": "forgive_+17_s10517"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10518,
+   "sub": "E1-5",
+   "tid": "forgive_+18_s10518"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10519,
+   "sub": "E1-5",
+   "tid": "forgive_+19_s10519"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10520,
+   "sub": "E1-5",
+   "tid": "forgive_+20_s10520"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10521,
+   "sub": "E1-5",
+   "tid": "forgive_+0_s10521"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10522,
+   "sub": "E1-5",
+   "tid": "forgive_-1_s10522"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10523,
+   "sub": "E1-5",
+   "tid": "forgive_-2_s10523"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10524,
+   "sub": "E1-5",
+   "tid": "forgive_-3_s10524"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10525,
+   "sub": "E1-5",
+   "tid": "forgive_-4_s10525"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10526,
+   "sub": "E1-5",
+   "tid": "forgive_-5_s10526"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10527,
+   "sub": "E1-5",
+   "tid": "forgive_-6_s10527"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10528,
+   "sub": "E1-5",
+   "tid": "forgive_-7_s10528"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10529,
+   "sub": "E1-5",
+   "tid": "forgive_-8_s10529"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10530,
+   "sub": "E1-5",
+   "tid": "forgive_-9_s10530"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10531,
+   "sub": "E1-5",
+   "tid": "forgive_-10_s10531"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10532,
+   "sub": "E1-5",
+   "tid": "forgive_-11_s10532"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10533,
+   "sub": "E1-5",
+   "tid": "forgive_-12_s10533"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10534,
+   "sub": "E1-5",
+   "tid": "forgive_-13_s10534"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10535,
+   "sub": "E1-5",
+   "tid": "forgive_-14_s10535"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10536,
+   "sub": "E1-5",
+   "tid": "forgive_-15_s10536"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10537,
+   "sub": "E1-5",
+   "tid": "forgive_-16_s10537"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10538,
+   "sub": "E1-5",
+   "tid": "forgive_-17_s10538"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10539,
+   "sub": "E1-5",
+   "tid": "forgive_-18_s10539"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10540,
+   "sub": "E1-5",
+   "tid": "forgive_-19_s10540"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5",
+   "kind": "forgive",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10541,
+   "sub": "E1-5",
+   "tid": "forgive_-20_s10541"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10551,
+   "sub": "E1-5s",
+   "tid": "snap_+1_s10551"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10551,
+   "sub": "E1-5s",
+   "tid": "snap_-1_s10551"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10552,
+   "sub": "E1-5s",
+   "tid": "snap_+2_s10552"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10552,
+   "sub": "E1-5s",
+   "tid": "snap_-2_s10552"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10553,
+   "sub": "E1-5s",
+   "tid": "snap_+3_s10553"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10553,
+   "sub": "E1-5s",
+   "tid": "snap_-3_s10553"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10555,
+   "sub": "E1-5s",
+   "tid": "snap_+5_s10555"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10555,
+   "sub": "E1-5s",
+   "tid": "snap_-5_s10555"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10558,
+   "sub": "E1-5s",
+   "tid": "snap_+8_s10558"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10558,
+   "sub": "E1-5s",
+   "tid": "snap_-8_s10558"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10561,
+   "sub": "E1-5s",
+   "tid": "snap_+1_s10561"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10561,
+   "sub": "E1-5s",
+   "tid": "snap_-1_s10561"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10562,
+   "sub": "E1-5s",
+   "tid": "snap_+2_s10562"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10562,
+   "sub": "E1-5s",
+   "tid": "snap_-2_s10562"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10563,
+   "sub": "E1-5s",
+   "tid": "snap_+3_s10563"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10563,
+   "sub": "E1-5s",
+   "tid": "snap_-3_s10563"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10565,
+   "sub": "E1-5s",
+   "tid": "snap_+5_s10565"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10565,
+   "sub": "E1-5s",
+   "tid": "snap_-5_s10565"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10568,
+   "sub": "E1-5s",
+   "tid": "snap_+8_s10568"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-5s",
+   "kind": "snap",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10568,
+   "sub": "E1-5s",
+   "tid": "snap_-8_s10568"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10600,
+   "sub": "E1-6a",
+   "tid": "openpad_U_s10600"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10601,
+   "sub": "E1-6a",
+   "tid": "openpad_R_s10601"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10602,
+   "sub": "E1-6a",
+   "tid": "openpad_F_s10602"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10603,
+   "sub": "E1-6a",
+   "tid": "openpad_D_s10603"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10604,
+   "sub": "E1-6a",
+   "tid": "openpad_L_s10604"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "openpad",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10605,
+   "sub": "E1-6a",
+   "tid": "openpad_B_s10605"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10610,
+   "sub": "E1-6b",
+   "tid": "opposed_UR_1Nm_s10610"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10611,
+   "sub": "E1-6b",
+   "tid": "opposed_UR_2Nm_s10611"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10612,
+   "sub": "E1-6b",
+   "tid": "opposed_UF_1Nm_s10612"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10613,
+   "sub": "E1-6b",
+   "tid": "opposed_UF_2Nm_s10613"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10614,
+   "sub": "E1-6b",
+   "tid": "opposed_RF_1Nm_s10614"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "opposed",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10615,
+   "sub": "E1-6b",
+   "tid": "opposed_RF_2Nm_s10615"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10620,
+   "sub": "E1-6c",
+   "tid": "twist_nnn_s10620"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10621,
+   "sub": "E1-6c",
+   "tid": "twist_nnp_s10621"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10622,
+   "sub": "E1-6c",
+   "tid": "twist_npn_s10622"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10623,
+   "sub": "E1-6c",
+   "tid": "twist_npp_s10623"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10624,
+   "sub": "E1-6c",
+   "tid": "twist_pnn_s10624"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10625,
+   "sub": "E1-6c",
+   "tid": "twist_pnp_s10625"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10626,
+   "sub": "E1-6c",
+   "tid": "twist_ppn_s10626"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6",
+   "kind": "twist",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10627,
+   "sub": "E1-6c",
+   "tid": "twist_ppp_s10627"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10640,
+   "sub": "E1-6t",
+   "tid": "std_nnn_pos_s10640"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10641,
+   "sub": "E1-6t",
+   "tid": "std_nnn_neg_s10641"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10642,
+   "sub": "E1-6t",
+   "tid": "std_nnp_pos_s10642"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10643,
+   "sub": "E1-6t",
+   "tid": "std_nnp_neg_s10643"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10644,
+   "sub": "E1-6t",
+   "tid": "std_npn_pos_s10644"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10645,
+   "sub": "E1-6t",
+   "tid": "std_npn_neg_s10645"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10646,
+   "sub": "E1-6t",
+   "tid": "std_npp_pos_s10646"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10647,
+   "sub": "E1-6t",
+   "tid": "std_npp_neg_s10647"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10648,
+   "sub": "E1-6t",
+   "tid": "std_pnn_pos_s10648"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10649,
+   "sub": "E1-6t",
+   "tid": "std_pnn_neg_s10649"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10650,
+   "sub": "E1-6t",
+   "tid": "std_pnp_pos_s10650"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10651,
+   "sub": "E1-6t",
+   "tid": "std_pnp_neg_s10651"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10652,
+   "sub": "E1-6t",
+   "tid": "std_ppn_pos_s10652"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10653,
+   "sub": "E1-6t",
+   "tid": "std_ppn_neg_s10653"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10654,
+   "sub": "E1-6t",
+   "tid": "std_ppp_pos_s10654"
+  },
+  {
+   "arm": "no_magnets",
+   "exp": "E1-6t",
+   "kind": "twist_std",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10655,
+   "sub": "E1-6t",
+   "tid": "std_ppp_neg_s10655"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "timestep": 0.00025
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "timestep=0.00025__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "timestep": 0.00025
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "timestep=0.00025__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "nominal__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "nominal__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "timestep": 0.00075
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "timestep=0.00075__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "timestep": 0.00075
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "timestep=0.00075__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "iterations": 50
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "iterations=50__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "iterations": 50
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "iterations=50__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "iterations": 200
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "iterations=200__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "iterations": 200
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "iterations=200__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "cubie_friction": [
+     0.1,
+     0.0025,
+     0.0005
+    ],
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "cubie_friction=0.1-0.0025-0.0005__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "cubie_friction": [
+     0.1,
+     0.0025,
+     0.0005
+    ],
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "cubie_friction=0.1-0.0025-0.0005__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "cubie_friction": [
+     0.5,
+     0.0025,
+     0.0005
+    ],
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "cubie_friction=0.5-0.0025-0.0005__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "cubie_friction": [
+     0.5,
+     0.0025,
+     0.0005
+    ],
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "cubie_friction=0.5-0.0025-0.0005__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "cubie_friction": [
+     1.0,
+     0.0025,
+     0.0005
+    ],
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "cubie_friction=1.0-0.0025-0.0005__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "cubie_friction": [
+     1.0,
+     0.0025,
+     0.0005
+    ],
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "cubie_friction=1.0-0.0025-0.0005__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "joint_frictionloss": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "joint_frictionloss=5e-05__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "joint_frictionloss": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "joint_frictionloss=5e-05__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "joint_frictionloss": 0.005
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "joint_frictionloss=0.005__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "joint_frictionloss": 0.005
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "joint_frictionloss=0.005__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "chamfer": 0.001,
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "chamfer=0.001__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "chamfer": 0.001,
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "chamfer=0.001__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "chamfer": 0.002,
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "chamfer=0.002__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "chamfer": 0.002,
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "chamfer=0.002__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 2.5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "gap=2.5e-05__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 2.5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "gap=2.5e-05__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 0.0001
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "gap=0.0001__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 0.0001
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "gap=0.0001__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "grip_force": 10.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "grip_force=10.0__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "grip_force": 10.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "grip_force=10.0__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "grip_force": 30.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "grip_force=30.0__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "grip_force": 30.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "grip_force=30.0__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "grip_force": 50.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "grip_force=50.0__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "grip_force": 50.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "grip_force=50.0__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "misalign_max_deg": 0.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "misalign_max_deg=0.0__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "misalign_max_deg": 0.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "misalign_max_deg=0.0__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "misalign_max_deg": 2.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "misalign_max_deg=2.0__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "misalign_max_deg": 2.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "misalign_max_deg=2.0__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "misalign_max_deg": 5.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "misalign_max_deg=5.0__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "misalign_max_deg": 5.0
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "misalign_max_deg=5.0__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "magnet": "none"
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "magnet=none__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "magnet": "none"
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "magnet=none__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "magnet": "3x1.5_N35"
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "magnet=3x1.5_N35__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "magnet": "3x1.5_N35"
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "magnet=3x1.5_N35__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "magnet": "4x2_N52"
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "magnet=4x2_N52__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "magnet": "4x2_N52"
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "magnet=4x2_N52__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "face_gap_mm": 0.35,
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "face_gap_mm=0.35__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "face_gap_mm": 0.35,
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "face_gap_mm=0.35__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "face_gap_mm": 1.35,
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "face_gap_mm=1.35__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "face_gap_mm": 1.35,
+    "gap": 5e-05
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "face_gap_mm=1.35__sexy6"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "magnet_scale": 0.67
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "magnet_scale=0.67__6move"
+  },
+  {
+   "arm": "magnets",
+   "exp": "E1-7",
+   "kind": "seq",
+   "overrides": {
+    "gap": 5e-05,
+    "magnet_scale": 0.67
+   },
+   "seed": 10000,
+   "sub": "E1-7",
+   "tid": "magnet_scale=0.67__sexy6"
+  }
+ ]
+}
