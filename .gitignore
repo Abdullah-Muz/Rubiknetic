@@ -72,3 +72,4 @@ desktop.ini
 *.snapshot.*.zip
 third_party_cad/
 experiments/D8_alignment/results/tables/
+experiments/ER5_magnet_validation/tables/
