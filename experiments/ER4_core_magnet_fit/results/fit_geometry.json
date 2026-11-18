@@ -1,0 +1,542 @@
+[
+ {
+  "piece": "Corner Square_7",
+  "kind": "corner",
+  "dir": [
+   1.0,
+   -1.0,
+   1.0
+  ],
+  "core_hits_mm": [
+   7.4914
+  ],
+  "piece_hits_mm": [
+   21.9468,
+   49.0616
+  ],
+  "core_outer_mm": 7.4914,
+  "piece_inner_mm": 21.9468,
+  "gap_mm": 14.455400000000001,
+  "piece_depth_mm": 27.1148,
+  "core_depth_mm": 7.4914,
+  "piece_radius_over_1mm": 0.04282331599374811,
+  "piece_radius_over_2mm": 0.04282331599374811,
+  "piece_radius_over_3mm": 0.04282331599374811,
+  "core_radius_over_1mm": 0.10413945164103144,
+  "core_radius_over_2mm": 0.10413945164103144,
+  "core_radius_over_3mm": 0.10413945164103144
+ },
+ {
+  "piece": "Corner Square_6",
+  "kind": "corner",
+  "dir": [
+   1.0,
+   -1.0,
+   -1.0
+  ],
+  "core_hits_mm": [
+   7.4914
+  ],
+  "piece_hits_mm": [
+   21.9468,
+   49.0616
+  ],
+  "core_outer_mm": 7.4914,
+  "piece_inner_mm": 21.9468,
+  "gap_mm": 14.455400000000001,
+  "piece_depth_mm": 27.1148,
+  "core_depth_mm": 7.4914,
+  "piece_radius_over_1mm": 0.04282331599374811,
+  "piece_radius_over_2mm": 0.04282331599374811,
+  "piece_radius_over_3mm": 0.04282331599374811,
+  "core_radius_over_1mm": 0.10413945164103144,
+  "core_radius_over_2mm": 0.10413945164103144,
+  "core_radius_over_3mm": 0.10413945164103144
+ },
+ {
+  "piece": "Corner Square_5",
+  "kind": "corner",
+  "dir": [
+   -1.0,
+   -1.0,
+   -1.0
+  ],
+  "core_hits_mm": [
+   7.4914
+  ],
+  "piece_hits_mm": [
+   21.9468,
+   49.0616
+  ],
+  "core_outer_mm": 7.4914,
+  "piece_inner_mm": 21.9468,
+  "gap_mm": 14.455400000000001,
+  "piece_depth_mm": 27.1148,
+  "core_depth_mm": 7.4914,
+  "piece_radius_over_1mm": 0.04282331599375011,
+  "piece_radius_over_2mm": 0.04282331599375011,
+  "piece_radius_over_3mm": 0.04282331599375011,
+  "core_radius_over_1mm": 0.10413945164103144,
+  "core_radius_over_2mm": 0.10413945164103144,
+  "core_radius_over_3mm": 0.10413945164103144
+ },
+ {
+  "piece": "Corner Square_4",
+  "kind": "corner",
+  "dir": [
+   -1.0,
+   -1.0,
+   1.0
+  ],
+  "core_hits_mm": [
+   7.4914
+  ],
+  "piece_hits_mm": [
+   21.9468,
+   49.0616
+  ],
+  "core_outer_mm": 7.4914,
+  "piece_inner_mm": 21.9468,
+  "gap_mm": 14.455400000000001,
+  "piece_depth_mm": 27.1148,
+  "core_depth_mm": 7.4914,
+  "piece_radius_over_1mm": 0.04282331599374811,
+  "piece_radius_over_2mm": 0.04282331599374811,
+  "piece_radius_over_3mm": 0.04282331599374811,
+  "core_radius_over_1mm": 0.10413945164103144,
+  "core_radius_over_2mm": 0.10413945164103144,
+  "core_radius_over_3mm": 0.10413945164103144
+ },
+ {
+  "piece": "Edge Square_11",
+  "kind": "edge",
+  "dir": [
+   0.0,
+   -1.0,
+   1.0
+  ],
+  "core_hits_mm": [
+   7.4944
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.4944,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.5427,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.4944,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.042581078073496904,
+  "core_radius_over_2mm": 0.042581078073496904,
+  "core_radius_over_3mm": 0.042581078073496904
+ },
+ {
+  "piece": "Edge Square_10",
+  "kind": "edge",
+  "dir": [
+   1.0,
+   -1.0,
+   0.0
+  ],
+  "core_hits_mm": [
+   7.4910000000000005
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.4910000000000005,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.5461,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.4910000000000005,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.11899183083252053,
+  "core_radius_over_2mm": 0.11899183083252053,
+  "core_radius_over_3mm": 0.11899183083252053
+ },
+ {
+  "piece": "Edge Square_9",
+  "kind": "edge",
+  "dir": [
+   0.0,
+   -1.0,
+   -1.0
+  ],
+  "core_hits_mm": [
+   7.492
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.492,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.5451,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.492,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.2728648777268611,
+  "core_radius_over_2mm": 0.2728648777268611,
+  "core_radius_over_3mm": 0.2728648777268611
+ },
+ {
+  "piece": "Edge Square_8",
+  "kind": "edge",
+  "dir": [
+   -1.0,
+   -1.0,
+   0.0
+  ],
+  "core_hits_mm": [
+   7.4910000000000005
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.4910000000000005,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.5461,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.4910000000000005,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.11899183083252053,
+  "core_radius_over_2mm": 0.11899183083252053,
+  "core_radius_over_3mm": 0.11899183083252053
+ },
+ {
+  "piece": "Corner Square_3",
+  "kind": "corner",
+  "dir": [
+   1.0,
+   1.0,
+   1.0
+  ],
+  "core_hits_mm": [
+   7.4914
+  ],
+  "piece_hits_mm": [
+   21.9468,
+   49.0616
+  ],
+  "core_outer_mm": 7.4914,
+  "piece_inner_mm": 21.9468,
+  "gap_mm": 14.455400000000001,
+  "piece_depth_mm": 27.1148,
+  "core_depth_mm": 7.4914,
+  "piece_radius_over_1mm": 0.04282331599375011,
+  "piece_radius_over_2mm": 0.04282331599375011,
+  "piece_radius_over_3mm": 0.04282331599375011,
+  "core_radius_over_1mm": 0.11040224217976494,
+  "core_radius_over_2mm": 0.11040224217976494,
+  "core_radius_over_3mm": 0.11040224217976494
+ },
+ {
+  "piece": "Corner Square_2",
+  "kind": "corner",
+  "dir": [
+   1.0,
+   1.0,
+   -1.0
+  ],
+  "core_hits_mm": [
+   7.4914
+  ],
+  "piece_hits_mm": [
+   21.9468,
+   49.0616
+  ],
+  "core_outer_mm": 7.4914,
+  "piece_inner_mm": 21.9468,
+  "gap_mm": 14.455400000000001,
+  "piece_depth_mm": 27.1148,
+  "core_depth_mm": 7.4914,
+  "piece_radius_over_1mm": 0.04282331599374811,
+  "piece_radius_over_2mm": 0.04282331599374811,
+  "piece_radius_over_3mm": 0.04282331599374811,
+  "core_radius_over_1mm": 0.11040224217976494,
+  "core_radius_over_2mm": 0.11040224217976494,
+  "core_radius_over_3mm": 0.11040224217976494
+ },
+ {
+  "piece": "Corner Square_1",
+  "kind": "corner",
+  "dir": [
+   -1.0,
+   1.0,
+   -1.0
+  ],
+  "core_hits_mm": [
+   7.4914
+  ],
+  "piece_hits_mm": [
+   21.9468,
+   49.0616
+  ],
+  "core_outer_mm": 7.4914,
+  "piece_inner_mm": 21.9468,
+  "gap_mm": 14.455400000000001,
+  "piece_depth_mm": 27.1148,
+  "core_depth_mm": 7.4914,
+  "piece_radius_over_1mm": 0.04282331599374811,
+  "piece_radius_over_2mm": 0.04282331599374811,
+  "piece_radius_over_3mm": 0.04282331599374811,
+  "core_radius_over_1mm": 0.10413945164103144,
+  "core_radius_over_2mm": 0.10413945164103144,
+  "core_radius_over_3mm": 0.10413945164103144
+ },
+ {
+  "piece": "Corner Square",
+  "kind": "corner",
+  "dir": [
+   -1.0,
+   1.0,
+   1.0
+  ],
+  "core_hits_mm": [
+   7.4914
+  ],
+  "piece_hits_mm": [
+   21.9468,
+   49.0616
+  ],
+  "core_outer_mm": 7.4914,
+  "piece_inner_mm": 21.9468,
+  "gap_mm": 14.455400000000001,
+  "piece_depth_mm": 27.1148,
+  "core_depth_mm": 7.4914,
+  "piece_radius_over_1mm": 0.04282331599374811,
+  "piece_radius_over_2mm": 0.04282331599374811,
+  "piece_radius_over_3mm": 0.04282331599374811,
+  "core_radius_over_1mm": 0.11040224217976494,
+  "core_radius_over_2mm": 0.11040224217976494,
+  "core_radius_over_3mm": 0.11040224217976494
+ },
+ {
+  "piece": "Edge Square_7",
+  "kind": "edge",
+  "dir": [
+   0.0,
+   1.0,
+   -1.0
+  ],
+  "core_hits_mm": [
+   7.492
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.492,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.5451,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.492,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.165010415140035,
+  "core_radius_over_2mm": 0.165010415140035,
+  "core_radius_over_3mm": 0.165010415140035
+ },
+ {
+  "piece": "Edge Square_6",
+  "kind": "edge",
+  "dir": [
+   1.0,
+   1.0,
+   0.0
+  ],
+  "core_hits_mm": [
+   7.4944
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.4944,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.5427,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.4944,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.042581078073497126,
+  "core_radius_over_2mm": 0.042581078073497126,
+  "core_radius_over_3mm": 0.042581078073497126
+ },
+ {
+  "piece": "Edge Square_5",
+  "kind": "edge",
+  "dir": [
+   0.0,
+   1.0,
+   1.0
+  ],
+  "core_hits_mm": [
+   7.4910000000000005
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.4910000000000005,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.5461,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.4910000000000005,
+  "piece_radius_over_1mm": 0.010017687857692007,
+  "piece_radius_over_2mm": 0.010017687857692007,
+  "piece_radius_over_3mm": 0.010017687857692007,
+  "core_radius_over_1mm": 0.11899183083252053,
+  "core_radius_over_2mm": 0.11899183083252053,
+  "core_radius_over_3mm": 0.11899183083252053
+ },
+ {
+  "piece": "Edge Square_4",
+  "kind": "edge",
+  "dir": [
+   -1.0,
+   1.0,
+   0.0
+  ],
+  "core_hits_mm": [
+   7.4944
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.4944,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.5427,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.4944,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.042581078073487384,
+  "core_radius_over_2mm": 0.042581078073487384,
+  "core_radius_over_3mm": 0.042581078073487384
+ },
+ {
+  "piece": "Edge Square_3",
+  "kind": "edge",
+  "dir": [
+   1.0,
+   0.0,
+   1.0
+  ],
+  "core_hits_mm": [
+   7.4918
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.4918,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.545300000000001,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.4918,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.009966958938410594,
+  "core_radius_over_2mm": 0.009966958938410594,
+  "core_radius_over_3mm": 0.009966958938410594
+ },
+ {
+  "piece": "Edge Square_2",
+  "kind": "edge",
+  "dir": [
+   1.0,
+   0.0,
+   -1.0
+  ],
+  "core_hits_mm": [
+   7.4918
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.4918,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.545300000000001,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.4918,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.009966958938410594,
+  "core_radius_over_2mm": 0.009966958938410594,
+  "core_radius_over_3mm": 0.009966958938410594
+ },
+ {
+  "piece": "Edge Square_1",
+  "kind": "edge",
+  "dir": [
+   -1.0,
+   0.0,
+   -1.0
+  ],
+  "core_hits_mm": [
+   7.4918
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.4918,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.545300000000001,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.4918,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.009966958938410594,
+  "core_radius_over_2mm": 0.009966958938410594,
+  "core_radius_over_3mm": 0.009966958938410594
+ },
+ {
+  "piece": "Edge Square",
+  "kind": "edge",
+  "dir": [
+   -1.0,
+   0.0,
+   1.0
+  ],
+  "core_hits_mm": [
+   7.4918
+  ],
+  "piece_hits_mm": [
+   22.0371,
+   40.2444
+  ],
+  "core_outer_mm": 7.4918,
+  "piece_inner_mm": 22.0371,
+  "gap_mm": 14.545300000000001,
+  "piece_depth_mm": 18.2073,
+  "core_depth_mm": 7.4918,
+  "piece_radius_over_1mm": 0.010017687857693233,
+  "piece_radius_over_2mm": 0.010017687857693233,
+  "piece_radius_over_3mm": 0.010017687857693233,
+  "core_radius_over_1mm": 0.009966958938410594,
+  "core_radius_over_2mm": 0.009966958938410594,
+  "core_radius_over_3mm": 0.009966958938410594
+ }
+]

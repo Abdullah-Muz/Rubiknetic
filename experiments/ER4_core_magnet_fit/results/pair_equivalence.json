@@ -1,0 +1,110 @@
+[
+ {
+  "magnet": "4x2 N35 (Br 1.19 T)",
+  "kind": "edge",
+  "clearance_mm": 0.1,
+  "face_separation_mm": 0.9000000000000001,
+  "stiffness_mNm_per_rad": 310.60436995302774,
+  "target_mNm_per_rad": 522.0,
+  "ratio_to_target": 0.595027528645647
+ },
+ {
+  "magnet": "4x2 N35 (Br 1.19 T)",
+  "kind": "edge",
+  "clearance_mm": 0.2,
+  "face_separation_mm": 1.0,
+  "stiffness_mNm_per_rad": 280.28887881340177,
+  "target_mNm_per_rad": 522.0,
+  "ratio_to_target": 0.5369518751214594
+ },
+ {
+  "magnet": "4x2 N35 (Br 1.19 T)",
+  "kind": "edge",
+  "clearance_mm": 0.3,
+  "face_separation_mm": 1.1,
+  "stiffness_mNm_per_rad": 253.41674861949116,
+  "target_mNm_per_rad": 522.0,
+  "ratio_to_target": 0.4854726985047723
+ },
+ {
+  "magnet": "4x2 N35 (Br 1.19 T)",
+  "kind": "corner",
+  "clearance_mm": 0.1,
+  "face_separation_mm": 0.9000000000000001,
+  "stiffness_mNm_per_rad": 308.02951839975213,
+  "target_mNm_per_rad": 743.0,
+  "ratio_to_target": 0.41457539488526535
+ },
+ {
+  "magnet": "4x2 N35 (Br 1.19 T)",
+  "kind": "corner",
+  "clearance_mm": 0.2,
+  "face_separation_mm": 1.0,
+  "stiffness_mNm_per_rad": 277.96266643700676,
+  "target_mNm_per_rad": 743.0,
+  "ratio_to_target": 0.3741085685558637
+ },
+ {
+  "magnet": "4x2 N35 (Br 1.19 T)",
+  "kind": "corner",
+  "clearance_mm": 0.3,
+  "face_separation_mm": 1.1,
+  "stiffness_mNm_per_rad": 251.3111618308181,
+  "target_mNm_per_rad": 743.0,
+  "ratio_to_target": 0.33823844122586555
+ },
+ {
+  "magnet": "4x2 N52 (Br 1.455 T)",
+  "kind": "edge",
+  "clearance_mm": 0.1,
+  "face_separation_mm": 0.9000000000000001,
+  "stiffness_mNm_per_rad": 464.34377254424163,
+  "target_mNm_per_rad": 522.0,
+  "ratio_to_target": 0.8895474569813058
+ },
+ {
+  "magnet": "4x2 N52 (Br 1.455 T)",
+  "kind": "edge",
+  "clearance_mm": 0.2,
+  "face_separation_mm": 1.0,
+  "stiffness_mNm_per_rad": 419.02306593461503,
+  "target_mNm_per_rad": 522.0,
+  "ratio_to_target": 0.8027261799513697
+ },
+ {
+  "magnet": "4x2 N52 (Br 1.455 T)",
+  "kind": "edge",
+  "clearance_mm": 0.3,
+  "face_separation_mm": 1.1,
+  "stiffness_mNm_per_rad": 378.8500757335204,
+  "target_mNm_per_rad": 522.0,
+  "ratio_to_target": 0.7257664286082766
+ },
+ {
+  "magnet": "4x2 N52 (Br 1.455 T)",
+  "kind": "corner",
+  "clearance_mm": 0.1,
+  "face_separation_mm": 0.9000000000000001,
+  "stiffness_mNm_per_rad": 460.49445038509,
+  "target_mNm_per_rad": 743.0,
+  "ratio_to_target": 0.6197771875976985
+ },
+ {
+  "magnet": "4x2 N52 (Br 1.455 T)",
+  "kind": "corner",
+  "clearance_mm": 0.2,
+  "face_separation_mm": 1.0,
+  "stiffness_mNm_per_rad": 415.5454515315825,
+  "target_mNm_per_rad": 743.0,
+  "ratio_to_target": 0.5592805538783076
+ },
+ {
+  "magnet": "4x2 N52 (Br 1.455 T)",
+  "kind": "corner",
+  "clearance_mm": 0.3,
+  "face_separation_mm": 1.1,
+  "stiffness_mNm_per_rad": 375.70228965111716,
+  "target_mNm_per_rad": 743.0,
+  "ratio_to_target": 0.5056558407148279
+ }
+]
