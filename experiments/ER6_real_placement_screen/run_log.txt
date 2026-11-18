@@ -1,0 +1,29 @@
+self-checks: {"S1": {"rel_diff": 0.0, "pass": true}, "S2": {"pass": true}, "S3": {"min_clearance_mm": -1.4980196316292829, "worst": {"clearance_mm": -1.4980196316292829, "face": "U", "deg": -45, "pair": ["cubie_n0p", "core"]}, "pass": true}, "S4": {"coaxial_mm": 1.0, "side_mm": 0.5000000000000004, "pass": true}}
+  screened N35 c=0.1mm
+  screened N35 c=0.2mm
+  screened N35 c=0.3mm
+  screened N42 c=0.1mm
+  screened N42 c=0.2mm
+  screened N42 c=0.3mm
+  screened N52 c=0.1mm
+  screened N52 c=0.2mm
+  screened N52 c=0.3mm
+
+| variant | edge spin / slide / cross (mN m/rad) | corner twist / tangential | min eig | layer N m/rad | U-turn peak N m | screen | margin | derated /1.5: slide / cross / tang, layer, layer >= 1 |
+|---|---|---|---|---|---|---|---|---|
+| N35 c=0.1mm | -0 / +420 / +413 | +0 / +411 | -0 | +1.920 | 0.131 | PASS | +0.010 | +280 / +275 / +274, 1.280, True |
+| N35 c=0.2mm | -0 / +377 / +370 | +0 / +369 | -0 | +1.722 | 0.121 | PASS | +0.010 | +251 / +247 / +246, 1.148, True |
+| N35 c=0.3mm | -0 / +339 / +333 | +0 / +331 | -0 | +1.547 | 0.112 | PASS | +0.010 | +226 / +222 / +221, 1.031, True |
+| N42 c=0.1mm | -0 / +501 / +493 | +0 / +490 | -0 | +2.292 | 0.157 | PASS | +0.010 | +334 / +329 / +327, 1.528, True |
+| N42 c=0.2mm | -0 / +450 / +442 | +0 / +440 | -0 | +2.056 | 0.145 | PASS | +0.010 | +300 / +295 / +293, 1.370, True |
+| N42 c=0.3mm | -0 / +404 / +397 | +0 / +395 | -0 | +1.846 | 0.134 | PASS | +0.010 | +270 / +265 / +263, 1.230, True |
+| N52 c=0.1mm | -0 / +627 / +617 | +0 / +614 | -0 | +2.871 | 0.197 | PASS | +0.010 | +418 / +412 / +409, 1.914, True |
+| N52 c=0.2mm | -0 / +563 / +554 | +0 / +551 | -0 | +2.575 | 0.181 | PASS | +0.010 | +376 / +369 / +367, 1.717, True |
+| N52 c=0.3mm | -0 / +507 / +497 | +0 / +495 | -0 | +2.312 | 0.168 | PASS | +0.010 | +338 / +332 / +330, 1.541, True |
+| B1 core sigma=2 (ER3, reference) | 0 / +522 / +490 | 0 / +743 | | +3.01 | 0.285 | | | |
+
+| clearance c | min magnet clearance over all face turns (mm) | worst pair, pose | pairs checked | sweep |
+|---|---|---|---|---|
+| 0.1 mm | 0.782 | ['cubie_nnp', 'core'] at U -45 deg | 16344 | PASS |
+| 0.2 mm | 0.881 | ['cubie_nnp', 'core'] at U -45 deg | 16008 | PASS |
+| 0.3 mm | 0.979 | ['cubie_nnp', 'core'] at U -45 deg | 15720 | PASS |
