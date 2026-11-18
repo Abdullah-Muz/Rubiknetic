@@ -1,0 +1,14 @@
+A0   s10001  peak 0.560293 deg    wall 42 s
+A1   s10000  peak 0.550254 deg  single-cubie  wall 83 s
+A1   s10001  peak 0.507512 deg  mixed  wall 84 s
+A0   s10000  peak 0.497920 deg    wall 43 s
+A0i  s10001  peak 0.560293 deg  single-cubie  wall 42 s
+A3   s10001  peak 0.560293 deg  single-cubie  wall 41 s
+A0i  s10000  peak 0.497920 deg  single-cubie  wall 42 s
+A4   s10000  peak 0.228631 deg  single-cubie  wall 11 s
+A4   s10001  peak 0.323579 deg  mixed  wall 12 s
+A2   s10000  peak 0.567226 deg  single-cubie  wall 162 s
+A2   s10001  peak 0.124753 deg  single-cubie  wall 163 s
+A3   s10000  peak 0.497920 deg  single-cubie  wall 40 s
+A5   s10001  peak 0.560293 deg  single-cubie  wall 229 s
+A5   s10000  peak 0.497920 deg  single-cubie  wall 244 s

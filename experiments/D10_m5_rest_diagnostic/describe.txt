@@ -1,0 +1,58 @@
+A0i s10001: peak 0.560 deg, face U, cubie_nnp, t 3.875 s, layer mean -0.078, label single-cubie
+   fast event: 6 x 25 ms samples with |step| > 0.01 deg, 3.725-3.875 s, largest step -0.250 deg; KE peak 1.98e-06 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [-0.028, -0.06, -0.56, -0.547, -0.533, -0.523]
+   KE first/last 1.64e-12 / 1.48e-13 J; solver max iter 13 (limit hits 0)
+   magnet net |F| t0: corners 2.61-2.94 N, all-body median 0.32 N; peak cubie |torque| 11.7 mN m (rank 2 of 20; median 1.5)
+A0i s10000: peak 0.498 deg, face U, cubie_npp, t 0.275 s, layer mean +0.045, label single-cubie
+   fast event: 4 x 25 ms samples with |step| > 0.01 deg, 0.200-0.300 s, largest step +0.396 deg; KE peak 2.12e-06 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [0.467, 0.464, 0.457, 0.452, 0.448, 0.445]
+   KE first/last 1.21e-11 / 1.93e-13 J; solver max iter 15 (limit hits 0)
+   magnet net |F| t0: corners 2.31-2.94 N, all-body median 0.28 N; peak cubie |torque| 8.8 mN m (rank 3 of 20; median 2.1)
+A1 s10001: peak 0.508 deg, face U, cubie_nnp, t 2.475 s, layer mean +0.108, label mixed
+   fast event: 5 x 25 ms samples with |step| > 0.01 deg, 2.250-2.375 s, largest step +0.163 deg; KE peak 1.25e-07 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [0.047, 0.089, 0.501, 0.49, 0.481, 0.473]
+   KE first/last 1.06e-11 / 1.08e-13 J; solver max iter 11 (limit hits 0)
+   magnet net |F| t0: corners 2.57-2.94 N, all-body median 0.29 N; peak cubie |torque| 10.5 mN m (rank 2 of 20; median 1.7)
+A1 s10000: peak 0.550 deg, face U, cubie_npp, t 2.200 s, layer mean -0.060, label single-cubie
+   fast event: 4 x 25 ms samples with |step| > 0.01 deg, 1.500-1.600 s, largest step -0.286 deg; KE peak 8.29e-08 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [-0.043, -0.55, -0.546, -0.542, -0.54, -0.539]
+   KE first/last 3.89e-12 / 3.34e-13 J; solver max iter 12 (limit hits 0)
+   magnet net |F| t0: corners 2.30-2.94 N, all-body median 0.29 N; peak cubie |torque| 9.0 mN m (rank 3 of 20; median 1.9)
+A2 s10001: peak 0.125 deg, face U, cubie_n0p, t 10.000 s, layer mean +0.015, label single-cubie
+   no fast event (no 25 ms step > 0.01 deg); KE peak 4.20e-11 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [0.015, 0.018, 0.021, 0.028, 0.049, 0.125]
+   KE first/last 1.93e-12 / 1.58e-12 J; solver max iter 7 (limit hits 0)
+   magnet net |F| t0: corners 2.60-2.94 N, all-body median 0.32 N; peak cubie |torque| 13.0 mN m (rank 1 of 20; median 1.5)
+A2 s10000: peak 0.567 deg, face U, cubie_npp, t 4.450 s, layer mean -0.061, label single-cubie
+   fast event: 4 x 25 ms samples with |step| > 0.01 deg, 3.575-3.675 s, largest step -0.189 deg; KE peak 3.85e-07 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [-0.03, -0.063, -0.566, -0.564, -0.558, -0.555]
+   KE first/last 2.92e-12 / 3.35e-13 J; solver max iter 13 (limit hits 0)
+   magnet net |F| t0: corners 2.30-2.94 N, all-body median 0.30 N; peak cubie |torque| 8.9 mN m (rank 3 of 20; median 1.9)
+A3 s10001: peak 0.560 deg, face U, cubie_nnp, t 3.875 s, layer mean -0.078, label single-cubie
+   fast event: 6 x 25 ms samples with |step| > 0.01 deg, 3.725-3.875 s, largest step -0.250 deg; KE peak 1.98e-06 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [-0.028, -0.06, -0.56, -0.547, -0.533, -0.523]
+   KE first/last 1.64e-12 / 1.48e-13 J; solver max iter 13 (limit hits 0)
+   magnet net |F| t0: corners 2.61-2.94 N, all-body median 0.32 N; peak cubie |torque| 11.7 mN m (rank 2 of 20; median 1.5)
+A3 s10000: peak 0.498 deg, face U, cubie_npp, t 0.275 s, layer mean +0.045, label single-cubie
+   fast event: 4 x 25 ms samples with |step| > 0.01 deg, 0.200-0.300 s, largest step +0.396 deg; KE peak 2.12e-06 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [0.467, 0.464, 0.457, 0.452, 0.448, 0.445]
+   KE first/last 1.21e-11 / 1.93e-13 J; solver max iter 15 (limit hits 0)
+   magnet net |F| t0: corners 2.31-2.94 N, all-body median 0.28 N; peak cubie |torque| 8.8 mN m (rank 3 of 20; median 2.1)
+A4 s10001: peak 0.324 deg, face R, cubie_p0p, t 7.200 s, layer mean -0.068, label mixed
+   no fast event (no 25 ms step > 0.01 deg); KE peak 5.87e-11 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [-0.031, -0.065, -0.152, -0.273, -0.324, -0.323]
+   KE first/last 5.71e-11 / 3.48e-16 J; solver max iter 4 (limit hits 0)
+A4 s10000: peak 0.229 deg, face F, cubie_0np, t 10.000 s, layer mean +0.035, label single-cubie
+   no fast event (no 25 ms step > 0.01 deg); KE peak 1.59e-11 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [0.021, 0.044, 0.103, 0.184, 0.22, 0.229]
+   KE first/last 1.26e-11 / 7.63e-16 J; solver max iter 4 (limit hits 0)
+A5 s10001: peak 0.560 deg, face U, cubie_nnp, t 3.875 s, layer mean -0.078, label single-cubie
+   fast event: 6 x 25 ms samples with |step| > 0.01 deg, 3.725-3.875 s, largest step -0.250 deg; KE peak 1.98e-06 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [-0.028, -0.06, -0.56, -0.547, -0.533, -0.523, -0.475, -0.46]
+   KE first/last 1.64e-12 / 8.82e-17 J; solver max iter 13 (limit hits 0)
+   magnet net |F| t0: corners 2.61-2.94 N, all-body median 0.32 N; peak cubie |torque| 11.7 mN m (rank 2 of 20; median 1.5)
+A5 s10000: peak 0.498 deg, face U, cubie_npp, t 0.275 s, layer mean +0.045, label single-cubie
+   fast event: 4 x 25 ms samples with |step| > 0.01 deg, 0.200-0.300 s, largest step +0.396 deg; KE peak 2.12e-06 J
+   signed rotation at 1,2,4,6,8,10[,30,60] s: [0.467, 0.464, 0.457, 0.452, 0.448, 0.445, 0.408, 0.396]
+   KE first/last 1.21e-11 / 5.19e-12 J; solver max iter 15 (limit hits 0)
+   magnet net |F| t0: corners 2.31-2.94 N, all-body median 0.28 N; peak cubie |torque| 8.8 mN m (rank 3 of 20; median 2.1)
