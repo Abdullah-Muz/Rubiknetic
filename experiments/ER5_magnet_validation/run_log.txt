@@ -1,0 +1,22 @@
+== 4x3_N35 (moment x1.500 of 4x2 N35; wall 4523.1 s)
+  V1 worst rel err 3.6e-15  pass True
+  V3a pair worst F 0.0082, T 2.99e-05/7.88e-05  pass True
+  V3b validated tilt 7.5 deg  pass True  (by angle: {2.0: True, 5.0: True, 7.5: True, 10.0: False})
+  V3c whole cube (L0 layout, reported only): [(0.0, 0.0031), (2.0, 0.0032), (20.0, 0.0032)]
+  V3-turn B1   edge  : worst F 1.8635, T 6.84e-04/1.58e-04; passes 48/91 deg, first fail 22; max near tilt 30.3 deg; near-perpendicular 0  pass False
+  V3-turn B1   corner: worst F 0.0177, T 9.54e-05/5.23e-05; passes 69/91 deg, first fail 10; max near tilt 24.4 deg; near-perpendicular 0  pass False
+  V3-turn real edge  : worst F 0.0146, T 4.10e-05/4.97e-05; passes 91/91 deg, first fail None; max near tilt 18.1 deg; near-perpendicular 0  pass True
+  V3-turn real corner: worst F 0.0138, T 4.35e-05/5.51e-05; passes 91/91 deg, first fail None; max near tilt 18.1 deg; near-perpendicular 0  pass True
+  V4 worst 2.7e-15  pass True
+  VALIDATED FOR CORE LAYOUT: False
+== 5x2_N35 (moment x1.562 of 4x2 N35; wall 4694.1 s)
+  V1 worst rel err 1.9e-13  pass True
+  V3a pair worst F 0.0346, T 1.76e-04/7.78e-05  pass False
+  V3b validated tilt 5.0 deg  pass True  (by angle: {2.0: True, 5.0: True, 7.5: False, 10.0: False})
+  V3c whole cube (L0 layout, reported only): [(0.0, 0.0023), (2.0, 0.0037), (20.0, 0.0052)]
+  V3-turn B1   edge  : worst F 3.3588, T 9.00e-03/4.08e-04; passes 36/91 deg, first fail 18; max near tilt 32.1 deg; near-perpendicular 0  pass False
+  V3-turn B1   corner: worst F 0.3295, T 2.96e-04/4.53e-05; passes 14/91 deg, first fail 7; max near tilt 26.0 deg; near-perpendicular 0  pass False
+  V3-turn real edge  : worst F 0.0456, T 1.00e-04/4.31e-05; passes 42/91 deg, first fail 12; max near tilt 19.3 deg; near-perpendicular 0  pass False
+  V3-turn real corner: worst F 0.0443, T 2.00e-04/5.13e-05; passes 32/91 deg, first fail 10; max near tilt 19.5 deg; near-perpendicular 0  pass False
+  V4 worst 3.7e-15  pass True
+  VALIDATED FOR CORE LAYOUT: False
