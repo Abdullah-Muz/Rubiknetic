@@ -1,0 +1,12 @@
+{
+ "commit": "0495421c4bdb642af0df626570545cdc97c0a6de",
+ "tracked_changes": [
+  " M experiments/ER2_layout_probe/er2_static.py"
+ ],
+ "mujoco": "4.0.1",
+ "numpy": "2.5.4",
+ "scipy": "1.18.1",
+ "python": "3.12.3",
+ "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+ "cpu": "x86_64"
+}

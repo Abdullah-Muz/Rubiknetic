@@ -37,6 +37,10 @@ KIND = {n: {1: "centre", 2: "edge", 3: "corner"}[int(np.count_nonzero(h))] for n
 def pair_magnets(a: int, b: int, pitch: float, gap: float, repel: bool) -> list[dict]:
     """One magnet in each of two face-adjacent pieces, on the shared face centres (magnets.layout's placement)."""
     h = (pitch - gap) / 2
+    # polarity convention of magnets.layout: moments point from the piece with more non-zero coordinates (corner)
+    # toward the one with fewer (edge); edge-centre pairs follow the same rule (edge -> centre)
+    if np.count_nonzero(HOMES[a]) < np.count_nonzero(HOMES[b]):
+        a, b = b, a
     ca, cb = HOMES[a].astype(float), HOMES[b].astype(float)
     e = cb - ca
     depth = h - MP.wall - MP.length / 2
