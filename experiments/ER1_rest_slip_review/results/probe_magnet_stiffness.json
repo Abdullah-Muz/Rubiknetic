@@ -1,0 +1,329 @@
+{
+ "env": {
+  "commit": "626249850578032e9d42509ea422cd3d6511a4ff",
+  "tracked_changes": [],
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "x86_64"
+ },
+ "aligned_torque_mNm": {
+  "cubie_nnn": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_nn0": [
+   1.0408340855860843e-14,
+   -1.0408340855860843e-14,
+   0.0
+  ],
+  "cubie_nnp": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_n0n": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_n0p": [
+   3.469446951953614e-15,
+   0.0,
+   3.469446951953614e-15
+  ],
+  "cubie_npn": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_np0": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_npp": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_0nn": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_0np": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_0pn": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_0pp": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_pnn": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_pn0": [
+   3.469446951953614e-15,
+   3.469446951953614e-15,
+   0.0
+  ],
+  "cubie_pnp": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_p0n": [
+   3.469446951953614e-15,
+   0.0,
+   3.469446951953614e-15
+  ],
+  "cubie_p0p": [
+   -3.469446951953614e-15,
+   0.0,
+   3.469446951953614e-15
+  ],
+  "cubie_ppn": [
+   0.0,
+   0.0,
+   0.0
+  ],
+  "cubie_pp0": [
+   3.469446951953614e-15,
+   -3.469446951953614e-15,
+   0.0
+  ],
+  "cubie_ppp": [
+   0.0,
+   0.0,
+   0.0
+  ]
+ },
+ "cases": [
+  {
+   "case": "edge n0p",
+   "group": [
+    "cubie_n0p"
+   ],
+   "rows": [
+    {
+     "deg": -0.1,
+     "group_torque_z_mNm": -1.6222652732584968,
+     "energy_J": -1.4141740923359625e-06,
+     "min_dist_mm": 0.00275926080053196
+    },
+    {
+     "deg": -0.05,
+     "group_torque_z_mNm": -0.8098268602461794,
+     "energy_J": -3.5331135748994935e-07,
+     "min_dist_mm": 0.0263758109367903
+    },
+    {
+     "deg": -0.02,
+     "group_torque_z_mNm": -0.32387722695035803,
+     "energy_J": -5.653019810591964e-08,
+     "min_dist_mm": 0.04054921430519249
+    },
+    {
+     "deg": 0.0,
+     "group_torque_z_mNm": 3.469446951953614e-15,
+     "energy_J": 0.0,
+     "min_dist_mm": 0.049999594688415055
+    },
+    {
+     "deg": 0.02,
+     "group_torque_z_mNm": 0.32385321822797974,
+     "energy_J": -5.65273539990252e-08,
+     "min_dist_mm": 0.04054921430519075
+    },
+    {
+     "deg": 0.05,
+     "group_torque_z_mNm": 0.8096930169875436,
+     "energy_J": -3.5327046235544834e-07,
+     "min_dist_mm": 0.0263758109367903
+    },
+    {
+     "deg": 0.1,
+     "group_torque_z_mNm": 1.6218361650838404,
+     "energy_J": -1.4138936222721221e-06,
+     "min_dist_mm": 0.00275926080053196
+    }
+   ],
+   "restoring_stiffness_mNm_per_rad": -929.0371774613344
+  },
+  {
+   "case": "corner nnp",
+   "group": [
+    "cubie_nnp"
+   ],
+   "rows": [
+    {
+     "deg": -0.1,
+     "group_torque_z_mNm": -0.7306313508965643,
+     "energy_J": -6.436296749318116e-07,
+     "min_dist_mm": 0.0027592608005335777
+    },
+    {
+     "deg": -0.05,
+     "group_torque_z_mNm": -0.37050101698427385,
+     "energy_J": -1.6269152031123113e-07,
+     "min_dist_mm": 0.02637581093679028
+    },
+    {
+     "deg": -0.02,
+     "group_torque_z_mNm": -0.1499303034868428,
+     "energy_J": -2.6244286431553743e-08,
+     "min_dist_mm": 0.04054921430519375
+    },
+    {
+     "deg": 0.0,
+     "group_torque_z_mNm": 0.0,
+     "energy_J": 0.0,
+     "min_dist_mm": 0.049999594688415055
+    },
+    {
+     "deg": 0.02,
+     "group_torque_z_mNm": 0.14993030348683933,
+     "energy_J": -2.6244286431553743e-08,
+     "min_dist_mm": 0.04054921430519375
+    },
+    {
+     "deg": 0.05,
+     "group_torque_z_mNm": 0.3705010169842704,
+     "energy_J": -1.6269152031123113e-07,
+     "min_dist_mm": 0.02637581093679028
+    },
+    {
+     "deg": 0.1,
+     "group_torque_z_mNm": 0.7306313508965643,
+     "energy_J": -6.436296749318116e-07,
+     "min_dist_mm": 0.0027592608005335777
+    }
+   ],
+   "restoring_stiffness_mNm_per_rad": -420.1103860290633
+  },
+  {
+   "case": "pair nnp + n0p",
+   "group": [
+    "cubie_nnp",
+    "cubie_n0p"
+   ],
+   "rows": [
+    {
+     "deg": -0.1,
+     "group_torque_z_mNm": -0.7327874260822029,
+     "energy_J": -6.458505432474504e-07,
+     "min_dist_mm": 0.00275926080053196
+    },
+    {
+     "deg": -0.05,
+     "group_torque_z_mNm": -0.3718707810306393,
+     "energy_J": -1.633294743133562e-07,
+     "min_dist_mm": 0.0263758109367903
+    },
+    {
+     "deg": -0.02,
+     "group_torque_z_mNm": -0.1505444313483935,
+     "energy_J": -2.6353961311842422e-08,
+     "min_dist_mm": 0.04054921430519249
+    },
+    {
+     "deg": 0.0,
+     "group_torque_z_mNm": 3.469446951953614e-15,
+     "energy_J": 0.0,
+     "min_dist_mm": 0.049999594688415055
+    },
+    {
+     "deg": 0.02,
+     "group_torque_z_mNm": 0.15052042262585566,
+     "energy_J": -2.6351117204947982e-08,
+     "min_dist_mm": 0.04054921430519375
+    },
+    {
+     "deg": 0.05,
+     "group_torque_z_mNm": 0.3717369377719514,
+     "energy_J": -1.632885791719163e-07,
+     "min_dist_mm": 0.02637581093679028
+    },
+    {
+     "deg": 0.1,
+     "group_torque_z_mNm": 0.732358317907418,
+     "energy_J": -6.4557007318361e-07,
+     "min_dist_mm": 0.0027592608005335777
+    }
+   ],
+   "restoring_stiffness_mNm_per_rad": -421.31553701945495
+  },
+  {
+   "case": "whole U layer",
+   "group": [
+    "cubie_nnp",
+    "cubie_n0p",
+    "cubie_npp",
+    "cubie_0np",
+    "cubie_00p",
+    "cubie_0pp",
+    "cubie_pnp",
+    "cubie_p0p",
+    "cubie_ppp"
+   ],
+   "rows": [
+    {
+     "deg": -0.1,
+     "group_torque_z_mNm": 3.5592616831534656,
+     "energy_J": 3.0744726632753183e-06,
+     "min_dist_mm": null
+    },
+    {
+     "deg": -0.05,
+     "group_torque_z_mNm": 1.7524995609688072,
+     "energy_J": 7.602221705760304e-07,
+     "min_dist_mm": null
+    },
+    {
+     "deg": -0.02,
+     "group_torque_z_mNm": 0.6936012908951503,
+     "energy_J": 1.207520901602699e-07,
+     "min_dist_mm": null
+    },
+    {
+     "deg": 0.0,
+     "group_torque_z_mNm": 6.938893903907228e-15,
+     "energy_J": 0.0,
+     "min_dist_mm": null
+    },
+    {
+     "deg": 0.02,
+     "group_torque_z_mNm": -0.6936012908951572,
+     "energy_J": 1.207520901602699e-07,
+     "min_dist_mm": null
+    },
+    {
+     "deg": 0.05,
+     "group_torque_z_mNm": -1.7524995609688245,
+     "energy_J": 7.602221705899082e-07,
+     "min_dist_mm": null
+    },
+    {
+     "deg": 0.1,
+     "group_torque_z_mNm": -3.5592616831534656,
+     "energy_J": 3.0744726632753183e-06,
+     "min_dist_mm": null
+    }
+   ],
+   "restoring_stiffness_mNm_per_rad": 2031.6602494183585
+  }
+ ]
+}

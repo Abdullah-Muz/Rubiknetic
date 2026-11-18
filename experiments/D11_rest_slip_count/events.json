@@ -1,0 +1,42 @@
+[
+ {
+  "cubie": "cubie_npp",
+  "t_start_s": 0.07499999999999449,
+  "t_end_s": 0.4499999999999532,
+  "size_deg": 0.4934347822307893,
+  "type": "corner",
+  "torque_mNm": 8.766348737014576,
+  "torque_rank": 3,
+  "seed": 10000
+ },
+ {
+  "cubie": "cubie_n0p",
+  "t_start_s": 0.09999999999999173,
+  "t_end_s": 0.47499999999995046,
+  "size_deg": 0.269247935942049,
+  "type": "edge",
+  "torque_mNm": 10.19661511388693,
+  "torque_rank": 2,
+  "seed": 10000
+ },
+ {
+  "cubie": "cubie_nnp",
+  "t_start_s": 3.650000000000422,
+  "t_end_s": 4.025000000000214,
+  "size_deg": 0.43515933019762537,
+  "type": "corner",
+  "torque_mNm": 11.712920782086877,
+  "torque_rank": 2,
+  "seed": 10001
+ },
+ {
+  "cubie": "cubie_n0p",
+  "t_start_s": 3.650000000000422,
+  "t_end_s": 4.025000000000214,
+  "size_deg": 0.4254680921287532,
+  "type": "edge",
+  "torque_mNm": 11.226102912707734,
+  "torque_rank": 3,
+  "seed": 10001
+ }
+]

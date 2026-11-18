@@ -1,0 +1,168 @@
+{
+ "env": {
+  "commit": "626249850578032e9d42509ea422cd3d6511a4ff",
+  "tracked_changes": [],
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "x86_64"
+ },
+ "gap_m": 5e-05,
+ "chamfer_m": 0.0014,
+ "cases": [
+  {
+   "case": "corner nnp alone, about U (z)",
+   "group": [
+    "cubie_nnp"
+   ],
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "free_deg_pos": 0.10584279593331303,
+   "blocking_pair_pos": [
+    "cubie_nnp",
+    "cubie_0np"
+   ],
+   "free_deg_neg": 0.10584279593331303,
+   "blocking_pair_neg": [
+    "cubie_nnp",
+    "cubie_n0p"
+   ]
+  },
+  {
+   "case": "edge n0p alone, about U (z)",
+   "group": [
+    "cubie_n0p"
+   ],
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "free_deg_pos": 0.10584279593331303,
+   "blocking_pair_pos": [
+    "cubie_n0p",
+    "cubie_nnp"
+   ],
+   "free_deg_neg": 0.10584279593331303,
+   "blocking_pair_neg": [
+    "cubie_n0p",
+    "cubie_npp"
+   ]
+  },
+  {
+   "case": "pair nnp + n0p, about U (z)",
+   "group": [
+    "cubie_nnp",
+    "cubie_n0p"
+   ],
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "free_deg_pos": 0.10584279593331303,
+   "blocking_pair_pos": [
+    "cubie_nnp",
+    "cubie_0np"
+   ],
+   "free_deg_neg": 0.10584279593331303,
+   "blocking_pair_neg": [
+    "cubie_n0p",
+    "cubie_npp"
+   ]
+  },
+  {
+   "case": "row nnp + n0p + npp, about U (z)",
+   "group": [
+    "cubie_nnp",
+    "cubie_n0p",
+    "cubie_npp"
+   ],
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "free_deg_pos": 0.10584279593331303,
+   "blocking_pair_pos": [
+    "cubie_nnp",
+    "cubie_0np"
+   ],
+   "free_deg_neg": 0.10584279593331303,
+   "blocking_pair_neg": [
+    "cubie_npp",
+    "cubie_0pp"
+   ]
+  },
+  {
+   "case": "corner nnp alone, twist about its diagonal",
+   "group": [
+    "cubie_nnp"
+   ],
+   "axis": [
+    -1,
+    -1,
+    1
+   ],
+   "free_deg_pos": 0.30780120368490316,
+   "blocking_pair_pos": [
+    "cubie_nnp",
+    "cubie_nn0"
+   ],
+   "free_deg_neg": 0.30780120368490316,
+   "blocking_pair_neg": [
+    "cubie_nnp",
+    "cubie_nn0"
+   ]
+  },
+  {
+   "case": "corner nnp alone, about L (x)",
+   "group": [
+    "cubie_nnp"
+   ],
+   "axis": [
+    1,
+    0,
+    0
+   ],
+   "free_deg_pos": 0.10584279593331303,
+   "blocking_pair_pos": [
+    "cubie_nnp",
+    "cubie_nn0"
+   ],
+   "free_deg_neg": 0.10584279593331303,
+   "blocking_pair_neg": [
+    "cubie_nnp",
+    "cubie_n0p"
+   ]
+  },
+  {
+   "case": "whole U layer, about U (z)",
+   "group": [
+    "cubie_nnp",
+    "cubie_n0p",
+    "cubie_npp",
+    "cubie_0np",
+    "cubie_00p",
+    "cubie_0pp",
+    "cubie_pnp",
+    "cubie_p0p",
+    "cubie_ppp"
+   ],
+   "axis": [
+    0,
+    0,
+    1
+   ],
+   "free_deg_pos": 5.0,
+   "blocking_pair_pos": null,
+   "free_deg_neg": 5.0,
+   "blocking_pair_neg": null
+  }
+ ]
+}
