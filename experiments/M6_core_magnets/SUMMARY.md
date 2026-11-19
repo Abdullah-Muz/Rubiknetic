@@ -6,7 +6,7 @@ Raw record: `results/m6_checks.json` and `run_log.txt`. Nothing here selects a m
 NOT PASSED.
 
 ## Fixed verdict
-**M6 CHECKS: NOT ALL PASS.** S1, S2, V4, V5 (RK4) and V6 pass. **The near-pair survey fails** on its "no clamped |z|"
+**M6 CHECKS: NOT ALL PASS.** (Amended by P-60, 2026-11-18: under the amended survey criterion, M6 passes; this fixed verdict stays on record.) S1, S2, V4, V5 (RK4) and V6 pass. **The near-pair survey fails** on its "no clamped |z|"
 criterion. Per the protocol, nothing is used dynamically.
 
 ## Results (`VALIDATED_RESULT` for the checks as defined; `FACT` for the numbers)
