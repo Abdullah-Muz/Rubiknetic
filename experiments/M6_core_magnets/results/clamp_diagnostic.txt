@@ -1,0 +1,13 @@
+('core_corner', 'corner') n 12 deg range -70 70 count of degs 6
+  min|z| 2.842 rho range 6.695 7.341 r range 7.353 7.872 tilt 16.3 17.9
+  sample [(-70, np.float64(3.041), np.float64(6.695), np.float64(7.353), np.float64(16.3)), (-70, np.float64(3.041), np.float64(6.695), np.float64(7.353), np.float64(16.3)), (70, np.float64(3.041), np.float64(6.695), np.float64(7.353), np.float64(16.3)), (70, np.float64(3.041), np.float64(6.695), np.float64(7.353), np.float64(16.3))]
+('core_edge', 'edge') n 12 deg range -67 67 count of degs 6
+  min|z| 2.879 rho range 6.682 7.242 r range 7.345 7.793 tilt 16.2 17.6
+  sample [(-67, np.float64(3.048), np.float64(6.682), np.float64(7.345), np.float64(16.2)), (-67, np.float64(3.048), np.float64(6.682), np.float64(7.345), np.float64(16.2)), (67, np.float64(3.048), np.float64(6.682), np.float64(7.345), np.float64(16.2)), (67, np.float64(3.048), np.float64(6.682), np.float64(7.345), np.float64(16.2))]
+('core_corner', 'edge') n 24 deg range -65 65 count of degs 12
+  min|z| 2.912 rho range 6.918 7.418 r range 7.568 7.969 tilt 16.8 18.1
+  sample [(-65, np.float64(2.912), np.float64(7.418), np.float64(7.969), np.float64(18.1)), (-65, np.float64(2.912), np.float64(7.418), np.float64(7.969), np.float64(18.1)), (65, np.float64(2.912), np.float64(7.418), np.float64(7.969), np.float64(18.1)), (65, np.float64(2.912), np.float64(7.418), np.float64(7.969), np.float64(18.1))]
+('core_edge', 'corner') n 48 deg range -65 65 count of degs 24
+  min|z| 2.736 rho range 6.173 7.39 r range 6.906 7.881 tilt 15.0 18.1
+  sample [(-65, np.float64(2.736), np.float64(7.39), np.float64(7.881), np.float64(18.1)), (-65, np.float64(2.736), np.float64(7.39), np.float64(7.881), np.float64(18.1)), (65, np.float64(2.736), np.float64(7.39), np.float64(7.881), np.float64(18.1)), (65, np.float64(2.736), np.float64(7.39), np.float64(7.881), np.float64(18.1))]
+r1,r2 0.005 0.008
