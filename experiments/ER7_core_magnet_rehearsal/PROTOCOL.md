@@ -76,3 +76,10 @@ and the next step goes back to you.
 
 ## Cost
 About 400 trials, which on M5's record (11,944 s for 440 records) suggests **3–4 h** of wall time.
+
+## Deviations (recorded before the main run)
+1. **S1 comparison, 2026-11-18.** The first self-check run failed S1 on bookkeeping only: in every one of the 10
+   trials the differences were 9 `params` fields held as tuples in memory but stored as lists in M5's JSON, plus
+   (sequence trials) the run-time field `wall_time_s`. No physics field differed. The comparison now uses the record
+   as it would be stored (JSON round-trip) and skips `wall_time_s` with the other run-metadata keys. The first
+   self-check output is kept as `results/selfcheck_run1.json`. S2 passed in that run (layer stiffness difference 0).

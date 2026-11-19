@@ -178,7 +178,7 @@ def path_of(arm: str, job: dict) -> Path:
 
 
 # ---- self-checks -----------------------------------------------------------------------------------------------------
-SKIP_KEYS = {"wall_s", "er7_wall_s", "loadavg_start", "environment", "source_commit", "startup_checks", "scored",
+SKIP_KEYS = {"wall_s", "wall_time_s", "er7_wall_s", "loadavg_start", "environment", "source_commit", "startup_checks", "scored",
              "smoke", "reported_only", "mechanism", "er7_arm", "magnet_table", "rest60", "s4_rest60_matches_scored",
              "er7_flag_outside_regime", "spec", "arm"}
 
@@ -218,7 +218,7 @@ def selfcheck(jobs_n: int) -> dict:
     s1 = []
     for j, r in zip(firsts, recs):
         ref = json.loads((M5_RESULTS / j["exp"] / f"{j['tid']}.json").read_text())
-        d = diff(ref, r)
+        d = diff(ref, json.loads(json.dumps(r, default=list)))   # as stored: tuples become lists (deviation 1)
         s1.append({"exp": j["exp"], "sub": j["sub"], "tid": j["tid"], "n_diffs": len(d), "diffs": d[:10]})
     with mp_.get_context("fork").Pool(1, maxtasksperchild=1) as pool:
         s2 = pool.apply(_s2)
