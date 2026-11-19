@@ -142,3 +142,40 @@ def test_installed_magnets_pass_the_audit_and_a_state_write_is_still_caught(cube
     d.qpos[0] += 1e-3                      # an injected state edit must still be caught with magnets installed
     with pytest.raises(EditAuditError):
         sim.step()
+
+
+# ---- M6 core layout (P-58): structure only; accuracy is ER5 (V3-turn) and the M6 checks -------------------------
+def test_core_layout_is_20_coaxial_attracting_core_pairs():
+    mp = M.MagnetParams(diameter=0.004, length=0.003)
+    mags = M.core_layout(mp, clearance=2e-4)
+    assert len(mags) == 40
+    core = [g for g in mags if g["body"] == "core"]
+    piece = [g for g in mags if g["body"] != "core"]
+    assert len(core) == 20 and len(piece) == 20 and len({g["body"] for g in piece}) == 20
+    for c, q in zip(core, piece):                       # emitted as (piece, core) pairs on the same radial line
+        u = q["dir"]
+        assert np.allclose(c["dir"], u) and np.isclose(np.linalg.norm(u), 1.0)
+        assert np.allclose(np.cross(q["pos"], u), 0) and np.allclose(np.cross(c["pos"], u), 0)
+        R = M.REAL_RADIUS[q["kind"]]
+        assert np.isclose(q["pos"] @ u - c["pos"] @ u, mp.length + 2 * mp.wall + 2e-4)
+        assert np.isclose(q["pos"] @ u, R + mp.wall + mp.length / 2)
+
+
+def test_core_layout_system_conserves_momentum_and_attracts(tables):
+    p = M1Params(radial_preload=0.0, rig=True)
+    m = mujoco.MjModel.from_xml_string(build_m1_xml(p))
+    d = mujoco.MjData(m)
+    mags = M.core_layout(MP)
+    ms = M.MagnetSystem(m, p.pitch, p.gap, MP, tables=tables, mags=mags)
+    assert ms.n == 40 and ms.describe()["n_magnets"] == 40
+    mujoco.mj_forward(m, d)
+    assert ms.forces(*ms.world(d.xpos, d.xmat))[2] < 0
+    rng = np.random.default_rng(82)
+    for _ in range(5):
+        _perturb(m, d, rng)
+        pp, n = ms.world(d.xpos, d.xmat)
+        F, T, _ = ms.forces(pp, n)
+        scale = np.abs(F).sum()
+        assert np.linalg.norm(F.sum(axis=0)) / scale < 1e-9
+        assert np.linalg.norm((T + np.cross(pp, F)).sum(axis=0)) / (scale * 0.03) < 1e-9
+    M.MagnetSystem.uninstall()

@@ -9,6 +9,8 @@ magnets, one on each face toward its 3 edge neighbours; each edge carries 2, one
 neighbours. Centres and core carry none. Magnets sit on the face centre, recessed by a wall w. Polarity: corner
 moments point out of the corner's face, edge moments point into the edge's face, so every facing corner-edge pair
 is head-to-tail and attracts.
+M6 alternative (P-58, 2026-11-18): core_layout(), 20 coaxial core-to-piece pairs at the real-mechanism radius, passed
+to MagnetSystem(mags=...). The default layout and every default code path are unchanged.
 
 Force law (D8_1b_DESIGN_PROPOSAL.md §5), a fixed function of the poses of the bodies the magnets are fixed in:
   U = sum over magnet pairs on different bodies of
@@ -114,6 +116,33 @@ def layout(pitch: float, gap: float, mp: MagnetParams) -> list[dict]:
                     direction[k] = -sgn        # into the edge face (the face points toward +sgn)
                     mags.append({"body": cubie_name(home), "pos": pos, "dir": direction, "kind": "edge"})
     assert len(mags) == 48, len(mags)
+    return mags
+
+
+# Real-mechanism radii of the pieces' innermost points along their radial lines (m): ER4 (GrabCAD real-mechanism cube,
+# experiments/ER4_core_magnet_fit/REPORT.md) as used by ER5/ER6. Placing core-to-piece magnets here inside the B1 cube
+# model is a documented abstraction (P-58): the magnets carry no collision geometry.
+REAL_RADIUS = {"edge": 22.04e-3, "corner": 21.95e-3}
+
+
+def core_layout(mp: MagnetParams, clearance: float = 2e-4, radius: dict | None = None) -> list[dict]:
+    """M6 core-positioning layout (P-58, ER6): 20 attracting coaxial pairs, one per edge and corner, on the piece's
+    radial line u. Piece magnet on the piece at u (R + wall + L/2); core magnet on the fixed `core` body at
+    u (R - clearance - wall - L/2); both moments along +u. Centres carry none. Body frames are at the cube centre."""
+    radius = REAL_RADIUS if radius is None else radius
+    mags = []
+    for home in HOME_POSITIONS:
+        nz = np.count_nonzero(home)
+        if nz == 1:
+            continue
+        kind = "edge" if nz == 2 else "corner"
+        u = np.array(home, float) / np.sqrt(nz)
+        R = radius[kind]
+        mags.append({"body": cubie_name(home), "pos": u * (R + mp.wall + mp.length / 2), "dir": u.copy(),
+                     "kind": kind})
+        mags.append({"body": "core", "pos": u * (R - clearance - mp.wall - mp.length / 2), "dir": u.copy(),
+                     "kind": "core_" + kind})
+    assert len(mags) == 40, len(mags)
     return mags
 
 
@@ -416,21 +445,23 @@ def pair_forces(mp: MagnetParams, spline, ii: np.ndarray, jj: np.ndarray, p: np.
 # ------------------------------------------------------------------ the magnet system
 class MagnetSystem:
     def __init__(self, model: mujoco.MjModel, pitch: float, gap: float, mp: MagnetParams,
-                 cache_dir: Path | None = None, tables: tuple | None = None):
+                 cache_dir: Path | None = None, tables: tuple | None = None, mags: list[dict] | None = None):
+        """mags: the magnet list (body, pos, dir in the body frame); default the corner-edge layout()."""
         self.m, self.mp = model, mp
-        self.mags = layout(pitch, gap, mp)
+        self.mags = layout(pitch, gap, mp) if mags is None else mags
+        self.n = len(self.mags)
         self.body = np.array([mujoco.mj_name2id(model, mujoco.mjtObj.mjOBJ_BODY, g["body"]) for g in self.mags])
         assert (self.body >= 0).all()
         self.p_loc = np.array([g["pos"] for g in self.mags])
         self.d_loc = np.array([g["dir"] for g in self.mags])
-        ii, jj = np.triu_indices(48, 1)
+        ii, jj = np.triu_indices(self.n, 1)
         keep = self.body[ii] != self.body[jj]            # same-body pairs are rigid: no effect, skipped
         self.ii_all, self.jj_all = ii[keep], jj[keep]
         self.ii, self.jj = self.ii_all, self.jj_all      # active neighbour list (all pairs until first rebuild)
         self.p_ref = None
         self.bodies = np.unique(self.body)
-        self.scatter = scatter_matrices(48, self.ii, self.jj)
-        self.body_sum = (self.body[None, :] == self.bodies[:, None]).astype(float)   # (n_bodies, 48)
+        self.scatter = scatter_matrices(self.n, self.ii, self.jj)
+        self.body_sum = (self.body[None, :] == self.bodies[:, None]).astype(float)   # (n_bodies, n)
         self.spline = tables if tables is not None else near_field_tables(mp, cache_dir)
         self.zmin = mp.length + 0.0001
         self.stats: dict = {}
@@ -451,7 +482,7 @@ class MagnetSystem:
         (found 2026-11-15, experiments/D8_alignment/results/diag_m4_2026-11-15/SUMMARY.md §3)."""
         self.ii, self.jj = self.ii_all, self.jj_all
         self.p_ref = None
-        self.scatter = scatter_matrices(48, self.ii, self.jj)
+        self.scatter = scatter_matrices(self.n, self.ii, self.jj)
 
     # pure function of body poses -------------------------------------------------------------
     def world(self, xpos: np.ndarray, xmat: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -467,7 +498,7 @@ class MagnetSystem:
         r = np.linalg.norm(p[self.jj_all] - p[self.ii_all], axis=1)
         sel = r < self.mp.far_r2 + self.mp.skin
         self.ii, self.jj = self.ii_all[sel], self.jj_all[sel]
-        self.scatter = scatter_matrices(48, self.ii, self.jj)
+        self.scatter = scatter_matrices(self.n, self.ii, self.jj)
         self.p_ref = p.copy()
         self.stats["list_rebuilds"] += 1
         self.stats["list_pairs"] = int(sel.sum())
@@ -501,4 +532,4 @@ class MagnetSystem:
 
     def describe(self) -> dict:
         return {"params": asdict(self.mp), "Br_T": self.mp.br, "moment_Am2": self.mp.moment,
-                "magnet_mass_g": self.mp.magnet_mass * 1e3, "n_magnets": 48, "n_pairs": int(len(self.ii))}
+                "magnet_mass_g": self.mp.magnet_mass * 1e3, "n_magnets": self.n, "n_pairs": int(len(self.ii))}
