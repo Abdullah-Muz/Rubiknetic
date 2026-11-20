@@ -36,11 +36,11 @@ Under `docs/research/` (P-05, approved 2026-11-19); the names the Phase 0 report
 - `PHASE_0_SOURCE_REGISTER.md`
 - cube mechanics findings [`CUBE_MECHANICS_LITERATURE_REVIEW.md`, `CUBE_MECHANISM_FINDINGS.md`]
 - gripper findings [`GRIPPER_LITERATURE_REVIEW.md`, `GRIPPER_DESIGN_TRADEOFFS.md`]
-- contact and RL findings [`CONTACT_AND_RL_FINDINGS.md`: **deferred** to before Phase 3, P-06]
+- contact and RL findings [`CONTACT_AND_RL_FINDINGS.md`, written 2026-11-19, P-64]
 - decision matrix [`GRIPPER_DESIGN_TRADEOFFS.md` §4; cube comparison in `CUBE_MECHANICS_LITERATURE_REVIEW.md` §6]
 - User-facing recommendation: 2–3 alternative concepts, quantified constraints, uncertainty, smallest viable test, and explicit approval request.
 
-Produce them only from verified research. Status (2026-11-19): written, except the deferred contact and RL findings; see `docs/research/PHASE_0_RESEARCH_FINDINGS.md`.
+Produce them only from verified research. Status (2026-11-19): all written; see `docs/research/PHASE_0_RESEARCH_FINDINGS.md`.
 
 ## Exit criteria
 

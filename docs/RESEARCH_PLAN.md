@@ -29,7 +29,7 @@ Create reports under `docs/research/` rather than overwriting the briefs in `doc
 
 - `docs/research/CUBE_MECHANICS_LITERATURE_REVIEW.md` (with `docs/research/CUBE_MECHANISM_FINDINGS.md`): physical cube topology, candidate MuJoCo representation, constraint-update algorithm, failure modes, alternatives, fidelity limits, pilot experiment.
 - `docs/research/GRIPPER_LITERATURE_REVIEW.md` + `docs/research/GRIPPER_DESIGN_TRADEOFFS.md`: commercial grippers and CAD, contact geometry, custom fingertip concepts, force/torque budget, compatibility, interference, recommendations.
-- `docs/research/CONTACT_AND_RL_FINDINGS.md` (**deferred** to before Phase 3, P-06; partly covered by `docs/research/MECHANICAL_FEASIBILITY_ASSESSMENT.md` §9): modeling of friction/compliance, controller baseline, residual-RL publications and CPU performance concerns.
+- `docs/research/CONTACT_AND_RL_FINDINGS.md` (written 2026-11-19, P-64; to be re-checked for newer work when Phase 3 starts): modeling of friction/compliance, controller baseline, residual-RL publications and CPU performance concerns.
 - decision matrix, in `docs/research/GRIPPER_DESIGN_TRADEOFFS.md` §4 and the cube comparison in `docs/research/CUBE_MECHANICS_LITERATURE_REVIEW.md` §6: weighted comparison of mechanisms and grippers (with weights justified), uncertainty sensitivity, selected leading candidate(s) and negative findings.
 - `docs/research/PHASE_0_SOURCE_REGISTER.md`: full bibliography with verification and licensing metadata.
 
