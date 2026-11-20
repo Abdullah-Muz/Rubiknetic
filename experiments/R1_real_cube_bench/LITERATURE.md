@@ -45,3 +45,40 @@ only route to real-cube parity.
   play".
 - No teardown, feeler-gauge or CT measurement of a commercial 3×3's piece clearance was found. A bench measurement
   (feeler gauge or CT, plus single-piece wobble under a small torque) would settle it.
+
+## Addendum 2026-11-19: third search (O-09 re-check)
+A subagent ran this search under P-20. The main session re-checked two items on their primary pages (marked
+**verified**). One reported detail did not match the primary page and is noted below.
+
+**Bottom line: unchanged.** No primary-page measurement was found of breakaway, running, corner-twist or pop torque, or
+of magnet force in physical units, for a standard 55–57 mm cube. Nothing dated after 2026-11-15 adds one. The bench
+protocol (`PROTOCOL.md`) remains the only route to real-cube values.
+
+**Refinements to the "Turning torque" row above** (both still **unverified**; the primary pages return 403, and the
+web archives could not be reached):
+- **0.05 N·m vs 0.02 N·m.** speedsolving.com thread 76309 ("Torque on conventional cubes", opened 27 Jan 2020). In
+  the snippets, **0.05 N·m** is the only reported, informal measurement, on a speedcube "set up to be sticky" for
+  one-handed solving. **0.02 N·m** is a claim in the same reply that a speedcube can be set up to need that much; it
+  is not a measurement.
+- **Probable origin of 0.09 N·m.** The TwistyPuzzles museum entry for Oskar van Deventer's *Superclick Cube*
+  (`puzzle.cgi?pkey=4697`) says, per the snippet: "Oskar even measured the torque needed to turn one face … ca. 2.7 Nm
+  for the Superclick Cube compared with 0.09 Nm for a traditional Rubiks Cube". No method, date or cube model is
+  given.
+
+`INFERENCE`: both figures are single, undocumented hand measurements, good to an order of magnitude at best. They
+agree with the sim's peak turning torque (0.32–0.72 N·m, gripper rig, `PROTOCOL.md`) only in being the same order or
+lower; they cannot calibrate it.
+
+| Source (accessed 2026-11-19) | What it establishes | Status |
+|---|---|---|
+| ruwix.com, "Corner cutting" | GAN 11 M Pro "47 degrees forward corner cutting"; RS3M 2020 "40-45-degree corner cutting forward and line to line reverse". The stated method is to "roughly measure the angle at which the cube automatically snaps to" | **verified**; retailer page, no author or date |
+| arXiv 2609.33973, Liang et al., "FINGR: Learning Dexterous Hand Control for Real-World Rubik's Cube Solving" (v1 27 Sep 2026) | No torque or forgiveness data. **Discrepancy:** the subagent reported a 52 mm 3×3 with 15° / 18° turn thresholds, but the abstract refers to "ten scrambled 2×2×2 cubes". The body was not checked, so only "no torque data" is recorded | **verified** (abstract) |
+| arXiv 1910.07113 (OpenAI, robot hand) | MuJoCo cube with bevelled cubelet edges (1.425 mm on a 1.9 cm cubelet) because a perfectly cubic model was "highly unforgiving"; "very rudimentary" dynamics calibration; no measured torque | Subagent, from the arXiv PDF; consistent with the earlier entry |
+| GAN patent US11484780B1 ("Magnetic levitation magic cube") | Qualitative only: stronger positioning magnets give larger starting resistance | Subagent, primary page |
+| speedcubeshop.com corner-cutting blog (2021); speedsolving.com thread 7655 (2007, a trigonometric method for measuring corner cutting) | Corner cutting over 45° claimed for modern cubes, without a method; a measuring method with one example (41.2°) | Subagent; the forum thread is snippet only |
+| GAN, MoYu and QiYi product pages | Magnet strength is given only as levels (e.g. three strengths), never in physical units | Subagent; snippet only |
+| Zieliński et al., *Industrial Robot* 34(5), 2007, DOI 10.1108/01439910710774377; UIUC ECE445 giant-cube reports | Force sensing used to avoid jamming (abstract); a giant cube with a ±5° design limit and no measured value | Subagent; no numbers for a standard cube |
+
+**Not tried, by design.** The subagent's request to the Wayback availability API was refused by the session's
+permission settings, and was not attempted another way. With the user's permission, a plain Wayback lookup might move
+the two forum snippets to verified.
