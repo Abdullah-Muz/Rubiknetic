@@ -75,25 +75,58 @@ piece-to-core pairs, and none outside the validated regime. L0 had none clamped 
 | S3, body ids match the magnet layout | No assertion failure in any trial |
 | S4, E1-1 instrumented rest matches the scored rest | True for all 20 trials in both arms |
 
-## Interpretation (`INFERENCE`; post hoc, from these records and ER6's statics)
-1. **The core layout removes the rest slips by clamping the cube, not only by restoring it.** C52's rest rotation is
-   at least five orders of magnitude smaller than L0's, which is what static friction holding every piece would give. Each
-   piece-to-core pair pulls its piece toward the core with about 2 N (largest pair force 2.18 N), so the 20 pairs act
-   as a radial preload of the order of 40 N in total. That preload was not part of the static screen (ER3, ER6), which
-   looked at stiffness only.
-2. **The same friction stops the snap-back short.** The layer stops where the magnets' restoring torque falls below
-   the friction torque. With ER6's layer stiffness of 2.58 N·m/rad, a stop at 0.5–1.0° corresponds to a friction
-   torque of about 0.02–0.05 N·m on the layer.
-3. **It also raises the turning torque about threefold** (median 0.645 against 0.203 N·m) and puts 5 % of moves at
-   the turner's 1 N·m limit. ER6's static detent peak for this variant was 0.18 N·m, so most of the increase is
-   friction, not the detent.
-4. **Weaker magnets alone may not fix the snap-back.** Friction torque and restoring stiffness both scale with
-   magnet strength, so their ratio, which sets where the layer stops, would stay about the same. This is a scaling
-   argument, not a measurement; the joint friction and the contact model could change it. ER8's derated arm would
-   have tested it, but ER8 was conditional on C52 meeting these signals, so it lapses.
-5. **What ER7 does and does not show.** It shows that C52 as specified fails M4's snap-back criterion in rehearsal,
-   and that radial magnetic preload suppresses M5's rest slips. It does not show that every core-magnet layout
-   fails: the ratio of radial pull to tangential stiffness depends on the magnet geometry, which was not varied.
+## Post hoc diagnostic: what leaves the layer short (`FACT`; `posthoc/`, exploratory)
+Two read-only replays on ER7 seeds, run after the fixed analysis (scripts and outputs in `posthoc/`). Each splits the
+torque about a layer's axis into magnets, joint friction and contacts.
+
+- **Snap-back, seed 16568, +8°** (`snap_diag.py`). After the release, and unchanged 5 s later:
+
+  | Quantity | C52 | L0 |
+  |---|---|---|
+  | U-layer error | +0.996° | −0.014° |
+  | Magnet torque about the U axis | 0 (below 1e-14 N·m) | 4.6e-4 N·m, balanced by contacts |
+  | Contacts between pieces | **none** | 56, total normal force 6.0 N |
+  | Largest joint velocity | 3e-13 | 3e-4 |
+  | Each edge and corner: rotation about its own radial axis | **1.40–1.74°** | 0.00–0.31° |
+  | Each edge and corner: rotation in the other two directions | 0.07–0.09° | 0.14–0.73° |
+
+  In C52 every U-layer piece has returned to its home position and is left **rotated about its own radial axis**,
+  the axis of its magnet pair. Seen along the U axis, that leftover is 0.87–1.08° per piece, which is the 1.0° layer
+  error. Nothing pushes or holds the pieces: there is no contact, no magnet torque and no motion.
+- **Rest, seed 16000** (`rest_diag.py`). In C52, after the 0.5 s settle that precedes every trial, the cube has no
+  contacts at all and the magnet torque on every layer is zero (below 1e-13 N·m). L0 has 61 contacts carrying 7.2 N,
+  with the magnets' torque on each layer balanced by contact forces.
+
+## Interpretation (`INFERENCE`, post hoc; item 1 rests on the diagnostic above and on ER3 and ER6)
+1. **The layer stops short because the core layout has no stiffness against a piece spinning about its own radial
+   axis.** A coaxial magnet pair is symmetric about its axis. ER3 and ER6 recorded this as "edge spin 0, corner twist
+   0", and both screens passed only inside the tolerance on those two modes (margin +0.010). A layer turned by an
+   angle and released carries a spin of 71 % of that angle on its edges and 58 % on its corners. The magnets pull the
+   pieces back to their positions but leave the spin, and the pieces only un-spin as far as their neighbours push
+   them, which is to within the play of the 0.05 mm gap.
+2. **M5's corner–edge magnets do restore that mode** (ER3: spin +122 and twist +118 mN·m/rad for L0), which is why
+   L0 snaps back to within 0.1°.
+3. **C52's rest result is not friction.** The setup offsets each layer by up to 1°, as a rigid rotation written
+   before t = 0. In C52 the magnets bring every piece back within the settle time and the cube then sits with no
+   contacts, so nothing can slip. L0 rests on contact forces between pieces that its magnets pull together, and its
+   slips happen there (D11, ER1).
+   - **The pieces are not square while they rest** (`FACT`, one-off check on seed 16000). After the settle, C52's
+     layers are 0.13–0.19° off and its worst piece 0.39° off; L0's layers are within 0.09° and its worst piece
+     0.71° off. The rest criterion measures motion during the rest, not the error from square, so C52 passes it
+     while sitting slightly spun.
+4. **Weaker or stronger magnets would not change this.** A mode with zero stiffness stays at zero under any strength
+   scale. ER8's derated arm would have failed the same way.
+5. **The higher turning torque is probably the same defect seen during a turn:** pieces left spun inside the gap play
+   meet the turning layer. This was not measured.
+6. **What ER7 does and does not show.** A layout of single coaxial pairs fails M4's snap-back criterion in rehearsal.
+   It does not show that core magnets fail: a layout that also restores spin and twist was not tested.
+
+**Correction (2026-11-19).** The first version of this section, committed in `21b3470`, attributed the short
+snap-back, the rest result and the turning torque to friction from a radial magnetic preload of about 40 N. That was
+wrong. B1's pieces have no radial freedom (`radial_preload = 0` removes the slide joint), so a radial pull loads the
+joint and cannot press pieces together, and the diagnostic found no contacts at all in the stopped state. The
+"options" that followed from it (a screen of radial pull against stiffness; a preload from another source) are
+withdrawn.
 
 ## Deviations after the first run
 2. **Restart after a memory-pressure kill, 2026-11-19.** `FACT`:
@@ -115,6 +148,10 @@ piece-to-core pairs, and none outside the validated regime. L0 had none clamped 
 3. **Post hoc additions to the report, 2026-11-19.** The snap-back table by release offset, the turner-torque
    quantiles, the largest turn error and the growth slope were read from the records after the fixed analysis
    (`er7_analyze.py`) had run. They are descriptive and change no signal.
+4. **Post hoc diagnostic, 2026-11-19.** `posthoc/snap_diag.py` and `posthoc/rest_diag.py` replay one snap-back trial
+   (seed 16568, +8°) and one rest trial (seed 16000) per arm and read the constraint forces. They are exploratory, use
+   ER7's seeds (already diagnostic) and change no record or signal. One seed per case: the per-piece numbers are an
+   example, not a distribution.
 
 ## Consequences (fixed by the protocols)
 - **No scored pre-registration is proposed for C52.** The draft `experiments/PHASE_1_M6_PREREGISTRATION.md` lapses
@@ -123,18 +160,19 @@ piece-to-core pairs, and none outside the validated regime. L0 had none clamped 
 - Seeds 16000–16655 now count as used for diagnostics.
 
 ## Options for the next step (`PROPOSAL`; the choice is the user's)
-- **(a) A static screen of preload against stiffness.** Extend ER6's screen with one more quantity: the radial pull
-  per piece, and from it the expected stop angle (friction torque ÷ layer stiffness). Screen core-layout geometries
-  (clearance, magnet size, offset or angled pairs) for ones that keep the tangential stiffness but pull less. This
-  is cheap, static, and tests interpretation 4 before any new dynamic run.
-- **(b) A small dynamic probe of the scaling argument.** Run E1-5s and E1-1 only (40 trials) for the derated layout
-  (ER8's C52d arm, already built), as a new protocol with its own approval. If the stop angle is unchanged at lower
-  strength, interpretation 4 holds and option (a) is the only route within this layout family.
-- **(c) Revisit the snap-back criterion.** The 0.5° line is M4's own registered criterion and was disclosed as chosen
-  from stage-1 data. Changing it after this result would be a post hoc change; it would need the user's explicit
-  decision and a disclosure, and it would not address the turner-torque clip.
-- **(d) Return to M5 and target the slip differently,** for example a small radial preload from another source, now
-  that ER7 shows preload suppresses the slips. M1 had a 1 N preload spring per piece, which B1 removed (M4, P-23).
+- **(a) Recommended: a static screen of core layouts that also restore spin and twist.** Break the symmetry about the
+  piece's radial axis, for example with two magnet pairs per piece, or one pair set off the axis. Screen them with
+  ER6's code against ER3's criteria, with the tolerance on spin and twist replaced by a required positive stiffness.
+  It is static and cheap, and the fit of any candidate inside a real piece would have to be checked as ER4 did.
+  ER3's one mixed variant that passed (core magnets on edges plus edge–centre magnets) restores edge spin (+58) but
+  has no corner magnets, so it is not an answer as it stands.
+- **(b) Add a spin and twist requirement to the screen's criteria** for any future layout, whatever option is taken.
+  ER7 shows the zero-stiffness tolerance let through a layout that fails dynamically.
+- **(c) Revisit the snap-back criterion.** The 0.5° line is M4's own registered criterion. Changing it after this
+  result would be post hoc; it would need the user's explicit decision and a disclosure, and it would leave pieces
+  free to sit spun by 1–2°.
+- **(d) Return to M5's layout and target its slip mode directly,** keeping the corner–edge magnets that give spin and
+  twist stiffness. ER2 and ER3 found no static fix there (a slide/cross sign trade-off).
 
 ## Limits
 As in `PROTOCOL.md`:

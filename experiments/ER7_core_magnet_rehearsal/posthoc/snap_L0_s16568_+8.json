@@ -1,0 +1,327 @@
+{
+ "arm": "L0",
+ "seed": 16568,
+ "delta_deg": 8.0,
+ "states": [
+  {
+   "tag": "t0",
+   "t": 0.5,
+   "U_err_deg": -0.03024519056127039,
+   "magnet_Nm": 0.00031438041111706895,
+   "joint_friction_Nm": -3.12707225786809e-06,
+   "all_contacts_Nm": -0.0003111498540505223,
+   "cubie_cubie": {
+    "n": 56,
+    "normal_N": 6.203617992981564,
+    "torque_Nm": -0.0003111498540505244
+   },
+   "rig_or_core": {
+    "n": 0,
+    "normal_N": 0.0,
+    "torque_Nm": 0.0
+   },
+   "actuator_Nm": 0.0,
+   "max_abs_qvel": 0.000929701643859516,
+   "misalignment": {
+    "max_err_deg": 0.5645946734106944,
+    "max_residual_deg": 0.5930428949934399
+   },
+   "pieces": {
+    "cubie_nnp": {
+     "kind": "corner",
+     "about_U_deg": -0.289187753031271,
+     "spin_about_own_axis_deg": 0.010115970331255705,
+     "tangential_deg": 0.4910332653416189
+    },
+    "cubie_n0p": {
+     "kind": "edge",
+     "about_U_deg": -0.17159158925077556,
+     "spin_about_own_axis_deg": -0.17234785750834564,
+     "tangential_deg": 0.12811168527727923
+    },
+    "cubie_npp": {
+     "kind": "corner",
+     "about_U_deg": -0.00298851735431091,
+     "spin_about_own_axis_deg": -0.1564516395493083,
+     "tangential_deg": 0.3036644187027493
+    },
+    "cubie_0np": {
+     "kind": "edge",
+     "about_U_deg": -0.3866146532697052,
+     "spin_about_own_axis_deg": 0.01661894133437667,
+     "tangential_deg": 0.5643500297090922
+    },
+    "cubie_00p": {
+     "kind": "centre",
+     "about_U_deg": -0.21093886296050182,
+     "spin_about_own_axis_deg": -0.21093886296050182,
+     "tangential_deg": 0.0
+    },
+    "cubie_0pp": {
+     "kind": "edge",
+     "about_U_deg": -0.05750186376822988,
+     "spin_about_own_axis_deg": 0.18554392474812842,
+     "tangential_deg": 0.27560969247590006
+    },
+    "cubie_pnp": {
+     "kind": "corner",
+     "about_U_deg": 0.3006649109963499,
+     "spin_about_own_axis_deg": -0.057814821347144385,
+     "tangential_deg": 0.4906203544146814
+    },
+    "cubie_p0p": {
+     "kind": "edge",
+     "about_U_deg": 0.18561291797838883,
+     "spin_about_own_axis_deg": 0.12048484464310426,
+     "tangential_deg": 0.17778775379697648
+    },
+    "cubie_ppp": {
+     "kind": "corner",
+     "about_U_deg": 0.04972046941559498,
+     "spin_about_own_axis_deg": 0.17157418668617927,
+     "tangential_deg": 0.2800314106901395
+    }
+   }
+  },
+  {
+   "tag": "after_release",
+   "t": 1.801,
+   "U_err_deg": -0.014433299894672038,
+   "magnet_Nm": 0.00046023675412830553,
+   "joint_friction_Nm": -5.791445349726671e-07,
+   "all_contacts_Nm": -0.00045950822503564373,
+   "cubie_cubie": {
+    "n": 56,
+    "normal_N": 5.994773520080334,
+    "torque_Nm": -0.0004595082250356418
+   },
+   "rig_or_core": {
+    "n": 0,
+    "normal_N": 0.0,
+    "torque_Nm": 0.0
+   },
+   "actuator_Nm": 0.0,
+   "max_abs_qvel": 0.00033745279465642055,
+   "misalignment": {
+    "max_err_deg": 0.7288186017637863,
+    "max_residual_deg": 0.7400230168065084
+   },
+   "pieces": {
+    "cubie_nnp": {
+     "kind": "corner",
+     "about_U_deg": -0.05016929811146378,
+     "spin_about_own_axis_deg": -0.003601968650671883,
+     "tangential_deg": 0.13664851622040788
+    },
+    "cubie_n0p": {
+     "kind": "edge",
+     "about_U_deg": 0.002080546112770119,
+     "spin_about_own_axis_deg": -0.08381476504381109,
+     "tangential_deg": 0.1350478594772653
+    },
+    "cubie_npp": {
+     "kind": "corner",
+     "about_U_deg": 0.0011811707010193982,
+     "spin_about_own_axis_deg": -0.2889052611161532,
+     "tangential_deg": 0.20814180922240097
+    },
+    "cubie_0np": {
+     "kind": "edge",
+     "about_U_deg": -0.15541143870091859,
+     "spin_about_own_axis_deg": -0.031245700459487574,
+     "tangential_deg": 0.20072001889987473
+    },
+    "cubie_00p": {
+     "kind": "centre",
+     "about_U_deg": -0.013862890037365507,
+     "spin_about_own_axis_deg": -0.013862890037365507,
+     "tangential_deg": 0.0
+    },
+    "cubie_0pp": {
+     "kind": "edge",
+     "about_U_deg": -0.012846351191434062,
+     "spin_about_own_axis_deg": -0.28703597645654216,
+     "tangential_deg": 0.2892824882341679
+    },
+    "cubie_pnp": {
+     "kind": "corner",
+     "about_U_deg": -0.02751983687035429,
+     "spin_about_own_axis_deg": 0.310852279729364,
+     "tangential_deg": 0.2540767900195691
+    },
+    "cubie_p0p": {
+     "kind": "edge",
+     "about_U_deg": -0.014945534784367442,
+     "spin_about_own_axis_deg": 0.28192151193333437,
+     "tangential_deg": 0.32136056474299846
+    },
+    "cubie_ppp": {
+     "kind": "corner",
+     "about_U_deg": -0.013921065004976627,
+     "spin_about_own_axis_deg": 0.003700540740442027,
+     "tangential_deg": 0.7288092070460888
+    }
+   }
+  },
+  {
+   "tag": "after_1s",
+   "t": 2.801,
+   "U_err_deg": -0.01335836948887915,
+   "magnet_Nm": 0.00038384425454400474,
+   "joint_friction_Nm": -4.2752038898683127e-07,
+   "all_contacts_Nm": -0.00038331303939293394,
+   "cubie_cubie": {
+    "n": 54,
+    "normal_N": 6.355170725103211,
+    "torque_Nm": -0.0003833130393929327
+   },
+   "rig_or_core": {
+    "n": 0,
+    "normal_N": 0.0,
+    "torque_Nm": 0.0
+   },
+   "actuator_Nm": 0.0,
+   "max_abs_qvel": 0.00017409370980525922,
+   "misalignment": {
+    "max_err_deg": 0.726540836631306,
+    "max_residual_deg": 0.7459924749961279
+   },
+   "pieces": {
+    "cubie_nnp": {
+     "kind": "corner",
+     "about_U_deg": -0.04959593603929221,
+     "spin_about_own_axis_deg": -0.0061254549001829245,
+     "tangential_deg": 0.13037045850703355
+    },
+    "cubie_n0p": {
+     "kind": "edge",
+     "about_U_deg": 0.0074625450833918595,
+     "spin_about_own_axis_deg": -0.07567094871874995,
+     "tangential_deg": 0.13477077684189476
+    },
+    "cubie_npp": {
+     "kind": "corner",
+     "about_U_deg": 0.0064834627307531,
+     "spin_about_own_axis_deg": -0.280097322435608,
+     "tangential_deg": 0.20862078198211562
+    },
+    "cubie_0np": {
+     "kind": "edge",
+     "about_U_deg": -0.15443832505680563,
+     "spin_about_own_axis_deg": -0.03464862199354016,
+     "tangential_deg": 0.19649824011522968
+    },
+    "cubie_00p": {
+     "kind": "centre",
+     "about_U_deg": -0.012263448260849102,
+     "spin_about_own_axis_deg": -0.012263448260849102,
+     "tangential_deg": 0.0
+    },
+    "cubie_0pp": {
+     "kind": "edge",
+     "about_U_deg": -0.010246281261398272,
+     "spin_about_own_axis_deg": -0.28401119988103785,
+     "tangential_deg": 0.289859941963057
+    },
+    "cubie_pnp": {
+     "kind": "corner",
+     "about_U_deg": -0.031132801297551752,
+     "spin_about_own_axis_deg": 0.30050880662667095,
+     "tangential_deg": 0.2512141483828114
+    },
+    "cubie_p0p": {
+     "kind": "edge",
+     "about_U_deg": -0.014467343033888228,
+     "spin_about_own_axis_deg": 0.2797961808281071,
+     "tangential_deg": 0.31869274267548375
+    },
+    "cubie_ppp": {
+     "kind": "corner",
+     "about_U_deg": -0.012249395943870065,
+     "spin_about_own_axis_deg": 0.0037784861945377823,
+     "tangential_deg": 0.7265310112686143
+    }
+   }
+  },
+  {
+   "tag": "after_5s",
+   "t": 6.801,
+   "U_err_deg": -0.009876762926578218,
+   "magnet_Nm": 0.0002956429053510457,
+   "joint_friction_Nm": -5.5273463744660346e-05,
+   "all_contacts_Nm": -0.00023290776692390337,
+   "cubie_cubie": {
+    "n": 52,
+    "normal_N": 6.3692450207439055,
+    "torque_Nm": -0.00023290776692390388
+   },
+   "rig_or_core": {
+    "n": 0,
+    "normal_N": 0.0,
+    "torque_Nm": 0.0
+   },
+   "actuator_Nm": 0.0,
+   "max_abs_qvel": 0.0016686845781819894,
+   "misalignment": {
+    "max_err_deg": 0.703004356872846,
+    "max_residual_deg": 0.7528789026060466
+   },
+   "pieces": {
+    "cubie_nnp": {
+     "kind": "corner",
+     "about_U_deg": -0.02277363021270411,
+     "spin_about_own_axis_deg": 0.01847130271703348,
+     "tangential_deg": 0.10428019086684316
+    },
+    "cubie_n0p": {
+     "kind": "edge",
+     "about_U_deg": 0.012004511777468566,
+     "spin_about_own_axis_deg": -0.07166792561782916,
+     "tangential_deg": 0.13142499760544504
+    },
+    "cubie_npp": {
+     "kind": "corner",
+     "about_U_deg": 0.010553343660308443,
+     "spin_about_own_axis_deg": -0.2689247430304344,
+     "tangential_deg": 0.20442247163269905
+    },
+    "cubie_0np": {
+     "kind": "edge",
+     "about_U_deg": -0.12815969118512677,
+     "spin_about_own_axis_deg": -0.022025337237285357,
+     "tangential_deg": 0.16895141352657733
+    },
+    "cubie_00p": {
+     "kind": "centre",
+     "about_U_deg": -0.008704501012933036,
+     "spin_about_own_axis_deg": -0.008704501012933036,
+     "tangential_deg": 0.0
+    },
+    "cubie_0pp": {
+     "kind": "edge",
+     "about_U_deg": -0.006433594938718332,
+     "spin_about_own_axis_deg": -0.2713674860645617,
+     "tangential_deg": 0.28313380005918176
+    },
+    "cubie_pnp": {
+     "kind": "corner",
+     "about_U_deg": -0.07885535849518568,
+     "spin_about_own_axis_deg": 0.2277521121511409,
+     "tangential_deg": 0.25811521010494753
+    },
+    "cubie_p0p": {
+     "kind": "edge",
+     "about_U_deg": -0.01095091972646166,
+     "spin_about_own_axis_deg": 0.2685292303334901,
+     "tangential_deg": 0.30340209126668227
+    },
+    "cubie_ppp": {
+     "kind": "corner",
+     "about_U_deg": -0.008802606126694775,
+     "spin_about_own_axis_deg": 0.0024713241933035472,
+     "tangential_deg": 0.7030000130433397
+    }
+   }
+  }
+ ]
+}
