@@ -190,3 +190,42 @@ revision.**
 - the user asks UFACTORY support for continuous and peak torque per joint for model 4 (1305) and for earlier models.
 
 P-17's record says UFACTORY will not be contacted ("its not needed"), so this second route is the user's choice.
+
+## 8. Addendum 2026-11-19 (later the same day): forum thread 3531 read from a public archive copy
+The user approved a Web-archive lookup (P-62 item 6). The Internet Archive holds a snapshot of the thread from
+2024-02-28, taken when it was publicly readable. The main session read that snapshot directly.
+
+**Source (RM-11).** UFACTORY Forum, "Torque specifications", thread 3531, archived at
+https://web.archive.org/web/20240228182406/https://forum.ufactory.cc/t/torque-specifications/3531 (accessed
+2026-11-19; SHA-256 of the raw archived HTML `cbae4a24…f8ebce`). Posts dated 13–19 February 2024.
+
+`FACT` (what the thread says):
+- A user asks for the peak and continuous torque of the xArm 6.
+- Forum user "Minna" replies: "Please check the Cont. torque for xArm, the peak torque is 2-2.5 times." xArm 6:
+  **J1/J2 42 N·m, J3/J4 19 N·m, J5/J6 7 N·m.**
+- The user quotes an earlier reply by "Minna" in the thread "Maximum Torque Value Xarm 5/6/7": **J1/J2 42 N·m,
+  J3/J4/J5 19 N·m, J6/J7 7 N·m**, and asks whether those are peak or continuous.
+- "Minna" replies: "Confirmed, it's cont torque."
+
+Caveats:
+- The archived view does not mark "Minna" as staff. The poster answers a question addressed to UFACTORY, and the
+  earlier search summary called the poster staff; that is not confirmed here.
+- The thread does not name a hardware revision. It predates the 1305-specific URDF effort update (2026-10-20, RM-03).
+- The earlier thread (2952) has archive copies from 2021-12-05 and 2022-05-20. A request to fetch them was refused by
+  the session's permission check and was not attempted another way. Its content is known here only as quoted in
+  thread 3531.
+
+`INFERENCE`:
+- **For the xArm 7, the forum's continuous torques are J1/J2 42, J3–J5 19 and J6/J7 7 N·m,** with a stated peak of
+  2–2.5× (84–105, 38–47.5 and 14–17.5 N·m).
+- **The official URDF "max effort" values are 1.6–2.3× above that stated peak** (pre-1305: 163.2 / 81.6 / 30.6 N·m)
+  and 3.9–4.4× above the continuous values. The two sources therefore describe different quantities, or different
+  hardware. The URDF comment calls its values "max torque = torque constant × 100 × overload limit".
+- **Consequence for the model.** The P2 prototype uses the URDF values as actuator limits (P-17). If the forum
+  values are right, those limits overstate what the arm can sustain by about 4×. For this project's task the margin
+  is still large: the wrist joint's continuous 7 N·m is 12× the largest cube-turning torque in the bracket
+  (0.6 N·m), and the arm carries about 0.1 kg. A Phase 2 check that commanded joint torques stay under the
+  **continuous** values would make the result independent of which source is right (`PROPOSAL`).
+
+**Status of O-13: the forum figures are now read from a primary (archived) page, but there is still no datasheet or
+manual rating.** Whether that is enough to close O-13 is the user's decision.

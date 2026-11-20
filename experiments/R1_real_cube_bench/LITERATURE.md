@@ -82,3 +82,18 @@ and a peak during a driven turn rather than a breakaway torque). They are too un
 **Not tried, by design.** The subagent's request to the Wayback availability API was refused by the session's
 permission settings, and was not attempted another way. With the user's permission, a plain Wayback lookup might move
 the two forum snippets to verified.
+
+## Addendum 2026-11-19 (later the same day): archive lookups
+The user approved a Web-archive lookup (P-62 item 6). The main session ran it and read the archived page itself.
+
+- **0.09 N·m: now verified on an archived primary page.** TwistyPuzzles museum, "Superclick Cube"
+  (https://web.archive.org/web/20220516192019/https://www.twistypuzzles.com/cgi-bin/puzzle.cgi?pkey=4697, snapshot
+  2022-05-16, accessed 2026-11-19). The entry (inventor Oskar van Deventer, year 2014, 60 mm, 260 g) says: "Oskar even
+  measured the torque needed to turn one face. ca. 2.7 Nm for the Superclick Cube compared with 0.09 Nm for a
+  traditional Rubiks Cube."
+  - It is still a single measurement with no method, and the Rubik's cube used is not identified.
+  - **Also relevant to the core-magnet layout (ER4):** the Superclick Cube has "sixteen 12.7 mm diameter spherical
+    magnets … placed in the corners and core", each pair holding 2.9 kg by the entry's account. This is a second
+    documented corner-to-core magnet design, at hobby level, alongside the commercial ones ER4 found.
+- **0.05 / 0.02 N·m: still unverified.** The Internet Archive has no copy of speedsolving.com thread 76309 (the
+  availability API and a CDX search both returned nothing).
