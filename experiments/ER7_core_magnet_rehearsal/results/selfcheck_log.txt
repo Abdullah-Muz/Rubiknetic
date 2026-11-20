@@ -1,0 +1,61 @@
+{
+ "S1": [
+  [
+   "E1-1",
+   "rest_s10000",
+   0
+  ],
+  [
+   "E1-2",
+   "U_s10100",
+   0
+  ],
+  [
+   "E1-3",
+   "U2_s10200",
+   0
+  ],
+  [
+   "E1-4",
+   "sexy6_s10300",
+   0
+  ],
+  [
+   "E1-5",
+   "forgive_+0_s10500",
+   0
+  ],
+  [
+   "E1-5s",
+   "snap_+1_s10551",
+   0
+  ],
+  [
+   "E1-6a",
+   "openpad_U_s10600",
+   0
+  ],
+  [
+   "E1-6b",
+   "opposed_UR_1Nm_s10610",
+   0
+  ],
+  [
+   "E1-6c",
+   "twist_nnn_s10620",
+   0
+  ],
+  [
+   "E1-6t",
+   "std_nnn_pos_s10640",
+   0
+  ]
+ ],
+ "S2": {
+  "n_magnets": 40,
+  "table_sha256": "a4e5904ce5b0e581af501e3edc4c3124b5cc7cb99ad26ab7f73ffe0ab88fb7ba",
+  "layers_max_rel_diff": 0.0,
+  "pass": true
+ },
+ "pass": true
+}

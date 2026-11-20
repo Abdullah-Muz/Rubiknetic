@@ -1,0 +1,84 @@
+{
+ "S1": {
+  "trials": [
+   {
+    "exp": "E1-1",
+    "sub": "E1-1",
+    "tid": "rest_s10000",
+    "n_diffs": 0,
+    "diffs": []
+   },
+   {
+    "exp": "E1-2",
+    "sub": "E1-2",
+    "tid": "U_s10100",
+    "n_diffs": 0,
+    "diffs": []
+   },
+   {
+    "exp": "E1-3",
+    "sub": "E1-3",
+    "tid": "U2_s10200",
+    "n_diffs": 0,
+    "diffs": []
+   },
+   {
+    "exp": "E1-4",
+    "sub": "E1-4",
+    "tid": "sexy6_s10300",
+    "n_diffs": 0,
+    "diffs": []
+   },
+   {
+    "exp": "E1-5",
+    "sub": "E1-5",
+    "tid": "forgive_+0_s10500",
+    "n_diffs": 0,
+    "diffs": []
+   },
+   {
+    "exp": "E1-5s",
+    "sub": "E1-5s",
+    "tid": "snap_+1_s10551",
+    "n_diffs": 0,
+    "diffs": []
+   },
+   {
+    "exp": "E1-6",
+    "sub": "E1-6a",
+    "tid": "openpad_U_s10600",
+    "n_diffs": 0,
+    "diffs": []
+   },
+   {
+    "exp": "E1-6",
+    "sub": "E1-6b",
+    "tid": "opposed_UR_1Nm_s10610",
+    "n_diffs": 0,
+    "diffs": []
+   },
+   {
+    "exp": "E1-6",
+    "sub": "E1-6c",
+    "tid": "twist_nnn_s10620",
+    "n_diffs": 0,
+    "diffs": []
+   },
+   {
+    "exp": "E1-6t",
+    "sub": "E1-6t",
+    "tid": "std_nnn_pos_s10640",
+    "n_diffs": 0,
+    "diffs": []
+   }
+  ],
+  "pass": true
+ },
+ "S2": {
+  "n_magnets": 40,
+  "table_sha256": "a4e5904ce5b0e581af501e3edc4c3124b5cc7cb99ad26ab7f73ffe0ab88fb7ba",
+  "layers_max_rel_diff": 0.0,
+  "pass": true
+ },
+ "pass": true
+}
