@@ -218,13 +218,13 @@ Caveats:
 `INFERENCE`:
 - **For the xArm 7, the forum's continuous torques are J1/J2 42, J3–J5 19 and J6/J7 7 N·m,** with a stated peak of
   2–2.5× (84–105, 38–47.5 and 14–17.5 N·m).
-- **The official URDF "max effort" values are 1.6–2.3× above that stated peak** (pre-1305: 163.2 / 81.6 / 30.6 N·m)
+- **The official URDF "max effort" values are 1.6–2.2× above that stated peak** (pre-1305: 163.2 / 81.6 / 30.6 N·m)
   and 3.9–4.4× above the continuous values. The two sources therefore describe different quantities, or different
   hardware. The URDF comment calls its values "max torque = torque constant × 100 × overload limit".
 - **Consequence for the model.** The P2 prototype uses the URDF values as actuator limits (P-17). If the forum
   values are right, those limits overstate what the arm can sustain by about 4×. For this project's task the margin
   is still large: the wrist joint's continuous 7 N·m is 12× the largest cube-turning torque in the bracket
-  (0.6 N·m), and the arm carries about 0.1 kg. A Phase 2 check that commanded joint torques stay under the
+  (0.6 N·m), and the payload (the 0.8 kg G2 gripper plus a cube of about 0.1 kg) is well inside the rated 3.5 kg. A Phase 2 check that commanded joint torques stay under the
   **continuous** values would make the result independent of which source is right (`PROPOSAL`).
 
 **Status of O-13: the forum figures are now read from a primary (archived) page, but there is still no datasheet or
