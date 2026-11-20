@@ -162,3 +162,31 @@
 - The STEP geometry was not measured.
 - Only one MuJoCo load test was run, on the original-gripper model. No G2 MJCF was built or tested.
 - The URDF torque values have not been confirmed by UFACTORY support.
+
+## 7. Addendum 2026-11-19: O-13 re-check (status unchanged: narrowed, not closed)
+A follow-up web search ran on 2026-11-19 under P-20. A subagent did the search, and the main session checked items 1
+and 3 on their primary pages before recording them.
+**No official UFACTORY document with a per-joint continuous (rated) or peak torque table was found, for either hardware
+revision.**
+
+| # | Source (accessed 2026-11-19) | What it establishes | Label |
+|---|---|---|---|
+| 1 | UFACTORY, *7. Production information*, https://docs.xarm.ufactory.cc/7.production_information.html, §7.13 | "The 1305 model of xArm series is model 4." The page gives no torque values. | `FACT`, official; checked by the main session |
+| 2 | UFACTORY support article "xArm Series", `en/support_articles/developer/kinematic-and-dynamic-parameters/xArm_Series/README.md` in https://github.com/xArm-Developer/ufactory_doc_usermanual (branch `ufactory_doc_support_article`) | The serial number identifies the model. Character 1 gives the axis count (S = xArm 7). Character 11 gives the harmonic-drive type: A/E is model 4, L model 2, B model 1 or 3. A sibling file lists link masses and centres of mass for models 1–4. No torque, current or gear data | `FACT` as reported by the subagent; not re-checked |
+| 3 | UFACTORY `ufactory_genesis` @ `c9793d4eb2c496bca961b62c014169a6e321b629` (MIT), `assets/configs/runtime/robots/xarm7_1305.yaml` | `force_lower_nm` / `force_upper_nm` / `effort_limits_nm` = ±[179.4445, 179.4445, 92, 92, 81.558, 30.6, 30.6] N·m; arm `kp` = [3000, 3000, 2000, 2000, 1000, 1000, 800]. Its changelog reportedly says the limits were set to match the default URDF | `FACT`, official; checked by the main session. **It corroborates RM-03's ≥1305 values but is not an independent source** |
+| 4 | UFACTORY download centre (RM-04) | Still lists Hardware Manual v2.7.1 and Developer Manual v2.0.1. The v2.7.1 link now points to a different file (`/upfiles/download/202611/RE7G3GY52WQE.pdf`) from RM-07's | `FACT` as reported by the subagent. It reports no torque rating in either file |
+| 5 | UFACTORY Forum, "Torque specifications", https://forum.ufactory.cc/t/torque-specifications/3531 | Seen **only as a search-engine summary**; the forum needs a login. The summary says: use continuous torque, and peak ≈ 2–2.5× continuous. It gives continuous values of about 42 N·m (J1/J2), 19 N·m (J3/J4) and 7 N·m (J5/J6) for the xArm 6, and 19 N·m (J3–J5) and 7 N·m (J6/J7) for xArm 5/6/7 | **Unverified.** Author, date, staff status and hardware revision are unconfirmed |
+
+`INFERENCE`:
+- **The forum figures, if accurate, do not fit the URDF peaks.** The URDF's pre-1305 peaks are 3.9–4.4× those
+  continuous values, against the forum's stated 2–2.5×. So either the URDF "max effort" is a different quantity (for
+  example an overload or current ceiling), or the forum figures apply to another revision or are conservative.
+- **The URDF/Genesis values remain the only citable official numbers.** They are already the approved working limits
+  (P-17). On either set, J7 (≥ 7 N·m) is far above the 0.03–0.6 N·m cube-turning bracket, so the margin conclusion in
+  §3 holds.
+
+**To close O-13:**
+- the user reads forum thread 3531 with their own login; or
+- the user asks UFACTORY support for continuous and peak torque per joint for model 4 (1305) and for earlier models.
+
+P-17's record says UFACTORY will not be contacted ("its not needed"), so this second route is the user's choice.
