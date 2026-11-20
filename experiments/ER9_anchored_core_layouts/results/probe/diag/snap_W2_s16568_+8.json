@@ -1,0 +1,614 @@
+{
+ "arm": "W2",
+ "config": {
+  "variant": "N35 x 0.5 E2@20>centre C3@16>centre",
+  "grade": "N35",
+  "scale": 0.5,
+  "edge_opt": [
+   "split",
+   20,
+   "centre"
+  ],
+  "corner_opt": [
+   "tri",
+   16,
+   "centre"
+  ]
+ },
+ "n_magnets": 96,
+ "seed": 16568,
+ "delta_deg": 8.0,
+ "states": [
+  {
+   "tag": "t0",
+   "t": 0.5,
+   "U_err_deg": 3.8091420097726574e-06,
+   "cubie_cubie": {
+    "n": 1,
+    "normal_N": 0.00010691434248067121
+   },
+   "max_abs_qvel": 0.0003416109953497881,
+   "pieces": {
+    "cubie_nnn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": 1.7892393819772704e-06,
+     "spin_about_own_axis_deg": -3.1944213093072836e-06,
+     "tangential_deg": 0.09654779078817621
+    },
+    "cubie_nn0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -5.981963186057937e-08,
+     "spin_about_own_axis_deg": 1.995767337937263e-06,
+     "tangential_deg": 0.15486611143345153
+    },
+    "cubie_nnp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 1.1696409116989263e-05,
+     "spin_about_own_axis_deg": 1.935047859199549e-05,
+     "tangential_deg": 0.09676440012030549
+    },
+    "cubie_n0n": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 8.701225210387497e-07,
+     "spin_about_own_axis_deg": -1.3041455362795841e-06,
+     "tangential_deg": 0.09710694782721009
+    },
+    "cubie_n00": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": 0.030334400341444457,
+     "tangential_deg": 0.0
+    },
+    "cubie_n0p": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 0.0010887610832960636,
+     "spin_about_own_axis_deg": 0.0015473818006023392,
+     "tangential_deg": 0.09712174398909305
+    },
+    "cubie_npn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": 2.7217213706376074e-06,
+     "spin_about_own_axis_deg": -3.991583911815987e-06,
+     "tangential_deg": 0.09654718187198107
+    },
+    "cubie_np0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 7.317795979056973e-07,
+     "spin_about_own_axis_deg": 6.2134278286779756e-06,
+     "tangential_deg": 0.15486471085041462
+    },
+    "cubie_npp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 4.262734784983471e-05,
+     "spin_about_own_axis_deg": 7.20551845548413e-05,
+     "tangential_deg": 0.09676799989429818
+    },
+    "cubie_0nn": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 1.047541366879458e-06,
+     "spin_about_own_axis_deg": -1.4906799411424832e-06,
+     "tangential_deg": 0.09710666051294913
+    },
+    "cubie_0n0": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": -0.010643869262489863,
+     "tangential_deg": 0.0
+    },
+    "cubie_0np": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 3.4408125010165727e-06,
+     "spin_about_own_axis_deg": 5.328616827821961e-06,
+     "tangential_deg": 0.09748456997548698
+    },
+    "cubie_00n": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.022318310315868832,
+     "spin_about_own_axis_deg": -0.022318310315868832,
+     "tangential_deg": 0.0
+    },
+    "cubie_00p": {
+     "kind": "centre",
+     "in_U_layer": true,
+     "about_U_deg": 0.37200960403498334,
+     "spin_about_own_axis_deg": 0.37200960403498334,
+     "tangential_deg": 0.0
+    },
+    "cubie_0pn": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -4.950880025593429e-07,
+     "spin_about_own_axis_deg": 6.91248996296531e-07,
+     "tangential_deg": 0.09710666008825153
+    },
+    "cubie_0p0": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": -0.026994248215028042,
+     "tangential_deg": 0.0
+    },
+    "cubie_0pp": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 4.177471518528746e-06,
+     "spin_about_own_axis_deg": 6.886465719033582e-06,
+     "tangential_deg": 0.09748526298772159
+    },
+    "cubie_pnn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": 7.370093639449429e-06,
+     "spin_about_own_axis_deg": -1.2739485160761964e-05,
+     "tangential_deg": 0.09654779486398261
+    },
+    "cubie_pn0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -5.058341814703562e-09,
+     "spin_about_own_axis_deg": 1.1755814646695636e-06,
+     "tangential_deg": 0.15486568049316524
+    },
+    "cubie_pnp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 6.993305940895029e-07,
+     "spin_about_own_axis_deg": 1.2565943356955426e-06,
+     "tangential_deg": 0.09676567062078768
+    },
+    "cubie_p0n": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 1.8979289474029701e-06,
+     "spin_about_own_axis_deg": -2.6844284815322077e-06,
+     "tangential_deg": 0.09710666634651127
+    },
+    "cubie_p00": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": -0.007494540815119562,
+     "tangential_deg": 0.0
+    },
+    "cubie_p0p": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": -4.851377980334566e-07,
+     "spin_about_own_axis_deg": -6.084173730621344e-07,
+     "tangential_deg": 0.09748413812968088
+    },
+    "cubie_ppn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": 1.0793802593551138e-05,
+     "spin_about_own_axis_deg": -1.8664455178918066e-05,
+     "tangential_deg": 0.0965478012885556
+    },
+    "cubie_pp0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -2.046883350433265e-09,
+     "spin_about_own_axis_deg": 2.3869633474679945e-06,
+     "tangential_deg": 0.15486566529217477
+    },
+    "cubie_ppp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": -9.303991398674232e-07,
+     "spin_about_own_axis_deg": -1.2045406585740422e-06,
+     "tangential_deg": 0.09676638147776043
+    }
+   }
+  },
+  {
+   "tag": "after_release",
+   "t": 1.801,
+   "U_err_deg": 0.0004506387709648503,
+   "cubie_cubie": {
+    "n": 4,
+    "normal_N": 0.00054765285412499
+   },
+   "max_abs_qvel": 0.0003735346362414159,
+   "pieces": {
+    "cubie_nnn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": -8.7084748475867e-06,
+     "spin_about_own_axis_deg": 1.5672676835776914e-05,
+     "tangential_deg": 0.0965471312426805
+    },
+    "cubie_nn0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 7.645905948062926e-07,
+     "spin_about_own_axis_deg": 9.06450807326078e-06,
+     "tangential_deg": 0.15486510820851263
+    },
+    "cubie_nnp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 2.8003512600221705e-05,
+     "spin_about_own_axis_deg": 4.5919492794689866e-05,
+     "tangential_deg": 0.09676753878369397
+    },
+    "cubie_n0n": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -1.5211793726148232e-05,
+     "spin_about_own_axis_deg": 2.1420526150843988e-05,
+     "tangential_deg": 0.097105447126444
+    },
+    "cubie_n00": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": 0.03055420874494071,
+     "tangential_deg": 0.0
+    },
+    "cubie_n0p": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 0.0011931899822263145,
+     "spin_about_own_axis_deg": 0.0016973352894941673,
+     "tangential_deg": 0.09708837445061871
+    },
+    "cubie_npn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": -1.0023466258996368e-05,
+     "spin_about_own_axis_deg": 1.7963666839072788e-05,
+     "tangential_deg": 0.09654712730686965
+    },
+    "cubie_np0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 7.780925630000467e-07,
+     "spin_about_own_axis_deg": 1.056007312181675e-05,
+     "tangential_deg": 0.1548650683492297
+    },
+    "cubie_npp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 2.537223954483043e-05,
+     "spin_about_own_axis_deg": 4.1529558586882236e-05,
+     "tangential_deg": 0.09676785399708873
+    },
+    "cubie_0nn": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -1.519395722755293e-05,
+     "spin_about_own_axis_deg": 2.1393765468923585e-05,
+     "tangential_deg": 0.09710544182693119
+    },
+    "cubie_0n0": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": 0.030538731905143657,
+     "tangential_deg": 0.0
+    },
+    "cubie_0np": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 0.001185273035463038,
+     "spin_about_own_axis_deg": 0.0016858572003545721,
+     "tangential_deg": 0.097090505486449
+    },
+    "cubie_00n": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": -0.02930159974119904,
+     "spin_about_own_axis_deg": 0.02930159974119904,
+     "tangential_deg": 0.0
+    },
+    "cubie_00p": {
+     "kind": "centre",
+     "in_U_layer": true,
+     "about_U_deg": -0.09945310120838298,
+     "spin_about_own_axis_deg": -0.09945310120838298,
+     "tangential_deg": 0.0
+    },
+    "cubie_0pn": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -1.517316314443577e-05,
+     "spin_about_own_axis_deg": 2.1372537822733012e-05,
+     "tangential_deg": 0.09710543488422652
+    },
+    "cubie_0p0": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": 0.030374007511270236,
+     "tangential_deg": 0.0
+    },
+    "cubie_0pp": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 0.001108110808504101,
+     "spin_about_own_axis_deg": 0.0015763404178746727,
+     "tangential_deg": 0.09711708188590296
+    },
+    "cubie_pnn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": -9.799624830118264e-06,
+     "spin_about_own_axis_deg": 1.7363734803890975e-05,
+     "tangential_deg": 0.09654730806565108
+    },
+    "cubie_pn0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 5.446096061458448e-07,
+     "spin_about_own_axis_deg": 9.083479743457912e-06,
+     "tangential_deg": 0.15486538316140566
+    },
+    "cubie_pnp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 2.339364835768064e-05,
+     "spin_about_own_axis_deg": 3.856578367616989e-05,
+     "tangential_deg": 0.09676702930759556
+    },
+    "cubie_p0n": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -1.5042884827556955e-05,
+     "spin_about_own_axis_deg": 2.1200555114179586e-05,
+     "tangential_deg": 0.09710539470771531
+    },
+    "cubie_p00": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": 0.02987328713342287,
+     "tangential_deg": 0.0
+    },
+    "cubie_p0p": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 0.0008732740293294792,
+     "spin_about_own_axis_deg": 0.0012426445262147862,
+     "tangential_deg": 0.09719482514334411
+    },
+    "cubie_ppn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": -9.640116388085804e-06,
+     "spin_about_own_axis_deg": 1.7264205871999626e-05,
+     "tangential_deg": 0.09654717642991496
+    },
+    "cubie_pp0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 7.362690227358902e-07,
+     "spin_about_own_axis_deg": 8.323143688998076e-06,
+     "tangential_deg": 0.15486505133597225
+    },
+    "cubie_ppp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 2.0919735240741605e-05,
+     "spin_about_own_axis_deg": 3.4165140189329325e-05,
+     "tangential_deg": 0.09676795119868481
+    }
+   }
+  },
+  {
+   "tag": "after_1s",
+   "t": 2.801,
+   "U_err_deg": 3.1874132738050823e-08,
+   "cubie_cubie": {
+    "n": 2,
+    "normal_N": 6.769714637970254e-08
+   },
+   "max_abs_qvel": 1.1942193425880935e-07,
+   "pieces": {
+    "cubie_nnn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": -2.1319869183561772e-10,
+     "spin_about_own_axis_deg": 4.3059976797411097e-10,
+     "tangential_deg": 0.09654779732952924
+    },
+    "cubie_nn0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 6.809674573249916e-11,
+     "spin_about_own_axis_deg": 1.4684076276361164e-09,
+     "tangential_deg": 0.1548656710768228
+    },
+    "cubie_nnp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 5.628969194386156e-09,
+     "spin_about_own_axis_deg": 9.756539939554869e-09,
+     "tangential_deg": 0.09676561827434783
+    },
+    "cubie_n0n": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -6.535069890269553e-11,
+     "spin_about_own_axis_deg": 8.389190611607821e-11,
+     "tangential_deg": 0.09710665809542696
+    },
+    "cubie_n00": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": 0.02801585179852624,
+     "tangential_deg": 0.0
+    },
+    "cubie_n0p": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 1.2877878929564578e-07,
+     "spin_about_own_axis_deg": 2.0100345090450488e-07,
+     "tangential_deg": 0.09748444378777112
+    },
+    "cubie_npn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": -2.092047891286401e-10,
+     "spin_about_own_axis_deg": 4.306114171821226e-10,
+     "tangential_deg": 0.09654779733121524
+    },
+    "cubie_np0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 7.398083205403507e-11,
+     "spin_about_own_axis_deg": 1.4313012836262462e-09,
+     "tangential_deg": 0.15486567107648735
+    },
+    "cubie_npp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 5.402554828880125e-09,
+     "spin_about_own_axis_deg": 9.395260476724113e-09,
+     "tangential_deg": 0.09676561838849705
+    },
+    "cubie_0nn": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -6.291968659049405e-11,
+     "spin_about_own_axis_deg": 7.986300452503476e-11,
+     "tangential_deg": 0.09710665809495246
+    },
+    "cubie_0n0": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": 0.028015838573135953,
+     "tangential_deg": 0.0
+    },
+    "cubie_0np": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 1.21088118898903e-07,
+     "spin_about_own_axis_deg": 1.8964923667423255e-07,
+     "tangential_deg": 0.09748444502404402
+    },
+    "cubie_00n": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": -0.02928235707005308,
+     "spin_about_own_axis_deg": 0.02928235707005308,
+     "tangential_deg": 0.0
+    },
+    "cubie_00p": {
+     "kind": "centre",
+     "in_U_layer": true,
+     "about_U_deg": -0.09945310124259878,
+     "spin_about_own_axis_deg": -0.09945310124259878,
+     "tangential_deg": 0.0
+    },
+    "cubie_0pn": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -5.888153004906055e-11,
+     "spin_about_own_axis_deg": 7.605955815331106e-11,
+     "tangential_deg": 0.09710665808935294
+    },
+    "cubie_0p0": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": 0.02801579857592407,
+     "tangential_deg": 0.0
+    },
+    "cubie_0pp": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 1.0843441120796649e-07,
+     "spin_about_own_axis_deg": 1.7004895017072271e-07,
+     "tangential_deg": 0.09748445287611103
+    },
+    "cubie_pnn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": -1.4310418327684912e-10,
+     "spin_about_own_axis_deg": 2.540712962786814e-10,
+     "tangential_deg": 0.09654779737662628
+    },
+    "cubie_pn0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 7.662601140238379e-12,
+     "spin_about_own_axis_deg": 1.0498832369334538e-09,
+     "tangential_deg": 0.15486567114488933
+    },
+    "cubie_pnp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 4.824508410897477e-09,
+     "spin_about_own_axis_deg": 8.477910267253947e-09,
+     "tangential_deg": 0.09676561816331315
+    },
+    "cubie_p0n": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": -4.444219368488868e-11,
+     "spin_about_own_axis_deg": 5.7771541800358896e-11,
+     "tangential_deg": 0.09710665806707162
+    },
+    "cubie_p00": {
+     "kind": "centre",
+     "in_U_layer": false,
+     "about_U_deg": 0.0,
+     "spin_about_own_axis_deg": 0.028015656900364203,
+     "tangential_deg": 0.0
+    },
+    "cubie_p0p": {
+     "kind": "edge",
+     "in_U_layer": true,
+     "about_U_deg": 5.8119296281714874e-08,
+     "spin_about_own_axis_deg": 9.4528922515313e-08,
+     "tangential_deg": 0.09748447795258557
+    },
+    "cubie_ppn": {
+     "kind": "corner",
+     "in_U_layer": false,
+     "about_U_deg": -1.7782409931458703e-10,
+     "spin_about_own_axis_deg": 3.7702693243051665e-10,
+     "tangential_deg": 0.09654779735091906
+    },
+    "cubie_pp0": {
+     "kind": "edge",
+     "in_U_layer": false,
+     "about_U_deg": 7.472696821045694e-11,
+     "spin_about_own_axis_deg": 1.1655830918137936e-09,
+     "tangential_deg": 0.1548656710784232
+    },
+    "cubie_ppp": {
+     "kind": "corner",
+     "in_U_layer": true,
+     "about_U_deg": 4.232355130203562e-09,
+     "spin_about_own_axis_deg": 7.39007091726237e-09,
+     "tangential_deg": 0.09676561839876056
+    }
+   }
+  }
+ ],
+ "magnet_stats": {
+  "calls": 5606,
+  "clamped_z": 0,
+  "near_perpendicular": 0,
+  "max_force_N": 0.8533968561866059,
+  "max_near_tilt_deg": 5.629498626422969,
+  "list_rebuilds": 2,
+  "list_pairs": 1366
+ }
+}

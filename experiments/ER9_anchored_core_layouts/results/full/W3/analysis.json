@@ -1,0 +1,358 @@
+{
+ "arms": {
+  "L0": {
+   "n_records": 204,
+   "option_a": false,
+   "complete": true,
+   "rows": {
+    "E1-1": {
+     "n": 20,
+     "expected": 20,
+     "passed": 18,
+     "failed": [
+      "rest_s16003",
+      "rest_s16005"
+     ]
+    },
+    "E1-2": {
+     "n": 24,
+     "expected": 24,
+     "passed": 24,
+     "failed": []
+    },
+    "E1-3": {
+     "n": 22,
+     "expected": 22,
+     "passed": 22,
+     "failed": []
+    },
+    "E1-4": {
+     "n": 40,
+     "expected": 40,
+     "passed": 39,
+     "failed": [
+      "scr20inv_s16405"
+     ]
+    },
+    "E1-5": {
+     "n": 42,
+     "expected": 42,
+     "passed": 42,
+     "failed": []
+    },
+    "E1-5s": {
+     "n": 20,
+     "expected": 20,
+     "passed": 20,
+     "failed": []
+    },
+    "E1-6a": {
+     "n": 6,
+     "expected": 6,
+     "passed": 6,
+     "failed": []
+    },
+    "E1-6b": {
+     "n": 6,
+     "expected": 6,
+     "passed": 6,
+     "failed": []
+    },
+    "E1-6c": {
+     "n": 8,
+     "expected": 8,
+     "passed": 8,
+     "failed": []
+    },
+    "E1-6t": {
+     "n": 16,
+     "expected": 16,
+     "passed": 16,
+     "failed": []
+    }
+   },
+   "e16m": {
+    "moves": 1376,
+    "ok": 1376,
+    "pass": true
+   },
+   "n_rest": 20,
+   "rest_max_deg": 0.567753607916221,
+   "slip_seeds_0_60s": 2,
+   "slip_ci95_0_60s": [
+    0.012348527170294808,
+    0.31698271401908235
+   ],
+   "s4_all_true": true,
+   "flagged_trials": [],
+   "max_near_tilt_deg": 12.590797397511968,
+   "near_perpendicular_total": 0,
+   "turner_Nm": {
+    "median": 0.2026934071844959,
+    "p99": 0.5630169543966503,
+    "max": 0.8701416089046976
+   },
+   "clip_moves": 0,
+   "n_moves": 1376,
+   "clip_trials": 0,
+   "drift_deg": {
+    "median": 0.2308762281988649,
+    "max": 0.7755532074905869
+   },
+   "snap_abs_err_max_deg": 0.1183085658412131,
+   "wall_h": 10.446620390558609
+  },
+  "C52": {
+   "n_records": 204,
+   "option_a": false,
+   "complete": true,
+   "rows": {
+    "E1-1": {
+     "n": 20,
+     "expected": 20,
+     "passed": 20,
+     "failed": []
+    },
+    "E1-2": {
+     "n": 24,
+     "expected": 24,
+     "passed": 24,
+     "failed": []
+    },
+    "E1-3": {
+     "n": 22,
+     "expected": 22,
+     "passed": 22,
+     "failed": []
+    },
+    "E1-4": {
+     "n": 40,
+     "expected": 40,
+     "passed": 40,
+     "failed": []
+    },
+    "E1-5": {
+     "n": 42,
+     "expected": 42,
+     "passed": 42,
+     "failed": []
+    },
+    "E1-5s": {
+     "n": 20,
+     "expected": 20,
+     "passed": 10,
+     "failed": [
+      "snap_+3_s16563",
+      "snap_+5_s16555",
+      "snap_+5_s16565",
+      "snap_+8_s16558",
+      "snap_+8_s16568",
+      "snap_-3_s16563",
+      "snap_-5_s16555",
+      "snap_-5_s16565",
+      "snap_-8_s16558",
+      "snap_-8_s16568"
+     ]
+    },
+    "E1-6a": {
+     "n": 6,
+     "expected": 6,
+     "passed": 6,
+     "failed": []
+    },
+    "E1-6b": {
+     "n": 6,
+     "expected": 6,
+     "passed": 6,
+     "failed": []
+    },
+    "E1-6c": {
+     "n": 8,
+     "expected": 8,
+     "passed": 8,
+     "failed": []
+    },
+    "E1-6t": {
+     "n": 16,
+     "expected": 16,
+     "passed": 16,
+     "failed": []
+    }
+   },
+   "e16m": {
+    "moves": 1376,
+    "ok": 1376,
+    "pass": true
+   },
+   "n_rest": 20,
+   "rest_max_deg": 3.37305608629713e-06,
+   "slip_seeds_0_60s": 0,
+   "slip_ci95_0_60s": [
+    0.0,
+    0.1684334709830853
+   ],
+   "s4_all_true": true,
+   "flagged_trials": [],
+   "max_near_tilt_deg": 18.416391909527672,
+   "near_perpendicular_total": 0,
+   "turner_Nm": {
+    "median": 0.645299368933623,
+    "p99": 1.0,
+    "max": 1.0
+   },
+   "clip_moves": 69,
+   "n_moves": 1376,
+   "clip_trials": 37,
+   "drift_deg": {
+    "median": 0.19141232786121903,
+    "max": 0.8313846943316519
+   },
+   "snap_abs_err_max_deg": 1.0127214072795745,
+   "wall_h": 9.478907148931667
+  },
+  "W3": {
+   "n_records": 204,
+   "option_a": true,
+   "complete": true,
+   "rows": {
+    "E1-1": {
+     "n": 20,
+     "expected": 20,
+     "passed": 20,
+     "failed": []
+    },
+    "E1-2": {
+     "n": 24,
+     "expected": 24,
+     "passed": 24,
+     "failed": []
+    },
+    "E1-3": {
+     "n": 22,
+     "expected": 22,
+     "passed": 22,
+     "failed": []
+    },
+    "E1-4": {
+     "n": 40,
+     "expected": 40,
+     "passed": 40,
+     "failed": []
+    },
+    "E1-5": {
+     "n": 42,
+     "expected": 42,
+     "passed": 42,
+     "failed": []
+    },
+    "E1-5s": {
+     "n": 20,
+     "expected": 20,
+     "passed": 20,
+     "failed": []
+    },
+    "E1-6a": {
+     "n": 6,
+     "expected": 6,
+     "passed": 6,
+     "failed": []
+    },
+    "E1-6b": {
+     "n": 6,
+     "expected": 6,
+     "passed": 6,
+     "failed": []
+    },
+    "E1-6c": {
+     "n": 8,
+     "expected": 8,
+     "passed": 8,
+     "failed": []
+    },
+    "E1-6t": {
+     "n": 16,
+     "expected": 16,
+     "passed": 16,
+     "failed": []
+    }
+   },
+   "e16m": {
+    "moves": 1376,
+    "ok": 1376,
+    "pass": true
+   },
+   "n_rest": 20,
+   "rest_max_deg": 0.011062271692650035,
+   "slip_seeds_0_60s": 0,
+   "slip_ci95_0_60s": [
+    0.0,
+    0.1684334709830853
+   ],
+   "s4_all_true": true,
+   "flagged_trials": [],
+   "max_near_tilt_deg": 18.416391504498815,
+   "near_perpendicular_total": 0,
+   "turner_Nm": {
+    "median": 1.0,
+    "p99": 1.0,
+    "max": 1.0
+   },
+   "clip_moves": 771,
+   "n_moves": 1376,
+   "clip_trials": 68,
+   "drift_deg": {
+    "median": 0.04465141378754014,
+    "max": 0.11915942326921555
+   },
+   "snap_abs_err_max_deg": 0.02774624151166283,
+   "wall_h": 22.839549038199166
+  }
+ },
+ "paired": {
+  "W3_minus_L0": {
+   "rest_rotation_deg": {
+    "n": 20,
+    "median_diff": -0.09655552936594841,
+    "n_arm_lower": 20
+   },
+   "seq_max_drift_deg": {
+    "n": 86,
+    "median_diff": -0.3330032723814481,
+    "n_arm_lower": 85
+   },
+   "seq_max_turner_Nm": {
+    "n": 86,
+    "median_diff": 0.5322227409226894,
+    "n_arm_lower": 0
+   }
+  },
+  "W3_minus_C52": {
+   "rest_rotation_deg": {
+    "n": 20,
+    "median_diff": 0.008517147381389782,
+    "n_arm_lower": 0
+   },
+   "seq_max_drift_deg": {
+    "n": 86,
+    "median_diff": -0.2632780432258297,
+    "n_arm_lower": 86
+   },
+   "seq_max_turner_Nm": {
+    "n": 86,
+    "median_diff": 0.020426754821870063,
+    "n_arm_lower": 4
+   }
+  }
+ },
+ "probe_reproduced": {
+  "n_common": 106,
+  "pass_flags_equal": true,
+  "values_equal": true
+ },
+ "signals": {
+  "1_no_slips_and_rest_le_0.5": true,
+  "2_option_a_rule": true,
+  "3_no_flagged_trials": true,
+  "all_met": true
+ }
+}
