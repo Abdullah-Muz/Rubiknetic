@@ -73,12 +73,12 @@ def arms() -> dict:
 
 
 def table_for(grade: str) -> tuple[MagnetParams, Path, str]:
-    """(magnet params, table folder, table SHA-256). N52: M6's table. Other grades: that table times the exact
+    """(magnet params, table file, table SHA-256). N52: M6's table. Other grades: that table times the exact
     strength factor, written once under tables/ and checked against it on every call."""
     mp = MagnetParams(diameter=0.004, length=0.003, grade=grade)
     src, src_sha = E7.m6_table()
     if grade == "N52":
-        return mp, src.parent, src_sha
+        return mp, src, src_sha
     fac = (GRADES_BR[grade] / GRADES_BR["N52"]) ** 2
     name = (f"tilt_{mp.diameter*1e3:g}x{mp.length*1e3:g}_{mp.br:g}T_s{mp.scale:g}_r{mp.r2*1e3:g}_h1.5_q16x48.npz")
     dst = TABLES / name
@@ -97,19 +97,19 @@ def table_for(grade: str) -> tuple[MagnetParams, Path, str]:
     for k, v in data.items():
         want = v * fac if k in TABLE_KEYS else v
         assert np.allclose(got[k], want, rtol=1e-12, atol=0.0), (grade, k)
-    return mp, dst.parent, hashlib.sha256(dst.read_bytes()).hexdigest()
+    return mp, dst, hashlib.sha256(dst.read_bytes()).hexdigest()
 
 
 def configure(cfg: dict) -> None:
     """Applies a layout to this (fresh) process: ER7's C52 arm then runs with it."""
-    mp, folder, sha = table_for(cfg["grade"])
+    mp, table, sha = table_for(cfg["grade"])
     eo, co = tuple(cfg["edge_opt"]), tuple(cfg["corner_opt"])
     E7.MP52 = mp
     E7.core_layout = lambda _mp, clear: LAY.anchored_core_layout(mp, clear, eo, co)
 
     def tables(_mp=None):
         if "spline" not in E7._C52:
-            E7._C52.update(spline=near_field_tables(mp, folder), file=str(folder.relative_to(REPO)), sha=sha)
+            E7._C52.update(spline=near_field_tables(mp, table.parent), file=str(table.relative_to(REPO)), sha=sha)
         return E7._C52["spline"]
 
     E7._c52_tables = tables

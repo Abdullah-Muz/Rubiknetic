@@ -111,3 +111,9 @@ only criterion 2, ordered by how far they miss, and stop.
 - The stiffness target rests on one seed's diagnostic and M1's joint friction value.
 - Static stiffness screens have now failed to predict a dynamic result twice (ER3's criteria passed C52). The probe
   is the test; the screen only narrows the field.
+
+## Deviations (recorded before the probe run)
+1. **Probe self-check, 2026-11-19.** The first self-check failed on one bookkeeping field in both trials: the wrapper
+   stored the near-field table's folder in `magnet_table.table_file`, where ER7 stores the file. No other field
+   differed. The wrapper now stores the file, and the rerun shows 0 differences in both trials. The first output is
+   kept as `results/probe/selfcheck_run1.json`.

@@ -1,0 +1,47 @@
+{
+ "trials": [
+  {
+   "sub": "E1-2",
+   "tid": "U_s16100",
+   "n_diffs": 0,
+   "diffs": []
+  },
+  {
+   "sub": "E1-5s",
+   "tid": "snap_+1_s16551",
+   "n_diffs": 0,
+   "diffs": []
+  }
+ ],
+ "arms": {
+  "S1": {
+   "variant": "N42 E2@20>centre C3@16>centre",
+   "grade": "N42",
+   "edge_opt": [
+    "split",
+    20,
+    "centre"
+   ],
+   "corner_opt": [
+    "tri",
+    16,
+    "centre"
+   ]
+  },
+  "S2": {
+   "variant": "N52 E2@20>centre C3@16>centre",
+   "grade": "N52",
+   "edge_opt": [
+    "split",
+    20,
+    "centre"
+   ],
+   "corner_opt": [
+    "tri",
+    16,
+    "centre"
+   ]
+  }
+ },
+ "pass": true
+}
