@@ -1,0 +1,16 @@
+{
+ "C52": {
+  "n_magnets": 40,
+  "identical": true
+ },
+ "N42 E2@20>centre C3@16>centre": {
+  "n_magnets": 96,
+  "identical": true
+ },
+ "N52 E2@20>centre C3@16>centre": {
+  "n_magnets": 96,
+  "identical": true
+ },
+ "C52_equals_magnets.core_layout": true,
+ "pass": true
+}
