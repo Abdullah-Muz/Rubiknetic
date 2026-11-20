@@ -261,5 +261,230 @@
     "centre"
    ]
   }
+ },
+ "W1": {
+  "n": 106,
+  "passed": {
+   "E1-1": "20 / 20",
+   "E1-2": "24 / 24",
+   "E1-5": "42 / 42",
+   "E1-5s": "20 / 20"
+  },
+  "snap_abs_err_by_delta": {
+   "1": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "2": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "3": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "5": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "8": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "snap_scored_fail": [],
+  "rest_max_deg": 1.4865584448805869e-05,
+  "e12_turner_Nm": {
+   "median": 1.0,
+   "max": 1.0,
+   "clip_moves": 20
+  },
+  "flagged": [],
+  "max_near_tilt_deg": 18.416344527402153,
+  "near_perpendicular": 0,
+  "wall_s_total": 10090.469452945004,
+  "signals": {
+   "1_snap": true,
+   "2_rest_le_0.5": true,
+   "3_e12_e15_pass": true,
+   "4_inside_regime": true,
+   "complete": true,
+   "all_met": true
+  },
+  "config": {
+   "variant": "N35 x 1 E2@20>centre C3@16>centre",
+   "grade": "N35",
+   "scale": 1.0,
+   "edge_opt": [
+    "split",
+    20,
+    "centre"
+   ],
+   "corner_opt": [
+    "tri",
+    16,
+    "centre"
+   ]
+  }
+ },
+ "W2": {
+  "n": 106,
+  "passed": {
+   "E1-1": "20 / 20",
+   "E1-2": "24 / 24",
+   "E1-5": "42 / 42",
+   "E1-5s": "20 / 20"
+  },
+  "snap_abs_err_by_delta": {
+   "1": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "2": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "3": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "5": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ],
+   "8": [
+    0.0,
+    0.0,
+    0.0,
+    0.0
+   ]
+  },
+  "snap_scored_fail": [],
+  "rest_max_deg": 0.002729671999840912,
+  "e12_turner_Nm": {
+   "median": 1.0,
+   "max": 1.0,
+   "clip_moves": 16
+  },
+  "flagged": [],
+  "max_near_tilt_deg": 18.416385062188883,
+  "near_perpendicular": 0,
+  "wall_s_total": 10164.822225039004,
+  "signals": {
+   "1_snap": true,
+   "2_rest_le_0.5": true,
+   "3_e12_e15_pass": true,
+   "4_inside_regime": true,
+   "complete": true,
+   "all_met": true
+  },
+  "config": {
+   "variant": "N35 x 0.5 E2@20>centre C3@16>centre",
+   "grade": "N35",
+   "scale": 0.5,
+   "edge_opt": [
+    "split",
+    20,
+    "centre"
+   ],
+   "corner_opt": [
+    "tri",
+    16,
+    "centre"
+   ]
+  }
+ },
+ "W3": {
+  "n": 106,
+  "passed": {
+   "E1-1": "20 / 20",
+   "E1-2": "24 / 24",
+   "E1-5": "42 / 42",
+   "E1-5s": "20 / 20"
+  },
+  "snap_abs_err_by_delta": {
+   "1": [
+    0.024,
+    0.001,
+    0.019,
+    0.008
+   ],
+   "2": [
+    0.028,
+    0.028,
+    0.028,
+    0.028
+   ],
+   "3": [
+    0.028,
+    0.028,
+    0.028,
+    0.028
+   ],
+   "5": [
+    0.028,
+    0.028,
+    0.028,
+    0.028
+   ],
+   "8": [
+    0.028,
+    0.028,
+    0.028,
+    0.028
+   ]
+  },
+  "snap_scored_fail": [],
+  "rest_max_deg": 0.011062271692650035,
+  "e12_turner_Nm": {
+   "median": 0.9472046310152693,
+   "max": 1.0,
+   "clip_moves": 9
+  },
+  "flagged": [],
+  "max_near_tilt_deg": 18.416353523692816,
+  "near_perpendicular": 0,
+  "wall_s_total": 10673.90024844,
+  "signals": {
+   "1_snap": true,
+   "2_rest_le_0.5": true,
+   "3_e12_e15_pass": true,
+   "4_inside_regime": true,
+   "complete": true,
+   "all_met": true
+  },
+  "config": {
+   "variant": "N35 x 0.3 E2@20>centre C3@16>centre",
+   "grade": "N35",
+   "scale": 0.3,
+   "edge_opt": [
+    "split",
+    20,
+    "centre"
+   ],
+   "corner_opt": [
+    "tri",
+    16,
+    "centre"
+   ]
+  }
  }
 }
