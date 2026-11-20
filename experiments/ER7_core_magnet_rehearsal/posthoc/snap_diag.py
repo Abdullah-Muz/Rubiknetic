@@ -47,20 +47,18 @@ def v_layer():
 
 
 def pieces():
-    """Each U-layer piece: its rotation from home (deg), split into spin about its own radial axis (the axis of its
-    magnet pair in the core layout) and the tangential rest; and the rotation about the U axis."""
+    """Each of the 26 pieces: its rotation from home (deg), split into spin about its own radial axis (the axis of
+    its magnet pair in the core layout) and the tangential rest; and the rotation about the U axis."""
     from scipy.spatial.transform import Rotation
     out = {}
     for h in HOME_POSITIONS:
-        if int(np.dot(h, nrm)) != 1:
-            continue
         b = mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_BODY, cubie_name(h))
         w, x, y, z = d.xquat[b]
         rv = np.degrees(Rotation.from_quat([x, y, z, w]).as_rotvec())
         u = np.array(h, float) / np.linalg.norm(h)
         spin = float(rv @ u)
         out[cubie_name(h)] = {"kind": {1: "centre", 2: "edge", 3: "corner"}[int(np.count_nonzero(h))],
-                              "about_U_deg": float(rv @ nrm), "spin_about_own_axis_deg": spin,
+                              "in_U_layer": bool(int(np.dot(h, nrm)) == 1), "about_U_deg": float(rv @ nrm), "spin_about_own_axis_deg": spin,
                               "tangential_deg": float(np.linalg.norm(rv - spin * u))}
     return out
 

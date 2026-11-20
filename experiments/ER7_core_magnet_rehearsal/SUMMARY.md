@@ -87,12 +87,16 @@ torque about a layer's axis into magnets, joint friction and contacts.
   | Magnet torque about the U axis | 0 (below 1e-14 N·m) | 4.6e-4 N·m, balanced by contacts |
   | Contacts between pieces | **none** | 56, total normal force 6.0 N |
   | Largest joint velocity | 3e-13 | 3e-4 |
-  | Each edge and corner: rotation about its own radial axis | **1.40–1.74°** | 0.00–0.31° |
-  | Each edge and corner: rotation in the other two directions | 0.07–0.09° | 0.14–0.73° |
+  | U-layer edges and corners: rotation about their own radial axis | **+1.40 to +1.74°** | −0.27 to +0.27° |
+  | The other 12 edges and corners: rotation about their own radial axis | **+1.00 to +1.39°** | −0.20 to +0.20° |
+  | The six centres: rotation about their axis | +0.62 to +1.02° | −0.11 to +0.10° |
+  | Edges and corners: rotation in the other two directions, largest | 0.09° | 0.70° |
 
-  In C52 every U-layer piece has returned to its home position and is left **rotated about its own radial axis**,
-  the axis of its magnet pair. Seen along the U axis, that leftover is 0.87–1.08° per piece, which is the 1.0° layer
-  error. Nothing pushes or holds the pieces: there is no contact, no magnet torque and no motion.
+  In C52 every piece is at its home position and is left **rotated about its own radial axis**, the axis of its
+  magnet pair. **All 26 pieces are rotated in the same sense**, including the 17 that the rig never turned. Seen
+  along the U axis, the U-layer pieces' leftover is 0.87–1.08° each, which is the 1.0° layer error. Nothing pushes or
+  holds the pieces: there is no contact, no magnet torque and no motion. In L0 the pieces' rotations have both signs
+  and stay within 0.3°.
 - **Rest, seed 16000** (`rest_diag.py`). In C52, after the 0.5 s settle that precedes every trial, the cube has no
   contacts at all and the magnet torque on every layer is zero (below 1e-13 N·m). L0 has 61 contacts carrying 7.2 N,
   with the magnets' torque on each layer balanced by contact forces.
@@ -102,8 +106,12 @@ torque about a layer's axis into magnets, joint friction and contacts.
    axis.** A coaxial magnet pair is symmetric about its axis. ER3 and ER6 recorded this as "edge spin 0, corner twist
    0", and both screens passed only inside the tolerance on those two modes (margin +0.010). A layer turned by an
    angle and released carries a spin of 71 % of that angle on its edges and 58 % on its corners. The magnets pull the
-   pieces back to their positions but leave the spin, and the pieces only un-spin as far as their neighbours push
-   them, which is to within the play of the 0.05 mm gap.
+   pieces back to their positions but leave the spin.
+   - **The leftover is a collective motion of the whole cube.** One piece alone could not stay spun by 1.5°: that
+     moves the edges of its faces by about 0.14 mm, more than the 0.05 mm gap. But with every piece spun the same
+     way, neighbouring faces tilt together and nothing touches. The magnets resist this motion not at all, and
+     contacts do not resist it either, so the cube has a free internal motion that nothing brings back to square.
+   - The static screens looked at one piece, or one rigid layer, at a time. They could not see a collective motion.
 2. **M5's corner–edge magnets do restore that mode** (ER3: spin +122 and twist +118 mN·m/rad for L0), which is why
    L0 snaps back to within 0.1°.
 3. **C52's rest result is not friction.** The setup offsets each layer by up to 1°, as a rigid rotation written
@@ -149,7 +157,7 @@ withdrawn.
    quantiles, the largest turn error and the growth slope were read from the records after the fixed analysis
    (`er7_analyze.py`) had run. They are descriptive and change no signal.
 4. **Post hoc diagnostic, 2026-11-19.** `posthoc/snap_diag.py` and `posthoc/rest_diag.py` replay one snap-back trial
-   (seed 16568, +8°) and one rest trial (seed 16000) per arm and read the constraint forces. They are exploratory, use
+   (seed 16568, +8°) and one rest trial (seed 16000) per arm and read the constraint forces and every piece's rotation (`posthoc/summarize.py` prints the table). They are exploratory, use
    ER7's seeds (already diagnostic) and change no record or signal. One seed per case: the per-piece numbers are an
    example, not a distribution.
 
