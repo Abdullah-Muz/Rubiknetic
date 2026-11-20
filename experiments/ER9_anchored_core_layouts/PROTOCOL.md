@@ -181,3 +181,55 @@ not explored here: W3 is already at ER3's layer-stiffness limit.
   - **Any signal missed:** reported trial by trial against L0 and C52; the next step goes to the user.
 - **Limits:** those of ER7 and of Part B. In particular the seeds are ER7's, already used for diagnostics and for
   selecting this arm, so the rehearsal is not independent of the selection.
+
+## Part E — hybrid: M5's corner–edge magnets plus weak anchors (addendum, fixed 2026-11-20 after Part D, before any Part E trial)
+**Why.** Part D's arm W3 met all three signals but its turner reached the 1 N·m limit in 771 of 1,376 moves. Single-turn
+replays (exploratory, seed 16100, first U of an E1-2 trial; `er9_turn_diag.py`, outputs in `results/probe/diag/`)
+were read before this addendum was written, and they chose its arms:
+
+| Replay | Layout | Peak turner torque | Steps at the limit |
+|---|---|---|---|
+| L0 | M5's 48 magnets | 0.461 N·m | 0 |
+| W3 | anchors, N35 × 0.3 | 1.000 | 4.3 % |
+| X0.1 / X0.03 / X0.003 | anchors, N35 × 0.1 / 0.03 / 0.003 | 1.000 / 0.782 / 1.000 | 0.1 % / 0 / 9.8 % |
+| H0.2 / H1 / H2 | M5's 48 + anchors (4×2 N35) at clearance 0.2 / 1 / 2 mm | 0.734 / 0.653 / 0.278 | 0 / 0 / 0 |
+
+- INFERENCE: the stall at about 7° is not caused by the anchors. It is there, and worse, with almost no magnets
+  (X0.003). M5's corner–edge magnets, which tie the pieces of a turning layer to each other, suppress it.
+- PROPOSAL (tested here): keep M5's 48 magnets for turning and add weak anchors to hold the pieces at rest, which is
+  where M5's layout fails (E1-1 slips).
+
+**Layout.** M5's `layout()` unchanged (48 magnets) plus the S1 anchor geometry (edges 2 pairs at 20° toward the
+centres, corners 3 pairs at 16° toward the centres; 96 magnets), 144 magnets in all. One magnet type throughout,
+M5's 4 × 2 mm N35 at scale 1 with M5's validated table (a MagnetSystem has one magnet type). Anchor strength is set by
+a real dimension, the piece-to-core clearance c along each pair's axis (face gap = c + 0.8 mm), not by a strength scale.
+Code: `er9_hybrid.py`.
+
+**Arms:** HB1, HB2, HB3 with c = 1, 2, 3 mm.
+
+**Runner:** `er9_hybrid_run.py`, the Part B wrapper mechanism with `er9_hybrid.configure`. Records in
+`results/hybrid/probe/<arm>/` and `results/hybrid/full/<arm>/`.
+
+**Self-check (before any arm):** the hybrid path with the anchors switched off (48 magnets installed through ER7's
+core-arm path) must reproduce ER7's L0 records for the first E1-2 and the first E1-5s trial in every field except run
+metadata and the fields that name the arm and the table (`er7_arm`, `mechanism`, `magnet_table`, `er9_arm`, `er9`).
+
+**Validated regime.** The table is M5's, so the tilt limit is M5's V3 validated tilt for the 4 × 2 magnet (not P-60's
+20°, which belongs to the 4 × 3 table). A trial is flagged if a near pair exceeds it or a perpendicular near pair occurs.
+V3 validated this table for corner–edge pairs; its use for coaxial piece-to-core pairs at these gaps is an extension
+that a scored run would need to validate (an ER5-style V3-turn at this placement).
+
+**Probe (as Part B):** the 106 trials (E1-1, E1-2, E1-5, E1-5s) on ER7's seeds, the same four signals.
+
+**Selection (fixed now):** among the arms that meet all four probe signals, the one with the lowest median E1-2 turner
+torque; ties go to the larger clearance. That arm gets the full 204-trial rehearsal with Part D's three signals
+(tilt limit as above) and Part D's analysis (`er9_full_analyze.py ARM --root results/hybrid`). If no arm meets the four
+signals, Part E ends there and is reported.
+
+**Reading (fixed now).** As Part D, with one addition: the hybrid is reported against L0 on turner torque (median,
+maximum, moves at the limit). All three signals met and no move at the limit: the hybrid replaces W3 as the candidate.
+All three met but with moves at the limit: both are reported and the choice goes to the user.
+
+**Limits.** Those of Parts B–D. In addition: the arms were chosen after single-seed replays on an ER7 seed; 144
+magnets (edges carry 4, corners 6, the core 48) have not been checked for fit in a real piece; M5's magnets and the
+anchor magnets act on each other, which is inside the force law but outside what V3 covered.

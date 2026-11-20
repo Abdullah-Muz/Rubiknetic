@@ -26,7 +26,16 @@ E7.set_seeds(E7.ER7_GLOBALS)
 if arm == "L0":
     E7.setup_arm("L0")
 else:
-    P.configure(P.C52_CFG if arm == "C52" else P.arms()[arm])
+    if arm.startswith("H"):                                  # hybrid: M5's 48 magnets + anchors, clearance in mm
+        spec = importlib.util.spec_from_file_location("er9_hybrid", HERE / "er9_hybrid.py")
+        HY = importlib.util.module_from_spec(spec); sys.modules["er9_hybrid"] = HY; spec.loader.exec_module(HY)
+        HY.configure(HY.cfg_for(float(arm[1:])))
+    elif arm.startswith("X"):                                  # ad hoc: S1 geometry, N35, strength scale after the X
+        cfg = {**P.arms()["W1"], "scale": float(arm[1:]), "variant": f"N35 x {arm[1:]} (ad hoc)"}
+    else:
+        cfg = P.C52_CFG if arm == "C52" else P.arms()[arm]
+    if not arm.startswith("H"):
+        P.configure(cfg)
     E7.setup_arm("C52")
 ms = M4.use_magnets(R.magnet_params_for({}), R.GAP)
 ms.reset_neighbour_list(); ms.reset_stats()

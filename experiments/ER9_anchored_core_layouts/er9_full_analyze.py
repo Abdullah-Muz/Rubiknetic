@@ -1,5 +1,6 @@
 """ER9 part D analysis (PROTOCOL.md, Part D): ER7's functions applied to one ER9 arm, beside ER7's L0 and C52.
 Usage (WSL, repo root):  ~/.venvs/rubiknetic/bin/python experiments/ER9_anchored_core_layouts/er9_full_analyze.py ARM
+                         [--root results/hybrid]   (Part E arms; the folder is relative to this script's folder)
 Writes results/full/<ARM>/analysis.json and prints a report.
 """
 from __future__ import annotations
@@ -17,6 +18,7 @@ REPO = HERE.parents[1]
 ER7_RES = REPO / "experiments/ER7_core_magnet_rehearsal/results"
 SEQ = ("E1-2", "E1-3", "E1-4")
 ARM = sys.argv[1]
+ROOT = HERE / (sys.argv[sys.argv.index("--root") + 1] if "--root" in sys.argv else "results")   # e.g. results/hybrid
 
 
 def _load(name, rel):
@@ -73,14 +75,14 @@ def paired(a: dict, b: dict, subs, key) -> dict:
 
 
 def main() -> None:
-    data = {"L0": load(ER7_RES / "L0"), "C52": load(ER7_RES / "C52"), ARM: load(HERE / "results" / "full" / ARM)}
+    data = {"L0": load(ER7_RES / "L0"), "C52": load(ER7_RES / "C52"), ARM: load(ROOT / "full" / ARM)}
     res = {"arms": {a: block(r) for a, r in data.items()}, "paired": {}}
     for ref in ("L0", "C52"):
         res["paired"][f"{ARM}_minus_{ref}"] = {
             "rest_rotation_deg": paired(data[ref], data[ARM], ("E1-1",), lambda r: r["rest_rotation_deg"]),
             "seq_max_drift_deg": paired(data[ref], data[ARM], SEQ, lambda r: A7.seq_stats(r)["max_drift_deg"]),
             "seq_max_turner_Nm": paired(data[ref], data[ARM], SEQ, lambda r: A7.seq_stats(r)["max_turner_Nm"])}
-    probe = load(HERE / "results" / "probe" / ARM)
+    probe = load(ROOT / "probe" / ARM)
     same = [k for k in probe if k in data[ARM]]
     res["probe_reproduced"] = {
         "n_common": len(same),
@@ -93,7 +95,7 @@ def main() -> None:
                                            and x["rest_max_deg"] is not None and x["rest_max_deg"] <= 0.5),
         "2_option_a_rule": bool(x["option_a"]), "3_no_flagged_trials": not x["flagged_trials"]}
     res["signals"]["all_met"] = all(res["signals"].values())
-    (HERE / "results" / "full" / ARM / "analysis.json").write_text(json.dumps(res, indent=1, default=float))
+    (ROOT / "full" / ARM / "analysis.json").write_text(json.dumps(res, indent=1, default=float))
     print(f"| Experiment | L0 | C52 | {ARM} |\n|---|---|---|---|")
     for e in A7.EXPECTED:
         print(f"| {e} | " + " | ".join(f"{res['arms'][a]['rows'][e]['passed']} / {res['arms'][a]['rows'][e]['n']}"
