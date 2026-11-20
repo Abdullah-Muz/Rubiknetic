@@ -66,8 +66,8 @@ web archives could not be reached):
   given.
 
 `INFERENCE`: both figures are single, undocumented hand measurements, good to an order of magnitude at best. They
-agree with the sim's peak turning torque (0.32–0.72 N·m, gripper rig, `PROTOCOL.md`) only in being the same order or
-lower; they cannot calibrate it.
+are 4–14× below the sim's peak turning torque in `PROTOCOL.md` (0.32–0.72 N·m, gripper rig, an earlier model stage,
+and a peak during a driven turn rather than a breakaway torque). They are too uncertain to calibrate the model.
 
 | Source (accessed 2026-11-19) | What it establishes | Status |
 |---|---|---|
