@@ -25,13 +25,13 @@
 
 ## Required research reports (produce after researching)
 
-Create reports under `research/` rather than overwriting the briefs in `docs/`:
+Create reports under `docs/research/` rather than overwriting the briefs in `docs/` (P-05, approved 2026-11-19; the Phase 0 reports were written under these names, mapped below):
 
-- `research/CUBE_MECHANICS_FINDINGS.md`: physical cube topology, candidate MuJoCo representation, constraint-update algorithm, failure modes, alternatives, fidelity limits, pilot experiment.
-- `research/GRIPPER_FINDINGS.md`: commercial grippers and CAD, contact geometry, custom fingertip concepts, force/torque budget, compatibility, interference, recommendations.
-- `research/CONTACT_AND_RL_FINDINGS.md`: modeling of friction/compliance, controller baseline, residual-RL publications and CPU performance concerns.
-- `research/PHASE_0_DECISION_MATRIX.md`: weighted comparison of mechanisms and grippers (with weights justified), uncertainty sensitivity, selected leading candidate(s) and negative findings.
-- `research/PHASE_0_SOURCE_REGISTER.md`: full bibliography with verification and licensing metadata.
+- `docs/research/CUBE_MECHANICS_LITERATURE_REVIEW.md` (with `docs/research/CUBE_MECHANISM_FINDINGS.md`): physical cube topology, candidate MuJoCo representation, constraint-update algorithm, failure modes, alternatives, fidelity limits, pilot experiment.
+- `docs/research/GRIPPER_LITERATURE_REVIEW.md` + `docs/research/GRIPPER_DESIGN_TRADEOFFS.md`: commercial grippers and CAD, contact geometry, custom fingertip concepts, force/torque budget, compatibility, interference, recommendations.
+- `docs/research/CONTACT_AND_RL_FINDINGS.md` (**deferred** to before Phase 3, P-06; partly covered by `docs/research/MECHANICAL_FEASIBILITY_ASSESSMENT.md` §9): modeling of friction/compliance, controller baseline, residual-RL publications and CPU performance concerns.
+- decision matrix, in `docs/research/GRIPPER_DESIGN_TRADEOFFS.md` §4 and the cube comparison in `docs/research/CUBE_MECHANICS_LITERATURE_REVIEW.md` §6: weighted comparison of mechanisms and grippers (with weights justified), uncertainty sensitivity, selected leading candidate(s) and negative findings.
+- `docs/research/PHASE_0_SOURCE_REGISTER.md`: full bibliography with verification and licensing metadata.
 
 These are **deliverable names**, not pre-filled reports: they must not be marked completed or populated with invented findings.
 

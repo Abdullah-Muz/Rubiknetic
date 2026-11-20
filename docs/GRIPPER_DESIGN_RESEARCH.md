@@ -54,7 +54,7 @@ For each concept examine:
 
 ## Required report format
 
-Write `research/GRIPPER_FINDINGS.md` **after** research:
+Write the findings under `docs/research/` **after** research (written as `GRIPPER_LITERATURE_REVIEW.md` and `GRIPPER_DESIGN_TRADEOFFS.md`; P-05):
 
 - Verified bibliography with titles, authors, dates, DOI/URL, accessible content level and licensing.
 - Official xArm7/gripper models, source links, attachment interfaces, jaw stroke/force (if verified), CAD formats.

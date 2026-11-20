@@ -164,7 +164,7 @@ The sequence is **0 research → 1 cube physics → 2 robot/gripper → 3 RL →
 
 ## 13. Evidence, provenance and change control
 
-Research findings belong in dated `research/` reports created *after* literature review; benchmark results belong in versioned `experiments/` records created after running tests. Do **not** create synthetic results as a substitute. Cite exact DOI/URL/asset license, record used versions and preserve third-party copyright notices. Approve changes to locked decisions before editing this specification; note them in `docs/DECISION_LOG.md`.
+Research findings belong in dated `docs/research/` reports created *after* literature review; benchmark results belong in versioned `experiments/` records created after running tests. Do **not** create synthetic results as a substitute. Cite exact DOI/URL/asset license, record used versions and preserve third-party copyright notices. Approve changes to locked decisions before editing this specification; note them in `docs/DECISION_LOG.md`.
 
 ## 14. Definition of done — v1
 

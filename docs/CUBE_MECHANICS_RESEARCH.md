@@ -51,7 +51,7 @@ Use a standalone symbolic cube model to validate:
 
 ## Decision gate
 
-Recommend one modeled mechanism (with documented fidelity level), alternatives, parameter uncertainties and mechanical risks. Produce `research/CUBE_MECHANICS_FINDINGS.md`; user approves before implementation. Passing this **research** gate is distinct from the Phase 1 **working-physics** gate.
+Recommend one modeled mechanism (with documented fidelity level), alternatives, parameter uncertainties and mechanical risks. Produce the findings under `docs/research/` (written as `CUBE_MECHANICS_LITERATURE_REVIEW.md`; P-05); user approves before implementation. Passing this **research** gate is distinct from the Phase 1 **working-physics** gate.
 
 ## Primary reference starting points
 
