@@ -1,6 +1,15 @@
 # Phase 1 (G1) Pre-registration: M6, core-magnet contact cube (DRAFT, revision 0)
 
-**Status: DRAFT. Not approved, not reviewed, not in force. No M6 scored trial exists.**
+**LAPSED on 2026-11-19 (P-65). Never approved, never reviewed, never in force. No M6 scored trial exists.**
+ER7's C52 arm failed feasibility signal 2 (E1-5s snap-back 10 / 20), so under the rule below this draft lapses
+unused. It is kept as a record.
+- **File name.** This file was `PHASE_1_M6_PREREGISTRATION_DRAFT.md` until it was renamed on 2026-11-19, while ER7
+  was still running, so that the runner's frozen-path list could name it.
+- **Runner built ahead of approval.** `experiments/E6_scored_m6/` holds a runner, a verdict script and tests that
+  were built during ER7 in preparation. They were never used on an M6 seed. Where they differ from this draft is
+  listed in that folder's README.
+
+**Status when written: DRAFT. Not approved, not reviewed, not in force.**
 - **When it was written.** On 2026-11-19, during ER7, so that a draft exists if ER7 meets its signals. The author had
   not run or read ER7's analysis. The author had seen ER7 progress lines; the last ones read were PASS lines for E1-3
   and E1-4 trials in both arms.

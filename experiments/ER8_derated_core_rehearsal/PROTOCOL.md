@@ -1,6 +1,10 @@
 # ER8 — Robustness arms for the core-magnet layout: derated strength and half timestep (PROTOCOL, fixed before any run)
 
-**Status: fixed on 2026-11-19, before any ER8 run and before ER7 finished.**
+**LAPSED on 2026-11-19 (P-65). ER8 was never run.** ER7's C52 arm met signals 1 and 3 but failed signal 2 (E1-5s
+snap-back 10 / 20), so the condition below is not met and the runner refuses to start. No self-check and no trial
+was run. The text below is kept unchanged as the record of what was fixed.
+
+**Status when written: fixed on 2026-11-19, before any ER8 run and before ER7 finished.**
 - **Approval.** The user's instruction "work autonomously to fix them all" (2026-11-19) was a reply to a list that
   named "the ER8 derated arm, if you want it" and "the integrator's … effect on rest slips hasn't been measured". The
   main session treats that as approval to run ER8 under this protocol, and records it as such in the DECISION_LOG
