@@ -52,6 +52,7 @@ from rubiknetic.cube_physics.magnets import GRADES_BR, MagnetParams, near_field_
 
 N52 = E7.MP52
 C52_CFG = {"grade": "N52", "edge_opt": ["axis"], "corner_opt": ["axis"]}
+PART_C = {"W1": 1.0, "W2": 0.5, "W3": 0.3}        # PROTOCOL Part C: S1 geometry, grade N35, strength scale
 
 
 def arms() -> dict:
@@ -69,17 +70,20 @@ def arms() -> dict:
                   (a["edge_opt"][0], a["corner_opt"][0])):
             out["S2"] = {"variant": b["variant"], "grade": b["grade"], "edge_opt": b["edge_opt"],
                          "corner_opt": b["corner_opt"]}
+        for name, scale in PART_C.items():
+            out[name] = {"variant": f"N35 x {scale:g} " + a["variant"].split(" ", 1)[1], "grade": "N35",
+                         "scale": scale, "edge_opt": a["edge_opt"], "corner_opt": a["corner_opt"]}
     return out
 
 
-def table_for(grade: str) -> tuple[MagnetParams, Path, str]:
+def table_for(grade: str, scale: float = 1.0) -> tuple[MagnetParams, Path, str]:
     """(magnet params, table file, table SHA-256). N52: M6's table. Other grades: that table times the exact
     strength factor, written once under tables/ and checked against it on every call."""
-    mp = MagnetParams(diameter=0.004, length=0.003, grade=grade)
+    mp = MagnetParams(diameter=0.004, length=0.003, grade=grade, scale=scale)
     src, src_sha = E7.m6_table()
-    if grade == "N52":
+    if grade == "N52" and scale == 1.0:
         return mp, src, src_sha
-    fac = (GRADES_BR[grade] / GRADES_BR["N52"]) ** 2
+    fac = (GRADES_BR[grade] / GRADES_BR["N52"]) ** 2 * scale
     name = (f"tilt_{mp.diameter*1e3:g}x{mp.length*1e3:g}_{mp.br:g}T_s{mp.scale:g}_r{mp.r2*1e3:g}_h1.5_q16x48.npz")
     dst = TABLES / name
     with np.load(src) as f:
@@ -102,7 +106,7 @@ def table_for(grade: str) -> tuple[MagnetParams, Path, str]:
 
 def configure(cfg: dict) -> None:
     """Applies a layout to this (fresh) process: ER7's C52 arm then runs with it."""
-    mp, table, sha = table_for(cfg["grade"])
+    mp, table, sha = table_for(cfg["grade"], cfg.get("scale", 1.0))
     eo, co = tuple(cfg["edge_opt"]), tuple(cfg["corner_opt"])
     E7.MP52 = mp
     E7.core_layout = lambda _mp, clear: LAY.anchored_core_layout(mp, clear, eo, co)
@@ -123,6 +127,7 @@ def run_one(job: dict) -> dict:
         return rec                                            # self-check: ER7's record, untouched
     want = LAY.anchored_core_layout(E7.MP52, E7.CLEAR, tuple(cfg["edge_opt"]), tuple(cfg["corner_opt"]))
     assert rec["magnets"]["n_magnets"] == len(want) and rec["magnets"]["params"]["grade"] == cfg["grade"]
+    assert rec["magnets"]["params"]["scale"] == cfg.get("scale", 1.0)
     rec["er9_arm"], rec["mechanism"], rec["er9"] = arm, "ER9-" + arm, cfg
     return rec
 
@@ -225,7 +230,7 @@ def main() -> None:
     for arm, cfg in arms().items():
         if a.arms and arm not in a.arms:
             continue
-        table_for(cfg["grade"])                               # derived table written by the parent, once
+        table_for(cfg["grade"], cfg.get("scale", 1.0))        # derived table written by the parent, once
         js = jobs_for(arm, cfg, env)
         total += len(js)
         todo += [j for j in js if not path_of(arm, j["exp"], j["tid"]).exists()]

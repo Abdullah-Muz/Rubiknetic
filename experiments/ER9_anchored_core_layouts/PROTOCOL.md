@@ -117,3 +117,45 @@ only criterion 2, ordered by how far they miss, and stop.
    stored the near-field table's folder in `magnet_table.table_file`, where ER7 stores the file. No other field
    differed. The wrapper now stores the file, and the rerun shows 0 differences in both trials. The first output is
    kept as `results/probe/selfcheck_run1.json`.
+
+## Part C — weaker magnets in the selected geometry (addendum, fixed 2026-11-19 after Part B, before any Part C run)
+**What Part B showed** (`results/probe/report.json`; details go in the summary).
+- Both arms met all four probe signals, 106 / 106 trials each: S1 (N42) and S2 (N52), with two pairs per edge at 20°
+  and three per corner at 16°, set toward the centres. Every snap-back error was below 0.001°.
+- **Turning is too stiff.** In E1-2 the turner reached its 1 N·m limit in 20 of 24 quarter turns in both arms
+  (median peak 1.0 N·m; L0 0.144; C52 0.70, with 4 at the limit). Every turn still completed and passed.
+- **The stiffness target of Part A was not needed, and its rationale was wrong.** One replay per arm
+  (`results/probe/diag/`) showed every edge and corner with zero leftover spin after the release, where the
+  joint-friction rule predicted up to 0.27°. The small leftovers in ER7 that the rule seemed to match (0.066° and
+  0.093°) are gravity sag: the piece's weight times its horizontal lever, divided by the tangential stiffness, gives
+  0.0656° and 0.0932° for C52 and 0.0408° and 0.0402° for S1, the values observed. Joint friction does not hold a
+  piece off its magnetic equilibrium in this model.
+
+**Question.** How weak can the magnets be in this geometry and still meet the probe signals, and how much does the
+turning torque fall?
+
+**Arms.** The S1 geometry (edges split at 20° toward the centres; corners with three pairs at 16° toward the centres;
+96 magnets), 4×3 mm, clearance 0.2 mm, at three strengths set by `MagnetParams.scale` on grade N35:
+
+| Arm | Strength (pair energy against N35) | Static layer stiffness | Static U-turn peak |
+|---|---|---|---|
+| W1 | 1.0 (N35) | 4.41 N·m/rad | 0.283 N·m |
+| W2 | 0.5 | 2.21 N·m/rad | 0.142 N·m |
+| W3 | 0.3 | 1.32 N·m/rad | 0.085 N·m |
+
+The W2 and W3 values are the W1 row of the screen times the scale (the stiffnesses are linear in strength). W3 is the
+weakest of the three that keeps ER3's layer stiffness of at least 1.0 N·m/rad.
+- **What a scale below 1 stands for.** A magnet of the same size with a lower remanence (0.5 → 0.84 T, 0.3 → 0.65 T,
+  the range of bonded NdFeB), or a smaller sintered magnet of the same dipole moment. Neither has been fitted or
+  validated; it is a strength knob for this exploration.
+- **Tables.** M6's N52 table times the exact strength factor, written once and checked on every use, as in Part B.
+- **Geometry and survey** do not depend on strength, so Part A's result for this geometry stands (criteria 4 and 5
+  passed).
+
+**Trials, self-check and signals:** as Part B (106 trials per arm, the same four signals).
+
+**Selection (fixed now).** Among the five arms of Parts B and C that meet all four signals, the one with the lowest
+median E1-2 turner torque is the candidate for a full 204-trial rehearsal. If W3 is selected, weaker strengths are
+not explored here: W3 is already at ER3's layer-stiffness limit.
+
+**Reported:** as Part B, plus each arm's gravity sag (largest tangential leftover at rest).
