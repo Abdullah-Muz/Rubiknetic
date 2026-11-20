@@ -159,3 +159,25 @@ median E1-2 turner torque is the candidate for a full 204-trial rehearsal. If W3
 not explored here: W3 is already at ER3's layer-stiffness limit.
 
 **Reported:** as Part B, plus each arm's gravity sag (largest tangential leftover at rest).
+
+## Part D — full rehearsal of the selected arm (addendum, fixed 2026-11-19 while Part C was running, before any Part C result was read)
+- **Arm:** the one Part C's selection rule names. If no arm of Parts B and C meets all four signals, Part D lapses.
+- **Trials:** ER7's full list and seeds, unchanged: 204 trials (E1-1 to E1-6, E1-5s, E1-6t), seeds 16000–16655, with
+  D10's instrumented 60 s rest in E1-1. The 106 probe trials are run again inside it; they must reproduce the probe's
+  records (same pass flags and the same rest and snap-back values), which is reported as a check.
+- **Runner:** `er9_full.py`, the Part B wrapper around ER7's runner with the trial filter and the rest shortening
+  removed. Records in `results/full/<arm>/`.
+- **Signals (ER7's three, unchanged):**
+  1. 0 / 20 E1-1 slip events (D11's definition) and every rest rotation ≤ 0.5°;
+  2. M5's Option A rule over the 204 trials, with E1-6m ⟨P⟩;
+  3. no trial outside the validated regime (near tilt > 20° or a perpendicular near pair).
+- **Analysis:** `er9_full_analyze.py`, which applies ER7's functions (`er7_analyze.py`) to the arm and prints it beside
+  ER7's L0 and C52: pass counts by sub-experiment, slip seeds with intervals, paired rest rotation, sequence drift and
+  turner peak torque, and moves at the 1 N·m limit.
+- **Reading (fixed now).**
+  - **All three met:** the layout is a candidate for a scored pre-registration. That would be proposed to the user
+    together with what it still lacks: a force-law validation for the off-axis placement (an ER5-style V3-turn), a fit
+    check in a real piece (as ER4), and the meaning of the strength used.
+  - **Any signal missed:** reported trial by trial against L0 and C52; the next step goes to the user.
+- **Limits:** those of ER7 and of Part B. In particular the seeds are ER7's, already used for diagnostics and for
+  selecting this arm, so the rehearsal is not independent of the selection.
