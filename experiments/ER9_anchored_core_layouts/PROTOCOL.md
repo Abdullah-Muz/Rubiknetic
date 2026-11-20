@@ -262,3 +262,36 @@ first as a smoke test and reported; it does not change the arms, the signals or 
 Everything else in Part E stands (probe trials, four signals, selection, full rehearsal, reading, limits). The limit
 about V3 changes to: P-60 validated the 4 × 3 table for coaxial piece-to-core pairs up to 20° of tilt; corner–edge
 pairs of 4 × 3 magnets and the cross-interaction of the two groups were not part of that validation.
+
+### Part E amendment 2 (fixed 2026-11-20, after the self-check and the three smoke replays, before any probe trial)
+**Self-check:** passed (W3's two probe records reproduced with 0 differences; `results/hybrid/selfcheck.json`).
+
+**Smoke replays (seed 16100, first U of an E1-2 trial):**
+
+| Replay | Anchor clearance | Peak turner torque | Steps at the limit | Max near tilt | Perpendicular near-pair evaluations |
+|---|---|---|---|---|---|
+| L0 (reference) | — | 0.461 N·m | 0 | — | — |
+| G1 | 1 mm | 0.525 | 0 | 17.4° | 4,429 |
+| G2 | 2 mm | 0.432 | 0 | 15.5° | 4,553 |
+| G3 | 3 mm | 0.118 | 0 | 12.4° | 4,624 |
+
+**Known before the probe: signal 4 cannot be met.** The force law corrects a near pair (closer than 8 mm) only if it
+is within 45° of parallel; any other near pair gets the point-dipole formula alone, and M5 required that none
+occurs. In a hybrid, anchor magnets of the turning layer pass corner–edge magnets of the layer below at 5.8–6.2 mm
+and about 64° (`er9_hybrid_pairs.py`: 12 pairs per quarter turn, none at home, the same at every clearance). The rule
+is not changed here. Signal 4 is reported as not met for every arm.
+
+**Reported item (computed before the probe):** `er9_hybrid_perp.py` compares, for those 12 pairs along a rigid
+quarter turn, the dipole energy the simulation uses with the charge-model energy the tables were built from. Torque
+about the turn axis, summed over the pairs: dipole 10.9 mN·m peak, charge model 11.3 mN·m, largest difference
+0.39 mN·m (3.5 %); per pair at most 0.10 mN·m (`results/hybrid/perp_c2.json`). INFERENCE: the flagged pairs are a
+small modelling error, not a large one; that is not a validation, and accepting the dipole formula for them would be
+an amendment of the kind P-60 was, which is the user's decision.
+
+**Changes to selection and reading (the probe's trials, signals 1–3 and the full rehearsal's trials are unchanged):**
+- An arm is *eligible* if it meets probe signals 1–3, is complete, and stays within the 20° tilt limit, so that its
+  only flag is the perpendicular near pairs. Among eligible arms the one with the lowest median E1-2 turner torque
+  gets the full rehearsal (ties to the larger clearance), as before.
+- No hybrid arm can be named a candidate for a scored pre-registration under the rules as they stand. The result is
+  reported as "meets or misses signals 1 and 2 of the full rehearsal; signal 3 not met (perpendicular near pairs)",
+  beside L0, C52 and W3, and the choice goes to the user.

@@ -102,8 +102,10 @@ def main() -> None:
             raise SystemExit("full: name exactly one arm with --arms")
         arm = a.arms[0]
         rep = json.loads((ROOT / "probe" / "report.json").read_text())
-        if not rep[arm]["signals"]["all_met"]:
-            raise SystemExit(f"refusing to run: arm {arm} did not meet the probe signals")
+        sg = rep[arm]["signals"]                                 # amendment 2: eligible = signals 1-3, tilt <= 20 deg
+        if not (sg["complete"] and sg["1_snap"] and sg["2_rest_le_0.5"] and sg["3_e12_e15_pass"]
+                and rep[arm]["max_near_tilt_deg"] <= HY.P60_TILT_DEG):
+            raise SystemExit(f"refusing to run: arm {arm} is not eligible (PROTOCOL.md, Part E amendment 2)")
         todo = [{**copy.deepcopy(j), "er7_arm": "C52", "er9_arm": arm, "er9_cfg": ARMS[arm], "env": env,
                  "commit": env["commit"], "scored": False, "reported_only": True} for j in E7.er7_jobs()]
         total = len(todo)

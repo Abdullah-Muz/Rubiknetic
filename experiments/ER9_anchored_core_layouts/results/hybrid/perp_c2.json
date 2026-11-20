@@ -1,0 +1,163 @@
+{
+ "config": {
+  "hybrid": true,
+  "magnet": "4x3_N35",
+  "scale": 0.756,
+  "base": true,
+  "anchors": true,
+  "variant": "M5 positions + anchors c=2 mm, 4x3_N35 x 0.756",
+  "clear_mm": 2.0,
+  "edge_opt": [
+   "split",
+   20,
+   "centre"
+  ],
+  "corner_opt": [
+   "tri",
+   16,
+   "centre"
+  ]
+ },
+ "n_pairs": 12,
+ "strength_note": "energies scale with cfg scale (moment^2)",
+ "sum_over_pairs": {
+  "peak_torque_dipole_mNm": 10.904511384838,
+  "peak_torque_exact_mNm": 11.293425675073617,
+  "max_torque_error_mNm": 0.3889142902356174,
+  "angle_of_max_error_deg": 39.0
+ },
+ "pairs": [
+  {
+   "pair": "edge@cubie_nn0 - corner@cubie_nnp",
+   "min_r_mm": 6.2407959580615096,
+   "near_perp_deg": [
+    4.0,
+    27.0
+   ],
+   "peak_torque_dipole_mNm": 2.1450579697227785,
+   "peak_torque_exact_mNm": 2.2161517297173816,
+   "max_torque_error_mNm": 0.07109375999460321
+  },
+  {
+   "pair": "edge@cubie_nn0 - edge@cubie_0np",
+   "min_r_mm": 5.7640826905432245,
+   "near_perp_deg": [
+    32.0,
+    58.0
+   ],
+   "peak_torque_dipole_mNm": 2.9123247556291467,
+   "peak_torque_exact_mNm": 3.013871503702701,
+   "max_torque_error_mNm": 0.1015467480735624
+  },
+  {
+   "pair": "edge@cubie_nn0 - corner@cubie_pnp",
+   "min_r_mm": 6.240795958061507,
+   "near_perp_deg": [
+    63.0,
+    86.0
+   ],
+   "peak_torque_dipole_mNm": 2.1450579697227714,
+   "peak_torque_exact_mNm": 2.21615172971738,
+   "max_torque_error_mNm": 0.07109375999460842
+  },
+  {
+   "pair": "edge@cubie_np0 - corner@cubie_nnp",
+   "min_r_mm": 6.240795958061507,
+   "near_perp_deg": [
+    63.0,
+    86.0
+   ],
+   "peak_torque_dipole_mNm": 2.145057969722754,
+   "peak_torque_exact_mNm": 2.21615172971734,
+   "max_torque_error_mNm": 0.07109375999458586
+  },
+  {
+   "pair": "edge@cubie_np0 - edge@cubie_n0p",
+   "min_r_mm": 5.7640826905432245,
+   "near_perp_deg": [
+    32.0,
+    58.0
+   ],
+   "peak_torque_dipole_mNm": 2.9123247556291467,
+   "peak_torque_exact_mNm": 3.013871503702701,
+   "max_torque_error_mNm": 0.10154674807355372
+  },
+  {
+   "pair": "edge@cubie_np0 - corner@cubie_npp",
+   "min_r_mm": 6.240795958061509,
+   "near_perp_deg": [
+    4.0,
+    27.0
+   ],
+   "peak_torque_dipole_mNm": 2.145057969722785,
+   "peak_torque_exact_mNm": 2.2161517297173745,
+   "max_torque_error_mNm": 0.07109375999458933
+  },
+  {
+   "pair": "edge@cubie_pn0 - corner@cubie_pnp",
+   "min_r_mm": 6.240795958061509,
+   "near_perp_deg": [
+    4.0,
+    27.0
+   ],
+   "peak_torque_dipole_mNm": 2.145057969722785,
+   "peak_torque_exact_mNm": 2.2161517297173745,
+   "max_torque_error_mNm": 0.07109375999458933
+  },
+  {
+   "pair": "edge@cubie_pn0 - edge@cubie_p0p",
+   "min_r_mm": 5.7640826905432245,
+   "near_perp_deg": [
+    32.0,
+    58.0
+   ],
+   "peak_torque_dipole_mNm": 2.9123247556291467,
+   "peak_torque_exact_mNm": 3.013871503702701,
+   "max_torque_error_mNm": 0.10154674807355372
+  },
+  {
+   "pair": "edge@cubie_pn0 - corner@cubie_ppp",
+   "min_r_mm": 6.240795958061507,
+   "near_perp_deg": [
+    63.0,
+    86.0
+   ],
+   "peak_torque_dipole_mNm": 2.145057969722754,
+   "peak_torque_exact_mNm": 2.21615172971734,
+   "max_torque_error_mNm": 0.07109375999458586
+  },
+  {
+   "pair": "edge@cubie_pp0 - corner@cubie_npp",
+   "min_r_mm": 6.240795958061507,
+   "near_perp_deg": [
+    63.0,
+    86.0
+   ],
+   "peak_torque_dipole_mNm": 2.1450579697227714,
+   "peak_torque_exact_mNm": 2.21615172971738,
+   "max_torque_error_mNm": 0.07109375999460842
+  },
+  {
+   "pair": "edge@cubie_pp0 - edge@cubie_0pp",
+   "min_r_mm": 5.7640826905432245,
+   "near_perp_deg": [
+    32.0,
+    58.0
+   ],
+   "peak_torque_dipole_mNm": 2.9123247556291467,
+   "peak_torque_exact_mNm": 3.013871503702701,
+   "max_torque_error_mNm": 0.1015467480735624
+  },
+  {
+   "pair": "edge@cubie_pp0 - corner@cubie_ppp",
+   "min_r_mm": 6.2407959580615096,
+   "near_perp_deg": [
+    4.0,
+    27.0
+   ],
+   "peak_torque_dipole_mNm": 2.1450579697227785,
+   "peak_torque_exact_mNm": 2.2161517297173816,
+   "max_torque_error_mNm": 0.07109375999460321
+  }
+ ]
+}
