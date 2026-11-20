@@ -1,0 +1,28 @@
+{
+ "face_gap_mm": 0.8500000000000001,
+ "m5_4x2_N35_pull_N": -1.6444070936870174,
+ "4x3_N35_pull_N": -2.174706773307548,
+ "matching_scale": 0.7561511804122499,
+ "anchor_pair_4x3_N35_at_matching_scale": {
+  "0.2": {
+   "centre_distance_mm": 4.0,
+   "pull_N": -1.4543600597549124,
+   "lateral_stiffness_N_per_m": -583.8093921045289
+  },
+  "1": {
+   "centre_distance_mm": 4.800000000000001,
+   "pull_N": -0.7988833685138819,
+   "lateral_stiffness_N_per_m": -278.3039362846631
+  },
+  "2": {
+   "centre_distance_mm": 5.8,
+   "pull_N": -0.38634143020411404,
+   "lateral_stiffness_N_per_m": -125.55345090881683
+  },
+  "3": {
+   "centre_distance_mm": 6.800000000000001,
+   "pull_N": -0.23166937779393842,
+   "lateral_stiffness_N_per_m": -70.32747087128087
+  }
+ }
+}

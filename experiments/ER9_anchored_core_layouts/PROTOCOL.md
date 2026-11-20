@@ -233,3 +233,32 @@ All three met but with moves at the limit: both are reported and the choice goes
 **Limits.** Those of Parts B–D. In addition: the arms were chosen after single-seed replays on an ER7 seed; 144
 magnets (edges carry 4, corners 6, the core 48) have not been checked for fit in a real piece; M5's magnets and the
 anchor magnets act on each other, which is inside the force law but outside what V3 covered.
+
+### Part E amendment 1 (fixed 2026-11-20, before any Part E arm trial)
+**What happened.** The self-check of the Part E runner passed (anchors off: ER7's L0 records reproduced with 0
+differences; kept as `results/hybrid/selfcheck_run1_4x2.json`). It also printed M5's validated tilt for the 4 × 2
+table: **5°**. Anchor pairs stay within near-field range of their core partner for the first 14–16° of a turn, so
+under M5's rule 2 every turning trial of HB1–HB3 as first specified would fail for leaving the validated range. I
+should have checked that limit before writing Part E; the single-turn replays H0.2, H1 and H2 used the 4 × 2 table
+beyond its validated tilt and are kept only as the observation that prompted this part.
+
+**Change.** The three arms keep their layout and clearances but use the magnet type whose table is validated to 20°
+(P-60), the one Parts B–D used:
+- every magnet is 4 × 3 mm N35 at strength scale **0.756**, with M6's N52 table times the exact strength factor;
+- 0.756 is the scale at which a corner–edge pair across the 0.85 mm face gap pulls as hard as M5's 4 × 2 mm N35
+  pair (1.644 N; `er9_hybrid_scale.py`, `results/hybrid/scale.json`, computed before any arm trial). It stands in
+  for M5's magnet at the corner–edge positions; it is not a catalogue magnet, and the meaning of the scale is the
+  same open point as for W3;
+- anchor pairs at c = 1, 2, 3 mm then pull 0.80, 0.39 and 0.23 N (W3's pairs: 0.3 × N35 at c = 0.2 mm);
+- tilt limit 20° (P-60), as in Parts B–D.
+
+**Self-check (replaces the one above for these arms):** the hybrid path with the corner–edge magnets left out,
+scale 0.3 and c = 0.2 mm is arm W3; it must reproduce W3's Part C probe records for the first E1-2 and the first
+E1-5s trial in every field except run metadata and the fields that name the arm (`er9_arm`, `er9`, `mechanism`).
+
+**Replays before the probe.** One single-turn replay per arm (seed 16100, `er9_turn_diag.py G1 | G2 | G3`) is run
+first as a smoke test and reported; it does not change the arms, the signals or the selection rule.
+
+Everything else in Part E stands (probe trials, four signals, selection, full rehearsal, reading, limits). The limit
+about V3 changes to: P-60 validated the 4 × 3 table for coaxial piece-to-core pairs up to 20° of tilt; corner–edge
+pairs of 4 × 3 magnets and the cross-interaction of the two groups were not part of that validation.

@@ -29,12 +29,16 @@ else:
     if arm.startswith("H"):                                  # hybrid: M5's 48 magnets + anchors, clearance in mm
         spec = importlib.util.spec_from_file_location("er9_hybrid", HERE / "er9_hybrid.py")
         HY = importlib.util.module_from_spec(spec); sys.modules["er9_hybrid"] = HY; spec.loader.exec_module(HY)
+        HY.configure(HY.cfg_for(float(arm[1:]), magnet="4x2_M5"))
+    elif arm.startswith("G"):                                  # Part E arms: 4x3 N35 x 0.756 everywhere, clearance in mm
+        spec = importlib.util.spec_from_file_location("er9_hybrid", HERE / "er9_hybrid.py")
+        HY = importlib.util.module_from_spec(spec); sys.modules["er9_hybrid"] = HY; spec.loader.exec_module(HY)
         HY.configure(HY.cfg_for(float(arm[1:])))
     elif arm.startswith("X"):                                  # ad hoc: S1 geometry, N35, strength scale after the X
         cfg = {**P.arms()["W1"], "scale": float(arm[1:]), "variant": f"N35 x {arm[1:]} (ad hoc)"}
     else:
         cfg = P.C52_CFG if arm == "C52" else P.arms()[arm]
-    if not arm.startswith("H"):
+    if arm[0] not in "HG":
         P.configure(cfg)
     E7.setup_arm("C52")
 ms = M4.use_magnets(R.magnet_params_for({}), R.GAP)
@@ -72,5 +76,6 @@ out = {"arm": arm, "seed": seed, "grip_force_N": getattr(setup, "grip_force", No
        "turn_s_per_quarter": tr.timing.turn_s_per_quarter, "peak_torque_Nm": float(tq.max()),
        "t_peak_from_start_s": float(log.t[k] - t_start), "turner_deg_at_peak": float(log.turner_angle_deg[k]),
        "fraction_of_steps_at_clip": float(np.mean(tq >= 0.999)),
-       "final_layer_err_deg": float(ST.layer_error(ro, d, "U")), "samples": samples}
+       "final_layer_err_deg": float(ST.layer_error(ro, d, "U")), "n_magnets": ms.n,
+       "magnet_stats": dict(ms.stats), "samples": samples}
 print(json.dumps(out, default=float))

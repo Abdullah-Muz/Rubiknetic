@@ -25,9 +25,8 @@ HY = importlib.util.module_from_spec(spec); sys.modules["er9_hybrid"] = HY; spec
 P, E7, M4 = HY.P, HY.E7, HY.M4
 ROOT = HERE / "results" / "hybrid"
 ARMS = {"HB1": HY.cfg_for(1.0), "HB2": HY.cfg_for(2.0), "HB3": HY.cfg_for(3.0)}
-OFF = {**HY.cfg_for(0.0), "anchors": False, "variant": "M5 48 only (self-check)"}
-SC_SKIP = set(P.S_SKIP) | {"er7_arm", "mechanism", "magnet_table", "er9_arm", "er9"}
-TILT_SOURCE = "M5 V3 (4x2 mm N35 table)"
+W3X = HY.cfg_for(0.2, scale=0.3, base=False)               # amendment 1 self-check: this is arm W3
+SC_SKIP = set(P.S_SKIP) | {"mechanism", "er9_arm", "er9"}
 
 
 def run_one(job: dict) -> dict:
@@ -35,14 +34,14 @@ def run_one(job: dict) -> dict:
     HY.configure(cfg)
     rec = E7.run_one({k: v for k, v in job.items() if not k.startswith("er9_")})
     assert rec["magnets"]["n_magnets"] == len(HY.hybrid_mags(cfg)[1]), rec["magnets"]["n_magnets"]
-    rec["magnet_table"]["validated_tilt_source"] = TILT_SOURCE
-    assert rec["magnet_table"]["validated_tilt_deg"] == M4.nominal_validated_tilt()
+    assert rec["magnet_table"]["validated_tilt_deg"] == HY.P60_TILT_DEG and cfg["magnet"] == "4x3_N35"
+    assert rec["magnets"]["params"]["scale"] == cfg["scale"] and rec["magnets"]["params"]["grade"] == "N35"
     rec["er9_arm"], rec["mechanism"], rec["er9"] = arm, "ER9-" + arm, cfg
     return rec
 
 
 def selfcheck(env: dict) -> dict:
-    js = P.jobs_for("L0x", OFF, env)
+    js = P.jobs_for("W3x", W3X, env)
     firsts = [next(j for j in js if j["sub"] == s) for s in ("E1-2", "E1-5s")]
     with mp_.get_context("fork").Pool(2, maxtasksperchild=1) as pool:
         recs = pool.map(run_one, firsts)
@@ -50,12 +49,12 @@ def selfcheck(env: dict) -> dict:
     try:
         out = []
         for j, r in zip(firsts, recs):
-            ref = json.loads(gzip.decompress((P.ER7_RESULTS / "L0" / j["exp"] / f"{j['tid']}.json.gz").read_bytes()))
+            ref = json.loads(gzip.decompress((P.OUT / "W3" / j["exp"] / f"{j['tid']}.json.gz").read_bytes()))
             d = E7.diff(ref, json.loads(gzip.decompress(E7._dump(r))))
             out.append({"sub": j["sub"], "tid": j["tid"], "n_diffs": len(d), "diffs": d[:20]})
     finally:
         E7.SKIP_KEYS = keep
-    res = {"trials": out, "arms": ARMS, "validated_tilt_deg": M4.nominal_validated_tilt(),
+    res = {"trials": out, "arms": ARMS, "reference": "Part C probe records of arm W3",
            "pass": all(x["n_diffs"] == 0 for x in out)}
     ROOT.mkdir(parents=True, exist_ok=True)
     (ROOT / "selfcheck.json").write_text(json.dumps(res, indent=1, default=str))
