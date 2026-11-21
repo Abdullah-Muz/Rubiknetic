@@ -1,0 +1,251 @@
+direction re-implementation matches the dumped layout, max difference 0.0
+== largest cylinder, edge pairs (n=4)
+   max_diameter_len1_wall0_innerface_at_layout_mm       min 5.923 max 5.923 none 0
+   max_diameter_len1_wall0.4_innerface_at_layout_mm     min 5.114 max 5.114 none 0
+   max_diameter_len1.5_wall0_innerface_at_layout_mm     min 5.923 max 5.923 none 0
+   max_diameter_len1.5_wall0.4_innerface_at_layout_mm   min 5.114 max 5.114 none 0
+   max_diameter_len2_wall0_innerface_at_layout_mm       min 5.923 max 5.923 none 0
+   max_diameter_len2_wall0.4_innerface_at_layout_mm     min 4.383 max 4.384 none 0
+   max_diameter_len3_wall0_innerface_at_layout_mm       min 1.777 max 1.777 none 0
+   max_diameter_len3_wall0.4_innerface_at_layout_mm     min 0.977 max 0.977 none 0
+   max_scale_same_centre_wall0                          min 0.645 max 0.645 none 0
+   max_scale_same_centre_wall0.4                        min 0.401 max 0.401 none 0
+   intervals example [[21.942, 31.722]] all equal within 0.01: True
+== largest cylinder, corner pairs (n=6)
+   max_diameter_len1_wall0_innerface_at_layout_mm       min None max None none 6
+   max_diameter_len1_wall0.4_innerface_at_layout_mm     min None max None none 6
+   max_diameter_len1.5_wall0_innerface_at_layout_mm     min None max None none 6
+   max_diameter_len1.5_wall0.4_innerface_at_layout_mm   min None max None none 6
+   max_diameter_len2_wall0_innerface_at_layout_mm       min None max None none 6
+   max_diameter_len2_wall0.4_innerface_at_layout_mm     min None max None none 6
+   max_diameter_len3_wall0_innerface_at_layout_mm       min None max None none 6
+   max_diameter_len3_wall0.4_innerface_at_layout_mm     min None max None none 6
+   max_scale_same_centre_wall0                          min None max None none 6
+   intervals example [[24.996, 36.857]] all equal within 0.01: True
+part (a) 6.6 s
+edge (1, 1, 0) centre swept 32.9 s
+edge (1, 1, 0) corner swept 49.4 s
+edge (0, -1, 1) centre swept 54.1 s
+edge (0, -1, 1) corner swept 58.5 s
+corner (1, 1, 1) centre swept 89.4 s
+corner (1, 1, 1) edge swept 124.3 s
+corner (-1, 1, -1) centre swept 131.0 s
+corner (-1, 1, -1) edge swept 137.2 s
+== edge (1, 1, 0) toward centre: gamma | first material interval | per size: wall at layout depth, best wall @ inner-face radius, face range wall>=0.4
+   0 | [[22.037, 40.244]] | 4x3: [0.403] best [1.6] @ [25.4] rng [[[22.5, 30.0]]] | 3x2: [0.403] best [2.1] @ [25.5] rng [[[22.5, 30.0]]] |
+   1 | [[22.04, 39.966]] | 4x3: [0.399, 0.399] best [1.6, 1.6] @ [25.4, 25.4] rng [[[22.5, 30.0]], [[22.5, 30.0]]] | 3x2: [0.399, 0.399] best [2.1, 2.1] @ [25.5, 25.5] rng [[[22.5, 30.0]], [[22.5, 30.0]]] |
+   2 | [[21.944, 39.311]] | 4x3: [0.401, 0.401] best [1.6, 1.6] @ [25.4, 25.4] rng [[[22.5, 30.0]], [[22.5, 30.0]]] | 3x2: [0.401, 0.401] best [2.1, 2.1] @ [25.5, 25.5] rng [[[22.5, 30.0]], [[22.5, 30.0]]] |
+   3 | [[21.941, 38.687]] | 4x3: [0.41, 0.41] best [1.6, 1.6] @ [25.4, 25.4] rng [[[22.5, 30.0]], [[22.5, 30.0]]] | 3x2: [0.41, 0.41] best [2.1, 2.1] @ [25.5, 25.5] rng [[[22.5, 30.0]], [[22.5, 30.0]]] |
+   4 | [[21.946, 38.094]] | 4x3: [0.426, 0.426] best [1.6, 1.6] @ [25.5, 25.5] rng [[[22.5, 30.0]], [[22.5, 30.0]]] | 3x2: [0.426, 0.426] best [2.1, 2.1] @ [25.6, 25.6] rng [[[22.5, 30.0]], [[22.5, 30.0]]] |
+   5 | [[21.945, 37.53]] | 4x3: [0.449, 0.449] best [1.6, 1.6] @ [25.5, 25.5] rng [[[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.449, 0.449] best [2.1, 2.1] @ [25.6, 25.6] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+   6 | [[21.941, 36.994]] | 4x3: [0.478, 0.478] best [1.6, 1.6] @ [25.5, 25.5] rng [[[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.498, 0.498] best [2.1, 2.1] @ [25.6, 25.6] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+   7 | [[21.944, 36.484]] | 4x3: [0.492, 0.492] best [1.6, 1.6] @ [25.5, 25.5] rng [[[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.492, 0.492] best [2.1, 2.1] @ [25.6, 25.6] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+   8 | [[21.946, 35.999]] | 4x3: [0.49, 0.49] best [1.6, 1.6] @ [25.5, 25.5] rng [[[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.49, 0.49] best [2.1, 2.1] @ [25.6, 25.6] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+   9 | [[21.941, 35.537]] | 4x3: [0.496, 0.496] best [1.6, 1.6] @ [25.5, 25.5] rng [[[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.496, 0.496] best [2.1, 2.1] @ [25.6, 25.6] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+  10 | [[21.942, 35.097]] | 4x3: [0.493, 0.493] best [1.6, 1.6] @ [25.6, 25.6] rng [[[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.493, 0.493] best [2.1, 2.1] @ [25.7, 25.7] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+  11 | [[21.948, 34.679]] | 4x3: [0.49, 0.49] best [1.6, 1.6] @ [25.6, 25.6] rng [[[22.4, 29.8]], [[22.4, 29.8]]] | 3x2: [0.49, 0.49] best [2.1, 2.1] @ [25.7, 25.7] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+  12 | [[21.941, 34.28]] | 4x3: [0.494, 0.494] best [1.6, 1.6] @ [25.6, 25.6] rng [[[22.4, 29.5]], [[22.4, 29.5]]] | 3x2: [0.494, 0.494] best [2.1, 2.1] @ [25.7, 25.7] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+  13 | [[21.941, 33.901]] | 4x3: [0.494, 0.494] best [1.6, 1.6] @ [25.6, 25.6] rng [[[22.4, 29.1]], [[22.4, 29.1]]] | 3x2: [0.494, 0.494] best [2.1, 2.1] @ [25.7, 25.7] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+  14 | [[21.947, 33.541]] | 4x3: [0.49, 0.49] best [1.6, 1.6] @ [25.6, 25.6] rng [[[22.4, 28.8]], [[22.4, 28.8]]] | 3x2: [0.49, 0.49] best [2.1, 2.1] @ [25.8, 25.8] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+  15 | [[21.941, 33.198]] | 4x3: [0.493, 0.493] best [1.6, 1.6] @ [26.2, 26.2] rng [[[22.4, 28.5]], [[22.4, 28.5]]] | 3x2: [0.493, 0.493] best [2.1, 2.1] @ [26.3, 26.3] rng [[[22.4, 29.8]], [[22.4, 29.8]]] |
+  16 | [[21.939, 32.871]] | 4x3: [0.496, 0.496] best [1.542, 1.542] @ [26.9, 26.9] rng [[[22.4, 28.3]], [[22.4, 28.3]]] | 3x2: [0.496, 0.496] best [2.1, 2.1] @ [27.2, 27.2] rng [[[22.4, 29.5]], [[22.4, 29.5]]] |
+  17 | [[21.944, 32.561]] | 4x3: [0.194, 0.194] best [1.207, 1.207] @ [27.1, 27.1] rng [[[25.4, 28.0]], [[25.4, 28.0]]] | 3x2: [0.491, 0.491] best [1.883, 1.883] @ [27.6, 27.6] rng [[[22.4, 29.3]], [[22.4, 29.3]]] |
+  18 | [[21.941, 32.267]] | 4x3: [-0.24, -0.24] best [0.845, 0.845] @ [27.3, 27.3] rng [[[26.3, 27.7]], [[26.3, 27.7]]] | 3x2: [0.492, 0.492] best [1.517, 1.517] @ [27.8, 27.8] rng [[[22.4, 22.5], [25.3, 29.0]], [[22.4, 22.5], [25.3, 29.0]]] |
+  19 | [[21.938, 31.987]] | 4x3: [-0.54, -0.54] best [0.465, 0.465] @ [27.4, 27.4] rng [[[27.3, 27.5]], [[27.3, 27.5]]] | 3x2: [0.456, 0.456] best [1.133, 1.133] @ [27.9, 27.9] rng [[[22.4, 22.4], [26.3, 28.8]], [[22.4, 22.4], [26.3, 28.8]]] |
+  20 | [[21.942, 31.722]] | 4x3: [-0.543, -0.543] best [0.102, 0.102] @ [27.6, 27.6] rng [None, None] | 3x2: [0.454, 0.454] best [0.766, 0.766] @ [28.1, 28.1] rng [[[22.4, 22.4], [27.3, 28.5]], [[22.4, 22.4], [27.3, 28.5]]] |
+  21 | [[21.942, 31.471]] | 4x3: [-0.544, -0.544] best [-0.048, -0.048] @ [21.9, 21.9] rng [None, None] | 3x2: [0.452, 0.452] best [0.452, 0.452] @ [22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]]] |
+  22 | [[21.938, 31.233]] | 4x3: [-0.544, -0.544] best [-0.042, -0.042] @ [21.9, 21.9] rng [None, None] | 3x2: [0.452, 0.452] best [0.458, 0.458] @ [22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]]] |
+  23 | [[21.94, 24.94], [26.027, 31.008]] | 4x3: [-0.544, -0.544] best [-0.047, -0.047] @ [21.9, 21.9] rng [None, None] | 3x2: [0.452, 0.452] best [0.453, 0.453] @ [22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]]] |
+  24 | [[21.942, 24.939], [27.207, 30.795]] | 4x3: [-0.544, -0.544] best [-0.048, -0.048] @ [21.9, 21.9] rng [None, None] | 3x2: [0.452, 0.452] best [0.452, 0.452] @ [22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]]] |
+  25 | [[21.937, 24.939], [28.507, 30.544]] | 4x3: [-0.544, -0.544] best [-0.043, -0.043] @ [21.9, 21.9] rng [None, None] | 3x2: [0.452, 0.452] best [0.457, 0.457] @ [22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]]] |
+  26 | [[21.938, 24.938]] | 4x3: [-0.544, -0.544] best [-0.045, -0.045] @ [21.9, 21.9] rng [None, None] | 3x2: [0.452, 0.452] best [0.455, 0.455] @ [22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]]] |
+  27 | [[21.94, 24.939]] | 4x3: [-0.544, -0.544] best [-0.047, -0.047] @ [21.9, 21.9] rng [None, None] | 3x2: [0.452, 0.452] best [0.453, 0.453] @ [22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]]] |
+  28 | [[21.937, 24.938]] | 4x3: [-0.544, -0.545] best [-0.127, -0.125] @ [21.9, 21.9] rng [None, None] | 3x2: [0.405, 0.408] best [0.402, 0.406] @ [22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]]] |
+  29 | [[21.937, 24.939]] | 4x3: [-0.589, -0.59] best [-0.472, -0.467] @ [22.2, 22.2] rng [None, None] | 3x2: [0.012, 0.016] best [0.033, 0.039] @ [22.7, 22.7] rng [None, None] |
+  30 | [[21.939, 24.941]] | 4x3: [-0.837, -0.83] best [-0.834, -0.831] @ [22.5, 22.5] rng [None, None] | 3x2: [-0.36, -0.354] best [-0.334, -0.331] @ [23.0, 23.0] rng [None, None] |
+  31 | [[21.939, 24.941]] | 4x3: [-1.231, -1.226] best [-1.223, -1.22] @ [22.8, 22.8] rng [None, None] | 3x2: [-0.747, -0.74] best [-0.723, -0.72] @ [23.3, 23.3] rng [None, None] |
+  32 | [[21.942, 24.93]] | 4x3: [-1.497, -1.472] best [-1.477, -1.461] @ [22.5, 21.8] rng [None, None] | 3x2: [-0.989, -0.979] best [-0.973, -0.961] @ [21.7, 22.3] rng [None, None] |
+  33 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  34 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  35 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  36 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  37 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  38 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  39 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  40 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+== edge (1, 1, 0) toward corner: gamma | first material interval | per size: wall at layout depth, best wall @ inner-face radius, face range wall>=0.4
+   0 | [[22.037, 40.244]] | 4x3: [0.403] best [1.6] @ [25.4] rng [[[22.5, 30.0]]] | 3x2: [0.403] best [2.1] @ [25.5] rng [[[22.5, 30.0]]] |
+   1 | [[22.04, 40.251]] | 4x3: [0.396, 0.396] best [1.6, 1.6] @ [26.1, 26.1] rng [[[22.5, 30.0]], [[22.5, 30.0]]] | 3x2: [0.396, 0.396] best [2.1, 2.1] @ [26.3, 26.3] rng [[[22.5, 30.0]], [[22.5, 30.0]]] |
+   2 | [[22.04, 40.269]] | 4x3: [0.357, 0.357] best [1.6, 1.6] @ [26.4, 26.4] rng [[[22.9, 30.0]], [[22.9, 30.0]]] | 3x2: [0.396, 0.396] best [2.1, 2.1] @ [26.7, 26.7] rng [[[22.5, 30.0]], [[22.5, 30.0]]] |
+   3 | [[22.037, 40.3]] | 4x3: [-0.031, -0.031] best [1.6, 1.6] @ [26.5, 26.5] rng [[[25.3, 30.0]], [[25.3, 30.0]]] | 3x2: [0.403, 0.403] best [2.1, 2.1] @ [26.9, 26.9] rng [[[22.5, 30.0]], [[22.5, 30.0]]] |
+   4 | [[22.04, 40.343]] | 4x3: [-0.398, -0.398] best [1.6, 1.6] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [0.07, 0.07] best [2.1, 2.1] @ [27.1, 27.1] rng [[[25.3, 30.0]], [[25.3, 30.0]]] |
+   5 | [[22.04, 40.398]] | 4x3: [-0.782, -0.782] best [1.6, 1.6] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [-0.306, -0.306] best [2.1, 2.1] @ [27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+   6 | [[22.037, 40.466]] | 4x3: [-1.175, -1.175] best [1.6, 1.6] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [-0.69, -0.69] best [2.1, 2.1] @ [27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+   7 | [[22.04, 40.547]] | 4x3: [-1.5, -1.5] best [1.6, 1.6] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [-0.98, -0.98] best [2.1, 2.1] @ [27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+   8 | [[22.752, 24.95], [24.997, 40.64]] | 4x3: [-1.499, -1.499] best [1.6, 1.6] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [-0.986, -0.986] best [2.1, 2.1] @ [27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+   9 | [[24.993, 40.746]] | 4x3: [None, None] best [1.6, 1.6] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [None, None] best [2.1, 2.1] @ [27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+  10 | [[24.997, 40.865]] | 4x3: [None, None] best [1.6, 1.6] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [None, None] best [2.1, 2.1] @ [27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+  11 | [[24.993, 40.998]] | 4x3: [None, None] best [1.6, 1.6] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [None, None] best [2.1, 2.1] @ [27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+  12 | [[24.987, 41.139]] | 4x3: [None, None] best [1.411, 1.411] @ [26.5, 26.5] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [None, None] best [2.004, 2.004] @ [27.0, 27.0] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+  13 | [[24.989, 40.987]] | 4x3: [None, None] best [1.009, 1.006] @ [26.0, 26.1] rng [[[25.4, 28.7]], [[25.4, 28.7]]] | 3x2: [None, None] best [1.605, 1.601] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+  14 | [[24.988, 39.269]] | 4x3: [None, None] best [0.617, 0.617] @ [25.7, 25.7] rng [[[25.4, 26.5]], [[25.4, 26.5]]] | 3x2: [None, None] best [1.21, 1.201] @ [26.2, 26.2] rng [[[25.4, 29.6]], [[25.4, 29.6]]] |
+  15 | [[24.988, 36.705]] | 4x3: [None, None] best [0.245, 0.245] @ [25.3, 25.3] rng [None, None] | 3x2: [None, None] best [0.831, 0.831] @ [25.9, 25.9] rng [[[25.4, 27.5]], [[25.4, 27.5]]] |
+  16 | [[24.995, 34.466]] | 4x3: [None, None] best [-0.099, -0.091] @ [24.9, 24.9] rng [None, None] | 3x2: [None, None] best [0.48, 0.48] @ [25.5, 25.5] rng [[[25.4, 25.7]], [[25.4, 25.7]]] |
+  17 | [[24.993, 32.493]] | 4x3: [None, None] best [-0.395, -0.39] @ [24.7, 24.6] rng [None, None] | 3x2: [None, None] best [0.114, 0.114] @ [25.2, 25.2] rng [None, None] |
+  18 | [[24.987, 30.743]] | 4x3: [None, None] best [-0.674, -0.674] @ [24.4, 24.4] rng [None, None] | 3x2: [None, None] best [-0.174, -0.174] @ [24.9, 24.9] rng [None, None] |
+  19 | [[24.989, 29.18]] | 4x3: [None, None] best [-0.95, -0.95] @ [24.1, 24.1] rng [None, None] | 3x2: [None, None] best [-0.45, -0.45] @ [24.6, 24.6] rng [None, None] |
+  20 | [[24.986, 27.776]] | 4x3: [None, None] best [-1.197, -1.198] @ [23.8, 23.8] rng [None, None] | 3x2: [None, None] best [-0.697, -0.698] @ [24.3, 24.3] rng [None, None] |
+  21 | [[24.983, 26.509]] | 4x3: [None, None] best [-1.466, -1.466] @ [23.6, 23.6] rng [None, None] | 3x2: [None, None] best [-0.966, -0.966] @ [24.1, 24.1] rng [None, None] |
+  22 | [[24.988, 25.36]] | 4x3: [None, None] best [-1.466, -1.466] @ [23.6, 23.6] rng [None, None] | 3x2: [None, None] best [-0.966, -0.966] @ [24.1, 24.1] rng [None, None] |
+  23 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  24 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  25 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  26 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  27 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  28 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  29 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  30 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  31 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  32 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  33 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  34 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  35 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  36 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  37 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  38 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  39 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  40 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+== edge (0, -1, 1) toward centre: gamma | first material interval | per size: wall at layout depth, best wall @ inner-face radius, face range wall>=0.4
+   0 | [[22.037, 40.244]] | 4x3: [0.403] best [1.6] @ [25.4] rng [[[22.5, 30.0]]] | 3x2: [0.403] best [2.1] @ [25.5] rng [[[22.5, 30.0]]] |
+   4 | [[21.946, 38.094]] | 4x3: [0.426, 0.426] best [1.6, 1.6] @ [25.5, 25.5] rng [[[22.5, 30.0]], [[22.5, 30.0]]] | 3x2: [0.426, 0.426] best [2.1, 2.1] @ [25.6, 25.6] rng [[[22.5, 30.0]], [[22.5, 30.0]]] |
+   8 | [[21.946, 35.999]] | 4x3: [0.49, 0.49] best [1.6, 1.6] @ [25.5, 25.5] rng [[[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.49, 0.49] best [2.1, 2.1] @ [25.6, 25.6] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+  12 | [[21.941, 34.28]] | 4x3: [0.494, 0.494] best [1.6, 1.6] @ [25.6, 25.6] rng [[[22.4, 29.5]], [[22.4, 29.5]]] | 3x2: [0.494, 0.494] best [2.1, 2.1] @ [25.7, 25.7] rng [[[22.4, 30.0]], [[22.4, 30.0]]] |
+  16 | [[21.939, 32.871]] | 4x3: [0.496, 0.496] best [1.542, 1.542] @ [26.9, 26.9] rng [[[22.4, 28.3]], [[22.4, 28.3]]] | 3x2: [0.496, 0.496] best [2.1, 2.1] @ [27.2, 27.2] rng [[[22.4, 29.5]], [[22.4, 29.5]]] |
+  20 | [[21.942, 31.722]] | 4x3: [-0.543, -0.543] best [0.102, 0.102] @ [27.6, 27.6] rng [None, None] | 3x2: [0.454, 0.454] best [0.766, 0.766] @ [28.1, 28.1] rng [[[22.4, 22.4], [27.3, 28.5]], [[22.4, 22.4], [27.3, 28.5]]] |
+  24 | [[21.942, 24.939], [27.207, 30.795]] | 4x3: [-0.544, -0.544] best [-0.048, -0.048] @ [21.9, 21.9] rng [None, None] | 3x2: [0.452, 0.452] best [0.452, 0.452] @ [22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]]] |
+  28 | [[21.937, 24.938]] | 4x3: [-0.544, -0.545] best [-0.127, -0.125] @ [21.9, 21.9] rng [None, None] | 3x2: [0.405, 0.408] best [0.402, 0.406] @ [22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]]] |
+  32 | [[21.942, 24.93]] | 4x3: [-1.497, -1.472] best [-1.477, -1.461] @ [22.5, 21.8] rng [None, None] | 3x2: [-0.989, -0.979] best [-0.973, -0.961] @ [21.7, 22.3] rng [None, None] |
+  36 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  40 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+== edge (0, -1, 1) toward corner: gamma | first material interval | per size: wall at layout depth, best wall @ inner-face radius, face range wall>=0.4
+   0 | [[22.037, 40.244]] | 4x3: [0.403] best [1.6] @ [25.4] rng [[[22.5, 30.0]]] | 3x2: [0.403] best [2.1] @ [25.5] rng [[[22.5, 30.0]]] |
+   4 | [[22.04, 40.343]] | 4x3: [-0.398, -0.398] best [1.6, 1.6] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [0.07, 0.07] best [2.1, 2.1] @ [27.1, 27.1] rng [[[25.3, 30.0]], [[25.3, 30.0]]] |
+   8 | [[22.752, 24.95], [24.997, 40.64]] | 4x3: [-1.499, -1.499] best [1.6, 1.6] @ [26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [-0.986, -0.986] best [2.1, 2.1] @ [27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+  12 | [[24.987, 41.141]] | 4x3: [None, None] best [1.411, 1.411] @ [26.5, 26.5] rng [[[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [None, None] best [2.004, 2.004] @ [27.0, 27.0] rng [[[25.4, 30.0]], [[25.4, 30.0]]] |
+  16 | [[24.989, 34.466]] | 4x3: [None, None] best [-0.091, -0.099] @ [24.9, 24.9] rng [None, None] | 3x2: [None, None] best [0.48, 0.48] @ [25.5, 25.5] rng [[[25.4, 25.7]], [[25.4, 25.7]]] |
+  20 | [[24.992, 27.776]] | 4x3: [None, None] best [-1.198, -1.197] @ [23.8, 23.8] rng [None, None] | 3x2: [None, None] best [-0.698, -0.697] @ [24.3, 24.3] rng [None, None] |
+  24 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  28 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  32 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  36 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+  40 | [] | 4x3: [None, None] best [None, None] @ [None, None] rng [None, None] | 3x2: [None, None] best [None, None] @ [None, None] rng [None, None] |
+== corner (1, 1, 1) toward centre: gamma | first material interval | per size: wall at layout depth, best wall @ inner-face radius, face range wall>=0.4
+   0 | [[21.947, 49.062]] | 4x3: [0.4] best [1.6] @ [23.6] rng [[[22.4, 30.0]]] | 3x2: [0.4] best [2.1] @ [24.1] rng [[[22.4, 30.0]]] |
+   1 | [[21.942, 48.604]] | 4x3: [0.403, 0.405, 0.403] best [1.6, 1.6, 1.6] @ [23.6, 23.6, 23.6] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.403, 0.405, 0.403] best [2.1, 2.1, 2.1] @ [24.1, 24.1, 24.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   2 | [[21.938, 47.482]] | 4x3: [0.408, 0.412, 0.408] best [1.6, 1.6, 1.6] @ [23.6, 23.6, 23.6] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.408, 0.412, 0.408] best [2.1, 2.1, 2.1] @ [24.1, 24.1, 24.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   3 | [[21.939, 46.424]] | 4x3: [0.406, 0.408, 0.406] best [1.6, 1.6, 1.6] @ [23.6, 23.6, 23.6] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.406, 0.408, 0.406] best [2.1, 2.1, 2.1] @ [24.1, 24.1, 24.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   4 | [[21.938, 45.426]] | 4x3: [0.41, 0.412, 0.41] best [1.6, 1.6, 1.6] @ [25.9, 25.9, 25.9] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.41, 0.412, 0.41] best [2.1, 2.1, 2.1] @ [26.1, 26.1, 26.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   5 | [[21.94, 44.483]] | 4x3: [0.404, 0.406, 0.404] best [1.6, 1.6, 1.6] @ [26.3, 26.3, 26.3] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.404, 0.406, 0.404] best [2.1, 2.1, 2.1] @ [26.6, 26.6, 26.6] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   6 | [[21.941, 43.591]] | 4x3: [0.319, 0.318, 0.319] best [1.6, 1.6, 1.6] @ [26.5, 26.5, 26.5] rng [[[25.2, 30.0]], [[25.2, 30.0]], [[25.2, 30.0]]] | 3x2: [0.403, 0.4, 0.403] best [2.1, 2.1, 2.1] @ [26.9, 26.9, 26.9] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   7 | [[21.941, 42.748]] | 4x3: [-0.116, -0.117, -0.116] best [1.6, 1.6, 1.6] @ [26.6, 26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [0.407, 0.402, 0.407] best [2.1, 2.1, 2.1] @ [27.0, 27.0, 27.0] rng [[[22.4, 22.7], [25.1, 30.0]], [[22.4, 22.7], [25.1, 30.0]], [[22.4, 22.7], [25.1, 30.0]]] |
+   8 | [[21.944, 41.948]] | 4x3: [-0.53, -0.527, -0.53] best [1.6, 1.6, 1.6] @ [26.6, 26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [0.034, 0.035, 0.034] best [2.1, 2.1, 2.1] @ [27.1, 27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] |
+   9 | [[21.942, 41.191]] | 4x3: [-0.894, -0.901, -0.894] best [1.6, 1.6, 1.6] @ [26.6, 26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [-0.335, -0.326, -0.335] best [2.1, 2.1, 2.1] @ [27.1, 27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] |
+  10 | [[21.941, 40.472]] | 4x3: [-1.254, -1.261, -1.254] best [1.6, 1.6, 1.6] @ [26.6, 26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [-0.688, -0.678, -0.688] best [2.1, 2.1, 2.1] @ [27.1, 27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] |
+  11 | [[21.947, 39.79]] | 4x3: [-1.49, -1.494, -1.49] best [1.6, 1.6, 1.6] @ [26.8, 26.8, 26.8] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [-0.99, -0.99, -0.99] best [2.1, 2.1, 2.1] @ [27.1, 27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] |
+  12 | [[22.026, 23.604], [24.988, 39.143]] | 4x3: [None, None, None] best [1.6, 1.6, 1.6] @ [27.4, 27.4, 27.4] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [-0.985, -0.985, -0.985] best [2.1, 2.1, 2.1] @ [27.5, 27.5, 27.5] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] |
+  13 | [[24.986, 38.527]] | 4x3: [None, None, None] best [1.6, 1.6, 1.6] @ [27.9, 27.9, 27.9] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [None, None, None] best [2.1, 2.1, 2.1] @ [28.0, 28.0, 28.0] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] |
+  14 | [[24.99, 37.942]] | 4x3: [None, None, None] best [1.6, 1.6, 1.6] @ [28.5, 28.5, 28.5] rng [[[25.9, 30.0]], [[25.9, 30.0]], [[25.9, 30.0]]] | 3x2: [None, None, None] best [2.1, 2.1, 2.1] @ [28.6, 28.6, 28.6] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] |
+  15 | [[24.989, 37.386]] | 4x3: [None, None, None] best [1.6, 1.6, 1.6] @ [29.1, 29.1, 29.1] rng [[[26.5, 30.0]], [[26.5, 30.0]], [[26.5, 30.0]]] | 3x2: [None, None, None] best [2.1, 2.1, 2.1] @ [29.2, 29.2, 29.2] rng [[[25.5, 30.0]], [[25.5, 30.0]], [[25.5, 30.0]]] |
+  16 | [[24.996, 36.857]] | 4x3: [None, None, None] best [1.6, 1.6, 1.6] @ [29.8, 29.8, 29.8] rng [[[27.0, 30.0]], [[27.0, 30.0]], [[27.0, 30.0]]] | 3x2: [None, None, None] best [2.1, 2.1, 2.1] @ [29.9, 29.9, 29.9] rng [[[26.0, 30.0]], [[26.0, 30.0]], [[26.0, 30.0]]] |
+  17 | [[24.993, 36.354]] | 4x3: [None, None, None] best [1.428, 1.428, 1.428] @ [30.0, 30.0, 30.0] rng [[[27.7, 30.0]], [[27.7, 30.0]], [[27.7, 30.0]]] | 3x2: [None, None, None] best [1.881, 1.881, 1.881] @ [30.0, 30.0, 30.0] rng [[[26.6, 30.0]], [[26.6, 30.0]], [[26.6, 30.0]]] |
+  18 | [[24.989, 35.875]] | 4x3: [None, None, None] best [1.107, 1.108, 1.108] @ [30.0, 30.0, 30.0] rng [[[28.3, 30.0]], [[28.3, 30.0]], [[28.3, 30.0]]] | 3x2: [None, None, None] best [1.579, 1.579, 1.579] @ [30.0, 30.0, 30.0] rng [[[27.3, 30.0]], [[27.3, 30.0]], [[27.3, 30.0]]] |
+  19 | [[24.992, 35.419]] | 4x3: [None, None, None] best [0.795, 0.796, 0.796] @ [30.0, 30.0, 30.0] rng [[[29.0, 30.0]], [[29.0, 30.0]], [[29.0, 30.0]]] | 3x2: [None, None, None] best [1.273, 1.273, 1.273] @ [30.0, 30.0, 30.0] rng [[[27.9, 30.0]], [[27.9, 30.0]], [[27.9, 30.0]]] |
+  20 | [[24.999, 34.985]] | 4x3: [None, None, None] best [0.492, 0.493, 0.493] @ [30.0, 30.0, 30.0] rng [[[29.8, 30.0]], [[29.8, 30.0]], [[29.8, 30.0]]] | 3x2: [None, None, None] best [0.964, 0.964, 0.964] @ [30.0, 30.0, 30.0] rng [[[28.6, 30.0]], [[28.6, 30.0]], [[28.6, 30.0]]] |
+  21 | [[25.574, 34.572]] | 4x3: [None, None, None] best [0.192, 0.192, 0.192] @ [30.0, 30.0, 30.0] rng [None, None, None] | 3x2: [None, None, None] best [0.652, 0.652, 0.652] @ [30.0, 30.0, 30.0] rng [[[29.4, 30.0]], [[29.4, 30.0]], [[29.4, 30.0]]] |
+  22 | [[26.264, 34.178]] | 4x3: [None, None, None] best [-0.093, -0.093, -0.093] @ [30.0, 30.0, 30.0] rng [None, None, None] | 3x2: [None, None, None] best [0.335, 0.335, 0.335] @ [30.0, 30.0, 30.0] rng [None, None, None] |
+  23 | [[27.002, 33.804]] | 4x3: [None, None, None] best [-0.343, -0.343, -0.343] @ [30.0, 30.0, 30.0] rng [None, None, None] | 3x2: [None, None, None] best [0.016, 0.016, 0.016] @ [30.0, 30.0, 30.0] rng [None, None, None] |
+  24 | [[27.79, 33.448]] | 4x3: [None, None, None] best [-0.595, -0.595, -0.595] @ [30.0, 30.0, 30.0] rng [None, None, None] | 3x2: [None, None, None] best [-0.236, -0.236, -0.236] @ [30.0, 30.0, 30.0] rng [None, None, None] |
+  25 | [[28.635, 33.11]] | 4x3: [None, None, None] best [-0.85, -0.85, -0.85] @ [30.0, 30.0, 30.0] rng [None, None, None] | 3x2: [None, None, None] best [-0.488, -0.488, -0.488] @ [30.0, 30.0, 30.0] rng [None, None, None] |
+  26 | [[29.542, 32.788]] | 4x3: [None, None, None] best [-1.128, -1.128, -1.128] @ [30.0, 30.0, 30.0] rng [None, None, None] | 3x2: [None, None, None] best [-0.804, -0.804, -0.804] @ [30.0, 30.0, 30.0] rng [None, None, None] |
+  27 | [[30.518, 32.475]] | 4x3: [None, None, None] best [-1.496, -1.484, -1.496] @ [29.5, 29.9, 29.5] rng [None, None, None] | 3x2: [None, None, None] best [-0.996, -0.996, -0.996] @ [30.0, 30.0, 30.0] rng [None, None, None] |
+  28 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  29 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  30 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  31 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  32 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  33 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  34 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  35 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  36 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  37 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  38 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  39 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  40 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+== corner (1, 1, 1) toward edge: gamma | first material interval | per size: wall at layout depth, best wall @ inner-face radius, face range wall>=0.4
+   0 | [[21.947, 49.062]] | 4x3: [0.4] best [1.6] @ [23.6] rng [[[22.4, 30.0]]] | 3x2: [0.4] best [2.1] @ [24.1] rng [[[22.4, 30.0]]] |
+   1 | [[21.939, 48.696]] | 4x3: [0.404, 0.402, 0.404] best [1.6, 1.6, 1.6] @ [23.6, 23.6, 23.6] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.404, 0.402, 0.404] best [2.1, 2.1, 2.1] @ [24.1, 24.1, 24.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   2 | [[21.937, 48.131]] | 4x3: [0.412, 0.41, 0.412] best [1.6, 1.6, 1.6] @ [23.6, 23.6, 23.6] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.412, 0.41, 0.412] best [2.1, 2.1, 2.1] @ [24.1, 24.1, 24.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   3 | [[21.938, 47.593]] | 4x3: [0.411, 0.408, 0.411] best [1.6, 1.6, 1.6] @ [23.6, 23.6, 23.6] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.411, 0.408, 0.411] best [2.1, 2.1, 2.1] @ [24.1, 24.1, 24.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   4 | [[21.937, 47.082]] | 4x3: [0.408, 0.408, 0.408] best [1.6, 1.6, 1.6] @ [23.6, 23.6, 23.6] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.408, 0.408, 0.408] best [2.1, 2.1, 2.1] @ [24.1, 24.1, 24.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   5 | [[21.943, 46.595]] | 4x3: [0.401, 0.411, 0.401] best [1.6, 1.6, 1.6] @ [26.0, 26.0, 26.0] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.401, 0.411, 0.401] best [2.1, 2.1, 2.1] @ [26.1, 26.1, 26.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   6 | [[21.945, 46.132]] | 4x3: [0.401, 0.402, 0.401] best [1.6, 1.6, 1.6] @ [26.8, 26.8, 26.8] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.401, 0.402, 0.401] best [2.1, 2.1, 2.1] @ [27.0, 27.0, 27.0] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   7 | [[21.938, 45.692]] | 4x3: [0.314, 0.311, 0.311] best [1.6, 1.6, 1.6] @ [27.7, 27.7, 27.7] rng [[[25.2, 30.0]], [[25.2, 30.0]], [[25.2, 30.0]]] | 3x2: [0.407, 0.4, 0.407] best [2.1, 2.1, 2.1] @ [27.9, 27.9, 27.9] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   8 | [[21.938, 45.274]] | 4x3: [-0.121, -0.123, -0.123] best [1.6, 1.6, 1.6] @ [28.7, 28.7, 28.7] rng [[[26.1, 30.0]], [[26.1, 30.0]], [[26.1, 30.0]]] | 3x2: [0.408, 0.405, 0.408] best [2.1, 2.1, 2.1] @ [28.8, 28.8, 28.8] rng [[[22.4, 22.7], [25.1, 30.0]], [[22.4, 22.7], [25.1, 30.0]], [[22.4, 22.7], [25.1, 30.0]]] |
+   9 | [[21.937, 44.878]] | 4x3: [-0.456, -0.452, -0.456] best [1.6, 1.6, 1.6] @ [29.8, 29.8, 29.8] rng [[[27.0, 30.0]], [[27.0, 30.0]], [[27.0, 30.0]]] | 3x2: [0.41, 0.41, 0.41] best [2.1, 2.1, 2.1] @ [29.9, 29.9, 29.9] rng [[[22.4, 22.4], [26.0, 30.0]], [[22.4, 22.4], [26.0, 30.0]], [[22.4, 22.4], [26.0, 30.0]]] |
+  10 | [[21.938, 44.501]] | 4x3: [-0.457, -0.455, -0.46] best [1.246, 1.246, 1.246] @ [30.0, 30.0, 30.0] rng [[[28.1, 30.0]], [[28.1, 30.0]], [[28.1, 30.0]]] | 3x2: [0.406, 0.406, 0.406] best [1.697, 1.698, 1.698] @ [30.0, 30.0, 30.0] rng [[[22.4, 22.4], [27.0, 30.0]], [[22.4, 22.4], [27.0, 30.0]], [[22.4, 22.4], [27.0, 30.0]]] |
+  11 | [[21.945, 44.144]] | 4x3: [-0.457, -0.455, -0.457] best [0.756, 0.755, 0.755] @ [30.0, 30.0, 30.0] rng [[[29.2, 30.0]], [[29.2, 30.0]], [[29.2, 30.0]]] | 3x2: [0.401, 0.409, 0.401] best [1.212, 1.211, 1.211] @ [30.0, 30.0, 30.0] rng [[[22.4, 22.4], [28.1, 30.0]], [[22.4, 22.4], [28.1, 30.0]], [[22.4, 22.4], [28.1, 30.0]]] |
+  12 | [[21.943, 43.806]] | 4x3: [-0.459, -0.456, -0.458] best [0.262, 0.262, 0.262] @ [30.0, 30.0, 30.0] rng [None, None, None] | 3x2: [0.402, 0.406, 0.402] best [0.723, 0.722, 0.722] @ [30.0, 30.0, 30.0] rng [[[22.4, 22.4], [29.2, 30.0]], [[22.4, 22.4], [29.2, 30.0]], [[22.4, 22.4], [29.2, 30.0]]] |
+  13 | [[21.937, 24.945], [25.734, 43.487]] | 4x3: [-0.458, -0.456, -0.459] best [-0.04, -0.05, -0.04] @ [21.9, 21.9, 21.9] rng [None, None, None] | 3x2: [0.41, 0.4, 0.41] best [0.46, 0.45, 0.46] @ [22.4, 22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]], [[22.4, 22.4]]] |
+  14 | [[21.938, 24.941], [26.884, 43.185]] | 4x3: [-0.458, -0.456, -0.458] best [-0.078, -0.078, -0.078] @ [21.9, 21.9, 21.9] rng [None, None, None] | 3x2: [0.407, 0.402, 0.407] best [0.457, 0.452, 0.457] @ [22.4, 22.4, 22.4] rng [[[22.4, 22.4]], [[22.4, 22.4]], [[22.4, 22.4]]] |
+  15 | [[21.936, 24.94], [28.15, 42.9]] | 4x3: [-0.457, -0.455, -0.457] best [-0.242, -0.242, -0.242] @ [21.7, 21.7, 21.7] rng [None, None, None] | 3x2: [0.27, 0.27, 0.27] best [0.276, 0.276, 0.276] @ [22.3, 22.3, 22.3] rng [None, None, None] |
+  16 | [[21.939, 24.941], [29.552, 42.632]] | 4x3: [-0.5, -0.5, -0.5] best [-0.407, -0.407, -0.407] @ [21.6, 21.6, 21.6] rng [None, None, None] | 3x2: [0.071, 0.071, 0.071] best [0.103, 0.103, 0.103] @ [22.1, 22.1, 22.1] rng [None, None, None] |
+  17 | [[21.946, 24.944], [31.11, 42.379]] | 4x3: [-0.677, -0.677, -0.677] best [-0.568, -0.568, -0.568] @ [21.5, 21.5, 21.5] rng [None, None, None] | 3x2: [-0.112, -0.112, -0.112] best [-0.068, -0.068, -0.068] @ [22.0, 22.0, 22.0] rng [None, None, None] |
+  18 | [[21.942, 24.943], [32.852, 42.143]] | 4x3: [-0.86, -0.86, -0.86] best [-0.743, -0.743, -0.743] @ [21.5, 21.5, 21.5] rng [None, None, None] | 3x2: [-0.29, -0.29, -0.29] best [-0.232, -0.232, -0.232] @ [21.8, 21.8, 21.8] rng [None, None, None] |
+  19 | [[21.938, 24.939]] | 4x3: [-1.028, -1.028, -1.028] best [-0.914, -0.914, -0.914] @ [21.5, 21.5, 21.5] rng [None, None, None] | 3x2: [-0.463, -0.463, -0.463] best [-0.372, -0.373, -0.372] @ [21.7, 21.7, 21.7] rng [None, None, None] |
+  20 | [[21.94, 24.94], [37.034, 41.716]] | 4x3: [-1.207, -1.207, -1.207] best [-1.078, -1.078, -1.078] @ [21.5, 21.5, 21.5] rng [None, None, None] | 3x2: [-0.634, -0.634, -0.634] best [-0.524, -0.524, -0.524] @ [21.6, 21.6, 21.6] rng [None, None, None] |
+  21 | [[21.938, 24.944], [39.57, 41.342]] | 4x3: [-1.372, -1.372, -1.372] best [-1.246, -1.246, -1.246] @ [21.5, 21.5, 21.5] rng [None, None, None] | 3x2: [-0.799, -0.799, -0.799] best [-0.677, -0.678, -0.678] @ [21.5, 21.5, 21.5] rng [None, None, None] |
+  22 | [[21.94, 24.865]] | 4x3: [-1.5, -1.5, -1.5] best [-1.397, -1.397, -1.397] @ [21.5, 21.5, 21.5] rng [None, None, None] | 3x2: [-0.954, -0.954, -0.954] best [-0.822, -0.822, -0.822] @ [21.5, 21.5, 21.5] rng [None, None, None] |
+  23 | [[21.949, 23.839]] | 4x3: [None, None, None] best [-1.488, -1.488, -1.488] @ [22.1, 22.1, 22.1] rng [None, None, None] | 3x2: [-1.0, -1.0, -1.0] best [-0.981, -0.981, -0.981] @ [21.5, 21.5, 21.5] rng [None, None, None] |
+  24 | [[22.087, 22.9]] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [-0.998, -0.998, -0.998] @ [21.7, 21.7, 21.7] rng [None, None, None] |
+  25 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  26 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  27 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  28 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  29 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  30 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  31 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  32 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  33 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  34 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  35 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  36 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  37 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  38 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  39 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  40 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+== corner (-1, 1, -1) toward centre: gamma | first material interval | per size: wall at layout depth, best wall @ inner-face radius, face range wall>=0.4
+   0 | [[21.947, 49.062]] | 4x3: [0.4] best [1.6] @ [23.6] rng [[[22.4, 30.0]]] | 3x2: [0.4] best [2.1] @ [24.1] rng [[[22.4, 30.0]]] |
+   4 | [[21.938, 45.426]] | 4x3: [0.41, 0.412, 0.41] best [1.6, 1.6, 1.6] @ [25.9, 25.9, 25.9] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.41, 0.412, 0.41] best [2.1, 2.1, 2.1] @ [26.1, 26.1, 26.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   8 | [[21.944, 41.948]] | 4x3: [-0.53, -0.527, -0.53] best [1.6, 1.6, 1.6] @ [26.6, 26.6, 26.6] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [0.034, 0.035, 0.034] best [2.1, 2.1, 2.1] @ [27.1, 27.1, 27.1] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] |
+  12 | [[22.026, 23.604], [24.988, 39.143]] | 4x3: [None, None, None] best [1.6, 1.6, 1.6] @ [27.4, 27.4, 27.4] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] | 3x2: [-0.985, -0.985, -0.985] best [2.1, 2.1, 2.1] @ [27.5, 27.5, 27.5] rng [[[25.4, 30.0]], [[25.4, 30.0]], [[25.4, 30.0]]] |
+  16 | [[24.996, 36.857]] | 4x3: [None, None, None] best [1.6, 1.6, 1.6] @ [29.8, 29.8, 29.8] rng [[[27.0, 30.0]], [[27.0, 30.0]], [[27.0, 30.0]]] | 3x2: [None, None, None] best [2.1, 2.1, 2.1] @ [29.9, 29.9, 29.9] rng [[[26.0, 30.0]], [[26.0, 30.0]], [[26.0, 30.0]]] |
+  20 | [[24.999, 34.985]] | 4x3: [None, None, None] best [0.492, 0.493, 0.493] @ [30.0, 30.0, 30.0] rng [[[29.8, 30.0]], [[29.8, 30.0]], [[29.8, 30.0]]] | 3x2: [None, None, None] best [0.964, 0.964, 0.964] @ [30.0, 30.0, 30.0] rng [[[28.6, 30.0]], [[28.6, 30.0]], [[28.6, 30.0]]] |
+  24 | [[27.79, 33.448]] | 4x3: [None, None, None] best [-0.595, -0.595, -0.595] @ [30.0, 30.0, 30.0] rng [None, None, None] | 3x2: [None, None, None] best [-0.236, -0.236, -0.236] @ [30.0, 30.0, 30.0] rng [None, None, None] |
+  28 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  32 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  36 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  40 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+== corner (-1, 1, -1) toward edge: gamma | first material interval | per size: wall at layout depth, best wall @ inner-face radius, face range wall>=0.4
+   0 | [[21.947, 49.062]] | 4x3: [0.4] best [1.6] @ [23.6] rng [[[22.4, 30.0]]] | 3x2: [0.4] best [2.1] @ [24.1] rng [[[22.4, 30.0]]] |
+   4 | [[21.937, 47.082]] | 4x3: [0.408, 0.408, 0.408] best [1.6, 1.6, 1.6] @ [23.6, 23.6, 23.6] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] | 3x2: [0.408, 0.408, 0.408] best [2.1, 2.1, 2.1] @ [24.1, 24.1, 24.1] rng [[[22.4, 30.0]], [[22.4, 30.0]], [[22.4, 30.0]]] |
+   8 | [[21.938, 45.274]] | 4x3: [-0.121, -0.123, -0.123] best [1.6, 1.6, 1.6] @ [28.7, 28.7, 28.7] rng [[[26.1, 30.0]], [[26.1, 30.0]], [[26.1, 30.0]]] | 3x2: [0.408, 0.405, 0.408] best [2.1, 2.1, 2.1] @ [28.8, 28.8, 28.8] rng [[[22.4, 22.7], [25.1, 30.0]], [[22.4, 22.7], [25.1, 30.0]], [[22.4, 22.7], [25.1, 30.0]]] |
+  12 | [[21.943, 43.806]] | 4x3: [-0.459, -0.456, -0.458] best [0.262, 0.262, 0.262] @ [30.0, 30.0, 30.0] rng [None, None, None] | 3x2: [0.402, 0.406, 0.402] best [0.723, 0.722, 0.722] @ [30.0, 30.0, 30.0] rng [[[22.4, 22.4], [29.2, 30.0]], [[22.4, 22.4], [29.2, 30.0]], [[22.4, 22.4], [29.2, 30.0]]] |
+  16 | [[21.939, 24.941], [29.552, 42.632]] | 4x3: [-0.5, -0.5, -0.5] best [-0.407, -0.407, -0.407] @ [21.6, 21.6, 21.6] rng [None, None, None] | 3x2: [0.071, 0.071, 0.071] best [0.103, 0.103, 0.103] @ [22.1, 22.1, 22.1] rng [None, None, None] |
+  20 | [[21.94, 24.94], [37.034, 41.716]] | 4x3: [-1.207, -1.207, -1.207] best [-1.078, -1.078, -1.078] @ [21.5, 21.5, 21.5] rng [None, None, None] | 3x2: [-0.634, -0.634, -0.634] best [-0.524, -0.524, -0.524] @ [21.6, 21.6, 21.6] rng [None, None, None] |
+  24 | [[22.087, 22.9]] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [-0.998, -0.998, -0.998] @ [21.7, 21.7, 21.7] rng [None, None, None] |
+  28 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  32 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  36 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+  40 | [] | 4x3: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] | 3x2: [None, None, None] best [None, None, None] @ [None, None, None] rng [None, None, None] |
+done 138.8 s
+exit 0

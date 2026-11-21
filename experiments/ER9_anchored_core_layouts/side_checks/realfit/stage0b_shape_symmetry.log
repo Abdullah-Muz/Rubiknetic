@@ -1,0 +1,11 @@
+edge non-identity symmetries of the home position: 3
+   det -1 max surface distance 0.044 mm; within 27 mm of the centre 0.044 mm; share > 0.1 mm 0.0
+   det -1 max surface distance 0.044 mm; within 27 mm of the centre 0.044 mm; share > 0.1 mm 0.0
+   det 1 max surface distance 0.045 mm; within 27 mm of the centre 0.045 mm; share > 0.1 mm 0.0
+corner non-identity symmetries of the home position: 5
+   det -1 max surface distance 0.045 mm; within 27 mm of the centre 0.045 mm; share > 0.1 mm 0.0
+   det -1 max surface distance 0.045 mm; within 27 mm of the centre 0.045 mm; share > 0.1 mm 0.0
+   det 1 max surface distance 0.045 mm; within 27 mm of the centre 0.045 mm; share > 0.1 mm 0.0
+   det 1 max surface distance 0.045 mm; within 27 mm of the centre 0.045 mm; share > 0.1 mm 0.0
+   det -1 max surface distance 0.044 mm; within 27 mm of the centre 0.044 mm; share > 0.1 mm 0.0
+exit 0

@@ -1,0 +1,287 @@
+{
+ "conventions": "pull > 0 attraction; kz = dFz/dD > 0 (attraction falls as the gap opens: axially unstable); klat = -dFx/dx > 0 (restoring). Charge model: klat = kz / 2 exactly.",
+ "scale_check": {
+  "moment_ratio_s0.3_over_s1": 0.5477225575051661,
+  "sqrt_0.3": 0.5477225575051661,
+  "pair_force_ratio_s0.3_over_s1": 0.30000000000000004,
+  "table_C0_ratio_minus_0.3_max_abs": 5.551115123125783e-17,
+  "Br_eff_T": {
+   "1.0": 1.19,
+   "0.756": 1.0346842996779257,
+   "0.5": 0.8414570696119916,
+   "0.3": 0.6517898434311477
+  }
+ },
+ "scale_json_check": {
+  "0.2": {
+   "pull_here": -1.4543600597549124,
+   "pull_json": -1.4543600597549124,
+   "klat_here": -583.8093921045289,
+   "klat_json": -583.8093921045289,
+   "rel_diff_pull": 0.0,
+   "rel_diff_klat": 0.0
+  },
+  "1": {
+   "pull_here": -0.7988833685138819,
+   "pull_json": -0.7988833685138819,
+   "klat_here": -278.3039362846631,
+   "klat_json": -278.3039362846631,
+   "rel_diff_pull": 0.0,
+   "rel_diff_klat": 0.0
+  },
+  "2": {
+   "pull_here": -0.38634143020411404,
+   "pull_json": -0.38634143020411404,
+   "klat_here": -125.55345090881683,
+   "klat_json": -125.55345090881683,
+   "rel_diff_pull": 0.0,
+   "rel_diff_klat": 0.0
+  },
+  "3": {
+   "pull_here": -0.23166937779393842,
+   "pull_json": -0.23166937779393842,
+   "klat_here": -70.32747087128087,
+   "klat_json": -70.32747087128087,
+   "rel_diff_pull": 0.0,
+   "rel_diff_klat": 0.0
+  },
+  "m5_4x2_pull": {
+   "here": -1.6444070936870174,
+   "json": -1.6444070936870174
+  },
+  "4x3_pull": {
+   "here": -2.174706773307548,
+   "json": -2.174706773307548
+  },
+  "matching_scale": {
+   "here": 0.7561511804122499,
+   "json": 0.7561511804122499
+  }
+ },
+ "arms": {
+  "W1": {
+   "scale": 1.0,
+   "clearance_mm": 0.2,
+   "face_gap_mm": 1.0,
+   "centre_distance_mm": 4.0,
+   "Br_eff_T": 1.19,
+   "near_field_weight_w": 1.0,
+   "sim": {
+    "pull_N": 1.9233720682178959,
+    "kz_N_per_m": 1544.186023106897,
+    "klat_N_per_m": 772.080249595377
+   },
+   "charge": {
+    "pull_N": 1.923098190507882,
+    "kz_N_per_m": 1553.054355222693,
+    "klat_N_per_m": 776.5271776113465,
+    "energy_mJ": -3.0835242410523924
+   },
+   "sim_over_charge": {
+    "pull_N": 1.0001424148342324,
+    "kz_N_per_m": 0.9942897477567523,
+    "klat_N_per_m": 0.9942733130994224
+   },
+   "sim_klat_over_kz": 0.49999173547883446
+  },
+  "W2": {
+   "scale": 0.5,
+   "clearance_mm": 0.2,
+   "face_gap_mm": 1.0,
+   "centre_distance_mm": 4.0,
+   "Br_eff_T": 0.8414570696119916,
+   "near_field_weight_w": 1.0,
+   "sim": {
+    "pull_N": 0.9616860341089479,
+    "kz_N_per_m": 772.0930115534485,
+    "klat_N_per_m": 386.0401247976885
+   },
+   "charge": {
+    "pull_N": 0.9615490952539412,
+    "kz_N_per_m": 776.5271776113466,
+    "klat_N_per_m": 388.2635888056733,
+    "energy_mJ": -1.5417621205261964
+   },
+   "sim_over_charge": {
+    "pull_N": 1.0001424148342322,
+    "kz_N_per_m": 0.9942897477567522,
+    "klat_N_per_m": 0.9942733130994222
+   },
+   "sim_klat_over_kz": 0.49999173547883446
+  },
+  "W3": {
+   "scale": 0.3,
+   "clearance_mm": 0.2,
+   "face_gap_mm": 1.0,
+   "centre_distance_mm": 4.0,
+   "Br_eff_T": 0.6517898434311477,
+   "near_field_weight_w": 1.0,
+   "sim": {
+    "pull_N": 0.5770116204653688,
+    "kz_N_per_m": 463.2558069320669,
+    "klat_N_per_m": 231.62407487862706
+   },
+   "charge": {
+    "pull_N": 0.5769294571523647,
+    "kz_N_per_m": 465.9163065668079,
+    "klat_N_per_m": 232.95815328340396,
+    "energy_mJ": -0.9250572723157178
+   },
+   "sim_over_charge": {
+    "pull_N": 1.0001424148342324,
+    "kz_N_per_m": 0.9942897477567475,
+    "klat_N_per_m": 0.9942733130994821
+   },
+   "sim_klat_over_kz": 0.499991735478867
+  },
+  "HB1": {
+   "scale": 0.756,
+   "clearance_mm": 1.0,
+   "face_gap_mm": 1.8,
+   "centre_distance_mm": 4.800000000000001,
+   "Br_eff_T": 1.0346842996779257,
+   "near_field_weight_w": 1.0,
+   "sim": {
+    "pull_N": 0.7987236444796937,
+    "kz_N_per_m": 557.9849152209048,
+    "klat_N_per_m": 278.2482938352659
+   },
+   "charge": {
+    "pull_N": 0.7986957557371646,
+    "kz_N_per_m": 558.8983464296851,
+    "klat_N_per_m": 279.4491732148426,
+    "energy_mJ": -1.4623027438232645
+   },
+   "sim_over_charge": {
+    "pull_N": 1.0000349178549264,
+    "kz_N_per_m": 0.9983656577003395,
+    "klat_N_per_m": 0.9957026912416254
+   },
+   "sim_klat_over_kz": 0.49866633710896663
+  },
+  "HB2": {
+   "scale": 0.756,
+   "clearance_mm": 2.0,
+   "face_gap_mm": 2.8,
+   "centre_distance_mm": 5.8,
+   "Br_eff_T": 1.0346842996779257,
+   "near_field_weight_w": 0.8781313580246916,
+   "sim": {
+    "pull_N": 0.38626418737463686,
+    "kz_N_per_m": 258.407899963628,
+    "klat_N_per_m": 125.52834849151496
+   },
+   "charge": {
+    "pull_N": 0.41582517055291607,
+    "kz_N_per_m": 253.69379708927212,
+    "klat_N_per_m": 126.84689854463606,
+    "energy_mJ": -0.8800482516510646
+   },
+   "sim_over_charge": {
+    "pull_N": 0.9289100678081309,
+    "kz_N_per_m": 1.0185818610011068,
+    "klat_N_per_m": 0.9896051849256912
+   },
+   "sim_klat_over_kz": 0.4857759708940153
+  },
+  "HB3": {
+   "scale": 0.756,
+   "clearance_mm": 3.0,
+   "face_gap_mm": 3.8,
+   "centre_distance_mm": 6.800000000000001,
+   "Br_eff_T": 1.0346842996779257,
+   "near_field_weight_w": 0.3174399999999997,
+   "sim": {
+    "pull_N": 0.23162305918339088,
+    "kz_N_per_m": 91.96437238926796,
+    "klat_N_per_m": 70.31341001108093
+   },
+   "charge": {
+    "pull_N": 0.2342892691668137,
+    "kz_N_per_m": 126.45389232649683,
+    "klat_N_per_m": 63.226946163248414,
+    "energy_mJ": -0.5654630130315924
+   },
+   "sim_over_charge": {
+    "pull_N": 0.9886200081083335,
+    "kz_N_per_m": 0.7272561618888024,
+    "klat_N_per_m": 1.11207980580836
+   },
+   "sim_klat_over_kz": 0.7645722814641461
+  }
+ },
+ "charge_model_cross_check": [
+  {
+   "magnet": "4x3 Br 1.19 gap 1 mm",
+   "repo_quadrature_fd": {
+    "pull_N": 1.9237678327733119,
+    "kz_N_per_m": 1553.5240622584906,
+    "klat_N_per_m": 776.351200239278,
+    "energy_mJ": -3.083524240780507
+   },
+   "cyl_pair": {
+    "pull_N": 1.923098190507882,
+    "kz_N_per_m": 1553.054355222693,
+    "klat_N_per_m": 776.5271776113465,
+    "energy_mJ": -3.0835242410523924
+   },
+   "rel_diff": {
+    "pull_N": 0.00034821012714525423,
+    "kz_N_per_m": 0.0003024408219958197,
+    "klat_N_per_m": -0.00022662100843628963,
+    "energy_mJ": -8.817369057112501e-11
+   }
+  },
+  {
+   "magnet": "4x3 Br 1.19 gap 2.8 mm",
+   "repo_quadrature_fd": {
+    "pull_N": 0.5501365095509324,
+    "kz_N_per_m": 335.61825786114497,
+    "klat_N_per_m": 167.77023617454284,
+    "energy_mJ": -1.1640849885622122
+   },
+   "cyl_pair": {
+    "pull_N": 0.5500332943821643,
+    "kz_N_per_m": 335.57380567364044,
+    "klat_N_per_m": 167.78690283682022,
+    "energy_mJ": -1.164084988956435
+   },
+   "rel_diff": {
+    "pull_N": 0.00018765258362041237,
+    "kz_N_per_m": 0.00013246620192930436,
+    "klat_N_per_m": -9.933231971970269e-05,
+    "energy_mJ": -3.3865477089278784e-10
+   }
+  },
+  {
+   "magnet": "3x2 Br 1.3 gap 1.5 mm",
+   "repo_quadrature_fd": {
+    "pull_N": 0.5669770604207688,
+    "kz_N_per_m": 522.834650094027,
+    "klat_N_per_m": 261.2772157151513,
+    "energy_mJ": -0.7836543057560288
+   },
+   "cyl_pair": {
+    "pull_N": 0.5667345877939154,
+    "kz_N_per_m": 522.6744915521064,
+    "klat_N_per_m": 261.3372457760532,
+    "energy_mJ": -0.7836543058822113
+   },
+   "rel_diff": {
+    "pull_N": 0.00042784158947717366,
+    "kz_N_per_m": 0.0003064211942791495,
+    "klat_N_per_m": -0.00022970342678707567,
+    "energy_mJ": -1.6101808775204063e-10
+   }
+  }
+ ],
+ "laplace_check": {
+  "klat_from_lateral_force": 776.5130938632848,
+  "kz_over_2": 776.5271776113465
+ },
+ "dipole_far_check": {
+  "gap_30mm_charge_pull": 0.0006418009354075026,
+  "gap_30mm_dipole_pull": 0.000644810236094984
+ },
+ "wall_s": 147.4682741165161
+}

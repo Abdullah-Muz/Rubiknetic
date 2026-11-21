@@ -1,0 +1,158 @@
+{
+ "anchored_c0.2": {
+  "closest_pairs": {
+   "core_corner / core_corner": {
+    "centre_distance_mm": 9.476745409068819,
+    "surface_gap_mm": 4.87630759567763
+   },
+   "core_corner / core_edge": {
+    "centre_distance_mm": 9.163015108539415,
+    "surface_gap_mm": 4.5801285782031815
+   },
+   "core_edge / core_edge": {
+    "centre_distance_mm": 11.917589200557181,
+    "surface_gap_mm": 7.204023174201804
+   }
+  },
+  "min_surface_gap_mm": 4.5801285782031815,
+  "outer_rim_radius_mm": {
+   "core_edge": 21.53308152587548,
+   "core_corner": 21.44347220018251
+  },
+  "cover_over_rim_mm_for_ball_radius": {
+   "21.9": {
+    "core_edge": 0.3669184741245175,
+    "core_corner": 0.4565277998174899
+   },
+   "21.84": {
+    "core_edge": 0.3069184741245188,
+    "core_corner": 0.3965277998174912
+   },
+   "21.75": {
+    "core_edge": 0.21691847412451892,
+    "core_corner": 0.30652779981749134
+   },
+   "21.735": {
+    "core_edge": 0.20191847412451835,
+    "core_corner": 0.2915277998174908
+   }
+  }
+ },
+ "hybrid_c1": {
+  "closest_pairs": {
+   "core_corner / core_corner": {
+    "centre_distance_mm": 9.094811085277632,
+    "surface_gap_mm": 4.494373988021642
+   },
+   "core_corner / core_edge": {
+    "centre_distance_mm": 8.794594481835336,
+    "surface_gap_mm": 4.21176395129216
+   },
+   "core_edge / core_edge": {
+    "centre_distance_mm": 11.439451218588985,
+    "surface_gap_mm": 6.725886790279532
+   }
+  },
+  "min_surface_gap_mm": 4.21176395129216,
+  "outer_rim_radius_mm": {
+   "core_edge": 20.736672828590414,
+   "core_corner": 20.647094226549168
+  },
+  "cover_over_rim_mm_for_ball_radius": {
+   "21.9": {
+    "core_edge": 1.163327171409584,
+    "core_corner": 1.2529057734508307
+   },
+   "21.84": {
+    "core_edge": 1.1033271714095854,
+    "core_corner": 1.192905773450832
+   },
+   "21.75": {
+    "core_edge": 1.0133271714095855,
+    "core_corner": 1.102905773450832
+   },
+   "21.735": {
+    "core_edge": 0.9983271714095849,
+    "core_corner": 1.0879057734508315
+   }
+  }
+ },
+ "hybrid_c2": {
+  "closest_pairs": {
+   "core_corner / core_corner": {
+    "centre_distance_mm": 8.617393180538649,
+    "surface_gap_mm": 4.0169571050484265
+   },
+   "core_corner / core_edge": {
+    "centre_distance_mm": 8.334070878691028,
+    "surface_gap_mm": 3.7513284514818332
+   },
+   "core_edge / core_edge": {
+    "centre_distance_mm": 10.84177874112875,
+    "surface_gap_mm": 6.128216571684366
+   }
+  },
+  "min_surface_gap_mm": 3.7513284514818332,
+  "outer_rim_radius_mm": {
+   "core_edge": 19.741570352937984,
+   "core_corner": 19.652035517981343
+  },
+  "cover_over_rim_mm_for_ball_radius": {
+   "21.9": {
+    "core_edge": 2.1584296470620146,
+    "core_corner": 2.2479644820186557
+   },
+   "21.84": {
+    "core_edge": 2.098429647062016,
+    "core_corner": 2.187964482018657
+   },
+   "21.75": {
+    "core_edge": 2.008429647062016,
+    "core_corner": 2.097964482018657
+   },
+   "21.735": {
+    "core_edge": 1.9934296470620154,
+    "core_corner": 2.0829644820186566
+   }
+  }
+ },
+ "hybrid_c3": {
+  "closest_pairs": {
+   "core_corner / core_corner": {
+    "centre_distance_mm": 8.139975275799667,
+    "surface_gap_mm": 3.5395403963212724
+   },
+   "core_corner / core_edge": {
+    "centre_distance_mm": 7.873550094765632,
+    "surface_gap_mm": 3.290924310107438
+   },
+   "core_edge / core_edge": {
+    "centre_distance_mm": 10.244106263668508,
+    "surface_gap_mm": 5.530546707142077
+   }
+  },
+  "min_surface_gap_mm": 3.290924310107438,
+  "outer_rim_radius_mm": {
+   "core_edge": 18.746989091584815,
+   "core_corner": 18.657505192281207
+  },
+  "cover_over_rim_mm_for_ball_radius": {
+   "21.9": {
+    "core_edge": 3.153010908415183,
+    "core_corner": 3.242494807718792
+   },
+   "21.84": {
+    "core_edge": 3.0930109084151844,
+    "core_corner": 3.1824948077187933
+   },
+   "21.75": {
+    "core_edge": 3.0030109084151846,
+    "core_corner": 3.0924948077187935
+   },
+   "21.735": {
+    "core_edge": 2.988010908415184,
+    "core_corner": 3.077494807718793
+   }
+  }
+ }
+}

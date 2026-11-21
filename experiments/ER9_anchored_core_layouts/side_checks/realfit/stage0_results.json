@@ -1,0 +1,294 @@
+{
+ "edge": [
+  {
+   "home": [
+    0,
+    -1,
+    1
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 4.884981308350689e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    1,
+    -1,
+    0
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 5.773159728050814e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    0,
+    -1,
+    -1
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 2.398081733190338e-14,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    -1,
+    -1,
+    0
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 4.351167857633658e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    0,
+    1,
+    -1
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 4.884981308350689e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    1,
+    1,
+    0
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 0.0,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    0,
+    1,
+    1
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 1.507288760336424e-14,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    -1,
+    1,
+    0
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 1.96205025865255e-14,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    1,
+    0,
+    1
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 3.9968028886505635e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    1,
+    0,
+    -1
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 6.661338147750939e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    -1,
+    0,
+    -1
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 2.161031364628563e-14,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    -1,
+    0,
+    1
+   ],
+   "n_vertices": 4045,
+   "best_max_vertex_mismatch_mm": 3.1086244689504383e-15,
+   "maps_matching_within_1um": 1
+  }
+ ],
+ "corner": [
+  {
+   "home": [
+    1,
+    -1,
+    1
+   ],
+   "n_vertices": 3365,
+   "best_max_vertex_mismatch_mm": 3.972054645195637e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    1,
+    -1,
+    -1
+   ],
+   "n_vertices": 3365,
+   "best_max_vertex_mismatch_mm": 3.972054645195637e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    -1,
+    -1,
+    -1
+   ],
+   "n_vertices": 3365,
+   "best_max_vertex_mismatch_mm": 3.552713678800501e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    -1,
+    -1,
+    1
+   ],
+   "n_vertices": 3365,
+   "best_max_vertex_mismatch_mm": 3.972054645195637e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    1,
+    1,
+    1
+   ],
+   "n_vertices": 3365,
+   "best_max_vertex_mismatch_mm": 0.0,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    1,
+    1,
+    -1
+   ],
+   "n_vertices": 3365,
+   "best_max_vertex_mismatch_mm": 3.972054645195637e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    -1,
+    1,
+    -1
+   ],
+   "n_vertices": 3365,
+   "best_max_vertex_mismatch_mm": 3.972054645195637e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    -1,
+    1,
+    1
+   ],
+   "n_vertices": 3365,
+   "best_max_vertex_mismatch_mm": 3.972054645195637e-15,
+   "maps_matching_within_1um": 1
+  }
+ ],
+ "centre": [
+  {
+   "home": [
+    0,
+    -1,
+    0
+   ],
+   "n_vertices": 1164,
+   "best_max_vertex_mismatch_mm": 0.0,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    1,
+    0,
+    0
+   ],
+   "n_vertices": 1164,
+   "best_max_vertex_mismatch_mm": 0.0,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    0,
+    0,
+    -1
+   ],
+   "n_vertices": 1164,
+   "best_max_vertex_mismatch_mm": 6.4047456679787536e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    -1,
+    0,
+    0
+   ],
+   "n_vertices": 1164,
+   "best_max_vertex_mismatch_mm": 0.0,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    0,
+    0,
+    1
+   ],
+   "n_vertices": 1164,
+   "best_max_vertex_mismatch_mm": 5.0242958677880805e-15,
+   "maps_matching_within_1um": 1
+  },
+  {
+   "home": [
+    0,
+    1,
+    0
+   ],
+   "n_vertices": 1164,
+   "best_max_vertex_mismatch_mm": 0.0,
+   "maps_matching_within_1um": 1
+  }
+ ],
+ "cad_edge_bounds_mm": [
+  [
+   4.534,
+   4.534,
+   -9.5
+  ],
+  [
+   28.75,
+   28.75,
+   9.5
+  ]
+ ],
+ "cad_corner_bounds_mm": [
+  [
+   4.224,
+   4.224,
+   4.224
+  ],
+  [
+   28.75,
+   28.75,
+   28.75
+  ]
+ ],
+ "sim_pitch_mm": 19.0,
+ "sim_half_size_mm": 9.475
+}

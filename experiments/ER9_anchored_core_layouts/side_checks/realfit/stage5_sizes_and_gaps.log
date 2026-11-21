@@ -1,0 +1,30 @@
+edge (1, 1, 0) centre done 31.5 s
+edge (1, 1, 0) corner done 57.2 s
+corner (1, 1, 1) centre done 74.7 s
+corner (1, 1, 1) edge done 91.9 s
+edge toward centre 4x3 {"gamma_wall>=0.4": [[0.0, 16.5]], "gamma_wall>=0.2": [[0.0, 16.5]], "gamma_wall>0": [[0.0, 17.0]], "gamma_mutual_gap>=0.5": [[6.0, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": [[6.0, 16.5]], "gamma_both(wall>=0.2,gap>=0.5)": [[6.0, 16.5]], "wall_at_layout_angle": -0.543}
+edge toward centre 4x2 {"gamma_wall>=0.4": [[0.0, 26.5]], "gamma_wall>=0.2": [[0.0, 27.0]], "gamma_wall>0": [[0.0, 27.5]], "gamma_mutual_gap>=0.5": [[6.0, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": [[6.0, 26.5]], "gamma_both(wall>=0.2,gap>=0.5)": [[6.0, 27.0]], "wall_at_layout_angle": 0.417}
+edge toward centre 3x3 {"gamma_wall>=0.4": [[0.0, 17.5]], "gamma_wall>=0.2": [[0.0, 18.0]], "gamma_wall>0": [[0.0, 18.5]], "gamma_mutual_gap>=0.5": [[4.5, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": [[4.5, 17.5]], "gamma_both(wall>=0.2,gap>=0.5)": [[4.5, 18.0]], "wall_at_layout_angle": -0.515}
+edge toward centre 3x2 {"gamma_wall>=0.4": [[0.0, 28.0]], "gamma_wall>=0.2": [[0.0, 28.5]], "gamma_wall>0": [[0.0, 29.0]], "gamma_mutual_gap>=0.5": [[4.5, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": [[4.5, 28.0]], "gamma_both(wall>=0.2,gap>=0.5)": [[4.5, 28.5]], "wall_at_layout_angle": 0.454}
+edge toward corner 4x3 {"gamma_wall>=0.4": [[0.0, 1.5]], "gamma_wall>=0.2": [[0.0, 2.0]], "gamma_wall>0": [[0.0, 2.5]], "gamma_mutual_gap>=0.5": [[6.0, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": null, "gamma_both(wall>=0.2,gap>=0.5)": null, "wall_at_layout_angle": null}
+edge toward corner 4x2 {"gamma_wall>=0.4": [[0.0, 1.5]], "gamma_wall>=0.2": [[0.0, 2.0]], "gamma_wall>0": [[0.0, 2.5]], "gamma_mutual_gap>=0.5": [[6.0, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": null, "gamma_both(wall>=0.2,gap>=0.5)": null, "wall_at_layout_angle": null}
+edge toward corner 3x3 {"gamma_wall>=0.4": [[0.0, 3.0]], "gamma_wall>=0.2": [[0.0, 3.5]], "gamma_wall>0": [[0.0, 4.0]], "gamma_mutual_gap>=0.5": [[4.5, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": null, "gamma_both(wall>=0.2,gap>=0.5)": null, "wall_at_layout_angle": null}
+edge toward corner 3x2 {"gamma_wall>=0.4": [[0.0, 3.0]], "gamma_wall>=0.2": [[0.0, 3.5]], "gamma_wall>0": [[0.0, 4.0]], "gamma_mutual_gap>=0.5": [[4.5, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": null, "gamma_both(wall>=0.2,gap>=0.5)": null, "wall_at_layout_angle": null}
+corner toward centre 4x3 {"gamma_wall>=0.4": [[0.0, 5.5]], "gamma_wall>=0.2": [[0.0, 6.0]], "gamma_wall>0": [[0.0, 6.5]], "gamma_mutual_gap>=0.5": [[7.0, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": null, "gamma_both(wall>=0.2,gap>=0.5)": null, "wall_at_layout_angle": null}
+corner toward centre 4x2 {"gamma_wall>=0.4": [[0.0, 5.5]], "gamma_wall>=0.2": [[0.0, 6.0]], "gamma_wall>0": [[0.0, 6.5]], "gamma_mutual_gap>=0.5": [[7.0, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": null, "gamma_both(wall>=0.2,gap>=0.5)": null, "wall_at_layout_angle": null}
+corner toward centre 3x3 {"gamma_wall>=0.4": [[0.0, 6.5]], "gamma_wall>=0.2": [[0.0, 7.0]], "gamma_wall>0": [[0.0, 7.5]], "gamma_mutual_gap>=0.5": [[5.5, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": [[5.5, 6.5]], "gamma_both(wall>=0.2,gap>=0.5)": [[5.5, 7.0]], "wall_at_layout_angle": null}
+corner toward centre 3x2 {"gamma_wall>=0.4": [[0.0, 7.0]], "gamma_wall>=0.2": [[0.0, 7.5]], "gamma_wall>0": [[0.0, 8.0]], "gamma_mutual_gap>=0.5": [[5.5, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": [[5.5, 7.0]], "gamma_both(wall>=0.2,gap>=0.5)": [[5.5, 7.5]], "wall_at_layout_angle": null}
+corner toward edge 4x3 {"gamma_wall>=0.4": [[0.0, 6.5]], "gamma_wall>=0.2": [[0.0, 7.0]], "gamma_wall>0": [[0.0, 7.5]], "gamma_mutual_gap>=0.5": [[7.0, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": null, "gamma_both(wall>=0.2,gap>=0.5)": [[7.0, 7.0]], "wall_at_layout_angle": -0.5}
+corner toward edge 4x2 {"gamma_wall>=0.4": [[0.0, 11.5]], "gamma_wall>=0.2": [[0.0, 12.5]], "gamma_wall>0": [[0.0, 13.5]], "gamma_mutual_gap>=0.5": [[7.0, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": [[7.0, 11.5]], "gamma_both(wall>=0.2,gap>=0.5)": [[7.0, 12.5]], "wall_at_layout_angle": -0.379}
+corner toward edge 3x3 {"gamma_wall>=0.4": [[0.0, 7.5]], "gamma_wall>=0.2": [[0.0, 8.0]], "gamma_wall>0": [[0.0, 8.5]], "gamma_mutual_gap>=0.5": [[5.5, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": [[5.5, 7.5]], "gamma_both(wall>=0.2,gap>=0.5)": [[5.5, 8.0]], "wall_at_layout_angle": -0.435}
+corner toward edge 3x2 {"gamma_wall>=0.4": [[0.0, 14.0]], "gamma_wall>=0.2": [[0.0, 15.0]], "gamma_wall>0": [[0.0, 16.0]], "gamma_mutual_gap>=0.5": [[5.5, 35.0]], "gamma_both(wall>=0.4,gap>=0.5)": [[5.5, 14.0]], "gamma_both(wall>=0.2,gap>=0.5)": [[5.5, 15.0]], "wall_at_layout_angle": 0.071}
+{
+ "edge toward centre at 20 deg, diameter 4": 2.0,
+ "edge toward centre at 20 deg, diameter 3": 2.05,
+ "corner toward centre at 16 deg, diameter 4": 0.0,
+ "corner toward centre at 16 deg, diameter 3": 0.0,
+ "corner toward edge at 16 deg, diameter 4": 0.0,
+ "corner toward edge at 16 deg, diameter 3": 0.0
+}
+done 93.1 s
+exit 0

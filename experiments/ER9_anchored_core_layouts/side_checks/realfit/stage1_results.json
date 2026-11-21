@@ -1,0 +1,2393 @@
+{
+ "selftest": {
+  "box_wall_measured": 2.0000012642183567,
+  "box_wall_exact": 2.0,
+  "box_protrusion_measured": 0.4999830869132791,
+  "box_protrusion_exact": 0.5,
+  "box_outside_fraction": 0.06984126984126982,
+  "cyl_gap_parallel_measured": 0.7000000000000002,
+  "cyl_gap_parallel_exact": 0.7,
+  "cyl_gap_coaxial_measured": 0.2999999999999998,
+  "cyl_gap_coaxial_exact": 0.3
+ },
+ "frame": [
+  {
+   "name": "Corner Square_7",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    1
+   ],
+   "bounds_min": [
+    4.224,
+    -28.75,
+    4.224
+   ],
+   "bounds_max": [
+    28.75,
+    -4.224,
+    28.75
+   ],
+   "closest_to_origin_mm": 21.93477064593668,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Corner Square_6",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    -1
+   ],
+   "bounds_min": [
+    4.224,
+    -28.75,
+    -28.75
+   ],
+   "bounds_max": [
+    28.75,
+    -4.224,
+    -4.224
+   ],
+   "closest_to_origin_mm": 21.93477064593668,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Corner Square_5",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    -1
+   ],
+   "bounds_min": [
+    -28.75,
+    -28.75,
+    -28.75
+   ],
+   "bounds_max": [
+    -4.224,
+    -4.224,
+    -4.224
+   ],
+   "closest_to_origin_mm": 21.93477064593668,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Corner Square_4",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    1
+   ],
+   "bounds_min": [
+    -28.75,
+    -28.75,
+    4.224
+   ],
+   "bounds_max": [
+    -4.224,
+    -4.224,
+    28.75
+   ],
+   "closest_to_origin_mm": 21.93477064593668,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_11",
+   "kind": "edge",
+   "home": [
+    0,
+    -1,
+    1
+   ],
+   "bounds_min": [
+    -9.5,
+    -28.75,
+    4.534
+   ],
+   "bounds_max": [
+    9.5,
+    -4.534,
+    28.75
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_10",
+   "kind": "edge",
+   "home": [
+    1,
+    -1,
+    0
+   ],
+   "bounds_min": [
+    4.534,
+    -28.75,
+    -9.5
+   ],
+   "bounds_max": [
+    28.75,
+    -4.534,
+    9.5
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_9",
+   "kind": "edge",
+   "home": [
+    0,
+    -1,
+    -1
+   ],
+   "bounds_min": [
+    -9.5,
+    -28.75,
+    -28.75
+   ],
+   "bounds_max": [
+    9.5,
+    -4.534,
+    -4.534
+   ],
+   "closest_to_origin_mm": 21.93495484401031,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_8",
+   "kind": "edge",
+   "home": [
+    -1,
+    -1,
+    0
+   ],
+   "bounds_min": [
+    -28.75,
+    -28.75,
+    -9.5
+   ],
+   "bounds_max": [
+    -4.534,
+    -4.534,
+    9.5
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Corner Square_3",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    1
+   ],
+   "bounds_min": [
+    4.224,
+    4.224,
+    4.224
+   ],
+   "bounds_max": [
+    28.75,
+    28.75,
+    28.75
+   ],
+   "closest_to_origin_mm": 21.93477064593668,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Corner Square_2",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    -1
+   ],
+   "bounds_min": [
+    4.224,
+    4.224,
+    -28.75
+   ],
+   "bounds_max": [
+    28.75,
+    28.75,
+    -4.224
+   ],
+   "closest_to_origin_mm": 21.93477064593668,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Corner Square_1",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    -1
+   ],
+   "bounds_min": [
+    -28.75,
+    4.224,
+    -28.75
+   ],
+   "bounds_max": [
+    -4.224,
+    28.75,
+    -4.224
+   ],
+   "closest_to_origin_mm": 21.93477064593668,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Corner Square",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    1
+   ],
+   "bounds_min": [
+    -28.75,
+    4.224,
+    4.224
+   ],
+   "bounds_max": [
+    -4.224,
+    28.75,
+    28.75
+   ],
+   "closest_to_origin_mm": 21.93477064593668,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_7",
+   "kind": "edge",
+   "home": [
+    0,
+    1,
+    -1
+   ],
+   "bounds_min": [
+    -9.5,
+    4.534,
+    -28.75
+   ],
+   "bounds_max": [
+    9.5,
+    28.75,
+    -4.534
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_6",
+   "kind": "edge",
+   "home": [
+    1,
+    1,
+    0
+   ],
+   "bounds_min": [
+    4.534,
+    4.534,
+    -9.5
+   ],
+   "bounds_max": [
+    28.75,
+    28.75,
+    9.5
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_5",
+   "kind": "edge",
+   "home": [
+    0,
+    1,
+    1
+   ],
+   "bounds_min": [
+    -9.5,
+    4.534,
+    4.534
+   ],
+   "bounds_max": [
+    9.5,
+    28.75,
+    28.75
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_4",
+   "kind": "edge",
+   "home": [
+    -1,
+    1,
+    0
+   ],
+   "bounds_min": [
+    -28.75,
+    4.534,
+    -9.5
+   ],
+   "bounds_max": [
+    -4.534,
+    28.75,
+    9.5
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_3",
+   "kind": "edge",
+   "home": [
+    1,
+    0,
+    1
+   ],
+   "bounds_min": [
+    4.534,
+    -9.5,
+    4.534
+   ],
+   "bounds_max": [
+    28.75,
+    9.5,
+    28.75
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_2",
+   "kind": "edge",
+   "home": [
+    1,
+    0,
+    -1
+   ],
+   "bounds_min": [
+    4.534,
+    -9.5,
+    -28.75
+   ],
+   "bounds_max": [
+    28.75,
+    9.5,
+    -4.534
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square_1",
+   "kind": "edge",
+   "home": [
+    -1,
+    0,
+    -1
+   ],
+   "bounds_min": [
+    -28.75,
+    -9.5,
+    -28.75
+   ],
+   "bounds_max": [
+    -4.534,
+    9.5,
+    -4.534
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Edge Square",
+   "kind": "edge",
+   "home": [
+    -1,
+    0,
+    1
+   ],
+   "bounds_min": [
+    -28.75,
+    -9.5,
+    4.534
+   ],
+   "bounds_max": [
+    -4.534,
+    9.5,
+    28.75
+   ],
+   "closest_to_origin_mm": 21.934954844010306,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Middle Square_5",
+   "kind": "centre",
+   "home": [
+    0,
+    -1,
+    0
+   ],
+   "bounds_min": [
+    -9.5,
+    -28.75,
+    -9.5
+   ],
+   "bounds_max": [
+    9.5,
+    -21.342,
+    9.5
+   ],
+   "closest_to_origin_mm": 22.040709331326802,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Middle Square_4",
+   "kind": "centre",
+   "home": [
+    1,
+    0,
+    0
+   ],
+   "bounds_min": [
+    21.342,
+    -9.5,
+    -9.5
+   ],
+   "bounds_max": [
+    28.75,
+    9.5,
+    9.5
+   ],
+   "closest_to_origin_mm": 22.040709331326802,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Middle Square_3",
+   "kind": "centre",
+   "home": [
+    0,
+    0,
+    -1
+   ],
+   "bounds_min": [
+    -9.5,
+    -9.5,
+    -28.75
+   ],
+   "bounds_max": [
+    9.5,
+    9.5,
+    -21.342
+   ],
+   "closest_to_origin_mm": 22.040709331326802,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Middle Square_2",
+   "kind": "centre",
+   "home": [
+    -1,
+    0,
+    0
+   ],
+   "bounds_min": [
+    -28.75,
+    -9.5,
+    -9.5
+   ],
+   "bounds_max": [
+    -21.342,
+    9.5,
+    9.5
+   ],
+   "closest_to_origin_mm": 22.040709331326802,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Middle Square_1",
+   "kind": "centre",
+   "home": [
+    0,
+    0,
+    1
+   ],
+   "bounds_min": [
+    -9.5,
+    -9.5,
+    21.342
+   ],
+   "bounds_max": [
+    9.5,
+    9.5,
+    28.75
+   ],
+   "closest_to_origin_mm": 22.040709331326802,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Middle Square",
+   "kind": "centre",
+   "home": [
+    0,
+    1,
+    0
+   ],
+   "bounds_min": [
+    -9.5,
+    21.342,
+    -9.5
+   ],
+   "bounds_max": [
+    9.5,
+    28.75,
+    9.5
+   ],
+   "closest_to_origin_mm": 22.040709331326802,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  },
+  {
+   "name": "Center Part",
+   "kind": "core",
+   "home": [
+    0,
+    0,
+    0
+   ],
+   "bounds_min": [
+    -27.75,
+    -27.75,
+    -27.75
+   ],
+   "bounds_max": [
+    27.75,
+    27.75,
+    27.75
+   ],
+   "closest_to_origin_mm": 7.482135528230845,
+   "edges_not_shared_by_2_faces": 0,
+   "open_edge_total_len_mm": 0.0,
+   "open_edge_max_len_mm": 0.0,
+   "open_edge_radius_range_mm": null
+  }
+ ],
+ "symmetry_max_vertex_deviation_mm": {
+  "edge": [
+   18.178502621594816,
+   18.428336828947067,
+   18.428336865326855,
+   6.552608218044043,
+   18.428336865326855,
+   18.42833682894706,
+   18.42833682894706,
+   18.428336828947067,
+   18.143045715987682,
+   18.634392879903316,
+   18.187064677476883
+  ],
+  "corner": [
+   18.049525097012523,
+   17.873985052574426,
+   18.049525097012523,
+   17.93301198631525,
+   18.049525097012523,
+   18.04952509701252,
+   18.049525097012523
+  ]
+ },
+ "anchor_piece_magnets_4x3": [
+  {
+   "body": "cubie_nnn",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    -1
+   ],
+   "cad_part": "Corner Square_5",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.850000000000005,
+   "dir": [
+    -0.78004,
+    -0.44246,
+    -0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 607975,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_8(-1, -1, 0)": 0.006996381182147165,
+    "Edge Square_1(-1, 0, -1)": 0.007478890229191798
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672535957137,
+   "fully_inside": false,
+   "outside_fraction": 0.8339285714285715,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660577731013356
+  },
+  {
+   "body": "cubie_nnn",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    -1
+   ],
+   "cad_part": "Corner Square_5",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    -0.44246,
+    -0.78004,
+    -0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.99,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 628731,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_9(0, -1, -1)": 0.006755126658624849,
+    "Edge Square_8(-1, -1, 0)": 0.006755126658624849
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5328254239748161,
+   "fully_inside": false,
+   "outside_fraction": 0.8299603174603174,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6600527625427115
+  },
+  {
+   "body": "cubie_nnn",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    -1
+   ],
+   "cad_part": "Corner Square_5",
+   "off_axis_deg": 15.999999999999924,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    -0.44246,
+    -0.44246,
+    -0.78004
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 619767,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_9(0, -1, -1)": 0.006513872135102533,
+    "Edge Square_1(-1, 0, -1)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672370001361,
+   "fully_inside": false,
+   "outside_fraction": 0.8291666666666666,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6600531072511253
+  },
+  {
+   "body": "cubie_nn0",
+   "kind": "edge",
+   "home": [
+    -1,
+    -1,
+    0
+   ],
+   "cad_part": "Edge Square_8",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    -0.90631,
+    -0.42262,
+    0.0
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_2(-1, 0, 0)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808992221776479
+  },
+  {
+   "body": "cubie_nn0",
+   "kind": "edge",
+   "home": [
+    -1,
+    -1,
+    0
+   ],
+   "cad_part": "Edge Square_8",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    -0.42262,
+    -0.90631,
+    0.0
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_5(0, -1, 0)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305501,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808990269080073
+  },
+  {
+   "body": "cubie_nnp",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    1
+   ],
+   "cad_part": "Corner Square_4",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.850000000000005,
+   "dir": [
+    -0.78004,
+    -0.44246,
+    0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 619767,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_8(-1, -1, 0)": 0.007478890229191798,
+    "Edge Square(-1, 0, 1)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672370001361,
+   "fully_inside": false,
+   "outside_fraction": 0.8339285714285715,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6605778679483896
+  },
+  {
+   "body": "cubie_nnp",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    1
+   ],
+   "cad_part": "Corner Square_4",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    -0.44246,
+    -0.78004,
+    0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.99,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 628731,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_11(0, -1, 1)": 0.006513872135102533,
+    "Edge Square_8(-1, -1, 0)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5328254239748161,
+   "fully_inside": false,
+   "outside_fraction": 0.829563492063492,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660052972568884
+  },
+  {
+   "body": "cubie_nnp",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    1
+   ],
+   "cad_part": "Corner Square_4",
+   "off_axis_deg": 15.999999999999924,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    -0.44246,
+    -0.44246,
+    0.78004
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 607975,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_11(0, -1, 1)": 0.006755126658624849,
+    "Edge Square(-1, 0, 1)": 0.006755126658624849
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672535957137,
+   "fully_inside": false,
+   "outside_fraction": 0.829563492063492,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660052972568884
+  },
+  {
+   "body": "cubie_n0n",
+   "kind": "edge",
+   "home": [
+    -1,
+    0,
+    -1
+   ],
+   "cad_part": "Edge Square_1",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    -0.90631,
+    0.0,
+    -0.42262
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_2(-1, 0, 0)": 0.0316043425814234
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305494,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.581024385739279
+  },
+  {
+   "body": "cubie_n0n",
+   "kind": "edge",
+   "home": [
+    -1,
+    0,
+    -1
+   ],
+   "cad_part": "Edge Square_1",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    -0.42262,
+    0.0,
+    -0.90631
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_3(0, 0, -1)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808992221776482
+  },
+  {
+   "body": "cubie_n0p",
+   "kind": "edge",
+   "home": [
+    -1,
+    0,
+    1
+   ],
+   "cad_part": "Edge Square",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    -0.90631,
+    0.0,
+    0.42262
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_2(-1, 0, 0)": 0.03232810615199035
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5810245917739356
+  },
+  {
+   "body": "cubie_n0p",
+   "kind": "edge",
+   "home": [
+    -1,
+    0,
+    1
+   ],
+   "cad_part": "Edge Square",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    -0.42262,
+    0.0,
+    0.90631
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_1(0, 0, 1)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305493,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808990269080067
+  },
+  {
+   "body": "cubie_npn",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    -1
+   ],
+   "cad_part": "Corner Square_1",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.850000000000005,
+   "dir": [
+    -0.78004,
+    0.44246,
+    -0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 619767,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_4(-1, 1, 0)": 0.007478890229191798,
+    "Edge Square_1(-1, 0, -1)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672370001376,
+   "fully_inside": false,
+   "outside_fraction": 0.8339285714285715,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6605778679483896
+  },
+  {
+   "body": "cubie_npn",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    -1
+   ],
+   "cad_part": "Corner Square_1",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    -0.44246,
+    0.78004,
+    -0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.99,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 628731,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_7(0, 1, -1)": 0.006513872135102533,
+    "Edge Square_4(-1, 1, 0)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5328254239748161,
+   "fully_inside": false,
+   "outside_fraction": 0.829563492063492,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660052972568884
+  },
+  {
+   "body": "cubie_npn",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    -1
+   ],
+   "cad_part": "Corner Square_1",
+   "off_axis_deg": 15.999999999999924,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    -0.44246,
+    0.44246,
+    -0.78004
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 607975,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_7(0, 1, -1)": 0.006755126658624849,
+    "Edge Square_1(-1, 0, -1)": 0.006755126658624849
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672535957137,
+   "fully_inside": false,
+   "outside_fraction": 0.829563492063492,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660052972568884
+  },
+  {
+   "body": "cubie_np0",
+   "kind": "edge",
+   "home": [
+    -1,
+    1,
+    0
+   ],
+   "cad_part": "Edge Square_4",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    -0.90631,
+    0.42262,
+    0.0
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_2(-1, 0, 0)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305493,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808990269080071
+  },
+  {
+   "body": "cubie_np0",
+   "kind": "edge",
+   "home": [
+    -1,
+    1,
+    0
+   ],
+   "cad_part": "Edge Square_4",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    -0.42262,
+    0.90631,
+    0.0
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square(0, 1, 0)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808992221776481
+  },
+  {
+   "body": "cubie_npp",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    1
+   ],
+   "cad_part": "Corner Square",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.850000000000005,
+   "dir": [
+    -0.78004,
+    0.44246,
+    0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 607975,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_4(-1, 1, 0)": 0.006996381182147165,
+    "Edge Square(-1, 0, 1)": 0.007478890229191798
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672535957137,
+   "fully_inside": false,
+   "outside_fraction": 0.8339285714285715,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660577731013354
+  },
+  {
+   "body": "cubie_npp",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    1
+   ],
+   "cad_part": "Corner Square",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    -0.44246,
+    0.78004,
+    0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.99,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 628731,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_5(0, 1, 1)": 0.006755126658624849,
+    "Edge Square_4(-1, 1, 0)": 0.006755126658624849
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5328254239748161,
+   "fully_inside": false,
+   "outside_fraction": 0.8299603174603174,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6600527625427115
+  },
+  {
+   "body": "cubie_npp",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    1
+   ],
+   "cad_part": "Corner Square",
+   "off_axis_deg": 15.999999999999924,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    -0.44246,
+    0.44246,
+    0.78004
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 619767,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_5(0, 1, 1)": 0.006513872135102533,
+    "Edge Square(-1, 0, 1)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672370001361,
+   "fully_inside": false,
+   "outside_fraction": 0.8291666666666666,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6600531072511266
+  },
+  {
+   "body": "cubie_0nn",
+   "kind": "edge",
+   "home": [
+    0,
+    -1,
+    -1
+   ],
+   "cad_part": "Edge Square_9",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.0,
+    -0.90631,
+    -0.42262
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_5(0, -1, 0)": 0.03232810615199035
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5810245917739364
+  },
+  {
+   "body": "cubie_0nn",
+   "kind": "edge",
+   "home": [
+    0,
+    -1,
+    -1
+   ],
+   "cad_part": "Edge Square_9",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.0,
+    -0.42262,
+    -0.90631
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_3(0, 0, -1)": 0.0316043425814234
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305493,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5810243857392808
+  },
+  {
+   "body": "cubie_0np",
+   "kind": "edge",
+   "home": [
+    0,
+    -1,
+    1
+   ],
+   "cad_part": "Edge Square_11",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.0,
+    -0.90631,
+    0.42262
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_5(0, -1, 0)": 0.0316043425814234
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5810245917739355
+  },
+  {
+   "body": "cubie_0np",
+   "kind": "edge",
+   "home": [
+    0,
+    -1,
+    1
+   ],
+   "cad_part": "Edge Square_11",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.0,
+    -0.42262,
+    0.90631
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_1(0, 0, 1)": 0.03232810615199035
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305493,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5810243857392797
+  },
+  {
+   "body": "cubie_0pn",
+   "kind": "edge",
+   "home": [
+    0,
+    1,
+    -1
+   ],
+   "cad_part": "Edge Square_7",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.0,
+    0.90631,
+    -0.42262
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square(0, 1, 0)": 0.0316043425814234
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5810245917739355
+  },
+  {
+   "body": "cubie_0pn",
+   "kind": "edge",
+   "home": [
+    0,
+    1,
+    -1
+   ],
+   "cad_part": "Edge Square_7",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.0,
+    0.42262,
+    -0.90631
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_3(0, 0, -1)": 0.03232810615199035
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305493,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5810243857392798
+  },
+  {
+   "body": "cubie_0pp",
+   "kind": "edge",
+   "home": [
+    0,
+    1,
+    1
+   ],
+   "cad_part": "Edge Square_5",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.0,
+    0.90631,
+    0.42262
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square(0, 1, 0)": 0.03232810615199035
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305453,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5810243857392742
+  },
+  {
+   "body": "cubie_0pp",
+   "kind": "edge",
+   "home": [
+    0,
+    1,
+    1
+   ],
+   "cad_part": "Edge Square_5",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.0,
+    0.42262,
+    0.90631
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_1(0, 0, 1)": 0.0316043425814234
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981885,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5810245917739351
+  },
+  {
+   "body": "cubie_pnn",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    -1
+   ],
+   "cad_part": "Corner Square_6",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.850000000000005,
+   "dir": [
+    0.78004,
+    -0.44246,
+    -0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 619767,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_10(1, -1, 0)": 0.006996381182147165,
+    "Edge Square_2(1, 0, -1)": 0.007478890229191798
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672370001361,
+   "fully_inside": false,
+   "outside_fraction": 0.831547619047619,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6605778679483896
+  },
+  {
+   "body": "cubie_pnn",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    -1
+   ],
+   "cad_part": "Corner Square_6",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    0.44246,
+    -0.78004,
+    -0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.99,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 628731,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_10(1, -1, 0)": 0.006755126658624849,
+    "Edge Square_9(0, -1, -1)": 0.006755126658624849
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5328254239748161,
+   "fully_inside": false,
+   "outside_fraction": 0.8351190476190476,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660052972568884
+  },
+  {
+   "body": "cubie_pnn",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    -1
+   ],
+   "cad_part": "Corner Square_6",
+   "off_axis_deg": 15.999999999999924,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    0.44246,
+    -0.44246,
+    -0.78004
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 607975,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_9(0, -1, -1)": 0.006513872135102533,
+    "Edge Square_2(1, 0, -1)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672535957137,
+   "fully_inside": false,
+   "outside_fraction": 0.8289682539682539,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660052972568884
+  },
+  {
+   "body": "cubie_pn0",
+   "kind": "edge",
+   "home": [
+    1,
+    -1,
+    0
+   ],
+   "cad_part": "Edge Square_10",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.90631,
+    -0.42262,
+    0.0
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_4(1, 0, 0)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305493,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808990269080067
+  },
+  {
+   "body": "cubie_pn0",
+   "kind": "edge",
+   "home": [
+    1,
+    -1,
+    0
+   ],
+   "cad_part": "Edge Square_10",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.42262,
+    -0.90631,
+    0.0
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_5(0, -1, 0)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808992221776479
+  },
+  {
+   "body": "cubie_pnp",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    1
+   ],
+   "cad_part": "Corner Square_7",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.850000000000005,
+   "dir": [
+    0.78004,
+    -0.44246,
+    0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 607975,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_10(1, -1, 0)": 0.007478890229191798,
+    "Edge Square_3(1, 0, 1)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672535957137,
+   "fully_inside": false,
+   "outside_fraction": 0.831547619047619,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660577731013354
+  },
+  {
+   "body": "cubie_pnp",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    1
+   ],
+   "cad_part": "Corner Square_7",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    0.44246,
+    -0.78004,
+    0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.99,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 628731,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_11(0, -1, 1)": 0.006513872135102533,
+    "Edge Square_10(1, -1, 0)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5328254239748161,
+   "fully_inside": false,
+   "outside_fraction": 0.8293650793650793,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6600527625427115
+  },
+  {
+   "body": "cubie_pnp",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    1
+   ],
+   "cad_part": "Corner Square_7",
+   "off_axis_deg": 15.999999999999924,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    0.44246,
+    -0.44246,
+    0.78004
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 619767,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_11(0, -1, 1)": 0.006755126658624849,
+    "Edge Square_3(1, 0, 1)": 0.006755126658624849
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672370001361,
+   "fully_inside": false,
+   "outside_fraction": 0.8347222222222223,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6600531072511253
+  },
+  {
+   "body": "cubie_p0n",
+   "kind": "edge",
+   "home": [
+    1,
+    0,
+    -1
+   ],
+   "cad_part": "Edge Square_2",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.90631,
+    0.0,
+    -0.42262
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_4(1, 0, 0)": 0.03232810615199035
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5810245917739354
+  },
+  {
+   "body": "cubie_p0n",
+   "kind": "edge",
+   "home": [
+    1,
+    0,
+    -1
+   ],
+   "cad_part": "Edge Square_2",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.42262,
+    0.0,
+    -0.90631
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_3(0, 0, -1)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305493,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808990269080068
+  },
+  {
+   "body": "cubie_p0p",
+   "kind": "edge",
+   "home": [
+    1,
+    0,
+    1
+   ],
+   "cad_part": "Edge Square_3",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.90631,
+    0.0,
+    0.42262
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_4(1, 0, 0)": 0.0316043425814234
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305494,
+   "fully_inside": false,
+   "outside_fraction": 0.03492063492063491,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.58102438573928
+  },
+  {
+   "body": "cubie_p0p",
+   "kind": "edge",
+   "home": [
+    1,
+    0,
+    1
+   ],
+   "cad_part": "Edge Square_3",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.42262,
+    0.0,
+    0.90631
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_1(0, 0, 1)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808992221776479
+  },
+  {
+   "body": "cubie_ppn",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    -1
+   ],
+   "cad_part": "Corner Square_2",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.850000000000005,
+   "dir": [
+    0.78004,
+    0.44246,
+    -0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 607975,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_6(1, 1, 0)": 0.007478890229191798,
+    "Edge Square_2(1, 0, -1)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672535957137,
+   "fully_inside": false,
+   "outside_fraction": 0.831547619047619,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660577731013354
+  },
+  {
+   "body": "cubie_ppn",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    -1
+   ],
+   "cad_part": "Corner Square_2",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    0.44246,
+    0.78004,
+    -0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.99,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 628731,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_7(0, 1, -1)": 0.006513872135102533,
+    "Edge Square_6(1, 1, 0)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5328254239748161,
+   "fully_inside": false,
+   "outside_fraction": 0.8293650793650793,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6600527625427115
+  },
+  {
+   "body": "cubie_ppn",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    -1
+   ],
+   "cad_part": "Corner Square_2",
+   "off_axis_deg": 15.999999999999924,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    0.44246,
+    0.44246,
+    -0.78004
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 619767,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_7(0, 1, -1)": 0.006755126658624849,
+    "Edge Square_2(1, 0, -1)": 0.006755126658624849
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672370001361,
+   "fully_inside": false,
+   "outside_fraction": 0.8347222222222223,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6600531072511266
+  },
+  {
+   "body": "cubie_pp0",
+   "kind": "edge",
+   "home": [
+    1,
+    1,
+    0
+   ],
+   "cad_part": "Edge Square_6",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.90631,
+    0.42262,
+    0.0
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 421580,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square_4(1, 0, 0)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429829330981877,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808992221776479
+  },
+  {
+   "body": "cubie_pp0",
+   "kind": "edge",
+   "home": [
+    1,
+    1,
+    0
+   ],
+   "cad_part": "Edge Square_6",
+   "off_axis_deg": 20.00000000000001,
+   "centre_radius_mm": 23.940000000000005,
+   "dir": [
+    0.42262,
+    0.90631,
+    0.0
+   ],
+   "piece_material_along_pair_axis_mm": [
+    21.942,
+    31.722
+   ],
+   "piece_material_along_piece_axis_mm": [
+    22.037,
+    40.244
+   ],
+   "n_local_samples": 420511,
+   "share_of_cylinder_inside_other_parts": {
+    "Middle Square(0, 1, 0)": 0.032086851628468034
+   },
+   "centre_inside": true,
+   "surface_to_cylinder_min_mm": -0.5429656363305494,
+   "fully_inside": false,
+   "outside_fraction": 0.036111111111111094,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 0.5808990269080067
+  },
+  {
+   "body": "cubie_ppp",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    1
+   ],
+   "cad_part": "Corner Square_3",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.850000000000005,
+   "dir": [
+    0.78004,
+    0.44246,
+    0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 619767,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_6(1, 1, 0)": 0.006996381182147165,
+    "Edge Square_3(1, 0, 1)": 0.007478890229191798
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672370001376,
+   "fully_inside": false,
+   "outside_fraction": 0.831547619047619,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660577867948391
+  },
+  {
+   "body": "cubie_ppp",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    1
+   ],
+   "cad_part": "Corner Square_3",
+   "off_axis_deg": 15.999999999999947,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    0.44246,
+    0.78004,
+    0.44246
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.99,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 628731,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_6(1, 1, 0)": 0.006755126658624849,
+    "Edge Square_5(0, 1, 1)": 0.006755126658624849
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5328254239748161,
+   "fully_inside": false,
+   "outside_fraction": 0.8351190476190476,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.6600529725688813
+  },
+  {
+   "body": "cubie_ppp",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    1
+   ],
+   "cad_part": "Corner Square_3",
+   "off_axis_deg": 15.999999999999924,
+   "centre_radius_mm": 23.85000000000001,
+   "dir": [
+    0.44246,
+    0.44246,
+    0.78004
+   ],
+   "piece_material_along_pair_axis_mm": [
+    24.996,
+    36.857
+   ],
+   "piece_material_along_piece_axis_mm": [
+    21.947,
+    49.062
+   ],
+   "n_local_samples": 607975,
+   "share_of_cylinder_inside_other_parts": {
+    "Edge Square_5(0, 1, 1)": 0.006513872135102533,
+    "Edge Square_3(1, 0, 1)": 0.006996381182147165
+   },
+   "centre_inside": false,
+   "surface_to_cylinder_min_mm": -0.5315672535957137,
+   "fully_inside": false,
+   "outside_fraction": 0.8289682539682539,
+   "parity_disagreement": 0.0,
+   "protrusion_mm": 2.660052972568886
+  }
+ ]
+}

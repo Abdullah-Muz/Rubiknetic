@@ -152,8 +152,20 @@ there.
   stay within that tilt range but their placement has not had its own V3-turn check.
 - A strength scale (0.3 for W3) is not a catalogue magnet. It stands for a weaker grade, a smaller magnet or a larger
   gap; which one has not been chosen or checked for fit.
-- 96 magnets (2 per edge, 3 per corner, 48 in the core) have not been checked for fit in a real piece (as ER4 did
-  for one magnet per piece).
+- **Fit in a real mechanism: the anchored layout as screened does not fit the real-mechanism CAD (FACT about that
+  CAD; `side_checks/realfit/`, measured 2026-11-20).**
+  - Corner anchors at 16° lie mostly in air: the corner's material along their line starts at 25.0 mm, while the
+    magnet spans 22.35–25.35 mm.
+  - Edge anchors at 20° break out of the foot by up to 0.58 mm.
+  - In that CAD, three magnets per corner fit only as 3 × 2 mm at 5.5–7° toward the centres, which is outside Part A's
+    screened range. Edges take 4 × 3 up to 16.5° and 4 × 2 or 3 × 2 at 20°.
+  - Whether a feasible placement still holds the pieces has not been computed. A cube designed for these magnets
+    could have deeper corner feet; that has not been checked either.
+- **Real-magnet equivalents (`side_checks/catalogue/`).**
+  - A strength scale multiplies Br², so pair forces go with the scale itself.
+  - W3's scale 0.3 at 1.0 mm face gap corresponds to a stocked 3 × 3 N45/N42 at about 1.8–1.9 mm. That magnet has
+    no validated force table.
+  - The gap is uncertain by about 0.5 mm until pull against gap is measured on real magnets.
 - The turner rig is a position servo with a 1 N·m limit; "moves at the limit" is a property of cube and rig together.
 - In a turn, each anchor pair of W3 briefly passes through the force law's clamped-z region as it leaves (15.7–18.3°
   of relative rotation, 7.2–8 mm apart, where the near-field weight is ≤ 0.13). ER9 does not report the count; C52 is

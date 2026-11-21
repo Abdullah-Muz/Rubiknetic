@@ -1,0 +1,5 @@
+edge pieces 12 worst best-mismatch (mm) 2.398081733190338e-14 matching maps per piece (stabiliser size if all match) [1]
+corner pieces 8 worst best-mismatch (mm) 3.972054645195637e-15 matching maps per piece (stabiliser size if all match) [1]
+centre pieces 6 worst best-mismatch (mm) 6.4047456679787536e-15 matching maps per piece (stabiliser size if all match) [1]
+{"cad_edge_bounds_mm": [[4.534, 4.534, -9.5], [28.75, 28.75, 9.5]], "cad_corner_bounds_mm": [[4.224, 4.224, 4.224], [28.75, 28.75, 28.75]], "sim_pitch_mm": 19.0, "sim_half_size_mm": 9.475}
+exit 0

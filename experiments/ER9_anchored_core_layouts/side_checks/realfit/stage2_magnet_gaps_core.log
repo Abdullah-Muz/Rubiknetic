@@ -1,0 +1,466 @@
+anchored_c0.2 {
+ "same_piece": {
+  "corner anchor-anchor": {
+   "n_pairs": 24,
+   "centre_distance_mm_min_max": [
+    11.386417028024752,
+    11.386417028024752
+   ],
+   "surface_gap_mm_min_max": [
+    6.7859369525017055,
+    6.785976561601797
+   ]
+  },
+  "edge anchor-anchor": {
+   "n_pairs": 12,
+   "centre_distance_mm_min_max": [
+    16.37592446243302,
+    16.37592446243302
+   ],
+   "surface_gap_mm_min_max": [
+    11.59109354931238,
+    11.59109354931238
+   ]
+  }
+ },
+ "core_pairs_within_9mm": {},
+ "core_min_gap_mm": null,
+ "core_envelope": {
+  "core_edge": {
+   "n": 24,
+   "centre_radius_mm": [
+    19.939999999999998,
+    19.939999999999998
+   ],
+   "outer_face_centre_radius_mm": 21.439999999999998,
+   "outermost_point_radius_mm": 21.53308152587548,
+   "innermost_point_radius_mm": 18.439999999999998,
+   "min_distance_to_a_centre_axis_mm": [
+    5.980465172425199,
+    5.981236399317949
+   ]
+  },
+  "core_corner": {
+   "n": 24,
+   "centre_radius_mm": [
+    19.85,
+    19.85
+   ],
+   "outer_face_centre_radius_mm": 21.35,
+   "outermost_point_radius_mm": 21.44347220018251,
+   "innermost_point_radius_mm": 18.35,
+   "min_distance_to_a_centre_axis_mm": [
+    9.92221546323185,
+    9.922628077752158
+   ]
+  }
+ }
+}
+hybrid_c1 {
+ "same_piece": {
+  "corner M5-M5": {
+   "n_pairs": 24,
+   "centre_distance_mm_min_max": [
+    10.712667734976197,
+    10.712667734976197
+   ],
+   "surface_gap_mm_min_max": [
+    5.762920266670363,
+    5.762920266670363
+   ]
+  },
+  "corner anchor-M5": {
+   "n_pairs": 72,
+   "centre_distance_mm_min_max": [
+    8.501577901819841,
+    13.937565394781679
+   ],
+   "surface_gap_mm_min_max": [
+    3.990156197771065,
+    9.316924267031869
+   ]
+  },
+  "corner anchor-anchor": {
+   "n_pairs": 24,
+   "centre_distance_mm_min_max": [
+    11.386417028024752,
+    11.386417028024752
+   ],
+   "surface_gap_mm_min_max": [
+    6.7859369525017055,
+    6.785976561601797
+   ]
+  },
+  "edge M5-M5": {
+   "n_pairs": 12,
+   "centre_distance_mm_min_max": [
+    15.15,
+    15.15
+   ],
+   "surface_gap_mm_min_max": [
+    12.15,
+    12.15
+   ]
+  },
+  "edge anchor-M5": {
+   "n_pairs": 48,
+   "centre_distance_mm_min_max": [
+    11.98138639332985,
+    11.98138639332985
+   ],
+   "surface_gap_mm_min_max": [
+    7.412945339650309,
+    7.41294533965031
+   ]
+  },
+  "edge anchor-anchor": {
+   "n_pairs": 12,
+   "centre_distance_mm_min_max": [
+    16.37592446243302,
+    16.37592446243302
+   ],
+   "surface_gap_mm_min_max": [
+    11.59109354931238,
+    11.59109354931238
+   ]
+  }
+ },
+ "core_pairs_within_9mm": {
+  "core_corner / core_edge": {
+   "n_pairs": 48,
+   "centre_distance_mm_min": 8.794594481835336,
+   "surface_gap_mm_min": 4.21176395129216,
+   "n_gap_below_0.5mm": 0,
+   "n_overlapping": 0
+  }
+ },
+ "core_min_gap_mm": 4.21176395129216,
+ "core_envelope": {
+  "core_edge": {
+   "n": 24,
+   "centre_radius_mm": [
+    19.14,
+    19.14
+   ],
+   "outer_face_centre_radius_mm": 20.64,
+   "outermost_point_radius_mm": 20.736672828590414,
+   "innermost_point_radius_mm": 17.64,
+   "min_distance_to_a_centre_axis_mm": [
+    5.642370563032637,
+    5.643154241722498
+   ]
+  },
+  "core_corner": {
+   "n": 24,
+   "centre_radius_mm": [
+    19.05,
+    19.05
+   ],
+   "outer_face_centre_radius_mm": 20.55,
+   "outermost_point_radius_mm": 20.647094226549168,
+   "innermost_point_radius_mm": 17.55,
+   "min_distance_to_a_centre_axis_mm": [
+    9.421635549397283,
+    9.422052664393956
+   ]
+  }
+ }
+}
+hybrid_c2 {
+ "same_piece": {
+  "corner M5-M5": {
+   "n_pairs": 24,
+   "centre_distance_mm_min_max": [
+    10.712667734976197,
+    10.712667734976197
+   ],
+   "surface_gap_mm_min_max": [
+    5.762920266670363,
+    5.762920266670363
+   ]
+  },
+  "corner anchor-M5": {
+   "n_pairs": 72,
+   "centre_distance_mm_min_max": [
+    8.501577901819841,
+    13.937565394781679
+   ],
+   "surface_gap_mm_min_max": [
+    3.990156197771065,
+    9.316924267031869
+   ]
+  },
+  "corner anchor-anchor": {
+   "n_pairs": 24,
+   "centre_distance_mm_min_max": [
+    11.386417028024752,
+    11.386417028024752
+   ],
+   "surface_gap_mm_min_max": [
+    6.7859369525017055,
+    6.785976561601797
+   ]
+  },
+  "edge M5-M5": {
+   "n_pairs": 12,
+   "centre_distance_mm_min_max": [
+    15.15,
+    15.15
+   ],
+   "surface_gap_mm_min_max": [
+    12.15,
+    12.15
+   ]
+  },
+  "edge anchor-M5": {
+   "n_pairs": 48,
+   "centre_distance_mm_min_max": [
+    11.98138639332985,
+    11.98138639332985
+   ],
+   "surface_gap_mm_min_max": [
+    7.412945339650309,
+    7.41294533965031
+   ]
+  },
+  "edge anchor-anchor": {
+   "n_pairs": 12,
+   "centre_distance_mm_min_max": [
+    16.37592446243302,
+    16.37592446243302
+   ],
+   "surface_gap_mm_min_max": [
+    11.59109354931238,
+    11.59109354931238
+   ]
+  }
+ },
+ "core_pairs_within_9mm": {
+  "core_corner / core_corner": {
+   "n_pairs": 24,
+   "centre_distance_mm_min": 8.617393180538649,
+   "surface_gap_mm_min": 4.016914087117363,
+   "n_gap_below_0.5mm": 0,
+   "n_overlapping": 0
+  },
+  "core_corner / core_edge": {
+   "n_pairs": 48,
+   "centre_distance_mm_min": 8.334070878691028,
+   "surface_gap_mm_min": 3.7513284514818332,
+   "n_gap_below_0.5mm": 0,
+   "n_overlapping": 0
+  }
+ },
+ "core_min_gap_mm": 3.7513284514818332,
+ "core_envelope": {
+  "core_edge": {
+   "n": 24,
+   "centre_radius_mm": [
+    18.14,
+    18.14
+   ],
+   "outer_face_centre_radius_mm": 19.64,
+   "outermost_point_radius_mm": 19.741570352937984,
+   "innermost_point_radius_mm": 16.64,
+   "min_distance_to_a_centre_axis_mm": [
+    5.219752301291937,
+    5.220553812703563
+   ]
+  },
+  "core_corner": {
+   "n": 24,
+   "centre_radius_mm": [
+    18.050000000000004,
+    18.050000000000004
+   ],
+   "outer_face_centre_radius_mm": 19.550000000000004,
+   "outermost_point_radius_mm": 19.652035517981343,
+   "innermost_point_radius_mm": 16.550000000000004,
+   "min_distance_to_a_centre_axis_mm": [
+    8.795911002098393,
+    8.79633446298614
+   ]
+  }
+ }
+}
+hybrid_c3 {
+ "same_piece": {
+  "corner M5-M5": {
+   "n_pairs": 24,
+   "centre_distance_mm_min_max": [
+    10.712667734976197,
+    10.712667734976197
+   ],
+   "surface_gap_mm_min_max": [
+    5.762920266670363,
+    5.762920266670363
+   ]
+  },
+  "corner anchor-M5": {
+   "n_pairs": 72,
+   "centre_distance_mm_min_max": [
+    8.501577901819841,
+    13.937565394781679
+   ],
+   "surface_gap_mm_min_max": [
+    3.990156197771065,
+    9.316924267031869
+   ]
+  },
+  "corner anchor-anchor": {
+   "n_pairs": 24,
+   "centre_distance_mm_min_max": [
+    11.386417028024752,
+    11.386417028024752
+   ],
+   "surface_gap_mm_min_max": [
+    6.7859369525017055,
+    6.785976561601797
+   ]
+  },
+  "edge M5-M5": {
+   "n_pairs": 12,
+   "centre_distance_mm_min_max": [
+    15.15,
+    15.15
+   ],
+   "surface_gap_mm_min_max": [
+    12.15,
+    12.15
+   ]
+  },
+  "edge anchor-M5": {
+   "n_pairs": 48,
+   "centre_distance_mm_min_max": [
+    11.98138639332985,
+    11.98138639332985
+   ],
+   "surface_gap_mm_min_max": [
+    7.412945339650309,
+    7.41294533965031
+   ]
+  },
+  "edge anchor-anchor": {
+   "n_pairs": 12,
+   "centre_distance_mm_min_max": [
+    16.37592446243302,
+    16.37592446243302
+   ],
+   "surface_gap_mm_min_max": [
+    11.59109354931238,
+    11.59109354931238
+   ]
+  }
+ },
+ "core_pairs_within_9mm": {
+  "core_corner / core_corner": {
+   "n_pairs": 24,
+   "centre_distance_mm_min": 8.139975275799667,
+   "surface_gap_mm_min": 3.5394964498862254,
+   "n_gap_below_0.5mm": 0,
+   "n_overlapping": 0
+  },
+  "core_corner / core_edge": {
+   "n_pairs": 48,
+   "centre_distance_mm_min": 7.873550094765632,
+   "surface_gap_mm_min": 3.290924310107438,
+   "n_gap_below_0.5mm": 0,
+   "n_overlapping": 0
+  }
+ },
+ "core_min_gap_mm": 3.290924310107438,
+ "core_envelope": {
+  "core_edge": {
+   "n": 24,
+   "centre_radius_mm": [
+    17.14,
+    17.14
+   ],
+   "outer_face_centre_radius_mm": 18.64,
+   "outermost_point_radius_mm": 18.746989091584815,
+   "innermost_point_radius_mm": 15.64,
+   "min_distance_to_a_centre_axis_mm": [
+    4.79713403955124,
+    4.7979565251375735
+   ]
+  },
+  "core_corner": {
+   "n": 24,
+   "centre_radius_mm": [
+    17.050000000000004,
+    17.050000000000004
+   ],
+   "outer_face_centre_radius_mm": 18.550000000000004,
+   "outermost_point_radius_mm": 18.657505192281207,
+   "innermost_point_radius_mm": 15.550000000000004,
+   "min_distance_to_a_centre_axis_mm": [
+    8.170186920327811,
+    8.170617699042909
+   ]
+  }
+ }
+}
+{
+ "hub_closest_and_farthest_radius_mm": [
+  7.482135528230845,
+  27.82197908539805
+ ],
+ "arm_max_perp_radius_by_axial_bin_mm": {
+  "8-10": [
+   2.0,
+   2.0
+  ],
+  "10-12": [
+   2.0,
+   2.0
+  ],
+  "12-14": [
+   2.0,
+   2.0
+  ],
+  "14-16": [
+   2.0,
+   2.0
+  ],
+  "16-18": [
+   2.0,
+   2.0
+  ],
+  "18-20": [
+   2.0,
+   2.0
+  ],
+  "20-22": [
+   2.0,
+   2.0
+  ],
+  "22-24": [
+   2.0,
+   2.0
+  ],
+  "24-26": [
+   2.0,
+   2.0
+  ],
+  "26-28": [
+   2.0,
+   2.0
+  ]
+ }
+}
+[
+ {
+  "closest_to_origin_mm": 22.040709331326802,
+  "inner_end_axial_mm": 21.34169451892376,
+  "max_perp_radius_within_1mm_of_inner_end_mm": 13.020500450239611,
+  "min_perp_radius_mm": 0.0487804874413422
+ },
+ {
+  "closest_to_origin_mm": 22.040709331326802,
+  "inner_end_axial_mm": 21.34169451892376,
+  "max_perp_radius_within_1mm_of_inner_end_mm": 13.020500450239611,
+  "min_perp_radius_mm": 0.0487804874413422
+ }
+]
+done 106.2 s
+exit 0

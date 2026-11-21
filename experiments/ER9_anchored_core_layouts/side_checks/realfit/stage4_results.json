@@ -1,0 +1,2688 @@
+{
+ "magnet_mm": [
+  4.0,
+  3.0
+ ],
+ "wall_mm": 0.4,
+ "sim": {
+  "pitch": 0.019,
+  "gap": 5e-05,
+  "chamfer": 0.0014,
+  "base_overrides": {
+   "radial_preload": 0.0,
+   "gap": 5e-05
+  }
+ },
+ "m5_magnets": [
+  {
+   "body": "cubie_nnn",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    -1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    -11.425,
+    -19.0,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    -19.25,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883431926,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883431926,
+    "wall_lateral_mm": 2.9342515138776193,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883431926,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -11.65,
+     -19.25,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 3.41074852277832,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999968,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_nnn",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    -1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    -19.0,
+    -11.425,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    0.0,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883431926,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883431926,
+    "wall_lateral_mm": 2.947499685037706,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883431926,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     -11.65,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 3.427112673656028,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999968,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.854,
+   "B_max_diameter_len2_wall0_mm": 10.854,
+   "B_max_diameter_len3_wall0_mm": 10.854
+  },
+  {
+   "body": "cubie_nnn",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    -1
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    -19.0,
+    -19.0,
+    -11.425
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    -19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432282,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432282,
+    "wall_lateral_mm": 2.934251677093524,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432282,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     -19.25,
+     -11.65
+    ],
+    "shift_from_sim_mm": 0.4190759844502665,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999151,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999151,
+    "wall_lateral_mm": 3.410748894655681,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999151,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_nn0",
+   "kind": "edge",
+   "home": [
+    -1,
+    -1,
+    0
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    -19.0,
+    -19.0,
+    -7.575
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    -19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.4249996945261918,
+    "fully_inside": true,
+    "wall_mm": 0.4249996945261918,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.4249996945261918,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     -19.25,
+     -7.6
+    ],
+    "shift_from_sim_mm": 0.3544355723468059,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 0.993927601067254,
+    "wall_inner_face_mm": 0.3999999999999968,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_nn0",
+   "kind": "edge",
+   "home": [
+    -1,
+    -1,
+    0
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    -19.0,
+    -19.0,
+    7.575
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    -19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452619357,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452619357,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.42499969452619357,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     -19.25,
+     7.6
+    ],
+    "shift_from_sim_mm": 0.3544355723468059,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 0.9981673956716501,
+    "wall_inner_face_mm": 0.3999999999999986,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_nnp",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    -11.425,
+    -19.0,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    -19.25,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432282,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432282,
+    "wall_lateral_mm": 2.934251677093524,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432282,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -11.65,
+     -19.25,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.4190759844502665,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999151,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999151,
+    "wall_lateral_mm": 3.410748894655681,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999151,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_nnp",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    -19.0,
+    -11.425,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    0.0,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883431926,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883431926,
+    "wall_lateral_mm": 2.947499685037708,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883431926,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     -11.65,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 3.42711267365603,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999968,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.854,
+   "B_max_diameter_len2_wall0_mm": 10.854,
+   "B_max_diameter_len3_wall0_mm": 10.854
+  },
+  {
+   "body": "cubie_nnp",
+   "kind": "corner",
+   "home": [
+    -1,
+    -1,
+    1
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    -19.0,
+    -19.0,
+    11.425
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    -19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432104,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432104,
+    "wall_lateral_mm": 2.9342515138776184,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432104,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     -19.25,
+     11.65
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 3.410748522778319,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999986,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_n0n",
+   "kind": "edge",
+   "home": [
+    -1,
+    0,
+    -1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    -19.0,
+    -7.575,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    0.0,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452620956,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452620956,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.42499969452620956,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     -7.6,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680434,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.40000000000000036,
+    "fully_inside": true,
+    "wall_mm": 0.40000000000000036,
+    "wall_lateral_mm": 0.9939276010672513,
+    "wall_inner_face_mm": 0.40000000000000036,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_n0n",
+   "kind": "edge",
+   "home": [
+    -1,
+    0,
+    -1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    -19.0,
+    7.575,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    0.0,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.4249996945261758,
+    "fully_inside": true,
+    "wall_mm": 0.4249996945261758,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.4249996945261758,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     7.6,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680234,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.399999999999995,
+    "fully_inside": true,
+    "wall_mm": 0.399999999999995,
+    "wall_lateral_mm": 0.9981673956716501,
+    "wall_inner_face_mm": 0.399999999999995,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_n0p",
+   "kind": "edge",
+   "home": [
+    -1,
+    0,
+    1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    -19.0,
+    -7.575,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    0.0,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452619,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452619,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.42499969452619,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     -7.6,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.3544355723468031,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 0.9939276010672513,
+    "wall_inner_face_mm": 0.3999999999999986,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_n0p",
+   "kind": "edge",
+   "home": [
+    -1,
+    0,
+    1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    -19.0,
+    7.575,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    0.0,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.4249996945261971,
+    "fully_inside": true,
+    "wall_mm": 0.4249996945261971,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.4249996945261971,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     7.6,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.3544355723468036,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 0.9981673956716479,
+    "wall_inner_face_mm": 0.3999999999999986,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_npn",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    -1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    -11.425,
+    19.0,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    19.25,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432282,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432282,
+    "wall_lateral_mm": 2.934251677093524,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432282,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -11.65,
+     19.25,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.4190759844502686,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999151,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999151,
+    "wall_lateral_mm": 3.410748894655682,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999151,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_npn",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    -1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    -19.0,
+    11.425,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    0.0,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883431926,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883431926,
+    "wall_lateral_mm": 2.947499685037708,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883431926,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     11.65,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 3.42711267365603,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999968,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.854,
+   "B_max_diameter_len2_wall0_mm": 10.854,
+   "B_max_diameter_len3_wall0_mm": 10.854
+  },
+  {
+   "body": "cubie_npn",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    -1
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    -19.0,
+    19.0,
+    -11.425
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432104,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432104,
+    "wall_lateral_mm": 2.9342515138776184,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432104,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     19.25,
+     -11.65
+    ],
+    "shift_from_sim_mm": 0.41907598445031435,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 3.41074852277832,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999986,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_np0",
+   "kind": "edge",
+   "home": [
+    -1,
+    1,
+    0
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    -19.0,
+    19.0,
+    -7.575
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452620245,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452620245,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.42499969452620245,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     19.25,
+     -7.6
+    ],
+    "shift_from_sim_mm": 0.3544355723468091,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 0.993927601067254,
+    "wall_inner_face_mm": 0.3999999999999968,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_np0",
+   "kind": "edge",
+   "home": [
+    -1,
+    1,
+    0
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    -19.0,
+    19.0,
+    7.575
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452618114,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452618114,
+    "wall_lateral_mm": 0.6338689137356988,
+    "wall_inner_face_mm": 0.42499969452618114,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     19.25,
+     7.6
+    ],
+    "shift_from_sim_mm": 0.3544355723468076,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 0.9981673956716555,
+    "wall_inner_face_mm": 0.3999999999999968,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_npp",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    -11.425,
+    19.0,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    19.25,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432104,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432104,
+    "wall_lateral_mm": 2.9342515138776184,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432104,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -11.65,
+     19.25,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 3.410748522778319,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999986,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_npp",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    -19.0,
+    11.425,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    0.0,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432104,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432104,
+    "wall_lateral_mm": 2.947499685037708,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432104,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     11.65,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 3.42711267365603,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999986,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.854,
+   "B_max_diameter_len2_wall0_mm": 10.854,
+   "B_max_diameter_len3_wall0_mm": 10.854
+  },
+  {
+   "body": "cubie_npp",
+   "kind": "corner",
+   "home": [
+    -1,
+    1,
+    1
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    -19.0,
+    19.0,
+    11.425
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    -19.25,
+    19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432282,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432282,
+    "wall_lateral_mm": 2.934251677093524,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432282,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -19.25,
+     19.25,
+     11.65
+    ],
+    "shift_from_sim_mm": 0.4190759844502665,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999151,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999151,
+    "wall_lateral_mm": 3.410748894655681,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999151,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_0nn",
+   "kind": "edge",
+   "home": [
+    0,
+    -1,
+    -1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    -7.575,
+    -19.0,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    -19.25,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452617226,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452617226,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.42499969452617226,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -7.6,
+     -19.25,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680184,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 0.9939276010672513,
+    "wall_inner_face_mm": 0.3999999999999986,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_0nn",
+   "kind": "edge",
+   "home": [
+    0,
+    -1,
+    -1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    7.575,
+    -19.0,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    -19.25,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.4249996945262131,
+    "fully_inside": true,
+    "wall_mm": 0.4249996945262131,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.4249996945262131,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     7.6,
+     -19.25,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680484,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 0.9981673956716479,
+    "wall_inner_face_mm": 0.3999999999999968,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_0np",
+   "kind": "edge",
+   "home": [
+    0,
+    -1,
+    1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    -7.575,
+    -19.0,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    -19.25,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452619357,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452619357,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.42499969452619357,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -7.6,
+     -19.25,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680334,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 0.9981673956716479,
+    "wall_inner_face_mm": 0.3999999999999986,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_0np",
+   "kind": "edge",
+   "home": [
+    0,
+    -1,
+    1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    7.575,
+    -19.0,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    -19.25,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452619357,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452619357,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.42499969452619357,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     7.6,
+     -19.25,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680334,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 0.9939276010672513,
+    "wall_inner_face_mm": 0.3999999999999986,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_0pn",
+   "kind": "edge",
+   "home": [
+    0,
+    1,
+    -1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    -7.575,
+    19.0,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    19.25,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452619357,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452619357,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.42499969452619357,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -7.6,
+     19.25,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680334,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 0.9981673956716479,
+    "wall_inner_face_mm": 0.3999999999999986,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_0pn",
+   "kind": "edge",
+   "home": [
+    0,
+    1,
+    -1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    7.575,
+    19.0,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    19.25,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452619357,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452619357,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.42499969452619357,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     7.6,
+     19.25,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680334,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 0.9939276010672513,
+    "wall_inner_face_mm": 0.3999999999999986,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_0pp",
+   "kind": "edge",
+   "home": [
+    0,
+    1,
+    1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    -7.575,
+    19.0,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    19.25,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.4249996945261829,
+    "fully_inside": true,
+    "wall_mm": 0.4249996945261829,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.4249996945261829,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     -7.6,
+     19.25,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.3544355723468104,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.399999999999995,
+    "fully_inside": true,
+    "wall_mm": 0.399999999999995,
+    "wall_lateral_mm": 0.9981673956716555,
+    "wall_inner_face_mm": 0.399999999999995,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_0pp",
+   "kind": "edge",
+   "home": [
+    0,
+    1,
+    1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    7.575,
+    19.0,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    19.25,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.4249996945262007,
+    "fully_inside": true,
+    "wall_mm": 0.4249996945262007,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.4249996945262007,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     7.6,
+     19.25,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.3544355723468116,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.399999999999995,
+    "fully_inside": true,
+    "wall_mm": 0.399999999999995,
+    "wall_lateral_mm": 0.9939276010672562,
+    "wall_inner_face_mm": 0.399999999999995,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_pnn",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    -1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    11.425,
+    -19.0,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    -19.25,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432282,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432282,
+    "wall_lateral_mm": 2.934251677093524,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432282,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     11.65,
+     -19.25,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.4190759844502665,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999151,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999151,
+    "wall_lateral_mm": 3.410748894655681,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999151,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_pnn",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    -1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    19.0,
+    -11.425,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    0.0,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432104,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432104,
+    "wall_lateral_mm": 2.947499685037708,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432104,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     -11.65,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 3.42711267365603,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999986,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.854,
+   "B_max_diameter_len2_wall0_mm": 10.854,
+   "B_max_diameter_len3_wall0_mm": 10.854
+  },
+  {
+   "body": "cubie_pnn",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    -1
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    19.0,
+    -19.0,
+    -11.425
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    -19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432104,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432104,
+    "wall_lateral_mm": 2.9342515138776184,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432104,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     -19.25,
+     -11.65
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 3.410748522778319,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999986,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_pn0",
+   "kind": "edge",
+   "home": [
+    1,
+    -1,
+    0
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    19.0,
+    -19.0,
+    -7.575
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    -19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.4249996945261918,
+    "fully_inside": true,
+    "wall_mm": 0.4249996945261918,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.4249996945261918,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     -19.25,
+     -7.6
+    ],
+    "shift_from_sim_mm": 0.35443557234680334,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 0.9939276010672513,
+    "wall_inner_face_mm": 0.3999999999999968,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_pn0",
+   "kind": "edge",
+   "home": [
+    1,
+    -1,
+    0
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    19.0,
+    -19.0,
+    7.575
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    -19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.4249996945261918,
+    "fully_inside": true,
+    "wall_mm": 0.4249996945261918,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.4249996945261918,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     -19.25,
+     7.6
+    ],
+    "shift_from_sim_mm": 0.35443557234680334,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 0.9981673956716479,
+    "wall_inner_face_mm": 0.3999999999999968,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_pnp",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    11.425,
+    -19.0,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    -19.25,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432104,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432104,
+    "wall_lateral_mm": 2.9342515138776184,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432104,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     11.65,
+     -19.25,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 3.410748522778319,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999986,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_pnp",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    19.0,
+    -11.425,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    0.0,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432104,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432104,
+    "wall_lateral_mm": 2.947499685037706,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432104,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     -11.65,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 3.427112673656028,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999986,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.854,
+   "B_max_diameter_len2_wall0_mm": 10.854,
+   "B_max_diameter_len3_wall0_mm": 10.854
+  },
+  {
+   "body": "cubie_pnp",
+   "kind": "corner",
+   "home": [
+    1,
+    -1,
+    1
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    19.0,
+    -19.0,
+    11.425
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    -19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432282,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432282,
+    "wall_lateral_mm": 2.934251677093524,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432282,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     -19.25,
+     11.65
+    ],
+    "shift_from_sim_mm": 0.4190759844502665,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999151,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999151,
+    "wall_lateral_mm": 3.410748894655681,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999151,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_p0n",
+   "kind": "edge",
+   "home": [
+    1,
+    0,
+    -1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    19.0,
+    -7.575,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    0.0,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452619535,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452619535,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.42499969452619535,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     -7.6,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.3544355723468036,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 0.9939276010672513,
+    "wall_inner_face_mm": 0.3999999999999968,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_p0n",
+   "kind": "edge",
+   "home": [
+    1,
+    0,
+    -1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    19.0,
+    7.575,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    0.0,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.4249996945261918,
+    "fully_inside": true,
+    "wall_mm": 0.4249996945261918,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.4249996945261918,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     7.6,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680334,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 0.9981673956716479,
+    "wall_inner_face_mm": 0.3999999999999968,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_p0p",
+   "kind": "edge",
+   "home": [
+    1,
+    0,
+    1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    19.0,
+    -7.575,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    0.0,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.4249996945261918,
+    "fully_inside": true,
+    "wall_mm": 0.4249996945261918,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.4249996945261918,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     -7.6,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680334,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 0.9939276010672513,
+    "wall_inner_face_mm": 0.3999999999999968,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_p0p",
+   "kind": "edge",
+   "home": [
+    1,
+    0,
+    1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    19.0,
+    7.575,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    0.0,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452619357,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452619357,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.42499969452619357,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     7.6,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.35443557234680334,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 0.9981673956716479,
+    "wall_inner_face_mm": 0.3999999999999986,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_ppn",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    -1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    11.425,
+    19.0,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    19.25,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432104,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432104,
+    "wall_lateral_mm": 2.9342515138776184,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432104,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     11.65,
+     19.25,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 3.410748522778319,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999986,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_ppn",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    -1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    19.0,
+    11.425,
+    -19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    0.0,
+    -19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432104,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432104,
+    "wall_lateral_mm": 2.947499685037708,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432104,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     11.65,
+     -19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 3.42711267365603,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999986,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.854,
+   "B_max_diameter_len2_wall0_mm": 10.854,
+   "B_max_diameter_len3_wall0_mm": 10.854
+  },
+  {
+   "body": "cubie_ppn",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    -1
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    19.0,
+    19.0,
+    -11.425
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.75,
+    -28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432282,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432282,
+    "wall_lateral_mm": 2.934251677093524,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432282,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     19.25,
+     -11.65
+    ],
+    "shift_from_sim_mm": 0.4190759844502665,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999151,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999151,
+    "wall_lateral_mm": 3.410748894655681,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999151,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_pp0",
+   "kind": "edge",
+   "home": [
+    1,
+    1,
+    0
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    19.0,
+    19.0,
+    -7.575
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    -9.5,
+    9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452619,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452619,
+    "wall_lateral_mm": 0.6290299032566447,
+    "wall_inner_face_mm": 0.42499969452619,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     19.25,
+     -7.6
+    ],
+    "shift_from_sim_mm": 0.3544355723468031,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999986,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999986,
+    "wall_lateral_mm": 0.9939276010672513,
+    "wall_inner_face_mm": 0.3999999999999986,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.168,
+   "B_max_diameter_len2_wall0_mm": 6.543,
+   "B_max_diameter_len3_wall0_mm": 5.988
+  },
+  {
+   "body": "cubie_pp0",
+   "kind": "edge",
+   "home": [
+    1,
+    1,
+    0
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    19.0,
+    19.0,
+    7.575
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.5,
+    -9.5
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.42499969452619535,
+    "fully_inside": true,
+    "wall_mm": 0.42499969452619535,
+    "wall_lateral_mm": 0.6338689137356965,
+    "wall_inner_face_mm": 0.42499969452619535,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     19.25,
+     7.6
+    ],
+    "shift_from_sim_mm": 0.3544355723468036,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 0.9981673956716479,
+    "wall_inner_face_mm": 0.3999999999999968,
+    "wall_outer_face_mm": null,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 7.18,
+   "B_max_diameter_len2_wall0_mm": 6.528,
+   "B_max_diameter_len3_wall0_mm": 5.996
+  },
+  {
+   "body": "cubie_ppp",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    1
+   ],
+   "axis": 0,
+   "sim_pos_mm": [
+    11.425,
+    19.0,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    0.0,
+    19.25,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883432282,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883432282,
+    "wall_lateral_mm": 2.934251677093524,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883432282,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     11.65,
+     19.25,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.4190759844502686,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999151,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999151,
+    "wall_lateral_mm": 3.410748894655682,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999151,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  },
+  {
+   "body": "cubie_ppp",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    1
+   ],
+   "axis": 1,
+   "sim_pos_mm": [
+    19.0,
+    11.425,
+    19.0
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    0.0,
+    19.25
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883431926,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883431926,
+    "wall_lateral_mm": 2.947499685037706,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883431926,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     11.65,
+     19.25
+    ],
+    "shift_from_sim_mm": 0.41907598445031224,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 3.427112673656028,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999968,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.854,
+   "B_max_diameter_len2_wall0_mm": 10.854,
+   "B_max_diameter_len3_wall0_mm": 10.854
+  },
+  {
+   "body": "cubie_ppp",
+   "kind": "corner",
+   "home": [
+    1,
+    1,
+    1
+   ],
+   "axis": 2,
+   "sim_pos_mm": [
+    19.0,
+    19.0,
+    11.425
+   ],
+   "cad_cubie_centre_lateral_mm": [
+    19.25,
+    19.25,
+    0.0
+   ],
+   "cad_crossings_along_magnet_axis_coord_mm": [
+    9.75,
+    28.75
+   ],
+   "A_identity": {
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.17499979883431926,
+    "fully_inside": true,
+    "wall_mm": 0.17499979883431926,
+    "wall_lateral_mm": 2.9342515138776184,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.17499979883431926,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_face_relative": {
+    "pos_mm": [
+     19.25,
+     19.25,
+     11.65
+    ],
+    "shift_from_sim_mm": 0.41907598445031435,
+    "centre_inside": true,
+    "surface_to_cylinder_min_mm": 0.3999999999999968,
+    "fully_inside": true,
+    "wall_mm": 0.3999999999999968,
+    "wall_lateral_mm": 3.41074852277832,
+    "wall_inner_face_mm": null,
+    "wall_outer_face_mm": 0.3999999999999968,
+    "protrusion_mm": 0.0,
+    "outside_fraction": 0.0
+   },
+   "B_max_diameter_len1_wall0_mm": 10.821,
+   "B_max_diameter_len2_wall0_mm": 10.821,
+   "B_max_diameter_len3_wall0_mm": 10.821
+  }
+ ],
+ "m5_vs_anchor_same_piece": {
+  "A_identity": {
+   "edge": {
+    "n_pairs": 48,
+    "centre_distance_mm_min": 11.98138639332985,
+    "surface_gap_mm_min": 7.412945339650309,
+    "n_gap_below_0.5mm": 0
+   },
+   "corner": {
+    "n_pairs": 72,
+    "centre_distance_mm_min": 8.501577901819841,
+    "surface_gap_mm_min": 3.990156197771065,
+    "n_gap_below_0.5mm": 0
+   }
+  },
+  "B_face_relative": {
+   "edge": {
+    "n_pairs": 48,
+    "centre_distance_mm_min": 12.130570472158361,
+    "surface_gap_mm_min": 7.522613101306252,
+    "n_gap_below_0.5mm": 0
+   },
+   "corner": {
+    "n_pairs": 72,
+    "centre_distance_mm_min": 8.790150513104171,
+    "surface_gap_mm_min": 4.244616982404212,
+    "n_gap_below_0.5mm": 0
+   }
+  }
+ }
+}

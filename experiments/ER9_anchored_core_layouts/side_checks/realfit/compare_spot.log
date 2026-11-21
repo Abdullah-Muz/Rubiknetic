@@ -1,0 +1,12 @@
+rows compared 104
+  edge 4x3 wall_at_layout_depth_mm: largest difference from the reference piece 0.0000 mm
+  edge 4x3 best_wall_mm: largest difference from the reference piece 0.0000 mm
+  edge 3x2 wall_at_layout_depth_mm: largest difference from the reference piece 0.0000 mm
+  edge 3x2 best_wall_mm: largest difference from the reference piece 0.0000 mm
+  corner 4x3 wall_at_layout_depth_mm: largest difference from the reference piece 0.0000 mm
+  corner 4x3 best_wall_mm: largest difference from the reference piece 0.0000 mm
+  corner 3x2 wall_at_layout_depth_mm: largest difference from the reference piece 0.0000 mm
+  corner 3x2 best_wall_mm: largest difference from the reference piece 0.0000 mm
+edge largest-cylinder rows 4 {'max_diameter_len1_wall0_innerface_at_layout_mm': [5.923], 'max_diameter_len1_wall0.4_innerface_at_layout_mm': [5.114], 'max_diameter_len1.5_wall0_innerface_at_layout_mm': [5.923], 'max_diameter_len1.5_wall0.4_innerface_at_layout_mm': [5.114], 'max_diameter_len2_wall0_innerface_at_layout_mm': [5.923], 'max_diameter_len2_wall0.4_innerface_at_layout_mm': [4.383, 4.384], 'max_diameter_len3_wall0_innerface_at_layout_mm': [1.777], 'max_diameter_len3_wall0.4_innerface_at_layout_mm': [0.977], 'max_scale_same_centre_wall0': [0.645], 'max_scale_same_centre_wall0.4': [0.401]}
+corner largest-cylinder rows 6 {'max_diameter_len1_wall0_innerface_at_layout_mm': [None], 'max_diameter_len1_wall0.4_innerface_at_layout_mm': [None], 'max_diameter_len1.5_wall0_innerface_at_layout_mm': [None], 'max_diameter_len1.5_wall0.4_innerface_at_layout_mm': [None], 'max_diameter_len2_wall0_innerface_at_layout_mm': [None], 'max_diameter_len2_wall0.4_innerface_at_layout_mm': [None], 'max_diameter_len3_wall0_innerface_at_layout_mm': [None], 'max_diameter_len3_wall0.4_innerface_at_layout_mm': [None], 'max_scale_same_centre_wall0': [None]}
+exit 0

@@ -1,0 +1,4 @@
+synthetic cylinder: samples 108144 area/h^2 64779 max distance of a random surface point to a sample (mm) 0.0676 bound 0.71 h = 0.0568
+CAD edge, 6 mm ball: row sampler 43898 points; grid sampler 129981 points; max distance grid->row 0.0621 row->grid 0.0432 mm
+whole edge piece: row sampler 464114 points in 0.2 s
+exit 0

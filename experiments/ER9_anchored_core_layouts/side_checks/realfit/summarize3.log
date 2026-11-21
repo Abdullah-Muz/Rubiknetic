@@ -1,0 +1,169 @@
+== edge [1, 1, 0] toward centre:  gamma | material intervals | 4x3: wall@layout, best wall, face ranges wall>=0.4 | 3x2: same
+  0 | [[22.037, 40.244]] | 4x3:   0.40 (spread 0.000) best   1.60 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] | 3x2:   0.40 (spread 0.000) best   2.10 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] |
+  1 | [[22.04, 39.966]] | 4x3:   0.40 (spread 0.000) best   1.60 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] | 3x2:   0.40 (spread 0.000) best   2.10 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] |
+  2 | [[21.944, 39.311]] | 4x3:   0.40 (spread 0.000) best   1.60 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] | 3x2:   0.40 (spread 0.000) best   2.10 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] |
+  3 | [[21.941, 38.687]] | 4x3:   0.41 (spread 0.000) best   1.60 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] | 3x2:   0.41 (spread 0.000) best   2.10 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] |
+  4 | [[21.946, 38.094]] | 4x3:   0.43 (spread 0.000) best   1.60 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] | 3x2:   0.43 (spread 0.000) best   2.10 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] |
+  5 | [[21.945, 37.53]] | 4x3:   0.45 (spread 0.000) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.45 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  6 | [[21.941, 36.994]] | 4x3:   0.48 (spread 0.000) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.50 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  7 | [[21.944, 36.484]] | 4x3:   0.49 (spread 0.000) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.49 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  8 | [[21.946, 35.999]] | 4x3:   0.49 (spread 0.000) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.49 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  9 | [[21.941, 35.537]] | 4x3:   0.50 (spread 0.000) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.50 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+ 10 | [[21.942, 35.097]] | 4x3:   0.49 (spread 0.000) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.49 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+ 11 | [[21.948, 34.679]] | 4x3:   0.49 (spread 0.000) best   1.60 rng0.4 [[22.4, 29.8]] rng0 [[22.0, 30.0]] | 3x2:   0.49 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+ 12 | [[21.941, 34.28]] | 4x3:   0.49 (spread 0.000) best   1.60 rng0.4 [[22.4, 29.5]] rng0 [[22.0, 29.9]] | 3x2:   0.49 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+ 13 | [[21.941, 33.901]] | 4x3:   0.49 (spread 0.000) best   1.60 rng0.4 [[22.4, 29.1]] rng0 [[22.0, 29.6]] | 3x2:   0.49 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+ 14 | [[21.947, 33.541]] | 4x3:   0.49 (spread 0.000) best   1.60 rng0.4 [[22.4, 28.8]] rng0 [[22.0, 29.3]] | 3x2:   0.49 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+ 15 | [[21.941, 33.198]] | 4x3:   0.49 (spread 0.000) best   1.60 rng0.4 [[22.4, 28.5]] rng0 [[22.0, 29.0]] | 3x2:   0.49 (spread 0.000) best   2.10 rng0.4 [[22.4, 29.8]] rng0 [[22.0, 30.0]] |
+ 16 | [[21.939, 32.871]] | 4x3:   0.50 (spread 0.000) best   1.54 rng0.4 [[22.4, 28.3]] rng0 [[22.0, 28.7]] | 3x2:   0.50 (spread 0.000) best   2.10 rng0.4 [[22.4, 29.5]] rng0 [[22.0, 30.0]] |
+ 17 | [[21.944, 32.561]] | 4x3:   0.19 (spread 0.000) best   1.21 rng0.4 [[25.4, 28.0]] rng0 [[22.0, 28.5]] | 3x2:   0.49 (spread 0.000) best   1.88 rng0.4 [[22.4, 29.3]] rng0 [[22.0, 29.7]] |
+ 18 | [[21.941, 32.267]] | 4x3:  -0.24 (spread 0.000) best   0.84 rng0.4 [[26.3, 27.7]] rng0 [[25.4, 28.2]] | 3x2:   0.49 (spread 0.000) best   1.52 rng0.4 [[22.4, 22.5], [25.3, 29.0]] rng0 [[22.0, 29.5]] |
+ 19 | [[21.938, 31.987]] | 4x3:  -0.54 (spread 0.000) best   0.47 rng0.4 [[27.3, 27.5]] rng0 [[26.4, 28.0]] | 3x2:   0.46 (spread 0.000) best   1.13 rng0.4 [[22.4, 22.4], [26.3, 28.8]] rng0 [[22.0, 22.8], [25.4, 29.2]] |
+ 20 | [[21.942, 31.722]] | 4x3:  -0.54 (spread 0.000) best   0.10 rng0.4 None rng0 [[27.4, 27.8]] | 3x2:   0.45 (spread 0.000) best   0.77 rng0.4 [[22.4, 22.4], [27.3, 28.5]] rng0 [[22.0, 22.8], [26.3, 29.0]] |
+ 21 | [[21.942, 31.471]] | 4x3:  -0.54 (spread 0.000) best  -0.05 rng0.4 None rng0 None | 3x2:   0.45 (spread 0.000) best   0.45 rng0.4 [[22.4, 22.4]] rng0 [[22.0, 22.8], [27.3, 28.8]] |
+ 22 | [[21.938, 31.233]] | 4x3:  -0.54 (spread 0.000) best  -0.04 rng0.4 None rng0 None | 3x2:   0.45 (spread 0.000) best   0.46 rng0.4 [[22.4, 22.4]] rng0 [[22.0, 22.8], [28.5, 28.5]] |
+ 23 | [[21.94, 24.94], [26.027, 31.008]] | 4x3:  -0.54 (spread 0.000) best  -0.05 rng0.4 None rng0 None | 3x2:   0.45 (spread 0.000) best   0.45 rng0.4 [[22.4, 22.4]] rng0 [[22.0, 22.8]] |
+ 24 | [[21.942, 24.939], [27.207, 30.795]] | 4x3:  -0.54 (spread 0.000) best  -0.05 rng0.4 None rng0 None | 3x2:   0.45 (spread 0.000) best   0.45 rng0.4 [[22.4, 22.4]] rng0 [[22.0, 22.8]] |
+ 25 | [[21.937, 24.939], [28.507, 30.544]] | 4x3:  -0.54 (spread 0.000) best  -0.04 rng0.4 None rng0 None | 3x2:   0.45 (spread 0.000) best   0.46 rng0.4 [[22.4, 22.4]] rng0 [[22.0, 22.8]] |
+ 26 | [[21.938, 24.938]] | 4x3:  -0.54 (spread 0.000) best  -0.04 rng0.4 None rng0 None | 3x2:   0.45 (spread 0.000) best   0.46 rng0.4 [[22.4, 22.4]] rng0 [[22.0, 22.8]] |
+ 27 | [[21.94, 24.939]] | 4x3:  -0.54 (spread 0.000) best  -0.05 rng0.4 None rng0 None | 3x2:   0.45 (spread 0.000) best   0.45 rng0.4 [[22.4, 22.4]] rng0 [[22.0, 22.8]] |
+ 28 | [[21.937, 24.938]] | 4x3:  -0.55 (spread 0.001) best  -0.13 rng0.4 None rng0 None | 3x2:   0.41 (spread 0.003) best   0.40 rng0.4 [[22.4, 22.4]] rng0 [[22.0, 22.8]] |
+ 29 | [[21.937, 24.939]] | 4x3:  -0.59 (spread 0.001) best  -0.47 rng0.4 None rng0 None | 3x2:   0.01 (spread 0.004) best   0.03 rng0.4 None rng0 [[22.3, 22.7]] |
+ 30 | [[21.939, 24.941]] | 4x3:  -0.84 (spread 0.007) best  -0.83 rng0.4 None rng0 None | 3x2:  -0.36 (spread 0.006) best  -0.33 rng0.4 None rng0 None |
+ 31 | [[21.939, 24.941]] | 4x3:  -1.23 (spread 0.005) best  -1.22 rng0.4 None rng0 None | 3x2:  -0.75 (spread 0.007) best  -0.72 rng0.4 None rng0 None |
+ 32 | [[21.942, 24.93]] | 4x3:  -1.50 (spread 0.025) best  -1.48 rng0.4 None rng0 None | 3x2:  -0.99 (spread 0.010) best  -0.97 rng0.4 None rng0 None |
+ 33 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 34 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 35 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 36 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 37 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 38 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 39 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 40 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+== edge [1, 1, 0] toward corner:  gamma | material intervals | 4x3: wall@layout, best wall, face ranges wall>=0.4 | 3x2: same
+  0 | [[22.037, 40.244]] | 4x3:   0.40 (spread 0.000) best   1.60 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] | 3x2:   0.40 (spread 0.000) best   2.10 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] |
+  1 | [[22.04, 40.251]] | 4x3:   0.40 (spread 0.000) best   1.60 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] | 3x2:   0.40 (spread 0.000) best   2.10 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] |
+  2 | [[22.04, 40.269]] | 4x3:   0.36 (spread 0.000) best   1.60 rng0.4 [[22.9, 30.0]] rng0 [[22.1, 30.0]] | 3x2:   0.40 (spread 0.000) best   2.10 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] |
+  3 | [[22.037, 40.3]] | 4x3:  -0.03 (spread 0.000) best   1.60 rng0.4 [[25.3, 30.0]] rng0 [[22.8, 30.0]] | 3x2:   0.40 (spread 0.000) best   2.10 rng0.4 [[22.5, 30.0]] rng0 [[22.1, 30.0]] |
+  4 | [[22.04, 40.343]] | 4x3:  -0.40 (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:   0.07 (spread 0.000) best   2.10 rng0.4 [[25.3, 30.0]] rng0 [[22.2, 30.0]] |
+  5 | [[22.04, 40.398]] | 4x3:  -0.78 (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:  -0.31 (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+  6 | [[22.037, 40.466]] | 4x3:  -1.18 (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:  -0.69 (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+  7 | [[22.04, 40.547]] | 4x3:  -1.50 (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:  -0.98 (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+  8 | [[22.752, 24.95], [24.997, 40.64]] | 4x3:  -1.50 (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:  -0.99 (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+  9 | [[24.993, 40.746]] | 4x3:   -    (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:   -    (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 10 | [[24.997, 40.865]] | 4x3:   -    (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:   -    (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 11 | [[24.993, 40.998]] | 4x3:   -    (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:   -    (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 12 | [[24.987, 41.139]] | 4x3:   -    (spread 0.000) best   1.41 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:   -    (spread 0.000) best   2.00 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 13 | [[24.989, 40.987]] | 4x3:   -    (spread 0.000) best   1.01 rng0.4 [[25.4, 28.7]] rng0 [[25.0, 30.0]] | 3x2:   -    (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 14 | [[24.988, 39.269]] | 4x3:   -    (spread 0.000) best   0.62 rng0.4 [[25.4, 26.5]] rng0 [[25.0, 28.2]] | 3x2:   -    (spread 0.000) best   1.20 rng0.4 [[25.4, 29.6]] rng0 [[25.0, 30.0]] |
+ 15 | [[24.988, 36.705]] | 4x3:   -    (spread 0.000) best   0.24 rng0.4 None rng0 [[25.0, 26.2]] | 3x2:   -    (spread 0.000) best   0.83 rng0.4 [[25.4, 27.5]] rng0 [[25.0, 29.1]] |
+ 16 | [[24.995, 34.466]] | 4x3:   -    (spread 0.000) best  -0.10 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   0.48 rng0.4 [[25.4, 25.7]] rng0 [[25.0, 27.2]] |
+ 17 | [[24.993, 32.493]] | 4x3:   -    (spread 0.000) best  -0.40 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   0.11 rng0.4 None rng0 [[25.0, 25.6]] |
+ 18 | [[24.987, 30.743]] | 4x3:   -    (spread 0.000) best  -0.67 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best  -0.17 rng0.4 None rng0 None |
+ 19 | [[24.989, 29.18]] | 4x3:   -    (spread 0.000) best  -0.95 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best  -0.45 rng0.4 None rng0 None |
+ 20 | [[24.986, 27.776]] | 4x3:   -    (spread 0.000) best  -1.20 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best  -0.70 rng0.4 None rng0 None |
+ 21 | [[24.983, 26.509]] | 4x3:   -    (spread 0.000) best  -1.47 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best  -0.97 rng0.4 None rng0 None |
+ 22 | [[24.988, 25.36]] | 4x3:   -    (spread 0.000) best  -1.47 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best  -0.97 rng0.4 None rng0 None |
+ 23 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 24 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 25 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 26 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 27 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 28 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 29 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 30 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 31 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 32 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 33 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 34 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 35 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 36 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 37 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 38 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 39 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 40 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+== corner [1, 1, 1] toward centre:  gamma | material intervals | 4x3: wall@layout, best wall, face ranges wall>=0.4 | 3x2: same
+  0 | [[21.947, 49.062]] | 4x3:   0.40 (spread 0.000) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.40 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  1 | [[21.942, 48.604]] | 4x3:   0.40 (spread 0.002) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.40 (spread 0.002) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  2 | [[21.938, 47.482]] | 4x3:   0.41 (spread 0.004) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.41 (spread 0.004) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  3 | [[21.939, 46.424]] | 4x3:   0.41 (spread 0.002) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.41 (spread 0.002) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  4 | [[21.938, 45.426]] | 4x3:   0.41 (spread 0.002) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.41 (spread 0.002) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  5 | [[21.94, 44.483]] | 4x3:   0.40 (spread 0.002) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.40 (spread 0.002) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  6 | [[21.941, 43.591]] | 4x3:   0.32 (spread 0.001) best   1.60 rng0.4 [[25.2, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.40 (spread 0.003) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  7 | [[21.941, 42.748]] | 4x3:  -0.12 (spread 0.001) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:   0.40 (spread 0.005) best   2.10 rng0.4 [[22.4, 22.7], [25.1, 30.0]] rng0 [[22.0, 30.0]] |
+  8 | [[21.944, 41.948]] | 4x3:  -0.53 (spread 0.003) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:   0.03 (spread 0.001) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[22.0, 22.6], [25.0, 30.0]] |
+  9 | [[21.942, 41.191]] | 4x3:  -0.90 (spread 0.007) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:  -0.34 (spread 0.009) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 10 | [[21.941, 40.472]] | 4x3:  -1.26 (spread 0.007) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:  -0.69 (spread 0.010) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 11 | [[21.947, 39.79]] | 4x3:  -1.49 (spread 0.004) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:  -0.99 (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 12 | [[22.026, 23.604], [24.988, 39.143]] | 4x3:   -    (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:  -0.98 (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 13 | [[24.986, 38.527]] | 4x3:   -    (spread 0.000) best   1.60 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] | 3x2:   -    (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 14 | [[24.99, 37.942]] | 4x3:   -    (spread 0.000) best   1.60 rng0.4 [[25.9, 30.0]] rng0 [[25.0, 30.0]] | 3x2:   -    (spread 0.000) best   2.10 rng0.4 [[25.4, 30.0]] rng0 [[25.0, 30.0]] |
+ 15 | [[24.989, 37.386]] | 4x3:   -    (spread 0.000) best   1.60 rng0.4 [[26.5, 30.0]] rng0 [[25.6, 30.0]] | 3x2:   -    (spread 0.000) best   2.10 rng0.4 [[25.5, 30.0]] rng0 [[25.0, 30.0]] |
+ 16 | [[24.996, 36.857]] | 4x3:   -    (spread 0.000) best   1.60 rng0.4 [[27.0, 30.0]] rng0 [[26.1, 30.0]] | 3x2:   -    (spread 0.000) best   2.10 rng0.4 [[26.0, 30.0]] rng0 [[25.1, 30.0]] |
+ 17 | [[24.993, 36.354]] | 4x3:   -    (spread 0.000) best   1.43 rng0.4 [[27.7, 30.0]] rng0 [[26.7, 30.0]] | 3x2:   -    (spread 0.000) best   1.88 rng0.4 [[26.6, 30.0]] rng0 [[25.7, 30.0]] |
+ 18 | [[24.989, 35.875]] | 4x3:   -    (spread 0.000) best   1.11 rng0.4 [[28.3, 30.0]] rng0 [[27.4, 30.0]] | 3x2:   -    (spread 0.000) best   1.58 rng0.4 [[27.3, 30.0]] rng0 [[26.3, 30.0]] |
+ 19 | [[24.992, 35.419]] | 4x3:   -    (spread 0.000) best   0.80 rng0.4 [[29.0, 30.0]] rng0 [[28.1, 30.0]] | 3x2:   -    (spread 0.000) best   1.27 rng0.4 [[27.9, 30.0]] rng0 [[26.9, 30.0]] |
+ 20 | [[24.999, 34.985]] | 4x3:   -    (spread 0.000) best   0.49 rng0.4 [[29.8, 30.0]] rng0 [[28.8, 30.0]] | 3x2:   -    (spread 0.000) best   0.96 rng0.4 [[28.6, 30.0]] rng0 [[27.6, 30.0]] |
+ 21 | [[25.574, 34.572]] | 4x3:   -    (spread 0.000) best   0.19 rng0.4 None rng0 [[29.6, 30.0]] | 3x2:   -    (spread 0.000) best   0.65 rng0.4 [[29.4, 30.0]] rng0 [[28.4, 30.0]] |
+ 22 | [[26.264, 34.178]] | 4x3:   -    (spread 0.000) best  -0.09 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   0.34 rng0.4 None rng0 [[29.2, 30.0]] |
+ 23 | [[27.002, 33.804]] | 4x3:   -    (spread 0.000) best  -0.34 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   0.02 rng0.4 None rng0 [[30.0, 30.0]] |
+ 24 | [[27.79, 33.448]] | 4x3:   -    (spread 0.000) best  -0.59 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best  -0.24 rng0.4 None rng0 None |
+ 25 | [[28.635, 33.11]] | 4x3:   -    (spread 0.000) best  -0.85 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best  -0.49 rng0.4 None rng0 None |
+ 26 | [[29.542, 32.788]] | 4x3:   -    (spread 0.000) best  -1.13 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best  -0.80 rng0.4 None rng0 None |
+ 27 | [[30.518, 32.475]] | 4x3:   -    (spread 0.000) best  -1.50 rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best  -1.00 rng0.4 None rng0 None |
+ 28 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 29 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 30 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 31 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 32 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 33 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 34 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 35 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 36 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 37 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 38 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 39 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 40 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+== corner [1, 1, 1] toward edge:  gamma | material intervals | 4x3: wall@layout, best wall, face ranges wall>=0.4 | 3x2: same
+  0 | [[21.947, 49.062]] | 4x3:   0.40 (spread 0.000) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.40 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  1 | [[21.939, 48.696]] | 4x3:   0.40 (spread 0.002) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.40 (spread 0.002) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  2 | [[21.937, 48.131]] | 4x3:   0.41 (spread 0.002) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.41 (spread 0.002) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  3 | [[21.938, 47.593]] | 4x3:   0.41 (spread 0.003) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.41 (spread 0.003) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  4 | [[21.937, 47.082]] | 4x3:   0.41 (spread 0.000) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.41 (spread 0.000) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  5 | [[21.943, 46.595]] | 4x3:   0.40 (spread 0.010) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.40 (spread 0.010) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  6 | [[21.945, 46.132]] | 4x3:   0.40 (spread 0.001) best   1.60 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.40 (spread 0.001) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  7 | [[21.938, 45.692]] | 4x3:   0.31 (spread 0.003) best   1.60 rng0.4 [[25.2, 30.0]] rng0 [[22.0, 30.0]] | 3x2:   0.40 (spread 0.007) best   2.10 rng0.4 [[22.4, 30.0]] rng0 [[22.0, 30.0]] |
+  8 | [[21.938, 45.274]] | 4x3:  -0.12 (spread 0.002) best   1.60 rng0.4 [[26.1, 30.0]] rng0 [[25.2, 30.0]] | 3x2:   0.41 (spread 0.003) best   2.10 rng0.4 [[22.4, 22.7], [25.1, 30.0]] rng0 [[22.0, 30.0]] |
+  9 | [[21.937, 44.878]] | 4x3:  -0.46 (spread 0.004) best   1.60 rng0.4 [[27.0, 30.0]] rng0 [[26.1, 30.0]] | 3x2:   0.41 (spread 0.000) best   2.10 rng0.4 [[22.4, 22.4], [26.0, 30.0]] rng0 [[22.0, 22.8], [25.1, 30.0]] |
+ 10 | [[21.938, 44.501]] | 4x3:  -0.46 (spread 0.005) best   1.25 rng0.4 [[28.1, 30.0]] rng0 [[27.1, 30.0]] | 3x2:   0.41 (spread 0.000) best   1.70 rng0.4 [[22.4, 22.4], [27.0, 30.0]] rng0 [[22.0, 22.8], [26.0, 30.0]] |
+ 11 | [[21.945, 44.144]] | 4x3:  -0.46 (spread 0.002) best   0.76 rng0.4 [[29.2, 30.0]] rng0 [[28.2, 30.0]] | 3x2:   0.40 (spread 0.008) best   1.21 rng0.4 [[22.4, 22.4], [28.1, 30.0]] rng0 [[22.0, 22.8], [27.1, 30.0]] |
+ 12 | [[21.943, 43.806]] | 4x3:  -0.46 (spread 0.003) best   0.26 rng0.4 None rng0 [[29.4, 30.0]] | 3x2:   0.40 (spread 0.004) best   0.72 rng0.4 [[22.4, 22.4], [29.2, 30.0]] rng0 [[22.0, 22.8], [28.2, 30.0]] |
+ 13 | [[21.937, 24.945], [25.734, 43.487]] | 4x3:  -0.46 (spread 0.003) best  -0.05 rng0.4 None rng0 None | 3x2:   0.40 (spread 0.010) best   0.45 rng0.4 [[22.4, 22.4]] rng0 [[22.0, 22.8], [29.4, 30.0]] |
+ 14 | [[21.938, 24.941], [26.884, 43.185]] | 4x3:  -0.46 (spread 0.002) best  -0.08 rng0.4 None rng0 None | 3x2:   0.40 (spread 0.005) best   0.45 rng0.4 [[22.4, 22.4]] rng0 [[22.0, 22.8]] |
+ 15 | [[21.936, 24.94], [28.15, 42.9]] | 4x3:  -0.46 (spread 0.002) best  -0.24 rng0.4 None rng0 None | 3x2:   0.27 (spread 0.000) best   0.28 rng0.4 None rng0 [[22.0, 22.8]] |
+ 16 | [[21.939, 24.941], [29.552, 42.632]] | 4x3:  -0.50 (spread 0.000) best  -0.41 rng0.4 None rng0 None | 3x2:   0.07 (spread 0.000) best   0.10 rng0.4 None rng0 [[22.0, 22.8]] |
+ 17 | [[21.946, 24.944], [31.11, 42.379]] | 4x3:  -0.68 (spread 0.000) best  -0.57 rng0.4 None rng0 None | 3x2:  -0.11 (spread 0.000) best  -0.07 rng0.4 None rng0 None |
+ 18 | [[21.942, 24.943], [32.852, 42.143]] | 4x3:  -0.86 (spread 0.000) best  -0.74 rng0.4 None rng0 None | 3x2:  -0.29 (spread 0.000) best  -0.23 rng0.4 None rng0 None |
+ 19 | [[21.938, 24.939]] | 4x3:  -1.03 (spread 0.000) best  -0.91 rng0.4 None rng0 None | 3x2:  -0.46 (spread 0.000) best  -0.37 rng0.4 None rng0 None |
+ 20 | [[21.94, 24.94], [37.034, 41.716]] | 4x3:  -1.21 (spread 0.000) best  -1.08 rng0.4 None rng0 None | 3x2:  -0.63 (spread 0.000) best  -0.52 rng0.4 None rng0 None |
+ 21 | [[21.938, 24.944], [39.57, 41.342]] | 4x3:  -1.37 (spread 0.000) best  -1.25 rng0.4 None rng0 None | 3x2:  -0.80 (spread 0.000) best  -0.68 rng0.4 None rng0 None |
+ 22 | [[21.94, 24.865]] | 4x3:  -1.50 (spread 0.000) best  -1.40 rng0.4 None rng0 None | 3x2:  -0.95 (spread 0.000) best  -0.82 rng0.4 None rng0 None |
+ 23 | [[21.949, 23.839]] | 4x3:   -    (spread 0.000) best  -1.49 rng0.4 None rng0 None | 3x2:  -1.00 (spread 0.000) best  -0.98 rng0.4 None rng0 None |
+ 24 | [[22.087, 22.9]] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best  -1.00 rng0.4 None rng0 None |
+ 25 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 26 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 27 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 28 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 29 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 30 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 31 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 32 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 33 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 34 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 35 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 36 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 37 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 38 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 39 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+ 40 | [] | 4x3:   -    (spread 0.000) best   -    rng0.4 None rng0 None | 3x2:   -    (spread 0.000) best   -    rng0.4 None rng0 None |
+exit 0
