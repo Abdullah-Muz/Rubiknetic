@@ -57,8 +57,12 @@ Wrapper self-check: ER7's C52 records reproduced exactly (after deviation 1, a b
 | W2 | anchored, N35 × 0.5 | 106 | < 0.001° | 0.0027° | 1.0 | 16 |
 | W3 | anchored, N35 × 0.3 | 106 | 0.028° | 0.011° | 0.947 | 9 |
 
+- "Snap-back max error" in this table is over all 20 snap-back trials, including the unscored ±1° and ±2° starts;
+  the Part D table below uses only the scored starts (|Δ| ≥ 3°). L0 is 0.269° by the first definition and 0.118° by
+  the second; C52 (1.013°) and W3 (0.028°) are the same under both.
 - All five anchored arms met the four probe signals. None was flagged (largest near tilt 18.42°, no perpendicular
-  near pair).
+  near pair). The runner checks signal 4 through ER7's regime flag only; its other clause, "no piece-to-piece near
+  pair", holds for these arms by geometry (magnets of different pieces stay ≥ 10.36 mm apart in every face turn).
 - By the selection rule fixed beforehand (lowest median E1-2 turner torque), W3 went to the full rehearsal.
 
 ## Part D — full 204-trial rehearsal of W3
@@ -151,3 +155,17 @@ there.
 - 96 magnets (2 per edge, 3 per corner, 48 in the core) have not been checked for fit in a real piece (as ER4 did
   for one magnet per piece).
 - The turner rig is a position servo with a 1 N·m limit; "moves at the limit" is a property of cube and rig together.
+- In a turn, each anchor pair of W3 briefly passes through the force law's clamped-z region as it leaves (15.7–18.3°
+  of relative rotation, 7.2–8 mm apart, where the near-field weight is ≤ 0.13). ER9 does not report the count; C52 is
+  in the same regime (1.4 million clamped evaluations in ER7), which P-60 covers.
+
+## Independent code review (2026-11-20)
+A reviewer given the code and protocol, not these results, found nothing that changes a verdict. It confirmed:
+- anchor geometry and attraction for all 20 pieces at 0.2–3 mm;
+- the configuration reaching every worker, with no leak between arms;
+- record bookkeeping and the analysis (L0 and C52 values recomputed from ER7's records);
+- the force law's handling of these layouts.
+
+The report's points are dealt with above, under Parts B and C and under Limits. One further point: records are
+written without a temporary file. All 112 hybrid probe records present on 2026-11-20 were checked to decompress and
+to carry their arm's configuration (144 magnets, scale 0.756).
