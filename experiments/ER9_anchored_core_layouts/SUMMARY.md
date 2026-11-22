@@ -18,7 +18,8 @@ for ER9 will be proposed when Part E is complete.
 - **The catch.** With W3 the turner reached its 1 N·m limit in 771 of 1,376 moves (L0: 0). The layer stalls briefly at
   about 7° into a turn, then breaks through.
 - **Result 2 (diagnostics, Part E).** The stall is not caused by the anchors: it is there, and worse, with almost no
-  magnets. M5's corner–edge magnets are what prevent it. Part E therefore tests both together.
+  magnets. INFERENCE from single-turn replays: M5's corner–edge magnets suppress it (L0's pieces lag at most 0.21°).
+  Part E therefore tests both together.
 - **Part E status:** probe interrupted and incomplete; no result yet (see the Part E section below).
 
 ## Part A — static screen (243 layouts)
@@ -71,7 +72,7 @@ Wrapper self-check: ER7's C52 records reproduced exactly (after deviation 1, a b
 |---|---|---|---|
 | E1-1 rest | 18 / 20 | 20 / 20 | 20 / 20 |
 | E1-2 single moves | 24 / 24 | 24 / 24 | 24 / 24 |
-| E1-3 short sequences | 22 / 22 | 22 / 22 | 22 / 22 |
+| E1-3 half turns | 22 / 22 | 22 / 22 | 22 / 22 |
 | E1-4 long sequences | 39 / 40 | 40 / 40 | 40 / 40 |
 | E1-5 misaligned starts | 42 / 42 | 42 / 42 | 42 / 42 |
 | E1-5s snap-back | 20 / 20 | 10 / 20 | 20 / 20 |
@@ -91,7 +92,7 @@ Wrapper self-check: ER7's C52 records reproduced exactly (after deviation 1, a b
 | Moves at the 1 N·m limit | 0 | 69 (37 trials) | **771 (68 trials)** |
 | Non-target drift per move: median / max | 0.231° / 0.776° | 0.191° / 0.831° | 0.045° / 0.119° |
 | Snap-back max error | 0.118° | 1.013° | 0.028° |
-| CPU time | 10.5 h | 9.5 h | 22.8 h |
+| Summed trial wall time | 10.5 h | 9.5 h | 22.8 h |
 
 - The 106 probe trials were reproduced inside the full run (same pass flags, same rest and snap-back values).
 - Paired with L0 on the same seeds, W3 has lower rest rotation in 20 of 20 trials and lower sequence drift in 85 of
@@ -113,10 +114,10 @@ there.
   only within 45° of parallel. For those 12 pairs the dipole formula the simulation uses is within 3.5 % of the charge
   model in torque about the turn axis (0.39 mN·m of 11.3 mN·m). That is a measured size of the error, not a
   validation. Accepting it would be an amendment of the kind P-60 was, which is the user's decision.
-- **Probe status (2026-11-20).** The 318-trial probe was stopped at 75 of 318 trials when the machine ran low on
-  memory (another training job was running on it). This is not a failure of the run. The 75 records are intact and
-  the runner skips existing records, so a restart continues from there. The partial records are not committed and
-  are not interpreted here.
+- **Probe status (2026-11-21).** The 318-trial probe has been stopped three times by low-memory stops (other jobs
+  were running on the machine): at 75, 223 and 275 of 318 trials. These are not failures of the run. Every record
+  present was checked to decompress; the runner skips existing records, so each restart continues where it stopped.
+  The partial records are not committed and are not interpreted here.
 - **Still to do:** finish the probe; report the signals per arm; run the full 204-trial rehearsal on the eligible arm
   with the lowest median E1-2 turner torque; analysis beside L0, C52 and W3.
 
@@ -168,8 +169,16 @@ there.
   - The gap is uncertain by about 0.5 mm until pull against gap is measured on real magnets.
 - The turner rig is a position servo with a 1 N·m limit; "moves at the limit" is a property of cube and rig together.
 - In a turn, each anchor pair of W3 briefly passes through the force law's clamped-z region as it leaves (15.7–18.3°
-  of relative rotation, 7.2–8 mm apart, where the near-field weight is ≤ 0.13). ER9 does not report the count; C52 is
-  in the same regime (1.4 million clamped evaluations in ER7), which P-60 covers.
+  of relative rotation, 7.2–8 mm apart, where the near-field weight is ≤ 0.13). ER9 does not report the count.
+  **Correction (2026-11-21, from the G1 gap analysis):** an earlier version of this line said P-60 covers it. It does
+  not: P-60 accepts clamped pairs only on face-turn trajectories that ER5's V3-turn validated, which were on-axis
+  placements at c = 0.2 mm. W3's off-axis anchor paths have had no V3-turn check.
+- **What signal 3 shows.** "No trial outside the validated regime" was computed with a 20° tilt limit and the
+  perpendicular-pair rule (PROTOCOL.md, Part B criterion 5 and signal 4). The 20° figure comes from ER5's
+  V3-turn on the on-axis trajectories; ER5's generic tilted-pair check (V3b) validates the 4 × 3 table to 7.5° only.
+  Signal 3 is therefore the protocol's proxy, as Part B's limits say. It is not a validation of the off-axis paths,
+  and it is not compliance with P-60. The same applies to Part E: there the hybrid's 4 × 3 corner–edge pairs were
+  flagged at 20°, although for that pair type only V3b's 7.5° applies.
 
 ## Independent code review (2026-11-20)
 A reviewer given the code and protocol, not these results, found nothing that changes a verdict. It confirmed:
