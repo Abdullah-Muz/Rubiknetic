@@ -6,6 +6,19 @@
 >
 > The 4 × 3 piece-side core-pair magnets sit at r ≥ 23.850 mm. The cross-type piece pairs they form with 4 × 2
 > magnets are handled by P1's rigid-turn minimum and its 1.0 mm margin.
+>
+> **Known issue found after this text was written (composite-code tests, 2026-11-21): P1 as written would stop both
+> arms.**
+> - The closest cross-type pair is an edge's 4 × 2 magnet against the neighbouring corner's on-axis 4 × 3 piece
+>   magnet: 9.335 mm at home and 8.178 mm at the closest point of rigid single-face turns. That is 0.18 mm outside
+>   r2 = 8 mm, against P1's required 1.0 mm margin.
+> - With independent 1–2° piece tilts (random test poses) the pair comes to 7.3–7.9 mm, inside r2, where the force law
+>   has no near-field model for unlike magnets and uses the dipole formula.
+> - This needs a decision (U8) before Part G is fixed:
+>   - lower P1's margin to what rigid turns give and treat the runtime `near_cross_type` count as a validity flag;
+>   - first measure the dipole error for this unlike pair against a charge model, as was done for the perpendicular
+>     pairs (`er9_hybrid_perp.py`);
+>   - or move the on-axis piece magnets inward.
 
 ## Part G — commercial pattern: M5's 48 corner–edge magnets plus attracting on-axis core pairs (addendum; text proposed 2026-11-21, to be fixed before any Part G computation)
 
