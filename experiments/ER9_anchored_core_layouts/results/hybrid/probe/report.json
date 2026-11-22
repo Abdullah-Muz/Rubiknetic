@@ -1,0 +1,574 @@
+{
+ "L0": {
+  "n": 106,
+  "passed": {
+   "E1-1": "18 / 20",
+   "E1-2": "24 / 24",
+   "E1-5": "42 / 42",
+   "E1-5s": "20 / 20"
+  },
+  "snap_abs_err_by_delta": {
+   "1": [
+    0.025,
+    0.269,
+    0.233,
+    0.041
+   ],
+   "2": [
+    0.135,
+    0.064,
+    0.013,
+    0.05
+   ],
+   "3": [
+    0.118,
+    0.008,
+    0.015,
+    0.08
+   ],
+   "5": [
+    0.082,
+    0.009,
+    0.045,
+    0.098
+   ],
+   "8": [
+    0.031,
+    0.013,
+    0.042,
+    0.044
+   ]
+  },
+  "snap_scored_fail": [],
+  "rest_max_deg": 0.567753607916221,
+  "e12_turner_Nm": {
+   "median": 0.14371574143540516,
+   "max": 0.4610294451073229,
+   "clip_moves": 0
+  },
+  "flagged": [],
+  "max_near_tilt_deg": 2.088275446870605,
+  "near_perpendicular": 0,
+  "wall_s_total": 9117.49157013499
+ },
+ "C52": {
+  "n": 106,
+  "passed": {
+   "E1-1": "20 / 20",
+   "E1-2": "24 / 24",
+   "E1-5": "42 / 42",
+   "E1-5s": "10 / 20"
+  },
+  "snap_abs_err_by_delta": {
+   "1": [
+    0.33,
+    0.208,
+    0.049,
+    0.273
+   ],
+   "2": [
+    0.393,
+    0.421,
+    0.431,
+    0.372
+   ],
+   "3": [
+    0.424,
+    0.527,
+    0.482,
+    0.536
+   ],
+   "5": [
+    0.728,
+    0.696,
+    0.667,
+    0.692
+   ],
+   "8": [
+    0.868,
+    0.996,
+    1.013,
+    0.98
+   ]
+  },
+  "snap_scored_fail": [
+   "snap_+3_s16563",
+   "snap_-3_s16563",
+   "snap_+5_s16555",
+   "snap_+5_s16565",
+   "snap_-5_s16555",
+   "snap_-5_s16565",
+   "snap_+8_s16558",
+   "snap_+8_s16568",
+   "snap_-8_s16558",
+   "snap_-8_s16568"
+  ],
+  "rest_max_deg": 3.37305608629713e-06,
+  "e12_turner_Nm": {
+   "median": 0.7001795931109038,
+   "max": 1.0,
+   "clip_moves": 4
+  },
+  "flagged": [],
+  "max_near_tilt_deg": 18.416331990979227,
+  "near_perpendicular": 0,
+  "wall_s_total": 7715.109579675998
+ },
+ "HB1": {
+  "n": 106,
+  "passed": {
+   "E1-1": "20 / 20",
+   "E1-2": "24 / 24",
+   "E1-5": "42 / 42",
+   "E1-5s": "20 / 20"
+  },
+  "snap_abs_err_by_delta": {
+   "1": [
+    0.08,
+    0.074,
+    0.019,
+    0.056
+   ],
+   "2": [
+    0.064,
+    0.011,
+    0.008,
+    0.004
+   ],
+   "3": [
+    0.035,
+    0.034,
+    0.021,
+    0.038
+   ],
+   "5": [
+    0.054,
+    0.018,
+    0.002,
+    0.001
+   ],
+   "8": [
+    0.005,
+    0.008,
+    0.003,
+    0.003
+   ]
+  },
+  "snap_scored_fail": [],
+  "rest_max_deg": 0.16886023983343074,
+  "e12_turner_Nm": {
+   "median": 0.46076834737711314,
+   "max": 0.9007725845778095,
+   "clip_moves": 0
+  },
+  "flagged": [
+   "E1-2/B_s16120",
+   "E1-2/B_s16121",
+   "E1-2/Bp_s16122",
+   "E1-2/Bp_s16123",
+   "E1-2/D_s16112",
+   "E1-2/D_s16113",
+   "E1-2/Dp_s16114",
+   "E1-2/Dp_s16115",
+   "E1-2/F_s16108",
+   "E1-2/F_s16109",
+   "E1-2/Fp_s16110",
+   "E1-2/Fp_s16111",
+   "E1-2/L_s16116",
+   "E1-2/L_s16117",
+   "E1-2/Lp_s16118",
+   "E1-2/Lp_s16119",
+   "E1-2/R_s16104",
+   "E1-2/R_s16105",
+   "E1-2/Rp_s16106",
+   "E1-2/Rp_s16107",
+   "E1-2/U_s16100",
+   "E1-2/U_s16101",
+   "E1-2/Up_s16102",
+   "E1-2/Up_s16103",
+   "E1-5/forgive_+0_s16500",
+   "E1-5/forgive_+0_s16521",
+   "E1-5/forgive_+10_s16510",
+   "E1-5/forgive_+11_s16511",
+   "E1-5/forgive_+12_s16512",
+   "E1-5/forgive_+13_s16513",
+   "E1-5/forgive_+14_s16514",
+   "E1-5/forgive_+15_s16515",
+   "E1-5/forgive_+16_s16516",
+   "E1-5/forgive_+17_s16517",
+   "E1-5/forgive_+18_s16518",
+   "E1-5/forgive_+19_s16519",
+   "E1-5/forgive_+1_s16501",
+   "E1-5/forgive_+20_s16520",
+   "E1-5/forgive_+2_s16502",
+   "E1-5/forgive_+3_s16503",
+   "E1-5/forgive_+4_s16504",
+   "E1-5/forgive_+5_s16505",
+   "E1-5/forgive_+6_s16506",
+   "E1-5/forgive_+7_s16507",
+   "E1-5/forgive_+8_s16508",
+   "E1-5/forgive_+9_s16509",
+   "E1-5/forgive_-10_s16531",
+   "E1-5/forgive_-11_s16532",
+   "E1-5/forgive_-12_s16533",
+   "E1-5/forgive_-13_s16534",
+   "E1-5/forgive_-14_s16535",
+   "E1-5/forgive_-15_s16536",
+   "E1-5/forgive_-16_s16537",
+   "E1-5/forgive_-17_s16538",
+   "E1-5/forgive_-18_s16539",
+   "E1-5/forgive_-19_s16540",
+   "E1-5/forgive_-1_s16522",
+   "E1-5/forgive_-20_s16541",
+   "E1-5/forgive_-2_s16523",
+   "E1-5/forgive_-3_s16524",
+   "E1-5/forgive_-4_s16525",
+   "E1-5/forgive_-5_s16526",
+   "E1-5/forgive_-6_s16527",
+   "E1-5/forgive_-7_s16528",
+   "E1-5/forgive_-8_s16529",
+   "E1-5/forgive_-9_s16530",
+   "E1-5s/snap_+8_s16558",
+   "E1-5s/snap_+8_s16568",
+   "E1-5s/snap_-8_s16558",
+   "E1-5s/snap_-8_s16568"
+  ],
+  "max_near_tilt_deg": 17.40803542633682,
+  "near_perpendicular": 392994,
+  "wall_s_total": 94269.7219469,
+  "signals": {
+   "1_snap": true,
+   "2_rest_le_0.5": true,
+   "3_e12_e15_pass": true,
+   "4_inside_regime": false,
+   "complete": true,
+   "all_met": false
+  },
+  "config": {
+   "hybrid": true,
+   "magnet": "4x3_N35",
+   "scale": 0.756,
+   "base": true,
+   "anchors": true,
+   "variant": "M5 positions + anchors c=1 mm, 4x3_N35 x 0.756",
+   "clear_mm": 1.0,
+   "edge_opt": [
+    "split",
+    20,
+    "centre"
+   ],
+   "corner_opt": [
+    "tri",
+    16,
+    "centre"
+   ]
+  }
+ },
+ "HB2": {
+  "n": 106,
+  "passed": {
+   "E1-1": "19 / 20",
+   "E1-2": "24 / 24",
+   "E1-5": "42 / 42",
+   "E1-5s": "20 / 20"
+  },
+  "snap_abs_err_by_delta": {
+   "1": [
+    0.027,
+    0.062,
+    0.043,
+    0.066
+   ],
+   "2": [
+    0.083,
+    0.185,
+    0.049,
+    0.059
+   ],
+   "3": [
+    0.029,
+    0.018,
+    0.005,
+    0.004
+   ],
+   "5": [
+    0.017,
+    0.018,
+    0.05,
+    0.005
+   ],
+   "8": [
+    0.009,
+    0.011,
+    0.019,
+    0.001
+   ]
+  },
+  "snap_scored_fail": [],
+  "rest_max_deg": 0.5157861818557431,
+  "e12_turner_Nm": {
+   "median": 0.36985464795242173,
+   "max": 0.6112848487674846,
+   "clip_moves": 0
+  },
+  "flagged": [
+   "E1-2/B_s16120",
+   "E1-2/B_s16121",
+   "E1-2/Bp_s16122",
+   "E1-2/Bp_s16123",
+   "E1-2/D_s16112",
+   "E1-2/D_s16113",
+   "E1-2/Dp_s16114",
+   "E1-2/Dp_s16115",
+   "E1-2/F_s16108",
+   "E1-2/F_s16109",
+   "E1-2/Fp_s16110",
+   "E1-2/Fp_s16111",
+   "E1-2/L_s16116",
+   "E1-2/L_s16117",
+   "E1-2/Lp_s16118",
+   "E1-2/Lp_s16119",
+   "E1-2/R_s16104",
+   "E1-2/R_s16105",
+   "E1-2/Rp_s16106",
+   "E1-2/Rp_s16107",
+   "E1-2/U_s16100",
+   "E1-2/U_s16101",
+   "E1-2/Up_s16102",
+   "E1-2/Up_s16103",
+   "E1-5/forgive_+0_s16500",
+   "E1-5/forgive_+0_s16521",
+   "E1-5/forgive_+10_s16510",
+   "E1-5/forgive_+11_s16511",
+   "E1-5/forgive_+12_s16512",
+   "E1-5/forgive_+13_s16513",
+   "E1-5/forgive_+14_s16514",
+   "E1-5/forgive_+15_s16515",
+   "E1-5/forgive_+16_s16516",
+   "E1-5/forgive_+17_s16517",
+   "E1-5/forgive_+18_s16518",
+   "E1-5/forgive_+19_s16519",
+   "E1-5/forgive_+1_s16501",
+   "E1-5/forgive_+20_s16520",
+   "E1-5/forgive_+2_s16502",
+   "E1-5/forgive_+3_s16503",
+   "E1-5/forgive_+4_s16504",
+   "E1-5/forgive_+5_s16505",
+   "E1-5/forgive_+6_s16506",
+   "E1-5/forgive_+7_s16507",
+   "E1-5/forgive_+8_s16508",
+   "E1-5/forgive_+9_s16509",
+   "E1-5/forgive_-10_s16531",
+   "E1-5/forgive_-11_s16532",
+   "E1-5/forgive_-12_s16533",
+   "E1-5/forgive_-13_s16534",
+   "E1-5/forgive_-14_s16535",
+   "E1-5/forgive_-15_s16536",
+   "E1-5/forgive_-16_s16537",
+   "E1-5/forgive_-17_s16538",
+   "E1-5/forgive_-18_s16539",
+   "E1-5/forgive_-19_s16540",
+   "E1-5/forgive_-1_s16522",
+   "E1-5/forgive_-20_s16541",
+   "E1-5/forgive_-2_s16523",
+   "E1-5/forgive_-3_s16524",
+   "E1-5/forgive_-4_s16525",
+   "E1-5/forgive_-5_s16526",
+   "E1-5/forgive_-6_s16527",
+   "E1-5/forgive_-7_s16528",
+   "E1-5/forgive_-8_s16529",
+   "E1-5/forgive_-9_s16530",
+   "E1-5s/snap_+5_s16555",
+   "E1-5s/snap_+8_s16558",
+   "E1-5s/snap_+8_s16568",
+   "E1-5s/snap_-5_s16555",
+   "E1-5s/snap_-5_s16565",
+   "E1-5s/snap_-8_s16558",
+   "E1-5s/snap_-8_s16568"
+  ],
+  "max_near_tilt_deg": 15.481684104955871,
+  "near_perpendicular": 410056,
+  "wall_s_total": 97688.80583296201,
+  "signals": {
+   "1_snap": true,
+   "2_rest_le_0.5": false,
+   "3_e12_e15_pass": true,
+   "4_inside_regime": false,
+   "complete": true,
+   "all_met": false
+  },
+  "config": {
+   "hybrid": true,
+   "magnet": "4x3_N35",
+   "scale": 0.756,
+   "base": true,
+   "anchors": true,
+   "variant": "M5 positions + anchors c=2 mm, 4x3_N35 x 0.756",
+   "clear_mm": 2.0,
+   "edge_opt": [
+    "split",
+    20,
+    "centre"
+   ],
+   "corner_opt": [
+    "tri",
+    16,
+    "centre"
+   ]
+  }
+ },
+ "HB3": {
+  "n": 106,
+  "passed": {
+   "E1-1": "20 / 20",
+   "E1-2": "24 / 24",
+   "E1-5": "42 / 42",
+   "E1-5s": "20 / 20"
+  },
+  "snap_abs_err_by_delta": {
+   "1": [
+    0.061,
+    0.094,
+    0.185,
+    0.037
+   ],
+   "2": [
+    0.042,
+    0.191,
+    0.014,
+    0.085
+   ],
+   "3": [
+    0.046,
+    0.063,
+    0.004,
+    0.0
+   ],
+   "5": [
+    0.017,
+    0.009,
+    0.005,
+    0.006
+   ],
+   "8": [
+    0.029,
+    0.012,
+    0.002,
+    0.008
+   ]
+  },
+  "snap_scored_fail": [],
+  "rest_max_deg": 0.46329826608857766,
+  "e12_turner_Nm": {
+   "median": 0.38800500624372986,
+   "max": 0.9890290262263237,
+   "clip_moves": 0
+  },
+  "flagged": [
+   "E1-2/B_s16120",
+   "E1-2/B_s16121",
+   "E1-2/Bp_s16122",
+   "E1-2/Bp_s16123",
+   "E1-2/D_s16112",
+   "E1-2/D_s16113",
+   "E1-2/Dp_s16114",
+   "E1-2/Dp_s16115",
+   "E1-2/F_s16108",
+   "E1-2/F_s16109",
+   "E1-2/Fp_s16110",
+   "E1-2/Fp_s16111",
+   "E1-2/L_s16116",
+   "E1-2/L_s16117",
+   "E1-2/Lp_s16118",
+   "E1-2/Lp_s16119",
+   "E1-2/R_s16104",
+   "E1-2/R_s16105",
+   "E1-2/Rp_s16106",
+   "E1-2/Rp_s16107",
+   "E1-2/U_s16100",
+   "E1-2/U_s16101",
+   "E1-2/Up_s16102",
+   "E1-2/Up_s16103",
+   "E1-5/forgive_+0_s16500",
+   "E1-5/forgive_+0_s16521",
+   "E1-5/forgive_+10_s16510",
+   "E1-5/forgive_+11_s16511",
+   "E1-5/forgive_+12_s16512",
+   "E1-5/forgive_+13_s16513",
+   "E1-5/forgive_+14_s16514",
+   "E1-5/forgive_+15_s16515",
+   "E1-5/forgive_+16_s16516",
+   "E1-5/forgive_+17_s16517",
+   "E1-5/forgive_+18_s16518",
+   "E1-5/forgive_+19_s16519",
+   "E1-5/forgive_+1_s16501",
+   "E1-5/forgive_+20_s16520",
+   "E1-5/forgive_+2_s16502",
+   "E1-5/forgive_+3_s16503",
+   "E1-5/forgive_+4_s16504",
+   "E1-5/forgive_+5_s16505",
+   "E1-5/forgive_+6_s16506",
+   "E1-5/forgive_+7_s16507",
+   "E1-5/forgive_+8_s16508",
+   "E1-5/forgive_+9_s16509",
+   "E1-5/forgive_-10_s16531",
+   "E1-5/forgive_-11_s16532",
+   "E1-5/forgive_-12_s16533",
+   "E1-5/forgive_-13_s16534",
+   "E1-5/forgive_-14_s16535",
+   "E1-5/forgive_-15_s16536",
+   "E1-5/forgive_-16_s16537",
+   "E1-5/forgive_-17_s16538",
+   "E1-5/forgive_-18_s16539",
+   "E1-5/forgive_-19_s16540",
+   "E1-5/forgive_-1_s16522",
+   "E1-5/forgive_-20_s16541",
+   "E1-5/forgive_-2_s16523",
+   "E1-5/forgive_-3_s16524",
+   "E1-5/forgive_-4_s16525",
+   "E1-5/forgive_-5_s16526",
+   "E1-5/forgive_-6_s16527",
+   "E1-5/forgive_-7_s16528",
+   "E1-5/forgive_-8_s16529",
+   "E1-5/forgive_-9_s16530",
+   "E1-5s/snap_+5_s16555",
+   "E1-5s/snap_+5_s16565",
+   "E1-5s/snap_+8_s16558",
+   "E1-5s/snap_+8_s16568",
+   "E1-5s/snap_-5_s16555",
+   "E1-5s/snap_-5_s16565",
+   "E1-5s/snap_-8_s16558",
+   "E1-5s/snap_-8_s16568"
+  ],
+  "max_near_tilt_deg": 12.36847777502132,
+  "near_perpendicular": 467669,
+  "wall_s_total": 99175.746847836,
+  "signals": {
+   "1_snap": true,
+   "2_rest_le_0.5": true,
+   "3_e12_e15_pass": true,
+   "4_inside_regime": false,
+   "complete": true,
+   "all_met": false
+  },
+  "config": {
+   "hybrid": true,
+   "magnet": "4x3_N35",
+   "scale": 0.756,
+   "base": true,
+   "anchors": true,
+   "variant": "M5 positions + anchors c=3 mm, 4x3_N35 x 0.756",
+   "clear_mm": 3.0,
+   "edge_opt": [
+    "split",
+    20,
+    "centre"
+   ],
+   "corner_opt": [
+    "tri",
+    16,
+    "centre"
+   ]
+  }
+ }
+}
