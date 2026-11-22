@@ -158,8 +158,8 @@ there.
   - Corner anchors at 16° lie mostly in air: the corner's material along their line starts at 25.0 mm, while the
     magnet spans 22.35–25.35 mm.
   - Edge anchors at 20° break out of the foot by up to 0.58 mm.
-  - In that CAD, three magnets per corner fit only as 3 × 2 mm at 5.5–7° toward the centres, which is outside Part A's
-    screened range. Edges take 4 × 3 up to 16.5° and 4 × 2 or 3 × 2 at 20°.
+  - In that CAD, three magnets per corner fit toward the centres only as 3 × 2 mm at 5.5–7° or 3 × 3 mm at 5.5–6.5°,
+    which is outside Part A's screened range. Edges take 4 × 3 up to 16.5° and 4 × 2 or 3 × 2 at 20°.
   - Whether a feasible placement still holds the pieces has not been computed. A cube designed for these magnets
     could have deeper corner feet; that has not been checked either.
 - **Real-magnet equivalents (`side_checks/catalogue/`).**

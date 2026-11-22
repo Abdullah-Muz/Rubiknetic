@@ -24,8 +24,8 @@ this folder.
 - **Force-law note (checked).** At 2 and 3 mm anchor clearance the pairs sit in the 5–8 mm near/far blend. There the
   simulated pull is 7.1 % below the charge model at 2 mm (0.386 vs 0.416 N), and within 1 % at 3 mm. Reported in the
   agent's run, not rechecked: the 3 mm arm's axial stiffness is 27 % low.
-- **Validity.** Of the shortlist, only 4 × 3 magnets (any grade, by Br scaling) have a table validated to 20° of
-  tilt. Using 4 × 2 for anchors would need its table validated beyond 5°. 3 × 3 has no table.
+- **Validity.** Of the shortlist, only 4 × 3 magnets (any grade, by Br scaling) are validated beyond 5°: to 7.5° for
+  tilted pairs in general (ER5 V3b), and to 20° only along the on-axis face-turn paths of ER5's V3-turn (P-60). Using 4 × 2 for anchors would need its table validated beyond 5°. 3 × 3 has no table.
 
 ## `realfit/`: do the anchor magnets fit the real-mechanism CAD pieces?
 Measured on the git-ignored GrabCAD mesh used by ER4. Its licence is unconfirmed, so only numbers are kept: no
@@ -36,18 +36,25 @@ are reproduced (22.037 / 21.947 mm).
   - Along each pair's line the corner has no material until 25.0 mm. The 4 × 3 magnet spans 22.35–25.35 mm, so 83 %
     of it is in air.
   - Spot-checked in the main session: material from 24.99 to 36.86 mm along the line.
-  - In this CAD, three magnets per corner fit only as 3 × 2 at 5.5–7° (toward the centres) or 5.5–14° (toward the
-    edges). That is outside Part A's screened range (10–16°).
+  - In this CAD, three magnets per corner fit toward the centres only as 3 × 2 at 5.5–7° or 3 × 3 at 5.5–6.5°.
+    Toward the edges they fit as 3 × 2 at 5.5–14°, 3 × 3 at 5.5–7.5° or 4 × 2 at 7–11.5°. All of this is outside
+    Part A's screened range (10–16°).
 - **Edge anchors (2 per edge at 20°): do not fit as 4 × 3.**
   - Along the line, material runs from 21.94 to 31.72 mm (spot-checked). The cylinder's side breaks out of the foot
     by up to 0.58 mm (3.5 % of its volume), into space the centre piece occupies.
   - 4 × 3 fits from 6° to 16.5°. 4 × 2 and 3 × 2 fit at 20° with a 0.42 / 0.45 mm wall.
-- **Magnet spacing: no overlaps.** Magnets in the same piece and in the core never come within 0.5 mm. The closest
-  core magnets are 4.58 mm apart at 0.2 mm clearance and 3.29 mm at 3 mm.
+- **Magnet spacing: no overlaps at the layout's angles (16° and 20°).** Magnets in the same piece and in the core
+  never come within 0.5 mm there. The closest core magnets are 4.58 mm apart at 0.2 mm clearance and 3.29 mm at 3 mm.
+  - The lower bounds of the feasible angle ranges were set by spacing between piece magnets only. Core magnets sit
+    3–4 mm nearer the centre and so closer together, so some small-angle points may fail on the core side. The Part F
+    draft estimates this by hand; it has not been computed.
 - **Core cover at 0.2 mm clearance: thin.** A single ball core has 0.20–0.29 mm of material over the core magnets,
   against the 0.4 mm assumed. The layout's core radius also differs between edges and corners (21.84 vs 21.75 mm).
-- **Hybrid: M5's corner–edge magnets fit.** Every 4 × 3 at M5's positions lies inside the CAD piece, with no clash
-  with the anchors (at least 3.99 mm away). The CAD's piece gap is 0.25 mm, against 0.05 mm in the simulation.
+- **Hybrid: M5's corner–edge magnets lie inside the pieces, but corners miss the 0.4 mm wall.** Every 4 × 3 at M5's
+  simulated positions is fully inside the CAD piece. The thinnest wall is 0.175 mm under the face on corners and
+  0.425 mm on edges. Moving each magnet 0.35–0.42 mm, to the same place relative to the CAD's own face, gives 0.4 mm.
+  There is no clash with the anchors (at least 3.99 mm away). The CAD's piece gap is 0.25 mm, against 0.05 mm in the
+  simulation.
 - **Not determined:**
   - whether any feasible placement still holds the pieces (no forces were computed);
   - real moulded pieces, which are hollow;
