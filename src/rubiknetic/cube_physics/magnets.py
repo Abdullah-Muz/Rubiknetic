@@ -31,6 +31,17 @@ Force law (D8_1b_DESIGN_PROPOSAL.md §5), a fixed function of the poses of the b
   2 / 5 / 10 deg). The correction is now a second-order expansion in the tilt (near_field_tables), built from exact
   charge-model energies, and every force and torque derives from that single rotation-invariant potential, so energy
   and angular momentum are conserved for any tilt; its accuracy at a given tilt is what V3 tests.
+Composite systems (P-67 item 2, 2026-11-21): a magnet dict may carry its own type, g["mp"] (a MagnetParams; default
+the system's mp; see typed()). Types are compared on the force-law fields (diameter, length, grade, scale), so a
+different wall alone does not make a new type. r1, r2, far_r1, far_r2 and skin must be equal across types (checked).
+  * One type (every existing caller): the original single pair_forces call, unchanged, so forces, torques, energy,
+    stats and neighbour-list rebuilds are bit-for-bit those of the single-type code.
+  * Same-type pairs of a composite: pair_forces with that type's params and table, on the subset of the active
+    neighbour list (each pair term is computed exactly as in a single-type system of that type).
+  * Cross-type pairs: point dipoles with each magnet's own moment and the same far taper (cross_pair_forces); no
+    near-field correction exists for unlike cylinders, so none is applied. A cross pair closer than r2 is counted in
+    stats['near_cross_type'], which must stay 0 for the dipole term to be the model (the closest cross distance is
+    stats['min_cross_type_r_m']). Per-type near-pair stats are reported as e.g. stats['max_near_tilt_deg[4x2_N35_s1]'].
 Injection: mujoco.set_mjcb_passive adds the generalized forces to qfrc_passive inside mj_step (D5 detent.py
 precedent), so the AuditedSim edit audit is unaffected. The callback reads ONLY body poses (xpos, xmat). It never
 reads controls, time, commands, oracle state or switch state.
@@ -89,6 +100,26 @@ class MagnetParams:
     @property
     def magnet_mass(self) -> float:
         return 7500.0 * np.pi * (self.diameter / 2) ** 2 * self.length  # NdFeB ~7.5 g/cm^3 (ASSUMPTION)
+
+
+# Fields that define a magnet TYPE for the force law (wall only places magnets in a layout), and fields that every type
+# of one composite system must share (near-field range, far taper and neighbour-list skin are system-wide).
+TYPE_FIELDS = ("diameter", "length", "grade", "scale")
+SHARED_FIELDS = ("r1", "r2", "far_r1", "far_r2", "skin")
+
+
+def type_key(mp: MagnetParams) -> tuple:
+    return tuple(getattr(mp, f) for f in TYPE_FIELDS)
+
+
+def type_label(mp: MagnetParams) -> str:
+    """e.g. '4x2_N35_s1' (diameter x length in mm, grade, strength scale)."""
+    return f"{mp.diameter*1e3:g}x{mp.length*1e3:g}_{mp.grade}_s{mp.scale:g}"
+
+
+def typed(mags: list[dict], mp: MagnetParams) -> list[dict]:
+    """Copies of the magnet dicts tagged with their own magnet type (for a composite MagnetSystem)."""
+    return [{**g, "mp": mp} for g in mags]
 
 
 def layout(pitch: float, gap: float, mp: MagnetParams) -> list[dict]:
@@ -442,11 +473,50 @@ def pair_forces(mp: MagnetParams, spline, ii: np.ndarray, jj: np.ndarray, p: np.
     return F, T, U
 
 
+def cross_pair_forces(moment: np.ndarray, far_r1: float, far_r2: float, ii: np.ndarray, jj: np.ndarray,
+                      p: np.ndarray, n: np.ndarray, scatter: tuple | None = None
+                      ) -> tuple[np.ndarray, np.ndarray, float, np.ndarray]:
+    """Pairs of unlike magnets (composite systems, P-67): point dipoles with per-magnet moments moment[k] (A m^2),
+    with the far taper of pair_forces and no near-field correction. The same formulas as pair_forces' dipole part,
+    with mabs * n replaced by moment[k] * n[k]. Returns per-magnet force (N), torque about its own centre (N m), the
+    energy (J) and the pair centre distances r (m) so the caller can count pairs inside the near-field range."""
+    c = MU0 / (4 * np.pi)
+    i, j = ii, jj
+    rv = p[j] - p[i]
+    r = np.linalg.norm(rv, axis=1)
+    rh = rv / r[:, None]
+    m1, m2 = moment[i][:, None] * n[i], moment[j][:, None] * n[j]
+    a1 = np.einsum("ij,ij->i", m1, rh)
+    a2 = np.einsum("ij,ij->i", m2, rh)
+    mm = np.einsum("ij,ij->i", m1, m2)
+    wf, dwf = _cutoff(r, far_r1, far_r2)
+    Ud = c / r ** 3 * (mm - 3 * a1 * a2)
+    U = float(np.sum(wf * Ud))
+    F2 = (3 * c / r ** 4)[:, None] * (a1[:, None] * m2 + a2[:, None] * m1 + mm[:, None] * rh
+                                     - 5 * (a1 * a2)[:, None] * rh)
+    F2 = wf[:, None] * F2 - (dwf * Ud)[:, None] * rh
+    B1 = (c / r ** 3)[:, None] * (3 * a1[:, None] * rh - m1)
+    B2 = (c / r ** 3)[:, None] * (3 * a2[:, None] * rh - m2)
+    T2 = wf[:, None] * _cross(m2, B1)
+    T1 = wf[:, None] * _cross(m1, B2)
+    Si, Sj = scatter if scatter is not None else scatter_matrices(len(p), i, j)
+    return Sj @ F2 - Si @ F2, Sj @ T2 + Si @ T1, U, r
+
+
+def _pair_stats() -> dict:
+    """The stats keys pair_forces updates (a scratch dict per same-type group of a composite system)."""
+    return {"clamped_z": 0, "near_perpendicular": 0, "max_near_tilt_deg": 0.0, "max_force_N": 0.0}
+
+
 # ------------------------------------------------------------------ the magnet system
 class MagnetSystem:
     def __init__(self, model: mujoco.MjModel, pitch: float, gap: float, mp: MagnetParams,
-                 cache_dir: Path | None = None, tables: tuple | None = None, mags: list[dict] | None = None):
-        """mags: the magnet list (body, pos, dir in the body frame); default the corner-edge layout()."""
+                 cache_dir: Path | None = None, tables: tuple | None = None, mags: list[dict] | None = None,
+                 type_tables: dict | None = None):
+        """mags: the magnet list (body, pos, dir in the body frame, optional "mp"); default the corner-edge layout().
+        mp is the system's (primary) magnet type: magnets without "mp" have it, and tables are its near-field tables.
+        A magnet with an "mp" of another type makes the system composite (P-67); type_tables maps such a MagnetParams
+        to its near-field tables (looked up by type; a missing one is built by near_field_tables(mp_k, cache_dir))."""
         self.m, self.mp = model, mp
         self.mags = layout(pitch, gap, mp) if mags is None else mags
         self.n = len(self.mags)
@@ -463,15 +533,68 @@ class MagnetSystem:
         self.scatter = scatter_matrices(self.n, self.ii, self.jj)
         self.body_sum = (self.body[None, :] == self.bodies[:, None]).astype(float)   # (n_bodies, n)
         self.spline = tables if tables is not None else near_field_tables(mp, cache_dir)
+        self._setup_types(cache_dir, type_tables)
         self.zmin = mp.length + 0.0001
         self.stats: dict = {}
         self.reset_stats()
         self._buf = np.zeros(model.nv)
 
+    # magnet types (composite systems, P-67) --------------------------------------------------------------------
+    def _setup_types(self, cache_dir: Path | None, type_tables: dict | None) -> None:
+        """types[0] is the system mp; type_of[k] indexes magnet k's type. One type: composite False, and nothing below
+        is used by the force path."""
+        keys, self.types = [type_key(self.mp)], [self.mp]
+        type_of = []
+        for g in self.mags:
+            t = g.get("mp", self.mp)
+            k = type_key(t)
+            if k not in keys:
+                keys.append(k)
+                self.types.append(t)
+            type_of.append(keys.index(k))
+        self.type_of = np.array(type_of, dtype=int)
+        if 0 not in type_of and self.n > 0:
+            raise ValueError("the system MagnetParams must be the type of at least one magnet "
+                             f"(system {type_label(self.mp)}, magnets {sorted({type_label(t) for t in self.types[1:]})})")
+        for t in [g["mp"] for g in self.mags if "mp" in g] + list((type_tables or {}).keys()):   # every tagged magnet
+            bad = [f for f in SHARED_FIELDS if getattr(t, f) != getattr(self.mp, f)]
+            if bad:
+                raise ValueError(f"magnet type {type_label(t)} differs from the system type in {bad}; near-field range, "
+                                 "far taper and neighbour-list skin must be the same for every type and table")
+        self.composite = len(self.types) > 1
+        self.type_labels = [type_label(t) for t in self.types]
+        if len(set(self.type_labels)) != len(self.type_labels):
+            raise ValueError(f"distinct magnet types share a label: {self.type_labels}")
+        if not self.composite:
+            return
+        by_key = {type_key(k): v for k, v in (type_tables or {}).items()}
+        self.type_splines = [self.spline]
+        for t in self.types[1:]:
+            self.type_splines.append(by_key[type_key(t)] if type_key(t) in by_key else near_field_tables(t, cache_dir))
+        self.moments = np.array([self.types[t].moment for t in self.type_of])
+        self._build_groups()
+
+    def _build_groups(self) -> None:
+        """Split the active neighbour list into same-type groups and one cross-type group (pair order preserved)."""
+        ti, tj = self.type_of[self.ii], self.type_of[self.jj]
+        self._groups = []
+        for t in range(len(self.types)):
+            sel = (ti == t) & (tj == t)
+            gi, gj = self.ii[sel], self.jj[sel]
+            self._groups.append((t, gi, gj, scatter_matrices(self.n, gi, gj)))
+        sel = ti != tj
+        gi, gj = self.ii[sel], self.jj[sel]
+        self._cross = (gi, gj, scatter_matrices(self.n, gi, gj))
+
     def reset_stats(self) -> None:
         """Diagnostics only (no effect on forces). Reset at the start of every trial so stats are per trial."""
         self.stats = {"calls": 0, "clamped_z": 0, "near_perpendicular": 0, "max_force_N": 0.0,
                       "max_near_tilt_deg": 0.0, "list_rebuilds": 0, "list_pairs": len(self.ii)}
+        if self.composite:                  # extra keys only for composite systems (single-type stats are unchanged)
+            self.stats.update({"near_cross_type": 0, "min_cross_type_r_m": None})
+            for lab in self.type_labels:
+                self.stats.update({f"clamped_z[{lab}]": 0, f"near_perpendicular[{lab}]": 0,
+                                   f"max_near_tilt_deg[{lab}]": 0.0})
 
     def reset_neighbour_list(self) -> None:
         """Return the Verlet list to its just-constructed state (all pairs; rebuilt on the next call).
@@ -483,6 +606,8 @@ class MagnetSystem:
         self.ii, self.jj = self.ii_all, self.jj_all
         self.p_ref = None
         self.scatter = scatter_matrices(self.n, self.ii, self.jj)
+        if self.composite:
+            self._build_groups()
 
     # pure function of body poses -------------------------------------------------------------
     def world(self, xpos: np.ndarray, xmat: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -499,6 +624,8 @@ class MagnetSystem:
         sel = r < self.mp.far_r2 + self.mp.skin
         self.ii, self.jj = self.ii_all[sel], self.jj_all[sel]
         self.scatter = scatter_matrices(self.n, self.ii, self.jj)
+        if self.composite:
+            self._build_groups()
         self.p_ref = p.copy()
         self.stats["list_rebuilds"] += 1
         self.stats["list_pairs"] = int(sel.sum())
@@ -506,7 +633,51 @@ class MagnetSystem:
     def forces(self, p: np.ndarray, n: np.ndarray, stats: bool = False) -> tuple[np.ndarray, np.ndarray, float]:
         """Per-magnet force (N) and torque about its own centre (N m), and the total energy (J)."""
         self._update_list(p)
-        return pair_forces(self.mp, self.spline, self.ii, self.jj, p, n, self.stats if stats else None, self.scatter)
+        if not self.composite:              # the single-type path, unchanged
+            return pair_forces(self.mp, self.spline, self.ii, self.jj, p, n, self.stats if stats else None,
+                               self.scatter)
+        F, T, U = np.zeros((self.n, 3)), np.zeros((self.n, 3)), 0.0
+        for _, Fg, Tg, Ug in self.contributions(p, n, self.stats if stats else None):
+            F += Fg
+            T += Tg
+            U += Ug
+        if stats:
+            self.stats["max_force_N"] = max(self.stats["max_force_N"], float(np.abs(F).max()))
+        return F, T, U
+
+    def contributions(self, p: np.ndarray, n: np.ndarray, stats: dict | None = None) -> list[tuple]:
+        """Composite systems: (name, F, T, U) of each same-type group ("same:<type label>", pair_forces with that
+        type's params and table) and of the cross-type group ("cross", cross_pair_forces), on the CURRENT neighbour
+        list (forces() updates it first). Groups with no active pair are left out. With stats, pair_forces' near-pair
+        stats are added per type and in total, and cross pairs inside r2 are counted in near_cross_type; max_force_N
+        is left to forces(), which sees the total force. A single-type system returns its one pair_forces term."""
+        if not self.composite:
+            return [(f"same:{self.type_labels[0]}",
+                     *pair_forces(self.mp, self.spline, self.ii, self.jj, p, n, stats, self.scatter))]
+        out = []
+        for t, gi, gj, sc in self._groups:
+            if len(gi) == 0:
+                continue
+            st = _pair_stats() if stats is not None else None
+            out.append((f"same:{self.type_labels[t]}",
+                        *pair_forces(self.types[t], self.type_splines[t], gi, gj, p, n, st, sc)))
+            if st is not None:
+                lab = self.type_labels[t]
+                for k in ("clamped_z", "near_perpendicular"):
+                    stats[k] += st[k]
+                    stats[f"{k}[{lab}]"] += st[k]
+                stats["max_near_tilt_deg"] = max(stats["max_near_tilt_deg"], st["max_near_tilt_deg"])
+                stats[f"max_near_tilt_deg[{lab}]"] = max(stats[f"max_near_tilt_deg[{lab}]"], st["max_near_tilt_deg"])
+        gi, gj, sc = self._cross
+        if len(gi):
+            Fc, Tc, Uc, r = cross_pair_forces(self.moments, self.mp.far_r1, self.mp.far_r2, gi, gj, p, n, sc)
+            out.append(("cross", Fc, Tc, Uc))
+            if stats is not None:
+                stats["near_cross_type"] += int(np.sum(r < self.mp.r2))
+                rmin = float(r.min())
+                old = stats["min_cross_type_r_m"]
+                stats["min_cross_type_r_m"] = rmin if old is None else min(old, rmin)
+        return out
 
     def energy(self, d: mujoco.MjData) -> float:
         return self.forces(*self.world(d.xpos, d.xmat))[2]
@@ -531,5 +702,10 @@ class MagnetSystem:
         mujoco.set_mjcb_passive(None)
 
     def describe(self) -> dict:
-        return {"params": asdict(self.mp), "Br_T": self.mp.br, "moment_Am2": self.mp.moment,
-                "magnet_mass_g": self.mp.magnet_mass * 1e3, "n_magnets": self.n, "n_pairs": int(len(self.ii))}
+        out = {"params": asdict(self.mp), "Br_T": self.mp.br, "moment_Am2": self.mp.moment,
+               "magnet_mass_g": self.mp.magnet_mass * 1e3, "n_magnets": self.n, "n_pairs": int(len(self.ii))}
+        if self.composite:                  # single-type output unchanged
+            out["types"] = [{"label": lab, "params": asdict(t), "Br_T": t.br, "moment_Am2": t.moment,
+                             "magnet_mass_g": t.magnet_mass * 1e3, "n_magnets": int(np.sum(self.type_of == k))}
+                            for k, (lab, t) in enumerate(zip(self.type_labels, self.types))]
+        return out
