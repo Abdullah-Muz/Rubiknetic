@@ -5,6 +5,13 @@
 > - the Gripper G2 specification page: "10-50N" gripping force, 0.22 / 0.5 N·m motor;
 > - the xarm_ros2 `joint_limits.yaml` entry for joint 7: 30.6 N·m = 0.12 × 100 × 2.55, an overload limit.
 >
+> A second subagent fact-checked the remaining claims the same day. Applied corrections: the 0.37–0.46 N·m row (7–23×;
+> 13–27 N), the Yang et al. and Ben Katz wording, and Zieliński 2005, which does not concern cubes. Three sources
+> could not be reached for re-checking and rest on earlier verification or snippets: the TwistyPuzzles 0.09 N·m page
+> (403; a snippet agrees), the Q-Bot page body, and UFACTORY forum thread 3531. Search summaries say that thread
+> disputed "continuous" versus "maximum" and which joints 7 N·m applies to, before a reply attributed to staff
+> confirmed "cont torque". Re-read it before relying on the 7 N·m figure.
+>
 > It also checked the arithmetic τ = μFa: for 1 N·m, 35 N at μ 0.5 and 58 N at μ 0.3. Downloaded PDFs stayed in the
 > scratchpad and are not committed.
 >
@@ -48,7 +55,7 @@ page not readable), **ASSUMPTION**. Nothing below was simulated. No repo file wa
 | 6 | 0.05 N·m speedcubes; "worst case 0.5 N-M for original cubes" | **estimates**, no source given | — | none | Lathi, Choi, Uruchima, ECE 445 Design Document, UIUC, 29 Sep 2022 | FACT (text read): they are estimates, not measurements |
 | 7 | test threshold 0.785 N at 127.3 mm (= 0.1 N·m) | a planned force-gauge test, **no result reported**; motors then failed to turn the face | **giant** cube | force gauge at face edge, adjacent face misaligned in steps | Winkelmann, Bui, Jiang, ECE 445 Final Report, UIUC, 6 May 2015 | FACT; not transferable to 57 mm |
 | 8 | none (method only) | — | not stated; margin for "stronger magnets or stiffer" cubes | luggage scale on a string × lever | Twistopher-2 README (GitHub, Eldho-546), undated | FACT: no number given; designed for about 2× the estimate |
-| 9 | none | — | cheap Yulong speedcube tightened "really tight" | — | Ben Katz, "The Rubik's Contraption", 2018-03-07 | FACT: no torque; ~10 ms per 90° move |
+| 9 | none | — | "one of the cheapest available" speedcubes (a Yulong, per the product link) tightened "really tight" | — | Ben Katz, "The Rubik's Contraption", 2018-03-07 | FACT: no torque; ~10 ms per 90° move |
 | 10 | none (motor only) | — | — | "torque required … is low", NEMA 17, 3.2 kg-cm holding | Marjerie Suresh, project page (SSNCE 2019) | FACT |
 
 INFERENCE:
@@ -129,8 +136,10 @@ usually smaller than the full finger width, which lowers these figures further.
 - **Sievers, Pitz, Bäuml 2022, arXiv 2204.03698:** whole-cube reorientation with a torque-controlled hand, not layer
   turning. The abstract has no torque value.
 - **Yang et al., RA-L 2020 (arXiv 2202.07074)**, text read: a benchmark using a standard Hasbro Rubik's Cube
-  (A9312, 5.7 cm), turned by PR2 parallel-jaw grippers. No torque or force values.
-- **Zieliński et al. 2005 (RoMoCo'05; MRROC++)**, text read: no cube torque values. Force/torque sensing was used to
+  (A9312, 5.7 cm), turned by the PR2's grippers. No torque or force values.
+- **Zieliński et al. 2005 (RoMoCo'05; MRROC++)**, text read: the paper does not mention a Rubik's cube (its examples
+  are milling, polishing, a crank, contour following, drawing and draughts), so it is the wrong source for the cube
+  work. Force/torque sensing was used to
   avoid jamming (2007 paper, on record).
 - Not read: Rigo/Higo et al., IROS 2018, DOI 10.1109/IROS.2018.8593538 (paywalled). FINGR, arXiv 2609.33973: the
   PDF is over the fetch size limit (abstract only, on record).
@@ -144,7 +153,7 @@ least 1.0".
 | Simulated peak | vs real-cube evidence | vs J7 (7 N·m continuous; 30.6 N·m URDF) | vs G2 coaxial grasp (μFa) |
 |---|---|---|---|
 | **0.14 N·m** (L0 median) | **Within.** About 1.5× the 0.09 N·m figure; inside the Q-Bot-derived 0.10–0.20 N·m; 3–7× the unverified speedcube 0.02–0.05 N·m | 2 % of continuous | Easy: 5–8 N at μ 0.3–0.5, below the G2 minimum of 10 N |
-| **0.37–0.46 N·m** (newer layouts) | **Above.** 4–5× the 0.09 N·m figure, 8–20× the speedcube claims; at the 0.45 N·m toy robustness load and the unsourced 0.5 N·m "worst case" estimate; near what hobby builders size motors for and call "overkill" | 5–7 % | Feasible: 14–23 N at μ 0.5–0.3. Not with a case-2 grasp |
+| **0.37–0.46 N·m** (newer layouts) | **Above.** 4–5× the 0.09 N·m figure, 7–23× the speedcube claims; at the 0.45 N·m toy robustness load and the unsourced 0.5 N·m "worst case" estimate; near what hobby builders size motors for and call "overkill" | 5–7 % | Feasible: 13–27 N at μ 0.5–0.3. Not with a case-2 grasp |
 | **1.0 N·m** (W3, at the limit) | **Far above.** 11× the 0.09 N·m figure, 20–50× the speedcube claims. Exceeded only by a deliberately clicky magnetic novelty puzzle (Superclick, 2.7 N·m) and giant cubes | 14 % of continuous; 3–7 % of peak or overload | **Marginal or slipping:** 35 N at μ 0.5 (70 % of G2 max; above the original gripper's 30 N); 58 N at μ 0.3 (above G2 max). The stabilizer must hold the same. Gripper squeeze at 35–50 N also loads the cube |
 
 **What this means for the 1 N·m limit as a yardstick (INFERENCE):**
@@ -183,7 +192,7 @@ least 1.0".
 | UIUC ECE 445 Design Document, "Self Solving/Scrambling Rubik's Cube" | https://courses.grainger.illinois.edu/ece445/getfile.asp?id=20853 | Lathi, Choi, Uruchima; 29 Sep 2022 | Estimates 0.05 N·m (speedcubes) and 0.5 N·m worst case (original), unsourced |
 | Twistopher-2 README | https://github.com/Eldho-546/Twistopher-2-Single-Motor-Cube-Solver | Eldho-546; undated | Luggage-scale method, no number; 2× margin; 3:1 gearing |
 | Q-Bot Instructables (page metadata only) | https://www.instructables.com/Q-Bot-the-Open-Source-Rubiks-Cube-Solver/ | Instructables author; published 2019-03-12, modified 2020-07-21 | Step "Picking the Right Motors": no manufacturer torque rating; numbers unverified |
-| "The Rubik's Contraption" | https://buildits-amk.pages.dev/posts/2018-03-07-the-rubik-s-contraption | Ben Katz (footer "© 2026 Ben Katz"; collaboration with Jared Di Carlo); 2018-03-07 | Cheap Yulong cube tightened "really tight"; ~10 ms per 90° move; no torque |
+| "The Rubik's Contraption" | https://buildits-amk.pages.dev/posts/2018-03-07-the-rubik-s-contraption | Ben Katz (footer "© 2026 Ben Katz"; collaboration with "Jared"); 2018-03-07 | Cheap Yulong cube tightened "really tight"; ~10 ms per 90° move; no torque |
 | Rubik's Cube Solver Bot | https://marjerie.github.io/projects/RCS | Marjerie Suresh; 2019 | "torque required … is low"; NEMA 17, 3.2 kg-cm |
 | Solving Rubik's Cube with a Robot Hand | https://arxiv.org/pdf/1910.07113 | OpenAI (Akkaya et al.); 2019 | No torque figure; torque limits minimized by hand; model calibration rudimentary |
 | Learning to Solve a Rubik's Cube with a Dexterous Hand | https://arxiv.org/abs/1907.11388 | Li, Xi, Fang, Xu, Meng; 26 Jul 2019 | No torque value |

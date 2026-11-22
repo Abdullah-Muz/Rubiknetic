@@ -2,7 +2,9 @@
 
 **Status:** research report; unscored; no simulation. Labels: `FACT` (stated by the named source), `INFERENCE`,
 `UNVERIFIED` (search snippet only). All sources accessed 2026-11-21. A subagent compiled this report. The main session
-re-read [P1] and [S3] and confirmed the claims attributed to them.
+re-read [P1] and [S3] and confirmed the claims attributed to them. A second subagent then fact-checked the other
+claims against their sources the same day. Its corrections are applied here: one misquote, one overstated patent
+claim relabelled as `INFERENCE`, and the GAN 12 M, GAN 13 and WR M V9 rows narrowed to what the sources state.
 
 **Why.** ER9's anchored layout (2 off-axis pairs per edge, 3 per corner) does not fit the real-mechanism CAD
 (`experiments/ER9_anchored_core_layouts/side_checks/README.md`). This report asks how real cubes place core magnets,
@@ -13,13 +15,15 @@ so that the next layout copies a buildable arrangement.
   corner on the corner's own body diagonal. It sits in the corner's foot (stalk) and faces one core magnet on the same
   axis. The core magnet is either at the end of a rod (GAN 11–15) or inside a plastic ball (ball cores). No source
   shows off-axis core-to-piece magnets.
-- **Edges are optional and often repel.** In 8-magnet designs (GAN 13 Maglev, MoYu WR M V9), edge-foot magnets repel
-  the same 8 corner-axis core magnets. "20-magnet" cores add 12 edge-axis core magnets, which "in many designs" have
-  the opposite polarity.
-- **Core magnets are added to the usual piece-to-piece magnets, not used instead of them** ([S4]: "usually used
-  alongside standard magnetization").
-- **Magnets do not hold pieces on.** In every patent read, corners and edges are held by clamping feet under the
-  centres, with the centres sprung or maglev-mounted on the shaft. Magnets add positioning and detent only.
+- **Edges are optional and often repel.** In GAN 13 Maglev, edge magnets repel "the 8 core magnets" ([S5]). In MoYu
+  WR M V9, edge magnets repel "the core magnets"; the count is not stated ([S7]). "20-magnet" cores add 12 edge-axis
+  core magnets, which "in many designs" have the opposite polarity ([S3]).
+- **Core magnets are added to the usual piece-to-piece magnets, not used instead of them** ([S4]: "Corner core
+  magnetization, otherwise called a magnetic core, is usually used in conjunction with standard magnetization").
+- **Magnets probably do not hold pieces on (`INFERENCE`).** Two patents describe how pieces are retained. In both,
+  corner feet engage under the centres and the centres are sprung: [P6] "corner block feet and engaging feet",
+  pressure spring; [P7] "rotating clamping leg". [P3] and [P8] describe maglev centres but not how corners and edges
+  are held. [P2], [P4] and [P5] say nothing about retention. No source says magnets do not retain pieces.
 - **Strength is tuned by radial gap.** MoYu's patent [P1] moves each core magnet radially; GAN 13 has a 6-level
   adjustment at the corners.
 - **No source gives a core magnet's size, grade, gap or force.** The one dimension found is GAN 17's 17.5 mm ball core.
@@ -29,10 +33,10 @@ so that the next layout copies a buildable arrangement.
 |---|---|---|---|---|---|
 | GAN 11 M Pro (2020) | 8 | corners | attract | Core end and "on the foot of the corner pieces"; rods | `FACT` [S1–S4] |
 | GAN 11–15 | – | corners | – | Rod design "appeared in the GAN 11, GAN 12, GAN 13, GAN 14 and GAN 15" | `FACT` [S3] |
-| GAN 12 M (2021) | 8 | corners | "combined with corner magnets, produced repulsion" | Longer corner-stalk magnets; "30 degree auto-alignment" | `FACT`, maker's claim [S2, S4] |
-| GAN 13 Maglev (2022) | 8 | corners attract; edges repel the same 8 | both | Corner strength adjustable in 6 levels; edge repulsion not adjustable; rods | `FACT` [S1, S5] |
+| GAN 12 M (2021) | "even more magnets"; count not stated | corners | repulsion claim `UNVERIFIED` (S2's article body no longer served; snippet only) | Longer corner-stalk magnets; "30 degree auto-alignment" | `FACT` [S4] for placement and alignment |
+| GAN 13 Maglev (2022) | 8 | corners (polarity not stated); edges repel "the 8 core magnets" | edges repel | Corner strength adjustable in 6 levels; edge repulsion not adjustable; rods | `FACT` [S1, S5] |
 | GAN 17 MagDrive | 20 in a 17.5 mm "micro ball core", plus 20 in the feet | corners and edges | core polarity not stated | Feet; ball | `FACT` [S6]; `INFERENCE`: 8 corners + 12 edges |
-| MoYu WR M V9 Ball-Core | not stated | corners, edges | edges repel "the core magnets" | ball | `FACT` [S7] |
+| MoYu WR M V9 Ball-Core | not stated | edges (corners not mentioned) | edges repel "the core magnets" | ball | `FACT` [S7] |
 | Generic 8-magnet ball core | 8 | corners | attract | One core magnet per corner, attracting "a magnet positioned inside the foot of the corresponding corner"; ball | `FACT` [S3] |
 | Generic 20-magnet ball core | 8 + 12 | corners, edges | extra 12 "do not always attract"; often opposite polarity | ball | `FACT` [S3] |
 
