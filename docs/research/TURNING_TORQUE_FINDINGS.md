@@ -198,4 +198,4 @@ least 1.0".
 | xarm_ros2 joint limits (humble) | https://raw.githubusercontent.com/xArm-Developer/xarm_ros2/humble/xarm_description/config/xarm7/joint_limits.yaml and `.../joint_limits_1305.yaml` | UFACTORY (BSD-3) | J7 30.6 N·m with derivation |
 | UFACTORY brochure (third-party host) | https://www.robotsepeti.com/Data/EditorFiles/urun%20resim/ufactory/UFACTORY-BROCHURE-EN.pdf | UFACTORY; file dated 2022-09-22 | Gripper 30 N, BIO 20 N; no joint torque |
 
-Downloaded copies and extracted text are in `dl/` next to this file. They are untrusted data; I made no edits to them.
+Downloaded copies and extracted text were kept in the session scratchpad (`torque/dl/`) and are not in the repository.
