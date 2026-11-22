@@ -3,7 +3,8 @@
 **Status:** exploratory and unscored. Every trial used ER7's rehearsal seeds (16000–16999). Nothing here is a
 VALIDATED_RESULT for gate G1, and no scored seed (17000–17999) was touched. Protocol: `PROTOCOL.md` (Parts A–E, each
 part and amendment committed before its runs). Parts A–D are complete; Part E is in progress. The decision-log row
-for ER9 will be proposed when Part E is complete.
+for ER9 will be proposed once Part E's probe is reported (P-67 item 6); a draft is in
+`proposals/ER9_RECORD_DRAFT.md`.
 
 ## Outcome in brief
 - **The problem.** No cube mechanism passes G1. M5's 48 corner–edge magnets (L0) fail on small slips at rest. The
@@ -17,7 +18,7 @@ for ER9 will be proposed when Part E is complete.
   **204 of 204** rehearsal trials and met all three of ER7's signals; L0 passed 201 and C52 194 on the same seeds.
 - **The catch.** With W3 the turner reached its 1 N·m limit in 771 of 1,376 moves (L0: 0). The layer stalls briefly at
   about 7° into a turn, then breaks through.
-- **Result 2 (diagnostics, Part E).** The stall is not caused by the anchors: it is there, and worse, with almost no
+- **Result 2 (diagnostics after Part D; they motivated Part E).** The stall is not caused by the anchors: it is there, and worse, with almost no
   magnets. INFERENCE from single-turn replays: M5's corner–edge magnets attenuate it to a sub-limit peak (L0: 0.461 N·m; pieces lag at most 0.21°).
   Part E therefore tests both together.
 - **Part E status:** probe interrupted and incomplete; no result yet (see the Part E section below).
@@ -102,10 +103,17 @@ Wrapper self-check: ER7's C52 records reproduced exactly (after deviation 1, a b
 pre-registration, with what it still lacks listed under Limits. The turner saturation is the reason I did not stop
 there.
 
+**Superseded (2026-11-22; the paragraph above is kept as fixed in Part D).** W3 is no longer a candidate: it does
+not fit the real-mechanism CAD (Limits, fit), signal 3 is a 20° proxy rather than a validation (Limits, "What signal
+3 shows"), and P-67 item 1 does not take W3 forward.
+
 ## Part E — hybrid: M5's 48 positions plus weak anchors (in progress; no result)
 - **Arms.** HB1, HB2, HB3: M5's 48 corner–edge positions plus the 96 anchor magnets (144 in all), anchors at 1, 2 and
   3 mm clearance. One magnet type throughout: 4 × 3 mm N35 at strength 0.756, which matches the pull of M5's 4 × 2 mm
-  pair (amendment 1; the table used is the one validated to 20° of tilt).
+  pair (amendment 1; the 4 × 3 table, which is validated to 7.5° for a generic tilted pair (V3b) and to 20° only on ER5's
+  on-axis face-turn paths at c = 0.2 mm; corrected 2026-11-22, see Limits).
+- **Validity limit (added 2026-11-22).** The anchors are off-axis at c = 1–3 mm; P-60 accepts c = 0.2 mm on ER5's
+  on-axis paths only, so it does not cover them.
 - **Self-check:** passed (W3's probe records reproduced with 0 differences).
 - **Smoke replays (seed 16100, first U of an E1-2 trial), before any probe trial:** peak turner torque 0.525, 0.432
   and 0.118 N·m at 1, 2 and 3 mm, no step at the 1 N·m limit (L0: 0.461; W3: 1.0 with 4.3 % of steps at the limit).
@@ -149,8 +157,10 @@ there.
 - Rehearsal only: ER7's seeds were used for diagnostics, for choosing the arms and for the rehearsal, so the 204
   trials are not independent of the selection.
 - P-58 abstraction: the magnets have no collision geometry and sit at ER4's real-mechanism radii inside the B1 model.
-- The force law was validated for coaxial piece-to-core pairs up to 20° of tilt (P-60, ER5). Off-axis anchor pairs
-  stay within that tilt range but their placement has not had its own V3-turn check.
+- The force law was validated for coaxial piece-to-core pairs to 20° of tilt only on ER5's on-axis face-turn paths at
+  c = 0.2 mm (P-60), and to 7.5° for a generic tilted 4 × 3 pair (V3b). Off-axis anchor pairs (W3, and Part E's at
+  c = 1–3 mm) have had no V3-turn check, so P-60 does not cover them. (Corrected 2026-11-22: this line used to say
+  "validated … up to 20° of tilt" without the path and clearance limits; see "What signal 3 shows".)
 - A strength scale (0.3 for W3) is not a catalogue magnet. It stands for a weaker grade, a smaller magnet or a larger
   gap; which one has not been chosen or checked for fit.
 - **Fit in a real mechanism: the anchored layout as screened does not fit the real-mechanism CAD (FACT about that

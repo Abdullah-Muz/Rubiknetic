@@ -489,7 +489,8 @@ reduced core set and displaced trajectories; new wrapper `er9g_v3turn.py`; TODO)
   8 workers.
 - W3: 22.8 h summed (7,117 s wall).
 - One E1-2 trial (`B_s16120`): L0 24 s, C52 21 s, W3 42–66 s, and Part E's HB1–HB3 547–675 s (not explained; machine
-  load likely, not checked).
+  load likely, not checked). The Part E figures are operational timing read from the log of the probe while it was
+  still running, used only for the cost estimate; they are not a Part E result.
 
 **Pair counts on different bodies (INFERENCE, hand count; GS3 checks them).**
 
