@@ -18,7 +18,7 @@ for ER9 will be proposed when Part E is complete.
 - **The catch.** With W3 the turner reached its 1 N·m limit in 771 of 1,376 moves (L0: 0). The layer stalls briefly at
   about 7° into a turn, then breaks through.
 - **Result 2 (diagnostics, Part E).** The stall is not caused by the anchors: it is there, and worse, with almost no
-  magnets. INFERENCE from single-turn replays: M5's corner–edge magnets suppress it (L0's pieces lag at most 0.21°).
+  magnets. INFERENCE from single-turn replays: M5's corner–edge magnets attenuate it to a sub-limit peak (L0: 0.461 N·m; pieces lag at most 0.21°).
   Part E therefore tests both together.
 - **Part E status:** probe interrupted and incomplete; no result yet (see the Part E section below).
 
