@@ -1,0 +1,3875 @@
+{
+ "arm": "PG8",
+ "grade": "N52",
+ "protocol": "ER9 PROTOCOL.md Part G, G.6 P1",
+ "n_magnets": 64,
+ "pair_counts": {
+  "42-42": 1092,
+  "43-43": 92,
+  "cross": 744,
+  "total": 1928
+ },
+ "step_deg": 0.5,
+ "faces": [
+  "U",
+  "R",
+  "F",
+  "D",
+  "L",
+  "B"
+ ],
+ "D_val_deg_used_for_split": "inf (pooled PC; D_val is fixed later by P4.d)",
+ "clearance_method": {
+  "source": "experiments/ER6_real_placement_screen/er6_screen.py sweep / clearance",
+  "sample_spacing_mm": 0.05,
+  "cutoff": "bounding-sphere radii sum + 0.5 mm"
+ },
+ "face_turns": {
+  "per_face": {
+   "U": {
+    "stats": {
+     "calls": 361,
+     "CE_near_evals": 7728,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 1.4787793334710982e-06,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999983,
+     "PCon_near_evals": 2160,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 17.925800601725843,
+     "PCon_clamped_z": 24,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 27.53960784034515,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.748436594569982,
+     "X_piece_piece_min_centre_distance_mm": 9.334917983362102,
+     "PC_max_path_dev_deg": 7.105427357601002e-15,
+     "PC_max_path_dev_deg_clamped": 0.0,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.8499999999999988,
+      "at": {
+       "face": "U",
+       "deg": -87.0,
+       "pair": [
+        "4x2 edge@cubie_nn0",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 304,
+      "sphere_bound_min_mm": -1.6221359549995813
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540519,
+      "at": {
+       "face": "U",
+       "deg": -6.5,
+       "pair": [
+        "4x3 corner@cubie_nnp",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 400,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 22.539607840345152
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 4.012368617070193
+     }
+    },
+    "poses": 361
+   },
+   "R": {
+    "stats": {
+     "calls": 361,
+     "CE_near_evals": 7728,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 1.4787793334710982e-06,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999983,
+     "PCon_near_evals": 2160,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 17.925800601725843,
+     "PCon_clamped_z": 24,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 27.53960784034515,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.748436594569982,
+     "X_piece_piece_min_centre_distance_mm": 9.334917983362102,
+     "PC_max_path_dev_deg": 7.105427357601002e-15,
+     "PC_max_path_dev_deg_clamped": 0.0,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.8499999999999988,
+      "at": {
+       "face": "R",
+       "deg": -87.0,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_ppn"
+       ]
+      },
+      "pairs_checked": 304,
+      "sphere_bound_min_mm": -1.6221359549995813
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "face": "R",
+       "deg": -6.5,
+       "pair": [
+        "4x3 corner@cubie_pnn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 400,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 22.539607840345152
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 4.012368617070193
+     }
+    },
+    "poses": 361
+   },
+   "F": {
+    "stats": {
+     "calls": 361,
+     "CE_near_evals": 7728,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 1.4787793334710982e-06,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999983,
+     "PCon_near_evals": 2160,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 17.9258006017258,
+     "PCon_clamped_z": 24,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 27.53960784034515,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.748436594569982,
+     "X_piece_piece_min_centre_distance_mm": 9.334917983362102,
+     "PC_max_path_dev_deg": 7.105427357601002e-15,
+     "PC_max_path_dev_deg_clamped": 0.0,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.8499999999999988,
+      "at": {
+       "face": "F",
+       "deg": -87.0,
+       "pair": [
+        "4x2 corner@cubie_nnn",
+        "4x2 edge@cubie_n0p"
+       ]
+      },
+      "pairs_checked": 304,
+      "sphere_bound_min_mm": -1.6221359549995813
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540519,
+      "at": {
+       "face": "F",
+       "deg": -6.5,
+       "pair": [
+        "4x3 corner@cubie_nnn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 400,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 22.539607840345152
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 4.012368617070193
+     }
+    },
+    "poses": 361
+   },
+   "D": {
+    "stats": {
+     "calls": 361,
+     "CE_near_evals": 7728,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 1.4787793334710982e-06,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999983,
+     "PCon_near_evals": 2160,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 17.925800601725843,
+     "PCon_clamped_z": 24,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 27.53960784034515,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.748436594569982,
+     "X_piece_piece_min_centre_distance_mm": 9.334917983362102,
+     "PC_max_path_dev_deg": 7.105427357601002e-15,
+     "PC_max_path_dev_deg_clamped": 0.0,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.8499999999999988,
+      "at": {
+       "face": "D",
+       "deg": -87.0,
+       "pair": [
+        "4x2 corner@cubie_nnn",
+        "4x2 edge@cubie_pn0"
+       ]
+      },
+      "pairs_checked": 304,
+      "sphere_bound_min_mm": -1.6221359549995813
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540519,
+      "at": {
+       "face": "D",
+       "deg": -6.5,
+       "pair": [
+        "4x3 corner@cubie_npn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 400,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 22.539607840345152
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 4.012368617070193
+     }
+    },
+    "poses": 361
+   },
+   "L": {
+    "stats": {
+     "calls": 361,
+     "CE_near_evals": 7728,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 1.4787793334710982e-06,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999983,
+     "PCon_near_evals": 2160,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 17.925800601725843,
+     "PCon_clamped_z": 24,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 27.53960784034515,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.748436594569982,
+     "X_piece_piece_min_centre_distance_mm": 9.334917983362102,
+     "PC_max_path_dev_deg": 7.105427357601002e-15,
+     "PC_max_path_dev_deg_clamped": 0.0,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.8499999999999988,
+      "at": {
+       "face": "L",
+       "deg": -87.0,
+       "pair": [
+        "4x2 corner@cubie_nnn",
+        "4x2 edge@cubie_0pn"
+       ]
+      },
+      "pairs_checked": 304,
+      "sphere_bound_min_mm": -1.6221359549995813
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540519,
+      "at": {
+       "face": "L",
+       "deg": -6.5,
+       "pair": [
+        "4x3 corner@cubie_nnn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 400,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 22.539607840345152
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 4.012368617070193
+     }
+    },
+    "poses": 361
+   },
+   "B": {
+    "stats": {
+     "calls": 361,
+     "CE_near_evals": 7728,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 1.4787793334710982e-06,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999983,
+     "PCon_near_evals": 2160,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 17.9258006017258,
+     "PCon_clamped_z": 24,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 27.53960784034515,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.748436594569982,
+     "X_piece_piece_min_centre_distance_mm": 9.334917983362102,
+     "PC_max_path_dev_deg": 7.105427357601002e-15,
+     "PC_max_path_dev_deg_clamped": 0.0,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.8499999999999988,
+      "at": {
+       "face": "B",
+       "deg": -87.0,
+       "pair": [
+        "4x2 edge@cubie_n0n",
+        "4x2 corner@cubie_npp"
+       ]
+      },
+      "pairs_checked": 304,
+      "sphere_bound_min_mm": -1.6221359549995813
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540519,
+      "at": {
+       "face": "B",
+       "deg": -6.5,
+       "pair": [
+        "4x3 corner@cubie_npp",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 400,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 22.539607840345152
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 4.012368617070193
+     }
+    },
+    "poses": 361
+   }
+  },
+  "combined": {
+   "stats": {
+    "calls": 2166,
+    "CE_near_evals": 46368,
+    "CE_near_perpendicular": 0,
+    "CE_max_near_tilt_deg": 1.4787793334710982e-06,
+    "CE_clamped_z": 0,
+    "CE_min_centre_distance_mm": 2.8499999999999983,
+    "PCon_near_evals": 12960,
+    "PCon_near_perpendicular": 0,
+    "PCon_max_near_tilt_deg": 17.925800601725843,
+    "PCon_clamped_z": 144,
+    "PCon_min_centre_distance_mm": 4.0000000000000036,
+    "PCoff_near_evals": 0,
+    "PCoff_near_perpendicular": 0,
+    "PCoff_max_near_tilt_deg": 0.0,
+    "PCoff_clamped_z": 0,
+    "PCoff_min_centre_distance_mm": null,
+    "PP3_near_evals": 0,
+    "PP3_near_perpendicular": 0,
+    "PP3_max_near_tilt_deg": 0.0,
+    "PP3_clamped_z": 0,
+    "PP3_min_centre_distance_mm": 27.53960784034515,
+    "X_near_evals": 0,
+    "X_near_perpendicular": 0,
+    "X_max_near_tilt_deg": 0.0,
+    "X_clamped_z": 0,
+    "X_min_centre_distance_mm": 8.748436594569982,
+    "X_piece_piece_min_centre_distance_mm": 9.334917983362102,
+    "PC_max_path_dev_deg": 7.105427357601002e-15,
+    "PC_max_path_dev_deg_clamped": 0.0,
+    "D_val_deg": Infinity,
+    "cross_near": 0
+   },
+   "clearance": {
+    "CE": {
+     "min_surface_clearance_mm": 0.8499999999999988,
+     "at": {
+      "face": "U",
+      "deg": -87.0,
+      "pair": [
+       "4x2 edge@cubie_nn0",
+       "4x2 corner@cubie_pnp"
+      ]
+     },
+     "pairs_checked": 1824,
+     "sphere_bound_min_mm": -1.6221359549995813
+    },
+    "PC": {
+     "min_surface_clearance_mm": 0.9065402119540519,
+     "at": {
+      "face": "U",
+      "deg": -6.5,
+      "pair": [
+       "4x3 corner@cubie_nnp",
+       "4x3 core_corner@core"
+      ]
+     },
+     "pairs_checked": 2400,
+     "sphere_bound_min_mm": -0.9999999999999966
+    },
+    "PP3": {
+     "min_surface_clearance_mm": null,
+     "at": null,
+     "pairs_checked": 0,
+     "sphere_bound_min_mm": 22.539607840345152
+    },
+    "X": {
+     "min_surface_clearance_mm": null,
+     "at": null,
+     "pairs_checked": 0,
+     "sphere_bound_min_mm": 4.012368617070193
+    }
+   }
+  }
+ },
+ "e15_like": {
+  "note": "reported only (G.6): rigid, contacts ignored; bounds what E1-5 could reach",
+  "per_alpha": {
+   "+1": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3877,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 1.414177660951948,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.1991309957166103,
+     "PCon_near_evals": 1086,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.27116325487341,
+     "PCon_clamped_z": 13,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 27.056878447194734,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.693257760852102,
+     "X_piece_piece_min_centre_distance_mm": 8.776455607205449,
+     "PC_max_path_dev_deg": 0.7101476890002729,
+     "PC_max_path_dev_deg_clamped": 0.7101476890002729,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.14026786947183298,
+      "at": {
+       "alpha_deg": 1,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 882,
+      "sphere_bound_min_mm": -2.2730049592829693
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065288399385208,
+      "at": {
+       "alpha_deg": 1,
+       "R_deg": 84.0,
+       "pair": [
+        "4x3 core_corner@core",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 564,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 22.056878447194734
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 3.9571897833523133
+     }
+    },
+    "poses": 181
+   },
+   "+2": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3878,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 2.828139867442701,
+     "CE_clamped_z": 34,
+     "CE_min_centre_distance_mm": 1.593578695299889,
+     "PCon_near_evals": 1086,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.251450190757545,
+     "PCon_clamped_z": 13,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 26.570105167066075,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.227534210591987,
+     "X_piece_piece_min_centre_distance_mm": 8.227534210591987,
+     "PC_max_path_dev_deg": 1.4262030017235787,
+     "PC_max_path_dev_deg_clamped": 1.4262030017235787,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.5584661282368965,
+      "at": {
+       "alpha_deg": 2,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 880,
+      "sphere_bound_min_mm": -2.878557259699691
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 2,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 563,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 21.570105167066078
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 3.4914662330921966
+     }
+    },
+    "poses": 181
+   },
+   "+3": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3876,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 4.241670935281687,
+     "CE_clamped_z": 34,
+     "CE_min_centre_distance_mm": 1.1109105302363182,
+     "PCon_near_evals": 1085,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.271756935973933,
+     "PCon_clamped_z": 13,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 26.079445574335164,
+     "X_near_evals": 10,
+     "X_near_perpendicular": 10,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 7.69065305997793,
+     "X_piece_piece_min_centre_distance_mm": 7.69065305997793,
+     "PC_max_path_dev_deg": 2.1479123772063815,
+     "PC_max_path_dev_deg_clamped": 2.1479123772063815,
+     "D_val_deg": Infinity,
+     "cross_near": 10
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999873057854441,
+      "at": {
+       "alpha_deg": 3,
+       "R_deg": 85.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 879,
+      "sphere_bound_min_mm": -3.3612254247632616
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065285534303815,
+      "at": {
+       "alpha_deg": 3,
+       "R_deg": 85.5,
+       "pair": [
+        "4x3 core_corner@core",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 562,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 21.079445574335164
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 2.95458508247814
+     }
+    },
+    "poses": 181
+   },
+   "+4": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3875,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 5.654554720574135,
+     "CE_clamped_z": 34,
+     "CE_min_centre_distance_mm": 0.9596530512597863,
+     "PCon_near_evals": 1083,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.16373307510792,
+     "PCon_clamped_z": 12,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 25.585065321376725,
+     "X_near_evals": 16,
+     "X_near_perpendicular": 16,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 7.168960561905436,
+     "X_piece_piece_min_centre_distance_mm": 7.168960561905436,
+     "PC_max_path_dev_deg": 2.8750322222451743,
+     "PC_max_path_dev_deg_clamped": 2.8750322222451743,
+     "D_val_deg": Infinity,
+     "cross_near": 16
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999115574914523,
+      "at": {
+       "alpha_deg": 4,
+       "R_deg": 84.5,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 875,
+      "sphere_bound_min_mm": -3.5124829037397935
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065361225719538,
+      "at": {
+       "alpha_deg": 4,
+       "R_deg": 86.5,
+       "pair": [
+        "4x3 core_corner@core",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 560,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 20.585065321376728
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 2.4328925844056464
+     }
+    },
+    "poses": 181
+   },
+   "+5": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3873,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 7.066574389261593,
+     "CE_clamped_z": 34,
+     "CE_min_centre_distance_mm": 1.2649078590890734,
+     "PCon_near_evals": 1082,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.087574853138648,
+     "PCon_clamped_z": 12,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 25.087138765913625,
+     "X_near_evals": 20,
+     "X_near_perpendicular": 20,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 6.666449339928133,
+     "X_piece_piece_min_centre_distance_mm": 6.666449339928133,
+     "PC_max_path_dev_deg": 3.6073284970712294,
+     "PC_max_path_dev_deg_clamped": 3.6073284970712294,
+     "D_val_deg": Infinity,
+     "cross_near": 20
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999140582236672,
+      "at": {
+       "alpha_deg": 5,
+       "R_deg": 85.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 869,
+      "sphere_bound_min_mm": -3.2072280959105064
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065300602448001,
+      "at": {
+       "alpha_deg": 5,
+       "R_deg": 7.0,
+       "pair": [
+        "4x3 corner@cubie_ppp",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 556,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 20.08713876591363
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 1.930381362428343
+     }
+    },
+    "poses": 181
+   },
+   "+6": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3870,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 8.477512185929957,
+     "CE_clamped_z": 34,
+     "CE_min_centre_distance_mm": 1.8084671960406318,
+     "PCon_near_evals": 1081,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.24719309323869,
+     "PCon_clamped_z": 14,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 24.585849683635047,
+     "X_near_evals": 23,
+     "X_near_perpendicular": 23,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 6.188198028911204,
+     "X_piece_piece_min_centre_distance_mm": 6.188198028911204,
+     "PC_max_path_dev_deg": 4.344576307463036,
+     "PC_max_path_dev_deg_clamped": 4.344576307463022,
+     "D_val_deg": Infinity,
+     "cross_near": 23
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999960853365125,
+      "at": {
+       "alpha_deg": 6,
+       "R_deg": 88.5,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 858,
+      "sphere_bound_min_mm": -2.663668758958948
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065288419434548,
+      "at": {
+       "alpha_deg": 6,
+       "R_deg": 89.0,
+       "pair": [
+        "4x3 core_corner@core",
+        "4x3 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 554,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 19.58584968363505
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 1.452130051411414
+     }
+    },
+    "poses": 181
+   },
+   "+7": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3884,
+     "CE_near_perpendicular": 17,
+     "CE_max_near_tilt_deg": 9.887149201653841,
+     "CE_clamped_z": 33,
+     "CE_min_centre_distance_mm": 2.435379183937749,
+     "PCon_near_evals": 1079,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.266393531080436,
+     "PCon_clamped_z": 12,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 24.08139207878312,
+     "X_near_evals": 26,
+     "X_near_perpendicular": 26,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 5.740649205511812,
+     "X_piece_piece_min_centre_distance_mm": 5.740649205511812,
+     "PC_max_path_dev_deg": 5.086559504736272,
+     "PC_max_path_dev_deg_clamped": 5.086559504736272,
+     "D_val_deg": Infinity,
+     "cross_near": 26
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.5551956611809549,
+      "at": {
+       "alpha_deg": 7,
+       "R_deg": 85.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 851,
+      "sphere_bound_min_mm": -2.0367567710618304
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065282550432424,
+      "at": {
+       "alpha_deg": 7,
+       "R_deg": 7.0,
+       "pair": [
+        "4x3 corner@cubie_pnp",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 551,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 19.081392078783125
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 1.004581228012022
+     }
+    },
+    "poses": 181
+   },
+   "+8": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3896,
+     "CE_near_perpendicular": 33,
+     "CE_max_near_tilt_deg": 11.295265140641199,
+     "CE_clamped_z": 16,
+     "CE_min_centre_distance_mm": 2.8358000005324344,
+     "PCon_near_evals": 1078,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.250770608018712,
+     "PCon_clamped_z": 14,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 23.573971107495773,
+     "X_near_evals": 27,
+     "X_near_perpendicular": 27,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 5.331880398325302,
+     "X_piece_piece_min_centre_distance_mm": 5.331880398325302,
+     "PC_max_path_dev_deg": 5.833070294756297,
+     "PC_max_path_dev_deg_clamped": 5.833070294756297,
+     "D_val_deg": Infinity,
+     "cross_near": 27
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.01870247323535471,
+      "at": {
+       "alpha_deg": 8,
+       "R_deg": 84.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 850,
+      "sphere_bound_min_mm": -1.6363359544671456
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 8,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 547,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 18.573971107495776
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 0.5958124208255114
+     }
+    },
+    "poses": 181
+   },
+   "+9": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3925,
+     "CE_near_perpendicular": 66,
+     "CE_max_near_tilt_deg": 12.701638085451078,
+     "CE_clamped_z": 8,
+     "CE_min_centre_distance_mm": 2.8328225113765986,
+     "PCon_near_evals": 1075,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.278631165467107,
+     "PCon_clamped_z": 13,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 23.063804131150437,
+     "X_near_evals": 29,
+     "X_near_perpendicular": 29,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.971761894988666,
+     "X_piece_piece_min_centre_distance_mm": 4.971761894988666,
+     "PC_max_path_dev_deg": 6.58390885686174,
+     "PC_max_path_dev_deg_clamped": 6.58390885686174,
+     "D_val_deg": Infinity,
+     "cross_near": 29
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.38197164242159437,
+      "at": {
+       "alpha_deg": 9,
+       "R_deg": 9.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 124,
+      "sphere_bound_min_mm": -1.639313443622981
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 9,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 541,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 18.06380413115044
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.6974397380863262,
+      "at": {
+       "alpha_deg": 9,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 6,
+      "sphere_bound_min_mm": 0.23569391748887647
+     }
+    },
+    "poses": 181
+   },
+   "+10": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3940,
+     "CE_near_perpendicular": 85,
+     "CE_max_near_tilt_deg": 14.106044260566337,
+     "CE_clamped_z": 15,
+     "CE_min_centre_distance_mm": 2.827172801151009,
+     "PCon_near_evals": 1072,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.27008067217343,
+     "PCon_clamped_z": 14,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 22.55112191984643,
+     "X_near_evals": 30,
+     "X_near_perpendicular": 30,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.671798227114586,
+     "X_piece_piece_min_centre_distance_mm": 4.671798227114586,
+     "PC_max_path_dev_deg": 7.338882973365891,
+     "PC_max_path_dev_deg_clamped": 7.338882973365891,
+     "D_val_deg": Infinity,
+     "cross_near": 30
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.3282620611067728,
+      "at": {
+       "alpha_deg": 10,
+       "R_deg": 9.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 121,
+      "sphere_bound_min_mm": -1.6449631538485707
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 10,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 535,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 17.55112191984643
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.5136399716701409,
+      "at": {
+       "alpha_deg": 10,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 9,
+      "sphere_bound_min_mm": -0.06426975038520454
+     }
+    },
+    "poses": 181
+   },
+   "+11": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3944,
+     "CE_near_perpendicular": 96,
+     "CE_max_near_tilt_deg": 15.508257794109268,
+     "CE_clamped_z": 20,
+     "CE_min_centre_distance_mm": 2.8210209330342653,
+     "PCon_near_evals": 1070,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.311124843970937,
+     "PCon_clamped_z": 15,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 22.036170029570485,
+     "X_near_evals": 30,
+     "X_near_perpendicular": 30,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.444360707001299,
+     "X_piece_piece_min_centre_distance_mm": 4.444360707001299,
+     "PC_max_path_dev_deg": 8.097807670111202,
+     "PC_max_path_dev_deg_clamped": 8.097807670111202,
+     "D_val_deg": Infinity,
+     "cross_near": 30
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.2747498782905939,
+      "at": {
+       "alpha_deg": 11,
+       "R_deg": 9.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 110,
+      "sphere_bound_min_mm": -1.6511150219653143
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 11,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 528,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 17.03617002957049
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.4294908464992493,
+      "at": {
+       "alpha_deg": 11,
+       "R_deg": 89.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 11,
+      "sphere_bound_min_mm": -0.29170727049849077
+     }
+    },
+    "poses": 181
+   },
+   "+12": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3948,
+     "CE_near_perpendicular": 107,
+     "CE_max_near_tilt_deg": 16.908050477499767,
+     "CE_clamped_z": 25,
+     "CE_min_centre_distance_mm": 2.8148712547324832,
+     "PCon_near_evals": 1067,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.30910743245475,
+     "PCon_clamped_z": 15,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 21.5192103806008,
+     "X_near_evals": 31,
+     "X_near_perpendicular": 31,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.30106919665153,
+     "X_piece_piece_min_centre_distance_mm": 4.30106919665153,
+     "PC_max_path_dev_deg": 8.860504868387828,
+     "PC_max_path_dev_deg_clamped": 8.860504868387828,
+     "D_val_deg": Infinity,
+     "cross_near": 31
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.2214722508037717,
+      "at": {
+       "alpha_deg": 12,
+       "R_deg": 9.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 126,
+      "sphere_bound_min_mm": -1.6572647002670964
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 12,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 518,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 16.519210380600803
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.4291144796196627,
+      "at": {
+       "alpha_deg": 12,
+       "R_deg": 87.5,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 12,
+      "sphere_bound_min_mm": -0.43499878084826044
+     }
+    },
+    "poses": 181
+   },
+   "+13": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3947,
+     "CE_near_perpendicular": 115,
+     "CE_max_near_tilt_deg": 18.305191522868594,
+     "CE_clamped_z": 28,
+     "CE_min_centre_distance_mm": 2.808726039549131,
+     "PCon_near_evals": 1062,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.140876251719657,
+     "PCon_clamped_z": 14,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 21.000523069421305,
+     "X_near_evals": 31,
+     "X_near_perpendicular": 31,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.250460367596344,
+     "X_piece_piece_min_centre_distance_mm": 4.250460367596344,
+     "PC_max_path_dev_deg": 9.626803048387998,
+     "PC_max_path_dev_deg_clamped": 9.626803048387998,
+     "D_val_deg": Infinity,
+     "cross_near": 31
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.1680494884065471,
+      "at": {
+       "alpha_deg": 13,
+       "R_deg": 9.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 137,
+      "sphere_bound_min_mm": -1.6634099154504487
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 13,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 140,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 16.00052306942131
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.43047114564760336,
+      "at": {
+       "alpha_deg": 13,
+       "R_deg": 86.5,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 13,
+      "sphere_bound_min_mm": -0.48560760990344576
+     }
+    },
+    "poses": 181
+   },
+   "+14": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3942,
+     "CE_near_perpendicular": 122,
+     "CE_max_near_tilt_deg": 19.69944731805024,
+     "CE_clamped_z": 31,
+     "CE_min_centre_distance_mm": 2.8025875783339225,
+     "PCon_near_evals": 1059,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.30910743245477,
+     "PCon_clamped_z": 16,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 20.480408451956922,
+     "X_near_evals": 31,
+     "X_near_perpendicular": 31,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.295747720406574,
+     "X_piece_piece_min_centre_distance_mm": 4.295747720406574,
+     "PC_max_path_dev_deg": 10.396536924249759,
+     "PC_max_path_dev_deg_clamped": 10.396536924249759,
+     "D_val_deg": Infinity,
+     "cross_near": 31
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.08903197893046398,
+      "at": {
+       "alpha_deg": 14,
+       "R_deg": 84.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 159,
+      "sphere_bound_min_mm": -1.6695483766656574
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 14,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 123,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 15.480408451956922
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.4289908135780443,
+      "at": {
+       "alpha_deg": 14,
+       "R_deg": 86.5,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 13,
+      "sphere_bound_min_mm": -0.4403202570932162
+     }
+    },
+    "poses": 181
+   },
+   "+15": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3923,
+     "CE_near_perpendicular": 127,
+     "CE_max_near_tilt_deg": 21.09058117899913,
+     "CE_clamped_z": 35,
+     "CE_min_centre_distance_mm": 2.7944953135047235,
+     "PCon_near_evals": 1056,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.31112484397096,
+     "PCon_clamped_z": 16,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 19.959189542425747,
+     "X_near_evals": 31,
+     "X_near_perpendicular": 31,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.433853917458203,
+     "X_piece_piece_min_centre_distance_mm": 4.433853917458203,
+     "PC_max_path_dev_deg": 9.681247810638084,
+     "PC_max_path_dev_deg_clamped": 9.681247810638084,
+     "D_val_deg": Infinity,
+     "cross_near": 31
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.62728924795651,
+      "at": {
+       "alpha_deg": 15,
+       "R_deg": 83.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 175,
+      "sphere_bound_min_mm": -1.6776406414948561
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 15,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 112,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 14.959189542425749
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.4282216883734014,
+      "at": {
+       "alpha_deg": 15,
+       "R_deg": 87.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 12,
+      "sphere_bound_min_mm": -0.302214060041587
+     }
+    },
+    "poses": 181
+   },
+   "+16": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3192,
+     "CE_near_perpendicular": 129,
+     "CE_max_near_tilt_deg": 5.0788313746688,
+     "CE_clamped_z": 37,
+     "CE_min_centre_distance_mm": 2.2630666517818043,
+     "PCon_near_evals": 1050,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.29339696167435,
+     "PCon_clamped_z": 16,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 19.437214779669937,
+     "X_near_evals": 30,
+     "X_near_perpendicular": 30,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.656319798574595,
+     "X_piece_piece_min_centre_distance_mm": 4.656319798574595,
+     "PC_max_path_dev_deg": 8.78697372418955,
+     "PC_max_path_dev_deg_clamped": 8.420072674812879,
+     "D_val_deg": Infinity,
+     "cross_near": 30
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999141442100878,
+      "at": {
+       "alpha_deg": 16,
+       "R_deg": 80.5,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 186,
+      "sphere_bound_min_mm": -2.2090693032177753
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 16,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 102,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 14.437214779669938
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.42918111261402386,
+      "at": {
+       "alpha_deg": 16,
+       "R_deg": 88.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 10,
+      "sphere_bound_min_mm": -0.07974817892519555
+     }
+    },
+    "poses": 181
+   },
+   "+17": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3198,
+     "CE_near_perpendicular": 130,
+     "CE_max_near_tilt_deg": 23.862519497971398,
+     "CE_clamped_z": 40,
+     "CE_min_centre_distance_mm": 1.7039171427772999,
+     "PCon_near_evals": 1045,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.314817007468402,
+     "PCon_clamped_z": 18,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 18.914861221601143,
+     "X_near_evals": 29,
+     "X_near_perpendicular": 29,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.951523154072115,
+     "X_piece_piece_min_centre_distance_mm": 4.951523154072115,
+     "PC_max_path_dev_deg": 7.589804190854572,
+     "PC_max_path_dev_deg_clamped": 7.589804190854572,
+     "D_val_deg": Infinity,
+     "cross_near": 29
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999989316497795,
+      "at": {
+       "alpha_deg": 17,
+       "R_deg": 81.5,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 192,
+      "sphere_bound_min_mm": -2.76821881222228
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 17,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 102,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 13.914861221601143
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.460431744425727,
+      "at": {
+       "alpha_deg": 17,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 7,
+      "sphere_bound_min_mm": 0.2154551765723247
+     }
+    },
+    "poses": 181
+   },
+   "+18": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3204,
+     "CE_near_perpendicular": 131,
+     "CE_max_near_tilt_deg": 25.24283296152112,
+     "CE_clamped_z": 42,
+     "CE_min_centre_distance_mm": 1.2258510529542126,
+     "PCon_near_evals": 1039,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.26621489393104,
+     "PCon_clamped_z": 19,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 18.39253823849186,
+     "X_near_evals": 28,
+     "X_near_perpendicular": 28,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 5.307028064254295,
+     "X_piece_piece_min_centre_distance_mm": 5.307028064254295,
+     "PC_max_path_dev_deg": 6.745226760772788,
+     "PC_max_path_dev_deg_clamped": 6.745226760772788,
+     "D_val_deg": Infinity,
+     "cross_near": 28
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999676171485473,
+      "at": {
+       "alpha_deg": 18,
+       "R_deg": 75.5,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 198,
+      "sphere_bound_min_mm": -3.246284902045367
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 18,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 102,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 13.39253823849186
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 0.5709600867545047
+     }
+    },
+    "poses": 181
+   },
+   "+19": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3208,
+     "CE_near_perpendicular": 131,
+     "CE_max_near_tilt_deg": 26.61904198676304,
+     "CE_clamped_z": 44,
+     "CE_min_centre_distance_mm": 0.9594064538588892,
+     "PCon_near_evals": 1032,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.178986052776217,
+     "PCon_clamped_z": 20,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 17.870691787327353,
+     "X_near_evals": 27,
+     "X_near_perpendicular": 27,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 5.711235352798982,
+     "X_piece_piece_min_centre_distance_mm": 5.711235352798982,
+     "PC_max_path_dev_deg": 6.445901446852666,
+     "PC_max_path_dev_deg_clamped": 5.431104780110452,
+     "D_val_deg": Infinity,
+     "cross_near": 27
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999953440360102,
+      "at": {
+       "alpha_deg": 19,
+       "R_deg": 85.5,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 202,
+      "sphere_bound_min_mm": -3.5127295011406905
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 19,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 102,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 12.870691787327353
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 0.9751673752991922
+     }
+    },
+    "poses": 181
+   },
+   "+20": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3210,
+     "CE_near_perpendicular": 130,
+     "CE_max_near_tilt_deg": 27.990890717782857,
+     "CE_clamped_z": 47,
+     "CE_min_centre_distance_mm": 1.0755354683000777,
+     "PCon_near_evals": 1025,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.206063842985763,
+     "PCon_clamped_z": 18,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 17.34980936228337,
+     "X_near_evals": 25,
+     "X_near_perpendicular": 25,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 6.154176463878057,
+     "X_piece_piece_min_centre_distance_mm": 6.154176463878057,
+     "PC_max_path_dev_deg": 6.792900868214687,
+     "PC_max_path_dev_deg_clamped": 4.098949180484389,
+     "D_val_deg": Infinity,
+     "cross_near": 25
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999651907516265,
+      "at": {
+       "alpha_deg": 20,
+       "R_deg": 83.5,
+       "pair": [
+        "4x2 edge@cubie_0np",
+        "4x2 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 204,
+      "sphere_bound_min_mm": -3.396600486699502
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": 20,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 102,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 12.34980936228337
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 1.4181084863782676
+     }
+    },
+    "poses": 181
+   },
+   "-1": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3877,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 1.414177660951948,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.522345813544015,
+     "PCon_near_evals": 1086,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.271163254873393,
+     "PCon_clamped_z": 13,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 27.297718765649687,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.693257760852102,
+     "X_piece_piece_min_centre_distance_mm": 9.053427265537294,
+     "PC_max_path_dev_deg": 0.7101476890002729,
+     "PC_max_path_dev_deg_clamped": 0.7101476890002729,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.48198786619509365,
+      "at": {
+       "alpha_deg": -1,
+       "R_deg": 88.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 883,
+      "sphere_bound_min_mm": -1.949790141455565
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065288399385226,
+      "at": {
+       "alpha_deg": -1,
+       "R_deg": 6.0,
+       "pair": [
+        "4x3 corner@cubie_pnp",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 564,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 22.29771876564969
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 3.9571897833523133
+     }
+    },
+    "poses": 181
+   },
+   "-2": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3877,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 2.828139867442701,
+     "CE_clamped_z": 18,
+     "CE_min_centre_distance_mm": 2.196158154290527,
+     "PCon_near_evals": 1086,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.251450190757545,
+     "PCon_clamped_z": 12,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 27.052758215180063,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.639099948042022,
+     "X_piece_piece_min_centre_distance_mm": 8.771754443411977,
+     "PC_max_path_dev_deg": 1.4262030017235787,
+     "PC_max_path_dev_deg_clamped": 1.4262030017235787,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.11106458027353075,
+      "at": {
+       "alpha_deg": -2,
+       "R_deg": 88.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 881,
+      "sphere_bound_min_mm": -2.2759778007090525
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -2,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 563,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 22.052758215180067
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 3.9030319705422323
+     }
+    },
+    "poses": 181
+   },
+   "-3": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3876,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 4.241670935281687,
+     "CE_clamped_z": 68,
+     "CE_min_centre_distance_mm": 1.883336728201374,
+     "PCon_near_evals": 1085,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.27175693597389,
+     "PCon_clamped_z": 12,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 26.804802552158662,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.490341414661815,
+     "X_piece_piece_min_centre_distance_mm": 8.490341414661815,
+     "PC_max_path_dev_deg": 2.1479123772063815,
+     "PC_max_path_dev_deg_clamped": 2.1479123772063815,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.2624622477119228,
+      "at": {
+       "alpha_deg": -3,
+       "R_deg": 86.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 875,
+      "sphere_bound_min_mm": -2.588799226798206
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065285534303783,
+      "at": {
+       "alpha_deg": -3,
+       "R_deg": 4.5,
+       "pair": [
+        "4x3 corner@cubie_pnp",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 562,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 21.804802552158662
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 3.7542734371620257
+     }
+    },
+    "poses": 181
+   },
+   "-4": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3873,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 5.654554720574135,
+     "CE_clamped_z": 68,
+     "CE_min_centre_distance_mm": 1.5829655133402378,
+     "PCon_near_evals": 1083,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.16373307510792,
+     "PCon_clamped_z": 12,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 26.55393034253694,
+     "X_near_evals": 0,
+     "X_near_perpendicular": 0,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 8.209688284631318,
+     "X_piece_piece_min_centre_distance_mm": 8.209688284631318,
+     "PC_max_path_dev_deg": 2.8750322222451743,
+     "PC_max_path_dev_deg_clamped": 2.8750322222451743,
+     "D_val_deg": Infinity,
+     "cross_near": 0
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.629237009987277,
+      "at": {
+       "alpha_deg": -4,
+       "R_deg": 85.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 871,
+      "sphere_bound_min_mm": -2.889170441659342
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065361225719512,
+      "at": {
+       "alpha_deg": -4,
+       "R_deg": 3.5,
+       "pair": [
+        "4x3 corner@cubie_pnp",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 560,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 21.553930342536944
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 3.473620307131528
+     }
+    },
+    "poses": 181
+   },
+   "-5": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3870,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 7.066574389261593,
+     "CE_clamped_z": 68,
+     "CE_min_centre_distance_mm": 1.316590429963097,
+     "PCon_near_evals": 1082,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.087574853138673,
+     "PCon_clamped_z": 12,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 26.300222446844415,
+     "X_near_evals": 12,
+     "X_near_perpendicular": 12,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 7.930362974731055,
+     "X_piece_piece_min_centre_distance_mm": 7.930362974731055,
+     "PC_max_path_dev_deg": 3.6073284970712294,
+     "PC_max_path_dev_deg_clamped": 3.6073284970712294,
+     "D_val_deg": Infinity,
+     "cross_near": 12
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9856731593080688,
+      "at": {
+       "alpha_deg": -5,
+       "R_deg": 84.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 871,
+      "sphere_bound_min_mm": -3.155545525036483
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065300602447979,
+      "at": {
+       "alpha_deg": -5,
+       "R_deg": 83.0,
+       "pair": [
+        "4x3 core_corner@core",
+        "4x3 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 556,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 21.30022244684442
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 3.1942949972312644
+     }
+    },
+    "poses": 181
+   },
+   "-6": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3867,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 8.477512185929957,
+     "CE_clamped_z": 69,
+     "CE_min_centre_distance_mm": 1.0953232719801342,
+     "PCon_near_evals": 1081,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.24719309323873,
+     "PCon_clamped_z": 12,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 26.043649524626048,
+     "X_near_evals": 25,
+     "X_near_perpendicular": 25,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 7.652483744312615,
+     "X_piece_piece_min_centre_distance_mm": 7.652483744312615,
+     "PC_max_path_dev_deg": 4.344576307463036,
+     "PC_max_path_dev_deg_clamped": 4.344576307463036,
+     "D_val_deg": Infinity,
+     "cross_near": 25
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999963815375051,
+      "at": {
+       "alpha_deg": -6,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 871,
+      "sphere_bound_min_mm": -3.3768126830194456
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065288419434613,
+      "at": {
+       "alpha_deg": -6,
+       "R_deg": 1.0,
+       "pair": [
+        "4x3 corner@cubie_ppp",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 554,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 21.04364952462605
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 2.916415766812825
+     }
+    },
+    "poses": 181
+   },
+   "-7": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3860,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 9.887149201653841,
+     "CE_clamped_z": 68,
+     "CE_min_centre_distance_mm": 0.9734834777090405,
+     "PCon_near_evals": 1079,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.266393531080453,
+     "PCon_clamped_z": 13,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 25.78427314171856,
+     "X_near_evals": 34,
+     "X_near_perpendicular": 34,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 7.376630270962439,
+     "X_piece_piece_min_centre_distance_mm": 7.376630270962439,
+     "PC_max_path_dev_deg": 5.086559504736272,
+     "PC_max_path_dev_deg_clamped": 5.086559504736272,
+     "D_val_deg": Infinity,
+     "cross_near": 34
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.999968111888949,
+      "at": {
+       "alpha_deg": -7,
+       "R_deg": 85.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 869,
+      "sphere_bound_min_mm": -3.4986524772905394
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065282550432427,
+      "at": {
+       "alpha_deg": -7,
+       "R_deg": 83.0,
+       "pair": [
+        "4x3 core_corner@core",
+        "4x3 corner@cubie_ppp"
+       ]
+      },
+      "pairs_checked": 551,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 20.784273141718565
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 2.6405622934626485
+     }
+    },
+    "poses": 181
+   },
+   "-8": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3848,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 8.000000000000071,
+     "CE_clamped_z": 69,
+     "CE_min_centre_distance_mm": 0.9659016628460183,
+     "PCon_near_evals": 1078,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.250770608018755,
+     "PCon_clamped_z": 14,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 25.522274479007557,
+     "X_near_evals": 39,
+     "X_near_perpendicular": 39,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 7.104051715796853,
+     "X_piece_piece_min_centre_distance_mm": 7.104051715796853,
+     "PC_max_path_dev_deg": 5.833070294756297,
+     "PC_max_path_dev_deg_clamped": 5.833070294756297,
+     "D_val_deg": Infinity,
+     "cross_near": 39
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999998574196584,
+      "at": {
+       "alpha_deg": -8,
+       "R_deg": 85.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 870,
+      "sphere_bound_min_mm": -3.5062342921535614
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -8,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 547,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 20.52227447900756
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 2.367983738297063
+     }
+    },
+    "poses": 181
+   },
+   "-9": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3847,
+     "CE_near_perpendicular": 0,
+     "CE_max_near_tilt_deg": 9.000000000000066,
+     "CE_clamped_z": 68,
+     "CE_min_centre_distance_mm": 1.0951847244306967,
+     "PCon_near_evals": 1075,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.278631165467125,
+     "PCon_clamped_z": 14,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 25.2577434023763,
+     "X_near_evals": 44,
+     "X_near_perpendicular": 44,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 6.835688816536533,
+     "X_piece_piece_min_centre_distance_mm": 6.835688816536533,
+     "PC_max_path_dev_deg": 6.58390885686174,
+     "PC_max_path_dev_deg_clamped": 6.583908856861726,
+     "D_val_deg": Infinity,
+     "cross_near": 44
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.999975663776455,
+      "at": {
+       "alpha_deg": -9,
+       "R_deg": 89.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 145,
+      "sphere_bound_min_mm": -3.376951230568883
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -9,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 541,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 20.2577434023763
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 2.0996208390367435
+     }
+    },
+    "poses": 181
+   },
+   "-10": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3867,
+     "CE_near_perpendicular": 20,
+     "CE_max_near_tilt_deg": 10.00000000000005,
+     "CE_clamped_z": 68,
+     "CE_min_centre_distance_mm": 1.3161218330765097,
+     "PCon_near_evals": 1072,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.270080672173407,
+     "PCon_clamped_z": 13,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 24.990644170254022,
+     "X_near_evals": 48,
+     "X_near_perpendicular": 48,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 6.571949581909225,
+     "X_piece_piece_min_centre_distance_mm": 6.571949581909225,
+     "PC_max_path_dev_deg": 7.338882973365891,
+     "PC_max_path_dev_deg_clamped": 7.338882973365891,
+     "D_val_deg": Infinity,
+     "cross_near": 48
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999978793086468,
+      "at": {
+       "alpha_deg": -10,
+       "R_deg": 87.5,
+       "pair": [
+        "4x2 edge@cubie_0pp",
+        "4x2 corner@cubie_ppn"
+       ]
+      },
+      "pairs_checked": 144,
+      "sphere_bound_min_mm": -3.15601412192307
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -10,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 535,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 19.990644170254026
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 1.8358816044094346
+     }
+    },
+    "poses": 181
+   },
+   "-11": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3876,
+     "CE_near_perpendicular": 30,
+     "CE_max_near_tilt_deg": 11.00000000000006,
+     "CE_clamped_z": 67,
+     "CE_min_centre_distance_mm": 1.5890910337709545,
+     "PCon_near_evals": 1070,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.311124843970937,
+     "PCon_clamped_z": 14,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 24.72091880228773,
+     "X_near_evals": 52,
+     "X_near_perpendicular": 52,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 6.313188530980124,
+     "X_piece_piece_min_centre_distance_mm": 6.313188530980124,
+     "PC_max_path_dev_deg": 8.097807670111216,
+     "PC_max_path_dev_deg_clamped": 8.097807670111216,
+     "D_val_deg": Infinity,
+     "cross_near": 52
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999952321480658,
+      "at": {
+       "alpha_deg": -11,
+       "R_deg": 89.0,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 143,
+      "sphere_bound_min_mm": -2.883044921228625
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -11,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 528,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 19.720918802287734
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 1.5771205534803345
+     }
+    },
+    "poses": 181
+   },
+   "-12": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3888,
+     "CE_near_perpendicular": 43,
+     "CE_max_near_tilt_deg": 12.000000000000078,
+     "CE_clamped_z": 63,
+     "CE_min_centre_distance_mm": 1.898268826854323,
+     "PCon_near_evals": 1067,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.30910743245477,
+     "PCon_clamped_z": 14,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 24.448899325468805,
+     "X_near_evals": 55,
+     "X_near_perpendicular": 55,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 6.061994069964317,
+     "X_piece_piece_min_centre_distance_mm": 6.061994069964317,
+     "PC_max_path_dev_deg": 8.860504868387828,
+     "PC_max_path_dev_deg_clamped": 8.860504868387828,
+     "D_val_deg": Infinity,
+     "cross_near": 55
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.9999407465202956,
+      "at": {
+       "alpha_deg": -12,
+       "R_deg": 87.0,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 142,
+      "sphere_bound_min_mm": -2.5738671281452565
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -12,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 518,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 19.44889932546881
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 1.3259260924645275
+     }
+    },
+    "poses": 181
+   },
+   "-13": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3909,
+     "CE_near_perpendicular": 66,
+     "CE_max_near_tilt_deg": 13.000000000000053,
+     "CE_clamped_z": 50,
+     "CE_min_centre_distance_mm": 2.2247919629794275,
+     "PCon_near_evals": 1062,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.140876251719618,
+     "PCon_clamped_z": 15,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 24.174497665597645,
+     "X_near_evals": 57,
+     "X_near_perpendicular": 57,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 5.818883503474133,
+     "X_piece_piece_min_centre_distance_mm": 5.818883503474133,
+     "PC_max_path_dev_deg": 9.626803048387998,
+     "PC_max_path_dev_deg_clamped": 9.626803048387998,
+     "D_val_deg": Infinity,
+     "cross_near": 57
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.7201950987182284,
+      "at": {
+       "alpha_deg": -13,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0pp",
+        "4x2 corner@cubie_ppn"
+       ]
+      },
+      "pairs_checked": 140,
+      "sphere_bound_min_mm": -2.2473439920201526
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -13,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 140,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 19.17449766559765
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 1.0828155259743435
+     }
+    },
+    "poses": 181
+   },
+   "-14": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3934,
+     "CE_near_perpendicular": 92,
+     "CE_max_near_tilt_deg": 14.000000000000053,
+     "CE_clamped_z": 39,
+     "CE_min_centre_distance_mm": 2.561864554463072,
+     "PCon_near_evals": 1059,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.30910743245475,
+     "PCon_clamped_z": 15,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 23.897657649421365,
+     "X_near_evals": 60,
+     "X_near_perpendicular": 60,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 5.584642143341301,
+     "X_piece_piece_min_centre_distance_mm": 5.584642143341301,
+     "PC_max_path_dev_deg": 10.396536924249759,
+     "PC_max_path_dev_deg_clamped": 10.072130783012767,
+     "D_val_deg": Infinity,
+     "cross_near": 60
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.3831043106469088,
+      "at": {
+       "alpha_deg": -14,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 138,
+      "sphere_bound_min_mm": -1.9102714005365078
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -14,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 123,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 18.89765764942137
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 0.8485741658415115
+     }
+    },
+    "poses": 181
+   },
+   "-15": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3976,
+     "CE_near_perpendicular": 135,
+     "CE_max_near_tilt_deg": 15.00000000000007,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.849999999999998,
+     "PCon_near_evals": 1056,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.311124843970937,
+     "PCon_clamped_z": 16,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 23.618782835023783,
+     "X_near_evals": 61,
+     "X_near_perpendicular": 61,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 5.362961152316712,
+     "X_piece_piece_min_centre_distance_mm": 5.362961152316712,
+     "PC_max_path_dev_deg": 9.68124781063807,
+     "PC_max_path_dev_deg_clamped": 9.648292550813835,
+     "D_val_deg": Infinity,
+     "cross_near": 61
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": -0.043741711754290626,
+      "at": {
+       "alpha_deg": -15,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0pp",
+        "4x2 corner@cubie_ppn"
+       ]
+      },
+      "pairs_checked": 135,
+      "sphere_bound_min_mm": -1.6221359549995817
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -15,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 112,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 18.618782835023787
+     },
+     "X": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 0.6268931748169225
+     }
+    },
+    "poses": 181
+   },
+   "-16": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3278,
+     "CE_near_perpendicular": 163,
+     "CE_max_near_tilt_deg": 16.00000000000004,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999983,
+     "PCon_near_evals": 1050,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.29339696167435,
+     "PCon_clamped_z": 18,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 23.337413382899364,
+     "X_near_evals": 63,
+     "X_near_perpendicular": 63,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 5.152575151202223,
+     "X_piece_piece_min_centre_distance_mm": 5.152575151202223,
+     "PC_max_path_dev_deg": 8.78697372418953,
+     "PC_max_path_dev_deg_clamped": 8.78697372418953,
+     "D_val_deg": Infinity,
+     "cross_near": 63
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.2977893248245322,
+      "at": {
+       "alpha_deg": -16,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0pp",
+        "4x2 corner@cubie_ppn"
+       ]
+      },
+      "pairs_checked": 134,
+      "sphere_bound_min_mm": -1.6221359549995813
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -16,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 102,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 18.337413382899367
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.7990991602485988,
+      "at": {
+       "alpha_deg": -16,
+       "R_deg": 84.0,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x3 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 9,
+      "sphere_bound_min_mm": 0.41650717370243306
+     }
+    },
+    "poses": 181
+   },
+   "-17": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3297,
+     "CE_near_perpendicular": 183,
+     "CE_max_near_tilt_deg": 17.000000000000032,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999974,
+     "PCon_near_evals": 1045,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.31481700746836,
+     "PCon_clamped_z": 17,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 23.05412630182149,
+     "X_near_evals": 65,
+     "X_near_perpendicular": 65,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.958720058058807,
+     "X_piece_piece_min_centre_distance_mm": 4.958720058058807,
+     "PC_max_path_dev_deg": 7.589804190854558,
+     "PC_max_path_dev_deg_clamped": 7.48059601768189,
+     "D_val_deg": Infinity,
+     "cross_near": 65
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.6413847654273249,
+      "at": {
+       "alpha_deg": -17,
+       "R_deg": 90.0,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 146,
+      "sphere_bound_min_mm": -1.6221359549995822
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -17,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 102,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 18.05412630182149
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.6901523630517318,
+      "at": {
+       "alpha_deg": -17,
+       "R_deg": 83.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x3 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 16,
+      "sphere_bound_min_mm": 0.2226520805590176
+     }
+    },
+    "poses": 181
+   },
+   "-18": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3313,
+     "CE_near_perpendicular": 202,
+     "CE_max_near_tilt_deg": 18.00000000000003,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999983,
+     "PCon_near_evals": 1039,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.26621489393104,
+     "PCon_clamped_z": 19,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 22.76855238891786,
+     "X_near_evals": 66,
+     "X_near_perpendicular": 66,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.780935722373138,
+     "X_piece_piece_min_centre_distance_mm": 4.780935722373138,
+     "PC_max_path_dev_deg": 6.745226760772766,
+     "PC_max_path_dev_deg_clamped": 6.628597496356335,
+     "D_val_deg": Infinity,
+     "cross_near": 66
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.849999999999999,
+      "at": {
+       "alpha_deg": -18,
+       "R_deg": 0.0,
+       "pair": [
+        "4x2 edge@cubie_n0p",
+        "4x2 corner@cubie_npp"
+       ]
+      },
+      "pairs_checked": 150,
+      "sphere_bound_min_mm": -1.6221359549995813
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -18,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 102,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 17.768552388917865
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.5847881455357776,
+      "at": {
+       "alpha_deg": -18,
+       "R_deg": 83.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x3 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 20,
+      "sphere_bound_min_mm": 0.04486774487334798
+     }
+    },
+    "poses": 181
+   },
+   "-19": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3326,
+     "CE_near_perpendicular": 218,
+     "CE_max_near_tilt_deg": 19.000000000000053,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999983,
+     "PCon_near_evals": 1032,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.178986052776136,
+     "PCon_clamped_z": 20,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 22.48111732713153,
+     "X_near_evals": 66,
+     "X_near_perpendicular": 66,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.623980890260201,
+     "X_piece_piece_min_centre_distance_mm": 4.623980890260201,
+     "PC_max_path_dev_deg": 6.445901446852666,
+     "PC_max_path_dev_deg_clamped": 5.327516155688045,
+     "D_val_deg": Infinity,
+     "cross_near": 66
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.7040580017010382,
+      "at": {
+       "alpha_deg": -19,
+       "R_deg": 66.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 151,
+      "sphere_bound_min_mm": -1.6221359549995813
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -19,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 102,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 17.481117327131532
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.484067445155837,
+      "at": {
+       "alpha_deg": -19,
+       "R_deg": 83.0,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x3 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 23,
+      "sphere_bound_min_mm": -0.11208708723958868
+     }
+    },
+    "poses": 181
+   },
+   "-20": {
+    "stats": {
+     "calls": 181,
+     "CE_near_evals": 3336,
+     "CE_near_perpendicular": 230,
+     "CE_max_near_tilt_deg": 20.000000000000032,
+     "CE_clamped_z": 0,
+     "CE_min_centre_distance_mm": 2.8499999999999983,
+     "PCon_near_evals": 1025,
+     "PCon_near_perpendicular": 0,
+     "PCon_max_near_tilt_deg": 18.206063842985763,
+     "PCon_clamped_z": 30,
+     "PCon_min_centre_distance_mm": 4.0000000000000036,
+     "PCoff_near_evals": 0,
+     "PCoff_near_perpendicular": 0,
+     "PCoff_max_near_tilt_deg": 0.0,
+     "PCoff_clamped_z": 0,
+     "PCoff_min_centre_distance_mm": null,
+     "PP3_near_evals": 0,
+     "PP3_near_perpendicular": 0,
+     "PP3_max_near_tilt_deg": 0.0,
+     "PP3_clamped_z": 0,
+     "PP3_min_centre_distance_mm": 22.1914828533052,
+     "X_near_evals": 67,
+     "X_near_perpendicular": 67,
+     "X_max_near_tilt_deg": 0.0,
+     "X_clamped_z": 0,
+     "X_min_centre_distance_mm": 4.487667483248304,
+     "X_piece_piece_min_centre_distance_mm": 4.487667483248304,
+     "PC_max_path_dev_deg": 6.792900868214659,
+     "PC_max_path_dev_deg_clamped": 4.028618764387041,
+     "D_val_deg": Infinity,
+     "cross_near": 67
+    },
+    "clearance": {
+     "CE": {
+      "min_surface_clearance_mm": 0.2807770717445507,
+      "at": {
+       "alpha_deg": -20,
+       "R_deg": 70.0,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x2 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 147,
+      "sphere_bound_min_mm": -1.6221359549995813
+     },
+     "PC": {
+      "min_surface_clearance_mm": 0.9065402119540528,
+      "at": {
+       "alpha_deg": -20,
+       "R_deg": 6.5,
+       "pair": [
+        "4x3 corner@cubie_ppn",
+        "4x3 core_corner@core"
+       ]
+      },
+      "pairs_checked": 102,
+      "sphere_bound_min_mm": -0.9999999999999966
+     },
+     "PP3": {
+      "min_surface_clearance_mm": null,
+      "at": null,
+      "pairs_checked": 0,
+      "sphere_bound_min_mm": 17.191482853305203
+     },
+     "X": {
+      "min_surface_clearance_mm": 0.42821528244938156,
+      "at": {
+       "alpha_deg": -20,
+       "R_deg": 81.5,
+       "pair": [
+        "4x2 edge@cubie_0nn",
+        "4x3 corner@cubie_pnp"
+       ]
+      },
+      "pairs_checked": 25,
+      "sphere_bound_min_mm": -0.24840049425148672
+     }
+    },
+    "poses": 181
+   }
+  },
+  "combined": {
+   "stats": {
+    "calls": 7240,
+    "CE_near_evals": 149405,
+    "CE_near_perpendicular": 2801,
+    "CE_max_near_tilt_deg": 27.990890717782857,
+    "CE_clamped_z": 1374,
+    "CE_min_centre_distance_mm": 0.9594064538588892,
+    "PCon_near_evals": 42624,
+    "PCon_near_perpendicular": 0,
+    "PCon_max_near_tilt_deg": 18.314817007468402,
+    "PCon_clamped_z": 602,
+    "PCon_min_centre_distance_mm": 4.0000000000000036,
+    "PCoff_near_evals": 0,
+    "PCoff_near_perpendicular": 0,
+    "PCoff_max_near_tilt_deg": 0.0,
+    "PCoff_clamped_z": 0,
+    "PCoff_min_centre_distance_mm": null,
+    "PP3_near_evals": 0,
+    "PP3_near_perpendicular": 0,
+    "PP3_max_near_tilt_deg": 0.0,
+    "PP3_clamped_z": 0,
+    "PP3_min_centre_distance_mm": 17.34980936228337,
+    "X_near_evals": 1288,
+    "X_near_perpendicular": 1288,
+    "X_max_near_tilt_deg": 0.0,
+    "X_clamped_z": 0,
+    "X_min_centre_distance_mm": 4.250460367596344,
+    "X_piece_piece_min_centre_distance_mm": 4.250460367596344,
+    "PC_max_path_dev_deg": 10.396536924249759,
+    "PC_max_path_dev_deg_clamped": 10.396536924249759,
+    "D_val_deg": Infinity,
+    "cross_near": 1288
+   },
+   "clearance": {
+    "CE": {
+     "min_surface_clearance_mm": -0.9999998574196584,
+     "at": {
+      "alpha_deg": -8,
+      "R_deg": 85.5,
+      "pair": [
+       "4x2 edge@cubie_0nn",
+       "4x2 corner@cubie_pnp"
+      ]
+     },
+     "pairs_checked": 17584,
+     "sphere_bound_min_mm": -3.5127295011406905
+    },
+    "PC": {
+     "min_surface_clearance_mm": 0.9065282550432424,
+     "at": {
+      "alpha_deg": 7,
+      "R_deg": 7.0,
+      "pair": [
+       "4x3 corner@cubie_pnp",
+       "4x3 core_corner@core"
+      ]
+     },
+     "pairs_checked": 14928,
+     "sphere_bound_min_mm": -0.9999999999999966
+    },
+    "PP3": {
+     "min_surface_clearance_mm": null,
+     "at": null,
+     "pairs_checked": 0,
+     "sphere_bound_min_mm": 12.34980936228337
+    },
+    "X": {
+     "min_surface_clearance_mm": 0.42821528244938156,
+     "at": {
+      "alpha_deg": -20,
+      "R_deg": 81.5,
+      "pair": [
+       "4x2 edge@cubie_0nn",
+       "4x3 corner@cubie_pnp"
+      ]
+     },
+     "pairs_checked": 186,
+     "sphere_bound_min_mm": -0.48560760990344576
+    }
+   }
+  }
+ },
+ "same_body_home": {
+  "min_surface_clearance_mm": null,
+  "pair": null,
+  "pairs_checked": 0
+ },
+ "core_to_4x2_bound": {
+  "applicable": true,
+  "min_r_4x2_mm": 28.05718490868248,
+  "max_r_core_mm": 19.85,
+  "bound_mm": 8.207184908682477,
+  "r2_mm": 8.0,
+  "margin_mm": 0.20718490868247563
+ },
+ "stops": [
+  {
+   "rule": "S1 perpendicular near pair (any class)",
+   "value": 0,
+   "limit": "0",
+   "stop": false
+  },
+  {
+   "rule": "S2a CE tilt > 5 deg",
+   "value": 1.4787793334710982e-06,
+   "limit": 5.0,
+   "margin": 4.999998521220666,
+   "stop": false
+  },
+  {
+   "rule": "S2b CE pair clamped",
+   "value": 0,
+   "limit": "0",
+   "stop": false
+  },
+  {
+   "rule": "S3 PP3 pair near",
+   "value": 0,
+   "limit": "0",
+   "min_centre_distance_mm": 27.53960784034515,
+   "stop": false
+  },
+  {
+   "rule": "S4 PC tilt > 20 deg",
+   "value": 17.925800601725843,
+   "limit": 20.0,
+   "margin": 2.074199398274157,
+   "stop": false
+  },
+  {
+   "rule": "S5a cross-type pair within r2",
+   "value": 0,
+   "limit": "0",
+   "min_centre_distance_mm": 8.748436594569982,
+   "stop": false
+  },
+  {
+   "rule": "S5b cross-type piece-to-piece minimum < r2 + 1.0 mm",
+   "value": 9.334917983362102,
+   "limit": 9.0,
+   "margin": 0.3349179833621019,
+   "stop": false
+  },
+  {
+   "rule": "S6 two magnets intersect",
+   "value": 0.8499999999999988,
+   "limit": 0.0,
+   "margin": 0.8499999999999988,
+   "stop": false
+  },
+  {
+   "rule": "S7 core-to-4x2 bound < r2",
+   "value": 8.207184908682477,
+   "limit": 8.0,
+   "margin": 0.20718490868247563,
+   "stop": false
+  }
+ ],
+ "stopped": false,
+ "wall_s": 225.25630837000003,
+ "env": {
+  "commit": "d91b628210b9f36c5aa42cd52dc6402e0efe5aad",
+  "tracked_changes": [],
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "x86_64"
+ }
+}

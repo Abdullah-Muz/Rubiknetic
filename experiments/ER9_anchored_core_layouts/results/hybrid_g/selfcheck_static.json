@@ -1,0 +1,589 @@
+{
+ "GS3": {
+  "grades": {
+   "N35": {
+    "grade": "N35",
+    "arms": {
+     "L0": {
+      "equal_to_direct_list": true,
+      "n_magnets": 48,
+      "n_magnets_expected": 48,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 0,
+       "cross": 0,
+       "total": 1092
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 0,
+       "cross": 0,
+       "total": 1092
+      },
+      "types": [
+       "4x2_N35_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "C52": {
+      "equal_to_direct_list": true,
+      "n_magnets": 40,
+      "n_magnets_expected": 40,
+      "pair_counts": {
+       "42-42": 0,
+       "43-43": 590,
+       "cross": 0,
+       "total": 590
+      },
+      "pair_counts_expected": {
+       "42-42": 0,
+       "43-43": 590,
+       "cross": 0,
+       "total": 590
+      },
+      "types": [
+       "4x3_N35_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "PG8": {
+      "equal_to_direct_list": true,
+      "n_magnets": 64,
+      "n_magnets_expected": 64,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 92,
+       "cross": 744,
+       "total": 1928
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 92,
+       "cross": 744,
+       "total": 1928
+      },
+      "types": [
+       "4x2_N35_s1",
+       "4x3_N35_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "PG20": {
+      "equal_to_direct_list": true,
+      "n_magnets": 88,
+      "n_magnets_expected": 88,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "types": [
+       "4x2_N35_s1",
+       "4x3_N35_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "PG20r": {
+      "equal_to_direct_list": true,
+      "n_magnets": 88,
+      "n_magnets_expected": 88,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "types": [
+       "4x2_N35_s1",
+       "4x3_N35_s1"
+      ],
+      "types_ok": true,
+      "n_reversed": 12,
+      "reversed_are_edge_piece_43": true,
+      "positions_unchanged": true,
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "N42": {
+    "grade": "N42",
+    "arms": {
+     "L0": {
+      "equal_to_direct_list": true,
+      "n_magnets": 48,
+      "n_magnets_expected": 48,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 0,
+       "cross": 0,
+       "total": 1092
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 0,
+       "cross": 0,
+       "total": 1092
+      },
+      "types": [
+       "4x2_N35_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "C52": {
+      "equal_to_direct_list": true,
+      "n_magnets": 40,
+      "n_magnets_expected": 40,
+      "pair_counts": {
+       "42-42": 0,
+       "43-43": 590,
+       "cross": 0,
+       "total": 590
+      },
+      "pair_counts_expected": {
+       "42-42": 0,
+       "43-43": 590,
+       "cross": 0,
+       "total": 590
+      },
+      "types": [
+       "4x3_N42_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "PG8": {
+      "equal_to_direct_list": true,
+      "n_magnets": 64,
+      "n_magnets_expected": 64,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 92,
+       "cross": 744,
+       "total": 1928
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 92,
+       "cross": 744,
+       "total": 1928
+      },
+      "types": [
+       "4x2_N35_s1",
+       "4x3_N42_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "PG20": {
+      "equal_to_direct_list": true,
+      "n_magnets": 88,
+      "n_magnets_expected": 88,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "types": [
+       "4x2_N35_s1",
+       "4x3_N42_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "PG20r": {
+      "equal_to_direct_list": true,
+      "n_magnets": 88,
+      "n_magnets_expected": 88,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "types": [
+       "4x2_N35_s1",
+       "4x3_N42_s1"
+      ],
+      "types_ok": true,
+      "n_reversed": 12,
+      "reversed_are_edge_piece_43": true,
+      "positions_unchanged": true,
+      "pass": true
+     }
+    },
+    "pass": true
+   },
+   "N52": {
+    "grade": "N52",
+    "arms": {
+     "L0": {
+      "equal_to_direct_list": true,
+      "n_magnets": 48,
+      "n_magnets_expected": 48,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 0,
+       "cross": 0,
+       "total": 1092
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 0,
+       "cross": 0,
+       "total": 1092
+      },
+      "types": [
+       "4x2_N35_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "C52": {
+      "equal_to_direct_list": true,
+      "n_magnets": 40,
+      "n_magnets_expected": 40,
+      "pair_counts": {
+       "42-42": 0,
+       "43-43": 590,
+       "cross": 0,
+       "total": 590
+      },
+      "pair_counts_expected": {
+       "42-42": 0,
+       "43-43": 590,
+       "cross": 0,
+       "total": 590
+      },
+      "types": [
+       "4x3_N52_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "PG8": {
+      "equal_to_direct_list": true,
+      "n_magnets": 64,
+      "n_magnets_expected": 64,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 92,
+       "cross": 744,
+       "total": 1928
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 92,
+       "cross": 744,
+       "total": 1928
+      },
+      "types": [
+       "4x2_N35_s1",
+       "4x3_N52_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "PG20": {
+      "equal_to_direct_list": true,
+      "n_magnets": 88,
+      "n_magnets_expected": 88,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "types": [
+       "4x2_N35_s1",
+       "4x3_N52_s1"
+      ],
+      "types_ok": true,
+      "pass": true
+     },
+     "PG20r": {
+      "equal_to_direct_list": true,
+      "n_magnets": 88,
+      "n_magnets_expected": 88,
+      "pair_counts": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "pair_counts_expected": {
+       "42-42": 1092,
+       "43-43": 590,
+       "cross": 1872,
+       "total": 3554
+      },
+      "types": [
+       "4x2_N35_s1",
+       "4x3_N52_s1"
+      ],
+      "types_ok": true,
+      "n_reversed": 12,
+      "reversed_are_edge_piece_43": true,
+      "positions_unchanged": true,
+      "pass": true
+     }
+    },
+    "pass": true
+   }
+  },
+  "pass": true
+ },
+ "GS3b": {
+  "arms": {
+   "PG20": {
+    "arm": "PG20",
+    "grade": "N52",
+    "poses": 20,
+    "seed": 2611,
+    "n_cross_pairs": 1872,
+    "max_rel_diff": {
+     "F": 9.569653861599319e-17,
+     "T": 7.42107512374362e-17,
+     "U": 1.883350224618294e-16
+    },
+    "pass": true
+   },
+   "PG20r": {
+    "arm": "PG20r",
+    "grade": "N52",
+    "poses": 20,
+    "seed": 2611,
+    "n_cross_pairs": 1872,
+    "max_rel_diff": {
+     "F": 1.378982058730356e-16,
+     "T": 1.1843496674543453e-16,
+     "U": 0.0
+    },
+    "pass": true
+   },
+   "PG8": {
+    "arm": "PG8",
+    "grade": "N52",
+    "poses": 20,
+    "seed": 2611,
+    "n_cross_pairs": 744,
+    "max_rel_diff": {
+     "F": 9.200019543485757e-17,
+     "T": 7.570509816220225e-17,
+     "U": 0.0
+    },
+    "pass": true
+   }
+  },
+  "pass": true
+ },
+ "GS5": {
+  "48_only": {
+   "er3_row": "F1 ce=+1 ec=+0",
+   "rel_diff_vs_er3": 0.005324430803641713,
+   "extended_rel_diff_vs_er3": 0.005324430803641829,
+   "er3_row_pass": false,
+   "magnet_order": "magnets.layout() (protocol's check)",
+   "with_er3_magnet_order": {
+    "same_magnet_set_as_layout": true,
+    "rel_diff_vs_er3": 2.1628438529143858e-17,
+    "pass": true,
+    "explanation": "Diagnostic, not the protocol's check. ER3's L0 row was computed with ER3's magnet order. pair_forces expands the near-field term about the first magnet's axis (ax = n[i], magnets.py l.428), so at a nonzero relative tilt a pair's energy depends on which magnet is i. The same magnets in layout() order (the order ER7's L0, M5 and the Part G arms use) therefore give different single-piece stiffnesses; with ER3's order this path reproduces ER3's row. The protocol's check (rel_diff_vs_er3, layout() order) is kept as the pass flag."
+   },
+   "probe5_mNm_per_rad": {
+    "edge n0p": -929.0371774613344,
+    "corner nnp": -420.11038602906183,
+    "pair nnp + n0p": -421.3155370194543,
+    "whole U layer": 2031.6602494183596
+   },
+   "probe5_N_m_per_rad_2dp": {
+    "edge n0p": -0.93,
+    "corner nnp": -0.42,
+    "pair nnp + n0p": -0.42
+   },
+   "er1_reported_N_m_per_rad": {
+    "edge n0p": -0.93,
+    "corner nnp": -0.42,
+    "pair nnp + n0p": -0.42
+   },
+   "probe5_rel_diff_vs_er1_json": {
+    "edge n0p": 0.0,
+    "corner nnp": 3.5179537081922203e-15,
+    "pair nnp + n0p": 1.48410764030289e-15,
+    "whole U layer": 5.595760302647221e-16
+   },
+   "probe5_pass": true,
+   "pass": false
+  },
+  "40_only": {
+   "S1": {
+    "er6_row": "N52 c=0.2mm",
+    "rel_diff_vs_er6": 3.827940886231636e-13,
+    "pass": true
+   },
+   "S2": {
+    "n_zero": 26,
+    "collective_twist_mNm_per_rad": 2.6931998808108223e-05,
+    "pass": true
+   },
+   "pass": true
+  },
+  "tables": {
+   "L0": {
+    "4x2_N35_s1": {
+     "file": "experiments/D8_alignment/results/tables/tilt_4x2_1.19T_s1_r8_h1.5_q16x48.npz",
+     "sha256": "c2ff0fcc4443419c8fa06b43cbbae24f5d541843ac9500a1b75bb378ffd2481f",
+     "validated_tilt_deg": 5.0
+    }
+   },
+   "C52": {
+    "4x3_N52_s1": {
+     "file": "experiments/M6_core_magnets/tables/tilt_4x3_1.455T_s1_r8_h1.5_q16x48.npz",
+     "sha256": "a4e5904ce5b0e581af501e3edc4c3124b5cc7cb99ad26ab7f73ffe0ab88fb7ba"
+    }
+   }
+  },
+  "pass": false
+ },
+ "GS6": {
+  "polarity": {
+   "PG20": {
+    "arm": "PG20",
+    "grade": "N52",
+    "classes": {
+     "CE": {
+      "pairs": 348,
+      "max_rel": 0.0
+     },
+     "PC": {
+      "pairs": 183,
+      "max_rel": 0.0
+     },
+     "PP3": {
+      "pairs": 40,
+      "max_rel": 0.0
+     },
+     "X": {
+      "pairs": 400,
+      "max_rel": 0.0
+     }
+    },
+    "pass": true
+   },
+   "PG20r": {
+    "arm": "PG20r",
+    "grade": "N52",
+    "classes": {
+     "CE": {
+      "pairs": 348,
+      "max_rel": 0.0
+     },
+     "PC": {
+      "pairs": 183,
+      "max_rel": 0.0
+     },
+     "PP3": {
+      "pairs": 40,
+      "max_rel": 0.0
+     },
+     "X": {
+      "pairs": 400,
+      "max_rel": 0.0
+     }
+    },
+    "pass": true
+   },
+   "PG8": {
+    "arm": "PG8",
+    "grade": "N52",
+    "classes": {
+     "CE": {
+      "pairs": 318,
+      "max_rel": 0.0
+     },
+     "PC": {
+      "pairs": 33,
+      "max_rel": 0.0
+     },
+     "PP3": {
+      "pairs": 15,
+      "max_rel": 0.0
+     },
+     "X": {
+      "pairs": 185,
+      "max_rel": 0.0
+     }
+    },
+    "pass": true
+   }
+  },
+  "path_deviation": {
+   "PG20": {
+    "arm": "PG20",
+    "n_piece_magnets": 20,
+    "poses": 1086,
+    "step_deg": 1.0,
+    "max_d_deg": 1.4210854715202004e-14,
+    "pass": true
+   },
+   "PG8": {
+    "arm": "PG8",
+    "n_piece_magnets": 8,
+    "poses": 1086,
+    "step_deg": 1.0,
+    "max_d_deg": 7.105427357601002e-15,
+    "pass": true
+   }
+  },
+  "pass": true
+ },
+ "pass": false,
+ "wall_s": 6.966916112999996,
+ "env": {
+  "commit": "77ba5b2a8fa8c6fd1da2ab53878d970f14b346a8",
+  "tracked_changes": [],
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "x86_64"
+ }
+}
