@@ -1,0 +1,10 @@
+{
+ "commit": "ffa9189ccd3e11f3a5c658d43bff65546da68962",
+ "tracked_changes": [],
+ "mujoco": "4.0.1",
+ "numpy": "2.5.4",
+ "scipy": "1.18.1",
+ "python": "3.12.3",
+ "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+ "cpu": "x86_64"
+}

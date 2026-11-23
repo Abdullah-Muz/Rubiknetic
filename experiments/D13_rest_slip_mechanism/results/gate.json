@@ -1,0 +1,77 @@
+{
+ "cases": {
+  "C1": {
+   "present": true,
+   "rest10_deg": 0.1053621980708373,
+   "committed_rest10_deg": 0.1053621980708373,
+   "rest10_equal": true,
+   "shapes_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "C2": {
+   "present": true,
+   "rest10_deg": 0.32232326340102596,
+   "committed_rest10_deg": 0.32232326340102596,
+   "rest10_equal": true,
+   "shapes_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "C3": {
+   "present": true,
+   "rest10_deg": 0.3271404921342524,
+   "committed_rest10_deg": 0.3271404921342524,
+   "rest10_equal": true,
+   "shapes_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "C4": {
+   "present": true,
+   "rest10_deg": 0.1511242080022044,
+   "committed_rest10_deg": 0.1511242080022044,
+   "rest10_equal": true,
+   "shapes_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "C5": {
+   "present": true,
+   "rest10_deg": 0.567753607916221,
+   "committed_rest10_deg": 0.567753607916221,
+   "rest10_equal": true,
+   "shapes_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "C6": {
+   "present": true,
+   "rest10_deg": 0.5588231206317719,
+   "committed_rest10_deg": 0.5588231206317719,
+   "rest10_equal": true,
+   "shapes_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "Q1": {
+   "present": true,
+   "rest10_deg": 0.04855126024268084,
+   "committed_rest10_deg": 0.04855126024268084,
+   "rest10_equal": true,
+   "shapes_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "Q2": {
+   "present": true,
+   "rest10_deg": 0.035128765463534856,
+   "committed_rest10_deg": 0.035128765463534856,
+   "rest10_equal": true,
+   "shapes_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  }
+ },
+ "pass": true
+}
