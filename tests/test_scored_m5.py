@@ -705,6 +705,9 @@ def test_scored_start_refused_when_a_results_folder_is_in_onedrive(monkeypatch, 
         R.main(["all"])
 
 
+@pytest.mark.skipif(not any(R.M4.TABLES.glob("*.npz")),
+                    reason="the git-ignored near-field tables are absent (clean clone, e.g. CI); without them the "
+                           "runner refuses the E1-7 jobs that need them (see the no_tables tests below)")
 def test_committed_v3_records_classify_440_runnable_2_not_run_0_refused():
     """Review 5, O12: the committed V3 and pair-check records give the registered E1-7 outcome."""
     run, nr, refused = R.prepare(R.build_m5_jobs("c", ENV, 5.0))
