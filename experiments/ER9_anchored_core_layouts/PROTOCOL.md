@@ -874,3 +874,15 @@ cannot be replaced by ER7's C52 table provider (with a refusal of `er7_arm` othe
 magnets); a static composite self-check GS3b (composite forces = 4×2 system + 4×3 system + cross-type dipole terms,
 at 20 poses) is added; per-class stats reset with the system's own stats; P4 evaluates both pair orders and passes
 only if both pass.
+
+### Part G deviation 2 (recorded 2026-11-22, before P3 was computed): how P3's hard stop is evaluated
+G.6's P3 hard stop (a magnet protrudes from its piece or core volume; any two magnets with a surface gap below 0.5 mm;
+any overlap) was left as a stub in the reviewed code, and the runner review found that no gate checked it. It is
+evaluated by `er9g_p3.py`, written after the other static results were read and before P3 itself was computed:
+- **Protrusion:** from the committed side-check numbers listed in G.6's P3 table (L0's positions fully inside every
+  piece; on-axis piece magnets fit with wall ≥ 0.4 mm; core cover 0.20 / 0.29 mm). The G.13 reruns that need the CAD
+  mesh (outside the repository) are not done.
+- **Surface gaps:** every pair of the arm's magnets at home, including pairs on one body and core-to-core pairs, with
+  realfit's `cyl_cyl_gap`; pairs farther apart than their bounding spheres + 0.5 mm are bounded, not sampled. Pairs on
+  different bodies during turns are P1's clearance (0.85 mm minimum for both arms, committed).
+The runner refuses an arm without a `P3_<arm>.json` that says `hard_stop: false`.
