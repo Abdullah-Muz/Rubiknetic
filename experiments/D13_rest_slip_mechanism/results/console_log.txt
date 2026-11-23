@@ -1,0 +1,20 @@
+D13 start: commit ffa9189ccd3e11f3a5c658d43bff65546da68962, 0 runs already present, free 9.5 GB
+V0 batch: 8 runs on 6 workers
+V0 C5: rest 0-10 s 0.567754 deg; event cubie_nnp/U 0.280 deg at 5.75 s; wall 385 s
+V0 C6: rest 0-10 s 0.558823 deg; event cubie_0np/U 0.276 deg at 7.77 s; wall 387 s
+V0 C3: rest 0-10 s 0.327140 deg; event cubie_0np/U 0.232 deg at 1.52 s; wall 698 s
+V0 C2: rest 0-10 s 0.322323 deg; event cubie_0np/U 0.205 deg at 15.60 s; wall 704 s
+V0 C1: rest 0-10 s 0.105362 deg; event cubie_nnp/U 0.242 deg at 15.80 s; wall 718 s
+V0 C4: rest 0-10 s 0.151124 deg; event cubie_pnp/F 0.240 deg at 14.38 s; wall 829 s
+V0 Q1: rest 0-10 s 0.048551 deg; no event; wall 693 s
+V0 Q2: rest 0-10 s 0.035129 deg; no event; wall 792 s
+reproduction gate: PASS
+cost check: projected total 2.06 h (limit 4 h), 42 runs left on 6 workers
+V2 C5: rest 0-10 s 0.001993 deg; no event; wall 461 s
+V2 C6: rest 0-10 s 0.002887 deg; no event; wall 471 s
+V2 C2: rest 0-10 s 0.001364 deg; no event; wall 823 s
+V2 C1: rest 0-10 s 0.002472 deg; no event; wall 835 s
+V2 C3: rest 0-10 s 0.001707 deg; no event; wall 848 s
+V2 C4: rest 0-10 s 0.002177 deg; no event; wall 947 s
+V2 Q1: rest 0-10 s 0.001194 deg; no event; wall 870 s
+V2 Q2: rest 0-10 s 0.001284 deg; no event; wall 974 s
