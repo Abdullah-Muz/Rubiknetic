@@ -1,0 +1,45 @@
+{
+ "n_done": 27,
+ "n_total": 106,
+ "projection": {
+  "ratio_to_er7_L0": {
+   "L0": null,
+   "PG8": 2.5172534542487295,
+   "PG20": 3.152615264118458
+  },
+  "ratio_source": {
+   "L0": "smoke projection",
+   "PG8": "probe records",
+   "PG20": "probe records"
+  },
+  "probe_h": {
+   "PG8": 6.375288096946105,
+   "PG20": 7.98442863735526
+  },
+  "rest40_h": {
+   "L0": 9.573001812738013,
+   "PG8": 10.114854709076448,
+   "PG20": 12.667872317883807
+  },
+  "probe_total_h": 46.71544557399964,
+  "full_h": {
+   "PG8": 26.29679126335887,
+   "PG20": 32.9341749017262
+  }
+ },
+ "memory": {
+  "known": true,
+  "peak_rss_kb": 145884,
+  "workers": 6,
+  "mem_available_kb": 14059636,
+  "free_after_kb": 13184332,
+  "limit_kb": 2097152.0,
+  "max_workers": 81,
+  "stop": false
+ },
+ "stop": true,
+ "reasons": [
+  "projected probe 46.72 h > 24 h"
+ ],
+ "accepted_by_user_flag": true
+}

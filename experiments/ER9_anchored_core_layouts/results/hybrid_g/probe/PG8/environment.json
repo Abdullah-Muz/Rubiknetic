@@ -1,0 +1,36 @@
+{
+ "commit": "20cdcfe3814890e6cde0118a2bcce35735ad943d",
+ "tracked_changes": [],
+ "mujoco": "4.0.1",
+ "numpy": "2.5.4",
+ "scipy": "1.18.1",
+ "python": "3.12.3",
+ "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+ "cpu": "x86_64",
+ "mode": "probe",
+ "arm": "PG8",
+ "grade": "N52",
+ "D_val_deg": 12.0,
+ "table_files": {
+  "4x2_N35_s1": {
+   "file": "experiments/D8_alignment/results/tables/tilt_4x2_1.19T_s1_r8_h1.5_q16x48.npz",
+   "sha256": "c2ff0fcc4443419c8fa06b43cbbae24f5d541843ac9500a1b75bb378ffd2481f",
+   "validated_tilt_deg": 5.0
+  },
+  "4x3_N52_s1": {
+   "file": "experiments/M6_core_magnets/tables/tilt_4x3_1.455T_s1_r8_h1.5_q16x48.npz",
+   "sha256": "a4e5904ce5b0e581af501e3edc4c3124b5cc7cb99ad26ab7f73ffe0ab88fb7ba"
+  }
+ },
+ "n_trials": 106,
+ "accept_cost_overrun": true,
+ "gates": {
+  "arm": "PG8",
+  "problems": [],
+  "notes": [
+   "GS5 read per Part G deviation 1: 40_only.pass=True, 48_only.with_er3_magnet_order.pass=True, 48_only.probe5_pass=True; layout()-order er3_row_pass=False (reported, not required)",
+   "selfcheck_static.json: accepted change 65866d695f98 experiments/ER9_anchored_core_layouts/er9g_layouts.py: install_er7 cache key only (gap at index 1); static gates (GS3/GS5/GS6, P1-P3) do not call install_er7",
+   "P1_PG8.json: accepted change 65866d695f98 experiments/ER9_anchored_core_layouts/er9g_layouts.py: install_er7 cache key only (gap at index 1); static gates (GS3/GS5/GS6, P1-P3) do not call install_er7"
+  ]
+ }
+}

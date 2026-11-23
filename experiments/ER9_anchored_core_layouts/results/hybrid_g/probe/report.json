@@ -1,0 +1,606 @@
+{
+ "arms": {
+  "PG8": {
+   "n": 106,
+   "signals": {
+    "complete": true,
+    "1_snap_scored_all_pass": true,
+    "2_rest_le_0.5_and_no_slips": false,
+    "3_e12_e15_all_pass": true,
+    "4_no_operational_trial_out_of_regime": true,
+    "all_met": false
+   },
+   "slip_seeds_0_60s": [
+    16003,
+    16011,
+    16016
+   ],
+   "out_of_regime_trials": [],
+   "failed": [],
+   "n_magnets": 64,
+   "turner_E1-2_Nm": {
+    "n_moves": 24,
+    "median": 0.378338869725284,
+    "p99": 0.6715245941081245,
+    "max": 0.680679049389374,
+    "above_0.45": 9,
+    "above_0.5": 4,
+    "at_clip": 0
+   },
+   "paired_rest_vs_L0": {
+    "n": 20,
+    "n_lower": 16,
+    "p_one_sided_lower": 0.005908966064453125,
+    "p_two_sided": 0.01181793212890625,
+    "n_seeds": 20,
+    "n_ties": 0
+   },
+   "slip_seeds_60": {
+    "arm": [
+     3,
+     20
+    ],
+    "L0": [
+     2,
+     20
+    ],
+    "arm_ci95": [
+     0.0320709371854637,
+     0.37892682654531396
+    ],
+    "L0_ci95": [
+     0.012348527170294808,
+     0.31698271401908235
+    ],
+    "fisher_one_sided_p": 0.8291753291753292,
+    "reading": "not distinguishable"
+   },
+   "slip_seeds_60_complete": false,
+   "rest_on_L0_slip_seeds": {
+    "16003": {
+     "rest_rotation_deg": 0.1053621980708373,
+     "rest60_rotation_deg": 0.1053621980708373,
+     "slip_events_60s": 2
+    },
+    "16005": {
+     "rest_rotation_deg": 0.047285595526240155,
+     "rest60_rotation_deg": 0.047285595526240155,
+     "slip_events_60s": 0
+    }
+   },
+   "snap_back": [
+    [
+     "snap_+1_s16551",
+     1.0,
+     -0.12449128127028539,
+     true
+    ],
+    [
+     "snap_+1_s16561",
+     1.0,
+     -0.06074745883629967,
+     true
+    ],
+    [
+     "snap_+2_s16552",
+     2.0,
+     0.05643267382313955,
+     true
+    ],
+    [
+     "snap_+2_s16562",
+     2.0,
+     -0.0763194814251148,
+     true
+    ],
+    [
+     "snap_+3_s16553",
+     3.0,
+     0.026445602269248802,
+     true
+    ],
+    [
+     "snap_+3_s16563",
+     3.0,
+     0.10141082907687118,
+     true
+    ],
+    [
+     "snap_+5_s16555",
+     5.0,
+     -0.009237134714002282,
+     true
+    ],
+    [
+     "snap_+5_s16565",
+     5.0,
+     0.04691610751316715,
+     true
+    ],
+    [
+     "snap_+8_s16558",
+     8.0,
+     -0.015734620804215976,
+     true
+    ],
+    [
+     "snap_+8_s16568",
+     8.0,
+     -0.01738766501338976,
+     true
+    ],
+    [
+     "snap_-1_s16551",
+     -1.0,
+     -0.028299132492228166,
+     true
+    ],
+    [
+     "snap_-1_s16561",
+     -1.0,
+     0.06372439234179704,
+     true
+    ],
+    [
+     "snap_-2_s16552",
+     -2.0,
+     -0.04630021055585568,
+     true
+    ],
+    [
+     "snap_-2_s16562",
+     -2.0,
+     -0.04598725444544925,
+     true
+    ],
+    [
+     "snap_-3_s16553",
+     -3.0,
+     -0.07041831839744507,
+     true
+    ],
+    [
+     "snap_-3_s16563",
+     -3.0,
+     0.005923054390889498,
+     true
+    ],
+    [
+     "snap_-5_s16555",
+     -5.0,
+     -0.10512634868409111,
+     true
+    ],
+    [
+     "snap_-5_s16565",
+     -5.0,
+     -0.06410143805973306,
+     true
+    ],
+    [
+     "snap_-8_s16558",
+     -8.0,
+     0.020123356316038725,
+     true
+    ],
+    [
+     "snap_-8_s16568",
+     -8.0,
+     0.018698419122611873,
+     true
+    ]
+   ],
+   "class_stats_max": {
+    "calls": 2992061,
+    "CE_near_evals": 71549108,
+    "CE_near_perpendicular": 0,
+    "CE_max_near_tilt_deg": 1.2988230855243876,
+    "CE_clamped_z": 0,
+    "CE_min_centre_distance_mm": 2.5951367201451343,
+    "PCon_near_evals": 23751962,
+    "PCon_near_perpendicular": 0,
+    "PCon_max_near_tilt_deg": 18.32191166415925,
+    "PCon_clamped_z": 6598,
+    "PCon_min_centre_distance_mm": 4.000000000217582,
+    "PCoff_near_evals": 0,
+    "PCoff_near_perpendicular": 0,
+    "PCoff_max_near_tilt_deg": 0.0,
+    "PCoff_clamped_z": 0,
+    "PP3_near_evals": 0,
+    "PP3_near_perpendicular": 0,
+    "PP3_max_near_tilt_deg": 0.0,
+    "PP3_clamped_z": 0,
+    "PP3_min_centre_distance_mm": 27.247139488447008,
+    "X_near_evals": 0,
+    "X_near_perpendicular": 0,
+    "X_max_near_tilt_deg": 0.0,
+    "X_clamped_z": 0,
+    "X_min_centre_distance_mm": 8.7125835240269,
+    "X_piece_piece_min_centre_distance_mm": 9.116788395355059,
+    "PC_max_path_dev_deg": 0.8646055969398176,
+    "PC_max_path_dev_deg_clamped": 0.5122457660990705,
+    "cross_near": 0
+   },
+   "largest_d_deg": 0.8646055969398176,
+   "legacy_proxy_flag_20deg_trials": [],
+   "steps_per_s_median": 188.0445654850155,
+   "wall_h": 5.190735089039996
+  },
+  "PG20": {
+   "n": 106,
+   "signals": {
+    "complete": true,
+    "1_snap_scored_all_pass": true,
+    "2_rest_le_0.5_and_no_slips": false,
+    "3_e12_e15_all_pass": true,
+    "4_no_operational_trial_out_of_regime": true,
+    "all_met": false
+   },
+   "slip_seeds_0_60s": [
+    16013
+   ],
+   "out_of_regime_trials": [],
+   "failed": [],
+   "n_magnets": 88,
+   "turner_E1-2_Nm": {
+    "n_moves": 24,
+    "median": 0.5763223711099001,
+    "p99": 0.8630193801185932,
+    "max": 0.8863045191458837,
+    "above_0.45": 19,
+    "above_0.5": 19,
+    "at_clip": 0
+   },
+   "paired_rest_vs_L0": {
+    "n": 20,
+    "n_lower": 17,
+    "p_one_sided_lower": 0.0012884140014648438,
+    "p_two_sided": 0.0025768280029296875,
+    "n_seeds": 20,
+    "n_ties": 0
+   },
+   "slip_seeds_60": {
+    "arm": [
+     1,
+     20
+    ],
+    "L0": [
+     2,
+     20
+    ],
+    "arm_ci95": [
+     0.0012650894979498038,
+     0.24873276277202777
+    ],
+    "L0_ci95": [
+     0.012348527170294808,
+     0.31698271401908235
+    ],
+    "fisher_one_sided_p": 0.5,
+    "reading": "not distinguishable"
+   },
+   "slip_seeds_60_complete": false,
+   "rest_on_L0_slip_seeds": {
+    "16003": {
+     "rest_rotation_deg": 0.07052298536780284,
+     "rest60_rotation_deg": 0.07052298536780284,
+     "slip_events_60s": 0
+    },
+    "16005": {
+     "rest_rotation_deg": 0.09472933340466674,
+     "rest60_rotation_deg": 0.09472933340466674,
+     "slip_events_60s": 0
+    }
+   },
+   "snap_back": [
+    [
+     "snap_+1_s16551",
+     1.0,
+     -0.01956379647290736,
+     true
+    ],
+    [
+     "snap_+1_s16561",
+     1.0,
+     -0.014389033453290508,
+     true
+    ],
+    [
+     "snap_+2_s16552",
+     2.0,
+     0.007844508147707662,
+     true
+    ],
+    [
+     "snap_+2_s16562",
+     2.0,
+     -0.011388824923313206,
+     true
+    ],
+    [
+     "snap_+3_s16553",
+     3.0,
+     0.010036853674389848,
+     true
+    ],
+    [
+     "snap_+3_s16563",
+     3.0,
+     0.019634930018786415,
+     true
+    ],
+    [
+     "snap_+5_s16555",
+     5.0,
+     0.030683316243856354,
+     true
+    ],
+    [
+     "snap_+5_s16565",
+     5.0,
+     0.02839588704038595,
+     true
+    ],
+    [
+     "snap_+8_s16558",
+     8.0,
+     0.00632160714681456,
+     true
+    ],
+    [
+     "snap_+8_s16568",
+     8.0,
+     0.019349345410863986,
+     true
+    ],
+    [
+     "snap_-1_s16551",
+     -1.0,
+     0.0023963547636799767,
+     true
+    ],
+    [
+     "snap_-1_s16561",
+     -1.0,
+     -0.005225115657601225,
+     true
+    ],
+    [
+     "snap_-2_s16552",
+     -2.0,
+     -0.0005631228014770343,
+     true
+    ],
+    [
+     "snap_-2_s16562",
+     -2.0,
+     0.038379588723066016,
+     true
+    ],
+    [
+     "snap_-3_s16553",
+     -3.0,
+     0.028137024893758168,
+     true
+    ],
+    [
+     "snap_-3_s16563",
+     -3.0,
+     0.02983813371190534,
+     true
+    ],
+    [
+     "snap_-5_s16555",
+     -5.0,
+     -0.029719208744876362,
+     true
+    ],
+    [
+     "snap_-5_s16565",
+     -5.0,
+     -0.03194237863877904,
+     true
+    ],
+    [
+     "snap_-8_s16558",
+     -8.0,
+     -0.018843520240797405,
+     true
+    ],
+    [
+     "snap_-8_s16568",
+     -8.0,
+     -0.02159433730687409,
+     true
+    ]
+   ],
+   "class_stats_max": {
+    "calls": 2992061,
+    "CE_near_evals": 71558638,
+    "CE_near_perpendicular": 0,
+    "CE_max_near_tilt_deg": 1.2974271183519566,
+    "CE_clamped_z": 0,
+    "CE_min_centre_distance_mm": 2.6583589052371988,
+    "PCon_near_evals": 59838711,
+    "PCon_near_perpendicular": 0,
+    "PCon_max_near_tilt_deg": 18.416326607396083,
+    "PCon_clamped_z": 54560,
+    "PCon_min_centre_distance_mm": 4.000000000056646,
+    "PCoff_near_evals": 0,
+    "PCoff_near_perpendicular": 0,
+    "PCoff_max_near_tilt_deg": 0.0,
+    "PCoff_clamped_z": 0,
+    "PP3_near_evals": 0,
+    "PP3_near_perpendicular": 0,
+    "PP3_max_near_tilt_deg": 0.0,
+    "PP3_clamped_z": 0,
+    "PP3_min_centre_distance_mm": 14.309111975099034,
+    "X_near_evals": 0,
+    "X_near_perpendicular": 0,
+    "X_max_near_tilt_deg": 0.0,
+    "X_clamped_z": 0,
+    "X_min_centre_distance_mm": 8.163389574767395,
+    "X_piece_piece_min_centre_distance_mm": 9.169363598721782,
+    "PC_max_path_dev_deg": 0.796972160210025,
+    "PC_max_path_dev_deg_clamped": 0.6289544561546805,
+    "cross_near": 0
+   },
+   "largest_d_deg": 0.796972160210025,
+   "legacy_proxy_flag_20deg_trials": [],
+   "steps_per_s_median": 159.61714169191663,
+   "wall_h": 6.172043928822219
+  }
+ },
+ "D_val": {
+  "PG8": 12.0,
+  "PG20": 12.0
+ },
+ "turner_references_E1-2": {
+  "L0": {
+   "n_moves": 24,
+   "median": 0.14371574143540516,
+   "p99": 0.45991369677766925,
+   "max": 0.4610294451073229,
+   "above_0.45": 2,
+   "above_0.5": 0,
+   "at_clip": 0
+  },
+  "C52": {
+   "n_moves": 24,
+   "median": 0.7001795931109038,
+   "p99": 1.0,
+   "max": 1.0,
+   "above_0.45": 21,
+   "above_0.5": 20,
+   "at_clip": 4
+  },
+  "W3": {
+   "n_moves": 24,
+   "median": 0.9472046310152693,
+   "p99": 1.0,
+   "max": 1.0,
+   "above_0.45": 23,
+   "above_0.5": 23,
+   "at_clip": 9
+  },
+  "HB1": {
+   "n_moves": 24,
+   "median": 0.46076834737711314,
+   "p99": 0.8601236165553603,
+   "max": 0.9007725845778095,
+   "above_0.45": 13,
+   "above_0.5": 9,
+   "at_clip": 0
+  },
+  "HB2": {
+   "n_moves": 24,
+   "median": 0.36985464795242173,
+   "p99": 0.608161204855024,
+   "max": 0.6112848487674846,
+   "above_0.45": 8,
+   "above_0.5": 4,
+   "at_clip": 0
+  },
+  "HB3": {
+   "n_moves": 24,
+   "median": 0.38800500624372986,
+   "p99": 0.9105186398797258,
+   "max": 0.9890290262263237,
+   "above_0.45": 7,
+   "above_0.5": 5,
+   "at_clip": 0
+  }
+ },
+ "turner_references_full_run": {
+  "L0": {
+   "n_moves": 1376,
+   "median": 0.2026934071844959,
+   "p99": 0.5630169543966503,
+   "max": 0.8701416089046976,
+   "above_0.45": 176,
+   "above_0.5": 38,
+   "at_clip": 0
+  },
+  "C52": {
+   "n_moves": 1376,
+   "median": 0.645299368933623,
+   "p99": 1.0,
+   "max": 1.0,
+   "above_0.45": 1064,
+   "above_0.5": 991,
+   "at_clip": 69
+  }
+ },
+ "gravity_sag_from_smoke": {
+  "L0": 0.7265310112686143,
+  "PG8": 0.4660387271855512,
+  "PG20": 0.43014352279811857
+ },
+ "gates": {
+  "PG8": {
+   "arm": "PG8",
+   "problems": [],
+   "notes": [
+    "GS5 read per Part G deviation 1: 40_only.pass=True, 48_only.with_er3_magnet_order.pass=True, 48_only.probe5_pass=True; layout()-order er3_row_pass=False (reported, not required)",
+    "selfcheck_static.json: accepted change 65866d695f98 experiments/ER9_anchored_core_layouts/er9g_layouts.py: install_er7 cache key only (gap at index 1); static gates (GS3/GS5/GS6, P1-P3) do not call install_er7",
+    "P1_PG8.json: accepted change 65866d695f98 experiments/ER9_anchored_core_layouts/er9g_layouts.py: install_er7 cache key only (gap at index 1); static gates (GS3/GS5/GS6, P1-P3) do not call install_er7"
+   ]
+  },
+  "PG20": {
+   "arm": "PG20",
+   "problems": [],
+   "notes": [
+    "GS5 read per Part G deviation 1: 40_only.pass=True, 48_only.with_er3_magnet_order.pass=True, 48_only.probe5_pass=True; layout()-order er3_row_pass=False (reported, not required)",
+    "selfcheck_static.json: accepted change 65866d695f98 experiments/ER9_anchored_core_layouts/er9g_layouts.py: install_er7 cache key only (gap at index 1); static gates (GS3/GS5/GS6, P1-P3) do not call install_er7"
+   ]
+  }
+ },
+ "selection": {
+  "complete": true,
+  "arms_considered": [
+   "PG8",
+   "PG20"
+  ],
+  "stopped_arms": {},
+  "rows": {
+   "PG8": {
+    "all_met": false,
+    "median_e12_turner_Nm": 0.378338869725284,
+    "n_magnets": 64
+   },
+   "PG20": {
+    "all_met": false,
+    "median_e12_turner_Nm": 0.5763223711099001,
+    "n_magnets": 88
+   }
+  },
+  "selected": null,
+  "note": "no arm meets all four signals: Part G ends with the probe report; the next step goes to the user"
+ },
+ "cost": {
+  "ratio_to_er7_L0": {
+   "PG8": 2.0495380968328463,
+   "PG20": 2.437003420605413,
+   "L0": null
+  },
+  "ratio_source": {
+   "PG8": "probe records",
+   "PG20": "probe records",
+   "L0": "ratio 1 (no measurement)"
+  },
+  "probe_h": {
+   "PG8": 5.190735089039996,
+   "PG20": 6.172043928822219
+  },
+  "rest40_h": {
+   "L0": 4.018210677992777,
+   "PG8": 8.235475865646738,
+   "PG20": 9.792393166981594
+  },
+  "probe_total_h": 33.408858728483324,
+  "full_h": {
+   "PG8": 21.4107464736007,
+   "PG20": 25.458449625557588
+  }
+ }
+}
