@@ -1,0 +1,85 @@
+{
+ "commit": "85a0164af52c04c701bc36d4389e6a17c64c6dd8",
+ "protocol": "Part G G.0 item 1 (V4, V5, V6 of the composite system); deviation 3",
+ "PG8": {
+  "V4": {
+   "poses": 12,
+   "max_rel_net_force": 3.025700396813692e-17,
+   "max_rel_net_torque": 1.6344334486345008e-17,
+   "pass": true
+  },
+  "V6": {
+   "max_abs_magnet_qfrc": 0.027742137507123538,
+   "max_change_from_ctrl_time_qvel_act": 0.0,
+   "installed_matches_direct": 1.734723475976807e-18,
+   "pass": true
+  },
+  "V5": {
+   "integrator": "RK4",
+   "duration_s": 0.5,
+   "timestep_s": 0.0005,
+   "energy_exchanged_J": 0.0043357637892791345,
+   "max_drift_J": 1.0006010976490454e-05,
+   "drift_rel": 0.0023077850784288356,
+   "stats": {
+    "calls": 4001,
+    "clamped_z": 0,
+    "near_perpendicular": 0,
+    "max_force_N": 2.169990572817784,
+    "max_near_tilt_deg": 2.4610394197933125,
+    "list_rebuilds": 66,
+    "list_pairs": 400,
+    "near_cross_type": 0,
+    "min_cross_type_r_m": 0.0093349179833621,
+    "clamped_z[4x2_N35_s1]": 0,
+    "near_perpendicular[4x2_N35_s1]": 0,
+    "max_near_tilt_deg[4x2_N35_s1]": 1.7075472925031877e-06,
+    "clamped_z[4x3_N52_s1]": 0,
+    "near_perpendicular[4x3_N52_s1]": 0,
+    "max_near_tilt_deg[4x3_N52_s1]": 2.4610394197933125
+   },
+   "pass": true
+  }
+ },
+ "PG20": {
+  "V4": {
+   "poses": 12,
+   "max_rel_net_force": 1.7704444149631694e-17,
+   "max_rel_net_torque": 1.2299183588933351e-17,
+   "pass": true
+  },
+  "V6": {
+   "max_abs_magnet_qfrc": 0.02769677631859653,
+   "max_change_from_ctrl_time_qvel_act": 0.0,
+   "installed_matches_direct": 1.734723475976807e-18,
+   "pass": true
+  },
+  "V5": {
+   "integrator": "RK4",
+   "duration_s": 0.5,
+   "timestep_s": 0.0005,
+   "energy_exchanged_J": 0.005793122801061368,
+   "max_drift_J": 2.354556830536092e-05,
+   "drift_rel": 0.0040643999987445625,
+   "stats": {
+    "calls": 4001,
+    "clamped_z": 0,
+    "near_perpendicular": 0,
+    "max_force_N": 2.1578778130268375,
+    "max_near_tilt_deg": 2.465495145731465,
+    "list_rebuilds": 77,
+    "list_pairs": 820,
+    "near_cross_type": 0,
+    "min_cross_type_r_m": 0.0093349179833621,
+    "clamped_z[4x2_N35_s1]": 0,
+    "near_perpendicular[4x2_N35_s1]": 0,
+    "max_near_tilt_deg[4x2_N35_s1]": 1.7075472925031877e-06,
+    "clamped_z[4x3_N52_s1]": 0,
+    "near_perpendicular[4x3_N52_s1]": 0,
+    "max_near_tilt_deg[4x3_N52_s1]": 2.465495145731465
+   },
+   "pass": true
+  }
+ },
+ "pass": true
+}
