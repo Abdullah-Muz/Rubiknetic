@@ -18,3 +18,43 @@ V2 C3: rest 0-10 s 0.001707 deg; no event; wall 848 s
 V2 C4: rest 0-10 s 0.002177 deg; no event; wall 947 s
 V2 Q1: rest 0-10 s 0.001194 deg; no event; wall 870 s
 V2 Q2: rest 0-10 s 0.001284 deg; no event; wall 974 s
+--- resume
+D13 start: commit e3bfec6d5b93da1bc433707d3736b51b82778bae, 16 runs already present, free 9.7 GB
+reproduction gate: PASS
+cost check: projected total 2.22 h (limit 4 h), 34 runs left on 4 workers
+V3 C1: rest 0-10 s 0.319920 deg; event cubie_nnp/U 0.215 deg at 4.05 s; wall 1173 s
+V3 C2: rest 0-10 s 0.066502 deg; no event; wall 1181 s
+V3 C3: rest 0-10 s 0.244649 deg; event cubie_n0p/U 0.202 deg at 0.72 s; wall 1187 s
+V3 C4: rest 0-10 s 0.047120 deg; no event; wall 1379 s
+V3 C5: rest 0-10 s 0.534555 deg; event cubie_nnp/U 0.207 deg at 6.20 s; wall 581 s
+V3 C6: rest 0-10 s 0.542303 deg; event cubie_pnp/U 0.353 deg at 4.17 s; wall 585 s
+V3 Q1: rest 0-10 s 0.104054 deg; no event; wall 1162 s
+V1 C1: rest 0-10 s 0.015110 deg; no event; wall 631 s
+V1 C2: rest 0-10 s 0.157500 deg; no event; wall 629 s
+V3 Q2: rest 0-10 s 0.034567 deg; no event; wall 1320 s
+V1 C5: rest 0-10 s 0.016638 deg; event cubie_nnp/U 0.395 deg at 57.20 s; wall 324 s
+V1 C3: rest 0-10 s 0.061292 deg; event cubie_0np/U 0.206 deg at 12.98 s; wall 634 s
+V1 C6: rest 0-10 s 0.025120 deg; no event; wall 362 s
+V1 C4: rest 0-10 s 0.013532 deg; no event; wall 793 s
+V1 Q1: rest 0-10 s 0.029986 deg; no event; wall 790 s
+G1 C1: rest 0-10 s 0.028907 deg; no event; wall 849 s
+V1 Q2: rest 0-10 s 0.010691 deg; no event; wall 942 s
+G1 C2: rest 0-10 s 0.039386 deg; no event; wall 816 s
+G1 C3: rest 0-10 s 0.139784 deg; no event; wall 759 s
+G1 C5: rest 0-10 s 0.054773 deg; no event; wall 365 s
+G1 C6: rest 0-10 s 0.088265 deg; no event; wall 340 s
+G1 C4: rest 0-10 s 0.091392 deg; no event; wall 760 s
+G2 C1: rest 0-10 s 0.059338 deg; no event; wall 634 s
+G2 C2: rest 0-10 s 0.090937 deg; no event; wall 639 s
+G2 C3: rest 0-10 s 0.082572 deg; no event; wall 639 s
+G2 C5: rest 0-10 s 0.459653 deg; event cubie_pnn/D 0.213 deg at 1.32 s; wall 345 s
+G2 C6: rest 0-10 s 0.241640 deg; no event; wall 328 s
+G2 C4: rest 0-10 s 0.048843 deg; no event; wall 735 s
+S1 C1: rest 0-10 s 0.356227 deg; event cubie_nnp/U 0.230 deg at 10.13 s; wall 624 s
+S1 C2: rest 0-10 s 0.045619 deg; no event; wall 632 s
+S1 C3: rest 0-10 s 0.058310 deg; no event; wall 634 s
+S1 C5: rest 0-10 s 0.070221 deg; event cubie_nnp/U 0.388 deg at 23.60 s; wall 325 s
+S1 C4: rest 0-10 s 0.068181 deg; no event; wall 712 s
+S1 C6: rest 0-10 s 0.180085 deg; event cubie_pnp/U 0.386 deg at 10.90 s; wall 296 s
+D13 runs complete: 50 / 50
+exit 0

@@ -18,3 +18,41 @@
 2026-11-23 11:20:41 V2 C4: rest 0-10 s 0.002177 deg; no event; wall 947 s
 2026-11-23 11:27:08 V2 Q1: rest 0-10 s 0.001194 deg; no event; wall 870 s
 2026-11-23 11:29:03 V2 Q2: rest 0-10 s 0.001284 deg; no event; wall 974 s
+2026-11-23 11:42:27 D13 start: commit e3bfec6d5b93da1bc433707d3736b51b82778bae, 16 runs already present, free 9.7 GB
+2026-11-23 11:42:33 reproduction gate: PASS
+2026-11-23 11:42:36 cost check: projected total 2.22 h (limit 4 h), 34 runs left on 4 workers
+2026-11-23 12:02:12 V3 C1: rest 0-10 s 0.319920 deg; event cubie_nnp/U 0.215 deg at 4.05 s; wall 1173 s
+2026-11-23 12:02:19 V3 C2: rest 0-10 s 0.066502 deg; no event; wall 1181 s
+2026-11-23 12:02:26 V3 C3: rest 0-10 s 0.244649 deg; event cubie_n0p/U 0.202 deg at 0.72 s; wall 1187 s
+2026-11-23 12:05:38 V3 C4: rest 0-10 s 0.047120 deg; no event; wall 1379 s
+2026-11-23 12:11:56 V3 C5: rest 0-10 s 0.534555 deg; event cubie_nnp/U 0.207 deg at 6.20 s; wall 581 s
+2026-11-23 12:12:08 V3 C6: rest 0-10 s 0.542303 deg; event cubie_pnp/U 0.353 deg at 4.17 s; wall 585 s
+2026-11-23 12:21:51 V3 Q1: rest 0-10 s 0.104054 deg; no event; wall 1162 s
+2026-11-23 12:22:30 V1 C1: rest 0-10 s 0.015110 deg; no event; wall 631 s
+2026-11-23 12:22:39 V1 C2: rest 0-10 s 0.157500 deg; no event; wall 629 s
+2026-11-23 12:27:40 V3 Q2: rest 0-10 s 0.034567 deg; no event; wall 1320 s
+2026-11-23 12:28:06 V1 C5: rest 0-10 s 0.016638 deg; event cubie_nnp/U 0.395 deg at 57.20 s; wall 324 s
+2026-11-23 12:32:29 V1 C3: rest 0-10 s 0.061292 deg; event cubie_0np/U 0.206 deg at 12.98 s; wall 634 s
+2026-11-23 12:33:45 V1 C6: rest 0-10 s 0.025120 deg; no event; wall 362 s
+2026-11-23 12:35:46 V1 C4: rest 0-10 s 0.013532 deg; no event; wall 793 s
+2026-11-23 12:41:19 V1 Q1: rest 0-10 s 0.029986 deg; no event; wall 790 s
+2026-11-23 12:47:57 G1 C1: rest 0-10 s 0.028907 deg; no event; wall 849 s
+2026-11-23 12:48:14 V1 Q2: rest 0-10 s 0.010691 deg; no event; wall 942 s
+2026-11-23 12:49:26 G1 C2: rest 0-10 s 0.039386 deg; no event; wall 816 s
+2026-11-23 12:54:00 G1 C3: rest 0-10 s 0.139784 deg; no event; wall 759 s
+2026-11-23 12:54:21 G1 C5: rest 0-10 s 0.054773 deg; no event; wall 365 s
+2026-11-23 12:55:09 G1 C6: rest 0-10 s 0.088265 deg; no event; wall 340 s
+2026-11-23 13:00:39 G1 C4: rest 0-10 s 0.091392 deg; no event; wall 760 s
+2026-11-23 13:04:37 G2 C1: rest 0-10 s 0.059338 deg; no event; wall 634 s
+2026-11-23 13:05:03 G2 C2: rest 0-10 s 0.090937 deg; no event; wall 639 s
+2026-11-23 13:05:50 G2 C3: rest 0-10 s 0.082572 deg; no event; wall 639 s
+2026-11-23 13:10:25 G2 C5: rest 0-10 s 0.459653 deg; event cubie_pnn/D 0.213 deg at 1.32 s; wall 345 s
+2026-11-23 13:10:33 G2 C6: rest 0-10 s 0.241640 deg; no event; wall 328 s
+2026-11-23 13:12:57 G2 C4: rest 0-10 s 0.048843 deg; no event; wall 735 s
+2026-11-23 13:16:17 S1 C1: rest 0-10 s 0.356227 deg; event cubie_nnp/U 0.230 deg at 10.13 s; wall 624 s
+2026-11-23 13:20:59 S1 C2: rest 0-10 s 0.045619 deg; no event; wall 632 s
+2026-11-23 13:21:10 S1 C3: rest 0-10 s 0.058310 deg; no event; wall 634 s
+2026-11-23 13:21:44 S1 C5: rest 0-10 s 0.070221 deg; event cubie_nnp/U 0.388 deg at 23.60 s; wall 325 s
+2026-11-23 13:24:52 S1 C4: rest 0-10 s 0.068181 deg; no event; wall 712 s
+2026-11-23 13:25:58 S1 C6: rest 0-10 s 0.180085 deg; event cubie_pnp/U 0.386 deg at 10.90 s; wall 296 s
+2026-11-23 13:25:58 D13 runs complete: 50 / 50

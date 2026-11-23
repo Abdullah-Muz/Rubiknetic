@@ -9,14 +9,14 @@
   "Q1": 693.0061055840001,
   "Q2": 791.6480088740002
  },
- "v0_batch_elapsed_s": 1197.4686558246613,
- "remaining_runs": 42,
- "workers": 6,
- "projected_total_s": 7398.138682527661,
+ "v0_batch_elapsed_s": 1301.81195323725,
+ "remaining_runs": 34,
+ "workers": 4,
+ "projected_total_s": 7999.19308681725,
  "limit_s": 14400.0,
  "factors": {
   "V2": 2.0,
   "V3": 2.0
  },
- "elapsed_this_session_s": 1197.5094349384308
+ "elapsed_this_session_s": 8.389466524124146
 }
