@@ -886,3 +886,11 @@ evaluated by `er9g_p3.py`, written after the other static results were read and 
   realfit's `cyl_cyl_gap`; pairs farther apart than their bounding spheres + 0.5 mm are bounded, not sampled. Pairs on
   different bodies during turns are P1's clearance (0.85 mm minimum for both arms, committed).
 The runner refuses an arm without a `P3_<arm>.json` that says `hard_stop: false`.
+
+### Part G deviation 3 (recorded 2026-11-22, before any Part G probe trial): composite V4/V5/V6 run late
+G.0 item 1 requires the composite magnet system to pass V4 (momentum), V5 (energy) and V6 (pose-only) before GS1.
+Only V4 existed (`tests/test_magnets_composite.py`, `test_composite_conserves_momentum`); V5 and V6 had not been run
+for the composite. A subagent drafting the scored pre-registration found the gap after GS1, GS2 and GS4 had passed.
+`er9g_composite_checks.py` runs D8-1b's own V4/V5/V6 models and criteria for PG8 and PG20 through
+`er9g_layouts.build_system`, before any probe trial. GS1/GS2/GS4 are unaffected (they test reproduction, not these
+properties). If any check fails, Part G stops before the probe.
