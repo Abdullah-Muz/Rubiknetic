@@ -2,7 +2,7 @@
 
 **Status:** exploratory and unscored. Every trial used ER7's rehearsal seeds (16000–16999). Nothing here is a
 VALIDATED_RESULT for gate G1, and no scored seed (17000–17999) was touched. Protocol: `PROTOCOL.md` (Parts A–E, each
-part and amendment committed before its runs). Parts A–D are complete; Part E is in progress. The decision-log row
+part and amendment committed before its runs). Parts A–D are complete; Part E's probe is complete (`6e722e1`). The decision-log row
 for ER9 will be proposed once Part E's probe is reported (P-67 item 6); a draft is in
 `proposals/ER9_RECORD_DRAFT.md`.
 
@@ -21,7 +21,10 @@ for ER9 will be proposed once Part E's probe is reported (P-67 item 6); a draft 
 - **Result 2 (diagnostics after Part D; they motivated Part E).** The stall is not caused by the anchors: it is there, and worse, with almost no
   magnets. INFERENCE from single-turn replays: M5's corner–edge magnets attenuate it to a sub-limit peak (L0: 0.461 N·m; pieces lag at most 0.21°).
   Part E therefore tests both together.
-- **Part E status:** probe interrupted and incomplete; no result yet (see the Part E section below).
+- **Part E probe (complete, 318 / 318).** HB1 and HB3 meet probe signals 1–3 and HB2 misses signal 2 (one rest at
+  0.516° > 0.5°); no arm can meet signal 4 (known before the probe). The hybrids' E1-2 turner medians, 0.37–0.46 N·m,
+  are 2.6–3.2× L0's 0.144 N·m on the same seeds. Whether the selected arm (HB3) gets the full rehearsal is the
+  user's decision (P-67 item 7, U7).
 
 ## Part A — static screen (243 layouts)
 - Layouts: edges on their axis or split into 2 pairs at 14–20° toward the centres or the corners; corners on their
@@ -107,7 +110,7 @@ there.
 not fit the real-mechanism CAD (Limits, fit), signal 3 is a 20° proxy rather than a validation (Limits, "What signal
 3 shows"), and P-67 item 1 does not take W3 forward.
 
-## Part E — hybrid: M5's 48 positions plus weak anchors (in progress; no result)
+## Part E — hybrid: M5's 48 positions plus weak anchors (probe complete; full rehearsal not run)
 - **Arms.** HB1, HB2, HB3: M5's 48 corner–edge positions plus the 96 anchor magnets (144 in all), anchors at 1, 2 and
   3 mm clearance. One magnet type throughout: 4 × 3 mm N35 at strength 0.756, which matches the pull of M5's 4 × 2 mm
   pair (amendment 1; the 4 × 3 table, which is validated to 7.5° for a generic tilted pair (V3b) and to 20° only on ER5's
@@ -122,12 +125,41 @@ not fit the real-mechanism CAD (Limits, fit), signal 3 is a 20° proxy rather th
   only within 45° of parallel. For those 12 pairs the dipole formula the simulation uses is within 3.5 % of the charge
   model in torque about the turn axis (0.39 mN·m of 11.3 mN·m). That is a measured size of the error, not a
   validation. Accepting it would be an amendment of the kind P-60 was, which is the user's decision.
-- **Probe status (2026-11-21).** The 318-trial probe has been stopped three times by low-memory stops (other jobs
-  were running on the machine): at 75, 223 and 275 of 318 trials. These are not failures of the run. Every record
-  present was checked to decompress; the runner skips existing records, so each restart continues where it stopped.
-  The partial records are not committed and are not interpreted here.
-- **Still to do:** finish the probe; report the signals per arm; run the full 204-trial rehearsal on the eligible arm
-  with the lowest median E1-2 turner torque; analysis beside L0, C52 and W3.
+- **Probe run.** 318 / 318 trials, finished 2026-11-22 (`6e722e1`, `results/hybrid/probe/report.json`). The run was
+  stopped three times by low-memory stops (at 75, 223 and 275 trials) and once paused at the user's request (296);
+  the runner skips existing records, so each restart continued where it stopped. All 318 records decompress. Worker
+  count changed between restarts (12, 14, 4, 6); each trial runs in its own process, so it does not enter a result.
+- **Probe signals (FACT, from the report; signals as in Part B, eligibility as in amendment 2).**
+
+  | Arm | Passed (of 106) | 1 snap-back | 2 rest ≤ 0.5° | 3 E1-2 and E1-5 | 4 regime | Max near tilt | Eligible |
+  |---|---|---|---|---|---|---|---|
+  | HB1 (1 mm) | 106 | met | met (0.169°) | met | not met | 17.4° | yes |
+  | HB2 (2 mm) | 105 (E1-1 19 / 20) | met | **missed (0.516°)** | met | not met | 15.5° | no |
+  | HB3 (3 mm) | 106 | met | met (0.463°) | met | not met | 12.4° | yes |
+
+  Flagged trials (a near pair over the tilt limit or a perpendicular near pair): HB1 70, HB2 73, HB3 74 of 106.
+- **Beside the Parts B–D arms on the same 106 seeds (FACT).**
+
+  | Arm | Rest max | Snap-back max error | E1-2 turner median / max | Moves at the 1 N·m limit (of 24) | Summed trial wall time |
+  |---|---|---|---|---|---|
+  | L0 | 0.568° | 0.269° | 0.144 / 0.461 N·m | 0 | 2.5 h |
+  | C52 | 3.4e-6° | 1.01° | 0.700 / 1.0 N·m | 4 | 2.1 h |
+  | W3 | 0.011° | 0.028° | 0.947 / 1.0 N·m | 9 | 3.0 h |
+  | HB1 | 0.169° | 0.080° | 0.461 / 0.901 N·m | 0 | 26.2 h |
+  | HB2 | 0.516° | 0.185° | 0.370 / 0.611 N·m | 0 | 27.1 h |
+  | HB3 | 0.463° | 0.191° | 0.388 / 0.989 N·m | 0 | 27.5 h |
+
+  The hybrids' wall times were measured with other jobs on the machine and are not comparable with the others'.
+- **Selection rule (amendment 2), applied as reporting only.** Eligible: HB1 and HB3. Lowest median E1-2 turner torque:
+  **HB3** (0.388 N·m). It is the arm a full rehearsal would use.
+- **Reading (as fixed by amendment 2; no more).** HB1 and HB3 meet probe signals 1–3 on these 106 rehearsal trials;
+  HB2 misses signal 2 by 0.016°. No hybrid arm can be named a candidate for a scored pre-registration (signal 4).
+  Against P-67 item 4's realism reference (about 0.2 N·m) and warning level (0.45–0.5 N·m): the hybrid medians are
+  above the reference, and HB1's median is at the warning level; HB3's maximum, 0.989 N·m, is just under the clip.
+  INFERENCE: the anchors buy rest stiffness (rest max 0.17–0.52° against L0's 0.57°) at 2.6–3.2× L0's median turner
+  torque, and the hybrid does not fit the real CAD (the anchors are W3's geometry).
+- **Full rehearsal: not run.** P-67 item 7 runs it only if the hybrid stays in contention; Part G's decision U7
+  recommends probe-only, recorded by amendment 3 (draft in `proposals/ER9_RECORD_DRAFT.md`). Awaiting the user.
 
 ## Diagnostics (exploratory; single seeds; `results/probe/diag/`)
 - **Snap-back replay (seed 16568, +8°).** S1, S2, W1, W2: no leftover spin on any piece. W3: U error 0.028°, largest
