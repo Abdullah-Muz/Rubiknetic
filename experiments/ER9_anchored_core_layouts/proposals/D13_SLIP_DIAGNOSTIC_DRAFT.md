@@ -1,5 +1,7 @@
 # DRAFT — not approved
 
+> **Superseded 2026-11-23.** Approved by the user ("okay now, begin working on it") and recorded as P-72 in `docs/DECISION_LOG.md`. The fixed protocol is `experiments/D13_rest_slip_mechanism/PROTOCOL.md` (its section 7 lists the changes from this draft, all made before any run). This file is kept unchanged below as the approved draft.
+
 **Status: PROPOSAL, 2026-11-23.** Nothing here is recorded, approved or in force. `docs/DECISION_LOG.md`,
 `../PROTOCOL.md` and `../SUMMARY.md` are unchanged, and no D13 simulation has run. Two parts, each needing the user's
 approval:
