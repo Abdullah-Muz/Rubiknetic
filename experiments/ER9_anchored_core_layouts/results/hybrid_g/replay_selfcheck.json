@@ -4,14 +4,14 @@
    "reference": "experiments/ER9_anchored_core_layouts/results/probe/diag/turn_L0_s16100.json",
    "n_diffs": 0,
    "diffs": [],
-   "steps_per_s": 255.38614799089152,
+   "steps_per_s": 144.8086836326014,
    "n_magnets": 48
   },
   "C52": {
    "reference": "experiments/ER9_anchored_core_layouts/results/probe/diag/turn_C52_s16100.json",
    "n_diffs": 0,
    "diffs": [],
-   "steps_per_s": 251.6845818197186,
+   "steps_per_s": 149.0838950050247,
    "n_magnets": 40
   }
  },
@@ -29,6 +29,6 @@
  },
  "pass": true,
  "snap_reported_pass": true,
- "commit": "9753518f04e09585373b78c27eb8075d2d188a17",
+ "commit": "f49a47d5d1ec85d00b44b47ab6c8a99cb010b075",
  "code_problems": []
 }

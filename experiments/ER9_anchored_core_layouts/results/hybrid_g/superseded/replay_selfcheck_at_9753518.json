@@ -1,0 +1,34 @@
+{
+ "turn": {
+  "L0": {
+   "reference": "experiments/ER9_anchored_core_layouts/results/probe/diag/turn_L0_s16100.json",
+   "n_diffs": 0,
+   "diffs": [],
+   "steps_per_s": 255.38614799089152,
+   "n_magnets": 48
+  },
+  "C52": {
+   "reference": "experiments/ER9_anchored_core_layouts/results/probe/diag/turn_C52_s16100.json",
+   "n_diffs": 0,
+   "diffs": [],
+   "steps_per_s": 251.6845818197186,
+   "n_magnets": 40
+  }
+ },
+ "snap_reported": {
+  "L0": {
+   "reference": "experiments/ER7_core_magnet_rehearsal/posthoc/snap_L0_s16568_+8.json",
+   "n_diffs": 0,
+   "diffs": []
+  },
+  "C52": {
+   "reference": "experiments/ER7_core_magnet_rehearsal/posthoc/snap_C52_s16568_+8.json",
+   "n_diffs": 0,
+   "diffs": []
+  }
+ },
+ "pass": true,
+ "snap_reported_pass": true,
+ "commit": "9753518f04e09585373b78c27eb8075d2d188a17",
+ "code_problems": []
+}

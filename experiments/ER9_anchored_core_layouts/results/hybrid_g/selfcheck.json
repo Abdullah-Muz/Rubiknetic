@@ -1,8 +1,11 @@
 {
- "commit": "79572c6088e19c03b01e8d04eb1376e89c37a091",
+ "commit": "f49a47d5d1ec85d00b44b47ab6c8a99cb010b075",
  "env": {
-  "commit": "79572c6088e19c03b01e8d04eb1376e89c37a091",
-  "tracked_changes": [],
+  "commit": "f49a47d5d1ec85d00b44b47ab6c8a99cb010b075",
+  "tracked_changes": [
+   "R  experiments/ER9_anchored_core_layouts/results/hybrid_g/replay_selfcheck.json -> experiments/ER9_anchored_core_layouts/results/hybrid_g/superseded/replay_selfcheck_at_9753518.json",
+   "R  experiments/ER9_anchored_core_layouts/results/hybrid_g/selfcheck.json -> experiments/ER9_anchored_core_layouts/results/hybrid_g/superseded/selfcheck_at_9753518.json"
+  ],
   "mujoco": "4.0.1",
   "numpy": "2.5.4",
   "scipy": "1.18.1",
