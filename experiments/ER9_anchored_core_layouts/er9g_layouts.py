@@ -233,7 +233,9 @@ def install_er7(arm: str, grade: str = "N52", cls=None, tables: dict | None = No
         M4.configure_process()
         if mp is None:
             raise RuntimeError("ER9 Part G runs magnet-arm jobs only")
-        key = ("ER9G", arm, grade, gap)
+        # gap at index 1, as in M4's (mp, gap) and ER7's ("C52", gap) keys: E5.run_job records M4._MS_KEY[1] as
+        # rec["magnets"]["layout_gap"], which GS1/GS2 compare with ER7's records
+        key = (("ER9G", arm, grade), gap)
         if M4._MS is not None and M4._MS_KEY == key:
             M4._MS.install()
             return M4._MS
