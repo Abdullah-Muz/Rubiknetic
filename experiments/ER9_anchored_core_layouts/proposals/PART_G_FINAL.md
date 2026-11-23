@@ -1,3 +1,6 @@
+> **Superseded 2026-11-22: fixed as Part G in `../PROTOCOL.md` with the defaults U1–U8 (P-69).** The protocol text is
+> the one in PROTOCOL.md; this file is kept as the proposal record.
+>
 > **Final text, pending decisions U1–U7 (box below).** Drafted by a subagent on 2026-11-21 under P-67. Once the user
 > decides U1–U7, it is appended to `../PROTOCOL.md` as Part G and committed before any Part G computation.
 >
