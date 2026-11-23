@@ -851,3 +851,26 @@ changes nothing in `src/` beyond the separately reviewed composite system, and t
 | Steps/s and peak memory per arm | smoke replays (G.7) |
 | L0's 12.59° by sub-experiment | ER7 L0 records (`magnet_outside_validated_range`, `rule3_label`) |
 | Seed search for 16700–16739 | `git grep` over `experiments/**` (recorded in the commit message) |
+
+### Part G deviation 1 (recorded 2026-11-22, before any Part G static result was read): GS5's 48-only half
+**What.** GS5 asks the 48-only static path to reproduce ER3's L0 row to 1e-9. With `layout()`'s magnet order it differs
+by 5.3e-3 (relative, GS5's metric; e.g. edge spin 118.19 against ER3's 120.86 mN·m/rad).
+
+**Explanation (FACT, checked by the code's author, by an independent reviewer and by the main session).**
+`pair_forces` expands the near-field term about the first magnet's axis of each pair (`magnets.py`, `ax = n[i[k]]`),
+so a tilted pair's energy depends on which magnet is listed first. ER3 listed its magnets in a different order (corner
+first in all 24 near facing pairs; `layout()` has the corner first in 12). The same new code fed ER3's own list
+reproduces ER3's row to 2.2e-17, and ER3's own `torques()` fed `layout()`'s order gives the same 5.3e-3. `layout()`'s
+order is the one M5's and ER7's trials ran with (`M4.use_magnets` passes `mags=None`, so `MagnetSystem` falls back to
+`layout()`), so Part G keeps it; GS1 checks it dynamically against ER7's L0 records.
+
+**Change.** GS5's 48-only half is read as passed on the ER3-order comparison (2.2e-17), with the `layout()`-order
+miss reported beside it. Stiffnesses in this family depend on pair order by up to about 4 % (reviewer: every pair edge
+first gives spin 115.52 and twist 122.80 against 117.82); P2's L0 row is therefore compared with ER3's only through
+this note. Nothing else in Part G changes.
+
+**Review fixes applied before any Part G computation (code review 2026-11-22):** the 4×2 table is built directly and
+cannot be replaced by ER7's C52 table provider (with a refusal of `er7_arm` other than "L0" for arms with 4×2
+magnets); a static composite self-check GS3b (composite forces = 4×2 system + 4×3 system + cross-type dipole terms,
+at 20 poses) is added; per-class stats reset with the system's own stats; P4 evaluates both pair orders and passes
+only if both pass.
