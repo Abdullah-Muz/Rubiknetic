@@ -7,6 +7,16 @@
 > The 4 × 3 piece-side core-pair magnets sit at r ≥ 23.850 mm. The cross-type piece pairs they form with 4 × 2
 > magnets are handled by P1's rigid-turn minimum and its 1.0 mm margin.
 >
+> **Correction (2026-11-22, `side_checks/u8_cross_type/`; main session re-ran `diag_cross.py` and confirmed):** the
+> box below misattributes the 8.178 mm figure. In rigid turns no piece-to-piece cross pair comes closer than its home
+> 9.335 mm; the rigid-turn cross minimum, 8.176 mm, is an edge 4 × 2 against a **core** `core_edge` 4 × 3 (PG20 only,
+> bounded at 8.117 mm). So in rigid turns no cross pair is within r2 and the piece-to-piece minimum (9.335 mm) meets
+> r2 + 1.0 mm: P1's cross-type rule would not stop either arm on these numbers (P1 itself not yet run). The 7.3–7.9 mm
+> values come from σ = 1–2° per-component random test tilts, i.e. relative tilts of about 3.5–9°; the pair reaches
+> r2 at about 3.4° relative tilt. Measured point-dipole error for the cross pairs (FACT, charge model): vector force
+> error 3.4–6.5 % at 8.18 mm and up to 7.4 % (|F| −5.1 %) at 7.3–7.9 mm, smaller than the same-type error the force
+> law already accepts at 8 mm (4 × 2 coaxial 22 %). U8 is still the user's decision; the box is kept as written.
+>
 > **Known issue found after this text was written (composite-code tests, 2026-11-21): P1 as written would stop both
 > arms.**
 > - The closest cross-type pair is an edge's 4 × 2 magnet against the neighbouring corner's on-axis 4 × 3 piece

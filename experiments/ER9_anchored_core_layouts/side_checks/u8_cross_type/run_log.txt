@@ -1,0 +1,304 @@
+self-checks {
+ "identical_4x2_N35_s1_energy_rel_diff_vs_repo": 4.440892098500626e-16,
+ "identical_4x3_N52_s1_energy_rel_diff_vs_repo": -3.3306690738754696e-16,
+ "force_vs_minus_grad_U_rel_diff": 3.285502677661336e-10,
+ "torque2_vs_minus_dU_dtheta_rel_diff": 7.470067954800581e-10,
+ "ang_mom_balance_rel": 3.7619762804684796e-15,
+ "volume_dipole_cross_check": {
+  "coaxial_4x2_4x2_8mm": {
+   "r_mm": 8.0,
+   "point_dipole_F_rel_err_vs_ref": 0.22365481801569678,
+   "volume_dipole_ladder": [
+    {
+     "cells": [
+      4,
+      16,
+      3
+     ],
+     "F_rel_diff_vs_ref": 0.0034114332105963157,
+     "T1_rel_diff_vs_ref": 4.96009198150244e-21,
+     "T2_rel_diff_vs_ref": 5.252486424115585e-21
+    },
+    {
+     "cells": [
+      6,
+      24,
+      4
+     ],
+     "F_rel_diff_vs_ref": 0.0009137542001660222,
+     "T1_rel_diff_vs_ref": 5.797554339580859e-21,
+     "T2_rel_diff_vs_ref": 9.955337201899668e-21
+    },
+    {
+     "cells": [
+      8,
+      32,
+      5
+     ],
+     "F_rel_diff_vs_ref": 0.0003036114852760107,
+     "T1_rel_diff_vs_ref": 2.4346089501957625e-21,
+     "T2_rel_diff_vs_ref": 6.519694134284905e-21
+    }
+   ]
+  },
+  "home_closest_cross": {
+   "r_mm": 9.334917983362105,
+   "point_dipole_F_rel_err_vs_ref": 0.048827714944095324,
+   "volume_dipole_ladder": [
+    {
+     "cells": [
+      4,
+      16,
+      3
+     ],
+     "F_rel_diff_vs_ref": 0.0036652399469280393,
+     "T1_rel_diff_vs_ref": 0.006285629470155234,
+     "T2_rel_diff_vs_ref": 0.0025540320957579553
+    },
+    {
+     "cells": [
+      6,
+      24,
+      4
+     ],
+     "F_rel_diff_vs_ref": 0.0021570447664711707,
+     "T1_rel_diff_vs_ref": 0.0006503821488026128,
+     "T2_rel_diff_vs_ref": 0.001275910993058431
+    },
+    {
+     "cells": [
+      8,
+      32,
+      5
+     ],
+     "F_rel_diff_vs_ref": 0.001413808497657844,
+     "T1_rel_diff_vs_ref": 0.0003893166264788157,
+     "T2_rel_diff_vs_ref": 0.0007710694835127641
+    }
+   ]
+  }
+ }
+}
+geometry {
+ "home_min_piece_cross_mm": 9.334917983362105,
+ "home_min_pair": "edge4x2@cubie_nn0 - corner4x3@cubie_nnn",
+ "home_n_piece_cross_within_10mm": 24,
+ "home_min_core_cross_mm": 10.641020840063158,
+ "rigid_turn_min_piece_cross": {
+  "min_mm": 9.334917983362105,
+  "face": [
+   0,
+   0,
+   1
+  ],
+  "angle_deg": -90.0,
+  "pair": "edge4x2@cubie_nn0 - corner4x3@cubie_nnn"
+ },
+ "rigid_turn_min_core_cross": {
+  "min_mm": 8.176208523788306,
+  "face": [
+   0,
+   0,
+   1
+  ],
+  "angle_deg": -66.96999999999973,
+  "pair": "edge4x2@cubie_n0p - core_edge4x3@core"
+ },
+ "core_cross_radius_bound_mm": 8.117184908682482,
+ "worst_angle_per_face": {
+  "(0, 0, 1)": {
+   "min_mm": 9.334917983362102,
+   "angle_deg": -85.0
+  },
+  "(0, 0, -1)": {
+   "min_mm": 9.334917983362102,
+   "angle_deg": -85.0
+  },
+  "(1, 0, 0)": {
+   "min_mm": 9.334917983362102,
+   "angle_deg": -85.0
+  },
+  "(-1, 0, 0)": {
+   "min_mm": 9.334917983362102,
+   "angle_deg": -85.0
+  },
+  "(0, 1, 0)": {
+   "min_mm": 9.334917983362102,
+   "angle_deg": -85.0
+  },
+  "(0, -1, 0)": {
+   "min_mm": 9.334917983362102,
+   "angle_deg": -85.0
+  }
+ }
+}
+det tilt 0.25 deg: min r 9.236 mm (edge_only, edge4x2@cubie_nn0 - corner4x3@cubie_nnn) |F|err=-0.0145 Fvec=0.0496 T1/mB=0.1232 T2/mB=0.0263 Tc=0.0164
+det tilt 0.50 deg: min r 9.137 mm (edge_only, edge4x2@cubie_nn0 - corner4x3@cubie_nnn) |F|err=-0.0153 Fvec=0.0504 T1/mB=0.1255 T2/mB=0.0266 Tc=0.0180
+det tilt 0.71 deg: min r 9.054 mm (edge_only, edge4x2@cubie_nn0 - corner4x3@cubie_nnn) |F|err=-0.0160 Fvec=0.0510 T1/mB=0.1273 T2/mB=0.0268 Tc=0.0193
+det tilt 1.00 deg: min r 8.940 mm (edge_only, edge4x2@cubie_nn0 - corner4x3@cubie_nnn) |F|err=-0.0170 Fvec=0.0520 T1/mB=0.1299 T2/mB=0.0272 Tc=0.0212
+det tilt 1.50 deg: min r 8.744 mm (edge_only, edge4x2@cubie_nn0 - corner4x3@cubie_nnn) |F|err=-0.0190 Fvec=0.0538 T1/mB=0.1344 T2/mB=0.0277 Tc=0.0249
+det tilt 2.00 deg: min r 8.549 mm (split, edge4x2@cubie_nn0 - corner4x3@cubie_nnn) |F|err=-0.0213 Fvec=0.0557 T1/mB=0.1387 T2/mB=0.0282 Tc=0.0290
+det tilt 3.00 deg: min r 8.164 mm (edge_only, edge4x2@cubie_nn0 - corner4x3@cubie_nnn) |F|err=-0.0268 Fvec=0.0602 T1/mB=0.1469 T2/mB=0.0290 Tc=0.0387
+det tilt 5.00 deg: min r 7.413 mm (edge_only, edge4x2@cubie_nn0 - corner4x3@cubie_nnn) |F|err=-0.0434 Fvec=0.0721 T1/mB=0.1582 T2/mB=0.0274 Tc=0.0659
+piece_home_closest edge4x2@cubie_nn0 - corner4x3@cubie_nnn face None at 0.0 deg actual r 9.335
+  r= 7.300 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0209 Fvec=0.0847 ang=4.75  T1/mB=0.2032 T2/mB=0.0509 T1rel=0.663 T2rel=0.0736 Tc=0.0275
+  r= 7.600 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0197 Fvec=0.0772 ang=4.32  T1/mB=0.1865 T2/mB=0.0455 T1rel=0.644 T2rel=0.0662 Tc=0.0252
+  r= 7.900 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0185 Fvec=0.0707 ang=3.95  T1/mB=0.1718 T2/mB=0.0408 T1rel=0.625 T2rel=0.0599 Tc=0.0230
+  r= 8.178 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0174 Fvec=0.0654 ang=3.65  T1/mB=0.1597 T2/mB=0.0371 T1rel=0.607 T2rel=0.0547 Tc=0.0212
+  r= 8.500 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0163 Fvec=0.0600 ang=3.34  T1/mB=0.1472 T2/mB=0.0334 T1rel=0.588 T2rel=0.0495 Tc=0.0192
+  r= 9.000 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0147 Fvec=0.0529 ang=2.93  T1/mB=0.1306 T2/mB=0.0286 T1rel=0.559 T2rel=0.0427 Tc=0.0166
+  r= 9.335 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0137 Fvec=0.0488 ang=2.70  T1/mB=0.1210 T2/mB=0.0260 T1rel=0.540 T2rel=0.0389 Tc=0.0150
+  r=10.000 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0121 Fvec=0.0420 ang=2.32  T1/mB=0.1049 T2/mB=0.0217 T1rel=0.504 T2rel=0.0327 Tc=0.0124
+  r=12.000 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0085 Fvec=0.0285 ang=1.56  T1/mB=0.0720 T2/mB=0.0137 T1rel=0.411 T2rel=0.0209 Tc=0.0069
+  r=15.000 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0054 Fvec=0.0178 ang=0.98  T1/mB=0.0457 T2/mB=0.0080 T1rel=0.307 T2rel=0.0124 Tc=0.0028
+  r=20.000 axes 125.3 r-ax1 127.6 r-ax2 107.1 |F|err=-0.0030 Fvec=0.0099 ang=0.54  T1/mB=0.0255 T2/mB=0.0042 T1rel=0.198 T2rel=0.0065 Tc=0.0000
+core_rigid_turn_closest edge4x2@cubie_n0p - core_edge4x3@core face (0, 0, 1) at -66.96999999999973 deg actual r 8.176
+  r= 7.300 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0094 Fvec=0.0398 ang=2.23  T1/mB=0.0180 T2/mB=0.0764 T1rel=0.019 T2rel=0.1027 Tc=0.0285
+  r= 7.600 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0106 Fvec=0.0379 ang=2.09  T1/mB=0.0172 T2/mB=0.0682 T1rel=0.018 T2rel=0.0908 Tc=0.0250
+  r= 7.900 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0113 Fvec=0.0360 ang=1.97  T1/mB=0.0165 T2/mB=0.0613 T1rel=0.017 T2rel=0.0808 Tc=0.0221
+  r= 8.178 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0117 Fvec=0.0344 ang=1.86  T1/mB=0.0157 T2/mB=0.0557 T1rel=0.016 T2rel=0.0729 Tc=0.0199
+  r= 8.500 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0120 Fvec=0.0326 ang=1.75  T1/mB=0.0150 T2/mB=0.0502 T1rel=0.016 T2rel=0.0652 Tc=0.0177
+  r= 9.000 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0120 Fvec=0.0301 ang=1.59  T1/mB=0.0138 T2/mB=0.0430 T1rel=0.014 T2rel=0.0555 Tc=0.0151
+  r= 9.335 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0119 Fvec=0.0285 ang=1.49  T1/mB=0.0131 T2/mB=0.0391 T1rel=0.014 T2rel=0.0501 Tc=0.0136
+  r=10.000 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0115 Fvec=0.0256 ang=1.32  T1/mB=0.0118 T2/mB=0.0327 T1rel=0.012 T2rel=0.0416 Tc=0.0114
+  r=12.000 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0095 Fvec=0.0190 ang=0.95  T1/mB=0.0087 T2/mB=0.0207 T1rel=0.009 T2rel=0.0259 Tc=0.0077
+  r=15.000 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0068 Fvec=0.0128 ang=0.62  T1/mB=0.0058 T2/mB=0.0122 T1rel=0.006 T2rel=0.0151 Tc=0.0054
+  r=20.000 axes 106.1 r-ax1 71.8 r-ax2 171.8 |F|err=-0.0042 Fvec=0.0075 ang=0.36  T1/mB=0.0034 T2/mB=0.0064 T1rel=0.004 T2rel=0.0079 Tc=0.0041
+piece_worst_2deg_relative_tilt edge4x2@cubie_nn0 - corner4x3@cubie_nnn home, split tilt 2 deg about [0.663, -0.749, 0.017] actual r 8.549
+  r= 7.300 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0291 Fvec=0.0802 ang=4.35  T1/mB=0.1948 T2/mB=0.0471 T1rel=1.151 T2rel=0.0768 Tc=0.0432
+  r= 7.600 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0269 Fvec=0.0730 ang=3.94  T1/mB=0.1785 T2/mB=0.0412 T1rel=1.167 T2rel=0.0679 Tc=0.0391
+  r= 7.900 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0250 Fvec=0.0667 ang=3.59  T1/mB=0.1642 T2/mB=0.0363 T1rel=1.184 T2rel=0.0603 Tc=0.0355
+  r= 8.178 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0233 Fvec=0.0616 ang=3.31  T1/mB=0.1525 T2/mB=0.0325 T1rel=1.201 T2rel=0.0543 Tc=0.0325
+  r= 8.500 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0215 Fvec=0.0565 ang=3.02  T1/mB=0.1404 T2/mB=0.0288 T1rel=1.222 T2rel=0.0484 Tc=0.0295
+  r= 9.000 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0191 Fvec=0.0497 ang=2.65  T1/mB=0.1244 T2/mB=0.0241 T1rel=1.258 T2rel=0.0408 Tc=0.0253
+  r= 9.335 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0178 Fvec=0.0458 ang=2.44  T1/mB=0.1152 T2/mB=0.0216 T1rel=1.284 T2rel=0.0367 Tc=0.0230
+  r=10.000 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0154 Fvec=0.0394 ang=2.09  T1/mB=0.0998 T2/mB=0.0176 T1rel=1.342 T2rel=0.0301 Tc=0.0190
+  r=12.000 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0105 Fvec=0.0266 ang=1.41  T1/mB=0.0685 T2/mB=0.0105 T1rel=1.586 T2rel=0.0182 Tc=0.0112
+  r=15.000 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0066 Fvec=0.0166 ang=0.88  T1/mB=0.0434 T2/mB=0.0058 T1rel=2.335 T2rel=0.0102 Tc=0.0053
+  r=20.000 axes 123.3 r-ax1 125.9 r-ax2 110.9 |F|err=-0.0037 Fvec=0.0092 ang=0.48  T1/mB=0.0242 T2/mB=0.0029 T1rel=4.210 T2rel=0.0051 Tc=0.0014
+sigma 0.5 {'min_piece_cross_mm': 8.16709677857867, 'n_poses': 240, 'frac_poses_with_piece_cross_below_r2': 0.0, 'n_candidate_pairs_below_eval_cut': 9, 'n_evaluated': 9} evaluated so far 9 t=24s
+sigma 1.0 {'min_piece_cross_mm': 7.1151733724171695, 'n_poses': 240, 'frac_poses_with_piece_cross_below_r2': 0.10833333333333334, 'n_candidate_pairs_below_eval_cut': 315, 'n_evaluated': 50} evaluated so far 59 t=34s
+sigma 2.0 {'min_piece_cross_mm': 5.910078946951482, 'n_poses': 240, 'frac_poses_with_piece_cross_below_r2': 0.9125, 'n_candidate_pairs_below_eval_cut': 1114, 'n_evaluated': 50} evaluated so far 109 t=45s
+summary r<7.3 & any_tilt {'n': 23, 'r_range_mm': [5.910078946951482, 7.1151733724171695], 'rel_tilt_max_deg': 11.6809, 'max_abs_F_vec_rel_err': 0.1281, 'max_abs_absF_rel_err': 0.1238, 'min_absF_rel_err': -0.1238, 'max_absF_rel_err': -0.053, 'max_abs_F_angle_err_deg': 3.4211, 'max_abs_T1_own_rel_err': 1.0676, 'max_abs_T2_own_rel_err': 0.7104, 'max_abs_T1_own_err_over_mB': 0.1586, 'max_abs_T2_own_err_over_mB': 0.0879, 'max_abs_T1_own_abs_err_mNm': 0.0766, 'max_abs_T2_own_abs_err_mNm': 0.0524, 'max_abs_T1_about_centre_rel_err': 0.1454, 'max_abs_T2_about_centre_rel_err': 0.1454, 'max_abs_T1_about_centre_abs_err_mNm': 0.7561, 'max_abs_T2_about_centre_abs_err_mNm': 0.7561, 'max_abs_absF_err_N': 0.0444, 'max_abs_absF_ref_N': 0.3496}
+summary 7.3<=r<7.9 & any_tilt {'n': 27, 'r_range_mm': [7.4127061078906715, 7.885354026604882], 'rel_tilt_max_deg': 9.3134, 'max_abs_F_vec_rel_err': 0.0737, 'max_abs_absF_rel_err': 0.0507, 'min_absF_rel_err': -0.0507, 'max_absF_rel_err': -0.0329, 'max_abs_F_angle_err_deg': 3.3724, 'max_abs_T1_own_rel_err': 8.0589, 'max_abs_T2_own_rel_err': 0.063, 'max_abs_T1_own_err_over_mB': 0.1582, 'max_abs_T2_own_err_over_mB': 0.0292, 'max_abs_T1_own_abs_err_mNm': 0.0517, 'max_abs_T2_own_abs_err_mNm': 0.0095, 'max_abs_T1_about_centre_rel_err': 0.0733, 'max_abs_T2_about_centre_rel_err': 0.0733, 'max_abs_T1_about_centre_abs_err_mNm': 0.2192, 'max_abs_T2_about_centre_abs_err_mNm': 0.2192, 'max_abs_absF_err_N': 0.0097, 'max_abs_absF_ref_N': 0.1344}
+summary 7.9<=r<8.0 & any_tilt {'n': 6, 'r_range_mm': [7.902427774283616, 7.925024822498055], 'rel_tilt_max_deg': 5.09, 'max_abs_F_vec_rel_err': 0.0645, 'max_abs_absF_rel_err': 0.0379, 'min_absF_rel_err': -0.0379, 'max_absF_rel_err': -0.0315, 'max_abs_F_angle_err_deg': 3.2222, 'max_abs_T1_own_rel_err': 14.7055, 'max_abs_T2_own_rel_err': 0.0567, 'max_abs_T1_own_err_over_mB': 0.1519, 'max_abs_T2_own_err_over_mB': 0.0292, 'max_abs_T1_own_abs_err_mNm': 0.0393, 'max_abs_T2_own_abs_err_mNm': 0.0085, 'max_abs_T1_about_centre_rel_err': 0.0546, 'max_abs_T2_about_centre_rel_err': 0.0546, 'max_abs_T1_about_centre_abs_err_mNm': 0.1312, 'max_abs_T2_about_centre_abs_err_mNm': 0.1312, 'max_abs_absF_err_N': 0.0065, 'max_abs_absF_ref_N': 0.1014}
+summary 8.0<=r<8.5 & rel_tilt<=3 {'n': 23, 'r_range_mm': [8.16404152820882, 8.499699234448492], 'rel_tilt_max_deg': 3.0, 'max_abs_F_vec_rel_err': 0.0602, 'max_abs_absF_rel_err': 0.0268, 'min_absF_rel_err': -0.0268, 'max_absF_rel_err': -0.0221, 'max_abs_F_angle_err_deg': 3.1277, 'max_abs_T1_own_rel_err': 2.7857, 'max_abs_T2_own_rel_err': 0.0528, 'max_abs_T1_own_err_over_mB': 0.1469, 'max_abs_T2_own_err_over_mB': 0.029, 'max_abs_T1_own_abs_err_mNm': 0.0338, 'max_abs_T2_own_abs_err_mNm': 0.0078, 'max_abs_T1_about_centre_rel_err': 0.0387, 'max_abs_T2_about_centre_rel_err': 0.0387, 'max_abs_T1_about_centre_abs_err_mNm': 0.0856, 'max_abs_T2_about_centre_abs_err_mNm': 0.0856, 'max_abs_absF_err_N': 0.0053, 'max_abs_absF_ref_N': 0.0878}
+summary 8.0<=r<8.5 & any_tilt {'n': 55, 'r_range_mm': [8.022663073643097, 8.499699234448492], 'rel_tilt_max_deg': 10.3186, 'max_abs_F_vec_rel_err': 0.0793, 'max_abs_absF_rel_err': 0.0697, 'min_absF_rel_err': -0.0607, 'max_absF_rel_err': 0.0697, 'max_abs_F_angle_err_deg': 3.1776, 'max_abs_T1_own_rel_err': 4.2895, 'max_abs_T2_own_rel_err': 0.0549, 'max_abs_T1_own_err_over_mB': 0.1496, 'max_abs_T2_own_err_over_mB': 0.0294, 'max_abs_T1_own_abs_err_mNm': 0.0367, 'max_abs_T2_own_abs_err_mNm': 0.0084, 'max_abs_T1_about_centre_rel_err': 0.0715, 'max_abs_T2_about_centre_rel_err': 0.0715, 'max_abs_T1_about_centre_abs_err_mNm': 0.1501, 'max_abs_T2_about_centre_abs_err_mNm': 0.1501, 'max_abs_absF_err_N': 0.0067, 'max_abs_absF_ref_N': 0.0948}
+summary 8.5<=r<9.5 & rel_tilt<=1.5 {'n': 6, 'r_range_mm': [8.74406179769459, 9.334917983362105], 'rel_tilt_max_deg': 1.5, 'max_abs_F_vec_rel_err': 0.0538, 'max_abs_absF_rel_err': 0.019, 'min_absF_rel_err': -0.019, 'max_absF_rel_err': -0.0137, 'max_abs_F_angle_err_deg': 2.9124, 'max_abs_T1_own_rel_err': 0.9451, 'max_abs_T2_own_rel_err': 0.0451, 'max_abs_T1_own_err_over_mB': 0.1344, 'max_abs_T2_own_err_over_mB': 0.0277, 'max_abs_T1_own_abs_err_mNm': 0.0242, 'max_abs_T2_own_abs_err_mNm': 0.0062, 'max_abs_T1_about_centre_rel_err': 0.0249, 'max_abs_T2_about_centre_rel_err': 0.0249, 'max_abs_T1_about_centre_abs_err_mNm': 0.0419, 'max_abs_T2_about_centre_abs_err_mNm': 0.0419, 'max_abs_absF_err_N': 0.0035, 'max_abs_absF_ref_N': 0.0649}
+summary 8.5<=r<9.5 & rel_tilt<=3 {'n': 7, 'r_range_mm': [8.549387823905967, 9.334917983362105], 'rel_tilt_max_deg': 2.0, 'max_abs_F_vec_rel_err': 0.0557, 'max_abs_absF_rel_err': 0.0213, 'min_absF_rel_err': -0.0213, 'max_absF_rel_err': -0.0137, 'max_abs_F_angle_err_deg': 2.9843, 'max_abs_T1_own_rel_err': 1.2256, 'max_abs_T2_own_rel_err': 0.0476, 'max_abs_T1_own_err_over_mB': 0.1387, 'max_abs_T2_own_err_over_mB': 0.0282, 'max_abs_T1_own_abs_err_mNm': 0.0271, 'max_abs_T2_own_abs_err_mNm': 0.0067, 'max_abs_T1_about_centre_rel_err': 0.029, 'max_abs_T2_about_centre_rel_err': 0.029, 'max_abs_T1_about_centre_abs_err_mNm': 0.0535, 'max_abs_T2_about_centre_abs_err_mNm': 0.0535, 'max_abs_absF_err_N': 0.004, 'max_abs_absF_ref_N': 0.0717}
+summary 8.5<=r<9.5 & any_tilt {'n': 7, 'r_range_mm': [8.549387823905967, 9.334917983362105], 'rel_tilt_max_deg': 2.0, 'max_abs_F_vec_rel_err': 0.0557, 'max_abs_absF_rel_err': 0.0213, 'min_absF_rel_err': -0.0213, 'max_absF_rel_err': -0.0137, 'max_abs_F_angle_err_deg': 2.9843, 'max_abs_T1_own_rel_err': 1.2256, 'max_abs_T2_own_rel_err': 0.0476, 'max_abs_T1_own_err_over_mB': 0.1387, 'max_abs_T2_own_err_over_mB': 0.0282, 'max_abs_T1_own_abs_err_mNm': 0.0271, 'max_abs_T2_own_abs_err_mNm': 0.0067, 'max_abs_T1_about_centre_rel_err': 0.029, 'max_abs_T2_about_centre_rel_err': 0.029, 'max_abs_T1_about_centre_abs_err_mNm': 0.0535, 'max_abs_T2_about_centre_abs_err_mNm': 0.0535, 'max_abs_absF_err_N': 0.004, 'max_abs_absF_ref_N': 0.0717}
+convergence piece_home_orientation_at_7.3mm [((8, 24), '3.19e-13', '6.92e-14', '5.01e-14'), ((12, 36), '6.80e-15', '8.98e-16', '8.66e-16'), ((16, 48), '6.79e-15', '3.33e-16', '5.90e-16'), ((24, 72), '7.08e-15', '1.07e-15', '4.06e-16'), ((32, 96), '0.00e+00', '0.00e+00', '0.00e+00')]
+convergence core_rigid_turn_closest [((8, 24), '3.61e-14', '4.28e-14', '1.09e-14'), ((12, 36), '2.02e-15', '6.18e-16', '3.79e-15'), ((16, 48), '3.03e-15', '6.96e-16', '3.94e-15'), ((24, 72), '2.43e-15', '8.10e-16', '2.49e-15'), ((32, 96), '0.00e+00', '0.00e+00', '0.00e+00')]
+convergence closest_tilt_mc_case [((8, 24), '3.38e-08', '4.33e-08', '1.43e-07'), ((12, 36), '1.74e-11', '2.41e-11', '6.88e-11'), ((16, 48), '1.45e-14', '2.24e-14', '7.72e-14'), ((24, 72), '5.06e-15', '4.64e-16', '7.02e-16'), ((32, 96), '0.00e+00', '0.00e+00', '0.00e+00')]
+far field [
+ {
+  "orientation": "piece_home_closest",
+  "r_mm": 30.0,
+  "F_vec_rel_err": 0.0043332229737280585,
+  "T2_rel_err": 0.0027377135662298826,
+  "T1_rel_err": 0.09858496345496241,
+  "T1_err_over_mB": 0.01128624058106568,
+  "U_rel_err": -3.037079383549912e-05
+ },
+ {
+  "orientation": "piece_home_closest",
+  "r_mm": 60.0,
+  "F_vec_rel_err": 0.001075322497121029,
+  "T2_rel_err": 0.000661733994278505,
+  "T1_rel_err": 0.026536343375927533,
+  "T1_err_over_mB": 0.002813097327662861,
+  "U_rel_err": -8.958539707060176e-06
+ },
+ {
+  "orientation": "core_rigid_turn_closest",
+  "r_mm": 30.0,
+  "F_vec_rel_err": 0.0034100929444018354,
+  "T2_rel_err": 0.0033071604799372115,
+  "T1_rel_err": 0.0016473875765877987,
+  "T1_err_over_mB": 0.0015582444077630326,
+  "U_rel_err": -0.0035706857476377474
+ },
+ {
+  "orientation": "core_rigid_turn_closest",
+  "r_mm": 60.0,
+  "F_vec_rel_err": 0.000865902282678643,
+  "T2_rel_err": 0.0007977802400202147,
+  "T1_rel_err": 0.0004187265148658228,
+  "T1_err_over_mB": 0.0003955938250437858,
+  "U_rel_err": -0.000904102745476032
+ },
+ {
+  "orientation": "piece_worst_2deg_relative_tilt",
+  "r_mm": 30.0,
+  "F_vec_rel_err": 0.004019199925898494,
+  "T2_rel_err": 0.00206011641252772,
+  "T1_rel_err": 0.6716506802911438,
+  "T1_err_over_mB": 0.01071795285941954,
+  "U_rel_err": -0.000472182559596801
+ },
+ {
+  "orientation": "piece_worst_2deg_relative_tilt",
+  "r_mm": 60.0,
+  "F_vec_rel_err": 0.000996563124486458,
+  "T2_rel_err": 0.0004846753729699751,
+  "T1_rel_err": 0.11289684813948664,
+  "T1_err_over_mB": 0.0026716461802210514,
+  "U_rel_err": -0.00011780914939951703
+ }
+]
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x2-4x2', 'r_mm': 7.3, 'F_vec_rel_err': 0.09023125620382146, 'absF_rel_err': -0.07627762872146082, 'T1_own_rel_err': 0.6619164072333955, 'T2_own_rel_err': 0.04126425751790013, 'T1_own_err_over_mB': 0.20204237893962299, 'T2_own_err_over_mB': 0.02758360693898399, 'T_about_centre_rel_err': 0.07596180445551057}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x3-4x3', 'r_mm': 7.3, 'F_vec_rel_err': 0.04168305007932115, 'absF_rel_err': -0.03391288486328481, 'T1_own_rel_err': 0.4283117928562704, 'T2_own_rel_err': 0.036345129401493176, 'T1_own_err_over_mB': 0.07731508195928814, 'T2_own_err_over_mB': 0.024171335010502663, 'T_about_centre_rel_err': 0.03548296837635083}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x2-4x3 (cross)', 'r_mm': 7.3, 'F_vec_rel_err': 0.08466507080598153, 'absF_rel_err': -0.020859967280411396, 'T1_own_rel_err': 0.6631567343354894, 'T2_own_rel_err': 0.07357020424697952, 'T1_own_err_over_mB': 0.20316633075079701, 'T2_own_err_over_mB': 0.0508938594843292, 'T_about_centre_rel_err': 0.02746067292220369}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x2-4x2', 'r_mm': 8.0, 'F_vec_rel_err': 0.0735900755245042, 'absF_rel_err': -0.06247319501548876, 'T1_own_rel_err': 0.61370142412052, 'T2_own_rel_err': 0.029546570558406864, 'T1_own_err_over_mB': 0.16394472442948066, 'T2_own_err_over_mB': 0.019512293499515367, 'T_about_centre_rel_err': 0.0608938083018645}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x3-4x3', 'r_mm': 8.0, 'F_vec_rel_err': 0.03284799893709524, 'absF_rel_err': -0.02716404601366096, 'T1_own_rel_err': 0.3752022639258023, 'T2_own_rel_err': 0.025079921137185886, 'T1_own_err_over_mB': 0.061971131395832185, 'T2_own_err_over_mB': 0.01648667552311151, 'T_about_centre_rel_err': 0.02765290479773258}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x2-4x3 (cross)', 'r_mm': 8.0, 'F_vec_rel_err': 0.06874275871278017, 'absF_rel_err': -0.018099007020785707, 'T1_own_rel_err': 0.6184694815622497, 'T2_own_rel_err': 0.05793535661822318, 'T1_own_err_over_mB': 0.16728323312020318, 'T2_own_err_over_mB': 0.03941294787921108, 'T_about_centre_rel_err': 0.02233691251397304}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x2-4x2', 'r_mm': 8.176, 'F_vec_rel_err': 0.07014206361730055, 'absF_rel_err': -0.0595965433348109, 'T1_own_rel_err': 0.6020532428698708, 'T2_own_rel_err': 0.02732273823821995, 'T1_own_err_over_mB': 0.15612532380127178, 'T2_own_err_over_mB': 0.018002441028140033, 'T_about_centre_rel_err': 0.05776896971984777}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x3-4x3', 'r_mm': 8.176, 'F_vec_rel_err': 0.03108533861828598, 'absF_rel_err': -0.025781439786164095, 'T1_own_rel_err': 0.36337339435543975, 'T2_own_rel_err': 0.022998556885129123, 'T1_own_err_over_mB': 0.05890223354212892, 'T2_own_err_over_mB': 0.015086250668338155, 'T_about_centre_rel_err': 0.026070883046574997}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x2-4x3 (cross)', 'r_mm': 8.176, 'F_vec_rel_err': 0.06546436507030814, 'absF_rel_err': -0.01744733394747633, 'T1_own_rel_err': 0.6075759165842054, 'T2_own_rel_err': 0.054748141870399676, 'T1_own_err_over_mB': 0.159774813859659, 'T2_own_err_over_mB': 0.037119129538173035, 'T_about_centre_rel_err': 0.021193495134313244}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x2-4x2', 'r_mm': 9.335, 'F_vec_rel_err': 0.052540452956326464, 'absF_rel_err': -0.044831035899406624, 'T1_own_rel_err': 0.5303439652405106, 'T2_own_rel_err': 0.017132413367907613, 'T1_own_err_over_mB': 0.11653091227556166, 'T2_own_err_over_mB': 0.011171190825523467, 'T_about_centre_rel_err': 0.041849021651429646}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x3-4x3', 'r_mm': 9.335, 'F_vec_rel_err': 0.022433482022171543, 'absF_rel_err': -0.018847387520679937, 'T1_own_rel_err': 0.29733136326744725, 'T2_own_rel_err': 0.013720270323221557, 'T1_own_err_over_mB': 0.04366702197918107, 'T2_own_err_over_mB': 0.008915352098881613, 'T_about_centre_rel_err': 0.018255593623331283}
+same-type realistic {'orientation': 'piece_home_closest', 'types': '4x2-4x3 (cross)', 'r_mm': 9.335, 'F_vec_rel_err': 0.048826777128980745, 'absF_rel_err': -0.01374837527406736, 'T1_own_rel_err': 0.5397572679059741, 'T2_own_rel_err': 0.038925254745471746, 'T1_own_err_over_mB': 0.12102496950542073, 'T2_own_err_over_mB': 0.025956745400548306, 'T_about_centre_rel_err': 0.015015295343764114}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x2-4x2', 'r_mm': 7.3, 'F_vec_rel_err': 0.07004030504073855, 'absF_rel_err': 0.060095747366810004, 'T1_own_rel_err': 0.02778628192672421, 'T2_own_rel_err': 0.2423406716040542, 'T1_own_err_over_mB': 0.02561516477085086, 'T2_own_err_over_mB': 0.15997090427658112, 'T_about_centre_rel_err': 0.10312516330565268}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x3-4x3', 'r_mm': 7.3, 'F_vec_rel_err': 0.0408926169846004, 'absF_rel_err': 0.04006217765523723, 'T1_own_rel_err': 0.013489360363054868, 'T2_own_rel_err': 0.11794530904963339, 'T1_own_err_over_mB': 0.012594998201878245, 'T2_own_err_over_mB': 0.08649811011868903, 'T_about_centre_rel_err': 0.05222468838814198}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x2-4x3 (cross)', 'r_mm': 7.3, 'F_vec_rel_err': 0.03981056360163819, 'absF_rel_err': -0.009447699206458493, 'T1_own_rel_err': 0.018775196068888514, 'T2_own_rel_err': 0.10271284336225334, 'T1_own_err_over_mB': 0.01803687784051139, 'T2_own_err_over_mB': 0.0763616977151354, 'T_about_centre_rel_err': 0.028538136972152937}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x2-4x2', 'r_mm': 8.0, 'F_vec_rel_err': 0.05672338644790879, 'absF_rel_err': 0.047458969626766656, 'T1_own_rel_err': 0.02222090694057761, 'T2_own_rel_err': 0.19316325508019264, 'T1_own_err_over_mB': 0.02058713490886792, 'T2_own_err_over_mB': 0.1327221540776589, 'T_about_centre_rel_err': 0.08494846477019344}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x3-4x3', 'r_mm': 8.0, 'F_vec_rel_err': 0.030907276647546927, 'absF_rel_err': 0.03002159795969317, 'T1_own_rel_err': 0.010375677290127045, 'T2_own_rel_err': 0.0908437435499989, 'T1_own_err_over_mB': 0.00971395997432999, 'T2_own_err_over_mB': 0.06825780338462281, 'T_about_centre_rel_err': 0.0412546419836399}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x2-4x3 (cross)', 'r_mm': 8.0, 'F_vec_rel_err': 0.03541577478227918, 'absF_rel_err': -0.011504547462309445, 'T1_own_rel_err': 0.016884252507693653, 'T2_own_rel_err': 0.0778242704534103, 'T1_own_err_over_mB': 0.016197980382489555, 'T2_own_err_over_mB': 0.05917319829724508, 'T_about_centre_rel_err': 0.021293020874079468}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x2-4x2', 'r_mm': 8.176, 'F_vec_rel_err': 0.05400028762673231, 'absF_rel_err': 0.0449167800346888, 'T1_own_rel_err': 0.021088535892330968, 'T2_own_rel_err': 0.18325496672052258, 'T1_own_err_over_mB': 0.019557779795098797, 'T2_own_err_over_mB': 0.1269606372920706, 'T_about_centre_rel_err': 0.08119957084126168}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x3-4x3', 'r_mm': 8.176, 'F_vec_rel_err': 0.028966169191363276, 'absF_rel_err': 0.028062378925569398, 'T1_own_rel_err': 0.009766535939916136, 'T2_own_rel_err': 0.08553011056754102, 'T1_own_err_over_mB': 0.009148457509365665, 'T2_own_err_over_mB': 0.0645761051377368, 'T_about_centre_rel_err': 0.039073556024982664}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x2-4x3 (cross)', 'r_mm': 8.176, 'F_vec_rel_err': 0.03439921404641516, 'absF_rel_err': -0.011746578858365164, 'T1_own_rel_err': 0.016423450633020382, 'T2_own_rel_err': 0.07299584882157187, 'T1_own_err_over_mB': 0.01575008119930211, 'T2_own_err_over_mB': 0.05574806592387327, 'T_about_centre_rel_err': 0.01991986710456378}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x2-4x2', 'r_mm': 9.335, 'F_vec_rel_err': 0.04026480644165767, 'absF_rel_err': 0.032374232165565786, 'T1_own_rel_err': 0.015427060365022184, 'T2_own_rel_err': 0.13409627343443387, 'T1_own_err_over_mB': 0.014379273809809958, 'T2_own_err_over_mB': 0.09690078126807038, 'T_about_centre_rel_err': 0.0621400991695955}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x3-4x3', 'r_mm': 9.335, 'F_vec_rel_err': 0.019796996358925636, 'absF_rel_err': 0.018779118394410155, 'T1_own_rel_err': 0.006843901076587058, 'T2_own_rel_err': 0.060003381920414024, 'T1_own_err_over_mB': 0.006426764513320599, 'T2_own_err_over_mB': 0.0463813439472886, 'T_about_centre_rel_err': 0.028440904795019758}
+same-type realistic {'orientation': 'core_rigid_turn_closest', 'types': '4x2-4x3 (cross)', 'r_mm': 9.335, 'F_vec_rel_err': 0.02846944077267351, 'absF_rel_err': -0.011923823723259841, 'T1_own_rel_err': 0.013655752621683571, 'T2_own_rel_err': 0.050106663152220225, 'T1_own_err_over_mB': 0.013064785342849198, 'T2_own_err_over_mB': 0.039090332699955065, 'T_about_centre_rel_err': 0.013634697143777562}
+same-type parallel {'type': '4x2_N35_s1', 'offset': 'coaxial', 'r_mm': 5.0, 'near_weight_w': 1.0, 'F_vec_rel_err': 0.617913653750022, 'absF_rel_err': 0.617913653750022, 'T2_own_abs_err_mNm': 2.920623455057576e-17, 'T2_own_err_over_mB': 3.2225648955070003e-17, 'absF_ref_N': 0.3361010018919203}
+same-type parallel {'type': '4x2_N35_s1', 'offset': 'coaxial', 'r_mm': 6.0, 'near_weight_w': 0.7901234567901235, 'F_vec_rel_err': 0.41473449375631566, 'absF_rel_err': 0.41473449375631555, 'T2_own_abs_err_mNm': 4.2679863627281526e-18, 'T2_own_err_over_mB': 8.137534905279297e-18, 'absF_ref_N': 0.1853639265163142}
+same-type parallel {'type': '4x2_N35_s1', 'offset': 'coaxial', 'r_mm': 7.0, 'near_weight_w': 0.2098765432098768, 'F_vec_rel_err': 0.29735045020683165, 'absF_rel_err': 0.2973504502068316, 'T2_own_abs_err_mNm': 1.825410276313883e-17, 'T2_own_err_over_mB': 5.5267612172133145e-17, 'absF_ref_N': 0.10910777453046419}
+same-type parallel {'type': '4x2_N35_s1', 'offset': 'coaxial', 'r_mm': 8.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.22365481801569678, 'absF_rel_err': 0.22365481801569675, 'T2_own_abs_err_mNm': 1.4610101849620732e-17, 'T2_own_err_over_mB': 6.602969552826262e-17, 'absF_ref_N': 0.06780883640825544}
+same-type parallel {'type': '4x2_N35_s1', 'offset': 'coaxial', 'r_mm': 9.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.17440816841528164, 'absF_rel_err': 0.17440816841528162, 'T2_own_abs_err_mNm': 1.7455658016277286e-17, 'T2_own_err_over_mB': 1.1232588353458572e-16, 'absF_ref_N': 0.04410786772389166}
+same-type parallel {'type': '4x2_N35_s1', 'offset': 'side_by_side', 'r_mm': 5.0, 'near_weight_w': 1.0, 'F_vec_rel_err': 0.32719179676057114, 'absF_rel_err': -0.3271917967605711, 'T2_own_abs_err_mNm': 1.2925807693479948e-16, 'T2_own_err_over_mB': 2.8524220776869463e-16, 'absF_ref_N': 0.4041139788291841}
+same-type parallel {'type': '4x2_N35_s1', 'offset': 'side_by_side', 'r_mm': 6.0, 'near_weight_w': 0.7901234567901235, 'F_vec_rel_err': 0.24463036067566826, 'absF_rel_err': -0.24463036067566823, 'T2_own_abs_err_mNm': 2.142565048180147e-18, 'T2_own_err_over_mB': 8.170221919477998e-18, 'absF_ref_N': 0.17358437981126143}
+same-type parallel {'type': '4x2_N35_s1', 'offset': 'side_by_side', 'r_mm': 7.0, 'near_weight_w': 0.2098765432098768, 'F_vec_rel_err': 0.18721184836881719, 'absF_rel_err': -0.1872118483688172, 'T2_own_abs_err_mNm': 3.2637597729216084e-17, 'T2_own_err_over_mB': 1.9763251220113547e-16, 'absF_ref_N': 0.08707743839774533}
+same-type parallel {'type': '4x2_N35_s1', 'offset': 'side_by_side', 'r_mm': 8.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.14679224179844716, 'absF_rel_err': -0.1467922417984472, 'T2_own_abs_err_mNm': 4.8086486692450276e-18, 'T2_own_err_over_mB': 4.3464941011465545e-17, 'absF_ref_N': 0.048625090769157615}
+same-type parallel {'type': '4x2_N35_s1', 'offset': 'side_by_side', 'r_mm': 9.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.1177415238300802, 'absF_rel_err': -0.11774152383008019, 'T2_own_abs_err_mNm': 1.954040188228973e-17, 'T2_own_err_over_mB': 2.514821158849872e-16, 'absF_ref_N': 0.02935683903610494}
+same-type parallel {'type': '4x2_N35_s1', 'offset': '45deg', 'r_mm': 5.0, 'near_weight_w': 1.0, 'F_vec_rel_err': 0.3916293708528146, 'absF_rel_err': -0.015732279821440542, 'T2_own_abs_err_mNm': 0.1763741758226626, 'T2_own_err_over_mB': 0.24616204542167552, 'absF_ref_N': 0.30884239786594736}
+same-type parallel {'type': '4x2_N35_s1', 'offset': '45deg', 'r_mm': 6.0, 'near_weight_w': 0.7901234567901235, 'F_vec_rel_err': 0.2714640375899885, 'absF_rel_err': -0.025930153069532058, 'T2_own_abs_err_mNm': 0.059428404428830475, 'T2_own_err_over_mB': 0.14332564434794257, 'absF_ref_N': 0.15049950591686193}
+same-type parallel {'type': '4x2_N35_s1', 'offset': '45deg', 'r_mm': 7.0, 'near_weight_w': 0.2098765432098768, 'F_vec_rel_err': 0.20012432920764422, 'absF_rel_err': -0.02395368195068015, 'T2_own_abs_err_mNm': 0.024443740870279996, 'T2_own_err_over_mB': 0.09361336847668134, 'absF_ref_N': 0.08107138413003051}
+same-type parallel {'type': '4x2_N35_s1', 'offset': '45deg', 'r_mm': 8.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.1539202373490466, 'absF_rel_err': -0.020394230272145153, 'T2_own_abs_err_mNm': 0.011575058912665432, 'T2_own_err_over_mB': 0.06617123688264691, 'absF_ref_N': 0.0473498811211921}
+same-type parallel {'type': '4x2_N35_s1', 'offset': '45deg', 'r_mm': 9.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.12213473450992822, 'absF_rel_err': -0.017129338365433622, 'T2_own_abs_err_mNm': 0.006069617702024133, 'T2_own_err_over_mB': 0.04940432244507009, 'absF_ref_N': 0.029462104518549557}
+same-type parallel {'type': '4x3_N52_s1', 'offset': 'coaxial', 'r_mm': 5.0, 'near_weight_w': 1.0, 'F_vec_rel_err': 0.329343262670473, 'absF_rel_err': 0.32934326267047287, 'T2_own_abs_err_mNm': 1.5449458934760386e-16, 'T2_own_err_over_mB': 5.067862177781055e-17, 'absF_ref_N': 1.3759498027060093}
+same-type parallel {'type': '4x3_N52_s1', 'offset': 'coaxial', 'r_mm': 6.0, 'near_weight_w': 0.7901234567901235, 'F_vec_rel_err': 0.21009031927024716, 'absF_rel_err': 0.21009031927024724, 'T2_own_abs_err_mNm': 5.2005816715120304e-17, 'T2_own_err_over_mB': 2.9478622150491554e-17, 'absF_ref_N': 0.7289486875095013}
+same-type parallel {'type': '4x3_N52_s1', 'offset': 'coaxial', 'r_mm': 7.0, 'near_weight_w': 0.2098765432098768, 'F_vec_rel_err': 0.14340747137176213, 'absF_rel_err': 0.14340747137176213, 'T2_own_abs_err_mNm': 6.13146533280118e-17, 'T2_own_err_over_mB': 5.518993790160997e-17, 'absF_ref_N': 0.416415187489438}
+same-type parallel {'type': '4x3_N52_s1', 'offset': 'coaxial', 'r_mm': 8.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.10346734363682931, 'absF_rel_err': 0.10346734363682941, 'T2_own_abs_err_mNm': 5.534365132376505e-17, 'T2_own_err_over_mB': 7.435998230684756e-17, 'absF_ref_N': 0.2529299822014436}
+same-type parallel {'type': '4x3_N52_s1', 'offset': 'coaxial', 'r_mm': 9.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.07800026955023562, 'absF_rel_err': 0.07800026955023553, 'T2_own_abs_err_mNm': 6.044137809543343e-17, 'T2_own_err_over_mB': 1.1562810136229168e-16, 'absF_ref_N': 0.16163329978891153}
+same-type parallel {'type': '4x3_N52_s1', 'offset': 'side_by_side', 'r_mm': 5.0, 'near_weight_w': 1.0, 'F_vec_rel_err': 0.04898078290108997, 'absF_rel_err': -0.04898078290108998, 'T2_own_abs_err_mNm': 1.600905938469745e-16, 'T2_own_err_over_mB': 1.0502854099960409e-16, 'absF_ref_N': 0.961657539150318}
+same-type parallel {'type': '4x3_N52_s1', 'offset': 'side_by_side', 'r_mm': 6.0, 'near_weight_w': 0.7901234567901235, 'F_vec_rel_err': 0.04947098229935384, 'absF_rel_err': -0.04947098229935387, 'T2_own_abs_err_mNm': 3.861047677833032e-16, 'T2_own_err_over_mB': 4.3771398196994734e-16, 'absF_ref_N': 0.46400148421234266}
+same-type parallel {'type': '4x3_N52_s1', 'offset': 'side_by_side', 'r_mm': 7.0, 'near_weight_w': 0.2098765432098768, 'F_vec_rel_err': 0.045987566383628234, 'absF_rel_err': -0.04598756638362822, 'T2_own_abs_err_mNm': 3.6895377217730897e-16, 'T2_own_err_over_mB': 6.641980234675075e-16, 'absF_ref_N': 0.249541945047416}
+same-type parallel {'type': '4x3_N52_s1', 'offset': 'side_by_side', 'r_mm': 8.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.04054099494938882, 'absF_rel_err': -0.04054099494938879, 'T2_own_abs_err_mNm': 5.393547211055753e-17, 'T2_own_err_over_mB': 1.4493589258829128e-16, 'absF_ref_N': 0.14544653503523844}
+same-type parallel {'type': '4x3_N52_s1', 'offset': 'side_by_side', 'r_mm': 9.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.03503020600630486, 'absF_rel_err': -0.03503020600630491, 'T2_own_abs_err_mNm': 7.891852784987859e-17, 'T2_own_err_over_mB': 3.0195206744559786e-16, 'absF_ref_N': 0.09028300254851246}
+same-type parallel {'type': '4x3_N52_s1', 'offset': '45deg', 'r_mm': 5.0, 'near_weight_w': 1.0, 'F_vec_rel_err': 0.2492482887142683, 'absF_rel_err': -0.135131376142126, 'T2_own_abs_err_mNm': 0.005589713333039193, 'T2_own_err_over_mB': 0.0023193220045182854, 'absF_ref_N': 1.1822643610463475}
+same-type parallel {'type': '4x3_N52_s1', 'offset': '45deg', 'r_mm': 6.0, 'near_weight_w': 0.7901234567901235, 'F_vec_rel_err': 0.1365001289483525, 'absF_rel_err': -0.07239938637516119, 'T2_own_abs_err_mNm': 0.007439550241968452, 'T2_own_err_over_mB': 0.005334109561909284, 'absF_ref_N': 0.5315923573562441}
+same-type parallel {'type': '4x3_N52_s1', 'offset': '45deg', 'r_mm': 7.0, 'near_weight_w': 0.2098765432098768, 'F_vec_rel_err': 0.0896673098421741, 'absF_rel_err': -0.04147601272642021, 'T2_own_abs_err_mNm': 0.0020751753990059033, 'T2_own_err_over_mB': 0.0023627100568918134, 'absF_ref_N': 0.2776832039106295}
+same-type parallel {'type': '4x3_N52_s1', 'offset': '45deg', 'r_mm': 8.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.06496060874647441, 'absF_rel_err': -0.026251086623755082, 'T2_own_abs_err_mNm': 0.00324237981373448, 'T2_own_err_over_mB': 0.005510555077563797, 'absF_ref_N': 0.16022778289035894}
+same-type parallel {'type': '4x3_N52_s1', 'offset': '45deg', 'r_mm': 9.0, 'near_weight_w': 0.0, 'F_vec_rel_err': 0.049800468408993014, 'absF_rel_err': -0.017884229875416935, 'T2_own_abs_err_mNm': 0.0026581221880256486, 'T2_own_err_over_mB': 0.006432265594109697, 'absF_ref_N': 0.09917724381332095}
+context {'facing_CE_4x2_pair_home_r_mm': 2.850000000000002, 'facing_CE_4x2_pair_home_absF_ref_N': 1.6466986634346579}
+wrote /mnt/c/Dev/Rubiknetic/experiments/ER9_anchored_core_layouts/side_checks/u8_cross_type/results.json runtime 69 s cases 119
