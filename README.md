@@ -83,6 +83,10 @@ A valid solve requires robot-actuated grippers to generate the contact forces/to
 
 **Documentation ready for Phase 0.** No literature review has been completed within this repository package, and no mechanical mechanism, training result, or autonomous cube solve is claimed. The biggest unknowns are the physically meaningful cubie constraint system, end-effector access to individual layers, and realistic simulation stability/performance on CPU-only hardware.
 
+## License
+
+Licensed under the [Apache License, Version 2.0](LICENSE). Third-party material keeps its own licence and attribution; see [NOTICE](NOTICE) (for example, the OpenAI robogym cube files under `experiments/D9_openai_baseline/robogym/` are MIT-licensed). Third-party CAD used during development is not included in this repository.
+
 ## Credits and naming
 
-An independent educational/research project, not affiliated with or endorsed by the owners of the Rubik's Cube brand, UFACTORY, or Google DeepMind. “Rubik's Cube” is used descriptively; verify naming and asset licenses before public release. Original work and third-party assets must retain their respective licenses and attribution.
+An independent educational/research project, not affiliated with or endorsed by the owners of the Rubik's Cube brand, UFACTORY, or Google DeepMind. “Rubik's Cube” is used descriptively. Original work and third-party assets must retain their respective licenses and attribution.

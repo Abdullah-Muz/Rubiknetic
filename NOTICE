@@ -1,0 +1,14 @@
+Rubiknetic
+Copyright 2026 The Rubiknetic authors
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This repository includes third-party material that keeps its own licence:
+
+- experiments/D9_openai_baseline/robogym/ (rubik_perpendicular.xml, roundcube.msh): copied unchanged from OpenAI's
+  robogym repository (https://github.com/openai/robogym), MIT License, Copyright (c) 2020 OpenAI. The licence text is
+  in experiments/D9_openai_baseline/robogym/LICENSE; provenance in SOURCE.md in the same folder.
+
+Third-party CAD used during development (for example from GrabCAD) is not part of this repository and is not covered
+by this licence. Dependencies installed from pyproject.toml / uv.lock (MuJoCo, NumPy, SciPy and others) are under their
+own licences.
