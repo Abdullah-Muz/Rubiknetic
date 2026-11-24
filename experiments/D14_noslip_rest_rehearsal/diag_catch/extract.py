@@ -37,13 +37,24 @@ def series(mv, every=5):
 
 
 res = {"note": "UNSCORED diagnostic of D14 Stage 3b PG20 E1-4/scr20inv_s16400; see README.md", "single_turns": []}
-for d in ("diag2", "diag3g", "diag3nog"):
+for d in ("diag2", "diag3g", "diag3nog", "sens_G10", "sens_G20", "sens_SI"):
     for f in sorted(glob.glob(str(RAW / d / "*.json.gz"))):
         res["single_turns"].append(turn_summary(f))
 S = json.load(gzip.open(RAW / "diag_scr20inv_s16400.json.gz"))
 res["s16400_rerun"] = {"per_move_identical_to_committed": S["per_move_identical_to_committed"],
                        "fields_identical": S["fields_identical"], "solver": S["solver"],
                        "moves": {str(m["k"]): {"move": m["move"], "series_10ms": series(m)} for m in S["diag"]["moves"] if m["detail"]}}
+res["s16400_sensitivity"] = {}
+for v in ("G10", "G20", "SI"):
+    V = json.load(gzip.open(RAW / f"diag_scr20inv_s16400_{v}.json.gz"))
+    pm = V["per_move_summary"]
+    res["s16400_sensitivity"][v] = {"overrides": V["overrides"], "pass": V["pass"], "fail_reasons": V["fail_reasons"],
+                                   "moves_run": len(pm), "moves_failed": [i for i, m in enumerate(pm) if not m["ok_all"]],
+                                   "max_nontarget_drift_deg": max(m["nontarget_drift_deg"] for m in pm),
+                                   "moves_drift_over_1deg": sum(m["nontarget_drift_deg"] > 1.0 for m in pm),
+                                   "max_turner_torque_Nm": max(m["max_turner_torque_Nm"] for m in pm),
+                                   "moves_at_or_over_0p95_Nm": sum(m["max_turner_torque_Nm"] >= 0.95 for m in pm),
+                                   "solver": V["solver"], "wall_s": V["wall_s"], "per_move_summary": pm}
 U = json.load(gzip.open(RAW / "diag_U_s16100.json.gz"))
 res["smoke_E1-2_U_s16100"] = {"per_move_identical_to_committed": U["per_move_identical_to_committed"]}
 (HERE / "catch_summary.json").write_text(json.dumps(res, indent=1))

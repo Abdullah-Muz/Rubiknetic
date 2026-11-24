@@ -19,6 +19,7 @@ EVERY = 2
 
 import os
 GRAV = os.environ.get("DIAG_GRAV")          # e.g. "0" -> gravity_z override
+OVR = json.loads(os.environ.get("DIAG_OVR", "{}"))  # extra M1Params overrides, e.g. {"gap": 1e-4}
 TAG = os.environ.get("DIAG_TAG", "diag2")
 RUNS = json.loads(os.environ["DIAG_RUNS"]) if os.environ.get("DIAG_RUNS") else ([("PG20", f, 16100) for f in "URFDLB"]
         + [("PG20", f, s) for f in "UR" for s in (16101, 16102, 16103)]
@@ -148,6 +149,8 @@ def one(run):
     base = [j for j in S3.base_jobs(env, ("E1-2",), S3.NOSLIP) if j["er9g_arm"] == arm and j["tid"] == "U_s16100"][0]
     job = json.loads(json.dumps(base, default=str)) if False else dict(base)
     job["kw"] = {**base["kw"], "moves": face, "seed": seed}
+    if OVR:
+        job["kw"]["overrides"] = {**job["kw"]["overrides"], **OVR}
     if GRAV is not None:
         job["kw"]["overrides"] = {**base["kw"]["overrides"], "gravity_z": float(GRAV)}
     job["tid"] = f"{face}_s{seed}"
@@ -156,15 +159,16 @@ def one(run):
     pm = rec["per_move"][0]
     data["params"] = rec["params"]
     data.update(wall_s=time.perf_counter() - t0, pass_=rec.get("pass"), turn_error_deg=pm["turn_error_deg"],
-                max_turner_torque_Nm=pm["max_turner_torque_Nm"], penetration_mm=pm["penetration_mm"])
+                max_turner_torque_Nm=pm["max_turner_torque_Nm"], penetration_mm=pm["penetration_mm"],
+                nontarget_drift_deg=pm["nontarget_drift_deg"], overrides=job["kw"]["overrides"])
     out = Path(__file__).resolve().parent / "raw" / TAG
     out.mkdir(parents=True, exist_ok=True)
     with gzip.open(out / f"{arm}_{face}_s{seed}.json.gz", "wt") as fh:
         json.dump(data, fh)
-    return {k: data[k] for k in ("arm", "face", "seed", "wall_s", "pass_", "max_turner_torque_Nm", "turn_error_deg")}
+    return {k: data[k] for k in ("arm", "face", "seed", "wall_s", "pass_", "max_turner_torque_Nm", "turn_error_deg", "nontarget_drift_deg")}
 
 
 if __name__ == "__main__":
-    with mp.get_context("fork").Pool(4, maxtasksperchild=1) as pool:
+    with mp.get_context("fork").Pool(int(os.environ.get("DIAG_JOBS", "4")), maxtasksperchild=1) as pool:
         for r in pool.imap_unordered(one, RUNS):
             print(r, flush=True)

@@ -20,6 +20,7 @@ signal of D14 Stage 3. Stage 3b stays stopped at 26 / 294 trials until the user 
 |---|---|
 | `diag_s16400.py` | Rerun of one trial. Logs the turner, layer and contact torques on every U move: every 10 ms, and every 2 ms on moves 10 and 29. |
 | `diag2_catch.py` | Single-turn trials (E1-2 job with the move and seed changed). Logs per step: magnet torque and axial force on the turning layer, every contact on the layer (normal split into axial, radial and tangential), piece offsets and tilts, centre angles. `DIAG_GRAV=0` turns gravity off. It also saves `qpos` at the turn's ramp start. |
+| `extract.py` | Writes `catch_summary.json` from `raw/`. Both rerun scripts accept `DIAG_OVR` (JSON M1Params overrides) and `DIAG_TAG`. |
 | `static_sweep.py` | No dynamics. Takes the saved ramp-start `qpos`, rotates the turning layer rigidly through 0–12° and records cubie–cubie overlaps. Variant "ideal" removes every layer piece's tilt first. |
 
 ## 1. What happened in `scr20inv_s16400` (`FACT`)
@@ -106,7 +107,73 @@ designs, four seeds, gravity on and off) and every U move of `s16400`.
   other faces in the Stage 2 + 3b records.
 - L0 and PG8 show the same catch, with more margin.
 
-## 3. Limits
+## 3. Sensitivity check (`FACT`; diagnostic only, nothing adopted)
+
+**Variants.** Each was applied as an extra M1Params override, through the same worker:
+
+| Variant | Override |
+|---|---|
+| G10 | `gap` 0.10 mm |
+| G20 | `gap` 0.20 mm (M4's registered gap) |
+| SI | `cubie_solimp` width 0.5 → 0.1 mm, so contacts are stiffer at small overlaps; gap 0.05 mm |
+
+`cubie_solref`'s time constant (1 ms) is already 2 × the timestep, so it was not lowered.
+
+**Runs.**
+- The 8 single turns that caught at baseline.
+- The 40-move `scr20inv_s16400` sequence, a new trajectory under each override.
+- Raw outputs: `raw/sens_*`, `raw/diag_scr20inv_s16400_{G10,G20,SI}.json.gz`. Extracted numbers: `catch_summary.json`.
+
+**Single turns.** Contact torque at the peak, in N·m:
+
+| Turn | baseline | G10 | G20 | SI |
+|---|---|---|---|---|
+| PG20 U 16100 | 0.71 | 0.04 | 0.00 | 0.75 (turner at the 1 N·m clip) |
+| PG20 U 16101 | 0.25 | 0.71 | 0.71 | 0.35 |
+| PG20 U 16102 | 0.37 | 0.00 | 0.00 | 0.00 |
+| PG20 U 16103 | 0.15 | 0.00 | 0.00 | 0.00 |
+| PG20 R 16101 | 0.22 | 0.00 | 0.00 | 0.07 |
+| PG20 R 16103 | 0.31 | 0.00 | 0.09 | 0.33 |
+| L0 R 16100 | 0.68 | 0.40 | 0.31 | 0.39 |
+| PG8 R 16100 | 0.36 | 0.45 | 0.03 | 0.35 |
+
+- Catches of ≥ 0.15 N·m: 8 / 8 at baseline, 3 / 8 with G10, 2 / 8 with G20, 5 / 8 with SI.
+- Every peak stays at 6.0–7.1°.
+- Largest single-turn non-target drift: 0.82° with G10, **1.74°** and 1.53° with G20, 0.39° with SI. The baseline single
+  turns did not save drift.
+
+**Sequence.**
+
+| Variant | Outcome | Max drift | Max turner torque |
+|---|---|---|---|
+| baseline | jam at move 29 | 0.45° | 1.00 |
+| G10 | all 40 moves pass | **0.98°** (limit 1°) | **0.99** (2 moves ≥ 0.95) |
+| G20 | no jam, but **24 / 40 moves fail drift > 1°** | 1.80° | 1.00 (one move, completed) |
+| SI | **jam at move 9** (B2, at the clip) | 0.61° | 1.00 |
+
+**Reading (`INFERENCE`).**
+- Within what can be varied without changing the model's structure, no setting removes the catch.
+- A larger gap makes catches rarer but not smaller (PG20 U 16101 rose to 0.71 N·m with both G10 and G20), and it brings
+  back the non-target drift that failed M4 (P-26, P-37).
+- At 0.10 mm both margins are nearly gone in the one sequence tried.
+- Stiffer small-overlap contacts do not help.
+- So the catch and the drift look like two faces of the same angular piece play in the B1 ball-joint abstraction:
+  narrowing the gap trades one for the other. The abstraction itself, free tilt about the cube centre, was not varied.
+
+## 4. Real-cube clearances (`UNVERIFIED`; search summaries only, pages not read)
+
+A web search on 2026-11-24 found no primary or manufacturer data on speedcube internal clearances. Secondary sources, as
+summarised by the search tool:
+- A 3D-printing service's design blog reportedly suggests about 0.2 mm clearance for sliding parts and 2–3 mm fillets so
+  misaligned parts do not jam.
+  [Sculpteo, 2016](https://cdn2.sculpteo.com/blog/2016/04/06/3d-printing-and-twisty-puzzles/)
+- A retailer's blog reportedly says a 3x3 can turn while a layer is about 45° out of alignment ("corner cutting").
+  [SpeedCubeShop](https://speedcubeshop.com/a/blog/corner-cutting)
+
+The pages were not opened in this session: no fetch tool without a subagent, and CLAUDE.md rules out subagents. These
+are pointers for an engineering review, not evidence.
+
+## 5. Limits
 - These are diagnostic runs on rehearsal seeds. They are not pre-registered and not scored.
 - Coverage is small: 27 single turns and one sequence.
 - Magnet torque was not logged per step in the `s16400` rerun.

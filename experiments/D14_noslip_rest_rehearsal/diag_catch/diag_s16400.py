@@ -133,9 +133,16 @@ def patched(scored, exp, log):
 RUN2.install_logged_trial = patched
 
 OUTF = Path(__file__).resolve().parent / "raw" / f"diag_{TID}.json.gz"; OUTF.parent.mkdir(exist_ok=True)
+import os
+OVR = json.loads(os.environ.get("DIAG_OVR", "{}"))
+TAG = os.environ.get("DIAG_TAG", "")
+if TAG:
+    OUTF = OUTF.parent / f"diag_{TID}_{TAG}.json.gz"
 env = S3.D13.environment()
 jobs = [j for j in S3.base_jobs(env, (SUB,), S3.NOSLIP) if j["er9g_arm"] == "PG20" and j["tid"] == TID]
 assert len(jobs) == 1, len(jobs)
+if OVR:
+    jobs[0] = {**jobs[0], "kw": {**jobs[0]["kw"], "overrides": {**jobs[0]["kw"]["overrides"], **OVR}}}
 t0 = time.perf_counter()
 rec = S3.worker(jobs[0])
 wall = time.perf_counter() - t0
@@ -149,7 +156,10 @@ for mv in diag["moves"]:
     mv.pop("r0"); mv["ubodies"] = sorted(mv["ubodies"])
 out = {"note": "diagnostic only; unscored", "job_tid": jobs[0]["tid"], "env": env, "wall_s": wall,
        "per_move_identical_to_committed": same_pm, "fields_identical": same_keys,
-       "solver": rec["d14s3"]["solver"], "diag": diag}
+       "solver": rec["d14s3"]["solver"], "overrides": jobs[0]["kw"]["overrides"], "pass": rec.get("pass"),
+       "fail_reasons": rec.get("fail_reasons"),
+       "per_move_summary": [{k: m[k] for k in ("move", "turn_error_deg", "nontarget_drift_deg", "max_turner_torque_Nm",
+                                               "penetration_mm", "ok_all")} for m in rec["per_move"]], "diag": diag}
 with gzip.open(OUTF, "wt") as fh:
     json.dump(out, fh, default=float)
 print("wall %.0f s; per_move identical: %s; %s" % (wall, same_pm, same_keys))
