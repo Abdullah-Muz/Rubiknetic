@@ -1,0 +1,89 @@
+{
+ "cases": {
+  "A_hinge": {
+   "noslip0": {
+    "kind": "A_hinge",
+    "noslip_iterations": 0,
+    "w0_rad_s": 20.0,
+    "decayed": true,
+    "decay_time_s": 0.02700000000000002,
+    "angle_rad": 0.06488247793456056,
+    "final_rate_rad_s": 0.19863517922864385
+   },
+   "noslip10": {
+    "kind": "A_hinge",
+    "noslip_iterations": 10,
+    "w0_rad_s": 20.0,
+    "decayed": true,
+    "decay_time_s": 0.03200000000000002,
+    "angle_rad": 0.0679355556677601,
+    "final_rate_rad_s": 0.19961393923194265
+   },
+   "time_ratio": 1.1851851851851851,
+   "angle_ratio": 1.0470555045120014,
+   "pass": true
+  },
+  "B_ball": {
+   "noslip0": {
+    "kind": "B_ball",
+    "noslip_iterations": 0,
+    "w0_rad_s": 20.0,
+    "decayed": true,
+    "decay_time_s": 0.04400000000000003,
+    "angle_rad": 0.1664255507623553,
+    "final_rate_rad_s": 0.192589219626621
+   },
+   "noslip10": {
+    "kind": "B_ball",
+    "noslip_iterations": 10,
+    "w0_rad_s": 20.0,
+    "decayed": true,
+    "decay_time_s": 0.04450000000000003,
+    "angle_rad": 0.16727578060683806,
+    "final_rate_rad_s": 0.19257176825881364
+   },
+   "time_ratio": 1.0113636363636365,
+   "angle_ratio": 1.0051087699009442,
+   "pass": true
+  },
+  "C_U_layer": {
+   "noslip0": {
+    "kind": "C_U_layer",
+    "noslip_iterations": 0,
+    "w0_rad_s": 5.0,
+    "decayed": true,
+    "decay_time_s": 0.037500000000000026,
+    "angle_rad": 0.03997315102820025,
+    "final_rate_rad_s": 0.04843623953879822
+   },
+   "noslip10": {
+    "kind": "C_U_layer",
+    "noslip_iterations": 10,
+    "w0_rad_s": 5.0,
+    "decayed": true,
+    "decay_time_s": 0.04500000000000003,
+    "angle_rad": 0.04211822772027351,
+    "final_rate_rad_s": 0.04842973910478766
+   },
+   "time_ratio": 1.2,
+   "angle_ratio": 1.0536629371689998,
+   "pass": true
+  }
+ },
+ "range": [
+  0.8,
+  1.25
+ ],
+ "cap_s": 3.0,
+ "pass": true,
+ "environment": {
+  "commit": "879d4f4efd4126836bfb53dd628e744ec118f132",
+  "tracked_changes": [],
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "x86_64"
+ }
+}

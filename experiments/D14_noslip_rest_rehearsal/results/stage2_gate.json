@@ -1,0 +1,91 @@
+{
+ "trials": [
+  {
+   "arm": "L0",
+   "exp": "E1-2",
+   "tid": "U_s16100",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "pass": true
+  },
+  {
+   "arm": "L0",
+   "exp": "E1-5",
+   "tid": "forgive_+0_s16500",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "pass": true
+  },
+  {
+   "arm": "L0",
+   "exp": "E1-5s",
+   "tid": "snap_+1_s16551",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "pass": true
+  },
+  {
+   "arm": "PG8",
+   "exp": "E1-2",
+   "tid": "U_s16100",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "pass": true
+  },
+  {
+   "arm": "PG8",
+   "exp": "E1-5",
+   "tid": "forgive_+0_s16500",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "pass": true
+  },
+  {
+   "arm": "PG8",
+   "exp": "E1-5s",
+   "tid": "snap_+1_s16551",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "pass": true
+  },
+  {
+   "arm": "PG20",
+   "exp": "E1-2",
+   "tid": "U_s16100",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "pass": true
+  },
+  {
+   "arm": "PG20",
+   "exp": "E1-5",
+   "tid": "forgive_+0_s16500",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "pass": true
+  },
+  {
+   "arm": "PG20",
+   "exp": "E1-5s",
+   "tid": "snap_+1_s16551",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "pass": true
+  }
+ ],
+ "pass": true,
+ "wall_ratio_by_arm": {
+  "L0": 0.8033078991711755,
+  "PG8": 0.8146499894046185,
+  "PG20": 0.6053301893351151
+ }
+}

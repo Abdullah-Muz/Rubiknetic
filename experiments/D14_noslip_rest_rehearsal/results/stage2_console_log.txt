@@ -1,0 +1,276 @@
+Stage 2 start: commit 879d4f4efd4126836bfb53dd628e744ec118f132, free 9.5 GB
+decay A_hinge: time ratio 1.1851851851851851, angle ratio 1.0470555045120014, pass True
+decay B_ball: time ratio 1.0113636363636365, angle ratio 1.0051087699009442, pass True
+decay C_U_layer: time ratio 1.2, angle ratio 1.0536629371689998, pass True
+gate: 9 frozen-setting trials on 4 workers
+[1] L0 E1-5/forgive_+0_s16500 PASS completed; wall 15 s
+[2] L0 E1-5s/snap_+1_s16551 PASS err -0.025; wall 14 s
+[3] L0 E1-2/U_s16100 PASS peak 0.461 N.m; wall 16 s
+[4] PG8 E1-2/U_s16100 PASS peak 0.382 N.m; wall 25 s
+[5] PG8 E1-5/forgive_+0_s16500 PASS completed; wall 23 s
+[6] PG8 E1-5s/snap_+1_s16551 PASS err -0.124; wall 24 s
+[7] PG20 E1-2/U_s16100 PASS peak 0.785 N.m; wall 29 s
+[8] PG20 E1-5/forgive_+0_s16500 PASS completed; wall 27 s
+[9] PG20 E1-5s/snap_+1_s16551 PASS err -0.020; wall 28 s
+gate: PASS
+cost check: projected 0.65 h (limit 4 h), 258 trials on 4 workers
+[1] L0 E1-5/forgive_+0_s16500 PASS completed; wall 21 s
+[2] L0 E1-5/forgive_+1_s16501 PASS completed; wall 29 s
+[3] L0 E1-5/forgive_+2_s16502 PASS completed; wall 28 s
+[4] L0 E1-5/forgive_+3_s16503 PASS completed; wall 31 s
+[5] L0 E1-5/forgive_+4_s16504 PASS completed; wall 27 s
+[6] L0 E1-5/forgive_+5_s16505 PASS completed; wall 27 s
+[7] L0 E1-5/forgive_+6_s16506 PASS completed; wall 27 s
+[8] L0 E1-5/forgive_+7_s16507 PASS completed; wall 27 s
+[9] L0 E1-5/forgive_+8_s16508 PASS completed; wall 24 s
+[10] L0 E1-5/forgive_+9_s16509 PASS completed; wall 25 s
+[11] L0 E1-5/forgive_+10_s16510 PASS completed; wall 25 s
+[12] L0 E1-5/forgive_+11_s16511 PASS completed; wall 24 s
+[13] L0 E1-5/forgive_+12_s16512 PASS completed; wall 26 s
+[14] L0 E1-5/forgive_+13_s16513 PASS completed; wall 29 s
+[15] L0 E1-5/forgive_+14_s16514 PASS blocked_unknown; wall 27 s
+[16] L0 E1-5/forgive_+15_s16515 PASS blocked_unknown; wall 27 s
+[17] L0 E1-5/forgive_+16_s16516 PASS blocked_unknown; wall 32 s
+[18] L0 E1-5/forgive_+17_s16517 PASS blocked_unknown; wall 34 s
+[19] L0 E1-5/forgive_+18_s16518 PASS blocked_unknown; wall 34 s
+[20] L0 E1-5/forgive_+19_s16519 PASS blocked_unknown; wall 34 s
+[21] L0 E1-5/forgive_+20_s16520 PASS blocked_unknown; wall 30 s
+[22] L0 E1-5/forgive_+0_s16521 PASS completed; wall 18 s
+[23] L0 E1-5/forgive_-1_s16522 PASS completed; wall 29 s
+[24] L0 E1-5/forgive_-2_s16523 PASS completed; wall 27 s
+[25] L0 E1-5/forgive_-3_s16524 PASS completed; wall 28 s
+[26] L0 E1-5/forgive_-4_s16525 PASS completed; wall 27 s
+[27] L0 E1-5/forgive_-5_s16526 PASS completed; wall 28 s
+[28] L0 E1-5/forgive_-6_s16527 PASS completed; wall 28 s
+[29] L0 E1-5/forgive_-8_s16529 PASS completed; wall 26 s
+[30] L0 E1-5/forgive_-7_s16528 PASS completed; wall 29 s
+[31] L0 E1-5/forgive_-9_s16530 PASS completed; wall 28 s
+[32] L0 E1-5/forgive_-10_s16531 PASS completed; wall 28 s
+[33] L0 E1-5/forgive_-11_s16532 PASS completed; wall 28 s
+[34] L0 E1-5/forgive_-12_s16533 PASS completed; wall 28 s
+[35] L0 E1-5/forgive_-14_s16535 PASS completed; wall 26 s
+[36] L0 E1-5/forgive_-13_s16534 PASS no_net_move; wall 29 s
+[37] L0 E1-5/forgive_-15_s16536 PASS blocked_unknown; wall 26 s
+[38] L0 E1-5/forgive_-16_s16537 PASS completed; wall 26 s
+[39] L0 E1-5/forgive_-17_s16538 PASS blocked_unknown; wall 23 s
+[40] L0 E1-5/forgive_-18_s16539 PASS blocked_unknown; wall 26 s
+[41] L0 E1-5/forgive_-19_s16540 PASS blocked_unknown; wall 27 s
+[42] L0 E1-5/forgive_-20_s16541 PASS blocked_unknown; wall 26 s
+[43] PG8 E1-5/forgive_+0_s16500 PASS completed; wall 26 s
+[44] PG8 E1-5/forgive_+1_s16501 PASS completed; wall 37 s
+[45] PG8 E1-5/forgive_+2_s16502 PASS completed; wall 37 s
+[46] PG8 E1-5/forgive_+3_s16503 PASS completed; wall 40 s
+[47] PG8 E1-5/forgive_+4_s16504 PASS completed; wall 36 s
+[48] PG8 E1-5/forgive_+5_s16505 PASS completed; wall 37 s
+[49] PG8 E1-5/forgive_+6_s16506 PASS completed; wall 36 s
+[50] PG8 E1-5/forgive_+7_s16507 PASS completed; wall 35 s
+[51] PG8 E1-5/forgive_+8_s16508 PASS completed; wall 35 s
+[52] PG8 E1-5/forgive_+9_s16509 PASS completed; wall 36 s
+[53] PG8 E1-5/forgive_+10_s16510 PASS completed; wall 35 s
+[54] PG8 E1-5/forgive_+11_s16511 PASS completed; wall 34 s
+[55] PG8 E1-5/forgive_+12_s16512 PASS completed; wall 35 s
+[56] PG8 E1-5/forgive_+13_s16513 PASS completed; wall 35 s
+[57] PG8 E1-5/forgive_+14_s16514 PASS completed; wall 31 s
+[58] PG8 E1-5/forgive_+15_s16515 PASS completed; wall 31 s
+[59] PG8 E1-5/forgive_+16_s16516 PASS blocked_unknown; wall 33 s
+[60] PG8 E1-5/forgive_+17_s16517 PASS blocked_unknown; wall 38 s
+[61] PG8 E1-5/forgive_+18_s16518 PASS blocked_unknown; wall 39 s
+[62] PG8 E1-5/forgive_+19_s16519 PASS blocked_unknown; wall 41 s
+[63] PG8 E1-5/forgive_+20_s16520 PASS blocked_unknown; wall 38 s
+[64] PG8 E1-5/forgive_+0_s16521 PASS completed; wall 26 s
+[65] PG8 E1-5/forgive_-1_s16522 PASS completed; wall 44 s
+[66] PG8 E1-5/forgive_-2_s16523 PASS completed; wall 42 s
+[67] PG8 E1-5/forgive_-3_s16524 PASS completed; wall 42 s
+[68] PG8 E1-5/forgive_-4_s16525 PASS completed; wall 41 s
+[69] PG8 E1-5/forgive_-5_s16526 PASS completed; wall 41 s
+[70] PG8 E1-5/forgive_-6_s16527 PASS completed; wall 40 s
+[71] PG8 E1-5/forgive_-7_s16528 PASS completed; wall 44 s
+[72] PG8 E1-5/forgive_-8_s16529 PASS completed; wall 39 s
+[73] PG8 E1-5/forgive_-9_s16530 PASS completed; wall 36 s
+[74] PG8 E1-5/forgive_-10_s16531 PASS completed; wall 36 s
+[75] PG8 E1-5/forgive_-11_s16532 PASS completed; wall 35 s
+[76] PG8 E1-5/forgive_-12_s16533 PASS completed; wall 37 s
+[77] PG8 E1-5/forgive_-13_s16534 PASS completed; wall 43 s
+[78] PG8 E1-5/forgive_-14_s16535 PASS completed; wall 42 s
+[79] PG8 E1-5/forgive_-15_s16536 PASS completed; wall 43 s
+[80] PG8 E1-5/forgive_-16_s16537 PASS completed; wall 44 s
+[81] PG8 E1-5/forgive_-17_s16538 PASS completed; wall 38 s
+[82] PG8 E1-5/forgive_-18_s16539 PASS completed; wall 42 s
+[83] PG8 E1-5/forgive_-19_s16540 PASS completed; wall 41 s
+[84] PG8 E1-5/forgive_-20_s16541 PASS completed; wall 41 s
+[85] PG20 E1-5/forgive_+0_s16500 PASS completed; wall 33 s
+[86] PG20 E1-5/forgive_+1_s16501 PASS completed; wall 45 s
+[87] PG20 E1-5/forgive_+2_s16502 PASS completed; wall 44 s
+[88] PG20 E1-5/forgive_+3_s16503 PASS completed; wall 48 s
+[89] PG20 E1-5/forgive_+4_s16504 PASS completed; wall 42 s
+[90] PG20 E1-5/forgive_+5_s16505 PASS completed; wall 42 s
+[91] PG20 E1-5/forgive_+6_s16506 PASS completed; wall 41 s
+[92] PG20 E1-5/forgive_+7_s16507 PASS completed; wall 39 s
+[93] PG20 E1-5/forgive_+8_s16508 PASS completed; wall 39 s
+[94] PG20 E1-5/forgive_+9_s16509 PASS completed; wall 44 s
+[95] PG20 E1-5/forgive_+10_s16510 PASS completed; wall 43 s
+[96] PG20 E1-5/forgive_+11_s16511 PASS completed; wall 42 s
+[97] PG20 E1-5/forgive_+12_s16512 PASS completed; wall 44 s
+[98] PG20 E1-5/forgive_+14_s16514 PASS completed; wall 42 s
+[99] PG20 E1-5/forgive_+13_s16513 PASS completed; wall 46 s
+[100] PG20 E1-5/forgive_+15_s16515 PASS completed; wall 42 s
+[101] PG20 E1-5/forgive_+16_s16516 PASS blocked_unknown; wall 43 s
+[102] PG20 E1-5/forgive_+17_s16517 PASS blocked_unknown; wall 45 s
+[103] PG20 E1-5/forgive_+18_s16518 PASS blocked_unknown; wall 45 s
+[104] PG20 E1-5/forgive_+19_s16519 PASS blocked_unknown; wall 46 s
+[105] PG20 E1-5/forgive_+20_s16520 PASS blocked_unknown; wall 43 s
+[106] PG20 E1-5/forgive_+0_s16521 PASS completed; wall 27 s
+[107] PG20 E1-5/forgive_-1_s16522 PASS completed; wall 42 s
+[108] PG20 E1-5/forgive_-2_s16523 PASS completed; wall 39 s
+[109] PG20 E1-5/forgive_-3_s16524 PASS completed; wall 42 s
+[110] PG20 E1-5/forgive_-4_s16525 PASS completed; wall 41 s
+[111] PG20 E1-5/forgive_-5_s16526 PASS completed; wall 45 s
+[112] PG20 E1-5/forgive_-6_s16527 PASS completed; wall 44 s
+[113] PG20 E1-5/forgive_-7_s16528 PASS completed; wall 47 s
+[114] PG20 E1-5/forgive_-8_s16529 PASS completed; wall 43 s
+[115] PG20 E1-5/forgive_-9_s16530 PASS completed; wall 42 s
+[116] PG20 E1-5/forgive_-10_s16531 PASS completed; wall 42 s
+[117] PG20 E1-5/forgive_-11_s16532 PASS completed; wall 43 s
+[118] PG20 E1-5/forgive_-12_s16533 PASS completed; wall 43 s
+[119] PG20 E1-5/forgive_-13_s16534 PASS completed; wall 52 s
+[120] PG20 E1-5/forgive_-14_s16535 PASS completed; wall 51 s
+[121] PG20 E1-5/forgive_-15_s16536 PASS completed; wall 53 s
+[122] PG20 E1-5/forgive_-16_s16537 PASS completed; wall 55 s
+[123] PG20 E1-5/forgive_-17_s16538 PASS completed; wall 48 s
+[124] PG20 E1-5/forgive_-18_s16539 PASS completed; wall 54 s
+[125] L0 E1-5s/snap_+1_s16551 PASS err +0.022; wall 20 s
+[126] PG20 E1-5/forgive_-19_s16540 PASS completed; wall 55 s
+[127] L0 E1-5s/snap_-1_s16551 PASS err -0.248; wall 21 s
+[128] PG20 E1-5/forgive_-20_s16541 PASS completed; wall 53 s
+[129] L0 E1-5s/snap_+2_s16552 PASS err -0.174; wall 22 s
+[130] L0 E1-5s/snap_-2_s16552 PASS err +0.055; wall 20 s
+[131] L0 E1-5s/snap_+3_s16553 PASS err -0.213; wall 20 s
+[132] L0 E1-5s/snap_-3_s16553 PASS err +0.195; wall 20 s
+[133] L0 E1-5s/snap_+5_s16555 PASS err +0.008; wall 19 s
+[134] L0 E1-5s/snap_-5_s16555 PASS err +0.108; wall 19 s
+[135] L0 E1-5s/snap_+8_s16558 PASS err +0.004; wall 20 s
+[136] L0 E1-5s/snap_-8_s16558 PASS err +0.063; wall 20 s
+[137] L0 E1-5s/snap_+1_s16561 PASS err +0.160; wall 20 s
+[138] L0 E1-5s/snap_-1_s16561 PASS err +0.005; wall 21 s
+[139] L0 E1-5s/snap_+2_s16562 PASS err -0.002; wall 22 s
+[140] L0 E1-5s/snap_-2_s16562 PASS err -0.042; wall 21 s
+[141] L0 E1-5s/snap_+3_s16563 PASS err -0.230; wall 22 s
+[142] L0 E1-5s/snap_-5_s16565 PASS err +0.127; wall 20 s
+[143] L0 E1-5s/snap_-3_s16563 PASS err +0.293; wall 21 s
+[144] L0 E1-5s/snap_+5_s16565 PASS err -0.051; wall 20 s
+[145] L0 E1-5s/snap_+8_s16568 PASS err -0.127; wall 22 s
+[146] L0 E1-5s/snap_-8_s16568 PASS err +0.096; wall 22 s
+[147] PG8 E1-5s/snap_+1_s16551 PASS err -0.138; wall 34 s
+[148] PG8 E1-5s/snap_-1_s16551 PASS err -0.006; wall 34 s
+[149] PG8 E1-5s/snap_+2_s16552 PASS err -0.055; wall 32 s
+[150] PG8 E1-5s/snap_-2_s16552 PASS err -0.081; wall 31 s
+[151] PG8 E1-5s/snap_+3_s16553 PASS err +0.047; wall 29 s
+[152] PG8 E1-5s/snap_-3_s16553 PASS err -0.034; wall 29 s
+[153] PG8 E1-5s/snap_+5_s16555 PASS err +0.064; wall 28 s
+[154] PG8 E1-5s/snap_-5_s16555 PASS err -0.063; wall 28 s
+[155] PG8 E1-5s/snap_+8_s16558 PASS err -0.011; wall 28 s
+[156] PG8 E1-5s/snap_-8_s16558 PASS err -0.041; wall 28 s
+[157] PG8 E1-5s/snap_+1_s16561 PASS err -0.033; wall 29 s
+[158] PG8 E1-5s/snap_-1_s16561 PASS err -0.011; wall 29 s
+[159] PG8 E1-5s/snap_+2_s16562 PASS err -0.026; wall 31 s
+[160] PG8 E1-5s/snap_-2_s16562 PASS err -0.084; wall 30 s
+[161] PG8 E1-5s/snap_+3_s16563 PASS err +0.072; wall 31 s
+[162] PG8 E1-5s/snap_-3_s16563 PASS err +0.047; wall 32 s
+[163] PG8 E1-5s/snap_+5_s16565 PASS err +0.085; wall 34 s
+[164] PG8 E1-5s/snap_-5_s16565 PASS err -0.049; wall 34 s
+[165] PG8 E1-5s/snap_+8_s16568 PASS err +0.057; wall 34 s
+[166] PG8 E1-5s/snap_-8_s16568 PASS err +0.015; wall 34 s
+[167] PG20 E1-5s/snap_+1_s16551 PASS err -0.012; wall 37 s
+[168] PG20 E1-5s/snap_-1_s16551 PASS err -0.027; wall 37 s
+[169] PG20 E1-5s/snap_+2_s16552 PASS err -0.020; wall 35 s
+[170] PG20 E1-5s/snap_-2_s16552 PASS err +0.032; wall 35 s
+[171] PG20 E1-5s/snap_+3_s16553 PASS err +0.051; wall 36 s
+[172] PG20 E1-5s/snap_-3_s16553 PASS err -0.025; wall 36 s
+[173] PG20 E1-5s/snap_+5_s16555 PASS err +0.022; wall 36 s
+[174] PG20 E1-5s/snap_-5_s16555 PASS err -0.023; wall 35 s
+[175] PG20 E1-5s/snap_+8_s16558 PASS err +0.005; wall 31 s
+[176] PG20 E1-5s/snap_-8_s16558 PASS err -0.035; wall 31 s
+[177] PG20 E1-5s/snap_+1_s16561 PASS err +0.003; wall 30 s
+[178] PG20 E1-5s/snap_-1_s16561 PASS err +0.016; wall 29 s
+[179] PG20 E1-5s/snap_+2_s16562 PASS err -0.004; wall 29 s
+[180] PG20 E1-5s/snap_-2_s16562 PASS err +0.057; wall 29 s
+[181] PG20 E1-5s/snap_+3_s16563 PASS err +0.018; wall 29 s
+[182] PG20 E1-5s/snap_-3_s16563 PASS err -0.026; wall 30 s
+[183] PG20 E1-5s/snap_+5_s16565 PASS err +0.039; wall 30 s
+[184] PG20 E1-5s/snap_-5_s16565 PASS err -0.037; wall 30 s
+[185] PG20 E1-5s/snap_+8_s16568 PASS err +0.024; wall 30 s
+[186] PG20 E1-5s/snap_-8_s16568 PASS err -0.017; wall 30 s
+[187] L0 E1-2/U_s16100 PASS peak 0.331 N.m; wall 19 s
+[188] L0 E1-2/U_s16101 PASS peak 0.168 N.m; wall 20 s
+[189] L0 E1-2/Up_s16102 PASS peak 0.457 N.m; wall 20 s
+[190] L0 E1-2/Up_s16103 PASS peak 0.286 N.m; wall 20 s
+[191] L0 E1-2/R_s16104 PASS peak 0.186 N.m; wall 21 s
+[192] L0 E1-2/R_s16105 PASS peak 0.097 N.m; wall 21 s
+[193] L0 E1-2/Rp_s16106 PASS peak 0.126 N.m; wall 21 s
+[194] L0 E1-2/Rp_s16107 PASS peak 0.596 N.m; wall 21 s
+[195] L0 E1-2/F_s16108 PASS peak 0.119 N.m; wall 22 s
+[196] L0 E1-2/F_s16109 PASS peak 0.100 N.m; wall 21 s
+[197] L0 E1-2/Fp_s16110 PASS peak 0.200 N.m; wall 23 s
+[198] L0 E1-2/Fp_s16111 PASS peak 0.128 N.m; wall 23 s
+[199] L0 E1-2/D_s16112 PASS peak 0.159 N.m; wall 22 s
+[200] L0 E1-2/D_s16113 PASS peak 0.140 N.m; wall 20 s
+[201] L0 E1-2/Dp_s16114 PASS peak 0.091 N.m; wall 21 s
+[202] L0 E1-2/Dp_s16115 PASS peak 0.344 N.m; wall 20 s
+[203] L0 E1-2/L_s16116 PASS peak 0.534 N.m; wall 19 s
+[204] L0 E1-2/L_s16117 PASS peak 0.283 N.m; wall 20 s
+[205] L0 E1-2/Lp_s16118 PASS peak 0.120 N.m; wall 20 s
+[206] L0 E1-2/Lp_s16119 PASS peak 0.436 N.m; wall 20 s
+[207] L0 E1-2/B_s16120 PASS peak 0.116 N.m; wall 19 s
+[208] L0 E1-2/B_s16121 PASS peak 0.437 N.m; wall 18 s
+[209] L0 E1-2/Bp_s16122 PASS peak 0.260 N.m; wall 19 s
+[210] L0 E1-2/Bp_s16123 PASS peak 0.428 N.m; wall 20 s
+[211] PG8 E1-2/U_s16100 PASS peak 0.430 N.m; wall 29 s
+[212] PG8 E1-2/U_s16101 PASS peak 0.609 N.m; wall 31 s
+[213] PG8 E1-2/Up_s16102 PASS peak 0.188 N.m; wall 35 s
+[214] PG8 E1-2/Up_s16103 PASS peak 0.510 N.m; wall 35 s
+[215] PG8 E1-2/R_s16104 PASS peak 0.418 N.m; wall 37 s
+[216] PG8 E1-2/R_s16105 PASS peak 0.205 N.m; wall 36 s
+[217] PG8 E1-2/Rp_s16106 PASS peak 0.522 N.m; wall 35 s
+[218] PG8 E1-2/Rp_s16107 PASS peak 0.329 N.m; wall 42 s
+[219] PG8 E1-2/F_s16109 PASS peak 0.518 N.m; wall 43 s
+[220] PG8 E1-2/F_s16108 PASS peak 0.506 N.m; wall 45 s
+[221] PG8 E1-2/Fp_s16110 PASS peak 0.395 N.m; wall 43 s
+[222] PG8 E1-2/Fp_s16111 PASS peak 0.354 N.m; wall 34 s
+[223] PG8 E1-2/D_s16113 PASS peak 0.445 N.m; wall 29 s
+[224] PG8 E1-2/D_s16112 PASS peak 0.188 N.m; wall 31 s
+[225] PG8 E1-2/Dp_s16114 PASS peak 0.317 N.m; wall 31 s
+[226] PG8 E1-2/Dp_s16115 PASS peak 0.277 N.m; wall 30 s
+[227] PG8 E1-2/L_s16116 PASS peak 0.678 N.m; wall 28 s
+[228] PG8 E1-2/L_s16117 PASS peak 0.249 N.m; wall 29 s
+[229] PG8 E1-2/Lp_s16118 PASS peak 0.311 N.m; wall 29 s
+[230] PG8 E1-2/Lp_s16119 PASS peak 0.507 N.m; wall 31 s
+[231] PG8 E1-2/B_s16120 PASS peak 0.463 N.m; wall 31 s
+[232] PG8 E1-2/B_s16121 PASS peak 0.265 N.m; wall 29 s
+[233] PG8 E1-2/Bp_s16122 PASS peak 0.542 N.m; wall 33 s
+[234] PG8 E1-2/Bp_s16123 PASS peak 0.529 N.m; wall 31 s
+[235] PG20 E1-2/U_s16100 PASS peak 0.967 N.m; wall 38 s
+[236] PG20 E1-2/U_s16101 PASS peak 0.656 N.m; wall 38 s
+[237] PG20 E1-2/Up_s16102 PASS peak 0.271 N.m; wall 41 s
+[238] PG20 E1-2/Up_s16103 PASS peak 0.331 N.m; wall 41 s
+[239] PG20 E1-2/R_s16104 PASS peak 0.269 N.m; wall 44 s
+[240] PG20 E1-2/R_s16105 PASS peak 0.270 N.m; wall 44 s
+[241] PG20 E1-2/Rp_s16106 PASS peak 0.592 N.m; wall 41 s
+[242] PG20 E1-2/Rp_s16107 PASS peak 0.592 N.m; wall 43 s
+[243] PG20 E1-2/F_s16109 PASS peak 0.269 N.m; wall 39 s
+[244] PG20 E1-2/F_s16108 PASS peak 0.267 N.m; wall 41 s
+[245] PG20 E1-2/Fp_s16110 PASS peak 0.343 N.m; wall 39 s
+[246] PG20 E1-2/Fp_s16111 PASS peak 0.461 N.m; wall 35 s
+[247] PG20 E1-2/D_s16113 PASS peak 0.317 N.m; wall 36 s
+[248] PG20 E1-2/D_s16112 PASS peak 0.269 N.m; wall 37 s
+[249] PG20 E1-2/Dp_s16114 PASS peak 0.336 N.m; wall 42 s
+[250] PG20 E1-2/Dp_s16115 PASS peak 0.267 N.m; wall 42 s
+[251] PG20 E1-2/L_s16116 PASS peak 0.325 N.m; wall 38 s
+[252] PG20 E1-2/L_s16117 PASS peak 0.561 N.m; wall 40 s
+[253] PG20 E1-2/Lp_s16118 PASS peak 0.577 N.m; wall 37 s
+[254] PG20 E1-2/Lp_s16119 PASS peak 0.393 N.m; wall 40 s
+[255] PG20 E1-2/B_s16120 PASS peak 0.621 N.m; wall 39 s
+[256] PG20 E1-2/B_s16121 PASS peak 0.271 N.m; wall 37 s
+[257] PG20 E1-2/Bp_s16122 PASS peak 0.274 N.m; wall 32 s
+[258] PG20 E1-2/Bp_s16123 PASS peak 0.292 N.m; wall 30 s
+Stage 2 trials complete: 258 / 258
+exit 0
