@@ -109,3 +109,12 @@ help the slips.
 
 Files: `PROTOCOL.md`, `d13_run.py`, `d13_analyze.py`, `tests/test_d13.py` (19 tests), `report.md`, `analysis.json`,
 and `results/` (50 run records, 16 event captures, `gate.json`, `cost_check.json`, `environment.json`, logs).
+
+## Review notes (added 2026-11-23, after D14)
+An independent read-only code review found nothing that changes a number or decision here. Two points bear on this
+summary; the full list is in `experiments/D14_noslip_rest_rehearsal/SUMMARY.md`.
+- **The contact-force check is circular.** For elliptic cones, `mj_contactForce` returns `efc_force` itself, so the
+  check always gives 0, and it does not test the `efc_vel` rows. The Q4 creep share (reported only) rests on MuJoCo's
+  documented row layout.
+- **S1's reversed setup order is a small perturbation.** It changes piece poses by only about 0.02°, so the "not
+  setup-linked" label tests sensitivity to a small perturbation, not the misalignment pattern itself.

@@ -1,0 +1,65 @@
+2026-11-23 14:07:43 D14 start: commit 7ff039204841f2c1e8bf6470422d681eb4d31efd, 0 runs present, free 9.5 GB
+2026-11-23 14:07:43 gate batch: 8 runs on 4 workers
+2026-11-23 14:19:27 PG8 s16003: rest 0-10 s 0.002472 deg; no event; wall 702 s
+2026-11-23 14:19:33 PG8 s16000: rest 0-10 s 0.001194 deg; no event; wall 707 s
+2026-11-23 14:20:39 PG20 s16000: rest 0-10 s 0.001284 deg; no event; wall 774 s
+2026-11-23 14:20:46 PG20 s16013: rest 0-10 s 0.002177 deg; no event; wall 780 s
+2026-11-23 14:26:54 L0 s16003: rest 0-10 s 0.001993 deg; no event; wall 371 s
+2026-11-23 14:27:06 L0 s16005: rest 0-10 s 0.002887 deg; no event; wall 377 s
+2026-11-23 14:30:21 PG8 s16011: rest 0-10 s 0.001364 deg; no event; wall 651 s
+2026-11-23 14:30:44 PG8 s16016: rest 0-10 s 0.001707 deg; no event; wall 669 s
+2026-11-23 14:30:50 gate (D13 V2 reproduction): PASS
+2026-11-23 14:30:53 cost check: projected 2.58 h (limit 6 h), 52 runs left on 4 workers
+2026-11-23 14:44:48 PG20 s16003: rest 0-10 s 0.001401 deg; no event; wall 832 s
+2026-11-23 14:44:49 PG20 s16002: rest 0-10 s 0.002803 deg; no event; wall 833 s
+2026-11-23 14:44:49 PG20 s16004: rest 0-10 s 0.007131 deg; no event; wall 834 s
+2026-11-23 14:44:51 PG20 s16001: rest 0-10 s 0.001690 deg; no event; wall 835 s
+2026-11-23 14:58:04 PG20 s16008: rest 0-10 s 0.001334 deg; no event; wall 790 s
+2026-11-23 14:58:17 PG20 s16005: rest 0-10 s 0.004025 deg; no event; wall 807 s
+2026-11-23 14:58:18 PG20 s16007: rest 0-10 s 0.000975 deg; no event; wall 805 s
+2026-11-23 14:58:37 PG20 s16006: rest 0-10 s 0.007207 deg; no event; wall 825 s
+2026-11-23 15:10:51 PG20 s16009: rest 0-10 s 0.001993 deg; no event; wall 765 s
+2026-11-23 15:11:05 PG20 s16011: rest 0-10 s 0.002881 deg; no event; wall 765 s
+2026-11-23 15:11:17 PG20 s16010: rest 0-10 s 0.001805 deg; no event; wall 777 s
+2026-11-23 15:11:22 PG20 s16012: rest 0-10 s 0.001782 deg; no event; wall 762 s
+2026-11-23 15:23:28 PG20 s16014: rest 0-10 s 0.001456 deg; no event; wall 754 s
+2026-11-23 15:23:38 PG20 s16015: rest 0-10 s 0.003412 deg; no event; wall 751 s
+2026-11-23 15:23:59 PG20 s16016: rest 0-10 s 0.002156 deg; no event; wall 759 s
+2026-11-23 15:24:09 PG20 s16017: rest 0-10 s 0.002641 deg; no event; wall 764 s
+2026-11-23 15:36:01 PG8 s16001: rest 0-10 s 0.001238 deg; no event; wall 720 s
+2026-11-23 15:36:23 PG8 s16002: rest 0-10 s 0.003901 deg; no event; wall 731 s
+2026-11-23 15:37:08 PG20 s16019: rest 0-10 s 0.002640 deg; no event; wall 807 s
+2026-11-23 15:37:09 PG20 s16018: rest 0-10 s 0.001816 deg; no event; wall 818 s
+2026-11-23 15:47:22 PG8 s16004: rest 0-10 s 0.000780 deg; no event; wall 677 s
+2026-11-23 15:47:25 PG8 s16005: rest 0-10 s 0.000775 deg; no event; wall 659 s
+2026-11-23 15:48:04 PG8 s16006: rest 0-10 s 0.000966 deg; no event; wall 653 s
+2026-11-23 15:48:05 PG8 s16007: rest 0-10 s 0.002012 deg; no event; wall 652 s
+2026-11-23 15:58:33 PG8 s16009: rest 0-10 s 0.004154 deg; no event; wall 665 s
+2026-11-23 15:58:40 PG8 s16008: rest 0-10 s 0.003303 deg; no event; wall 675 s
+2026-11-23 15:59:30 PG8 s16010: rest 0-10 s 0.001179 deg; no event; wall 683 s
+2026-11-23 15:59:34 PG8 s16012: rest 0-10 s 0.001136 deg; no event; wall 686 s
+2026-11-23 16:10:58 PG8 s16013: rest 0-10 s 0.003214 deg; no event; wall 742 s
+2026-11-23 16:11:05 PG8 s16014: rest 0-10 s 0.003227 deg; no event; wall 743 s
+2026-11-23 16:11:49 PG8 s16015: rest 0-10 s 0.000985 deg; no event; wall 736 s
+2026-11-23 16:11:54 PG8 s16017: rest 0-10 s 0.001549 deg; no event; wall 737 s
+2026-11-23 16:18:03 L0 s16001: rest 0-10 s 0.001447 deg; no event; wall 367 s
+2026-11-23 16:18:08 L0 s16000: rest 0-10 s 0.001164 deg; no event; wall 376 s
+2026-11-23 16:22:12 PG8 s16018: rest 0-10 s 0.001665 deg; no event; wall 672 s
+2026-11-23 16:22:24 PG8 s16019: rest 0-10 s 0.003320 deg; no event; wall 676 s
+2026-11-23 16:24:28 L0 s16002: rest 0-10 s 0.001159 deg; no event; wall 382 s
+2026-11-23 16:24:28 L0 s16004: rest 0-10 s 0.001223 deg; no event; wall 378 s
+2026-11-23 16:28:44 L0 s16006: rest 0-10 s 0.000972 deg; no event; wall 389 s
+2026-11-23 16:29:08 L0 s16007: rest 0-10 s 0.000479 deg; no event; wall 401 s
+2026-11-23 16:30:54 L0 s16009: rest 0-10 s 0.001338 deg; no event; wall 383 s
+2026-11-23 16:31:09 L0 s16008: rest 0-10 s 0.000790 deg; no event; wall 398 s
+2026-11-23 16:35:25 L0 s16011: rest 0-10 s 0.003108 deg; no event; wall 374 s
+2026-11-23 16:35:26 L0 s16010: rest 0-10 s 0.000554 deg; no event; wall 399 s
+2026-11-23 16:37:45 L0 s16012: rest 0-10 s 0.000558 deg; no event; wall 408 s
+2026-11-23 16:37:56 L0 s16013: rest 0-10 s 0.000517 deg; no event; wall 404 s
+2026-11-23 16:42:03 L0 s16014: rest 0-10 s 0.001422 deg; no event; wall 395 s
+2026-11-23 16:42:04 L0 s16015: rest 0-10 s 0.001070 deg; no event; wall 395 s
+2026-11-23 16:44:15 L0 s16016: rest 0-10 s 0.002246 deg; no event; wall 387 s
+2026-11-23 16:44:38 L0 s16017: rest 0-10 s 0.000621 deg; no event; wall 398 s
+2026-11-23 16:48:30 L0 s16019: rest 0-10 s 0.000866 deg; no event; wall 384 s
+2026-11-23 16:48:38 L0 s16018: rest 0-10 s 0.000752 deg; no event; wall 393 s
+2026-11-23 16:48:38 D14 runs complete: 60 / 60

@@ -1,0 +1,77 @@
+{
+ "cases": {
+  "PG8_s16000": {
+   "present": true,
+   "d13_case": "Q1",
+   "rest10_deg": 0.0011942745130150373,
+   "d13_rest10_deg": 0.0011942745130150373,
+   "rest10_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "PG8_s16003": {
+   "present": true,
+   "d13_case": "C1",
+   "rest10_deg": 0.0024720552889502764,
+   "d13_rest10_deg": 0.0024720552889502764,
+   "rest10_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "PG8_s16011": {
+   "present": true,
+   "d13_case": "C2",
+   "rest10_deg": 0.001364058914232799,
+   "d13_rest10_deg": 0.001364058914232799,
+   "rest10_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "PG8_s16016": {
+   "present": true,
+   "d13_case": "C3",
+   "rest10_deg": 0.0017074687830012706,
+   "d13_rest10_deg": 0.0017074687830012706,
+   "rest10_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "PG20_s16000": {
+   "present": true,
+   "d13_case": "Q2",
+   "rest10_deg": 0.001284160408857074,
+   "d13_rest10_deg": 0.001284160408857074,
+   "rest10_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "PG20_s16013": {
+   "present": true,
+   "d13_case": "C4",
+   "rest10_deg": 0.0021765794206315405,
+   "d13_rest10_deg": 0.0021765794206315405,
+   "rest10_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "L0_s16003": {
+   "present": true,
+   "d13_case": "C5",
+   "rest10_deg": 0.0019929039454219615,
+   "d13_rest10_deg": 0.0019929039454219615,
+   "rest10_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  },
+  "L0_s16005": {
+   "present": true,
+   "d13_case": "C6",
+   "rest10_deg": 0.0028872073177218685,
+   "d13_rest10_deg": 0.0028872073177218685,
+   "rest10_equal": true,
+   "max_abs_rot_diff_deg": 0.0,
+   "pass": true
+  }
+ },
+ "pass": true
+}
