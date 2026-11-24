@@ -1,0 +1,37 @@
+Stage 3 start: commit 5cf7301962fe3abbeff6e63e2b75f320e267a10a, free 7.4 GB
+[1] L0 E1-2/U_s16100 n=10 PASS; wall 23 s
+[2] PG8 E1-2/U_s16100 n=10 PASS; wall 33 s
+[3] PG20 E1-2/U_s16100 n=10 PASS; wall 38 s
+[1] L0 E1-2/U_s16100 n=20 PASS; wall 27 s
+[2] PG8 E1-2/U_s16100 n=20 PASS; wall 36 s
+[3] PG20 E1-2/U_s16100 n=20 PASS; wall 42 s
+3a: composite True, Stage 2 reproduction True; pass True
+3b gate: 6 L0 frozen-setting trials
+[1] L0 E1-6/openpad_U_s16600 n=0 PASS; wall 14 s
+[2] L0 E1-6/opposed_UR_1Nm_s16610 n=0 PASS; wall 19 s
+[3] L0 E1-3/U2_s16200 n=0 PASS; wall 29 s
+[4] L0 E1-6/twist_nnn_s16620 n=0 PASS; wall 24 s
+[5] L0 E1-6t/std_nnn_pos_s16640 n=0 PASS; wall 103 s
+[6] L0 E1-4/sexy6_s16300 n=0 PASS; wall 341 s
+3b gate: PASS
+3b cost check: projected 9.16 h (limit 20 h), 294 trials on 4 workers
+[1] PG20 E1-4/sexy6_s16300 n=10 PASS; wall 666 s
+[2] PG20 E1-4/sexy6_s16301 n=10 PASS; wall 683 s
+[3] PG20 E1-4/sexy6_s16303 n=10 PASS; wall 691 s
+[4] PG20 E1-4/sexy6_s16302 n=10 PASS; wall 759 s
+[5] PG20 E1-4/sexy6_s16304 n=10 PASS; wall 912 s
+[6] PG20 E1-4/sexy6_s16306 n=10 PASS; wall 891 s
+[7] PG20 E1-4/sexy6_s16307 n=10 PASS; wall 824 s
+[8] PG20 E1-4/sexy6_s16305 n=10 PASS; wall 952 s
+[9] PG20 E1-4/sexy6_s16308 n=10 PASS; wall 729 s
+[10] PG20 E1-4/sexy6_s16309 n=10 PASS; wall 782 s
+[11] PG20 E1-4/sexy6_s16310 n=10 PASS; wall 798 s
+[12] PG20 E1-4/sexy6_s16311 n=10 PASS; wall 781 s
+[13] PG20 E1-4/sexy6_s16312 n=10 PASS; wall 647 s
+[14] PG20 E1-4/sexy6_s16313 n=10 PASS; wall 692 s
+[15] PG20 E1-4/sexy6_s16315 n=10 PASS; wall 645 s
+[16] PG20 E1-4/sexy6_s16314 n=10 PASS; wall 712 s
+[17] PG20 E1-4/sexy6_s16316 n=10 PASS; wall 631 s
+[18] PG20 E1-4/sexy6_s16319 n=10 PASS; wall 658 s
+[19] PG20 E1-4/sexy6_s16317 n=10 PASS; wall 697 s
+[20] PG20 E1-4/sexy6_s16318 n=10 PASS; wall 699 s
