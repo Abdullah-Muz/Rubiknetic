@@ -35,3 +35,13 @@
 2026-11-23 19:09:40 [18] PG20 E1-4/sexy6_s16319 n=10 PASS; wall 658 s
 2026-11-23 19:09:42 [19] PG20 E1-4/sexy6_s16317 n=10 PASS; wall 697 s
 2026-11-23 19:09:49 [20] PG20 E1-4/sexy6_s16318 n=10 PASS; wall 699 s
+2026-11-23 22:36:08 Stage 3 start: commit 200760a223494085799cc2a1b99e36c5ff088b12, free 5.5 GB
+2026-11-23 22:36:08 3a: composite True, Stage 2 reproduction True; pass True
+2026-11-23 22:36:11 3b gate: PASS
+2026-11-23 22:36:30 3b cost check: projected 7.81 h (limit 20 h), 274 trials on 4 workers
+2026-11-23 22:53:34 [1] PG20 E1-4/scr20inv_s16400 n=10 FAIL; wall 991 s; M1 criteria; E1-4 growth slope 0.2858316629773241 deg/move (limit < 0.005)
+2026-11-23 22:58:27 [2] PG20 E1-4/scr20inv_s16401 n=10 PASS; wall 1275 s
+2026-11-23 23:00:30 [3] PG20 E1-4/scr20inv_s16403 n=10 PASS; wall 1393 s
+2026-11-23 23:01:36 [4] PG20 E1-4/scr20inv_s16402 n=10 PASS; wall 1457 s
+2026-11-23 23:15:53 [5] PG20 E1-4/scr20inv_s16404 n=10 PASS; wall 1293 s
+2026-11-23 23:20:18 [6] PG20 E1-4/scr20inv_s16405 n=10 PASS; wall 1264 s
