@@ -450,3 +450,22 @@ the raw files before this protocol is fixed):
   (`from_xml_string`, `MjModel.from`, `build_m1_xml`, `MjSpec`, `from_xml_path`, `from_binary_path`). Nothing else was
   found. Runtime proof is the per-record check in §3.4 item 3.
 - The NoSlip wall-time factor for turning trials is unknown until measured.
+
+---
+
+## Addendum (main session, 2026-11-23): risks from the NoSlip research, still DRAFT
+Source: `docs/research/NOSLIP_AND_CUBE_FRICTION_FINDINGS.md`.
+- **FACT.** Every cube piece joint has both `damping` 0.0005 and `frictionloss` 0.0005
+  (`src/rubiknetic/cube_physics/m1_model.py`, `M1Params`). MuJoCo issue #2423 (open, reproduced on 4.0.0) reports that
+  this combination together with `noslip_iterations` > 0 makes a spinning hinge decelerate far too slowly. The report
+  used the `implicit` integrator; D14 uses `implicitfast` (untested). INFERENCE: at rest (D13, D14 Stage 1) this cannot
+  show, because nothing spins; during and after a turn it could change overshoot, snap-back and settling.
+- **OPEN-11 (proposed check before any Stage 2 trial).** A free-decay check: spin one centre and one corner joint with
+  the rig open, at `noslip_iterations` 0 and 10, and compare decay times. If NoSlip slows the decay markedly, Stage 2's
+  turning results would be confounded, and the user decides how to proceed.
+- **OPEN-12, iteration count.** MuJoCo's documentation says 1–3 iterations are usually enough. D13 and D14 tested 10.
+  Changing the value now would be more tuning after the fact. Recommendation: keep 10 and log the NoSlip iteration count
+  actually used.
+- **Watch items.** Pad "chatter in overconstrained grasps" (documentation), breakaway torque of the turned face, and
+  energy and angular momentum across a turn. NoSlip leaves equality rows unsolved (#2430); the cube model uses no
+  equality constraints for connectivity (pieces are ball and hinge joints), so this is noted only.
