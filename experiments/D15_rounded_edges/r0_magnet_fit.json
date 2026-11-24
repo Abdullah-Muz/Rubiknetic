@@ -1,0 +1,79 @@
+{
+ "note": "UNSCORED R0 check (P-79)",
+ "geometries": {
+  "chamfer": {
+   "L0": {
+    "piece_magnets": 48,
+    "min_depth_mm": 0.3999999999999993,
+    "wall_mm": 0.4,
+    "n_violating": 0,
+    "violating": []
+   },
+   "PG8": {
+    "piece_magnets": 56,
+    "min_depth_mm": 0.3999999999999993,
+    "wall_mm": 0.4,
+    "n_violating": 0,
+    "violating": []
+   },
+   "PG20": {
+    "piece_magnets": 68,
+    "min_depth_mm": 0.3999999999999993,
+    "wall_mm": 0.4,
+    "n_violating": 0,
+    "violating": []
+   }
+  },
+  "R1.4": {
+   "L0": {
+    "piece_magnets": 48,
+    "min_depth_mm": 0.400000000000001,
+    "wall_mm": 0.4,
+    "n_violating": 0,
+    "violating": []
+   },
+   "PG8": {
+    "piece_magnets": 56,
+    "min_depth_mm": 0.400000000000001,
+    "wall_mm": 0.4,
+    "n_violating": 0,
+    "violating": []
+   },
+   "PG20": {
+    "piece_magnets": 68,
+    "min_depth_mm": 0.400000000000001,
+    "wall_mm": 0.4,
+    "n_violating": 0,
+    "violating": []
+   }
+  },
+  "R2.5": {
+   "L0": {
+    "piece_magnets": 48,
+    "min_depth_mm": 0.400000000000001,
+    "wall_mm": 0.4,
+    "n_violating": 0,
+    "violating": []
+   },
+   "PG8": {
+    "piece_magnets": 56,
+    "min_depth_mm": 0.400000000000001,
+    "wall_mm": 0.4,
+    "n_violating": 0,
+    "violating": []
+   },
+   "PG20": {
+    "piece_magnets": 68,
+    "min_depth_mm": 0.400000000000001,
+    "wall_mm": 0.4,
+    "n_violating": 0,
+    "violating": []
+   }
+  }
+ },
+ "layouts": {
+  "L0": 48,
+  "PG8": 64,
+  "PG20": 88
+ }
+}

@@ -63,13 +63,22 @@ def test_e11_pass_on_stage1_records():
 
 
 def test_assemble_counts_before_3b():
+    # Updated 2026-11-24: Stage 3b was closed as superseded at 26 / 294 records (P-79), all PG20 E1-4, with one
+    # documented failure (scr20inv_s16400, P-76). The Stage 1 + 2 trials must still all pass, and the Stage 3b
+    # records must be exactly what was committed: 26 PG20 E1-4 records, the only failure being scr20inv_s16400.
+    s3_expected = {"L0": (0, set()), "PG8": (0, set()), "PG20": (26, {("E1-4", "scr20inv_s16400")})}
     for arm in ("L0", "PG8", "PG20"):
         t = AN3.assemble(arm)
         subs = {}
         for v in t.values():
             subs[v["sub"]] = subs.get(v["sub"], 0) + 1
         assert subs.get("E1-1") == 20 and subs.get("E1-2") == 24 and subs.get("E1-5") == 42 and subs.get("E1-5s") == 20
-        assert all(v["pass"] for v in t.values())
+        early = {k: v for k, v in t.items() if v["sub"] in ("E1-1", "E1-2", "E1-5", "E1-5s")}
+        assert all(v["pass"] for v in early.values())
+        n3, fails3 = s3_expected[arm]
+        late = {k: v for k, v in t.items() if k not in early}
+        assert len(late) == n3 and all(v["sub"] == "E1-4" for v in late.values())
+        assert {k for k, v in late.items() if not v["pass"]} == fails3
 
 
 def test_wall_ratios_positive():

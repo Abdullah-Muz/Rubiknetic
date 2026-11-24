@@ -17,7 +17,7 @@ import numpy as np
 from rubiknetic.cube_logic import SOLVED, Move
 from rubiknetic.cube_logic.notation import OPPOSITE, to_string
 
-from .m1_model import M1Params, build_m1_xml
+from .m1_model import M1Params, build_m1_xml, params_record
 from .readout import CubeReadout
 from .rig import AuditedSim, EditAuditError, NumericalFailure, TurnRig, TurnTiming
 
@@ -106,7 +106,7 @@ def run_sequence(
     wall = time.perf_counter() - t_wall
     return {
         "sequence": to_string(moves),
-        "params": {k: v for k, v in asdict(params).items() if k != "extra"},
+        "params": params_record(params),
         "timing": asdict(timing or TurnTiming()),
         "initial_valid_solved": bool(obs0.valid and obs0.state == SOLVED),
         "moves_completed": sum(1 for r in per_move if r.get("oracle_match")),

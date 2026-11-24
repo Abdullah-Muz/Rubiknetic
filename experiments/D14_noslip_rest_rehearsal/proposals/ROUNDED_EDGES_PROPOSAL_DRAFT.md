@@ -1,6 +1,6 @@
-# Proposal DRAFT — rounded piece edges instead of the 45° chamfer (NOT APPROVED)
+# Proposal — rounded piece edges instead of the 45° chamfer (APPROVED 2026-11-24, P-79; R2 still needs its own approval)
 
-**Status.** This is a draft for the user's decision; nothing here is adopted.
+**Status.** Approved by the user on 2026-11-24 ("fully approved"; DECISION_LOG P-79): decisions 1–4 below as recommended, R0 and R1 approved, R2 held for a separate approval after R1. The text below is the draft as approved, unchanged.
 - No model code changes until it is approved.
 - When approved, the approval is recorded as a new DECISION_LOG entry.
 - Each compute step below is fixed in its own protocol before it runs, as D14's stages were.

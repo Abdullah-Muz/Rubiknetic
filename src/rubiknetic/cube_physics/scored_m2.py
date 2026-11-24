@@ -18,6 +18,7 @@ from rubiknetic.cube_logic import HOME_POSITIONS, SOLVED, InconsistentTransition
 from rubiknetic.cube_logic.notation import FACE_NORMAL, FACES, to_string
 
 from . import scored
+from .m1_model import params_record
 from .m2_model import WeldParams, build_m2_xml, m2_params
 from .readout import CubeReadout
 from .rig import EditAuditError, NumericalFailure, TurnRig, TurnTiming
@@ -133,7 +134,7 @@ class TrialM2:
             "model": "M2",
             "preregistration_amendments": list(AMENDMENTS),
             "scored_turner": dict(SCORED_TURNER),
-            "params": {k: v for k, v in asdict(self.params).items() if k != "extra"},
+            "params": params_record(self.params),
             "switch_rule": asdict(self.rule),
             "weld": asdict(self.weld),
             "setup": asdict(self.setup) if self.setup else None,

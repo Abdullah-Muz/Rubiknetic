@@ -25,7 +25,7 @@ from rubiknetic.cube_logic import (
 )
 from rubiknetic.cube_logic.notation import FACE_NORMAL, FACES, to_string
 
-from .m1_model import M1Params, build_m1_xml, cubie_name
+from .m1_model import M1Params, build_m1_xml, cubie_name, params_record
 from .readout import CubeReadout
 from .rig import AuditedSim, EditAuditError, NumericalFailure, TurnRig, TurnTiming
 
@@ -213,7 +213,7 @@ class Trial:
 
     def base_record(self) -> dict:
         return {
-            "params": {k: v for k, v in asdict(self.params).items() if k != "extra"},
+            "params": params_record(self.params),
             "setup": asdict(self.setup) if self.setup else None,
             "setup_log": self.sim.setup_log,
             "t0_observed_valid": self.t0_obs.valid,

@@ -25,7 +25,7 @@ values are recorded there.
 
 from __future__ import annotations
 
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field
 
 import numpy as np
 from scipy.spatial.transform import Rotation
@@ -92,7 +92,23 @@ class M1Params:
     solver: str = "Newton"
     iterations: int = 100
     tolerance: float = 1e-10
+    # --- piece edge shape (P-79, 2026-11-24). "chamfer": 45 deg bevel of `chamfer` on every edge (the original B1
+    # geometry; default). "rounded": edges and corners rounded at `edge_radius` (m) as a faceted fillet with 30 deg
+    # facet steps, so the first facet meets each face at 15 deg; half-size and gap unchanged. Both fields are left out
+    # of record params while they hold their defaults, so chamfer records stay byte-identical (params_record).
+    edge_profile: str = "chamfer"
+    edge_radius: float = 0.0
     extra: dict = field(default_factory=dict)
+
+
+EDGE_DEFAULTS = {"edge_profile": "chamfer", "edge_radius": 0.0}
+
+
+def params_record(p: "M1Params") -> dict:
+    """Params as written into trial records: every field except `extra`, and the edge fields only when they differ
+    from their defaults (so records of the original chamfer geometry are unchanged by P-79)."""
+    return {k: v for k, v in asdict(p).items()
+            if k != "extra" and not (k in EDGE_DEFAULTS and v == EDGE_DEFAULTS[k])}
 
 
 def _fmt(v) -> str:
@@ -109,6 +125,39 @@ def _chamfered_box_vertices(h: float, c: float) -> np.ndarray:
                     p = np.insert(p[:2], axis, s0 * h)
                     pts.append(p)
     return np.array(pts)
+
+
+ROUNDED_FACET_STEPS_DEG = (0.0, 30.0, 60.0, 90.0)
+
+
+def _rounded_box_vertices(h: float, r: float) -> np.ndarray:
+    """Faceted rounded box: half-size h, edge/corner radius r. Points s*(h-r) + r*s*u for every octant s and every
+    direction u on a 30 deg polar/azimuth grid; the convex hull's first fillet facet meets each face at 15 deg.
+    Identical to the D14 diagnostic geometry (experiments/D14_noslip_rest_rehearsal/diag_catch/edge_patch.py)."""
+    if not 0.0 < r < h:
+        raise ValueError(f"edge_radius must be in (0, half-size {h}); got {r}")
+    dirs = set()
+    for th in np.radians(ROUNDED_FACET_STEPS_DEG):
+        for ph in np.radians(ROUNDED_FACET_STEPS_DEG):
+            u = (np.sin(th) * np.cos(ph), np.sin(th) * np.sin(ph), np.cos(th))
+            dirs.add(tuple(round(x, 12) for x in u))
+    pts = set()
+    for sx in (-1, 1):
+        for sy in (-1, 1):
+            for sz in (-1, 1):
+                s = np.array([sx, sy, sz], float)
+                for u in dirs:
+                    pts.add(tuple(round(x, 12) for x in s * (h - r) + r * s * np.array(u)))
+    return np.array(sorted(pts))
+
+
+def piece_vertices(p: "M1Params") -> np.ndarray:
+    h = (p.pitch - p.gap) / 2
+    if p.edge_profile == "chamfer":
+        return _chamfered_box_vertices(h, p.chamfer)
+    if p.edge_profile == "rounded":
+        return _rounded_box_vertices(h, p.edge_radius)
+    raise ValueError(f"unknown edge_profile {p.edge_profile!r}")
 
 
 def cubie_name(home: tuple[int, int, int]) -> str:
@@ -130,7 +179,7 @@ def build_m1_xml(p: M1Params | None = None) -> str:
     p = p or M1Params()
     h = (p.pitch - p.gap) / 2
     half_cube = 1.5 * p.pitch - p.gap / 2
-    verts = _chamfered_box_vertices(h, p.chamfer)
+    verts = piece_vertices(p)
 
     cubies = []
     for home in HOME_POSITIONS:

@@ -1,0 +1,29 @@
+{
+ "all_identical": true,
+ "trials": [
+  {
+   "arm": "L0",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "params_keys_equal": true,
+   "edge_fields_in_params": []
+  },
+  {
+   "arm": "PG8",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "params_keys_equal": true,
+   "edge_fields_in_params": []
+  },
+  {
+   "arm": "PG20",
+   "n_diffs": 0,
+   "diffs": [],
+   "proof_errors": [],
+   "params_keys_equal": true,
+   "edge_fields_in_params": []
+  }
+ ]
+}
