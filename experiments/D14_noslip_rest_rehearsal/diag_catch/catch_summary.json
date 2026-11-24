@@ -1,0 +1,6543 @@
+{
+ "note": "UNSCORED diagnostic of D14 Stage 3b PG20 E1-4/scr20inv_s16400; see README.md",
+ "single_turns": [
+  {
+   "set": "diag2",
+   "arm": "L0",
+   "face": "R",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.7459763612402172,
+   "record_turn_error_deg": 0.07286543673148316,
+   "peak_turner_torque_Nm": -0.7408311283429114,
+   "layer_deg_at_peak": -6.336420967219189,
+   "magnet_axis_torque_at_peak_Nm": 0.05831496591682098,
+   "magnet_axial_force_at_peak_N": -0.49202459114981884,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "cubie": 0.677571599473379,
+    "pad": -0.7397875059601917
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.19079579030543073,
+    "fn": 8.585320885626166,
+    "n_ax": 0.7083569741848759,
+    "n_rad": 0.27457381087988514,
+    "n_tan": 0.6502611932927753,
+    "h_mm": 0.022188130534570374,
+    "r_mm": 28.21782770376875,
+    "dist_mm": -0.065302353000326
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.08128060777583043,
+   "layer_deg_at_magnet_max": 4.279365505361608
+  },
+  {
+   "set": "diag2",
+   "arm": "L0",
+   "face": "U",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.33056371556115327,
+   "record_turn_error_deg": -0.03434656018207605,
+   "peak_turner_torque_Nm": -0.3235122348134166,
+   "layer_deg_at_peak": -6.514092171224203,
+   "magnet_axis_torque_at_peak_Nm": 0.05901626548746708,
+   "magnet_axial_force_at_peak_N": -0.47293590604842384,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.3233872565813517,
+    "cubie": 0.2581068951944099
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_p00_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.13024646342204033,
+    "fn": 5.751241869446334,
+    "n_ax": 0.7070664728400103,
+    "n_rad": 0.27414259179276174,
+    "n_tan": 0.6518457197456574,
+    "h_mm": 0.03425057732752562,
+    "r_mm": 28.223647911516736,
+    "dist_mm": -0.03663846510733612
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.07917531019254266,
+   "layer_deg_at_magnet_max": 4.3425927999517775
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "B",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.5314993584362389,
+   "record_turn_error_deg": 0.03159956626742755,
+   "peak_turner_torque_Nm": -0.5314993584362389,
+   "layer_deg_at_peak": -6.278684237925852,
+   "magnet_axis_torque_at_peak_Nm": 0.24608261536497839,
+   "magnet_axial_force_at_peak_N": -8.528854298344536,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "cubie": 0.019513779973307343,
+    "pad": -0.40340199457401266
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_0pn_g",
+    "cls": "cubie",
+    "tq": 0.007291840369870513,
+    "fn": 0.7417603636730817,
+    "n_ax": 0.0,
+    "n_rad": 0.7621318021681098,
+    "n_tan": 0.6474218996326809,
+    "h_mm": 17.574990830893576,
+    "r_mm": 12.429308926835112,
+    "dist_mm": -0.004457181082300087
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24899372000713296,
+   "layer_deg_at_magnet_max": 5.787512263871252
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "D",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.39193384092954553,
+   "record_turn_error_deg": 0.02162396359617702,
+   "peak_turner_torque_Nm": -0.39193384092954553,
+   "layer_deg_at_peak": -6.401274197207981,
+   "magnet_axis_torque_at_peak_Nm": 0.24502593481158852,
+   "magnet_axial_force_at_peak_N": -8.144294952255319,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.3306038685617342,
+    "cubie": 0.003655779794130045
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_0pn_g",
+    "cls": "cubie",
+    "tq": 0.0011134855518613392,
+    "fn": 0.4236864473324137,
+    "n_ax": 0.9999880365588699,
+    "n_rad": -0.002468687720937918,
+    "n_tan": -0.004222833180787065,
+    "h_mm": 0.005366496029661494,
+    "r_mm": 13.60139169148181,
+    "dist_mm": -0.006650024350803784
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24725209457222838,
+   "layer_deg_at_magnet_max": 5.8427990381629105
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "F",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.6059529020914374,
+   "record_turn_error_deg": 0.017272095039352564,
+   "peak_turner_torque_Nm": -0.6059529020914374,
+   "layer_deg_at_peak": -6.391727616241984,
+   "magnet_axis_torque_at_peak_Nm": 0.2463224953722126,
+   "magnet_axial_force_at_peak_N": -8.197416207740552,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.447481511222887,
+    "cubie": 0.024870865441245567
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0n0_g",
+    "me": "cubie_pn0_g",
+    "cls": "cubie",
+    "tq": 0.006805774496639377,
+    "fn": 0.8018213267270797,
+    "n_ax": 0.0014319665125310929,
+    "n_rad": 0.7686890465156768,
+    "n_tan": 0.639621059095717,
+    "h_mm": 17.574998719028137,
+    "r_mm": 12.341759123788712,
+    "dist_mm": -0.001491494733393058
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.2505214571869537,
+   "layer_deg_at_magnet_max": 5.7843748365572285
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "L",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.2729491255021602,
+   "record_turn_error_deg": 0.031064897123822988,
+   "peak_turner_torque_Nm": -0.2729491255021602,
+   "layer_deg_at_peak": -6.2213933651457864,
+   "magnet_axis_torque_at_peak_Nm": 0.24632697258706543,
+   "magnet_axial_force_at_peak_N": -8.480954655405645,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.25705284042245513
+   },
+   "top_cubie_contact_at_peak": null,
+   "magnet_torque_max_first_1p6s_Nm": 0.247120286097889,
+   "layer_deg_at_magnet_max": 5.828322825167772
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "R",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.2721805569445819,
+   "record_turn_error_deg": -0.04625900784485992,
+   "peak_turner_torque_Nm": -0.2721759347503616,
+   "layer_deg_at_peak": -6.217570346211652,
+   "magnet_axis_torque_at_peak_Nm": 0.24567372680086078,
+   "magnet_axial_force_at_peak_N": -8.66597950207147,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.25684743281347744,
+    "cubie": 0.00122090639710582
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_p00_g",
+    "me": "cubie_pn0_g",
+    "cls": "cubie",
+    "tq": 0.00122090639710582,
+    "fn": 0.19588108741380483,
+    "n_ax": 0.0,
+    "n_rad": 0.7610921221592765,
+    "n_tan": 0.6486438017795971,
+    "h_mm": 17.57499954254906,
+    "r_mm": 12.449049862389368,
+    "dist_mm": -0.0002528479960569753
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24616632271852826,
+   "layer_deg_at_magnet_max": 5.904792399313328
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "R",
+   "seed": 16101,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.4729222984665934,
+   "record_turn_error_deg": -0.018241352684384537,
+   "peak_turner_torque_Nm": -0.46489681500519375,
+   "layer_deg_at_peak": -6.503459532310421,
+   "magnet_axis_torque_at_peak_Nm": 0.24405049514114235,
+   "magnet_axial_force_at_peak_N": -7.999177540874608,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "cubie": 0.22201142497259413,
+    "pad": -0.4658343903688789
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_00n_g",
+    "me": "cubie_ppn_g",
+    "cls": "cubie",
+    "tq": 0.10853949512054525,
+    "fn": 4.793790944294151,
+    "n_ax": 0.7068931697221441,
+    "n_rad": 0.27446401285282246,
+    "n_tan": 0.6518984217260431,
+    "h_mm": 0.017924566965856967,
+    "r_mm": 28.23036610395689,
+    "dist_mm": -0.032083497747486533
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24724173930659887,
+   "layer_deg_at_magnet_max": 5.874158879259998
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "R",
+   "seed": 16102,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.6083727780089851,
+   "record_turn_error_deg": -0.00576000773410712,
+   "peak_turner_torque_Nm": -0.6083727780089851,
+   "layer_deg_at_peak": -6.409495225025406,
+   "magnet_axis_torque_at_peak_Nm": 0.24658391782872158,
+   "magnet_axial_force_at_peak_N": -8.179045231101306,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "cubie": 0.024374450412136286,
+    "pad": -0.44863539441928574
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_p00_g",
+    "me": "cubie_pp0_g",
+    "cls": "cubie",
+    "tq": 0.006923274129508437,
+    "fn": 0.869964276256977,
+    "n_ax": 0.0021836270573189296,
+    "n_rad": 0.7608235825404969,
+    "n_tan": 0.6489550893730003,
+    "h_mm": 17.574991867568222,
+    "r_mm": 12.44638707701213,
+    "dist_mm": -0.0072533861837570865
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.2490937392591484,
+   "layer_deg_at_magnet_max": 5.685718932918959
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "R",
+   "seed": 16103,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.5690372252198691,
+   "record_turn_error_deg": -0.044309437564962195,
+   "peak_turner_torque_Nm": -0.5657034037820478,
+   "layer_deg_at_peak": -6.4038153309678485,
+   "magnet_axis_torque_at_peak_Nm": 0.24617388032744414,
+   "magnet_axial_force_at_peak_N": -8.219530581740223,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "cubie": 0.3138258834423538,
+    "pad": -0.5626637110757248
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.15196026225501003,
+    "fn": 6.809181658287747,
+    "n_ax": 0.7078204672596458,
+    "n_rad": 0.27347096876289284,
+    "n_tan": 0.6513093085256972,
+    "h_mm": 0.06506822262435097,
+    "r_mm": 28.20978383546584,
+    "dist_mm": -0.04914858029003427
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24829686689366867,
+   "layer_deg_at_magnet_max": 5.773881730786961
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.9674663514180137,
+   "record_turn_error_deg": -0.008779415736647422,
+   "peak_turner_torque_Nm": -0.9650864318397897,
+   "layer_deg_at_peak": -6.349271842983962,
+   "magnet_axis_torque_at_peak_Nm": 0.24752272918664173,
+   "magnet_axial_force_at_peak_N": -8.358233057545139,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "cubie": 0.7075233783188335,
+    "pad": -0.9585354540692916
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_p00_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.18078245955089073,
+    "fn": 8.143292965556288,
+    "n_ax": 0.7074104990537932,
+    "n_rad": 0.2749475049952712,
+    "n_tan": 0.6511330550089888,
+    "h_mm": 0.014122459519325462,
+    "r_mm": 28.222493242164212,
+    "dist_mm": -0.05952107237055601
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.253447788351956,
+   "layer_deg_at_magnet_max": 5.66418654095996
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16101,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.6558031506397137,
+   "record_turn_error_deg": -0.039819081868774475,
+   "peak_turner_torque_Nm": -0.6558031506397137,
+   "layer_deg_at_peak": -6.409131534177845,
+   "magnet_axis_torque_at_peak_Nm": 0.24606008869811197,
+   "magnet_axial_force_at_peak_N": -8.264097602996493,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.5749400921657315,
+    "cubie": 0.2457991385657678
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_npp_g",
+    "cls": "cubie",
+    "tq": 0.11106426295027506,
+    "fn": 4.852101944159253,
+    "n_ax": 0.7082844263055355,
+    "n_rad": 0.20163805902239101,
+    "n_tan": 0.6765170098428578,
+    "h_mm": -0.029953334580027843,
+    "r_mm": 28.25109505940948,
+    "dist_mm": -0.011482919816465835
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.2508496817435656,
+   "layer_deg_at_magnet_max": 5.6474491965905
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16102,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.6306883605535534,
+   "record_turn_error_deg": 0.08782226376633417,
+   "peak_turner_torque_Nm": -0.6289487686812534,
+   "layer_deg_at_peak": -6.446007489769726,
+   "magnet_axis_torque_at_peak_Nm": 0.24594991162950308,
+   "magnet_axial_force_at_peak_N": -8.041338792614688,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.6242870371151401,
+    "cubie": 0.37297150382351524
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_p00_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.18050442069257716,
+    "fn": 8.122809879673301,
+    "n_ax": 0.707244272354096,
+    "n_rad": 0.2742444493930727,
+    "n_tan": 0.6516099455958415,
+    "h_mm": 0.049879109638056515,
+    "r_mm": 28.21164546182168,
+    "dist_mm": -0.06130159094962733
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24998298197056057,
+   "layer_deg_at_magnet_max": 5.760948570516276
+  },
+  {
+   "set": "diag2",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16103,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.4105944185408692,
+   "record_turn_error_deg": -0.01580396391270611,
+   "peak_turner_torque_Nm": -0.4056419512769156,
+   "layer_deg_at_peak": -6.4757529370096085,
+   "magnet_axis_torque_at_peak_Nm": 0.2445029228486599,
+   "magnet_axial_force_at_peak_N": -8.079342134029982,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.40320382097805973,
+    "cubie": 0.15311039714218821
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_npp_g",
+    "cls": "cubie",
+    "tq": 0.0765892640430603,
+    "fn": 3.297008754679769,
+    "n_ax": 0.7097838413928924,
+    "n_rad": 0.2004993430995916,
+    "n_tan": 0.6752828384567326,
+    "h_mm": -0.007844076758365195,
+    "r_mm": 28.241595286185184,
+    "dist_mm": -0.019847610369620728
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24729068552501243,
+   "layer_deg_at_magnet_max": 5.888583383432991
+  },
+  {
+   "set": "diag2",
+   "arm": "PG8",
+   "face": "R",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.5379413824108854,
+   "record_turn_error_deg": 0.11464245419460894,
+   "peak_turner_torque_Nm": -0.5378936305918081,
+   "layer_deg_at_peak": -6.192781964602102,
+   "magnet_axis_torque_at_peak_Nm": 0.1658434994102798,
+   "magnet_axial_force_at_peak_N": -4.187991848461189,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "cubie": 0.3548334823979285,
+    "pad": -0.5278115741144118
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.1716452525795646,
+    "fn": 7.762217224219787,
+    "n_ax": 0.7079452528464913,
+    "n_rad": 0.2743154572808925,
+    "n_tan": 0.6508183685705963,
+    "h_mm": 0.029906139821950575,
+    "r_mm": 28.21915194742397,
+    "dist_mm": -0.0545353993097888
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.17275533007393637,
+   "layer_deg_at_magnet_max": 5.29285375168979
+  },
+  {
+   "set": "diag2",
+   "arm": "PG8",
+   "face": "U",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "unmodified job (diag2 batch saved no params)",
+   "record_max_turner_torque_Nm": 0.4301540279090881,
+   "record_turn_error_deg": -0.0281601737258228,
+   "peak_turner_torque_Nm": -0.4301540279090881,
+   "layer_deg_at_peak": -6.813484438132818,
+   "magnet_axis_torque_at_peak_Nm": 0.1604174414842389,
+   "magnet_axial_force_at_peak_N": -3.533420004966703,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.3181124314549749,
+    "cubie": 0.01450390926834904
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0n0_g",
+    "me": "cubie_pnp_g",
+    "cls": "cubie",
+    "tq": 0.0038770875903246372,
+    "fn": 0.6825685045823441,
+    "n_ax": 0.9999973786118733,
+    "n_rad": 0.00034046934571424346,
+    "n_tan": 0.00226425484571142,
+    "h_mm": 0.036849181128418076,
+    "r_mm": 28.22544366704458,
+    "dist_mm": -0.04286856467735486
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.17102205575177207,
+   "layer_deg_at_magnet_max": 5.418458302239804
+  },
+  {
+   "set": "diag3g",
+   "arm": "L0",
+   "face": "R",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.7459763612402172,
+   "record_turn_error_deg": 0.07286543673148316,
+   "peak_turner_torque_Nm": -0.7408311283429114,
+   "layer_deg_at_peak": -6.336420967219189,
+   "magnet_axis_torque_at_peak_Nm": 0.05831496591682098,
+   "magnet_axial_force_at_peak_N": -0.49202459114981884,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "cubie": 0.677571599473379,
+    "pad": -0.7397875059601917
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.19079579030543073,
+    "fn": 8.585320885626166,
+    "n_ax": 0.7083569741848759,
+    "n_rad": 0.27457381087988514,
+    "n_tan": 0.6502611932927753,
+    "h_mm": 0.022188130534570374,
+    "r_mm": 28.21782770376875,
+    "dist_mm": -0.065302353000326
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.08128060777583043,
+   "layer_deg_at_magnet_max": 4.279365505361608
+  },
+  {
+   "set": "diag3g",
+   "arm": "PG20",
+   "face": "R",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.2721805569445819,
+   "record_turn_error_deg": -0.04625900784485992,
+   "peak_turner_torque_Nm": -0.2721759347503616,
+   "layer_deg_at_peak": -6.217570346211652,
+   "magnet_axis_torque_at_peak_Nm": 0.24567372680086078,
+   "magnet_axial_force_at_peak_N": -8.66597950207147,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.25684743281347744,
+    "cubie": 0.00122090639710582
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_p00_g",
+    "me": "cubie_pn0_g",
+    "cls": "cubie",
+    "tq": 0.00122090639710582,
+    "fn": 0.19588108741380483,
+    "n_ax": 0.0,
+    "n_rad": 0.7610921221592765,
+    "n_tan": 0.6486438017795971,
+    "h_mm": 17.57499954254906,
+    "r_mm": 12.449049862389368,
+    "dist_mm": -0.0002528479960569753
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24616632271852826,
+   "layer_deg_at_magnet_max": 5.904792399313328
+  },
+  {
+   "set": "diag3g",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16100,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.9674663514180137,
+   "record_turn_error_deg": -0.008779415736647422,
+   "peak_turner_torque_Nm": -0.9650864318397897,
+   "layer_deg_at_peak": -6.349271842983962,
+   "magnet_axis_torque_at_peak_Nm": 0.24752272918664173,
+   "magnet_axial_force_at_peak_N": -8.358233057545139,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "cubie": 0.7075233783188335,
+    "pad": -0.9585354540692916
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_p00_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.18078245955089073,
+    "fn": 8.143292965556288,
+    "n_ax": 0.7074104990537932,
+    "n_rad": 0.2749475049952712,
+    "n_tan": 0.6511330550089888,
+    "h_mm": 0.014122459519325462,
+    "r_mm": 28.222493242164212,
+    "dist_mm": -0.05952107237055601
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.253447788351956,
+   "layer_deg_at_magnet_max": 5.66418654095996
+  },
+  {
+   "set": "diag3g",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16101,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.6558031506397137,
+   "record_turn_error_deg": -0.039819081868774475,
+   "peak_turner_torque_Nm": -0.6558031506397137,
+   "layer_deg_at_peak": -6.409131534177845,
+   "magnet_axis_torque_at_peak_Nm": 0.24606008869811197,
+   "magnet_axial_force_at_peak_N": -8.264097602996493,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.5749400921657315,
+    "cubie": 0.2457991385657678
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_npp_g",
+    "cls": "cubie",
+    "tq": 0.11106426295027506,
+    "fn": 4.852101944159253,
+    "n_ax": 0.7082844263055355,
+    "n_rad": 0.20163805902239101,
+    "n_tan": 0.6765170098428578,
+    "h_mm": -0.029953334580027843,
+    "r_mm": 28.25109505940948,
+    "dist_mm": -0.011482919816465835
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.2508496817435656,
+   "layer_deg_at_magnet_max": 5.6474491965905
+  },
+  {
+   "set": "diag3g",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16102,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.6306883605535534,
+   "record_turn_error_deg": 0.08782226376633417,
+   "peak_turner_torque_Nm": -0.6289487686812534,
+   "layer_deg_at_peak": -6.446007489769726,
+   "magnet_axis_torque_at_peak_Nm": 0.24594991162950308,
+   "magnet_axial_force_at_peak_N": -8.041338792614688,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.6242870371151401,
+    "cubie": 0.37297150382351524
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_p00_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.18050442069257716,
+    "fn": 8.122809879673301,
+    "n_ax": 0.707244272354096,
+    "n_rad": 0.2742444493930727,
+    "n_tan": 0.6516099455958415,
+    "h_mm": 0.049879109638056515,
+    "r_mm": 28.21164546182168,
+    "dist_mm": -0.06130159094962733
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24998298197056057,
+   "layer_deg_at_magnet_max": 5.760948570516276
+  },
+  {
+   "set": "diag3g",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16103,
+   "gravity_z": -9.81,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.4105944185408692,
+   "record_turn_error_deg": -0.01580396391270611,
+   "peak_turner_torque_Nm": -0.4056419512769156,
+   "layer_deg_at_peak": -6.4757529370096085,
+   "magnet_axis_torque_at_peak_Nm": 0.2445029228486599,
+   "magnet_axial_force_at_peak_N": -8.079342134029982,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.40320382097805973,
+    "cubie": 0.15311039714218821
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_npp_g",
+    "cls": "cubie",
+    "tq": 0.0765892640430603,
+    "fn": 3.297008754679769,
+    "n_ax": 0.7097838413928924,
+    "n_rad": 0.2004993430995916,
+    "n_tan": 0.6752828384567326,
+    "h_mm": -0.007844076758365195,
+    "r_mm": 28.241595286185184,
+    "dist_mm": -0.019847610369620728
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24729068552501243,
+   "layer_deg_at_magnet_max": 5.888583383432991
+  },
+  {
+   "set": "diag3nog",
+   "arm": "L0",
+   "face": "R",
+   "seed": 16100,
+   "gravity_z": 0.0,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.47605415995787503,
+   "record_turn_error_deg": 0.11894853327902766,
+   "peak_turner_torque_Nm": -0.47354758085190696,
+   "layer_deg_at_peak": -6.383201836109677,
+   "magnet_axis_torque_at_peak_Nm": 0.05849597747701424,
+   "magnet_axial_force_at_peak_N": -0.48871262406018984,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "cubie": 0.40080566082934915,
+    "pad": -0.46535101284552743
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0p0_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.19189695523411254,
+    "fn": 8.666202146615234,
+    "n_ax": 0.7081257343920383,
+    "n_rad": 0.27346730159760346,
+    "n_tan": 0.6509789391744266,
+    "h_mm": 0.06946915887452894,
+    "r_mm": 28.205558222977633,
+    "dist_mm": -0.05870318104369229
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.07978143461064402,
+   "layer_deg_at_magnet_max": 4.301952215027452
+  },
+  {
+   "set": "diag3nog",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16100,
+   "gravity_z": 0.0,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.6344470615550021,
+   "record_turn_error_deg": 0.010584523044332883,
+   "peak_turner_torque_Nm": -0.6327454223212206,
+   "layer_deg_at_peak": -6.3655745321798465,
+   "magnet_axis_torque_at_peak_Nm": 0.2471949672202683,
+   "magnet_axial_force_at_peak_N": -8.245788431620337,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.6242956619972245,
+    "cubie": 0.3708972072510709
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_p00_g",
+    "me": "cubie_ppp_g",
+    "cls": "cubie",
+    "tq": 0.179610567575207,
+    "fn": 8.106203400285889,
+    "n_ax": 0.7079174772451956,
+    "n_rad": 0.27362433754474097,
+    "n_tan": 0.6511394376890403,
+    "h_mm": 0.06427674860194806,
+    "r_mm": 28.20771514131119,
+    "dist_mm": -0.05740470819328841
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.2505489839200499,
+   "layer_deg_at_magnet_max": 5.6574412277182295
+  },
+  {
+   "set": "diag3nog",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16101,
+   "gravity_z": 0.0,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.27166282806875564,
+   "record_turn_error_deg": -0.020673903329672783,
+   "peak_turner_torque_Nm": -0.27166282806875564,
+   "layer_deg_at_peak": -6.201530240584006,
+   "magnet_axis_torque_at_peak_Nm": 0.24713069616622643,
+   "magnet_axial_force_at_peak_N": -8.639503178902634,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.257215787987038
+   },
+   "top_cubie_contact_at_peak": null,
+   "magnet_torque_max_first_1p6s_Nm": 0.2476960706340948,
+   "layer_deg_at_magnet_max": 5.9148856195415025
+  },
+  {
+   "set": "diag3nog",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16102,
+   "gravity_z": 0.0,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.26880109138983954,
+   "record_turn_error_deg": 0.08539384363605862,
+   "peak_turner_torque_Nm": -0.26880109138983954,
+   "layer_deg_at_peak": -6.231856731581342,
+   "magnet_axis_torque_at_peak_Nm": 0.24651742591502857,
+   "magnet_axial_force_at_peak_N": -8.420005435979661,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.25662275999817097,
+    "cubie": 0.0010782108371684986
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_00p_g",
+    "me": "cubie_0np_g",
+    "cls": "cubie",
+    "tq": 0.00697614088720443,
+    "fn": 0.7059947385415349,
+    "n_ax": 0.0,
+    "n_rad": 0.764541962693392,
+    "n_tan": 0.6445739579605556,
+    "h_mm": 17.574995225027696,
+    "r_mm": 12.391468595289243,
+    "dist_mm": -0.002404964321759968
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.24734289596600711,
+   "layer_deg_at_magnet_max": 5.85722059305952
+  },
+  {
+   "set": "diag3nog",
+   "arm": "PG20",
+   "face": "U",
+   "seed": 16103,
+   "gravity_z": 0.0,
+   "gap": 5e-05,
+   "params_source": "record",
+   "record_max_turner_torque_Nm": 0.31881587790109756,
+   "record_turn_error_deg": 0.0283830658057056,
+   "peak_turner_torque_Nm": -0.31881587790109756,
+   "layer_deg_at_peak": -6.3154386756832395,
+   "magnet_axis_torque_at_peak_Nm": 0.24639906246119342,
+   "magnet_axial_force_at_peak_N": -8.28001746876634,
+   "contact_axis_torque_by_class_at_peak_Nm": {
+    "pad": -0.293039031636392,
+    "cubie": 0.0023844605656282523
+   },
+   "top_cubie_contact_at_peak": {
+    "other": "cubie_0n0_g",
+    "me": "cubie_pnp_g",
+    "cls": "cubie",
+    "tq": 0.0008098346132798103,
+    "fn": 0.1425262911925206,
+    "n_ax": 0.9999976897465633,
+    "n_rad": 0.0013729401345232877,
+    "n_tan": 0.0016539458646462144,
+    "h_mm": -0.01230164158383569,
+    "r_mm": 28.248763065765708,
+    "dist_mm": -0.0029210053191750544
+   },
+   "magnet_torque_max_first_1p6s_Nm": 0.2477213985034806,
+   "layer_deg_at_magnet_max": 5.84783590289863
+  }
+ ],
+ "s16400_rerun": {
+  "per_move_identical_to_committed": true,
+  "fields_identical": {
+   "pass": true,
+   "fail_reasons": true,
+   "moves_completed_ok": true,
+   "sim_time_s": true,
+   "final_matches_oracle": true,
+   "misalignment_growth_slope_deg_per_move": true
+  },
+  "solver": {
+   "max_solver_niter": 33,
+   "steps_at_iteration_limit": 0,
+   "steps": 155298
+  },
+  "moves": {
+   "10": {
+    "move": "U2",
+    "series_10ms": {
+     "t": [
+      0.001,
+      0.011,
+      0.021,
+      0.031,
+      0.041,
+      0.051,
+      0.061,
+      0.071,
+      0.081,
+      0.091,
+      0.101,
+      0.111,
+      0.121,
+      0.131,
+      0.141,
+      0.151,
+      0.161,
+      0.171,
+      0.181,
+      0.191,
+      0.201,
+      0.211,
+      0.221,
+      0.231,
+      0.241,
+      0.251,
+      0.261,
+      0.271,
+      0.281,
+      0.291,
+      0.301,
+      0.311,
+      0.321,
+      0.331,
+      0.341,
+      0.351,
+      0.361,
+      0.371,
+      0.381,
+      0.391,
+      0.401,
+      0.411,
+      0.421,
+      0.431,
+      0.441,
+      0.451,
+      0.461,
+      0.471,
+      0.481,
+      0.491,
+      0.501,
+      0.511,
+      0.521,
+      0.531,
+      0.541,
+      0.551,
+      0.561,
+      0.571,
+      0.581,
+      0.591,
+      0.601,
+      0.611,
+      0.621,
+      0.631,
+      0.641,
+      0.651,
+      0.661,
+      0.671,
+      0.681,
+      0.691,
+      0.701,
+      0.711,
+      0.721,
+      0.731,
+      0.741,
+      0.751,
+      0.761,
+      0.771,
+      0.781,
+      0.791,
+      0.801,
+      0.811,
+      0.821,
+      0.831,
+      0.841,
+      0.851,
+      0.861,
+      0.871,
+      0.881,
+      0.891,
+      0.901,
+      0.911,
+      0.921,
+      0.931,
+      0.941,
+      0.951,
+      0.961,
+      0.971,
+      0.981,
+      0.991,
+      1.001,
+      1.011,
+      1.021,
+      1.031,
+      1.041,
+      1.051,
+      1.061,
+      1.071,
+      1.081,
+      1.091,
+      1.101,
+      1.111,
+      1.121,
+      1.131,
+      1.141,
+      1.151,
+      1.161,
+      1.171,
+      1.181,
+      1.191,
+      1.201,
+      1.211,
+      1.221,
+      1.231,
+      1.241,
+      1.251,
+      1.261,
+      1.271,
+      1.281,
+      1.291,
+      1.301,
+      1.311,
+      1.321,
+      1.331,
+      1.341,
+      1.351,
+      1.361,
+      1.371,
+      1.381,
+      1.391,
+      1.401,
+      1.411,
+      1.421,
+      1.431,
+      1.441,
+      1.451,
+      1.461,
+      1.471,
+      1.481,
+      1.491,
+      1.501,
+      1.511,
+      1.521,
+      1.531,
+      1.541,
+      1.551,
+      1.561,
+      1.571,
+      1.581,
+      1.591,
+      1.601,
+      1.611,
+      1.621,
+      1.631,
+      1.641,
+      1.651,
+      1.661,
+      1.671,
+      1.681,
+      1.691,
+      1.701,
+      1.711,
+      1.721,
+      1.731,
+      1.741,
+      1.751,
+      1.761,
+      1.771,
+      1.781,
+      1.791,
+      1.801,
+      1.811,
+      1.821,
+      1.831,
+      1.841,
+      1.851,
+      1.861,
+      1.871,
+      1.881,
+      1.891,
+      1.901,
+      1.911,
+      1.921,
+      1.931,
+      1.941,
+      1.951,
+      1.961,
+      1.971,
+      1.981,
+      1.991,
+      2.001,
+      2.011,
+      2.021,
+      2.031,
+      2.041,
+      2.051,
+      2.061,
+      2.071,
+      2.081,
+      2.091,
+      2.101,
+      2.111,
+      2.121,
+      2.131,
+      2.141,
+      2.151,
+      2.161,
+      2.171,
+      2.181,
+      2.191,
+      2.201,
+      2.211,
+      2.221,
+      2.231,
+      2.241,
+      2.251,
+      2.261,
+      2.271,
+      2.281,
+      2.291,
+      2.301,
+      2.311,
+      2.321,
+      2.331,
+      2.341,
+      2.351,
+      2.361,
+      2.371,
+      2.381,
+      2.391,
+      2.401,
+      2.411,
+      2.421,
+      2.431,
+      2.441,
+      2.451,
+      2.461,
+      2.471,
+      2.481,
+      2.491,
+      2.501,
+      2.511,
+      2.521,
+      2.531,
+      2.541,
+      2.551,
+      2.561,
+      2.571,
+      2.581,
+      2.591,
+      2.601,
+      2.611,
+      2.621,
+      2.631,
+      2.641,
+      2.651,
+      2.661,
+      2.671,
+      2.681,
+      2.691,
+      2.701,
+      2.711,
+      2.721,
+      2.731,
+      2.741,
+      2.751,
+      2.761,
+      2.771,
+      2.781,
+      2.791,
+      2.801,
+      2.811,
+      2.821,
+      2.831,
+      2.841,
+      2.851,
+      2.861,
+      2.871,
+      2.881,
+      2.891,
+      2.901,
+      2.911,
+      2.921,
+      2.931,
+      2.941,
+      2.951,
+      2.961,
+      2.971,
+      2.981,
+      2.991,
+      3.001,
+      3.011,
+      3.021,
+      3.031,
+      3.041,
+      3.051,
+      3.061,
+      3.071,
+      3.081,
+      3.091,
+      3.101,
+      3.111,
+      3.121,
+      3.131,
+      3.141,
+      3.151,
+      3.161,
+      3.171,
+      3.181
+     ],
+     "target_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0001,
+      -0.0137,
+      -0.0498,
+      -0.1085,
+      -0.1897,
+      -0.2935,
+      -0.4197,
+      -0.5685,
+      -0.7396,
+      -0.9332,
+      -1.1491,
+      -1.3873,
+      -1.6477,
+      -1.9303,
+      -2.235,
+      -2.5617,
+      -2.9103,
+      -3.2808,
+      -3.6731,
+      -4.087,
+      -4.5224,
+      -4.9793,
+      -5.4575,
+      -5.9569,
+      -6.4774,
+      -7.0189,
+      -7.5812,
+      -8.1641,
+      -8.7676,
+      -9.3914,
+      -10.0355,
+      -10.6996,
+      -11.3837,
+      -12.0874,
+      -12.8107,
+      -13.5534,
+      -14.3152,
+      -15.096,
+      -15.8957,
+      -16.7139,
+      -17.5504,
+      -18.4052,
+      -19.2779,
+      -20.1684,
+      -21.0764,
+      -22.0016,
+      -22.944,
+      -23.9031,
+      -24.8788,
+      -25.8709,
+      -26.8791,
+      -27.9031,
+      -28.9426,
+      -29.9975,
+      -31.0674,
+      -32.1521,
+      -33.2514,
+      -34.3648,
+      -35.4923,
+      -36.6334,
+      -37.7878,
+      -38.9554,
+      -40.1358,
+      -41.3287,
+      -42.5338,
+      -43.7508,
+      -44.9794,
+      -46.2193,
+      -47.4702,
+      -48.7318,
+      -50.0037,
+      -51.2856,
+      -52.5773,
+      -53.8783,
+      -55.1884,
+      -56.5073,
+      -57.8345,
+      -59.1698,
+      -60.5129,
+      -61.8633,
+      -63.2208,
+      -64.585,
+      -65.9556,
+      -67.3322,
+      -68.7145,
+      -70.1022,
+      -71.4948,
+      -72.8921,
+      -74.2937,
+      -75.6992,
+      -77.1083,
+      -78.5206,
+      -79.9358,
+      -81.3536,
+      -82.7735,
+      -84.1952,
+      -85.6184,
+      -87.0427,
+      -88.4677,
+      -89.8931,
+      -91.3185,
+      -92.7436,
+      -94.168,
+      -95.5914,
+      -97.0134,
+      -98.4336,
+      -99.8516,
+      -101.2673,
+      -102.6801,
+      -104.0897,
+      -105.4957,
+      -106.8979,
+      -108.2959,
+      -109.6892,
+      -111.0776,
+      -112.4608,
+      -113.8383,
+      -115.2098,
+      -116.575,
+      -117.9335,
+      -119.285,
+      -120.6292,
+      -121.9657,
+      -123.2942,
+      -124.6143,
+      -125.9257,
+      -127.2281,
+      -128.5212,
+      -129.8047,
+      -131.0781,
+      -132.3412,
+      -133.5937,
+      -134.8353,
+      -136.0656,
+      -137.2844,
+      -138.4913,
+      -139.686,
+      -140.8683,
+      -142.0378,
+      -143.1943,
+      -144.3374,
+      -145.4669,
+      -146.5825,
+      -147.6839,
+      -148.7708,
+      -149.843,
+      -150.9001,
+      -151.942,
+      -152.9683,
+      -153.9789,
+      -154.9734,
+      -155.9516,
+      -156.9132,
+      -157.8581,
+      -158.7859,
+      -159.6965,
+      -160.5896,
+      -161.465,
+      -162.3225,
+      -163.1618,
+      -163.9828,
+      -164.7852,
+      -165.5689,
+      -166.3336,
+      -167.0791,
+      -167.8053,
+      -168.512,
+      -169.199,
+      -169.8661,
+      -170.5132,
+      -171.1401,
+      -171.7467,
+      -172.3327,
+      -172.8981,
+      -173.4427,
+      -173.9663,
+      -174.4689,
+      -174.9503,
+      -175.4104,
+      -175.8491,
+      -176.2662,
+      -176.6617,
+      -177.0355,
+      -177.3874,
+      -177.7174,
+      -178.0254,
+      -178.3113,
+      -178.575,
+      -178.8166,
+      -179.0358,
+      -179.2327,
+      -179.4073,
+      -179.5594,
+      -179.689,
+      -179.7962,
+      -179.8808,
+      -179.9429,
+      -179.9824,
+      -179.9993,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0
+     ],
+     "turner_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0003,
+      -0.0022,
+      -0.004,
+      -0.0025,
+      -0.002,
+      -0.0018,
+      -0.0019,
+      -0.0024,
+      -0.0026,
+      -0.0028,
+      -0.003,
+      -0.003,
+      -0.003,
+      -0.0032,
+      -0.0031,
+      -0.0032,
+      -0.0032,
+      -0.0032,
+      -0.0034,
+      -0.0036,
+      -0.0043,
+      -0.0088,
+      -0.0213,
+      -0.0452,
+      -0.0836,
+      -0.1367,
+      -0.2035,
+      -0.2844,
+      -0.3749,
+      -0.4801,
+      -0.5988,
+      -0.7297,
+      -0.8728,
+      -1.0247,
+      -1.189,
+      -1.3691,
+      -1.5607,
+      -1.7727,
+      -1.9853,
+      -2.2158,
+      -2.4636,
+      -2.7295,
+      -3.0127,
+      -3.3156,
+      -3.6347,
+      -3.9767,
+      -4.3506,
+      -4.756,
+      -5.1925,
+      -5.6657,
+      -5.9949,
+      -6.1837,
+      -6.3444,
+      -6.4974,
+      -6.6532,
+      -7.0947,
+      -8.2735,
+      -9.4303,
+      -10.5775,
+      -11.7239,
+      -12.8749,
+      -14.0339,
+      -15.1962,
+      -16.3555,
+      -17.5083,
+      -18.6525,
+      -19.7862,
+      -20.9113,
+      -22.0276,
+      -23.1363,
+      -24.2405,
+      -25.3424,
+      -26.445,
+      -27.551,
+      -28.6628,
+      -29.7827,
+      -30.9123,
+      -32.0531,
+      -33.2059,
+      -34.3706,
+      -35.5466,
+      -36.7321,
+      -37.9241,
+      -39.119,
+      -40.3131,
+      -41.503,
+      -42.6864,
+      -43.8625,
+      -45.0321,
+      -46.1975,
+      -47.3622,
+      -48.5308,
+      -49.7081,
+      -50.8993,
+      -52.1089,
+      -53.3407,
+      -54.5972,
+      -55.8794,
+      -57.1865,
+      -58.5136,
+      -59.8606,
+      -61.2245,
+      -62.6037,
+      -63.9952,
+      -65.3977,
+      -66.809,
+      -68.2304,
+      -69.6668,
+      -71.1218,
+      -72.5981,
+      -74.1009,
+      -75.6395,
+      -77.2194,
+      -78.8479,
+      -80.5231,
+      -82.234,
+      -83.9564,
+      -85.6283,
+      -87.1785,
+      -88.5578,
+      -89.7526,
+      -90.8052,
+      -91.7734,
+      -92.6905,
+      -93.6018,
+      -94.5385,
+      -95.5252,
+      -96.5773,
+      -97.3078,
+      -98.6197,
+      -100.011,
+      -101.4764,
+      -103.0097,
+      -104.5933,
+      -106.2062,
+      -107.8276,
+      -109.4404,
+      -111.0329,
+      -112.599,
+      -114.1366,
+      -115.6465,
+      -117.131,
+      -118.5933,
+      -120.0366,
+      -121.4635,
+      -122.876,
+      -124.275,
+      -125.66,
+      -127.0287,
+      -128.3775,
+      -129.7021,
+      -130.998,
+      -132.2623,
+      -133.4937,
+      -134.6931,
+      -135.8631,
+      -137.0078,
+      -138.1318,
+      -139.2399,
+      -140.3373,
+      -141.4281,
+      -142.5159,
+      -143.6031,
+      -144.691,
+      -145.7795,
+      -146.8678,
+      -147.9539,
+      -149.0355,
+      -150.1102,
+      -151.1758,
+      -152.2301,
+      -153.2718,
+      -154.2991,
+      -155.3116,
+      -156.3087,
+      -157.2906,
+      -158.2578,
+      -159.2104,
+      -160.1502,
+      -161.0778,
+      -161.9954,
+      -162.9043,
+      -163.8049,
+      -164.6995,
+      -165.5902,
+      -166.4782,
+      -167.3645,
+      -168.2483,
+      -169.1286,
+      -170.0015,
+      -170.8632,
+      -171.7095,
+      -172.5364,
+      -173.3345,
+      -174.093,
+      -174.8012,
+      -175.4516,
+      -176.04,
+      -176.566,
+      -177.0322,
+      -177.4431,
+      -177.8032,
+      -178.1121,
+      -178.385,
+      -178.6263,
+      -178.84,
+      -179.0305,
+      -179.2006,
+      -179.3511,
+      -179.4844,
+      -179.6027,
+      -179.7071,
+      -179.7982,
+      -179.8765,
+      -179.942,
+      -179.9952,
+      -180.0361,
+      -180.0659,
+      -180.0862,
+      -180.1,
+      -180.1113,
+      -180.1199,
+      -180.1263,
+      -180.1309,
+      -180.1344,
+      -180.1368,
+      -180.1386,
+      -180.14,
+      -180.1411,
+      -180.142,
+      -180.1427,
+      -180.1434,
+      -180.144,
+      -180.1445,
+      -180.1449,
+      -180.1453,
+      -180.1456,
+      -180.1459,
+      -180.1461,
+      -180.1464,
+      -180.1466,
+      -180.1467,
+      -180.1469,
+      -180.147,
+      -180.1471,
+      -180.1471,
+      -180.1472,
+      -180.1233,
+      -180.097,
+      -180.0763,
+      -180.06,
+      -180.0472,
+      -180.0371,
+      -180.0292,
+      -180.023,
+      -180.0181,
+      -180.0142,
+      -180.0112,
+      -180.0088,
+      -180.0069,
+      -180.0054,
+      -180.0043,
+      -180.0034,
+      -180.0026,
+      -180.0021,
+      -180.0016,
+      -180.0013,
+      -180.001,
+      -180.0008,
+      -180.0006,
+      -180.0005,
+      -180.0004,
+      -180.0003,
+      -180.0002,
+      -180.0002,
+      -180.0001,
+      -180.0001,
+      -180.0001,
+      -180.0001,
+      -180.0001,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0
+     ],
+     "layer_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0003,
+      0.0158,
+      0.0498,
+      0.0482,
+      0.048,
+      0.0474,
+      0.0459,
+      0.0455,
+      0.0456,
+      0.0455,
+      0.0454,
+      0.0455,
+      0.0457,
+      0.0454,
+      0.0469,
+      0.0467,
+      0.0468,
+      0.047,
+      0.047,
+      0.0472,
+      0.0469,
+      0.0431,
+      0.0303,
+      0.0068,
+      -0.029,
+      -0.0749,
+      -0.1289,
+      -0.2046,
+      -0.2878,
+      -0.374,
+      -0.4746,
+      -0.5816,
+      -0.6974,
+      -0.8498,
+      -0.9959,
+      -1.1518,
+      -1.313,
+      -1.5102,
+      -1.7179,
+      -1.9496,
+      -2.1981,
+      -2.467,
+      -2.7526,
+      -3.0571,
+      -3.3787,
+      -3.7254,
+      -4.1073,
+      -4.5203,
+      -4.9659,
+      -5.449,
+      -5.7164,
+      -5.8842,
+      -6.0226,
+      -6.1544,
+      -6.2936,
+      -6.7103,
+      -7.8018,
+      -8.9614,
+      -10.1117,
+      -11.2735,
+      -12.4493,
+      -13.6318,
+      -14.7998,
+      -15.9572,
+      -17.1129,
+      -18.2622,
+      -19.4104,
+      -20.5458,
+      -21.6597,
+      -22.7692,
+      -23.8742,
+      -24.979,
+      -26.0837,
+      -27.1927,
+      -28.3077,
+      -29.4303,
+      -30.5635,
+      -31.7083,
+      -32.865,
+      -34.0336,
+      -35.2139,
+      -36.4031,
+      -37.5981,
+      -38.7956,
+      -39.9912,
+      -41.1816,
+      -42.3641,
+      -43.5387,
+      -44.7067,
+      -45.871,
+      -47.0356,
+      -48.2048,
+      -49.3839,
+      -50.5778,
+      -51.7909,
+      -53.0269,
+      -54.288,
+      -55.5748,
+      -56.8863,
+      -58.2154,
+      -59.5645,
+      -60.9311,
+      -62.3112,
+      -63.7056,
+      -65.1102,
+      -66.5228,
+      -67.9456,
+      -69.3848,
+      -70.8443,
+      -72.3253,
+      -73.8371,
+      -75.3859,
+      -76.9754,
+      -78.6138,
+      -80.2991,
+      -82.0186,
+      -83.7498,
+      -85.422,
+      -86.9528,
+      -88.3048,
+      -89.4693,
+      -90.4723,
+      -91.4145,
+      -92.3181,
+      -93.2318,
+      -94.1794,
+      -95.1766,
+      -96.2476,
+      -96.9538,
+      -98.201,
+      -99.579,
+      -101.0589,
+      -102.6046,
+      -104.1975,
+      -105.8157,
+      -107.4383,
+      -109.0489,
+      -110.6376,
+      -112.201,
+      -113.7349,
+      -115.2413,
+      -116.7228,
+      -118.1826,
+      -119.6237,
+      -121.0489,
+      -122.46,
+      -123.8576,
+      -125.241,
+      -126.6085,
+      -127.9629,
+      -129.2828,
+      -130.5732,
+      -131.8315,
+      -133.0569,
+      -134.2503,
+      -135.4149,
+      -136.5549,
+      -137.675,
+      -138.7802,
+      -139.8755,
+      -140.9649,
+      -142.0519,
+      -143.1389,
+      -144.2267,
+      -145.3151,
+      -146.403,
+      -147.4884,
+      -148.5689,
+      -149.642,
+      -150.7055,
+      -151.7575,
+      -152.7959,
+      -153.8207,
+      -154.8305,
+      -155.8251,
+      -156.8078,
+      -157.7748,
+      -158.7303,
+      -159.6756,
+      -160.6092,
+      -161.5379,
+      -162.4487,
+      -163.3525,
+      -164.2503,
+      -165.1487,
+      -166.0399,
+      -166.9322,
+      -167.8219,
+      -168.703,
+      -169.5771,
+      -170.4409,
+      -171.2903,
+      -172.1198,
+      -172.9191,
+      -173.6761,
+      -174.3814,
+      -175.0265,
+      -175.6081,
+      -176.126,
+      -176.5832,
+      -176.9846,
+      -177.3412,
+      -177.643,
+      -177.9109,
+      -178.1473,
+      -178.3558,
+      -178.542,
+      -178.7083,
+      -178.8547,
+      -178.9847,
+      -179.1,
+      -179.2015,
+      -179.29,
+      -179.3656,
+      -179.4285,
+      -179.4792,
+      -179.5176,
+      -179.5451,
+      -179.5635,
+      -179.5766,
+      -179.5874,
+      -179.5957,
+      -179.6017,
+      -179.606,
+      -179.6093,
+      -179.6116,
+      -179.6133,
+      -179.6146,
+      -179.6157,
+      -179.6166,
+      -179.6173,
+      -179.618,
+      -179.6186,
+      -179.6191,
+      -179.6195,
+      -179.6198,
+      -179.6202,
+      -179.6204,
+      -179.6207,
+      -179.6209,
+      -179.6211,
+      -179.6212,
+      -179.6214,
+      -179.6215,
+      -179.6215,
+      -179.6216,
+      -179.6217,
+      -89.9209,
+      -44.9724,
+      -89.9549,
+      -89.95,
+      -89.9484,
+      -89.9478,
+      -89.9476,
+      -89.9475,
+      -89.9475,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9475,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474,
+      -89.9474
+     ],
+     "torque_Nm": [
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0005,
+      -0.0006,
+      -0.0,
+      0.0,
+      0.0,
+      0.0001,
+      0.0001,
+      0.0004,
+      0.0003,
+      0.0004,
+      0.0004,
+      0.0002,
+      0.0001,
+      0.0006,
+      0.0003,
+      0.0004,
+      0.0003,
+      -0.0,
+      0.0005,
+      -0.0007,
+      -0.0037,
+      -0.006,
+      -0.0077,
+      -0.0114,
+      -0.0143,
+      -0.0187,
+      -0.0237,
+      -0.0225,
+      -0.0345,
+      -0.0414,
+      -0.0483,
+      -0.0599,
+      -0.0721,
+      -0.0819,
+      -0.0936,
+      -0.1019,
+      -0.1161,
+      -0.1275,
+      -0.1444,
+      -0.1586,
+      -0.1744,
+      -0.1871,
+      -0.2015,
+      -0.2158,
+      -0.2314,
+      -0.2436,
+      -0.2514,
+      -0.2605,
+      -0.2673,
+      -0.2677,
+      -0.3987,
+      -0.4572,
+      -0.5096,
+      -0.5648,
+      -0.6103,
+      -0.2219,
+      -0.2624,
+      -0.2388,
+      -0.2136,
+      -0.1871,
+      -0.1615,
+      -0.1355,
+      -0.1122,
+      -0.0939,
+      -0.078,
+      -0.0651,
+      -0.0551,
+      -0.0462,
+      -0.0399,
+      -0.0346,
+      -0.0296,
+      -0.0264,
+      -0.023,
+      -0.0196,
+      -0.0161,
+      -0.0125,
+      -0.0087,
+      -0.0048,
+      -0.0008,
+      0.0031,
+      0.0064,
+      0.0086,
+      0.0093,
+      0.0078,
+      0.0039,
+      -0.0023,
+      -0.0106,
+      -0.0206,
+      -0.0315,
+      -0.0426,
+      -0.0533,
+      -0.0629,
+      -0.0707,
+      -0.0763,
+      -0.0796,
+      -0.0806,
+      -0.0794,
+      -0.0765,
+      -0.0725,
+      -0.0703,
+      -0.0664,
+      -0.061,
+      -0.0581,
+      -0.0512,
+      -0.046,
+      -0.0418,
+      -0.0381,
+      -0.0297,
+      -0.0179,
+      -0.0044,
+      0.0138,
+      0.0375,
+      0.065,
+      0.1018,
+      0.139,
+      0.1738,
+      0.1968,
+      0.1902,
+      0.1501,
+      0.0828,
+      0.0035,
+      -0.068,
+      -0.1348,
+      -0.1876,
+      -0.2291,
+      -0.2582,
+      -0.2751,
+      -0.2791,
+      -0.2349,
+      -0.2598,
+      -0.2328,
+      -0.2009,
+      -0.167,
+      -0.1352,
+      -0.1077,
+      -0.0858,
+      -0.0691,
+      -0.0569,
+      -0.0477,
+      -0.0407,
+      -0.0348,
+      -0.0295,
+      -0.0243,
+      -0.019,
+      -0.0134,
+      -0.0077,
+      -0.0023,
+      0.0024,
+      0.0055,
+      0.0065,
+      0.0047,
+      -0.0,
+      -0.0072,
+      -0.0164,
+      -0.0268,
+      -0.0374,
+      -0.0477,
+      -0.057,
+      -0.0647,
+      -0.0706,
+      -0.0744,
+      -0.0762,
+      -0.0761,
+      -0.0745,
+      -0.0716,
+      -0.0679,
+      -0.0637,
+      -0.0594,
+      -0.0552,
+      -0.051,
+      -0.0471,
+      -0.0433,
+      -0.0396,
+      -0.0359,
+      -0.0321,
+      -0.028,
+      -0.023,
+      -0.0187,
+      -0.0123,
+      -0.0054,
+      0.0033,
+      0.0129,
+      0.0242,
+      0.0364,
+      0.0523,
+      0.0679,
+      0.0858,
+      0.1067,
+      0.127,
+      0.1472,
+      0.1667,
+      0.1857,
+      0.2024,
+      0.2148,
+      0.2219,
+      0.223,
+      0.2188,
+      0.2103,
+      0.1985,
+      0.1847,
+      0.1696,
+      0.1506,
+      0.1346,
+      0.1204,
+      0.1072,
+      0.0931,
+      0.081,
+      0.0702,
+      0.0595,
+      0.0504,
+      0.0425,
+      0.0356,
+      0.0297,
+      0.0247,
+      0.0207,
+      0.0177,
+      0.0156,
+      0.0145,
+      0.0133,
+      0.0131,
+      0.0132,
+      0.0131,
+      0.0129,
+      0.0128,
+      0.0127,
+      0.0127,
+      0.0126,
+      0.0126,
+      0.0127,
+      0.0127,
+      0.0127,
+      0.0127,
+      0.0128,
+      0.0128,
+      0.0128,
+      0.0128,
+      0.0128,
+      0.0128,
+      0.0128,
+      0.0128,
+      0.0129,
+      0.0129,
+      0.0129,
+      0.0129,
+      0.0128,
+      0.0129,
+      0.0129,
+      0.0004,
+      0.0003,
+      0.0002,
+      0.0002,
+      0.0001,
+      0.0001,
+      0.0001,
+      0.0001,
+      0.0001,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ],
+     "contact_axis_torque_by_class_Nm": [
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "pad": -0.0004,
+       "cubie": -0.0017
+      },
+      {
+       "pad": 0.0061,
+       "cubie": -0.0003
+      },
+      {
+       "pad": -0.0004,
+       "cubie": -0.0002
+      },
+      {
+       "pad": 0.0,
+       "cubie": -0.0006
+      },
+      {
+       "pad": 0.0,
+       "cubie": -0.0005
+      },
+      {
+       "pad": 0.0001,
+       "cubie": -0.0006
+      },
+      {
+       "pad": 0.0001,
+       "cubie": -0.0004
+      },
+      {
+       "pad": 0.0004,
+       "cubie": -0.0002
+      },
+      {
+       "pad": 0.0003,
+       "cubie": -0.0003
+      },
+      {
+       "pad": 0.0004,
+       "cubie": -0.0007
+      },
+      {
+       "pad": 0.0004,
+       "cubie": -0.0001
+      },
+      {
+       "pad": 0.0002,
+       "cubie": -0.0001
+      },
+      {
+       "pad": 0.0,
+       "cubie": 0.0002
+      },
+      {
+       "pad": 0.0006,
+       "cubie": -0.0006
+      },
+      {
+       "pad": 0.0003,
+       "cubie": -0.0005
+      },
+      {
+       "pad": 0.0004,
+       "cubie": -0.0003
+      },
+      {
+       "pad": 0.0003,
+       "cubie": -0.0002
+      },
+      {
+       "pad": -0.0,
+       "cubie": 0.0
+      },
+      {
+       "pad": 0.0005,
+       "cubie": -0.0005
+      },
+      {
+       "pad": -0.0007,
+       "cubie": -0.0003
+      },
+      {
+       "pad": -0.0037,
+       "cubie": 0.0018
+      },
+      {
+       "pad": -0.0058,
+       "cubie": 0.0034
+      },
+      {
+       "pad": -0.007,
+       "cubie": 0.0035
+      },
+      {
+       "pad": -0.0107,
+       "cubie": 0.0036
+      },
+      {
+       "pad": -0.0131,
+       "cubie": 0.0033
+      },
+      {
+       "pad": -0.0172,
+       "cubie": 0.0028
+      },
+      {
+       "pad": -0.0221,
+       "cubie": 0.0029
+      },
+      {
+       "pad": -0.0219,
+       "cubie": 0.0017
+      },
+      {
+       "cubie": 0.0034,
+       "pad": -0.033
+      },
+      {
+       "pad": -0.0392,
+       "cubie": 0.0023
+      },
+      {
+       "pad": -0.0459,
+       "cubie": 0.0043
+      },
+      {
+       "pad": -0.0558,
+       "cubie": 0.0034
+      },
+      {
+       "pad": -0.0719,
+       "cubie": 0.0062
+      },
+      {
+       "cubie": 0.0072,
+       "pad": -0.0614
+      },
+      {
+       "cubie": 0.0084,
+       "pad": -0.0907
+      },
+      {
+       "cubie": 0.0078,
+       "pad": -0.0999
+      },
+      {
+       "pad": -0.1112,
+       "cubie": 0.0034
+      },
+      {
+       "pad": -0.1306,
+       "cubie": 0.0104
+      },
+      {
+       "pad": -0.1411,
+       "cubie": 0.0056
+      },
+      {
+       "pad": -0.1544,
+       "cubie": 0.0069
+      },
+      {
+       "pad": -0.1693,
+       "cubie": 0.0034
+      },
+      {
+       "pad": -0.1821,
+       "cubie": 0.003
+      },
+      {
+       "pad": -0.196,
+       "cubie": 0.0033
+      },
+      {
+       "pad": -0.2096,
+       "cubie": 0.0028
+      },
+      {
+       "cubie": 0.0081,
+       "pad": -0.2257
+      },
+      {
+       "cubie": 0.0076,
+       "pad": -0.2369
+      },
+      {
+       "cubie": 0.0049,
+       "pad": -0.2441
+      },
+      {
+       "cubie": 0.0051,
+       "pad": -0.2526
+      },
+      {
+       "cubie": 0.005,
+       "pad": -0.2587
+      },
+      {
+       "pad": -0.2578,
+       "cubie": 0.0009
+      },
+      {
+       "cubie": 0.1405,
+       "pad": -0.3959
+      },
+      {
+       "pad": -0.4551,
+       "cubie": 0.2006
+      },
+      {
+       "cubie": 0.2537,
+       "pad": -0.5067
+      },
+      {
+       "cubie": 0.3088,
+       "pad": -0.562
+      },
+      {
+       "cubie": 0.3544,
+       "pad": -0.6064
+      },
+      {
+       "cubie": -0.0026,
+       "pad": -0.2644
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.2427
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.2189
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.1936
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.167
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.1408
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.115
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0922
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0739
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0582
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0456
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0356
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0268
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0207
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0155
+      },
+      {
+       "cubie": 0.0014,
+       "pad": -0.0113
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0072
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0037
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0001
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0035
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0073
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0113
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0155
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0197
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0238
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0272
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0295
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0302
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0286
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0247
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0183
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0098
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0002
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0112
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0223
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0329
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0422
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0497
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.055
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0579
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0583
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0567
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0534
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.049
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0452
+      },
+      {
+       "cubie": 0.0043,
+       "pad": -0.0424
+      },
+      {
+       "cubie": 0.0018,
+       "pad": -0.0352
+      },
+      {
+       "cubie": 0.0018,
+       "pad": -0.0323
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0255
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0206
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0158
+      },
+      {
+       "cubie": 0.0018,
+       "pad": -0.0133
+      },
+      {
+       "cubie": 0.0018,
+       "pad": -0.003
+      },
+      {
+       "cubie": 0.0018,
+       "pad": 0.0081
+      },
+      {
+       "cubie": 0.0018,
+       "pad": 0.0221
+      },
+      {
+       "cubie": 0.0018,
+       "pad": 0.041
+      },
+      {
+       "cubie": 0.0019,
+       "pad": 0.0656
+      },
+      {
+       "cubie": 0.002,
+       "pad": 0.0949
+      },
+      {
+       "cubie": 0.002,
+       "pad": 0.1316
+      },
+      {
+       "cubie": 0.002,
+       "pad": 0.1695
+      },
+      {
+       "cubie": 0.002,
+       "pad": 0.2047
+      },
+      {
+       "cubie": 0.002,
+       "pad": 0.2256
+      },
+      {
+       "cubie": 0.0019,
+       "pad": 0.216
+      },
+      {
+       "cubie": 0.0017,
+       "pad": 0.1723
+      },
+      {
+       "cubie": 0.0016,
+       "pad": 0.1014
+      },
+      {
+       "cubie": 0.0038,
+       "pad": 0.0182
+      },
+      {
+       "cubie": 0.003,
+       "pad": -0.0532
+      },
+      {
+       "cubie": 0.0013,
+       "pad": -0.1184
+      },
+      {
+       "cubie": 0.0038,
+       "pad": -0.173
+      },
+      {
+       "cubie": 0.0013,
+       "pad": -0.2126
+      },
+      {
+       "cubie": 0.0014,
+       "pad": -0.2404
+      },
+      {
+       "cubie": 0.0014,
+       "pad": -0.2559
+      },
+      {
+       "cubie": 0.0977,
+       "pad": -0.2982
+      },
+      {
+       "cubie": -0.0052,
+       "pad": -0.1722
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.2345
+      },
+      {
+       "pad": -0.2063,
+       "cubie": 0.0018
+      },
+      {
+       "pad": -0.1733,
+       "cubie": 0.0018
+      },
+      {
+       "pad": -0.1387,
+       "cubie": 0.0019
+      },
+      {
+       "pad": -0.1066,
+       "cubie": 0.0019
+      },
+      {
+       "pad": -0.0792,
+       "cubie": 0.0019
+      },
+      {
+       "pad": -0.0577,
+       "cubie": 0.0019
+      },
+      {
+       "pad": -0.0415,
+       "cubie": 0.0019
+      },
+      {
+       "pad": -0.0299,
+       "cubie": 0.0019
+      },
+      {
+       "pad": -0.0212,
+       "cubie": 0.0018
+      },
+      {
+       "pad": -0.0147,
+       "cubie": 0.0018
+      },
+      {
+       "pad": -0.0092,
+       "cubie": 0.0018
+      },
+      {
+       "pad": -0.0043,
+       "cubie": 0.0018
+      },
+      {
+       "pad": 0.0006,
+       "cubie": 0.0018
+      },
+      {
+       "pad": 0.0057,
+       "cubie": 0.0017
+      },
+      {
+       "pad": 0.0111,
+       "cubie": 0.0017
+      },
+      {
+       "pad": 0.0165,
+       "cubie": 0.0017
+      },
+      {
+       "pad": 0.0217,
+       "cubie": 0.0017
+      },
+      {
+       "pad": 0.0261,
+       "cubie": 0.0017
+      },
+      {
+       "pad": 0.0288,
+       "cubie": 0.0017
+      },
+      {
+       "pad": 0.0293,
+       "cubie": 0.0017
+      },
+      {
+       "pad": 0.0269,
+       "cubie": 0.0016
+      },
+      {
+       "pad": 0.0217,
+       "cubie": 0.0016
+      },
+      {
+       "pad": 0.0138,
+       "cubie": 0.0016
+      },
+      {
+       "pad": 0.0041,
+       "cubie": 0.0015
+      },
+      {
+       "pad": -0.0067,
+       "cubie": 0.0015
+      },
+      {
+       "pad": -0.0178,
+       "cubie": 0.0015
+      },
+      {
+       "pad": -0.0283,
+       "cubie": 0.0015
+      },
+      {
+       "pad": -0.0378,
+       "cubie": 0.0015
+      },
+      {
+       "pad": -0.0457,
+       "cubie": 0.0015
+      },
+      {
+       "pad": -0.0516,
+       "cubie": 0.0015
+      },
+      {
+       "pad": -0.0555,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0573,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0571,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0555,
+       "cubie": 0.0015
+      },
+      {
+       "pad": -0.0526,
+       "cubie": 0.0015
+      },
+      {
+       "pad": -0.0489,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0449,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0407,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0367,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0327,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.029,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0255,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0221,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0187,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0151,
+       "cubie": 0.0014
+      },
+      {
+       "pad": -0.0114,
+       "cubie": 0.0013
+      },
+      {
+       "pad": -0.0067,
+       "cubie": 0.0016
+      },
+      {
+       "pad": -0.0023,
+       "cubie": 0.0014
+      },
+      {
+       "pad": 0.0038,
+       "cubie": 0.0013
+      },
+      {
+       "pad": 0.0105,
+       "cubie": 0.0013
+      },
+      {
+       "pad": 0.0191,
+       "cubie": 0.0013
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.0284
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.04
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.0523
+      },
+      {
+       "cubie": 0.0059,
+       "pad": 0.0661
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.0838
+      },
+      {
+       "cubie": 0.0012,
+       "pad": 0.1013
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.122
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.1421
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.1622
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.1812
+      },
+      {
+       "cubie": 0.0012,
+       "pad": 0.1999
+      },
+      {
+       "cubie": 0.0012,
+       "pad": 0.2159
+      },
+      {
+       "cubie": 0.0012,
+       "pad": 0.2276
+      },
+      {
+       "cubie": 0.0011,
+       "pad": 0.2336
+      },
+      {
+       "cubie": 0.0011,
+       "pad": 0.2338
+      },
+      {
+       "cubie": 0.001,
+       "pad": 0.2283
+      },
+      {
+       "cubie": 0.001,
+       "pad": 0.2187
+      },
+      {
+       "cubie": 0.0009,
+       "pad": 0.2059
+      },
+      {
+       "cubie": 0.0009,
+       "pad": 0.1911
+      },
+      {
+       "cubie": 0.0008,
+       "pad": 0.1753
+      },
+      {
+       "cubie": 0.0039,
+       "pad": 0.1556
+      },
+      {
+       "cubie": 0.0034,
+       "pad": 0.1398
+      },
+      {
+       "cubie": 0.0052,
+       "pad": 0.1238
+      },
+      {
+       "cubie": 0.0067,
+       "pad": 0.1105
+      },
+      {
+       "cubie": 0.005,
+       "pad": 0.0963
+      },
+      {
+       "cubie": 0.0052,
+       "pad": 0.0838
+      },
+      {
+       "cubie": 0.0047,
+       "pad": 0.0727
+      },
+      {
+       "cubie": 0.0056,
+       "pad": 0.0616
+      },
+      {
+       "cubie": 0.0055,
+       "pad": 0.0523
+      },
+      {
+       "cubie": 0.0052,
+       "pad": 0.0441
+      },
+      {
+       "cubie": 0.005,
+       "pad": 0.037
+      },
+      {
+       "cubie": 0.0047,
+       "pad": 0.0309
+      },
+      {
+       "cubie": 0.0044,
+       "pad": 0.0257
+      },
+      {
+       "cubie": 0.0041,
+       "pad": 0.0214
+      },
+      {
+       "cubie": 0.004,
+       "pad": 0.0183
+      },
+      {
+       "cubie": 0.0035,
+       "pad": 0.016
+      },
+      {
+       "cubie": 0.0034,
+       "pad": 0.0147
+      },
+      {
+       "cubie": 0.0034,
+       "pad": 0.0134
+      },
+      {
+       "cubie": 0.0021,
+       "pad": 0.0132
+      },
+      {
+       "cubie": 0.0017,
+       "pad": 0.0134
+      },
+      {
+       "cubie": 0.0016,
+       "pad": 0.0132
+      },
+      {
+       "cubie": 0.0018,
+       "pad": 0.013
+      },
+      {
+       "cubie": 0.0018,
+       "pad": 0.0129
+      },
+      {
+       "cubie": 0.0017,
+       "pad": 0.0128
+      },
+      {
+       "cubie": 0.0017,
+       "pad": 0.0127
+      },
+      {
+       "cubie": 0.0017,
+       "pad": 0.0127
+      },
+      {
+       "cubie": 0.0017,
+       "pad": 0.0127
+      },
+      {
+       "cubie": 0.0016,
+       "pad": 0.0127
+      },
+      {
+       "cubie": 0.0016,
+       "pad": 0.0127
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0127
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0127
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0128
+      },
+      {
+       "cubie": 0.0014,
+       "pad": 0.0128
+      },
+      {
+       "cubie": 0.0014,
+       "pad": 0.0128
+      },
+      {
+       "cubie": 0.0014,
+       "pad": 0.0128
+      },
+      {
+       "cubie": 0.0014,
+       "pad": 0.0128
+      },
+      {
+       "cubie": 0.0014,
+       "pad": 0.0128
+      },
+      {
+       "cubie": 0.0014,
+       "pad": 0.0128
+      },
+      {
+       "cubie": 0.0014,
+       "pad": 0.0129
+      },
+      {
+       "cubie": 0.0014,
+       "pad": 0.0129
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.0129
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.0129
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.0129
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.0129
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.0129
+      },
+      {
+       "cubie": 0.0013,
+       "pad": 0.0129
+      },
+      {},
+      {
+       "cubie": -0.0001
+      },
+      {
+       "cubie": -0.0007
+      },
+      {
+       "cubie": -0.0001
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      },
+      {
+       "cubie": -0.0
+      }
+     ]
+    }
+   },
+   "29": {
+    "move": "U2",
+    "series_10ms": {
+     "t": [
+      0.0005,
+      0.0105,
+      0.0205,
+      0.0305,
+      0.0405,
+      0.0505,
+      0.0605,
+      0.0705,
+      0.0805,
+      0.0905,
+      0.1005,
+      0.1105,
+      0.1205,
+      0.1305,
+      0.1405,
+      0.1505,
+      0.1605,
+      0.1705,
+      0.1805,
+      0.1905,
+      0.2005,
+      0.2105,
+      0.2205,
+      0.2305,
+      0.2405,
+      0.2505,
+      0.2605,
+      0.2705,
+      0.2805,
+      0.2905,
+      0.3005,
+      0.3105,
+      0.3205,
+      0.3305,
+      0.3405,
+      0.3505,
+      0.3605,
+      0.3705,
+      0.3805,
+      0.3905,
+      0.4005,
+      0.4105,
+      0.4205,
+      0.4305,
+      0.4405,
+      0.4505,
+      0.4605,
+      0.4705,
+      0.4805,
+      0.4905,
+      0.5005,
+      0.5105,
+      0.5205,
+      0.5305,
+      0.5405,
+      0.5505,
+      0.5605,
+      0.5705,
+      0.5805,
+      0.5905,
+      0.6005,
+      0.6105,
+      0.6205,
+      0.6305,
+      0.6405,
+      0.6505,
+      0.6605,
+      0.6705,
+      0.6805,
+      0.6905,
+      0.7005,
+      0.7105,
+      0.7205,
+      0.7305,
+      0.7405,
+      0.7505,
+      0.7605,
+      0.7705,
+      0.7805,
+      0.7905,
+      0.8005,
+      0.8105,
+      0.8205,
+      0.8305,
+      0.8405,
+      0.8505,
+      0.8605,
+      0.8705,
+      0.8805,
+      0.8905,
+      0.9005,
+      0.9105,
+      0.9205,
+      0.9305,
+      0.9405,
+      0.9505,
+      0.9605,
+      0.9705,
+      0.9805,
+      0.9905,
+      1.0005,
+      1.0105,
+      1.0205,
+      1.0305,
+      1.0405,
+      1.0505,
+      1.0605,
+      1.0705,
+      1.0805,
+      1.0905,
+      1.1005,
+      1.1105,
+      1.1205,
+      1.1305,
+      1.1405,
+      1.1505,
+      1.1605,
+      1.1705,
+      1.1805,
+      1.1905,
+      1.2005,
+      1.2105,
+      1.2205,
+      1.2305,
+      1.2405,
+      1.2505,
+      1.2605,
+      1.2705,
+      1.2805,
+      1.2905,
+      1.3005,
+      1.3105,
+      1.3205,
+      1.3305,
+      1.3405,
+      1.3505,
+      1.3605,
+      1.3705,
+      1.3805,
+      1.3905,
+      1.4005,
+      1.4105,
+      1.4205,
+      1.4305,
+      1.4405,
+      1.4505,
+      1.4605,
+      1.4705,
+      1.4805,
+      1.4905,
+      1.5005,
+      1.5105,
+      1.5205,
+      1.5305,
+      1.5405,
+      1.5505,
+      1.5605,
+      1.5705,
+      1.5805,
+      1.5905,
+      1.6005,
+      1.6105,
+      1.6205,
+      1.6305,
+      1.6405,
+      1.6505,
+      1.6605,
+      1.6705,
+      1.6805,
+      1.6905,
+      1.7005,
+      1.7105,
+      1.7205,
+      1.7305,
+      1.7405,
+      1.7505,
+      1.7605,
+      1.7705,
+      1.7805,
+      1.7905,
+      1.8005,
+      1.8105,
+      1.8205,
+      1.8305,
+      1.8405,
+      1.8505,
+      1.8605,
+      1.8705,
+      1.8805,
+      1.8905,
+      1.9005,
+      1.9105,
+      1.9205,
+      1.9305,
+      1.9405,
+      1.9505,
+      1.9605,
+      1.9705,
+      1.9805,
+      1.9905,
+      2.0005,
+      2.0105,
+      2.0205,
+      2.0305,
+      2.0405,
+      2.0505,
+      2.0605,
+      2.0705,
+      2.0805,
+      2.0905,
+      2.1005,
+      2.1105,
+      2.1205,
+      2.1305,
+      2.1405,
+      2.1505,
+      2.1605,
+      2.1705,
+      2.1805,
+      2.1905,
+      2.2005,
+      2.2105,
+      2.2205,
+      2.2305,
+      2.2405,
+      2.2505,
+      2.2605,
+      2.2705,
+      2.2805,
+      2.2905,
+      2.3005,
+      2.3105,
+      2.3205,
+      2.3305,
+      2.3405,
+      2.3505,
+      2.3605,
+      2.3705,
+      2.3805,
+      2.3905,
+      2.4005,
+      2.4105,
+      2.4205,
+      2.4305,
+      2.4405,
+      2.4505,
+      2.4605,
+      2.4705,
+      2.4805,
+      2.4905,
+      2.5005,
+      2.5105,
+      2.5205,
+      2.5305,
+      2.5405,
+      2.5505,
+      2.5605,
+      2.5705,
+      2.5805,
+      2.5905,
+      2.6005,
+      2.6105,
+      2.6205,
+      2.6305,
+      2.6405,
+      2.6505,
+      2.6605,
+      2.6705,
+      2.6805,
+      2.6905,
+      2.7005,
+      2.7105,
+      2.7205,
+      2.7305,
+      2.7405,
+      2.7505,
+      2.7605,
+      2.7705,
+      2.7805,
+      2.7905,
+      2.8005,
+      2.8105,
+      2.8205,
+      2.8305,
+      2.8405,
+      2.8505,
+      2.8605,
+      2.8705,
+      2.8805,
+      2.8905,
+      2.9005,
+      2.9105,
+      2.9205,
+      2.9305,
+      2.9405,
+      2.9505,
+      2.9605,
+      2.9705,
+      2.9805,
+      2.9905,
+      3.0005,
+      3.0105,
+      3.0205,
+      3.0305,
+      3.0405,
+      3.0505,
+      3.0605,
+      3.0705,
+      3.0805,
+      3.0905,
+      3.1005,
+      3.1105,
+      3.1205,
+      3.1305,
+      3.1405,
+      3.1505,
+      3.1605,
+      3.1705,
+      3.1805
+     ],
+     "target_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      -0.0124,
+      -0.0474,
+      -0.105,
+      -0.1851,
+      -0.2877,
+      -0.4129,
+      -0.5605,
+      -0.7306,
+      -0.923,
+      -1.1378,
+      -1.3749,
+      -1.6342,
+      -1.9157,
+      -2.2193,
+      -2.5449,
+      -2.8924,
+      -3.2618,
+      -3.6529,
+      -4.0657,
+      -4.5001,
+      -4.9559,
+      -5.4331,
+      -5.9314,
+      -6.4509,
+      -6.9913,
+      -7.5525,
+      -8.1345,
+      -8.7369,
+      -9.3598,
+      -10.0028,
+      -10.666,
+      -11.349,
+      -12.0518,
+      -12.7741,
+      -13.5158,
+      -14.2767,
+      -15.0566,
+      -15.8552,
+      -16.6725,
+      -17.5082,
+      -18.362,
+      -19.2339,
+      -20.1234,
+      -21.0306,
+      -21.955,
+      -22.8964,
+      -23.8548,
+      -24.8297,
+      -25.8209,
+      -26.8283,
+      -27.8515,
+      -28.8903,
+      -29.9444,
+      -31.0136,
+      -32.0976,
+      -33.1961,
+      -34.3088,
+      -35.4356,
+      -36.576,
+      -37.7298,
+      -38.8967,
+      -40.0765,
+      -41.2688,
+      -42.4733,
+      -43.6897,
+      -44.9177,
+      -46.1571,
+      -47.4074,
+      -48.6685,
+      -49.9399,
+      -51.2213,
+      -52.5125,
+      -53.8131,
+      -55.1227,
+      -56.4411,
+      -57.768,
+      -59.1029,
+      -60.4455,
+      -61.7956,
+      -63.1528,
+      -64.5166,
+      -65.8869,
+      -67.2633,
+      -68.6453,
+      -70.0327,
+      -71.4251,
+      -72.8221,
+      -74.2235,
+      -75.6288,
+      -77.0378,
+      -78.4499,
+      -79.865,
+      -81.2826,
+      -82.7025,
+      -84.1241,
+      -85.5472,
+      -86.9714,
+      -88.3964,
+      -89.8218,
+      -91.2473,
+      -92.6724,
+      -94.0968,
+      -95.5203,
+      -96.9423,
+      -98.3626,
+      -99.7808,
+      -101.1965,
+      -102.6095,
+      -104.0193,
+      -105.4255,
+      -106.8279,
+      -108.2261,
+      -109.6197,
+      -111.0084,
+      -112.3918,
+      -113.7695,
+      -115.1414,
+      -116.5069,
+      -117.8658,
+      -119.2176,
+      -120.5622,
+      -121.8991,
+      -123.2279,
+      -124.5485,
+      -125.8604,
+      -127.1632,
+      -128.4568,
+      -129.7407,
+      -131.0147,
+      -132.2783,
+      -133.5314,
+      -134.7735,
+      -136.0044,
+      -137.2237,
+      -138.4312,
+      -139.6266,
+      -140.8095,
+      -141.9797,
+      -143.1368,
+      -144.2806,
+      -145.4108,
+      -146.5271,
+      -147.6292,
+      -148.7168,
+      -149.7897,
+      -150.8476,
+      -151.8903,
+      -152.9174,
+      -153.9287,
+      -154.924,
+      -155.9031,
+      -156.8655,
+      -157.8113,
+      -158.74,
+      -159.6514,
+      -160.5454,
+      -161.4217,
+      -162.2801,
+      -163.1203,
+      -163.9422,
+      -164.7455,
+      -165.5301,
+      -166.2958,
+      -167.0423,
+      -167.7695,
+      -168.4771,
+      -169.1651,
+      -169.8333,
+      -170.4814,
+      -171.1093,
+      -171.7168,
+      -172.3039,
+      -172.8703,
+      -173.416,
+      -173.9407,
+      -174.4443,
+      -174.9268,
+      -175.3879,
+      -175.8277,
+      -176.2459,
+      -176.6425,
+      -177.0173,
+      -177.3703,
+      -177.7014,
+      -178.0105,
+      -178.2975,
+      -178.5624,
+      -178.805,
+      -179.0254,
+      -179.2234,
+      -179.3991,
+      -179.5523,
+      -179.6831,
+      -179.7914,
+      -179.8771,
+      -179.9403,
+      -179.9809,
+      -179.999,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0,
+      -180.0
+     ],
+     "turner_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.0,
+      0.0032,
+      0.0061,
+      0.0067,
+      0.0045,
+      0.0037,
+      0.0031,
+      0.0033,
+      0.0032,
+      0.0025,
+      0.0025,
+      0.0028,
+      0.0028,
+      0.0032,
+      0.0032,
+      0.003,
+      0.0027,
+      0.0027,
+      0.0031,
+      0.0032,
+      0.0019,
+      -0.0039,
+      -0.0168,
+      -0.0411,
+      -0.0781,
+      -0.1246,
+      -0.187,
+      -0.2619,
+      -0.3493,
+      -0.4499,
+      -0.5635,
+      -0.6844,
+      -0.8199,
+      -0.9688,
+      -1.1316,
+      -1.3084,
+      -1.4908,
+      -1.6842,
+      -1.8961,
+      -2.123,
+      -2.3662,
+      -2.6297,
+      -2.9136,
+      -3.2161,
+      -3.5424,
+      -3.8951,
+      -4.2759,
+      -4.6881,
+      -5.1337,
+      -5.6123,
+      -5.9014,
+      -6.0323,
+      -6.1411,
+      -6.1881,
+      -6.2583,
+      -6.3615,
+      -6.4349,
+      -6.5173,
+      -6.6203,
+      -7.3972,
+      -9.2281,
+      -10.9423,
+      -12.5746,
+      -14.1412,
+      -15.6615,
+      -17.1253,
+      -18.531,
+      -19.8832,
+      -21.1873,
+      -22.4499,
+      -23.6788,
+      -24.8804,
+      -26.0591,
+      -27.2179,
+      -28.3619,
+      -29.5056,
+      -30.654,
+      -31.8111,
+      -32.9764,
+      -34.1517,
+      -35.3375,
+      -36.5317,
+      -37.7331,
+      -38.9389,
+      -40.1455,
+      -41.3495,
+      -42.5502,
+      -43.7422,
+      -44.8978,
+      -46.0854,
+      -47.2621,
+      -48.4402,
+      -49.6235,
+      -50.8182,
+      -52.0292,
+      -53.2605,
+      -54.5156,
+      -55.7953,
+      -57.099,
+      -58.4265,
+      -59.777,
+      -61.1432,
+      -62.5251,
+      -63.9198,
+      -65.3244,
+      -66.7383,
+      -68.162,
+      -69.5974,
+      -71.0477,
+      -72.5177,
+      -74.0137,
+      -75.5433,
+      -77.1145,
+      -78.7326,
+      -80.3979,
+      -82.1023,
+      -83.8264,
+      -85.5141,
+      -87.0942,
+      -88.5107,
+      -89.737,
+      -90.8115,
+      -91.7919,
+      -92.7187,
+      -93.6308,
+      -94.5616,
+      -95.5363,
+      -96.5769,
+      -97.0913,
+      -97.2621,
+      -97.3674,
+      -97.4981,
+      -97.6137,
+      -97.6799,
+      -97.7177,
+      -97.7474,
+      -97.7773,
+      -97.7977,
+      -97.8167,
+      -97.8342,
+      -97.8442,
+      -97.8537,
+      -97.8576,
+      -97.8585,
+      -97.8588,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.8589,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.859,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8591,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8592,
+      -97.8593,
+      -97.8593,
+      -97.8593,
+      -97.8593,
+      -97.8593,
+      -97.8593,
+      -97.8593,
+      -106.2586,
+      -121.6771,
+      -134.0187,
+      -143.823,
+      -151.5253,
+      -157.5622,
+      -162.3235,
+      -166.0981,
+      -169.0671,
+      -171.4022,
+      -173.2388,
+      -174.6831,
+      -175.819,
+      -176.7123,
+      -177.4147,
+      -177.9671,
+      -178.4015,
+      -178.743,
+      -179.0116,
+      -179.2228,
+      -179.3889,
+      -179.5195,
+      -179.6222,
+      -179.7029,
+      -179.7664,
+      -179.8163,
+      -179.8556,
+      -179.8864,
+      -179.9107,
+      -179.9298,
+      -179.9448,
+      -179.9566,
+      -179.9659,
+      -179.9732,
+      -179.9789,
+      -179.9834,
+      -179.987,
+      -179.9897,
+      -179.9919,
+      -179.9937,
+      -179.995,
+      -179.9961,
+      -179.9969,
+      -179.9976,
+      -179.9981,
+      -179.9985,
+      -179.9988,
+      -179.9991,
+      -179.9993,
+      -179.9994,
+      -179.9995,
+      -179.9996,
+      -179.9997,
+      -179.9998,
+      -179.9998,
+      -179.9999,
+      -179.9999,
+      -179.9999,
+      -179.9999,
+      -179.9999
+     ],
+     "layer_deg": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0005,
+      -0.011,
+      -0.0243,
+      -0.0224,
+      -0.0245,
+      -0.025,
+      -0.0253,
+      -0.0249,
+      -0.0252,
+      -0.0242,
+      -0.0242,
+      -0.024,
+      -0.0242,
+      -0.0241,
+      -0.0245,
+      -0.0248,
+      -0.025,
+      -0.0251,
+      -0.0249,
+      -0.0248,
+      -0.026,
+      -0.0309,
+      -0.041,
+      -0.0654,
+      -0.1012,
+      -0.1453,
+      -0.202,
+      -0.2714,
+      -0.3507,
+      -0.4386,
+      -0.5407,
+      -0.6579,
+      -0.7713,
+      -0.9054,
+      -1.0387,
+      -1.2043,
+      -1.3955,
+      -1.5901,
+      -1.8015,
+      -2.0279,
+      -2.2711,
+      -2.5369,
+      -2.8214,
+      -3.1241,
+      -3.4531,
+      -3.8126,
+      -4.1969,
+      -4.6169,
+      -5.0688,
+      -5.5569,
+      -5.7726,
+      -5.8847,
+      -5.9685,
+      -6.0026,
+      -6.0756,
+      -6.1502,
+      -6.1992,
+      -6.2571,
+      -6.3261,
+      -6.7183,
+      -8.4547,
+      -10.1586,
+      -11.7856,
+      -13.4284,
+      -15.079,
+      -16.5474,
+      -17.9505,
+      -19.3051,
+      -20.6065,
+      -21.8671,
+      -23.0932,
+      -24.2937,
+      -25.4762,
+      -26.6357,
+      -27.7809,
+      -28.9257,
+      -30.0764,
+      -31.2361,
+      -32.4059,
+      -33.5827,
+      -34.7725,
+      -35.9698,
+      -37.1739,
+      -38.3816,
+      -39.5883,
+      -40.7916,
+      -41.9915,
+      -43.182,
+      -44.2986,
+      -45.5215,
+      -46.6964,
+      -47.8753,
+      -49.0594,
+      -50.2568,
+      -51.4701,
+      -52.7045,
+      -53.9644,
+      -55.2466,
+      -56.5542,
+      -57.8849,
+      -59.2403,
+      -60.6086,
+      -61.9935,
+      -63.3903,
+      -64.7968,
+      -66.2126,
+      -67.6383,
+      -69.0761,
+      -70.5296,
+      -72.0038,
+      -73.5053,
+      -75.046,
+      -76.6348,
+      -78.2633,
+      -79.9429,
+      -81.6601,
+      -83.3897,
+      -85.0717,
+      -86.6357,
+      -88.0241,
+      -89.2169,
+      -90.2642,
+      -91.2206,
+      -92.1346,
+      -93.0428,
+      -93.9793,
+      -94.9639,
+      -96.019,
+      -96.3562,
+      -96.4637,
+      -96.5376,
+      -96.6089,
+      -96.6335,
+      -96.6375,
+      -96.6338,
+      -96.6315,
+      -96.6265,
+      -96.625,
+      -96.6218,
+      -96.6183,
+      -96.6218,
+      -96.6207,
+      -96.6222,
+      -96.6226,
+      -96.6227,
+      -96.6228,
+      -96.6228,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6227,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6226,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -96.6225,
+      -100.8385,
+      -114.1574,
+      -123.8685,
+      -130.6305,
+      -134.7411,
+      -136.7129,
+      -136.8301,
+      -135.9068,
+      -135.2552,
+      -134.9942,
+      -134.8961,
+      -134.8594,
+      -134.8457,
+      -134.8405,
+      -134.8386,
+      -134.8379,
+      -134.8376,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375,
+      -134.8375
+     ],
+     "torque_Nm": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0001,
+      -0.0017,
+      -0.0033,
+      0.0006,
+      0.0002,
+      -0.0004,
+      -0.0004,
+      -0.0005,
+      -0.0001,
+      0.0002,
+      -0.0002,
+      -0.0005,
+      -0.0005,
+      -0.0004,
+      -0.0002,
+      -0.0001,
+      -0.0001,
+      -0.0004,
+      -0.0005,
+      -0.0015,
+      -0.0036,
+      -0.0067,
+      -0.0099,
+      -0.0105,
+      -0.0108,
+      -0.0201,
+      -0.0242,
+      -0.0299,
+      -0.0377,
+      -0.0461,
+      -0.0472,
+      -0.0645,
+      -0.0746,
+      -0.0845,
+      -0.0978,
+      -0.1089,
+      -0.1255,
+      -0.138,
+      -0.1517,
+      -0.1658,
+      -0.1812,
+      -0.1948,
+      -0.208,
+      -0.2224,
+      -0.2338,
+      -0.244,
+      -0.2546,
+      -0.2607,
+      -0.2668,
+      -0.2708,
+      -0.4208,
+      -0.4874,
+      -0.5517,
+      -0.6262,
+      -0.6575,
+      -0.7312,
+      -0.7964,
+      -0.8557,
+      -0.9102,
+      -0.3478,
+      -0.2615,
+      -0.2238,
+      -0.1852,
+      -0.1508,
+      -0.1155,
+      -0.0909,
+      -0.0735,
+      -0.0595,
+      -0.0493,
+      -0.0416,
+      -0.0355,
+      -0.034,
+      -0.0281,
+      -0.0284,
+      -0.0258,
+      -0.0254,
+      -0.0211,
+      -0.0163,
+      -0.0103,
+      -0.0077,
+      -0.0024,
+      -0.0005,
+      0.0029,
+      0.0025,
+      -0.001,
+      -0.0053,
+      -0.0114,
+      -0.0207,
+      -0.085,
+      -0.0417,
+      -0.0539,
+      -0.0625,
+      -0.0709,
+      -0.076,
+      -0.0807,
+      -0.0827,
+      -0.0805,
+      -0.0795,
+      -0.076,
+      -0.0718,
+      -0.0646,
+      -0.0607,
+      -0.0555,
+      -0.0512,
+      -0.0469,
+      -0.0422,
+      -0.0366,
+      -0.0296,
+      -0.0202,
+      -0.0076,
+      0.0095,
+      0.0324,
+      0.0606,
+      0.0943,
+      0.1311,
+      0.167,
+      0.1942,
+      0.194,
+      0.1608,
+      0.0978,
+      0.0172,
+      -0.0555,
+      -0.1218,
+      -0.1772,
+      -0.221,
+      -0.2532,
+      -0.2727,
+      -0.2794,
+      -0.6341,
+      -0.7933,
+      -0.9124,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -1.0,
+      -0.7233,
+      -0.1951,
+      -0.1641,
+      -0.1079,
+      -0.1175,
+      -0.1081,
+      -0.0524,
+      -0.0409,
+      -0.032,
+      -0.0251,
+      -0.0197,
+      -0.0154,
+      -0.0121,
+      -0.0095,
+      -0.0075,
+      -0.0059,
+      -0.0046,
+      -0.0036,
+      -0.0028,
+      -0.0022,
+      -0.0018,
+      -0.0014,
+      -0.0011,
+      -0.0009,
+      -0.0007,
+      -0.0005,
+      -0.0004,
+      -0.0003,
+      -0.0003,
+      -0.0002,
+      -0.0002,
+      -0.0001,
+      -0.0001,
+      -0.0001,
+      -0.0001,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0,
+      -0.0
+     ],
+     "contact_axis_torque_by_class_Nm": [
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "cubie": 0.0004
+      },
+      {
+       "pad": -0.0002,
+       "cubie": 0.0007
+      },
+      {
+       "cubie": 0.0005,
+       "pad": -0.0049
+      },
+      {
+       "cubie": 0.001,
+       "pad": -0.0034
+      },
+      {
+       "cubie": -0.0008,
+       "pad": 0.0008
+      },
+      {
+       "cubie": -0.0001,
+       "pad": 0.0002
+      },
+      {
+       "cubie": -0.0008,
+       "pad": -0.0003
+      },
+      {
+       "cubie": -0.0003,
+       "pad": -0.0003
+      },
+      {
+       "cubie": -0.0005,
+       "pad": -0.0006
+      },
+      {
+       "cubie": -0.0005,
+       "pad": -0.0001
+      },
+      {
+       "cubie": -0.0007,
+       "pad": 0.0001
+      },
+      {
+       "cubie": -0.0007,
+       "pad": -0.0002
+      },
+      {
+       "cubie": -0.0006,
+       "pad": -0.0004
+      },
+      {
+       "cubie": -0.0007,
+       "pad": -0.0006
+      },
+      {
+       "cubie": -0.0003,
+       "pad": -0.0005
+      },
+      {
+       "cubie": -0.0003,
+       "pad": -0.0002
+      },
+      {
+       "cubie": -0.0005,
+       "pad": -0.0001
+      },
+      {
+       "cubie": -0.0005,
+       "pad": -0.0001
+      },
+      {
+       "cubie": -0.0003,
+       "pad": -0.0003
+      },
+      {
+       "cubie": -0.0004,
+       "pad": -0.0005
+      },
+      {
+       "cubie": 0.0002,
+       "pad": -0.0015
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0034
+      },
+      {
+       "cubie": 0.004,
+       "pad": -0.0064
+      },
+      {
+       "cubie": 0.0046,
+       "pad": -0.0097
+      },
+      {
+       "cubie": 0.0044,
+       "pad": -0.0104
+      },
+      {
+       "cubie": 0.0051,
+       "pad": -0.0112
+      },
+      {
+       "cubie": 0.006,
+       "pad": -0.0191
+      },
+      {
+       "cubie": 0.0059,
+       "pad": -0.0225
+      },
+      {
+       "cubie": 0.0059,
+       "pad": -0.0281
+      },
+      {
+       "cubie": 0.0059,
+       "pad": -0.0356
+      },
+      {
+       "cubie": 0.0054,
+       "pad": -0.0434
+      },
+      {
+       "cubie": 0.0052,
+       "pad": -0.0498
+      },
+      {
+       "cubie": 0.0072,
+       "pad": -0.0617
+      },
+      {
+       "cubie": 0.0079,
+       "pad": -0.0721
+      },
+      {
+       "cubie": 0.0062,
+       "pad": -0.081
+      },
+      {
+       "cubie": 0.0077,
+       "pad": -0.092
+      },
+      {
+       "cubie": 0.0125,
+       "pad": -0.1088
+      },
+      {
+       "cubie": 0.0105,
+       "pad": -0.1217
+      },
+      {
+       "cubie": 0.012,
+       "pad": -0.1345
+      },
+      {
+       "cubie": 0.0105,
+       "pad": -0.1487
+      },
+      {
+       "cubie": 0.0107,
+       "pad": -0.1622
+      },
+      {
+       "cubie": 0.0093,
+       "pad": -0.177
+      },
+      {
+       "cubie": 0.006,
+       "pad": -0.1882
+      },
+      {
+       "cubie": 0.0106,
+       "pad": -0.2034
+      },
+      {
+       "cubie": 0.0074,
+       "pad": -0.2167
+      },
+      {
+       "cubie": 0.0046,
+       "pad": -0.2271
+      },
+      {
+       "cubie": 0.0042,
+       "pad": -0.2368
+      },
+      {
+       "cubie": 0.003,
+       "pad": -0.2467
+      },
+      {
+       "cubie": 0.0009,
+       "pad": -0.2524
+      },
+      {
+       "cubie": 0.0009,
+       "pad": -0.2582
+      },
+      {
+       "cubie": 0.001,
+       "pad": -0.2613
+      },
+      {
+       "pad": -0.4199,
+       "cubie": 0.1628
+      },
+      {
+       "cubie": 0.2312,
+       "pad": -0.4861
+      },
+      {
+       "cubie": 0.3026,
+       "pad": -0.5527
+      },
+      {
+       "cubie": 0.3698,
+       "pad": -0.6256
+      },
+      {
+       "pad": -0.6519,
+       "cubie": 0.3822
+      },
+      {
+       "pad": -0.7305,
+       "cubie": 0.4786
+      },
+      {
+       "pad": -0.7949,
+       "cubie": 0.5421
+      },
+      {
+       "pad": -0.8537,
+       "cubie": 0.601
+      },
+      {
+       "cubie": 0.6546,
+       "pad": -0.9073
+      },
+      {
+       "pad": -0.3161,
+       "cubie": 0.0
+      },
+      {
+       "cubie": 0.0021,
+       "pad": -0.2335
+      },
+      {
+       "cubie": 0.0019,
+       "pad": -0.1964
+      },
+      {
+       "cubie": 0.0019,
+       "pad": -0.1586
+      },
+      {
+       "cubie": 0.002,
+       "pad": -0.1246
+      },
+      {
+       "cubie": 0.0018,
+       "pad": -0.0896
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0672
+      },
+      {
+       "pad": -0.0505,
+       "cubie": 0.0017
+      },
+      {
+       "pad": -0.0373,
+       "cubie": 0.0017
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0278
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0204
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.0149
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0127
+      },
+      {
+       "cubie": 0.0101,
+       "pad": -0.0108
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0057
+      },
+      {
+       "cubie": 0.008,
+       "pad": -0.0045
+      },
+      {
+       "cubie": 0.0044,
+       "pad": -0.0018
+      },
+      {
+       "cubie": 0.0078,
+       "pad": 0.0004
+      },
+      {
+       "cubie": 0.009,
+       "pad": 0.0047
+      },
+      {
+       "cubie": 0.023,
+       "pad": 0.0051
+      },
+      {
+       "cubie": 0.0102,
+       "pad": 0.0133
+      },
+      {
+       "cubie": 0.0116,
+       "pad": 0.0186
+      },
+      {
+       "cubie": 0.0224,
+       "pad": 0.0162
+      },
+      {
+       "cubie": 0.01,
+       "pad": 0.0238
+      },
+      {
+       "cubie": 0.0208,
+       "pad": 0.0202
+      },
+      {
+       "cubie": 0.0089,
+       "pad": 0.0192
+      },
+      {
+       "cubie": 0.0044,
+       "pad": 0.0168
+      },
+      {
+       "cubie": 0.0016,
+       "pad": 0.0109
+      },
+      {
+       "cubie": 0.0042,
+       "pad": -0.0004
+      },
+      {
+       "cubie": 0.0037,
+       "pad": -0.0346
+      },
+      {
+       "cubie": 0.0056,
+       "pad": -0.0221
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.032
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0411
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0492
+      },
+      {
+       "cubie": 0.0059,
+       "pad": -0.0559
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0583
+      },
+      {
+       "cubie": 0.0016,
+       "pad": -0.0599
+      },
+      {
+       "cubie": 0.0074,
+       "pad": -0.0594
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0556
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0526
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0469
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0405
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0355
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0311
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0265
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0221
+      },
+      {
+       "cubie": 0.0017,
+       "pad": -0.0172
+      },
+      {
+       "cubie": 0.0018,
+       "pad": -0.0115
+      },
+      {
+       "cubie": 0.0018,
+       "pad": -0.0041
+      },
+      {
+       "cubie": 0.0018,
+       "pad": 0.0056
+      },
+      {
+       "cubie": 0.0018,
+       "pad": 0.0188
+      },
+      {
+       "cubie": 0.0018,
+       "pad": 0.0366
+      },
+      {
+       "cubie": 0.0019,
+       "pad": 0.0602
+      },
+      {
+       "cubie": 0.0019,
+       "pad": 0.0899
+      },
+      {
+       "cubie": 0.002,
+       "pad": 0.124
+      },
+      {
+       "cubie": 0.002,
+       "pad": 0.1614
+      },
+      {
+       "cubie": 0.0044,
+       "pad": 0.1965
+      },
+      {
+       "cubie": 0.002,
+       "pad": 0.2235
+      },
+      {
+       "cubie": 0.0019,
+       "pad": 0.2205
+      },
+      {
+       "cubie": 0.0018,
+       "pad": 0.1838
+      },
+      {
+       "cubie": 0.0048,
+       "pad": 0.116
+      },
+      {
+       "cubie": 0.0015,
+       "pad": 0.0345
+      },
+      {
+       "cubie": 0.01,
+       "pad": -0.0411
+      },
+      {
+       "cubie": 0.0047,
+       "pad": -0.1067
+      },
+      {
+       "cubie": 0.0013,
+       "pad": -0.1606
+      },
+      {
+       "cubie": 0.0013,
+       "pad": -0.2047
+      },
+      {
+       "cubie": 0.0013,
+       "pad": -0.2358
+      },
+      {
+       "cubie": 0.0014,
+       "pad": -0.2538
+      },
+      {
+       "cubie": 0.0015,
+       "pad": -0.2589
+      },
+      {
+       "cubie": 0.3926,
+       "pad": -0.6359
+      },
+      {
+       "cubie": 0.5487,
+       "pad": -0.7925
+      },
+      {
+       "cubie": 0.6636,
+       "pad": -0.911
+      },
+      {
+       "cubie": 0.7507,
+       "pad": -0.996
+      },
+      {
+       "cubie": 0.7498,
+       "pad": -0.9974
+      },
+      {
+       "cubie": 0.7564,
+       "pad": -0.9991
+      },
+      {
+       "cubie": 0.7574,
+       "pad": -0.9988
+      },
+      {
+       "cubie": 0.7579,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7592,
+       "pad": -1.0017
+      },
+      {
+       "cubie": 0.7582,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7576,
+       "pad": -0.9992
+      },
+      {
+       "cubie": 0.757,
+       "pad": -0.9999
+      },
+      {
+       "cubie": 0.7619,
+       "pad": -0.9997
+      },
+      {
+       "cubie": 0.7582,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.759,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7589,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7588,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.7587,
+       "pad": -1.0
+      },
+      {
+       "cubie": 0.1178,
+       "pad": -0.5047
+      },
+      {
+       "cubie": 0.0173,
+       "pad": -0.0774
+      },
+      {
+       "cubie": 0.0084,
+       "pad": -0.0598
+      },
+      {
+       "cubie": 0.0045
+      },
+      {
+       "cubie": 0.0033
+      },
+      {
+       "cubie": 0.0012
+      },
+      {
+       "cubie": -0.002
+      },
+      {
+       "cubie": -0.0013
+      },
+      {},
+      {},
+      {},
+      {},
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      },
+      {
+       "cubie": -0.0002
+      }
+     ]
+    }
+   }
+  }
+ },
+ "smoke_E1-2_U_s16100": {
+  "per_move_identical_to_committed": true
+ }
+}
