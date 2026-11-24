@@ -40,7 +40,10 @@ def one(run):
     from rubiknetic.cube_logic.notation import FACE_NORMAL
     ER9 = RUN2.er9()
     _, _, M4, _ = ER9.mods()
-    data = {"arm": arm, "face": face, "seed": seed, "s": None}
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    import edge_patch
+    edge_R = edge_patch.install()
+    data = {"arm": arm, "face": face, "seed": seed, "s": None, "edge_R_m": edge_R}
 
     def install_diag(scored):
         Base = scored.Trial

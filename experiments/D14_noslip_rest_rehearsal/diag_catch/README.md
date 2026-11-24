@@ -21,6 +21,7 @@ signal of D14 Stage 3. Stage 3b stays stopped at 26 / 294 trials until the user 
 | `diag_s16400.py` | Rerun of one trial. Logs the turner, layer and contact torques on every U move: every 10 ms, and every 2 ms on moves 10 and 29. |
 | `diag2_catch.py` | Single-turn trials (E1-2 job with the move and seed changed). Logs per step: magnet torque and axial force on the turning layer, every contact on the layer (normal split into axial, radial and tangential), piece offsets and tilts, centre angles. `DIAG_GRAV=0` turns gravity off. It also saves `qpos` at the turn's ramp start. |
 | `extract.py` | Writes `catch_summary.json` from `raw/`. Both rerun scripts accept `DIAG_OVR` (JSON M1Params overrides) and `DIAG_TAG`. |
+| `edge_patch.py`, `edge_check.py`, `edge_sweep.py` | Rounded-edge swap (`DIAG_EDGE_R_MM`), its geometry checks, and the static sweep with rounded edges (§3b). |
 | `static_sweep.py` | No dynamics. Takes the saved ramp-start `qpos`, rotates the turning layer rigidly through 0–12° and records cubie–cubie overlaps. Variant "ideal" removes every layer piece's tilt first. |
 
 ## 1. What happened in `scr20inv_s16400` (`FACT`)
@@ -159,6 +160,54 @@ designs, four seeds, gravity on and off) and every U move of `s16400`.
 - Stiffer small-overlap contacts do not help.
 - So the catch and the drift look like two faces of the same angular piece play in the B1 ball-joint abstraction:
   narrowing the gap trades one for the other. The abstraction itself, free tilt about the cube centre, was not varied.
+
+## 3b. Rounded piece edges (`FACT`; diagnostic only, nothing adopted)
+
+**Geometry.** Requested by the user on 2026-11-24 ("Rounded-edge test first").
+- `edge_patch.py` swaps `m1_model._chamfered_box_vertices` in the worker process for a faceted rounded box. The repo's
+  model code is not edited.
+- The half-size stays the same (9.475 mm), so the gap stays 0.05 mm.
+- Edges and corners are rounded at radius R, with fillet facets every 30°. The first facet meets each face at 15°,
+  against 45° for the current chamfer.
+- The rounded box has 104 hull vertices.
+- Variants: E14 (R 1.4 mm, the current chamfer size) and E25 (R 2.5 mm).
+- `edge_check.py`: extents unchanged, no cubie–cubie contact in the solved pose.
+
+**Static sweep** of the saved baseline catch poses (`edge_sweep.py`).
+- The step the corner must climb keeps its height (0.12–0.17 mm), but it is spread over more angle:
+
+  | Edge | Step angle | Step width |
+  |---|---|---|
+  | chamfer | 5.5–6.0° | about 0.5° |
+  | E14 | 5.0–6.0° | about 1° |
+  | E25 | moves out to about 10–12° | about 2° |
+
+**Dynamic runs.** The same 8 single turns and the 40-move `scr20inv_s16400` sequence.
+
+| | baseline chamfer | G10 (gap 0.10 mm) | **E14** | **E25** |
+|---|---|---|---|---|
+| Single turns: largest contact torque at the peak | 0.71 N·m | 0.71 N·m | **0.07 N·m** | **0.07 N·m** |
+| Single turns: largest peak turner torque | 0.97 N·m | 0.98 N·m | **0.36 N·m** | **0.31 N·m** |
+| Single turns: largest non-target drift | (not saved) | 0.82° | 0.44° | 0.50° |
+| Sequence outcome | jam at move 29 | 40 / 40 pass | **40 / 40 pass** | **40 / 40 pass** |
+| Sequence: max turner torque | 1.00 N·m | 0.99 N·m | **0.38 N·m** | **0.31 N·m** |
+| Sequence: max drift | 0.45° | 0.98° | **0.53°** | **0.51°** |
+| Sequence: moves ≥ 0.95 N·m | 2 (to move 29) | 2 | **0** | **0** |
+
+- With rounded edges, every PG20 peak is close to the magnets' own resistance (about 0.25 N·m) plus the rig.
+- L0 R's peak falls 0.74 → 0.19 (E14) / 0.15 N·m (E25), close to P-67's realism reference of about 0.2 N·m.
+- No solver iteration limit is hit (max 33).
+
+**Reading (`INFERENCE`).**
+- The catch is caused by the 45° chamfer's steep lead-in meeting the pieces' tilt.
+- A rounded lead-in removes it at the 0.05 mm gap, keeping drift well inside the 1° limit in these runs.
+- This removes the gap-versus-drift trade-off seen in §3.
+
+**Not shown.**
+- Rest holding (E1-1), snap-back and forgiveness (E1-5), abuse cases (E1-6), long sequences beyond one seed, and E1-7 with
+  rounded edges.
+- Whether a rounded edge is what a real cube has: secondary sources point to 2–3 mm fillets (§4, unverified).
+- Adopting it would be a model change needing the user's approval and a re-run of the earlier rehearsal stages.
 
 ## 4. Real-cube clearances (`UNVERIFIED`; search summaries only, pages not read)
 

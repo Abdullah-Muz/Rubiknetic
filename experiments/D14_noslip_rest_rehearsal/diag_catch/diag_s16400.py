@@ -134,6 +134,9 @@ RUN2.install_logged_trial = patched
 
 OUTF = Path(__file__).resolve().parent / "raw" / f"diag_{TID}.json.gz"; OUTF.parent.mkdir(exist_ok=True)
 import os
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import edge_patch
+EDGE_R = edge_patch.install()
 OVR = json.loads(os.environ.get("DIAG_OVR", "{}"))
 TAG = os.environ.get("DIAG_TAG", "")
 if TAG:
@@ -156,7 +159,7 @@ for mv in diag["moves"]:
     mv.pop("r0"); mv["ubodies"] = sorted(mv["ubodies"])
 out = {"note": "diagnostic only; unscored", "job_tid": jobs[0]["tid"], "env": env, "wall_s": wall,
        "per_move_identical_to_committed": same_pm, "fields_identical": same_keys,
-       "solver": rec["d14s3"]["solver"], "overrides": jobs[0]["kw"]["overrides"], "pass": rec.get("pass"),
+       "solver": rec["d14s3"]["solver"], "overrides": jobs[0]["kw"]["overrides"], "edge_R_m": EDGE_R, "pass": rec.get("pass"),
        "fail_reasons": rec.get("fail_reasons"),
        "per_move_summary": [{k: m[k] for k in ("move", "turn_error_deg", "nontarget_drift_deg", "max_turner_torque_Nm",
                                                "penetration_mm", "ok_all")} for m in rec["per_move"]], "diag": diag}

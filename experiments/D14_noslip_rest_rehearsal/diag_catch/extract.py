@@ -15,7 +15,7 @@ def turn_summary(f):
         by[c["cls"]] = by.get(c["cls"], 0.0) + c["tq"]
     cub = sorted([c for c in s["contacts"][i] if c["cls"] == "cubie"], key=lambda c: -abs(c["tq"]))
     L = -np.array(s["layer_deg"]); M = np.array(s["mag_tq_Nm"]); t = np.array(s["t"]); k = t < 1.6
-    return {"set": Path(f).parent.name, "arm": D["arm"], "face": D["face"], "seed": D["seed"],
+    return {"set": Path(f).parent.name, "edge_R_m": D.get("edge_R_m"), "nontarget_drift_deg": D.get("nontarget_drift_deg"), "arm": D["arm"], "face": D["face"], "seed": D["seed"],
             # the first batch (raw/diag2) saved no params; it ran the unmodified E1-2 job (gap override 5e-5, default gravity)
             "gravity_z": D["params"]["gravity_z"] if "params" in D else -9.81,
             "gap": D["params"]["gap"] if "params" in D else 5e-05,
@@ -37,7 +37,7 @@ def series(mv, every=5):
 
 
 res = {"note": "UNSCORED diagnostic of D14 Stage 3b PG20 E1-4/scr20inv_s16400; see README.md", "single_turns": []}
-for d in ("diag2", "diag3g", "diag3nog", "sens_G10", "sens_G20", "sens_SI"):
+for d in ("diag2", "diag3g", "diag3nog", "sens_G10", "sens_G20", "sens_SI", "edge_E14", "edge_E25"):
     for f in sorted(glob.glob(str(RAW / d / "*.json.gz"))):
         res["single_turns"].append(turn_summary(f))
 S = json.load(gzip.open(RAW / "diag_scr20inv_s16400.json.gz"))
@@ -45,10 +45,10 @@ res["s16400_rerun"] = {"per_move_identical_to_committed": S["per_move_identical_
                        "fields_identical": S["fields_identical"], "solver": S["solver"],
                        "moves": {str(m["k"]): {"move": m["move"], "series_10ms": series(m)} for m in S["diag"]["moves"] if m["detail"]}}
 res["s16400_sensitivity"] = {}
-for v in ("G10", "G20", "SI"):
+for v in ("G10", "G20", "SI", "E14", "E25"):
     V = json.load(gzip.open(RAW / f"diag_scr20inv_s16400_{v}.json.gz"))
     pm = V["per_move_summary"]
-    res["s16400_sensitivity"][v] = {"overrides": V["overrides"], "pass": V["pass"], "fail_reasons": V["fail_reasons"],
+    res["s16400_sensitivity"][v] = {"overrides": V["overrides"], "edge_R_m": V.get("edge_R_m"), "pass": V["pass"], "fail_reasons": V["fail_reasons"],
                                    "moves_run": len(pm), "moves_failed": [i for i, m in enumerate(pm) if not m["ok_all"]],
                                    "max_nontarget_drift_deg": max(m["nontarget_drift_deg"] for m in pm),
                                    "moves_drift_over_1deg": sum(m["nontarget_drift_deg"] > 1.0 for m in pm),
