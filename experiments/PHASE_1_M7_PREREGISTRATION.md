@@ -1,6 +1,8 @@
 # Phase 1 (G1) Pre-registration: M7, the L0 magnetic contact cube with rounded edges and NoSlip 10
 
-**Status: DRAFT, revision 0, NOT APPROVED. Nothing here is in force.** Written by the main session on 2026-11-25,
+**Status: DRAFT, revision 0, NOT APPROVED. Nothing here is in force.** §8 was answered on 2026-11-25 (P-86):
+Q3 yes, Q4 criterion, Q8 one reviewer subagent per round, and the defaults for Q1, Q2, Q5, Q6, Q7 and Q9. The text
+is revised after the fresh-seed rehearsal (§7 item 2). Written by the main session on 2026-11-25,
 after P-83 (L0 chosen as the working candidate) and P-85 (R3, the E1-7 rehearsal). It is built from:
 - `PHASE_1_M5_PREREGISTRATION.md`, revision 8, the last text in force (it governed M5's scored run);
 - the ER9 skeleton `ER9_anchored_core_layouts/proposals/G1_SCORED_PREREG_DRAFT.md`. That skeleton was written for a
@@ -265,7 +267,7 @@ A new `experiments/E7_scored_m7/run.py`:
 
 **After a PASS:** E1-8 on a quiet machine, the abstraction write-up (§1), and the VALIDATION_PLAN sign-off.
 
-## 8. Questions for the user (recommended default first)
+## 8. Questions for the user (recommended default first; **all answered 2026-11-25, P-86**: the recommended option each time; Q8 = one reviewer subagent per round)
 | # | Question | Recommended | Why |
 |---|---|---|---|
 | Q1 | Label | **M7** (unused; the ER9 skeleton's proposal for its arm is superseded) | Next free mechanism label |

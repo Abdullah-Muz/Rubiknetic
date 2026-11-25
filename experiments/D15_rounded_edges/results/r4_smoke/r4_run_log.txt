@@ -1,0 +1,11 @@
+2026-11-25 15:01:20 [1] smoke_E1-5_s16954 PASS peak 0.000 N.m; wall 13 s
+2026-11-25 15:01:20 [2] smoke_E1-5s_s16955 PASS peak 0.000 N.m; wall 13 s
+2026-11-25 15:01:21 [3] smoke_E1-3_s16952 PASS peak 0.100 N.m; wall 14 s
+2026-11-25 15:01:22 [4] smoke_E1-2_s16951 PASS peak 0.104 N.m; wall 14 s
+2026-11-25 15:01:22 [5] smoke_E1-4_s16953 PASS peak 0.103 N.m; wall 15 s
+2026-11-25 15:01:33 [6] smoke_E1-6a_s16956 PASS peak 0.000 N.m; wall 12 s
+2026-11-25 15:01:36 [7] smoke_E1-6b_s16957 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 15:01:44 [8] smoke_E1-6c_s16958 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 15:02:01 [9] smoke_E1-1_s16950 rest 0-10 s 0.000119 deg; no event; wall 51 s
+2026-11-25 15:02:52 [10] smoke_E1-6t_s16959 PASS peak 0.000 N.m; wall 86 s
+2026-11-25 15:02:52 R4 SMOKE: {'done': 10, 'stop': None, 'pause': None, 'not_started': 0}
