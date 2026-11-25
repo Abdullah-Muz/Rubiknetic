@@ -1,0 +1,640 @@
+2026-11-24 13:54:40 R1 start: commit fbbacfac313df0d76700795d3922cc733c491ef6, 0 / 636 present, 1 workers, free 1.2 GB
+2026-11-24 14:42:33 R1 start: commit fbbacfac313df0d76700795d3922cc733c491ef6, 0 / 636 present, 6 workers, free 11.9 GB
+2026-11-24 14:44:09 [1] R25 L0 E1-1/rest_s16002 rest 0-10 s 0.005133 deg; no event; wall 92 s
+2026-11-24 14:44:09 [2] R25 L0 E1-1/rest_s16004 rest 0-10 s 0.002038 deg; no event; wall 91 s
+2026-11-24 14:44:11 [3] R25 L0 E1-1/rest_s16000 rest 0-10 s 0.000978 deg; no event; wall 94 s
+2026-11-24 14:44:12 [4] R25 L0 E1-1/rest_s16003 rest 0-10 s 0.001243 deg; no event; wall 95 s
+2026-11-24 14:44:13 [5] R25 L0 E1-1/rest_s16005 rest 0-10 s 0.001057 deg; no event; wall 95 s
+2026-11-24 14:44:14 [6] R25 L0 E1-1/rest_s16001 rest 0-10 s 0.000557 deg; no event; wall 96 s
+2026-11-24 14:45:33 [7] R25 L0 E1-1/rest_s16006 rest 0-10 s 0.000780 deg; no event; wall 80 s
+2026-11-24 14:45:34 [8] R25 L0 E1-1/rest_s16007 rest 0-10 s 0.000467 deg; no event; wall 81 s
+2026-11-24 14:45:34 [9] R25 L0 E1-1/rest_s16008 rest 0-10 s 0.000739 deg; no event; wall 79 s
+2026-11-24 14:45:35 [10] R25 L0 E1-1/rest_s16009 rest 0-10 s 0.004818 deg; no event; wall 78 s
+2026-11-24 14:45:38 [11] R25 L0 E1-1/rest_s16010 rest 0-10 s 0.000704 deg; no event; wall 82 s
+2026-11-24 14:45:40 [12] R25 L0 E1-1/rest_s16011 rest 0-10 s 0.000742 deg; no event; wall 82 s
+2026-11-24 14:46:55 [13] R25 L0 E1-1/rest_s16014 rest 0-10 s 0.001157 deg; no event; wall 76 s
+2026-11-24 14:46:57 [14] R25 L0 E1-1/rest_s16015 rest 0-10 s 0.001508 deg; no event; wall 78 s
+2026-11-24 14:46:58 [15] R25 L0 E1-1/rest_s16012 rest 0-10 s 0.001888 deg; no event; wall 79 s
+2026-11-24 14:47:01 [16] R25 L0 E1-1/rest_s16013 rest 0-10 s 0.000784 deg; no event; wall 82 s
+2026-11-24 14:47:01 [17] R25 L0 E1-1/rest_s16016 rest 0-10 s 0.003335 deg; no event; wall 79 s
+2026-11-24 14:47:04 [18] R25 L0 E1-1/rest_s16017 rest 0-10 s 0.000740 deg; no event; wall 79 s
+2026-11-24 14:48:20 [19] R25 L0 E1-1/rest_s16018 rest 0-10 s 0.000686 deg; no event; wall 81 s
+2026-11-24 14:48:21 [20] R25 L0 E1-1/rest_s16019 rest 0-10 s 0.002178 deg; no event; wall 81 s
+2026-11-24 14:49:35 [21] R25 PG8 E1-1/rest_s16000 rest 0-10 s 0.002813 deg; no event; wall 151 s
+2026-11-24 14:49:40 [22] R25 PG8 E1-1/rest_s16002 rest 0-10 s 0.000966 deg; no event; wall 152 s
+2026-11-24 14:49:42 [23] R25 PG8 E1-1/rest_s16001 rest 0-10 s 0.001234 deg; no event; wall 152 s
+2026-11-24 14:49:45 [24] R25 PG8 E1-1/rest_s16003 rest 0-10 s 0.000527 deg; no event; wall 153 s
+2026-11-24 14:51:02 [25] R25 PG8 E1-1/rest_s16005 rest 0-10 s 0.001524 deg; no event; wall 153 s
+2026-11-24 14:51:03 [26] R25 PG8 E1-1/rest_s16004 rest 0-10 s 0.001937 deg; no event; wall 155 s
+2026-11-24 14:52:20 [27] R25 PG8 E1-1/rest_s16006 rest 0-10 s 0.000902 deg; no event; wall 156 s
+2026-11-24 14:52:22 [28] R25 PG8 E1-1/rest_s16007 rest 0-10 s 0.000637 deg; no event; wall 156 s
+2026-11-24 14:52:27 [29] R25 PG8 E1-1/rest_s16008 rest 0-10 s 0.001325 deg; no event; wall 158 s
+2026-11-24 14:52:28 [30] R25 PG8 E1-1/rest_s16009 rest 0-10 s 0.000782 deg; no event; wall 156 s
+2026-11-24 14:53:53 [31] R25 PG8 E1-1/rest_s16010 rest 0-10 s 0.000897 deg; no event; wall 163 s
+2026-11-24 14:53:54 [32] R25 PG8 E1-1/rest_s16011 rest 0-10 s 0.001772 deg; no event; wall 163 s
+2026-11-24 14:55:14 [33] R25 PG8 E1-1/rest_s16012 rest 0-10 s 0.001458 deg; no event; wall 166 s
+2026-11-24 14:55:20 [34] R25 PG8 E1-1/rest_s16013 rest 0-10 s 0.004030 deg; no event; wall 168 s
+2026-11-24 14:55:23 [35] R25 PG8 E1-1/rest_s16015 rest 0-10 s 0.001059 deg; no event; wall 167 s
+2026-11-24 14:55:25 [36] R25 PG8 E1-1/rest_s16014 rest 0-10 s 0.001770 deg; no event; wall 167 s
+2026-11-24 14:56:45 [37] R25 PG8 E1-1/rest_s16016 rest 0-10 s 0.001271 deg; no event; wall 164 s
+2026-11-24 14:56:49 [38] R25 PG8 E1-1/rest_s16017 rest 0-10 s 0.000435 deg; no event; wall 167 s
+2026-11-24 14:58:13 [39] R25 PG8 E1-1/rest_s16018 rest 0-10 s 0.001334 deg; no event; wall 170 s
+2026-11-24 14:58:13 [40] R25 PG8 E1-1/rest_s16019 rest 0-10 s 0.001101 deg; no event; wall 165 s
+2026-11-24 14:58:46 [41] R25 PG20 E1-1/rest_s16001 rest 0-10 s 0.002134 deg; no event; wall 192 s
+2026-11-24 14:58:48 [42] R25 PG20 E1-1/rest_s16000 rest 0-10 s 0.000632 deg; no event; wall 195 s
+2026-11-24 15:00:11 [43] R25 PG20 E1-1/rest_s16002 rest 0-10 s 0.002500 deg; no event; wall 197 s
+2026-11-24 15:00:21 [44] R25 PG20 E1-1/rest_s16003 rest 0-10 s 0.001215 deg; no event; wall 201 s
+2026-11-24 15:01:48 [45] R25 PG20 E1-1/rest_s16005 rest 0-10 s 0.006927 deg; no event; wall 205 s
+2026-11-24 15:01:50 [46] R25 PG20 E1-1/rest_s16004 rest 0-10 s 0.003356 deg; no event; wall 207 s
+2026-11-24 15:02:28 [47] R25 PG20 E1-1/rest_s16006 rest 0-10 s 0.001768 deg; no event; wall 212 s
+2026-11-24 15:02:35 [48] R25 PG20 E1-1/rest_s16007 rest 0-10 s 0.011431 deg; no event; wall 216 s
+2026-11-24 15:03:51 [49] R25 PG20 E1-1/rest_s16008 rest 0-10 s 0.002236 deg; no event; wall 209 s
+2026-11-24 15:04:02 [50] R25 PG20 E1-1/rest_s16009 rest 0-10 s 0.002591 deg; no event; wall 211 s
+2026-11-24 15:05:29 [51] R25 PG20 E1-1/rest_s16010 rest 0-10 s 0.001864 deg; no event; wall 210 s
+2026-11-24 15:05:33 [52] R25 PG20 E1-1/rest_s16011 rest 0-10 s 0.003509 deg; no event; wall 212 s
+2026-11-24 15:06:07 [53] R25 PG20 E1-1/rest_s16012 rest 0-10 s 0.001859 deg; no event; wall 208 s
+2026-11-24 15:06:14 [54] R25 PG20 E1-1/rest_s16013 rest 0-10 s 0.001887 deg; no event; wall 209 s
+2026-11-24 15:07:49 [55] R25 PG20 E1-1/rest_s16014 rest 0-10 s 0.002875 deg; no event; wall 227 s
+2026-11-24 15:08:16 [56] R25 PG20 E1-1/rest_s16015 rest 0-10 s 0.001511 deg; no event; wall 241 s
+2026-11-24 15:08:17 [57] R25 L0 E1-2/U_s16100 PASS peak 0.102 N.m; wall 27 s
+2026-11-24 15:08:46 [58] R25 L0 E1-2/U_s16101 PASS peak 0.102 N.m; wall 27 s
+2026-11-24 15:08:48 [59] R25 L0 E1-2/Up_s16102 PASS peak 0.101 N.m; wall 28 s
+2026-11-24 15:09:11 [60] R25 L0 E1-2/Up_s16103 PASS peak 0.098 N.m; wall 25 s
+2026-11-24 15:09:14 [61] R25 L0 E1-2/R_s16104 PASS peak 0.093 N.m; wall 26 s
+2026-11-24 15:09:35 [62] R25 L0 E1-2/R_s16105 PASS peak 0.092 N.m; wall 21 s
+2026-11-24 15:09:35 [63] R25 L0 E1-2/Rp_s16106 PASS peak 0.094 N.m; wall 19 s
+2026-11-24 15:09:35 cost check: projected 1.44 h (limit 6 h); mean wall rest 147 s, other 25 s
+2026-11-24 15:09:54 [64] R25 PG20 E1-1/rest_s16016 rest 0-10 s 0.004862 deg; no event; wall 252 s
+2026-11-24 15:09:55 [65] R25 L0 E1-2/Rp_s16107 PASS peak 0.094 N.m; wall 18 s
+2026-11-24 15:09:56 [66] R25 L0 E1-2/F_s16108 PASS peak 0.096 N.m; wall 19 s
+2026-11-24 15:10:05 [67] R25 PG20 E1-1/rest_s16017 rest 0-10 s 0.002471 deg; no event; wall 259 s
+2026-11-24 15:10:17 [68] R25 L0 E1-2/F_s16109 PASS peak 0.099 N.m; wall 22 s
+2026-11-24 15:10:20 [69] R25 L0 E1-2/Fp_s16110 PASS peak 0.105 N.m; wall 24 s
+2026-11-24 15:10:21 [70] R25 L0 E1-2/Fp_s16111 PASS peak 0.099 N.m; wall 24 s
+2026-11-24 15:10:31 [71] R25 L0 E1-2/D_s16112 PASS peak 0.098 N.m; wall 24 s
+2026-11-24 15:10:39 [72] R25 L0 E1-2/D_s16113 PASS peak 0.100 N.m; wall 20 s
+2026-11-24 15:10:44 [73] R25 L0 E1-2/Dp_s16114 PASS peak 0.098 N.m; wall 22 s
+2026-11-24 15:10:44 [74] R25 L0 E1-2/Dp_s16115 PASS peak 0.103 N.m; wall 22 s
+2026-11-24 15:10:51 [75] R25 PG20 E1-1/rest_s16018 rest 0-10 s 0.001688 deg; no event; wall 270 s
+2026-11-24 15:10:52 [76] R25 L0 E1-2/L_s16116 PASS peak 0.108 N.m; wall 20 s
+2026-11-24 15:10:53 [77] R25 PG20 E1-1/rest_s16019 rest 0-10 s 0.001746 deg; no event; wall 267 s
+2026-11-24 15:11:03 [78] R25 L0 E1-2/L_s16117 PASS peak 0.098 N.m; wall 22 s
+2026-11-24 15:11:08 [79] R25 L0 E1-2/Lp_s16118 PASS peak 0.094 N.m; wall 22 s
+2026-11-24 15:11:09 [80] R25 L0 E1-2/Lp_s16119 PASS peak 0.099 N.m; wall 23 s
+2026-11-24 15:11:15 [81] R25 L0 E1-2/B_s16121 PASS peak 0.102 N.m; wall 21 s
+2026-11-24 15:11:16 [82] R25 L0 E1-2/B_s16120 PASS peak 0.091 N.m; wall 23 s
+2026-11-24 15:11:16 [83] R25 L0 E1-2/Bp_s16122 PASS peak 0.100 N.m; wall 21 s
+2026-11-24 15:11:24 [84] R25 L0 E1-2/Bp_s16123 PASS peak 0.099 N.m; wall 21 s
+2026-11-24 15:11:27 [85] R25 L0 E1-5/forgive_+0_s16500 PASS; wall 19 s
+2026-11-24 15:11:38 [86] R25 L0 E1-5/forgive_+1_s16501 PASS; wall 27 s
+2026-11-24 15:11:45 [87] R25 L0 E1-5/forgive_+2_s16502 PASS; wall 28 s
+2026-11-24 15:11:46 [88] R25 L0 E1-5/forgive_+4_s16504 PASS; wall 28 s
+2026-11-24 15:11:49 [89] R25 L0 E1-5/forgive_+3_s16503 PASS; wall 30 s
+2026-11-24 15:11:56 [90] R25 L0 E1-5/forgive_+5_s16505 PASS; wall 29 s
+2026-11-24 15:11:59 [91] R25 L0 E1-5/forgive_+6_s16506 PASS; wall 30 s
+2026-11-24 15:12:09 [92] R25 L0 E1-5/forgive_+7_s16507 PASS; wall 29 s
+2026-11-24 15:12:15 [93] R25 L0 E1-5/forgive_+8_s16508 PASS; wall 28 s
+2026-11-24 15:12:18 [94] R25 L0 E1-5/forgive_+9_s16509 PASS; wall 30 s
+2026-11-24 15:12:20 [95] R25 L0 E1-5/forgive_+10_s16510 PASS; wall 29 s
+2026-11-24 15:12:25 [96] R25 L0 E1-5/forgive_+11_s16511 PASS; wall 27 s
+2026-11-24 15:12:29 [97] R25 L0 E1-5/forgive_+12_s16512 PASS; wall 28 s
+2026-11-24 15:12:42 [98] R25 L0 E1-5/forgive_+13_s16513 PASS; wall 31 s
+2026-11-24 15:12:46 [99] R25 L0 E1-5/forgive_+14_s16514 PASS; wall 29 s
+2026-11-24 15:12:48 [100] R25 L0 E1-5/forgive_+15_s16515 PASS; wall 28 s
+2026-11-24 15:12:50 [101] R25 L0 E1-5/forgive_+16_s16516 PASS; wall 28 s
+2026-11-24 15:12:57 [102] R25 L0 E1-5/forgive_+17_s16517 PASS; wall 29 s
+2026-11-24 15:13:00 [103] R25 L0 E1-5/forgive_+18_s16518 PASS; wall 29 s
+2026-11-24 15:13:04 [104] R25 L0 E1-5/forgive_+0_s16521 PASS; wall 15 s
+2026-11-24 15:13:09 [105] R25 L0 E1-5/forgive_+19_s16519 PASS; wall 27 s
+2026-11-24 15:13:11 [106] R25 L0 E1-5/forgive_+20_s16520 PASS; wall 25 s
+2026-11-24 15:13:17 [107] R25 L0 E1-5/forgive_-1_s16522 PASS; wall 25 s
+2026-11-24 15:13:22 [108] R25 L0 E1-5/forgive_-2_s16523 PASS; wall 23 s
+2026-11-24 15:13:25 [109] R25 L0 E1-5/forgive_-3_s16524 PASS; wall 23 s
+2026-11-24 15:13:29 [110] R25 L0 E1-5/forgive_-4_s16525 PASS; wall 23 s
+2026-11-24 15:13:36 [111] R25 L0 E1-5/forgive_-5_s16526 PASS; wall 24 s
+2026-11-24 15:13:38 [112] R25 L0 E1-5/forgive_-6_s16527 PASS; wall 25 s
+2026-11-24 15:13:45 [113] R25 L0 E1-5/forgive_-7_s16528 PASS; wall 28 s
+2026-11-24 15:13:52 [114] R25 L0 E1-5/forgive_-8_s16529 PASS; wall 28 s
+2026-11-24 15:13:57 [115] R25 L0 E1-5/forgive_-9_s16530 PASS; wall 30 s
+2026-11-24 15:14:02 [116] R25 L0 E1-5/forgive_-10_s16531 PASS; wall 30 s
+2026-11-24 15:14:07 [117] R25 L0 E1-5/forgive_-11_s16532 PASS; wall 29 s
+2026-11-24 15:14:09 [118] R25 L0 E1-5/forgive_-12_s16533 PASS; wall 28 s
+2026-11-24 15:14:20 [119] R25 L0 E1-5/forgive_-13_s16534 PASS; wall 33 s
+2026-11-24 15:14:23 [120] R25 L0 E1-5/forgive_-14_s16535 PASS; wall 30 s
+2026-11-24 15:14:29 [121] R25 L0 E1-5/forgive_-15_s16536 PASS; wall 31 s
+2026-11-24 15:14:37 [122] R25 L0 E1-5/forgive_-16_s16537 PASS; wall 32 s
+2026-11-24 15:14:38 [123] R25 L0 E1-5/forgive_-17_s16538 PASS; wall 29 s
+2026-11-24 15:14:43 [124] R25 L0 E1-5/forgive_-18_s16539 PASS; wall 32 s
+2026-11-24 15:14:49 [125] R25 L0 E1-5s/snap_+1_s16551 PASS; wall 19 s
+2026-11-24 15:14:53 [126] R25 L0 E1-5/forgive_-19_s16540 PASS; wall 31 s
+2026-11-24 15:14:54 [127] R25 L0 E1-5/forgive_-20_s16541 PASS; wall 30 s
+2026-11-24 15:14:58 [128] R25 L0 E1-5s/snap_-1_s16551 PASS; wall 19 s
+2026-11-24 15:14:58 [129] R25 L0 E1-5s/snap_+2_s16552 PASS; wall 19 s
+2026-11-24 15:15:04 [130] R25 L0 E1-5s/snap_-2_s16552 PASS; wall 20 s
+2026-11-24 15:15:10 [131] R25 L0 E1-5s/snap_+3_s16553 PASS; wall 20 s
+2026-11-24 15:15:17 [132] R25 L0 E1-5s/snap_-3_s16553 PASS; wall 22 s
+2026-11-24 15:15:19 [133] R25 L0 E1-5s/snap_+5_s16555 PASS; wall 23 s
+2026-11-24 15:15:22 [134] R25 L0 E1-5s/snap_+8_s16558 PASS; wall 23 s
+2026-11-24 15:15:23 [135] R25 L0 E1-5s/snap_-5_s16555 PASS; wall 24 s
+2026-11-24 15:15:32 [136] R25 L0 E1-5s/snap_-8_s16558 PASS; wall 26 s
+2026-11-24 15:15:39 [137] R25 L0 E1-5s/snap_+1_s16561 PASS; wall 26 s
+2026-11-24 15:15:48 [138] R25 L0 E1-5s/snap_-1_s16561 PASS; wall 29 s
+2026-11-24 15:15:49 [139] R25 L0 E1-5s/snap_+2_s16562 PASS; wall 29 s
+2026-11-24 15:15:56 [140] R25 L0 E1-5s/snap_+3_s16563 PASS; wall 31 s
+2026-11-24 15:16:05 [141] R25 L0 E1-5s/snap_-2_s16562 PASS; wall 40 s
+2026-11-24 15:16:08 [142] R25 L0 E1-5s/snap_-3_s16563 PASS; wall 33 s
+2026-11-24 15:16:16 [143] R25 L0 E1-5s/snap_+5_s16565 PASS; wall 35 s
+2026-11-24 15:16:19 [144] R25 L0 E1-5s/snap_-5_s16565 PASS; wall 29 s
+2026-11-24 15:16:21 [145] R25 L0 E1-5s/snap_+8_s16568 PASS; wall 30 s
+2026-11-24 15:16:26 [146] R25 L0 E1-5s/snap_-8_s16568 PASS; wall 28 s
+2026-11-24 15:16:50 [147] R25 PG8 E1-2/U_s16100 PASS peak 0.197 N.m; wall 43 s
+2026-11-24 15:16:51 [148] R25 PG8 E1-2/U_s16101 PASS peak 0.197 N.m; wall 41 s
+2026-11-24 15:17:06 [149] R25 PG8 E1-2/Up_s16102 PASS peak 0.192 N.m; wall 48 s
+2026-11-24 15:17:07 [150] R25 PG8 E1-2/Up_s16103 PASS peak 0.194 N.m; wall 46 s
+2026-11-24 15:17:08 [151] R25 PG8 E1-2/R_s16104 PASS peak 0.188 N.m; wall 44 s
+2026-11-24 15:17:10 [152] R25 PG8 E1-2/R_s16105 PASS peak 0.188 N.m; wall 42 s
+2026-11-24 15:17:29 [153] R25 PG8 E1-2/Rp_s16107 PASS peak 0.190 N.m; wall 36 s
+2026-11-24 15:17:30 [154] R25 PG8 E1-2/Rp_s16106 PASS peak 0.193 N.m; wall 38 s
+2026-11-24 15:17:48 [155] R25 PG8 E1-2/F_s16108 PASS peak 0.190 N.m; wall 37 s
+2026-11-24 15:17:49 [156] R25 PG8 E1-2/F_s16109 PASS peak 0.192 N.m; wall 38 s
+2026-11-24 15:17:52 [157] R25 PG8 E1-2/Fp_s16110 PASS peak 0.189 N.m; wall 40 s
+2026-11-24 15:17:55 [158] R25 PG8 E1-2/Fp_s16111 PASS peak 0.190 N.m; wall 41 s
+2026-11-24 15:18:08 [159] R25 PG8 E1-2/D_s16112 PASS peak 0.189 N.m; wall 37 s
+2026-11-24 15:18:10 [160] R25 PG8 E1-2/D_s16113 PASS peak 0.191 N.m; wall 38 s
+2026-11-24 15:18:27 [161] R25 PG8 E1-2/Dp_s16114 PASS peak 0.186 N.m; wall 37 s
+2026-11-24 15:18:29 [162] R25 PG8 E1-2/L_s16116 PASS peak 0.195 N.m; wall 35 s
+2026-11-24 15:18:30 [163] R25 PG8 E1-2/Dp_s16115 PASS peak 0.188 N.m; wall 39 s
+2026-11-24 15:18:36 [164] R25 PG8 E1-2/L_s16117 PASS peak 0.187 N.m; wall 39 s
+2026-11-24 15:18:45 [165] R25 PG8 E1-2/Lp_s16118 PASS peak 0.191 N.m; wall 35 s
+2026-11-24 15:18:48 [166] R25 PG8 E1-2/Lp_s16119 PASS peak 0.200 N.m; wall 36 s
+2026-11-24 15:18:58 [167] R25 PG8 E1-2/B_s16121 PASS peak 0.190 N.m; wall 28 s
+2026-11-24 15:18:58 [168] R25 PG8 E1-2/Bp_s16122 PASS peak 0.194 N.m; wall 27 s
+2026-11-24 15:18:59 [169] R25 PG8 E1-2/B_s16120 PASS peak 0.188 N.m; wall 30 s
+2026-11-24 15:19:03 [170] R25 PG8 E1-2/Bp_s16123 PASS peak 0.196 N.m; wall 26 s
+2026-11-24 15:19:14 [171] R25 PG8 E1-5/forgive_+0_s16500 PASS; wall 26 s
+2026-11-24 15:19:30 [172] R25 PG8 E1-5/forgive_+1_s16501 PASS; wall 38 s
+2026-11-24 15:19:38 [173] R25 PG8 E1-5/forgive_+2_s16502 PASS; wall 37 s
+2026-11-24 15:19:40 [174] R25 PG8 E1-5/forgive_+4_s16504 PASS; wall 38 s
+2026-11-24 15:19:41 [175] R25 PG8 E1-5/forgive_+3_s16503 PASS; wall 41 s
+2026-11-24 15:19:44 [176] R25 PG8 E1-5/forgive_+5_s16505 PASS; wall 39 s
+2026-11-24 15:19:56 [177] R25 PG8 E1-5/forgive_+6_s16506 PASS; wall 41 s
+2026-11-24 15:20:17 [178] R25 PG8 E1-5/forgive_+7_s16507 PASS; wall 45 s
+2026-11-24 15:20:27 [179] R25 PG8 E1-5/forgive_+8_s16508 PASS; wall 47 s
+2026-11-24 15:20:31 [180] R25 PG8 E1-5/forgive_+10_s16510 PASS; wall 48 s
+2026-11-24 15:20:32 [181] R25 PG8 E1-5/forgive_+9_s16509 PASS; wall 50 s
+2026-11-24 15:20:37 [182] R25 PG8 E1-5/forgive_+11_s16511 PASS; wall 49 s
+2026-11-24 15:20:49 [183] R25 PG8 E1-5/forgive_+12_s16512 PASS; wall 49 s
+2026-11-24 15:21:08 [184] R25 PG8 E1-5/forgive_+13_s16513 PASS; wall 48 s
+2026-11-24 15:21:14 [185] R25 PG8 E1-5/forgive_+14_s16514 PASS; wall 43 s
+2026-11-24 15:21:17 [186] R25 PG8 E1-5/forgive_+15_s16515 PASS; wall 42 s
+2026-11-24 15:21:18 [187] R25 PG8 E1-5/forgive_+16_s16516 PASS; wall 42 s
+2026-11-24 15:21:24 [188] R25 PG8 E1-5/forgive_+17_s16517 PASS; wall 45 s
+2026-11-24 15:21:35 [189] R25 PG8 E1-5/forgive_+18_s16518 PASS; wall 44 s
+2026-11-24 15:21:50 [190] R25 PG8 E1-5/forgive_+0_s16521 PASS; wall 31 s
+2026-11-24 15:22:00 [191] R25 PG8 E1-5/forgive_+19_s16519 PASS; wall 49 s
+2026-11-24 15:22:03 [192] R25 PG8 E1-5/forgive_+20_s16520 PASS; wall 47 s
+2026-11-24 15:22:08 [193] R25 PG8 E1-5/forgive_-1_s16522 PASS; wall 48 s
+2026-11-24 15:22:10 [194] R25 PG8 E1-5/forgive_-2_s16523 PASS; wall 44 s
+2026-11-24 15:22:22 [195] R25 PG8 E1-5/forgive_-3_s16524 PASS; wall 44 s
+2026-11-24 15:22:32 [196] R25 PG8 E1-5/forgive_-4_s16525 PASS; wall 41 s
+2026-11-24 15:22:42 [197] R25 PG8 E1-5/forgive_-5_s16526 PASS; wall 41 s
+2026-11-24 15:22:44 [198] R25 PG8 E1-5/forgive_-6_s16527 PASS; wall 40 s
+2026-11-24 15:22:54 [199] R25 PG8 E1-5/forgive_-8_s16529 PASS; wall 41 s
+2026-11-24 15:22:55 [200] R25 PG8 E1-5/forgive_-7_s16528 PASS; wall 44 s
+2026-11-24 15:23:07 [201] R25 PG8 E1-5/forgive_-9_s16530 PASS; wall 43 s
+2026-11-24 15:23:18 [202] R25 PG8 E1-5/forgive_-10_s16531 PASS; wall 43 s
+2026-11-24 15:23:28 [203] R25 PG8 E1-5/forgive_-11_s16532 PASS; wall 41 s
+2026-11-24 15:23:29 [204] R25 PG8 E1-5/forgive_-12_s16533 PASS; wall 41 s
+2026-11-24 15:23:37 [205] R25 PG8 E1-5/forgive_-14_s16535 PASS; wall 39 s
+2026-11-24 15:23:38 [206] R25 PG8 E1-5/forgive_-13_s16534 PASS; wall 42 s
+2026-11-24 15:23:53 [207] R25 PG8 E1-5/forgive_-15_s16536 PASS; wall 44 s
+2026-11-24 15:24:12 [208] R25 PG8 E1-5/forgive_-16_s16537 PASS; wall 49 s
+2026-11-24 15:24:16 [209] R25 PG8 E1-5/forgive_-17_s16538 PASS; wall 46 s
+2026-11-24 15:24:22 [210] R25 PG8 E1-5/forgive_-18_s16539 PASS; wall 51 s
+2026-11-24 15:24:25 [211] R25 PG8 E1-5s/snap_+1_s16551 PASS; wall 30 s
+2026-11-24 15:24:28 [212] R25 PG8 E1-5/forgive_-20_s16541 PASS; wall 48 s
+2026-11-24 15:24:32 [213] R25 PG8 E1-5/forgive_-19_s16540 PASS; wall 52 s
+2026-11-24 15:24:43 [214] R25 PG8 E1-5s/snap_-1_s16551 PASS; wall 30 s
+2026-11-24 15:24:46 [215] R25 PG8 E1-5s/snap_+2_s16552 PASS; wall 29 s
+2026-11-24 15:24:52 [216] R25 PG8 E1-5s/snap_-2_s16552 PASS; wall 28 s
+2026-11-24 15:24:55 [217] R25 PG8 E1-5s/snap_+3_s16553 PASS; wall 28 s
+2026-11-24 15:24:58 [218] R25 PG8 E1-5s/snap_-3_s16553 PASS; wall 28 s
+2026-11-24 15:25:01 [219] R25 PG8 E1-5s/snap_+5_s16555 PASS; wall 28 s
+2026-11-24 15:25:14 [220] R25 PG8 E1-5s/snap_-5_s16555 PASS; wall 29 s
+2026-11-24 15:25:18 [221] R25 PG8 E1-5s/snap_+8_s16558 PASS; wall 29 s
+2026-11-24 15:25:23 [222] R25 PG8 E1-5s/snap_-8_s16558 PASS; wall 30 s
+2026-11-24 15:25:25 [223] R25 PG8 E1-5s/snap_+1_s16561 PASS; wall 29 s
+2026-11-24 15:25:28 [224] R25 PG8 E1-5s/snap_-1_s16561 PASS; wall 29 s
+2026-11-24 15:25:32 [225] R25 PG8 E1-5s/snap_+2_s16562 PASS; wall 29 s
+2026-11-24 15:25:44 [226] R25 PG8 E1-5s/snap_-2_s16562 PASS; wall 27 s
+2026-11-24 15:25:46 [227] R25 PG8 E1-5s/snap_+3_s16563 PASS; wall 26 s
+2026-11-24 15:25:52 [228] R25 PG8 E1-5s/snap_-3_s16563 PASS; wall 27 s
+2026-11-24 15:25:53 [229] R25 PG8 E1-5s/snap_+5_s16565 PASS; wall 26 s
+2026-11-24 15:25:56 [230] R25 PG8 E1-5s/snap_-5_s16565 PASS; wall 26 s
+2026-11-24 15:26:01 [231] R25 PG8 E1-5s/snap_+8_s16568 PASS; wall 27 s
+2026-11-24 15:26:16 [232] R25 PG8 E1-5s/snap_-8_s16568 PASS; wall 29 s
+2026-11-24 15:26:22 [233] R25 PG20 E1-2/U_s16100 PASS peak 0.306 N.m; wall 34 s
+2026-11-24 15:26:30 [234] R25 PG20 E1-2/U_s16101 PASS peak 0.290 N.m; wall 36 s
+2026-11-24 15:26:33 [235] R25 PG20 E1-2/Up_s16102 PASS peak 0.271 N.m; wall 38 s
+2026-11-24 15:26:36 [236] R25 PG20 E1-2/Up_s16103 PASS peak 0.271 N.m; wall 38 s
+2026-11-24 15:26:42 [237] R25 PG20 E1-2/R_s16104 PASS peak 0.269 N.m; wall 38 s
+2026-11-24 15:26:55 [238] R25 PG20 E1-2/R_s16105 PASS peak 0.271 N.m; wall 37 s
+2026-11-24 15:26:58 [239] R25 PG20 E1-2/Rp_s16106 PASS peak 0.276 N.m; wall 34 s
+2026-11-24 15:27:05 [240] R25 PG20 E1-2/Rp_s16107 PASS peak 0.270 N.m; wall 33 s
+2026-11-24 15:27:09 [241] R25 PG20 E1-2/F_s16108 PASS peak 0.270 N.m; wall 34 s
+2026-11-24 15:27:11 [242] R25 PG20 E1-2/F_s16109 PASS peak 0.270 N.m; wall 32 s
+2026-11-24 15:27:18 [243] R25 PG20 E1-2/Fp_s16110 PASS peak 0.267 N.m; wall 34 s
+2026-11-24 15:27:29 [244] R25 PG20 E1-2/Fp_s16111 PASS peak 0.268 N.m; wall 33 s
+2026-11-24 15:27:32 [245] R25 PG20 E1-2/D_s16112 PASS peak 0.269 N.m; wall 33 s
+2026-11-24 15:27:37 [246] R25 PG20 E1-2/D_s16113 PASS peak 0.272 N.m; wall 30 s
+2026-11-24 15:27:45 [247] R25 PG20 E1-2/Dp_s16114 PASS peak 0.267 N.m; wall 34 s
+2026-11-24 15:27:47 [248] R25 PG20 E1-2/Dp_s16115 PASS peak 0.268 N.m; wall 33 s
+2026-11-24 15:27:52 [249] R25 PG20 E1-2/L_s16116 PASS peak 0.276 N.m; wall 31 s
+2026-11-24 15:28:02 [250] R25 PG20 E1-2/L_s16117 PASS peak 0.269 N.m; wall 31 s
+2026-11-24 15:28:06 [251] R25 PG20 E1-2/Lp_s16118 PASS peak 0.276 N.m; wall 31 s
+2026-11-24 15:28:11 [252] R25 PG20 E1-2/Lp_s16119 PASS peak 0.271 N.m; wall 32 s
+2026-11-24 15:28:17 [253] R25 PG20 E1-2/B_s16120 PASS peak 0.268 N.m; wall 31 s
+2026-11-24 15:28:18 [254] R25 PG20 E1-2/B_s16121 PASS peak 0.270 N.m; wall 30 s
+2026-11-24 15:28:20 [255] R25 PG20 E1-2/Bp_s16122 PASS peak 0.273 N.m; wall 27 s
+2026-11-24 15:28:32 [256] R25 PG20 E1-2/Bp_s16123 PASS peak 0.272 N.m; wall 28 s
+2026-11-24 15:28:36 [257] R25 PG20 E1-5/forgive_+0_s16500 PASS; wall 28 s
+2026-11-24 15:28:52 [258] R25 PG20 E1-5/forgive_+1_s16501 PASS; wall 39 s
+2026-11-24 15:28:58 [259] R25 PG20 E1-5/forgive_+2_s16502 PASS; wall 39 s
+2026-11-24 15:29:03 [260] R25 PG20 E1-5/forgive_+4_s16504 PASS; wall 39 s
+2026-11-24 15:29:04 [261] R25 PG20 E1-5/forgive_+3_s16503 PASS; wall 42 s
+2026-11-24 15:29:15 [262] R25 PG20 E1-5/forgive_+5_s16505 PASS; wall 40 s
+2026-11-24 15:29:18 [263] R25 PG20 E1-5/forgive_+6_s16506 PASS; wall 40 s
+2026-11-24 15:29:35 [264] R25 PG20 E1-5/forgive_+7_s16507 PASS; wall 40 s
+2026-11-24 15:29:41 [265] R25 PG20 E1-5/forgive_+8_s16508 PASS; wall 39 s
+2026-11-24 15:29:47 [266] R25 PG20 E1-5/forgive_+9_s16509 PASS; wall 42 s
+2026-11-24 15:29:47 [267] R25 PG20 E1-5/forgive_+10_s16510 PASS; wall 40 s
+2026-11-24 15:29:57 [268] R25 PG20 E1-5/forgive_+11_s16511 PASS; wall 40 s
+2026-11-24 15:30:02 [269] R25 PG20 E1-5/forgive_+12_s16512 PASS; wall 41 s
+2026-11-24 15:30:21 [270] R25 PG20 E1-5/forgive_+13_s16513 PASS; wall 43 s
+2026-11-24 15:30:23 [271] R25 PG20 E1-5/forgive_+14_s16514 PASS; wall 40 s
+2026-11-24 15:30:28 [272] R25 PG20 E1-5/forgive_+16_s16516 PASS; wall 40 s
+2026-11-24 15:30:29 [273] R25 PG20 E1-5/forgive_+15_s16515 PASS; wall 40 s
+2026-11-24 15:30:43 [274] R25 PG20 E1-5/forgive_+17_s16517 PASS; wall 43 s
+2026-11-24 15:30:48 [275] R25 PG20 E1-5/forgive_+18_s16518 PASS; wall 43 s
+2026-11-24 15:30:56 [276] R25 PG20 E1-5/forgive_+0_s16521 PASS; wall 26 s
+2026-11-24 15:31:06 [277] R25 PG20 E1-5/forgive_+19_s16519 PASS; wall 42 s
+2026-11-24 15:31:06 [278] R25 PG20 E1-5/forgive_+20_s16520 PASS; wall 41 s
+2026-11-24 15:31:12 [279] R25 PG20 E1-5/forgive_-1_s16522 PASS; wall 41 s
+2026-11-24 15:31:23 [280] R25 PG20 E1-5/forgive_-2_s16523 PASS; wall 37 s
+2026-11-24 15:31:30 [281] R25 PG20 E1-5/forgive_-3_s16524 PASS; wall 40 s
+2026-11-24 15:31:39 [282] R25 PG20 E1-5/forgive_-4_s16525 PASS; wall 40 s
+2026-11-24 15:31:53 [283] R25 PG20 E1-5/forgive_-5_s16526 PASS; wall 44 s
+2026-11-24 15:31:54 [284] R25 PG20 E1-5/forgive_-6_s16527 PASS; wall 43 s
+2026-11-24 15:32:05 [285] R25 PG20 E1-5/forgive_-7_s16528 PASS; wall 49 s
+2026-11-24 15:32:10 [286] R25 PG20 E1-5/forgive_-8_s16529 PASS; wall 45 s
+2026-11-24 15:32:21 [287] R25 PG20 E1-5/forgive_-9_s16530 PASS; wall 48 s
+2026-11-24 15:32:30 [288] R25 PG20 E1-5/forgive_-10_s16531 PASS; wall 47 s
+2026-11-24 15:32:43 [289] R25 PG20 E1-5/forgive_-12_s16533 PASS; wall 47 s
+2026-11-24 15:32:44 [290] R25 PG20 E1-5/forgive_-11_s16532 PASS; wall 48 s
+2026-11-24 15:32:59 [291] R25 PG20 E1-5/forgive_-13_s16534 PASS; wall 51 s
+2026-11-24 15:33:04 [292] R25 PG20 E1-5/forgive_-14_s16535 PASS; wall 50 s
+2026-11-24 15:33:15 [293] R25 PG20 E1-5/forgive_-15_s16536 PASS; wall 50 s
+2026-11-24 15:33:24 [294] R25 PG20 E1-5/forgive_-16_s16537 PASS; wall 51 s
+2026-11-24 15:33:38 [295] R25 PG20 E1-5/forgive_-17_s16538 PASS; wall 51 s
+2026-11-24 15:33:43 [296] R25 PG20 E1-5/forgive_-18_s16539 PASS; wall 55 s
+2026-11-24 15:33:54 [297] R25 PG20 E1-5s/snap_+1_s16551 PASS; wall 36 s
+2026-11-24 15:33:56 [298] R25 PG20 E1-5/forgive_-19_s16540 PASS; wall 55 s
+2026-11-24 15:33:59 [299] R25 PG20 E1-5/forgive_-20_s16541 PASS; wall 53 s
+2026-11-24 15:34:06 [300] R25 PG20 E1-5s/snap_-1_s16551 PASS; wall 38 s
+2026-11-24 15:34:15 [301] R25 PG20 E1-5s/snap_+2_s16552 PASS; wall 35 s
+2026-11-24 15:34:19 [302] R25 PG20 E1-5s/snap_-2_s16552 PASS; wall 33 s
+2026-11-24 15:34:29 [303] R25 PG20 E1-5s/snap_+3_s16553 PASS; wall 33 s
+2026-11-24 15:34:32 [304] R25 PG20 E1-5s/snap_-3_s16553 PASS; wall 33 s
+2026-11-24 15:34:35 [305] R25 PG20 E1-5s/snap_+5_s16555 PASS; wall 34 s
+2026-11-24 15:34:41 [306] R25 PG20 E1-5s/snap_-5_s16555 PASS; wall 33 s
+2026-11-24 15:34:51 [307] R25 PG20 E1-5s/snap_+8_s16558 PASS; wall 34 s
+2026-11-24 15:34:54 [308] R25 PG20 E1-5s/snap_-8_s16558 PASS; wall 33 s
+2026-11-24 15:35:03 [309] R25 PG20 E1-5s/snap_+1_s16561 PASS; wall 32 s
+2026-11-24 15:35:06 [310] R25 PG20 E1-5s/snap_-1_s16561 PASS; wall 32 s
+2026-11-24 15:35:10 [311] R25 PG20 E1-5s/snap_+2_s16562 PASS; wall 33 s
+2026-11-24 15:35:15 [312] R25 PG20 E1-5s/snap_-2_s16562 PASS; wall 32 s
+2026-11-24 15:35:24 [313] R25 PG20 E1-5s/snap_+3_s16563 PASS; wall 31 s
+2026-11-24 15:35:29 [314] R25 PG20 E1-5s/snap_-3_s16563 PASS; wall 32 s
+2026-11-24 15:35:39 [315] R25 PG20 E1-5s/snap_+5_s16565 PASS; wall 33 s
+2026-11-24 15:35:41 [316] R25 PG20 E1-5s/snap_-5_s16565 PASS; wall 33 s
+2026-11-24 15:35:47 [317] R25 PG20 E1-5s/snap_+8_s16568 PASS; wall 34 s
+2026-11-24 15:35:50 [318] R25 PG20 E1-5s/snap_-8_s16568 PASS; wall 34 s
+2026-11-24 15:37:24 [319] R14 L0 E1-1/rest_s16000 rest 0-10 s 0.000780 deg; no event; wall 115 s
+2026-11-24 15:37:25 [320] R14 L0 E1-1/rest_s16001 rest 0-10 s 0.002561 deg; no event; wall 111 s
+2026-11-24 15:37:34 [321] R14 L0 E1-1/rest_s16002 rest 0-10 s 0.003323 deg; no event; wall 108 s
+2026-11-24 15:37:39 [322] R14 L0 E1-1/rest_s16003 rest 0-10 s 0.001199 deg; no event; wall 112 s
+2026-11-24 15:37:44 [323] R14 L0 E1-1/rest_s16004 rest 0-10 s 0.001805 deg; no event; wall 111 s
+2026-11-24 15:37:47 [324] R14 L0 E1-1/rest_s16005 rest 0-10 s 0.000918 deg; no event; wall 111 s
+2026-11-24 15:39:18 [325] R14 L0 E1-1/rest_s16006 rest 0-10 s 0.000766 deg; no event; wall 106 s
+2026-11-24 15:39:24 [326] R14 L0 E1-1/rest_s16007 rest 0-10 s 0.000402 deg; no event; wall 112 s
+2026-11-24 15:39:32 [327] R14 L0 E1-1/rest_s16009 rest 0-10 s 0.002287 deg; no event; wall 106 s
+2026-11-24 15:39:33 [328] R14 L0 E1-1/rest_s16008 rest 0-10 s 0.000493 deg; no event; wall 114 s
+2026-11-24 15:39:45 [329] R14 L0 E1-1/rest_s16011 rest 0-10 s 0.000628 deg; no event; wall 109 s
+2026-11-24 15:39:46 [330] R14 L0 E1-1/rest_s16010 rest 0-10 s 0.000882 deg; no event; wall 114 s
+2026-11-24 15:41:10 [331] R14 L0 E1-1/rest_s16012 rest 0-10 s 0.000657 deg; no event; wall 107 s
+2026-11-24 15:41:15 [332] R14 L0 E1-1/rest_s16013 rest 0-10 s 0.001397 deg; no event; wall 105 s
+2026-11-24 15:41:20 [333] R14 L0 E1-1/rest_s16014 rest 0-10 s 0.001366 deg; no event; wall 102 s
+2026-11-24 15:41:22 [334] R14 L0 E1-1/rest_s16015 rest 0-10 s 0.000780 deg; no event; wall 103 s
+2026-11-24 15:41:34 [335] R14 L0 E1-1/rest_s16016 rest 0-10 s 0.000943 deg; no event; wall 104 s
+2026-11-24 15:41:35 [336] R14 L0 E1-1/rest_s16017 rest 0-10 s 0.003374 deg; no event; wall 103 s
+2026-11-24 15:42:59 [337] R14 L0 E1-1/rest_s16018 rest 0-10 s 0.000771 deg; no event; wall 103 s
+2026-11-24 15:43:04 [338] R14 L0 E1-1/rest_s16019 rest 0-10 s 0.000606 deg; no event; wall 103 s
+2026-11-24 15:44:38 [339] R14 PG8 E1-1/rest_s16000 rest 0-10 s 0.000866 deg; no event; wall 188 s
+2026-11-24 15:44:43 [340] R14 PG8 E1-1/rest_s16001 rest 0-10 s 0.001709 deg; no event; wall 190 s
+2026-11-24 15:44:45 [341] R14 PG8 E1-1/rest_s16002 rest 0-10 s 0.001028 deg; no event; wall 182 s
+2026-11-24 15:44:51 [342] R14 PG8 E1-1/rest_s16003 rest 0-10 s 0.000794 deg; no event; wall 186 s
+2026-11-24 15:46:17 [343] R14 PG8 E1-1/rest_s16004 rest 0-10 s 0.000429 deg; no event; wall 189 s
+2026-11-24 15:46:20 [344] R14 PG8 E1-1/rest_s16005 rest 0-10 s 0.000769 deg; no event; wall 186 s
+2026-11-24 15:47:53 [345] R14 PG8 E1-1/rest_s16006 rest 0-10 s 0.006279 deg; no event; wall 184 s
+2026-11-24 15:47:58 [346] R14 PG8 E1-1/rest_s16007 rest 0-10 s 0.001851 deg; no event; wall 185 s
+2026-11-24 15:48:02 [347] R14 PG8 E1-1/rest_s16008 rest 0-10 s 0.001363 deg; no event; wall 186 s
+2026-11-24 15:48:03 [348] R14 PG8 E1-1/rest_s16009 rest 0-10 s 0.003598 deg; no event; wall 183 s
+2026-11-24 15:49:26 [349] R14 PG8 E1-1/rest_s16010 rest 0-10 s 0.001452 deg; no event; wall 179 s
+2026-11-24 15:49:27 [350] R14 PG8 E1-1/rest_s16011 rest 0-10 s 0.000600 deg; no event; wall 176 s
+2026-11-24 15:50:50 [351] R14 PG8 E1-1/rest_s16012 rest 0-10 s 0.000258 deg; no event; wall 168 s
+2026-11-24 15:50:52 [352] R14 PG8 E1-1/rest_s16013 rest 0-10 s 0.000931 deg; no event; wall 165 s
+2026-11-24 15:50:54 [353] R14 PG8 E1-1/rest_s16014 rest 0-10 s 0.004501 deg; no event; wall 164 s
+2026-11-24 15:51:01 [354] R14 PG8 E1-1/rest_s16015 rest 0-10 s 0.005552 deg; no event; wall 168 s
+2026-11-24 15:52:14 [355] R14 PG8 E1-1/rest_s16016 rest 0-10 s 0.000597 deg; no event; wall 158 s
+2026-11-24 15:52:15 [356] R14 PG8 E1-1/rest_s16017 rest 0-10 s 0.001766 deg; no event; wall 159 s
+2026-11-24 15:53:40 [357] R14 PG8 E1-1/rest_s16018 rest 0-10 s 0.002085 deg; no event; wall 162 s
+2026-11-24 15:53:41 [358] R14 PG8 E1-1/rest_s16019 rest 0-10 s 0.001684 deg; no event; wall 159 s
+2026-11-24 15:54:11 [359] R14 PG20 E1-1/rest_s16000 rest 0-10 s 0.001443 deg; no event; wall 186 s
+2026-11-24 15:54:16 [360] R14 PG20 E1-1/rest_s16001 rest 0-10 s 0.001054 deg; no event; wall 186 s
+2026-11-24 15:55:37 [361] R14 PG20 E1-1/rest_s16002 rest 0-10 s 0.006922 deg; no event; wall 191 s
+2026-11-24 15:55:39 [362] R14 PG20 E1-1/rest_s16003 rest 0-10 s 0.003277 deg; no event; wall 193 s
+2026-11-24 15:56:59 [363] R14 PG20 E1-1/rest_s16004 rest 0-10 s 0.003836 deg; no event; wall 187 s
+2026-11-24 15:57:03 [364] R14 PG20 E1-1/rest_s16005 rest 0-10 s 0.004956 deg; no event; wall 191 s
+2026-11-24 15:57:37 [365] R14 PG20 E1-1/rest_s16006 rest 0-10 s 0.002509 deg; no event; wall 195 s
+2026-11-24 15:57:49 [366] R14 PG20 E1-1/rest_s16007 rest 0-10 s 0.002091 deg; no event; wall 200 s
+2026-11-24 15:59:29 [367] R14 PG20 E1-1/rest_s16008 rest 0-10 s 0.001050 deg; no event; wall 219 s
+2026-11-24 15:59:30 [368] R14 PG20 E1-1/rest_s16009 rest 0-10 s 0.002719 deg; no event; wall 219 s
+2026-11-24 16:01:18 [369] R14 PG20 E1-1/rest_s16010 rest 0-10 s 0.001124 deg; no event; wall 244 s
+2026-11-24 16:01:21 [370] R14 PG20 E1-1/rest_s16011 rest 0-10 s 0.004126 deg; no event; wall 244 s
+2026-11-24 16:01:53 [371] R14 PG20 E1-1/rest_s16012 rest 0-10 s 0.003192 deg; no event; wall 242 s
+2026-11-24 16:02:06 [372] R14 PG20 E1-1/rest_s16013 rest 0-10 s 0.001702 deg; no event; wall 245 s
+2026-11-24 16:03:30 [373] R14 PG20 E1-1/rest_s16014 rest 0-10 s 0.001574 deg; no event; wall 228 s
+2026-11-24 16:03:31 [374] R14 PG20 E1-1/rest_s16015 rest 0-10 s 0.002926 deg; no event; wall 228 s
+2026-11-24 16:03:46 [375] R14 L0 E1-2/U_s16100 PASS peak 0.111 N.m; wall 15 s
+2026-11-24 16:03:47 [376] R14 L0 E1-2/U_s16101 PASS peak 0.100 N.m; wall 15 s
+2026-11-24 16:04:06 [377] R14 L0 E1-2/Up_s16102 PASS peak 0.152 N.m; wall 19 s
+2026-11-24 16:04:08 [378] R14 L0 E1-2/Up_s16103 PASS peak 0.106 N.m; wall 20 s
+2026-11-24 16:04:31 [379] R14 L0 E1-2/R_s16104 PASS peak 0.095 N.m; wall 24 s
+2026-11-24 16:04:34 [380] R14 L0 E1-2/R_s16105 PASS peak 0.100 N.m; wall 24 s
+2026-11-24 16:04:56 [381] R14 L0 E1-2/Rp_s16106 PASS peak 0.098 N.m; wall 24 s
+2026-11-24 16:04:58 [382] R14 L0 E1-2/Rp_s16107 PASS peak 0.097 N.m; wall 24 s
+2026-11-24 16:05:13 [383] R14 PG20 E1-1/rest_s16016 rest 0-10 s 0.001697 deg; no event; wall 224 s
+2026-11-24 16:05:18 [384] R14 PG20 E1-1/rest_s16017 rest 0-10 s 0.002732 deg; no event; wall 224 s
+2026-11-24 16:05:20 [385] R14 L0 E1-2/F_s16108 PASS peak 0.095 N.m; wall 21 s
+2026-11-24 16:05:21 [386] R14 L0 E1-2/F_s16109 PASS peak 0.099 N.m; wall 21 s
+2026-11-24 16:05:34 [387] R14 L0 E1-2/Fp_s16110 PASS peak 0.105 N.m; wall 20 s
+2026-11-24 16:05:38 [388] R14 L0 E1-2/Fp_s16111 PASS peak 0.105 N.m; wall 19 s
+2026-11-24 16:05:39 [389] R14 L0 E1-2/D_s16112 PASS peak 0.104 N.m; wall 18 s
+2026-11-24 16:05:39 [390] R14 L0 E1-2/D_s16113 PASS peak 0.101 N.m; wall 18 s
+2026-11-24 16:05:47 [391] R14 PG20 E1-1/rest_s16018 rest 0-10 s 0.001859 deg; no event; wall 222 s
+2026-11-24 16:05:56 [392] R14 L0 E1-2/Dp_s16114 PASS peak 0.093 N.m; wall 20 s
+2026-11-24 16:06:01 [393] R14 L0 E1-2/Dp_s16115 PASS peak 0.108 N.m; wall 20 s
+2026-11-24 16:06:01 [394] R14 L0 E1-2/L_s16116 PASS peak 0.149 N.m; wall 19 s
+2026-11-24 16:06:01 [395] R14 L0 E1-2/L_s16117 PASS peak 0.098 N.m; wall 19 s
+2026-11-24 16:06:02 [396] R14 PG20 E1-1/rest_s16019 rest 0-10 s 0.000920 deg; no event; wall 224 s
+2026-11-24 16:06:06 [397] R14 L0 E1-2/Lp_s16118 PASS peak 0.099 N.m; wall 18 s
+2026-11-24 16:06:17 [398] R14 L0 E1-2/Lp_s16119 PASS peak 0.119 N.m; wall 19 s
+2026-11-24 16:06:21 [399] R14 L0 E1-2/B_s16121 PASS peak 0.131 N.m; wall 18 s
+2026-11-24 16:06:21 [400] R14 L0 E1-2/Bp_s16122 PASS peak 0.102 N.m; wall 18 s
+2026-11-24 16:06:22 [401] R14 L0 E1-2/B_s16120 PASS peak 0.104 N.m; wall 19 s
+2026-11-24 16:06:22 [402] R14 L0 E1-2/Bp_s16123 PASS peak 0.139 N.m; wall 18 s
+2026-11-24 16:06:26 [403] R14 L0 E1-5/forgive_+0_s16500 PASS; wall 18 s
+2026-11-24 16:06:45 [404] R14 L0 E1-5/forgive_+1_s16501 PASS; wall 28 s
+2026-11-24 16:06:51 [405] R14 L0 E1-5/forgive_+2_s16502 PASS; wall 28 s
+2026-11-24 16:06:51 [406] R14 L0 E1-5/forgive_+4_s16504 PASS; wall 27 s
+2026-11-24 16:06:52 [407] R14 L0 E1-5/forgive_+5_s16505 PASS; wall 28 s
+2026-11-24 16:06:54 [408] R14 L0 E1-5/forgive_+3_s16503 PASS; wall 31 s
+2026-11-24 16:06:57 [409] R14 L0 E1-5/forgive_+6_s16506 PASS; wall 29 s
+2026-11-24 16:07:15 [410] R14 L0 E1-5/forgive_+7_s16507 PASS; wall 28 s
+2026-11-24 16:07:19 [411] R14 L0 E1-5/forgive_+8_s16508 PASS; wall 28 s
+2026-11-24 16:07:23 [412] R14 L0 E1-5/forgive_+9_s16509 PASS; wall 30 s
+2026-11-24 16:07:24 [413] R14 L0 E1-5/forgive_+10_s16510 PASS; wall 29 s
+2026-11-24 16:07:25 [414] R14 L0 E1-5/forgive_+11_s16511 PASS; wall 28 s
+2026-11-24 16:07:28 [415] R14 L0 E1-5/forgive_+12_s16512 PASS; wall 29 s
+2026-11-24 16:07:48 [416] R14 L0 E1-5/forgive_+13_s16513 PASS; wall 31 s
+2026-11-24 16:07:49 [417] R14 L0 E1-5/forgive_+14_s16514 PASS; wall 28 s
+2026-11-24 16:07:51 [418] R14 L0 E1-5/forgive_+15_s16515 PASS; wall 28 s
+2026-11-24 16:07:52 [419] R14 L0 E1-5/forgive_+16_s16516 PASS; wall 28 s
+2026-11-24 16:07:57 [420] R14 L0 E1-5/forgive_+17_s16517 PASS; wall 30 s
+2026-11-24 16:08:00 [421] R14 L0 E1-5/forgive_+18_s16518 PASS; wall 30 s
+2026-11-24 16:08:11 [422] R14 L0 E1-5/forgive_+0_s16521 PASS; wall 17 s
+2026-11-24 16:08:19 [423] R14 L0 E1-5/forgive_+20_s16520 PASS; wall 27 s
+2026-11-24 16:08:21 [424] R14 L0 E1-5/forgive_+19_s16519 PASS; wall 31 s
+2026-11-24 16:08:22 [425] R14 L0 E1-5/forgive_-1_s16522 PASS; wall 28 s
+2026-11-24 16:08:24 [426] R14 L0 E1-5/forgive_-2_s16523 PASS; wall 27 s
+2026-11-24 16:08:27 [427] R14 L0 E1-5/forgive_-3_s16524 PASS; wall 27 s
+2026-11-24 16:08:39 [428] R14 L0 E1-5/forgive_-4_s16525 PASS; wall 26 s
+2026-11-24 16:08:48 [429] R14 L0 E1-5/forgive_-5_s16526 PASS; wall 27 s
+2026-11-24 16:08:49 [430] R14 L0 E1-5/forgive_-6_s16527 PASS; wall 25 s
+2026-11-24 16:08:52 [431] R14 L0 E1-5/forgive_-8_s16529 PASS; wall 26 s
+2026-11-24 16:08:53 [432] R14 L0 E1-5/forgive_-7_s16528 PASS; wall 28 s
+2026-11-24 16:08:56 [433] R14 L0 E1-5/forgive_-9_s16530 PASS; wall 27 s
+2026-11-24 16:09:10 [434] R14 L0 E1-5/forgive_-10_s16531 PASS; wall 29 s
+2026-11-24 16:09:19 [435] R14 L0 E1-5/forgive_-11_s16532 PASS; wall 28 s
+2026-11-24 16:09:20 [436] R14 L0 E1-5/forgive_-12_s16533 PASS; wall 29 s
+2026-11-24 16:09:26 [437] R14 L0 E1-5/forgive_-14_s16535 PASS; wall 31 s
+2026-11-24 16:09:28 [438] R14 L0 E1-5/forgive_-13_s16534 PASS; wall 34 s
+2026-11-24 16:09:29 [439] R14 L0 E1-5/forgive_-15_s16536 PASS; wall 31 s
+2026-11-24 16:09:45 [440] R14 L0 E1-5/forgive_-16_s16537 PASS; wall 32 s
+2026-11-24 16:09:50 [441] R14 L0 E1-5s/snap_+1_s16551 PASS; wall 19 s
+2026-11-24 16:09:51 [442] R14 L0 E1-5/forgive_-17_s16538 PASS; wall 30 s
+2026-11-24 16:09:54 [443] R14 L0 E1-5/forgive_-18_s16539 PASS; wall 31 s
+2026-11-24 16:09:59 [444] R14 L0 E1-5/forgive_-19_s16540 PASS; wall 31 s
+2026-11-24 16:10:00 [445] R14 L0 E1-5/forgive_-20_s16541 PASS; wall 30 s
+2026-11-24 16:10:06 [446] R14 L0 E1-5s/snap_-1_s16551 PASS; wall 20 s
+2026-11-24 16:10:12 [447] R14 L0 E1-5s/snap_+2_s16552 PASS; wall 20 s
+2026-11-24 16:10:13 [448] R14 L0 E1-5s/snap_-2_s16552 PASS; wall 20 s
+2026-11-24 16:10:17 [449] R14 L0 E1-5s/snap_+3_s16553 PASS; wall 21 s
+2026-11-24 16:10:21 [450] R14 L0 E1-5s/snap_-3_s16553 PASS; wall 20 s
+2026-11-24 16:10:22 [451] R14 L0 E1-5s/snap_+5_s16555 PASS; wall 20 s
+2026-11-24 16:10:27 [452] R14 L0 E1-5s/snap_-5_s16555 PASS; wall 19 s
+2026-11-24 16:10:30 [453] R14 L0 E1-5s/snap_+8_s16558 PASS; wall 18 s
+2026-11-24 16:10:32 [454] R14 L0 E1-5s/snap_-8_s16558 PASS; wall 19 s
+2026-11-24 16:10:34 [455] R14 L0 E1-5s/snap_+1_s16561 PASS; wall 17 s
+2026-11-24 16:10:39 [456] R14 L0 E1-5s/snap_-1_s16561 PASS; wall 18 s
+2026-11-24 16:10:41 [457] R14 L0 E1-5s/snap_+2_s16562 PASS; wall 18 s
+2026-11-24 16:10:48 [458] R14 L0 E1-5s/snap_-2_s16562 PASS; wall 18 s
+2026-11-24 16:10:51 [459] R14 L0 E1-5s/snap_+3_s16563 PASS; wall 18 s
+2026-11-24 16:10:52 [460] R14 L0 E1-5s/snap_-3_s16563 PASS; wall 18 s
+2026-11-24 16:10:54 [461] R14 L0 E1-5s/snap_+5_s16565 PASS; wall 18 s
+2026-11-24 16:11:00 [462] R14 L0 E1-5s/snap_-5_s16565 PASS; wall 19 s
+2026-11-24 16:11:02 [463] R14 L0 E1-5s/snap_+8_s16568 PASS; wall 20 s
+2026-11-24 16:11:10 [464] R14 L0 E1-5s/snap_-8_s16568 PASS; wall 21 s
+2026-11-24 16:11:22 [465] R14 PG8 E1-2/U_s16100 PASS peak 0.205 N.m; wall 28 s
+2026-11-24 16:11:23 [466] R14 PG8 E1-2/U_s16101 PASS peak 0.224 N.m; wall 29 s
+2026-11-24 16:11:26 [467] R14 PG8 E1-2/Up_s16102 PASS peak 0.188 N.m; wall 29 s
+2026-11-24 16:11:29 [468] R14 PG8 E1-2/Up_s16103 PASS peak 0.213 N.m; wall 27 s
+2026-11-24 16:11:32 [469] R14 PG8 E1-2/R_s16104 PASS peak 0.204 N.m; wall 27 s
+2026-11-24 16:11:37 [470] R14 PG8 E1-2/R_s16105 PASS peak 0.194 N.m; wall 25 s
+2026-11-24 16:11:44 [471] R14 PG8 E1-2/Rp_s16106 PASS peak 0.235 N.m; wall 22 s
+2026-11-24 16:11:45 [472] R14 PG8 E1-2/Rp_s16107 PASS peak 0.209 N.m; wall 22 s
+2026-11-24 16:11:51 [473] R14 PG8 E1-2/F_s16108 PASS peak 0.202 N.m; wall 24 s
+2026-11-24 16:11:55 [474] R14 PG8 E1-2/F_s16109 PASS peak 0.208 N.m; wall 23 s
+2026-11-24 16:11:59 [475] R14 PG8 E1-2/Fp_s16110 PASS peak 0.224 N.m; wall 25 s
+2026-11-24 16:12:04 [476] R14 PG8 E1-2/Fp_s16111 PASS peak 0.198 N.m; wall 24 s
+2026-11-24 16:12:09 [477] R14 PG8 E1-2/D_s16113 PASS peak 0.210 N.m; wall 22 s
+2026-11-24 16:12:10 [478] R14 PG8 E1-2/D_s16112 PASS peak 0.189 N.m; wall 24 s
+2026-11-24 16:12:18 [479] R14 PG8 E1-2/Dp_s16114 PASS peak 0.192 N.m; wall 24 s
+2026-11-24 16:12:19 [480] R14 PG8 E1-2/Dp_s16115 PASS peak 0.188 N.m; wall 24 s
+2026-11-24 16:12:21 [481] R14 PG8 E1-2/L_s16116 PASS peak 0.224 N.m; wall 22 s
+2026-11-24 16:12:29 [482] R14 PG8 E1-2/L_s16117 PASS peak 0.188 N.m; wall 23 s
+2026-11-24 16:12:35 [483] R14 PG8 E1-2/Lp_s16118 PASS peak 0.194 N.m; wall 23 s
+2026-11-24 16:12:36 [484] R14 PG8 E1-2/Lp_s16119 PASS peak 0.262 N.m; wall 24 s
+2026-11-24 16:12:43 [485] R14 PG8 E1-2/B_s16121 PASS peak 0.192 N.m; wall 22 s
+2026-11-24 16:12:44 [486] R14 PG8 E1-2/B_s16120 PASS peak 0.191 N.m; wall 23 s
+2026-11-24 16:12:45 [487] R14 PG8 E1-2/Bp_s16122 PASS peak 0.241 N.m; wall 21 s
+2026-11-24 16:12:51 [488] R14 PG8 E1-2/Bp_s16123 PASS peak 0.215 N.m; wall 21 s
+2026-11-24 16:12:59 [489] R14 PG8 E1-5/forgive_+0_s16500 PASS; wall 23 s
+2026-11-24 16:13:11 [490] R14 PG8 E1-5/forgive_+1_s16501 PASS; wall 33 s
+2026-11-24 16:13:18 [491] R14 PG8 E1-5/forgive_+2_s16502 PASS; wall 32 s
+2026-11-24 16:13:20 [492] R14 PG8 E1-5/forgive_+4_s16504 PASS; wall 32 s
+2026-11-24 16:13:22 [493] R14 PG8 E1-5/forgive_+3_s16503 PASS; wall 35 s
+2026-11-24 16:13:27 [494] R14 PG8 E1-5/forgive_+5_s16505 PASS; wall 34 s
+2026-11-24 16:13:36 [495] R14 PG8 E1-5/forgive_+6_s16506 PASS; wall 33 s
+2026-11-24 16:13:45 [496] R14 PG8 E1-5/forgive_+7_s16507 PASS; wall 32 s
+2026-11-24 16:13:52 [497] R14 PG8 E1-5/forgive_+8_s16508 PASS; wall 32 s
+2026-11-24 16:13:56 [498] R14 PG8 E1-5/forgive_+9_s16509 PASS; wall 34 s
+2026-11-24 16:13:57 [499] R14 PG8 E1-5/forgive_+10_s16510 PASS; wall 33 s
+2026-11-24 16:14:01 [500] R14 PG8 E1-5/forgive_+11_s16511 PASS; wall 32 s
+2026-11-24 16:14:10 [501] R14 PG8 E1-5/forgive_+12_s16512 PASS; wall 33 s
+2026-11-24 16:14:21 [502] R14 PG8 E1-5/forgive_+13_s16513 PASS; wall 34 s
+2026-11-24 16:14:26 [503] R14 PG8 E1-5/forgive_+14_s16514 PASS; wall 31 s
+2026-11-24 16:14:30 [504] R14 PG8 E1-5/forgive_+15_s16515 PASS; wall 31 s
+2026-11-24 16:14:31 [505] R14 PG8 E1-5/forgive_+16_s16516 PASS; wall 32 s
+2026-11-24 16:14:36 [506] R14 PG8 E1-5/forgive_+17_s16517 PASS; wall 33 s
+2026-11-24 16:14:46 [507] R14 PG8 E1-5/forgive_+18_s16518 PASS; wall 34 s
+2026-11-24 16:14:52 [508] R14 PG8 E1-5/forgive_+0_s16521 PASS; wall 20 s
+2026-11-24 16:14:56 [509] R14 PG8 E1-5/forgive_+19_s16519 PASS; wall 34 s
+2026-11-24 16:15:00 [510] R14 PG8 E1-5/forgive_+20_s16520 PASS; wall 31 s
+2026-11-24 16:15:07 [511] R14 PG8 E1-5/forgive_-1_s16522 PASS; wall 34 s
+2026-11-24 16:15:10 [512] R14 PG8 E1-5/forgive_-2_s16523 PASS; wall 32 s
+2026-11-24 16:15:22 [513] R14 PG8 E1-5/forgive_-3_s16524 PASS; wall 34 s
+2026-11-24 16:15:29 [514] R14 PG8 E1-5/forgive_-4_s16525 PASS; wall 35 s
+2026-11-24 16:15:34 [515] R14 PG8 E1-5/forgive_-5_s16526 PASS; wall 35 s
+2026-11-24 16:15:37 [516] R14 PG8 E1-5/forgive_-6_s16527 PASS; wall 35 s
+2026-11-24 16:15:51 [517] R14 PG8 E1-5/forgive_-7_s16528 PASS; wall 41 s
+2026-11-24 16:15:52 [518] R14 PG8 E1-5/forgive_-8_s16529 PASS; wall 38 s
+2026-11-24 16:16:07 [519] R14 PG8 E1-5/forgive_-9_s16530 PASS; wall 43 s
+2026-11-24 16:16:16 [520] R14 PG8 E1-5/forgive_-10_s16531 PASS; wall 45 s
+2026-11-24 16:16:21 [521] R14 PG8 E1-5/forgive_-11_s16532 PASS; wall 45 s
+2026-11-24 16:16:27 [522] R14 PG8 E1-5/forgive_-12_s16533 PASS; wall 46 s
+2026-11-24 16:16:41 [523] R14 PG8 E1-5/forgive_-14_s16535 PASS; wall 47 s
+2026-11-24 16:16:42 [524] R14 PG8 E1-5/forgive_-13_s16534 PASS; wall 49 s
+2026-11-24 16:16:59 [525] R14 PG8 E1-5/forgive_-15_s16536 PASS; wall 48 s
+2026-11-24 16:17:12 [526] R14 PG8 E1-5/forgive_-16_s16537 PASS; wall 52 s
+2026-11-24 16:17:12 [527] R14 PG8 E1-5/forgive_-17_s16538 PASS; wall 46 s
+2026-11-24 16:17:21 [528] R14 PG8 E1-5/forgive_-18_s16539 PASS; wall 52 s
+2026-11-24 16:17:33 [529] R14 PG8 E1-5/forgive_-20_s16541 PASS; wall 47 s
+2026-11-24 16:17:33 [530] R14 PG8 E1-5s/snap_+1_s16551 PASS; wall 32 s
+2026-11-24 16:17:34 [531] R14 PG8 E1-5/forgive_-19_s16540 PASS; wall 49 s
+2026-11-24 16:17:44 [532] R14 PG8 E1-5s/snap_-1_s16551 PASS; wall 29 s
+2026-11-24 16:17:44 [533] R14 PG8 E1-5s/snap_+2_s16552 PASS; wall 29 s
+2026-11-24 16:17:53 [534] R14 PG8 E1-5s/snap_-2_s16552 PASS; wall 29 s
+2026-11-24 16:18:02 [535] R14 PG8 E1-5s/snap_+3_s16553 PASS; wall 29 s
+2026-11-24 16:18:02 [536] R14 PG8 E1-5s/snap_-3_s16553 PASS; wall 28 s
+2026-11-24 16:18:03 [537] R14 PG8 E1-5s/snap_+5_s16555 PASS; wall 28 s
+2026-11-24 16:18:14 [538] R14 PG8 E1-5s/snap_-5_s16555 PASS; wall 28 s
+2026-11-24 16:18:15 [539] R14 PG8 E1-5s/snap_+8_s16558 PASS; wall 29 s
+2026-11-24 16:18:24 [540] R14 PG8 E1-5s/snap_-8_s16558 PASS; wall 29 s
+2026-11-24 16:18:34 [541] R14 PG8 E1-5s/snap_+1_s16561 PASS; wall 29 s
+2026-11-24 16:18:34 [542] R14 PG8 E1-5s/snap_-1_s16561 PASS; wall 30 s
+2026-11-24 16:18:35 [543] R14 PG8 E1-5s/snap_+2_s16562 PASS; wall 30 s
+2026-11-24 16:18:46 [544] R14 PG8 E1-5s/snap_-2_s16562 PASS; wall 30 s
+2026-11-24 16:18:47 [545] R14 PG8 E1-5s/snap_+3_s16563 PASS; wall 30 s
+2026-11-24 16:18:54 [546] R14 PG8 E1-5s/snap_-3_s16563 PASS; wall 28 s
+2026-11-24 16:19:06 [547] R14 PG8 E1-5s/snap_+5_s16565 PASS; wall 30 s
+2026-11-24 16:19:07 [548] R14 PG8 E1-5s/snap_-5_s16565 PASS; wall 30 s
+2026-11-24 16:19:08 [549] R14 PG8 E1-5s/snap_+8_s16568 PASS; wall 31 s
+2026-11-24 16:19:20 [550] R14 PG8 E1-5s/snap_-8_s16568 PASS; wall 32 s
+2026-11-24 16:19:24 [551] R14 PG20 E1-2/U_s16100 PASS peak 0.364 N.m; wall 35 s
+2026-11-24 16:19:32 [552] R14 PG20 E1-2/U_s16101 PASS peak 0.349 N.m; wall 36 s
+2026-11-24 16:19:48 [553] R14 PG20 E1-2/Up_s16102 PASS peak 0.272 N.m; wall 38 s
+2026-11-24 16:19:49 [554] R14 PG20 E1-2/Up_s16103 PASS peak 0.280 N.m; wall 37 s
+2026-11-24 16:19:50 [555] R14 PG20 E1-2/R_s16104 PASS peak 0.269 N.m; wall 38 s
+2026-11-24 16:20:04 [556] R14 PG20 E1-2/R_s16105 PASS peak 0.276 N.m; wall 42 s
+2026-11-24 16:20:05 [557] R14 PG20 E1-2/Rp_s16106 PASS peak 0.335 N.m; wall 39 s
+2026-11-24 16:20:12 [558] R14 PG20 E1-2/Rp_s16107 PASS peak 0.286 N.m; wall 38 s
+2026-11-24 16:20:31 [559] R14 PG20 E1-2/F_s16109 PASS peak 0.269 N.m; wall 40 s
+2026-11-24 16:20:33 [560] R14 PG20 E1-2/F_s16108 PASS peak 0.267 N.m; wall 43 s
+2026-11-24 16:20:34 [561] R14 PG20 E1-2/Fp_s16110 PASS peak 0.267 N.m; wall 42 s
+2026-11-24 16:20:45 [562] R14 PG20 E1-2/Fp_s16111 PASS peak 0.281 N.m; wall 39 s
+2026-11-24 16:20:46 [563] R14 PG20 E1-2/D_s16112 PASS peak 0.279 N.m; wall 39 s
+2026-11-24 16:20:52 [564] R14 PG20 E1-2/D_s16113 PASS peak 0.289 N.m; wall 37 s
+2026-11-24 16:21:14 [565] R14 PG20 E1-2/Dp_s16114 PASS peak 0.270 N.m; wall 41 s
+2026-11-24 16:21:16 [566] R14 PG20 E1-2/Dp_s16115 PASS peak 0.274 N.m; wall 41 s
+2026-11-24 16:21:17 [567] R14 PG20 E1-2/L_s16116 PASS peak 0.279 N.m; wall 39 s
+2026-11-24 16:21:27 [568] R14 PG20 E1-2/L_s16117 PASS peak 0.306 N.m; wall 39 s
+2026-11-24 16:21:30 [569] R14 PG20 E1-2/Lp_s16118 PASS peak 0.352 N.m; wall 39 s
+2026-11-24 16:21:34 [570] R14 PG20 E1-2/Lp_s16119 PASS peak 0.293 N.m; wall 38 s
+2026-11-24 16:21:49 [571] R14 PG20 E1-2/Bp_s16122 PASS peak 0.279 N.m; wall 30 s
+2026-11-24 16:21:50 [572] R14 PG20 E1-2/B_s16120 PASS peak 0.308 N.m; wall 33 s
+2026-11-24 16:21:50 [573] R14 PG20 E1-2/B_s16121 PASS peak 0.271 N.m; wall 31 s
+2026-11-24 16:21:59 [574] R14 PG20 E1-2/Bp_s16123 PASS peak 0.280 N.m; wall 30 s
+2026-11-24 16:22:00 [575] R14 PG20 E1-5/forgive_+0_s16500 PASS; wall 30 s
+2026-11-24 16:22:19 [576] R14 PG20 E1-5/forgive_+1_s16501 PASS; wall 43 s
+2026-11-24 16:22:34 [577] R14 PG20 E1-5/forgive_+4_s16504 PASS; wall 42 s
+2026-11-24 16:22:35 [578] R14 PG20 E1-5/forgive_+2_s16502 PASS; wall 44 s
+2026-11-24 16:22:41 [579] R14 PG20 E1-5/forgive_+3_s16503 PASS; wall 47 s
+2026-11-24 16:22:47 [580] R14 PG20 E1-5/forgive_+5_s16505 PASS; wall 44 s
+2026-11-24 16:22:48 [581] R14 PG20 E1-5/forgive_+6_s16506 PASS; wall 44 s
+2026-11-24 16:23:05 [582] R14 PG20 E1-5/forgive_+7_s16507 PASS; wall 44 s
+2026-11-24 16:23:23 [583] R14 PG20 E1-5/forgive_+8_s16508 PASS; wall 45 s
+2026-11-24 16:23:27 [584] R14 PG20 E1-5/forgive_+9_s16509 PASS; wall 47 s
+2026-11-24 16:23:28 [585] R14 PG20 E1-5/forgive_+10_s16510 PASS; wall 45 s
+2026-11-24 16:23:34 [586] R14 PG20 E1-5/forgive_+11_s16511 PASS; wall 45 s
+2026-11-24 16:23:37 [587] R14 PG20 E1-5/forgive_+12_s16512 PASS; wall 47 s
+2026-11-24 16:23:59 [588] R14 PG20 E1-5/forgive_+13_s16513 PASS; wall 49 s
+2026-11-24 16:24:12 [589] R14 PG20 E1-5/forgive_+14_s16514 PASS; wall 47 s
+2026-11-24 16:24:16 [590] R14 PG20 E1-5/forgive_+15_s16515 PASS; wall 47 s
+2026-11-24 16:24:16 [591] R14 PG20 E1-5/forgive_+16_s16516 PASS; wall 46 s
+2026-11-24 16:24:28 [592] R14 PG20 E1-5/forgive_+17_s16517 PASS; wall 50 s
+2026-11-24 16:24:30 [593] R14 PG20 E1-5/forgive_+18_s16518 PASS; wall 49 s
+2026-11-24 16:24:48 [594] R14 PG20 E1-5/forgive_+0_s16521 PASS; wall 29 s
+2026-11-24 16:24:50 [595] R14 PG20 E1-5/forgive_+19_s16519 PASS; wall 49 s
+2026-11-24 16:25:04 [596] R14 PG20 E1-5/forgive_+20_s16520 PASS; wall 48 s
+2026-11-24 16:25:09 [597] R14 PG20 E1-5/forgive_-1_s16522 PASS; wall 49 s
+2026-11-24 16:25:15 [598] R14 PG20 E1-5/forgive_-2_s16523 PASS; wall 45 s
+2026-11-24 16:25:19 [599] R14 PG20 E1-5/forgive_-3_s16524 PASS; wall 46 s
+2026-11-24 16:25:35 [600] R14 PG20 E1-5/forgive_-4_s16525 PASS; wall 43 s
+2026-11-24 16:25:39 [601] R14 PG20 E1-5/forgive_-5_s16526 PASS; wall 45 s
+2026-11-24 16:25:50 [602] R14 PG20 E1-5/forgive_-6_s16527 PASS; wall 43 s
+2026-11-24 16:26:00 [603] R14 PG20 E1-5/forgive_-7_s16528 PASS; wall 48 s
+2026-11-24 16:26:02 [604] R14 PG20 E1-5/forgive_-8_s16529 PASS; wall 43 s
+2026-11-24 16:26:07 [605] R14 PG20 E1-5/forgive_-9_s16530 PASS; wall 45 s
+2026-11-24 16:26:22 [606] R14 PG20 E1-5/forgive_-10_s16531 PASS; wall 45 s
+2026-11-24 16:26:27 [607] R14 PG20 E1-5/forgive_-11_s16532 PASS; wall 45 s
+2026-11-24 16:26:37 [608] R14 PG20 E1-5/forgive_-12_s16533 PASS; wall 44 s
+2026-11-24 16:26:51 [609] R14 PG20 E1-5/forgive_-14_s16535 PASS; wall 46 s
+2026-11-24 16:26:52 [610] R14 PG20 E1-5/forgive_-13_s16534 PASS; wall 48 s
+2026-11-24 16:26:58 [611] R14 PG20 E1-5/forgive_-15_s16536 PASS; wall 47 s
+2026-11-24 16:27:14 [612] R14 PG20 E1-5/forgive_-17_s16538 PASS; wall 44 s
+2026-11-24 16:27:16 [613] R14 PG20 E1-5/forgive_-16_s16537 PASS; wall 49 s
+2026-11-24 16:27:29 [614] R14 PG20 E1-5/forgive_-18_s16539 PASS; wall 49 s
+2026-11-24 16:27:31 [615] R14 PG20 E1-5s/snap_+1_s16551 PASS; wall 30 s
+2026-11-24 16:27:40 [616] R14 PG20 E1-5/forgive_-19_s16540 PASS; wall 47 s
+2026-11-24 16:27:40 [617] R14 PG20 E1-5/forgive_-20_s16541 PASS; wall 46 s
+2026-11-24 16:27:48 [618] R14 PG20 E1-5s/snap_-1_s16551 PASS; wall 30 s
+2026-11-24 16:27:48 [619] R14 PG20 E1-5s/snap_+2_s16552 PASS; wall 29 s
+2026-11-24 16:28:01 [620] R14 PG20 E1-5s/snap_-2_s16552 PASS; wall 30 s
+2026-11-24 16:28:03 [621] R14 PG20 E1-5s/snap_+3_s16553 PASS; wall 30 s
+2026-11-24 16:28:12 [622] R14 PG20 E1-5s/snap_-3_s16553 PASS; wall 30 s
+2026-11-24 16:28:12 [623] R14 PG20 E1-5s/snap_+5_s16555 PASS; wall 30 s
+2026-11-24 16:28:21 [624] R14 PG20 E1-5s/snap_-5_s16555 PASS; wall 31 s
+2026-11-24 16:28:21 [625] R14 PG20 E1-5s/snap_+8_s16558 PASS; wall 31 s
+2026-11-24 16:28:36 [626] R14 PG20 E1-5s/snap_-8_s16558 PASS; wall 32 s
+2026-11-24 16:28:36 [627] R14 PG20 E1-5s/snap_+1_s16561 PASS; wall 30 s
+2026-11-24 16:28:45 [628] R14 PG20 E1-5s/snap_-1_s16561 PASS; wall 31 s
+2026-11-24 16:28:45 [629] R14 PG20 E1-5s/snap_+2_s16562 PASS; wall 31 s
+2026-11-24 16:28:55 [630] R14 PG20 E1-5s/snap_-2_s16562 PASS; wall 32 s
+2026-11-24 16:28:55 [631] R14 PG20 E1-5s/snap_+3_s16563 PASS; wall 31 s
+2026-11-24 16:29:10 [632] R14 PG20 E1-5s/snap_-3_s16563 PASS; wall 32 s
+2026-11-24 16:29:10 [633] R14 PG20 E1-5s/snap_+5_s16565 PASS; wall 32 s
+2026-11-24 16:29:19 [634] R14 PG20 E1-5s/snap_-5_s16565 PASS; wall 32 s
+2026-11-24 16:29:19 [635] R14 PG20 E1-5s/snap_+8_s16568 PASS; wall 32 s
+2026-11-24 16:29:30 [636] R14 PG20 E1-5s/snap_-8_s16568 PASS; wall 32 s
+2026-11-24 16:29:36 R1 trials complete: 636 / 636

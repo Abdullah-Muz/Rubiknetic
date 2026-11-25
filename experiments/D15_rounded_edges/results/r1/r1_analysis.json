@@ -1,0 +1,261 @@
+{
+ "radii": {
+  "R25": {
+   "edge_radius": 0.0025,
+   "arms": {
+    "L0": {
+     "complete": true,
+     "n_rest": 20,
+     "counts": {
+      "E1-2": 24,
+      "E1-5": 42,
+      "E1-5s": 20
+     },
+     "rest_failures": [],
+     "seq_failures": [],
+     "e12_moves_at_clip": 0,
+     "meets_screen": true,
+     "reported": {
+      "e12_turner": {
+       "n_moves": 24,
+       "median": 0.0987876313611511,
+       "p99": 0.10736828095785683,
+       "max": 0.10803154168537388,
+       "above_0.45": 0,
+       "above_0.5": 0,
+       "at_clip": 0
+      },
+      "e15_outcomes": {
+       "completed": 26,
+       "blocked_unknown": 16
+      },
+      "rest_max_deg": 0.005132706652076411,
+      "rest_events": 0,
+      "max_drift_deg": 0.640326472699174,
+      "max_solver_niter": 32
+     }
+    },
+    "PG8": {
+     "complete": true,
+     "n_rest": 20,
+     "counts": {
+      "E1-2": 24,
+      "E1-5": 42,
+      "E1-5s": 20
+     },
+     "rest_failures": [],
+     "seq_failures": [],
+     "e12_moves_at_clip": 0,
+     "meets_screen": true,
+     "reported": {
+      "e12_turner": {
+       "n_moves": 24,
+       "median": 0.19071639629399506,
+       "p99": 0.19931974320647883,
+       "max": 0.19996398257691927,
+       "above_0.45": 0,
+       "above_0.5": 0,
+       "at_clip": 0
+      },
+      "e15_outcomes": {
+       "completed": 41,
+       "blocked_unknown": 1
+      },
+      "rest_max_deg": 0.0040296777000198205,
+      "rest_events": 0,
+      "max_drift_deg": 0.510029654880086,
+      "max_solver_niter": 33
+     }
+    },
+    "PG20": {
+     "complete": true,
+     "n_rest": 20,
+     "counts": {
+      "E1-2": 24,
+      "E1-5": 42,
+      "E1-5s": 20
+     },
+     "rest_failures": [],
+     "seq_failures": [],
+     "e12_moves_at_clip": 0,
+     "meets_screen": true,
+     "reported": {
+      "e12_turner": {
+       "n_moves": 24,
+       "median": 0.27089885359020244,
+       "p99": 0.30261082911190446,
+       "max": 0.3064561849744025,
+       "above_0.45": 0,
+       "above_0.5": 0,
+       "at_clip": 0
+      },
+      "e15_outcomes": {
+       "completed": 41,
+       "blocked_unknown": 1
+      },
+      "rest_max_deg": 0.011430852555559439,
+      "rest_events": 0,
+      "max_drift_deg": 0.5364379915025935,
+      "max_solver_niter": 35
+     }
+    }
+   },
+   "meets_screen": true,
+   "complete": true
+  },
+  "R14": {
+   "edge_radius": 0.0014,
+   "arms": {
+    "L0": {
+     "complete": true,
+     "n_rest": 20,
+     "counts": {
+      "E1-2": 24,
+      "E1-5": 42,
+      "E1-5s": 20
+     },
+     "rest_failures": [],
+     "seq_failures": [],
+     "e12_moves_at_clip": 0,
+     "meets_screen": true,
+     "reported": {
+      "e12_turner": {
+       "n_moves": 24,
+       "median": 0.10265222941655477,
+       "p99": 0.15121152120925366,
+       "max": 0.15180739536560006,
+       "above_0.45": 0,
+       "above_0.5": 0,
+       "at_clip": 0
+      },
+      "e15_outcomes": {
+       "completed": 26,
+       "blocked_unknown": 15,
+       "no_net_move": 1
+      },
+      "rest_max_deg": 0.0033737252309858335,
+      "rest_events": 0,
+      "max_drift_deg": 0.5513748912873225,
+      "max_solver_niter": 33
+     }
+    },
+    "PG8": {
+     "complete": true,
+     "n_rest": 20,
+     "counts": {
+      "E1-2": 24,
+      "E1-5": 42,
+      "E1-5s": 20
+     },
+     "rest_failures": [],
+     "seq_failures": [],
+     "e12_moves_at_clip": 0,
+     "meets_screen": true,
+     "reported": {
+      "e12_turner": {
+       "n_moves": 24,
+       "median": 0.20404451433631832,
+       "p99": 0.2568897404427626,
+       "max": 0.26166393481722683,
+       "above_0.45": 0,
+       "above_0.5": 0,
+       "at_clip": 0
+      },
+      "e15_outcomes": {
+       "completed": 37,
+       "blocked_unknown": 5
+      },
+      "rest_max_deg": 0.00627911254283686,
+      "rest_events": 0,
+      "max_drift_deg": 0.4987966855720763,
+      "max_solver_niter": 35
+     }
+    },
+    "PG20": {
+     "complete": true,
+     "n_rest": 20,
+     "counts": {
+      "E1-2": 24,
+      "E1-5": 42,
+      "E1-5s": 20
+     },
+     "rest_failures": [],
+     "seq_failures": [],
+     "e12_moves_at_clip": 0,
+     "meets_screen": true,
+     "reported": {
+      "e12_turner": {
+       "n_moves": 24,
+       "median": 0.279584903111858,
+       "p99": 0.3612425986197268,
+       "max": 0.3639759843691298,
+       "above_0.45": 0,
+       "above_0.5": 0,
+       "at_clip": 0
+      },
+      "e15_outcomes": {
+       "completed": 37,
+       "blocked_unknown": 5
+      },
+      "rest_max_deg": 0.006922191448272575,
+      "rest_events": 0,
+      "max_drift_deg": 0.4194334646129464,
+      "max_solver_niter": 35
+     }
+    }
+   },
+   "meets_screen": true,
+   "complete": true
+  }
+ },
+ "chamfer_reference_stage2": {
+  "L0": {
+   "e12_turner": {
+    "n_moves": 24,
+    "median": 0.19274692706772056,
+    "p99": 0.5819353139166609,
+    "max": 0.5962885273307309,
+    "above_0.45": 3,
+    "above_0.5": 2,
+    "at_clip": 0
+   },
+   "e15_outcomes": {
+    "completed": 29,
+    "blocked_unknown": 12,
+    "no_net_move": 1
+   }
+  },
+  "PG8": {
+   "e12_turner": {
+    "n_moves": 24,
+    "median": 0.42431883082524186,
+    "p99": 0.6622999637765508,
+    "max": 0.678330525113962,
+    "above_0.45": 10,
+    "above_0.5": 9,
+    "at_clip": 0
+   },
+   "e15_outcomes": {
+    "completed": 37,
+    "blocked_unknown": 5
+   }
+  },
+  "PG20": {
+   "e12_turner": {
+    "n_moves": 24,
+    "median": 0.32802996851827676,
+    "p99": 0.8957838152390046,
+    "max": 0.9674663514180137,
+    "above_0.45": 8,
+    "above_0.5": 7,
+    "at_clip": 0
+   },
+   "e15_outcomes": {
+    "completed": 37,
+    "blocked_unknown": 5
+   }
+  }
+ },
+ "selected": "R25",
+ "all_complete": true
+}
