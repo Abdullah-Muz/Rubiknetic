@@ -1,0 +1,48 @@
+2026-11-25 10:39:25 R3 SMOKE start: 44 jobs, 1 not run {'magnet=4x1.5_N35__U_s16921': 'failed V3'}
+2026-11-25 10:39:35 [1] timestep=0.00075__U_s16903 PASS peak 0.107 N.m; wall 10 s
+2026-11-25 10:39:39 [2] iterations=50__U_s16904 PASS peak 0.114 N.m; wall 13 s
+2026-11-25 10:39:39 [3] cubie_friction=0.1-0.0025-0.0005__U_s16906 PASS peak 0.115 N.m; wall 13 s
+2026-11-25 10:39:40 [4] nominal__U_s16902 PASS peak 0.101 N.m; wall 15 s
+2026-11-25 10:39:40 [5] iterations=200__U_s16905 PASS peak 0.102 N.m; wall 14 s
+2026-11-25 10:39:49 [6] cubie_friction=0.5-0.0025-0.0005__U_s16907 PASS peak 0.361 N.m; wall 13 s
+2026-11-25 10:39:53 [7] timestep=0.00025__U_s16901 PASS peak 0.102 N.m; wall 27 s
+2026-11-25 10:39:53 [8] cubie_friction=1.0-0.0025-0.0005__U_s16908 PASS peak 0.567 N.m; wall 13 s
+2026-11-25 10:39:54 [9] joint_frictionloss=5e-05__U_s16909 PASS peak 0.100 N.m; wall 14 s
+2026-11-25 10:39:55 [10] joint_frictionloss=0.005__U_s16910 PASS peak 0.139 N.m; wall 13 s
+2026-11-25 10:39:56 [11] gap=2.5e-05__U_s16911 PASS peak 0.113 N.m; wall 14 s
+2026-11-25 10:40:03 [12] gap=0.0001__U_s16912 PASS peak 0.101 N.m; wall 13 s
+2026-11-25 10:40:07 [13] grip_force=10.0__U_s16913 PASS peak 0.105 N.m; wall 14 s
+2026-11-25 10:40:07 [14] grip_force=30.0__U_s16914 PASS peak 0.167 N.m; wall 14 s
+2026-11-25 10:40:08 [15] misalign_max_deg=0.0__U_s16916 PASS peak 0.111 N.m; wall 12 s
+2026-11-25 10:40:09 [16] grip_force=50.0__U_s16915 PASS peak 0.105 N.m; wall 14 s
+2026-11-25 10:40:10 [17] misalign_max_deg=2.0__U_s16917 PASS peak 0.100 N.m; wall 13 s
+2026-11-25 10:40:15 [18] magnet=none__U_s16919 PASS peak 0.047 N.m; wall 6 s
+2026-11-25 10:40:20 [19] misalign_max_deg=5.0__U_s16918 PASS peak 0.158 N.m; wall 15 s
+2026-11-25 10:40:21 [20] magnet=4x2_N52__U_s16922 PASS peak 0.139 N.m; wall 13 s
+2026-11-25 10:40:22 [21] magnet=3x1.5_N35__U_s16920 PASS peak 0.065 N.m; wall 14 s
+2026-11-25 10:40:22 [22] face_gap_mm=0.35__U_s16923 PASS peak 0.147 N.m; wall 13 s
+2026-11-25 10:40:24 [23] face_gap_mm=1.35__U_s16924 PASS peak 0.081 N.m; wall 14 s
+2026-11-25 10:40:29 [24] magnet_scale=0.67__U_s16925 PASS peak 0.185 N.m; wall 14 s
+2026-11-25 10:40:35 [25] edge_radius=0.0018__U_s16926 PASS peak 0.099 N.m; wall 14 s
+2026-11-25 10:40:36 [26] edge_radius=0.0036__U_s16927 PASS peak 0.110 N.m; wall 14 s
+2026-11-25 10:40:37 [27] noslip=5__U_s16928 PASS peak 0.159 N.m; wall 14 s
+2026-11-25 10:40:37 [28] noslip_ref=0__U_s16930 PASS peak 0.095 N.m; wall 11 s
+2026-11-25 10:40:38 [29] noslip=20__U_s16929 PASS peak 0.100 N.m; wall 14 s
+2026-11-25 10:41:24 [30] nominal__rest2_s16931 rest 0-10 s 0.000458 deg; no event; wall 53 s
+2026-11-25 10:41:28 [31] timestep=0.00075__rest2_s16933 rest 0-10 s 0.018685 deg; no event; wall 50 s
+2026-11-25 10:41:32 [32] iterations=50__rest2_s16934 rest 0-10 s 0.000116 deg; no event; wall 54 s
+2026-11-25 10:41:32 [33] iterations=200__rest2_s16935 rest 0-10 s 0.000371 deg; no event; wall 54 s
+2026-11-25 10:41:34 [34] cubie_friction=0.1-0.0025-0.0005__rest2_s16936 rest 0-10 s 0.000289 deg; no event; wall 55 s
+2026-11-25 10:41:43 [35] timestep=0.00025__rest2_s16932 rest 0-10 s 0.000100 deg; no event; wall 66 s
+2026-11-25 10:42:20 [36] cubie_friction=0.5-0.0025-0.0005__rest2_s16937 rest 0-10 s 0.000075 deg; no event; wall 54 s
+2026-11-25 10:42:23 [37] cubie_friction=1.0-0.0025-0.0005__rest2_s16938 rest 0-10 s 0.000599 deg; no event; wall 53 s
+2026-11-25 10:42:28 [38] edge_radius=0.0018__rest2_s16939 rest 0-10 s 0.000316 deg; no event; wall 54 s
+2026-11-25 10:42:28 [39] edge_radius=0.0036__rest2_s16940 rest 0-10 s 0.000133 deg; no event; wall 55 s
+2026-11-25 10:42:31 [40] gap=2.5e-05__rest2_s16941 rest 0-10 s 0.000197 deg; no event; wall 55 s
+2026-11-25 10:42:38 [41] gap=0.0001__rest2_s16942 rest 0-10 s 0.000421 deg; no event; wall 54 s
+2026-11-25 10:43:11 [42] magnet_scale=0.67__rest2_s16943 rest 0-10 s 0.000225 deg; no event; wall 50 s
+2026-11-25 10:43:14 [43] noslip=5__rest2_s16944 rest 0-10 s 0.006970 deg; no event; wall 50 s
+2026-11-25 10:43:19 [44] noslip=20__rest2_s16945 rest 0-10 s 0.000156 deg; no event; wall 49 s
+2026-11-25 10:43:19 R3 SMOKE trials: {'done': 44, 'stop': None, 'pause': None, 'not_started': 0}
+2026-11-25 10:43:33 R3 SMOKE path equivalence (seed 16999): FAIL 9 diffs ['/params/radial_solreflimit: (0.001, 1.0) != [0.001, 1.0]', '/params/pad_solref: (0.001, 1.0) != [0.001, 1.0]', '/params/radial_solimplimit: (0.95, 0.99, 0.0005) != [0.95, 0.99, 0.0005]', '/params/cubie_solimp: (0.95, 0.99, 0.0005) != [0.95, 0.99, 0.0005]', '/params/cubie_friction: (0.2, 0.0025, 0.0005) != [0.2, 0.0025, 0.0005]']
+2026-11-25 10:44:18 R3 SMOKE path equivalence (seed 16999): PASS 0 diffs []
