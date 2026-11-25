@@ -8,6 +8,7 @@
 | R0 | done (below) |
 | R1 | done 2026-11-24: both radii meet the screen; **R 2.5 mm selected** (below) |
 | R2 | done 2026-11-25 (P-81, P-82): all three arms **meet the rehearsal signals**, no move at the clip; unscored (below) |
+| R3 | done 2026-11-25 (P-84, P-85): E1-7 rehearsal of L0; nominal and all 15 rests pass; 4 / 58 sequence fragilities (gap 0.1 mm drift ×2, μ 1.0 jam, 0.75 ms penetration); unscored (below) |
 
 ## R0 — implementation and static checks (`FACT`; all checks done 2026-11-24)
 
@@ -186,3 +187,87 @@ candidate.** M5 stays NOT PASSED, and nothing is selected for G1.
 - The lateral-offset disclosure.
 - The physical credibility of the rounded edge.
 - Rounded edges and NoSlip 10 are post-hoc settings chosen after earlier failures.
+
+## R3 — E1-7 sensitivity rehearsal of L0 at R 2.5 mm (`FACT`; UNSCORED; protocol `PROTOCOL_R3.md`, fixed at `741a36f` before any computation)
+
+**Run.**
+- 2026-11-25, 11:03–11:49, one start, 6 workers. WSL was free of other jobs: the user paused another project for
+  the run.
+- 73 / 73 trials: 58 sequence trials on seed 16000 and 15 rests of 60 s. 2 were "not run" by M5's V3 rule
+  (4×1.5 N35), as in M5.
+- 0 proof errors, 0 harness exceptions, 0 pauses.
+- **Gate 1** (R3's ER7 path against R1's ER9-path E1-2 `U_s16100`): 0 differences.
+- **Gate 2** (nominal 60 s rest against R2's `rest_s16000`): 0 differences.
+- Records: `results/r3/`. Analysis: `results/r3/r3_analysis.json`.
+
+**Signals.**
+- **Complete.**
+- **A met:** nominal passes 6-move and sexy6 (turner max 0.16 / 0.12 N·m, drift 0.46° / 0.56°), and the nominal rest
+  is ok.
+- **B not met:** 4 of the 58 sequence trials flip against nominal. **Reading: "fragilities reported: the user
+  decides".**
+- **Rests: 15 / 15 ok, no flips.** Every rest had 0 slip events over 60 s. The largest 0–10 s rest rotation is
+  0.011° (gap 0.1 mm); the limit is 0.5°.
+
+**Fragilities (the four flips).**
+
+| Setting | Sequence | What failed | Detail |
+|---|---|---|---|
+| piece gap 0.1 mm (2× nominal) | 6-move | non-target drift | 1.005° against ≤ 1.0° on move 5 (F). Turn error 0.07°; final state correct |
+| piece gap 0.1 mm | sexy6 | non-target drift | 1.019° (move 1, R) and 1.095° (move 8, U′). Turn errors ≤ 0.16°; final state correct |
+| cubie friction μ 1.0 | sexy6 | **jam** | Move 7 (R′) stalled at the 1 N·m clip, 60° short. Penetration 0.64 mm; oracle check failed. The 6-move at μ 1.0 passed (max 0.17 N·m) |
+| timestep 0.75 ms | 6-move | penetration | 0.504 mm against ≤ 0.5 mm on move 2 (U′). Turn error 0.22°; final state correct |
+
+**Everything else passed both sequences:**
+- timestep 0.25 ms;
+- iterations 50 / 200;
+- μ 0.1 / 0.5 (μ 0.5 max torque 0.37 N·m);
+- joint frictionloss ±10×;
+- edge radius 1.8 / 3.6 mm;
+- piece gap 0.025 mm;
+- face gap 0.35 / 1.35 mm;
+- grip 10 / 30 / 50 N;
+- misalignment 0 / 2 / 5°;
+- magnets none / 3×1.5 N35 / 4×2 N52, and magnet scale 0.67;
+- NoSlip 5 / 20.
+
+The NoSlip 0 reference (outside the band) also passed both.
+
+**Largest values among the 54 passing trials:** turner torque 0.37 N·m, drift 0.85°, penetration 0.499 mm. There was
+1 move at the clip over the whole run: the μ 1.0 jam.
+
+**Against M5's E1-7 (same factors and seed mapping; chamfer and default NoSlip; reported only).**
+- M5 failed and R3 passes:
+  - "no magnets" 6-move;
+  - timestep 0.75 ms sexy6.
+- M5 passed and R3 fails:
+  - gap 0.1 mm (both sequences);
+  - μ 1.0 sexy6.
+- M5's chamfer-1.0 mm fragility has no counterpart: the edge-radius settings that replace it both pass.
+
+**Predictions (`PROTOCOL_R3.md` §3).**
+- Gates pass: held.
+- Nominal passes: held.
+- Timestep 0.75 ms fails at least one sequence: held (6-move, by 0.004 mm).
+- Edge radius 1.8 mm passes: held.
+- "No magnets" fails at least one sequence: **did not hold** (both pass).
+- μ 1.0 passes: **did not hold** (sexy6 jams).
+- "If a rest flips, most likely 0.75 ms or NoSlip 5": no rest flipped.
+
+**Reading (`INFERENCE`).**
+- **Robust:** the mechanism holds across solver settings, NoSlip 5–20, edge radius 1.8–3.6 mm, grip, misalignment,
+  magnet type and strength, face gap and moderate friction. Rest holding is insensitive to every rest factor
+  tested.
+- **Two of the four flips are marginal threshold crossings with correct turns.** The gap 0.1 mm drift is 1.005–1.095°
+  against 1.0°, and the 0.75 ms penetration is 0.504 against 0.5 mm. Both sit on the M1 limits rather than showing a
+  mechanism failure.
+- The 0.75 ms one is a step-size limit, as in M5: the model needs ≤ 0.5 ms.
+- **The gap 0.1 mm drift is the most consequential.**
+  - Real cube clearances are unverified (P-77). The claim may need to be bounded to piece gaps up to about 0.05 mm,
+    or the drift's cause understood.
+  - With the chamfer, M5 passed at 0.1 mm. Nominal L0 drift at 0.05 mm is 0.46–0.56°, so doubling the gap roughly
+    doubles the drift.
+- **The μ 1.0 jam is a real jam, but at an extreme friction value** for lubricated ABS. μ 0.5 passes with 0.37 N·m
+  peak torque.
+- E1-7 is reported, not pass/fail, for G1 (M5 pre-registration §5). These fragilities are disclosed limits unless
+  the user chooses to investigate.

@@ -1,0 +1,11 @@
+{
+ "n_diffs": 0,
+ "diffs": [],
+ "fields_equal": {
+  "seed": true,
+  "rest_s": true,
+  "variant": true,
+  "capture": true
+ },
+ "pass": true
+}
