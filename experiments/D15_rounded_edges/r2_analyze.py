@@ -65,13 +65,18 @@ def assemble(arm: str) -> dict:
     for s, v in rest_rows(arm).items():
         out[("E1-1", f"rest_s{s}")] = {"sub": "E1-1", "pass": bool(v["e11_pass"]), "rec": None, "source": "r2"}
     roots = [(RUN1.OUT / RUN.TAG / arm, RUN.REUSED, "r1"), (RUN.OUT / RUN.TAG / arm, RUN.EXPS3, "r2")]
+    # P-82 deviation: records are filed by experiment (E1-6a/b/c all under E1-6/), so read every experiment folder
+    # and filter on sub_experiment, as d14s3_analyze does. The first version globbed <sub_experiment>/ and missed
+    # E1-6a/b/c (184 of 204 trials). Rest records (E1-1/) carry no sub_experiment and are counted above.
     for root, exps, src in roots:
-        for exp in exps:
-            for p in sorted((root / exp).glob("*.json.gz")):
-                rec = RUN2.load_rec(p)
-                ok = bool(rec["pass"]) if arm == "L0" else bool(E.pass_g(rec, dv))
-                out[(rec["experiment"], rec["trial_id"])] = {"sub": rec["sub_experiment"], "pass": ok, "rec": rec,
-                                                             "source": src}
+        for p in sorted(root.glob("*/*.json.gz")):
+            rec = RUN2.load_rec(p)
+            if rec.get("sub_experiment") not in exps:
+                continue
+            key = (rec["experiment"], rec["trial_id"])
+            assert key not in out, f"duplicate trial {key}"
+            ok = bool(rec["pass"]) if arm == "L0" else bool(E.pass_g(rec, dv))
+            out[key] = {"sub": rec["sub_experiment"], "pass": ok, "rec": rec, "source": src}
     return out
 
 

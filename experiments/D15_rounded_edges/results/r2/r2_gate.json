@@ -1,0 +1,23 @@
+{
+ "pass": true,
+ "trials": [
+  {
+   "arm": "L0",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "arm": "PG8",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "arm": "PG20",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  }
+ ]
+}

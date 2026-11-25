@@ -7,7 +7,7 @@
 |---|---|
 | R0 | done (below) |
 | R1 | done 2026-11-24: both radii meet the screen; **R 2.5 mm selected** (below) |
-| R2 | needs a separate approval |
+| R2 | done 2026-11-25 (P-81, P-82): all three arms **meet the rehearsal signals**, no move at the clip; unscored (below) |
 
 ## R0 — implementation and static checks (`FACT`; all checks done 2026-11-24)
 
@@ -121,3 +121,68 @@ fresh seeds. These are the R2 / Stage 3c questions. R2 needs the user's approval
 - The only route is open item **O-09**: a real-cube bench measurement (`docs/research/REAL_CUBE_MEASUREMENT_GUIDE.md`,
   `experiments/R1_real_cube_bench/PROTOCOL.md`; about 30–45 min with a luggage scale). It needs the user and the cube
   the robot will use.
+
+## R2 — full rehearsal at R 2.5 mm (`FACT`; UNSCORED; protocol `PROTOCOL_R2.md`, fixed at `8ed47ed` before any computation)
+
+**Run.**
+- 357 / 357 trials: 3 gate trials and 354 main trials (L0, PG8, PG20; NoSlip 10; gap 0.05 mm; 6 workers).
+- The run was done in WSL (Ubuntu 24.04, `~/.venvs/rubiknetic`: Python 3.12.3, MuJoCo 4.0.1, numpy 2.5.4, scipy
+  1.18.1), as every record's environment block states.
+- It was paused three times at the user's request (laptop sleep) and resumed with `--resume`. Trials in flight at a
+  pause were discarded, never partly written, and rerun.
+  - Session 1: 16:39–17:54 at `8ed47ed`.
+  - Sessions 2–4: 17:59–18:46, 19:22–19:48 and 20:54 to 01:33 on 2026-11-25, at `2a919c2`. The commit changed
+    only this README.
+- The gate (E1-2 `U_s16100` equal to R1's record) passed with 0 differences at every start.
+- 0 FAIL lines, 0 aborts, 0 proof errors, 0 pauses for trouble.
+- Records: `results/r2/R25/<arm>/<experiment>/`. Log: `results/r2/r2_run_log.txt`. Analysis:
+  `results/r2/r2_analysis.json`.
+
+**Deviation: the analysis read was fixed after computation (P-82).**
+- The runner files records by experiment: E1-6a, E1-6b and E1-6c all go under `E1-6/`, as in D14 Stage 3b.
+- The first `r2_analyze.py` globbed `<sub_experiment>/`, so it missed those 20 records per arm. It reported 184 of
+  204 trials and Option A as unmet.
+- The fix reads `*/*.json.gz` and filters on `sub_experiment`, as `d14s3_analyze.py` does. It asserts no duplicate
+  trial key, and a test covers the layout.
+- Nothing else changed: records, signals, thresholds and reading are untouched.
+- The first output is kept as `results/r2/r2_analysis_before_P82_fix.json`.
+
+**Signals (G.9, over 204 trials per arm: 20 R2 rests + 86 reused R1 R 2.5 records + 98 R2 trials).**
+
+| | L0 | PG8 | PG20 |
+|---|---|---|---|
+| Trials passed (every ER7 row complete) | 204 / 204 | 204 / 204 | 204 / 204 |
+| 1: 60 s rests, 0 slip events, ≤ 0.5° (largest 0–10 s rest) | met (0.0051°) | met (0.0040°) | met (0.0114°) |
+| 2: Option A, incl. E1-6m ⟨P⟩ on 1376 / 1376 moves | met | met | met |
+| 3: no operational trial out of regime | n/a (legacy) | met | met |
+| E1-2/3/4 turner median / max (N·m) | 0.103 / 0.185 | 0.196 / 0.234 | 0.275 / 0.315 |
+| Moves at the 1 N·m clip | 0 | 0 | 0 |
+| Largest non-target drift | 0.73° | 0.57° | 0.74° |
+| Largest solver iteration count; steps at the limit | 36; 0 | 35; 0 | 35; 0 |
+| Abuse trials labelled out of regime (not failures, G.4 rule 3) | n/a | E1-6t: 8 twist trials | E1-6t: 8 twist trials |
+
+**Reading (G.9, fixed).** All three arms **meet the rehearsal signals, with no move at the clip. This is not a
+candidate.** M5 stays NOT PASSED, and nothing is selected for G1.
+
+**Against the chamfer (reported only).**
+- L0 has 98 comparisons with ER7's frozen records. PG20 has 26 with D14 Stage 3b's E1-4 records. PG8 has no chamfer
+  record for these trials.
+- Two trials that failed with the chamfer pass with rounded edges: L0 E1-4 `scr20inv_s16405` and PG20 E1-4
+  `scr20inv_s16400`. The second is the Stage 3b jam.
+- No trial passes with the chamfer and fails with rounded edges.
+
+**Predictions written before the run (`PROTOCOL_R2.md` §2).**
+- Gate passes: held.
+- All three arms meet the signals with no move at the clip: held.
+- PG20 `scr20inv_s16400` passes: held.
+- Largest E1-3 / E1-4 turner torque below 0.5 N·m: held, at 0.315 N·m (PG20).
+- "If something fails, most likely E1-6 or a 60 s rest slip": nothing failed.
+
+**Still lacking (`PROTOCOL_R2.md` §2 reading; user decision).**
+- Fresh seeds (Stage 3c): R2 used the rehearsal seeds, which informed every earlier choice.
+- Turning torque against a real-cube measurement (O-09).
+- E1-7.
+- The composite review.
+- The lateral-offset disclosure.
+- The physical credibility of the rounded edge.
+- Rounded edges and NoSlip 10 are post-hoc settings chosen after earlier failures.

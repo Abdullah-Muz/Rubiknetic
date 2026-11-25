@@ -46,3 +46,16 @@ def test_signal1_rule():
 def test_expected_counts():
     assert AN.A7.EXPECTED == {"E1-1": 20, "E1-2": 24, "E1-3": 22, "E1-4": 40, "E1-5": 42, "E1-5s": 20, "E1-6a": 6,
                               "E1-6b": 6, "E1-6c": 8, "E1-6t": 16}
+
+
+def test_assemble_reads_where_the_runner_writes():
+    """P-82: the runner files records by experiment (E1-6a/b/c under E1-6/), not by sub-experiment. Every sequence
+    record path must sit one folder below the arm root, which assemble() reads with */*.json.gz."""
+    m = RUN.main_jobs(RUN.D13.environment())
+    seq = [j for j in m if j["d15_kind"] == "seq"]
+    for j in seq:
+        p = RUN.job_path(j)
+        assert p.parent.parent == RUN.OUT / RUN.TAG / j["er9g_arm"]
+    folders = {(j["sub"], RUN.job_path(j).parent.name) for j in seq}
+    assert ("E1-6a", "E1-6") in folders     # the case the first version missed
+    assert all(f in (s, s[:-1]) for s, f in folders)

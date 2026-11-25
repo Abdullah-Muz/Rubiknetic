@@ -1,0 +1,369 @@
+2026-11-24 16:39:40 R2 start: commit 8ed47ed79635bc4bec755c991212317b73ef58fa, 0 / 357 present, 6 workers, free 13.7 GB
+2026-11-24 16:39:55 [1] GATE R25 L0 E1-2/U_s16100 PASS peak 0.102 N.m; wall 14 s
+2026-11-24 16:40:02 [2] GATE R25 PG8 E1-2/U_s16100 PASS peak 0.197 N.m; wall 21 s
+2026-11-24 16:40:05 [3] GATE R25 PG20 E1-2/U_s16100 PASS peak 0.306 N.m; wall 24 s
+2026-11-24 16:40:05 R2 gate: PASS [('L0', 0), ('PG8', 0), ('PG20', 0)]
+2026-11-24 16:49:09 [1] R25 PG20 E1-4/sexy6_s16300 PASS peak 0.307 N.m; wall 513 s
+2026-11-24 16:49:28 [2] R25 PG20 E1-4/sexy6_s16301 PASS peak 0.305 N.m; wall 532 s
+2026-11-24 16:49:33 [3] R25 PG20 E1-4/sexy6_s16303 PASS peak 0.298 N.m; wall 536 s
+2026-11-24 16:49:53 [4] R25 PG20 E1-4/sexy6_s16305 PASS peak 0.285 N.m; wall 555 s
+2026-11-24 16:49:58 [5] R25 PG20 E1-4/sexy6_s16304 PASS peak 0.295 N.m; wall 560 s
+2026-11-24 16:50:13 [6] R25 PG20 E1-4/sexy6_s16302 PASS peak 0.287 N.m; wall 574 s
+2026-11-24 16:58:18 [7] R25 PG20 E1-4/sexy6_s16307 PASS peak 0.308 N.m; wall 502 s
+2026-11-24 16:58:18 [8] R25 PG20 E1-4/sexy6_s16308 PASS peak 0.315 N.m; wall 498 s
+2026-11-24 16:58:39 [9] R25 PG20 E1-4/sexy6_s16306 PASS peak 0.303 N.m; wall 539 s
+2026-11-24 16:59:10 [10] R25 PG20 E1-4/sexy6_s16309 PASS peak 0.298 N.m; wall 527 s
+2026-11-24 16:59:44 [11] R25 PG20 E1-4/sexy6_s16310 PASS peak 0.300 N.m; wall 554 s
+2026-11-24 16:59:48 [12] R25 PG20 E1-4/sexy6_s16311 PASS peak 0.295 N.m; wall 544 s
+2026-11-24 17:07:11 [13] R25 PG20 E1-4/sexy6_s16312 PASS peak 0.303 N.m; wall 503 s
+2026-11-24 17:07:54 [14] R25 PG20 E1-4/sexy6_s16313 PASS peak 0.301 N.m; wall 545 s
+2026-11-24 17:08:10 [15] R25 PG20 E1-4/sexy6_s16315 PASS peak 0.300 N.m; wall 511 s
+2026-11-24 17:08:34 [16] R25 PG20 E1-4/sexy6_s16316 PASS peak 0.314 N.m; wall 502 s
+2026-11-24 17:08:38 [17] R25 PG20 E1-4/sexy6_s16314 PASS peak 0.297 N.m; wall 567 s
+2026-11-24 17:09:29 [18] R25 PG20 E1-4/sexy6_s16317 PASS peak 0.289 N.m; wall 551 s
+2026-11-24 17:17:19 [19] R25 PG20 E1-4/sexy6_s16319 PASS peak 0.304 N.m; wall 539 s
+2026-11-24 17:17:20 [20] R25 PG20 E1-4/sexy6_s16318 PASS peak 0.286 N.m; wall 581 s
+2026-11-24 17:26:02 [21] R25 PG20 E1-4/scr20inv_s16401 PASS peak 0.282 N.m; wall 1008 s
+2026-11-24 17:26:14 [22] R25 PG20 E1-4/scr20inv_s16400 PASS peak 0.305 N.m; wall 1040 s
+2026-11-24 17:28:48 [23] R25 PG20 E1-4/scr20inv_s16403 PASS peak 0.283 N.m; wall 1112 s
+2026-11-24 17:29:01 [24] R25 PG20 E1-4/scr20inv_s16402 PASS peak 0.277 N.m; wall 1172 s
+2026-11-24 17:33:03 [25] R25 PG20 E1-4/scr20inv_s16405 PASS peak 0.292 N.m; wall 905 s
+2026-11-24 17:34:51 [26] R25 PG20 E1-4/scr20inv_s16404 PASS peak 0.285 N.m; wall 1008 s
+2026-11-24 17:43:57 [27] R25 PG20 E1-4/scr20inv_s16406 PASS peak 0.304 N.m; wall 1023 s
+2026-11-24 17:44:55 [28] R25 PG20 E1-4/scr20inv_s16407 PASS peak 0.292 N.m; wall 1068 s
+2026-11-24 17:44:57 [29] R25 PG20 E1-4/scr20inv_s16408 PASS peak 0.303 N.m; wall 922 s
+2026-11-24 17:50:12 [30] R25 PG20 E1-4/scr20inv_s16409 PASS peak 0.283 N.m; wall 1211 s
+2026-11-24 17:52:28 [31] R25 PG20 E1-4/scr20inv_s16410 PASS peak 0.298 N.m; wall 1108 s
+2026-11-24 17:54:44 R2 stopped by the main session at the user's request (laptop going to sleep); 31 / 354 main records written; trials in flight were discarded (no partial records); resume with --resume
+2026-11-24 17:59:32 R2 start: commit 2a919c273e21e74592a3da1035d8363d88632992, 34 / 357 present, 6 workers, free 8.8 GB
+2026-11-24 17:59:32 R2 gate: PASS [('L0', 0), ('PG8', 0), ('PG20', 0)]
+2026-11-24 18:16:47 [1] R25 PG20 E1-4/scr20inv_s16416 PASS peak 0.297 N.m; wall 995 s
+2026-11-24 18:18:13 [2] R25 PG20 E1-4/scr20inv_s16413 PASS peak 0.298 N.m; wall 1076 s
+2026-11-24 18:19:13 [3] R25 PG20 E1-4/scr20inv_s16411 PASS peak 0.295 N.m; wall 1135 s
+2026-11-24 18:19:44 [4] R25 PG20 E1-4/scr20inv_s16412 PASS peak 0.281 N.m; wall 1164 s
+2026-11-24 18:19:48 [5] R25 PG20 E1-4/scr20inv_s16415 PASS peak 0.298 N.m; wall 1168 s
+2026-11-24 18:20:16 [6] R25 PG20 E1-4/scr20inv_s16414 PASS peak 0.290 N.m; wall 1195 s
+2026-11-24 18:27:52 [7] R25 PG8 E1-4/sexy6_s16300 PASS peak 0.218 N.m; wall 468 s
+2026-11-24 18:28:07 [8] R25 PG8 E1-4/sexy6_s16301 PASS peak 0.214 N.m; wall 478 s
+2026-11-24 18:29:33 [9] R25 PG8 E1-4/sexy6_s16302 PASS peak 0.201 N.m; wall 533 s
+2026-11-24 18:34:50 [10] R25 PG20 E1-4/scr20inv_s16418 PASS peak 0.298 N.m; wall 954 s
+2026-11-24 18:35:06 [11] R25 PG20 E1-4/scr20inv_s16417 PASS peak 0.298 N.m; wall 1051 s
+2026-11-24 18:36:06 [12] R25 PG20 E1-4/scr20inv_s16419 PASS peak 0.310 N.m; wall 969 s
+2026-11-24 18:36:06 [13] R25 PG8 E1-4/sexy6_s16303 PASS peak 0.209 N.m; wall 472 s
+2026-11-24 18:36:41 [14] R25 PG8 E1-4/sexy6_s16304 PASS peak 0.207 N.m; wall 490 s
+2026-11-24 18:37:54 [15] R25 PG8 E1-4/sexy6_s16305 PASS peak 0.197 N.m; wall 479 s
+2026-11-24 18:42:42 [16] R25 PG8 E1-4/sexy6_s16307 PASS peak 0.218 N.m; wall 436 s
+2026-11-24 18:42:55 [17] R25 PG8 E1-4/sexy6_s16306 PASS peak 0.211 N.m; wall 466 s
+2026-11-24 18:43:47 [18] R25 PG8 E1-4/sexy6_s16308 PASS peak 0.225 N.m; wall 441 s
+2026-11-24 18:44:17 [19] R25 PG8 E1-4/sexy6_s16309 PASS peak 0.215 N.m; wall 469 s
+2026-11-24 18:45:17 [20] R25 PG8 E1-4/sexy6_s16310 PASS peak 0.209 N.m; wall 495 s
+2026-11-24 18:46:19 [21] R25 PG8 E1-4/sexy6_s16311 PASS peak 0.207 N.m; wall 484 s
+2026-11-24 18:46:45 R2 stopped by the main session at the user's request (laptop going to sleep, second pause); 52 / 354 main records written; trials in flight discarded (no partial records); resume with --resume
+2026-11-24 19:22:23 R2 start: commit 2a919c273e21e74592a3da1035d8363d88632992, 55 / 357 present, 6 workers, free 10.4 GB
+2026-11-24 19:22:23 R2 gate: PASS [('L0', 0), ('PG8', 0), ('PG20', 0)]
+2026-11-24 19:33:12 [1] R25 PG8 E1-4/sexy6_s16316 PASS peak 0.215 N.m; wall 643 s
+2026-11-24 19:33:24 [2] R25 PG8 E1-4/sexy6_s16312 PASS peak 0.218 N.m; wall 655 s
+2026-11-24 19:33:37 [3] R25 PG8 E1-4/sexy6_s16315 PASS peak 0.222 N.m; wall 668 s
+2026-11-24 19:34:09 [4] R25 PG8 E1-4/sexy6_s16313 PASS peak 0.228 N.m; wall 699 s
+2026-11-24 19:34:28 [5] R25 PG8 E1-4/sexy6_s16314 PASS peak 0.211 N.m; wall 719 s
+2026-11-24 19:34:28 [6] R25 PG8 E1-4/sexy6_s16317 PASS peak 0.199 N.m; wall 718 s
+2026-11-24 19:43:54 [7] R25 PG8 E1-4/sexy6_s16319 PASS peak 0.220 N.m; wall 623 s
+2026-11-24 19:44:33 [8] R25 PG8 E1-4/sexy6_s16318 PASS peak 0.205 N.m; wall 674 s
+2026-11-24 19:48:10 R2 stopped by the main session at the user's request (laptop going to sleep, third pause); 60 / 354 main records written; trials in flight discarded (no partial records); resume with --resume (WSL, ~/.venvs/rubiknetic)
+2026-11-24 20:54:45 R2 start: commit 2a919c273e21e74592a3da1035d8363d88632992, 63 / 357 present, 6 workers, free 10.9 GB
+2026-11-24 20:54:45 R2 gate: PASS [('L0', 0), ('PG8', 0), ('PG20', 0)]
+2026-11-24 21:15:06 [1] R25 PG8 E1-4/scr20inv_s16405 PASS peak 0.224 N.m; wall 1199 s
+2026-11-24 21:17:27 [2] R25 PG8 E1-4/scr20inv_s16401 PASS peak 0.216 N.m; wall 1337 s
+2026-11-24 21:17:27 [3] R25 PG8 E1-4/scr20inv_s16404 PASS peak 0.225 N.m; wall 1337 s
+2026-11-24 21:18:21 [4] R25 PG8 E1-4/scr20inv_s16400 PASS peak 0.207 N.m; wall 1390 s
+2026-11-24 21:20:44 [5] R25 PG8 E1-4/scr20inv_s16403 PASS peak 0.222 N.m; wall 1531 s
+2026-11-24 21:22:36 [6] R25 PG8 E1-4/scr20inv_s16402 PASS peak 0.208 N.m; wall 1640 s
+2026-11-24 21:45:43 [7] R25 PG8 E1-4/scr20inv_s16408 PASS peak 0.234 N.m; wall 1663 s
+2026-11-24 21:46:04 [8] R25 PG8 E1-4/scr20inv_s16406 PASS peak 0.216 N.m; wall 1821 s
+2026-11-24 21:49:10 [9] R25 PG8 E1-4/scr20inv_s16407 PASS peak 0.227 N.m; wall 1867 s
+2026-11-24 21:49:42 [10] R25 PG8 E1-4/scr20inv_s16410 PASS peak 0.210 N.m; wall 1704 s
+2026-11-24 21:50:53 [11] R25 PG8 E1-4/scr20inv_s16409 PASS peak 0.227 N.m; wall 1914 s
+2026-11-24 21:52:54 [12] R25 PG8 E1-4/scr20inv_s16411 PASS peak 0.225 N.m; wall 1781 s
+2026-11-24 22:08:42 [13] R25 PG8 E1-4/scr20inv_s16413 PASS peak 0.218 N.m; wall 1329 s
+2026-11-24 22:10:37 [14] R25 PG8 E1-4/scr20inv_s16412 PASS peak 0.222 N.m; wall 1461 s
+2026-11-24 22:11:09 [15] R25 PG8 E1-4/scr20inv_s16416 PASS peak 0.210 N.m; wall 1189 s
+2026-11-24 22:13:12 [16] R25 PG8 E1-4/scr20inv_s16415 PASS peak 0.204 N.m; wall 1378 s
+2026-11-24 22:13:33 [17] R25 PG8 E1-4/scr20inv_s16414 PASS peak 0.220 N.m; wall 1429 s
+2026-11-24 22:14:43 [18] R25 PG8 E1-4/scr20inv_s16417 PASS peak 0.233 N.m; wall 1279 s
+2026-11-24 22:16:53 [19] R25 L0 E1-4/sexy6_s16300 PASS peak 0.149 N.m; wall 334 s
+2026-11-24 22:18:56 [20] R25 L0 E1-4/sexy6_s16301 PASS peak 0.127 N.m; wall 336 s
+2026-11-24 22:19:54 [21] R25 L0 E1-4/sexy6_s16302 PASS peak 0.146 N.m; wall 371 s
+2026-11-24 22:20:34 [22] R25 L0 E1-4/sexy6_s16303 PASS peak 0.112 N.m; wall 343 s
+2026-11-24 22:22:46 [23] R25 L0 E1-4/sexy6_s16304 PASS peak 0.110 N.m; wall 345 s
+2026-11-24 22:24:24 [24] R25 PG8 E1-4/scr20inv_s16418 PASS peak 0.214 N.m; wall 920 s
+2026-11-24 22:24:45 [25] R25 L0 E1-4/sexy6_s16305 PASS peak 0.109 N.m; wall 340 s
+2026-11-24 22:25:17 [26] R25 L0 E1-4/sexy6_s16306 PASS peak 0.138 N.m; wall 315 s
+2026-11-24 22:25:32 [27] R25 L0 E1-4/sexy6_s16307 PASS peak 0.136 N.m; wall 291 s
+2026-11-24 22:25:39 [28] R25 PG8 E1-4/scr20inv_s16419 PASS peak 0.227 N.m; wall 880 s
+2026-11-24 22:27:49 [29] R25 L0 E1-4/sexy6_s16308 PASS peak 0.177 N.m; wall 295 s
+2026-11-24 22:29:55 [30] R25 L0 E1-4/sexy6_s16309 PASS peak 0.115 N.m; wall 323 s
+2026-11-24 22:30:42 [31] R25 L0 E1-4/sexy6_s16310 PASS peak 0.138 N.m; wall 349 s
+2026-11-24 22:31:09 [32] R25 L0 E1-4/sexy6_s16312 PASS peak 0.127 N.m; wall 328 s
+2026-11-24 22:31:13 [33] R25 L0 E1-4/sexy6_s16311 PASS peak 0.118 N.m; wall 347 s
+2026-11-24 22:31:43 [34] R25 L0 E1-4/sexy6_s16313 PASS peak 0.123 N.m; wall 354 s
+2026-11-24 22:34:14 [35] R25 L0 E1-4/sexy6_s16314 PASS peak 0.170 N.m; wall 376 s
+2026-11-24 22:35:46 [36] R25 L0 E1-4/sexy6_s16315 PASS peak 0.157 N.m; wall 342 s
+2026-11-24 22:36:23 [37] R25 L0 E1-4/sexy6_s16316 PASS peak 0.146 N.m; wall 332 s
+2026-11-24 22:37:19 [38] R25 L0 E1-4/sexy6_s16317 PASS peak 0.163 N.m; wall 361 s
+2026-11-24 22:37:25 [39] R25 L0 E1-4/sexy6_s16318 PASS peak 0.138 N.m; wall 363 s
+2026-11-24 22:37:27 [40] R25 L0 E1-4/sexy6_s16319 PASS peak 0.124 N.m; wall 336 s
+2026-11-24 22:47:14 [41] R25 L0 E1-4/scr20inv_s16400 PASS peak 0.185 N.m; wall 760 s
+2026-11-24 22:48:48 [42] R25 L0 E1-4/scr20inv_s16401 PASS peak 0.151 N.m; wall 762 s
+2026-11-24 22:49:25 [43] R25 L0 E1-4/scr20inv_s16405 PASS peak 0.157 N.m; wall 700 s
+2026-11-24 22:50:45 [44] R25 L0 E1-4/scr20inv_s16404 PASS peak 0.153 N.m; wall 780 s
+2026-11-24 22:51:53 [45] R25 L0 E1-4/scr20inv_s16402 PASS peak 0.157 N.m; wall 907 s
+2026-11-24 22:52:18 [46] R25 L0 E1-4/scr20inv_s16403 PASS peak 0.180 N.m; wall 876 s
+2026-11-24 23:01:41 [47] R25 L0 E1-4/scr20inv_s16406 PASS peak 0.181 N.m; wall 845 s
+2026-11-24 23:02:18 [48] R25 L0 E1-4/scr20inv_s16408 PASS peak 0.170 N.m; wall 753 s
+2026-11-24 23:04:24 [49] R25 L0 E1-4/scr20inv_s16407 PASS peak 0.158 N.m; wall 912 s
+2026-11-24 23:06:32 [50] R25 L0 E1-4/scr20inv_s16410 PASS peak 0.178 N.m; wall 856 s
+2026-11-24 23:07:10 [51] R25 L0 E1-4/scr20inv_s16409 PASS peak 0.157 N.m; wall 960 s
+2026-11-24 23:07:50 [52] R25 L0 E1-4/scr20inv_s16411 PASS peak 0.168 N.m; wall 908 s
+2026-11-24 23:15:06 [53] R25 L0 E1-4/scr20inv_s16413 PASS peak 0.170 N.m; wall 747 s
+2026-11-24 23:15:46 [54] R25 L0 E1-4/scr20inv_s16412 PASS peak 0.159 N.m; wall 822 s
+2026-11-24 23:17:37 [55] R25 L0 E1-4/scr20inv_s16416 PASS peak 0.156 N.m; wall 609 s
+2026-11-24 23:17:59 [56] R25 L0 E1-4/scr20inv_s16414 PASS peak 0.173 N.m; wall 794 s
+2026-11-24 23:19:06 [57] R25 L0 E1-4/scr20inv_s16415 PASS peak 0.120 N.m; wall 734 s
+2026-11-24 23:19:38 [58] R25 L0 E1-4/scr20inv_s16417 PASS peak 0.158 N.m; wall 689 s
+2026-11-24 23:26:04 [59] R25 L0 E1-4/scr20inv_s16418 PASS peak 0.165 N.m; wall 640 s
+2026-11-24 23:26:41 [60] R25 L0 E1-4/scr20inv_s16419 PASS peak 0.178 N.m; wall 637 s
+2026-11-24 23:29:39 [61] R25 PG20 E1-1/rest_s16000 rest 0-10 s 0.000632 deg; no event; wall 698 s
+2026-11-24 23:30:09 [62] R25 PG20 E1-1/rest_s16001 rest 0-10 s 0.002134 deg; no event; wall 707 s
+2026-11-24 23:30:41 [63] R25 PG20 E1-1/rest_s16002 rest 0-10 s 0.002500 deg; no event; wall 673 s
+2026-11-24 23:31:13 [64] R25 PG20 E1-1/rest_s16003 rest 0-10 s 0.001215 deg; no event; wall 674 s
+2026-11-24 23:37:06 [65] R25 PG20 E1-1/rest_s16004 rest 0-10 s 0.003356 deg; no event; wall 641 s
+2026-11-24 23:37:52 [66] R25 PG20 E1-1/rest_s16005 rest 0-10 s 0.006927 deg; no event; wall 650 s
+2026-11-24 23:40:51 [67] R25 PG20 E1-1/rest_s16006 rest 0-10 s 0.001768 deg; no event; wall 651 s
+2026-11-24 23:41:18 [68] R25 PG20 E1-1/rest_s16007 rest 0-10 s 0.011431 deg; no event; wall 646 s
+2026-11-24 23:42:07 [69] R25 PG20 E1-1/rest_s16008 rest 0-10 s 0.002236 deg; no event; wall 664 s
+2026-11-24 23:42:21 [70] R25 PG20 E1-1/rest_s16009 rest 0-10 s 0.002591 deg; no event; wall 645 s
+2026-11-24 23:47:57 [71] R25 PG20 E1-1/rest_s16010 rest 0-10 s 0.001864 deg; no event; wall 631 s
+2026-11-24 23:48:52 [72] R25 PG20 E1-1/rest_s16011 rest 0-10 s 0.003509 deg; no event; wall 639 s
+2026-11-24 23:51:50 [73] R25 PG20 E1-1/rest_s16012 rest 0-10 s 0.001859 deg; no event; wall 638 s
+2026-11-24 23:52:28 [74] R25 PG20 E1-1/rest_s16013 rest 0-10 s 0.001887 deg; no event; wall 649 s
+2026-11-24 23:53:02 [75] R25 PG20 E1-1/rest_s16014 rest 0-10 s 0.002875 deg; no event; wall 633 s
+2026-11-24 23:53:30 [76] R25 PG20 E1-1/rest_s16015 rest 0-10 s 0.001511 deg; no event; wall 648 s
+2026-11-24 23:58:58 [77] R25 PG20 E1-1/rest_s16016 rest 0-10 s 0.004862 deg; no event; wall 638 s
+2026-11-24 23:59:53 [78] R25 PG20 E1-1/rest_s16017 rest 0-10 s 0.002471 deg; no event; wall 640 s
+2026-11-25 00:02:41 [79] R25 PG8 E1-1/rest_s16000 rest 0-10 s 0.002813 deg; no event; wall 560 s
+2026-11-25 00:03:09 [80] R25 PG20 E1-1/rest_s16018 rest 0-10 s 0.001688 deg; no event; wall 657 s
+2026-11-25 00:03:16 [81] R25 PG8 E1-1/rest_s16001 rest 0-10 s 0.001234 deg; no event; wall 567 s
+2026-11-25 00:03:29 [82] R25 PG20 E1-1/rest_s16019 rest 0-10 s 0.001746 deg; no event; wall 639 s
+2026-11-25 00:08:29 [83] R25 PG8 E1-1/rest_s16002 rest 0-10 s 0.000966 deg; no event; wall 552 s
+2026-11-25 00:09:25 [84] R25 PG8 E1-1/rest_s16003 rest 0-10 s 0.000527 deg; no event; wall 552 s
+2026-11-25 00:12:18 [85] R25 PG8 E1-1/rest_s16004 rest 0-10 s 0.001937 deg; no event; wall 556 s
+2026-11-25 00:12:43 [86] R25 PG8 E1-1/rest_s16005 rest 0-10 s 0.001524 deg; no event; wall 554 s
+2026-11-25 00:12:55 [87] R25 PG8 E1-1/rest_s16007 rest 0-10 s 0.000637 deg; no event; wall 548 s
+2026-11-25 00:12:59 [88] R25 PG8 E1-1/rest_s16006 rest 0-10 s 0.000902 deg; no event; wall 561 s
+2026-11-25 00:18:44 [89] R25 PG8 E1-1/rest_s16008 rest 0-10 s 0.001325 deg; no event; wall 596 s
+2026-11-25 00:19:35 [90] R25 PG8 E1-1/rest_s16009 rest 0-10 s 0.000782 deg; no event; wall 589 s
+2026-11-25 00:22:45 [91] R25 PG8 E1-1/rest_s16010 rest 0-10 s 0.000897 deg; no event; wall 607 s
+2026-11-25 00:22:54 [92] R25 PG8 E1-1/rest_s16011 rest 0-10 s 0.001772 deg; no event; wall 590 s
+2026-11-25 00:23:19 [93] R25 PG8 E1-1/rest_s16013 rest 0-10 s 0.004030 deg; no event; wall 598 s
+2026-11-25 00:23:22 [94] R25 PG8 E1-1/rest_s16012 rest 0-10 s 0.001458 deg; no event; wall 605 s
+2026-11-25 00:28:22 [95] R25 PG8 E1-1/rest_s16014 rest 0-10 s 0.001770 deg; no event; wall 557 s
+2026-11-25 00:29:14 [96] R25 PG8 E1-1/rest_s16015 rest 0-10 s 0.001059 deg; no event; wall 559 s
+2026-11-25 00:32:44 [97] R25 PG8 E1-1/rest_s16016 rest 0-10 s 0.001271 deg; no event; wall 578 s
+2026-11-25 00:32:52 [98] R25 PG8 E1-1/rest_s16017 rest 0-10 s 0.000435 deg; no event; wall 578 s
+2026-11-25 00:33:18 [99] R25 PG8 E1-1/rest_s16019 rest 0-10 s 0.001101 deg; no event; wall 575 s
+2026-11-25 00:33:29 [100] R25 PG8 E1-1/rest_s16018 rest 0-10 s 0.001334 deg; no event; wall 590 s
+2026-11-25 00:34:02 [101] R25 L0 E1-1/rest_s16000 rest 0-10 s 0.000978 deg; no event; wall 327 s
+2026-11-25 00:35:02 [102] R25 L0 E1-1/rest_s16001 rest 0-10 s 0.000557 deg; no event; wall 334 s
+2026-11-25 00:38:05 [103] R25 L0 E1-1/rest_s16002 rest 0-10 s 0.005133 deg; no event; wall 308 s
+2026-11-25 00:38:26 [104] R25 L0 E1-1/rest_s16003 rest 0-10 s 0.001243 deg; no event; wall 321 s
+2026-11-25 00:38:43 [105] R25 L0 E1-1/rest_s16004 rest 0-10 s 0.002038 deg; no event; wall 313 s
+2026-11-25 00:39:03 [106] R25 L0 E1-1/rest_s16005 rest 0-10 s 0.001057 deg; no event; wall 320 s
+2026-11-25 00:39:34 [107] R25 L0 E1-1/rest_s16006 rest 0-10 s 0.000780 deg; no event; wall 320 s
+2026-11-25 00:40:50 [108] R25 L0 E1-1/rest_s16007 rest 0-10 s 0.000467 deg; no event; wall 335 s
+2026-11-25 00:43:24 [109] R25 L0 E1-1/rest_s16008 rest 0-10 s 0.000739 deg; no event; wall 306 s
+2026-11-25 00:43:45 [110] R25 L0 E1-1/rest_s16009 rest 0-10 s 0.004818 deg; no event; wall 306 s
+2026-11-25 00:44:15 [111] R25 L0 E1-1/rest_s16010 rest 0-10 s 0.000704 deg; no event; wall 319 s
+2026-11-25 00:44:43 [112] R25 L0 E1-1/rest_s16011 rest 0-10 s 0.000742 deg; no event; wall 327 s
+2026-11-25 00:44:55 [113] R25 L0 E1-1/rest_s16012 rest 0-10 s 0.001888 deg; no event; wall 308 s
+2026-11-25 00:46:13 [114] R25 L0 E1-1/rest_s16013 rest 0-10 s 0.000784 deg; no event; wall 309 s
+2026-11-25 00:48:22 [115] R25 L0 E1-1/rest_s16014 rest 0-10 s 0.001157 deg; no event; wall 286 s
+2026-11-25 00:48:52 [116] R25 L0 E1-1/rest_s16015 rest 0-10 s 0.001508 deg; no event; wall 294 s
+2026-11-25 00:49:01 [117] R25 PG20 E1-3/U2_s16200 PASS peak 0.279 N.m; wall 37 s
+2026-11-25 00:49:24 [118] R25 L0 E1-1/rest_s16016 rest 0-10 s 0.003335 deg; no event; wall 296 s
+2026-11-25 00:49:28 [119] R25 PG20 E1-3/U2_s16201 PASS peak 0.284 N.m; wall 34 s
+2026-11-25 00:49:36 [120] R25 PG20 E1-3/R2_s16202 PASS peak 0.289 N.m; wall 33 s
+2026-11-25 00:49:57 [121] R25 PG20 E1-3/R2_s16203 PASS peak 0.286 N.m; wall 32 s
+2026-11-25 00:50:01 [122] R25 L0 E1-1/rest_s16017 rest 0-10 s 0.000740 deg; no event; wall 306 s
+2026-11-25 00:50:06 [123] R25 L0 E1-1/rest_s16018 rest 0-10 s 0.000686 deg; no event; wall 298 s
+2026-11-25 00:50:06 [124] R25 PG20 E1-3/F2_s16204 PASS peak 0.283 N.m; wall 37 s
+2026-11-25 00:50:11 [125] R25 PG20 E1-3/F2_s16205 PASS peak 0.284 N.m; wall 34 s
+2026-11-25 00:50:35 [126] R25 PG20 E1-3/D2_s16206 PASS peak 0.281 N.m; wall 37 s
+2026-11-25 00:50:40 [127] R25 PG20 E1-3/D2_s16207 PASS peak 0.282 N.m; wall 37 s
+2026-11-25 00:50:43 [128] R25 PG20 E1-3/L2_s16208 PASS peak 0.283 N.m; wall 36 s
+2026-11-25 00:50:48 [129] R25 PG20 E1-3/L2_s16209 PASS peak 0.278 N.m; wall 41 s
+2026-11-25 00:50:51 [130] R25 PG20 E1-3/B2_s16210 PASS peak 0.283 N.m; wall 39 s
+2026-11-25 00:51:13 [131] R25 PG20 E1-3/B2_s16211 PASS peak 0.279 N.m; wall 37 s
+2026-11-25 00:51:28 [132] R25 L0 E1-1/rest_s16019 rest 0-10 s 0.002178 deg; no event; wall 304 s
+2026-11-25 00:53:52 [133] R25 PG20 E1-3/halves_s16232 PASS peak 0.286 N.m; wall 177 s
+2026-11-25 00:53:53 [134] R25 PG20 E1-3/halves_s16231 PASS peak 0.298 N.m; wall 183 s
+2026-11-25 00:54:05 [135] R25 PG20 E1-3/halves_s16230 PASS peak 0.280 N.m; wall 199 s
+2026-11-25 00:54:05 [136] R25 PG20 E1-3/halves_s16233 PASS peak 0.284 N.m; wall 187 s
+2026-11-25 00:54:37 [137] R25 PG20 E1-3/halves_s16234 PASS peak 0.281 N.m; wall 197 s
+2026-11-25 00:54:45 [138] R25 PG20 E1-3/halves_s16235 PASS peak 0.283 N.m; wall 191 s
+2026-11-25 00:55:15 [139] R25 PG8 E1-3/U2_s16200 PASS peak 0.214 N.m; wall 37 s
+2026-11-25 00:55:20 [140] R25 PG8 E1-3/U2_s16201 PASS peak 0.208 N.m; wall 34 s
+2026-11-25 00:55:49 [141] R25 PG8 E1-3/R2_s16202 PASS peak 0.204 N.m; wall 32 s
+2026-11-25 00:55:54 [142] R25 PG8 E1-3/R2_s16203 PASS peak 0.226 N.m; wall 32 s
+2026-11-25 00:56:25 [143] R25 PG8 E1-3/F2_s16204 PASS peak 0.200 N.m; wall 33 s
+2026-11-25 00:56:25 [144] R25 PG8 E1-3/F2_s16205 PASS peak 0.210 N.m; wall 30 s
+2026-11-25 00:56:55 [145] R25 PG8 E1-3/D2_s16206 PASS peak 0.204 N.m; wall 29 s
+2026-11-25 00:56:55 [146] R25 PG8 E1-3/D2_s16207 PASS peak 0.204 N.m; wall 29 s
+2026-11-25 00:57:02 [147] R25 PG20 E1-3/halves_s16236 PASS peak 0.289 N.m; wall 183 s
+2026-11-25 00:57:11 [148] R25 PG20 E1-3/halves_s16237 PASS peak 0.287 N.m; wall 191 s
+2026-11-25 00:57:28 [149] R25 PG8 E1-3/L2_s16208 PASS peak 0.207 N.m; wall 31 s
+2026-11-25 00:57:32 [150] R25 PG8 E1-3/L2_s16209 PASS peak 0.199 N.m; wall 36 s
+2026-11-25 00:57:39 [151] R25 PG8 E1-3/B2_s16210 PASS peak 0.204 N.m; wall 36 s
+2026-11-25 00:57:44 [152] R25 PG20 E1-3/halves_s16239 PASS peak 0.279 N.m; wall 211 s
+2026-11-25 00:57:48 [153] R25 PG8 E1-3/B2_s16211 PASS peak 0.203 N.m; wall 36 s
+2026-11-25 00:57:49 [154] R25 PG20 E1-3/halves_s16238 PASS peak 0.277 N.m; wall 217 s
+2026-11-25 01:00:40 [155] R25 PG8 E1-3/halves_s16232 PASS peak 0.211 N.m; wall 174 s
+2026-11-25 01:00:43 [156] R25 PG8 E1-3/halves_s16231 PASS peak 0.206 N.m; wall 184 s
+2026-11-25 01:00:50 [157] R25 PG8 E1-3/halves_s16230 PASS peak 0.207 N.m; wall 195 s
+2026-11-25 01:00:58 [158] R25 PG8 E1-3/halves_s16233 PASS peak 0.211 N.m; wall 187 s
+2026-11-25 01:01:03 [159] R25 PG8 E1-3/halves_s16235 PASS peak 0.206 N.m; wall 186 s
+2026-11-25 01:01:11 [160] R25 PG8 E1-3/halves_s16234 PASS peak 0.206 N.m; wall 196 s
+2026-11-25 01:01:31 [161] R25 L0 E1-3/U2_s16200 PASS peak 0.140 N.m; wall 27 s
+2026-11-25 01:01:37 [162] R25 L0 E1-3/U2_s16201 PASS peak 0.130 N.m; wall 25 s
+2026-11-25 01:01:59 [163] R25 L0 E1-3/R2_s16202 PASS peak 0.133 N.m; wall 27 s
+2026-11-25 01:02:05 [164] R25 L0 E1-3/R2_s16203 PASS peak 0.123 N.m; wall 26 s
+2026-11-25 01:02:26 [165] R25 L0 E1-3/F2_s16204 PASS peak 0.109 N.m; wall 26 s
+2026-11-25 01:02:28 [166] R25 L0 E1-3/F2_s16205 PASS peak 0.116 N.m; wall 23 s
+2026-11-25 01:02:51 [167] R25 L0 E1-3/D2_s16206 PASS peak 0.112 N.m; wall 23 s
+2026-11-25 01:02:53 [168] R25 L0 E1-3/D2_s16207 PASS peak 0.113 N.m; wall 23 s
+2026-11-25 01:03:14 [169] R25 L0 E1-3/L2_s16208 PASS peak 0.114 N.m; wall 22 s
+2026-11-25 01:03:19 [170] R25 L0 E1-3/L2_s16209 PASS peak 0.106 N.m; wall 25 s
+2026-11-25 01:03:40 [171] R25 L0 E1-3/B2_s16210 PASS peak 0.109 N.m; wall 25 s
+2026-11-25 01:03:46 [172] R25 L0 E1-3/B2_s16211 PASS peak 0.110 N.m; wall 25 s
+2026-11-25 01:03:47 [173] R25 PG8 E1-3/halves_s16236 PASS peak 0.207 N.m; wall 181 s
+2026-11-25 01:03:54 [174] R25 PG8 E1-3/halves_s16237 PASS peak 0.207 N.m; wall 184 s
+2026-11-25 01:04:24 [175] R25 PG8 E1-3/halves_s16238 PASS peak 0.205 N.m; wall 207 s
+2026-11-25 01:04:28 [176] R25 PG8 E1-3/halves_s16239 PASS peak 0.211 N.m; wall 204 s
+2026-11-25 01:05:40 [177] R25 L0 E1-3/halves_s16232 PASS peak 0.118 N.m; wall 110 s
+2026-11-25 01:05:43 [178] R25 L0 E1-3/halves_s16231 PASS peak 0.149 N.m; wall 114 s
+2026-11-25 01:05:47 [179] R25 L0 E1-3/halves_s16230 PASS peak 0.123 N.m; wall 123 s
+2026-11-25 01:05:55 [180] R25 L0 E1-3/halves_s16233 PASS peak 0.157 N.m; wall 116 s
+2026-11-25 01:06:24 [181] R25 L0 E1-3/halves_s16235 PASS peak 0.119 N.m; wall 113 s
+2026-11-25 01:06:26 [182] R25 L0 E1-3/halves_s16234 PASS peak 0.161 N.m; wall 118 s
+2026-11-25 01:07:27 [183] R25 L0 E1-3/halves_s16236 PASS peak 0.175 N.m; wall 104 s
+2026-11-25 01:07:35 [184] R25 L0 E1-3/halves_s16237 PASS peak 0.154 N.m; wall 107 s
+2026-11-25 01:07:54 [185] R25 L0 E1-3/halves_s16238 PASS peak 0.108 N.m; wall 121 s
+2026-11-25 01:07:56 [186] R25 L0 E1-3/halves_s16239 PASS peak 0.149 N.m; wall 117 s
+2026-11-25 01:09:10 [187] R25 PG20 E1-6t/std_nnn_pos_s16640 PASS; wall 160 s
+2026-11-25 01:09:10 [188] R25 PG20 E1-6t/std_nnn_neg_s16641 PASS; wall 158 s
+2026-11-25 01:10:15 [189] R25 PG20 E1-6t/std_nnp_pos_s16642 PASS; wall 162 s
+2026-11-25 01:10:24 [190] R25 PG20 E1-6t/std_nnp_neg_s16643 PASS; wall 164 s
+2026-11-25 01:10:46 [191] R25 PG20 E1-6t/std_npn_pos_s16644 PASS; wall 167 s
+2026-11-25 01:10:48 [192] R25 PG20 E1-6t/std_npn_neg_s16645 PASS; wall 167 s
+2026-11-25 01:12:09 [193] R25 PG20 E1-6t/std_npp_neg_s16647 PASS; wall 173 s
+2026-11-25 01:12:10 [194] R25 PG20 E1-6t/std_npp_pos_s16646 PASS; wall 174 s
+2026-11-25 01:13:18 [195] R25 PG20 E1-6t/std_pnn_pos_s16648 PASS; wall 176 s
+2026-11-25 01:13:26 [196] R25 PG20 E1-6t/std_pnn_neg_s16649 PASS; wall 176 s
+2026-11-25 01:13:50 [197] R25 PG20 E1-6t/std_pnp_pos_s16650 PASS; wall 177 s
+2026-11-25 01:13:52 [198] R25 PG20 E1-6t/std_pnp_neg_s16651 PASS; wall 177 s
+2026-11-25 01:15:16 [199] R25 PG20 E1-6t/std_ppn_pos_s16652 PASS; wall 180 s
+2026-11-25 01:15:22 [200] R25 PG20 E1-6t/std_ppn_neg_s16653 PASS; wall 184 s
+2026-11-25 01:16:33 [201] R25 PG20 E1-6t/std_ppp_pos_s16654 PASS; wall 189 s
+2026-11-25 01:16:40 [202] R25 PG20 E1-6t/std_ppp_neg_s16655 PASS; wall 188 s
+2026-11-25 01:16:42 [203] R25 PG8 E1-6t/std_nnn_pos_s16640 PASS; wall 167 s
+2026-11-25 01:16:42 [204] R25 PG8 E1-6t/std_nnn_neg_s16641 PASS; wall 165 s
+2026-11-25 01:18:05 [205] R25 PG8 E1-6t/std_nnp_pos_s16642 PASS; wall 164 s
+2026-11-25 01:18:12 [206] R25 PG8 E1-6t/std_nnp_neg_s16643 PASS; wall 164 s
+2026-11-25 01:19:22 [207] R25 PG8 E1-6t/std_npn_pos_s16644 PASS; wall 162 s
+2026-11-25 01:19:27 [208] R25 PG8 E1-6t/std_npn_neg_s16645 PASS; wall 160 s
+2026-11-25 01:19:29 [209] R25 PG8 E1-6t/std_npp_neg_s16647 PASS; wall 161 s
+2026-11-25 01:19:32 [210] R25 PG8 E1-6t/std_npp_pos_s16646 PASS; wall 163 s
+2026-11-25 01:20:57 [211] R25 PG8 E1-6t/std_pnn_pos_s16648 PASS; wall 165 s
+2026-11-25 01:21:00 [212] R25 PG8 E1-6t/std_pnn_neg_s16649 PASS; wall 163 s
+2026-11-25 01:22:16 [213] R25 PG8 E1-6t/std_pnp_pos_s16650 PASS; wall 169 s
+2026-11-25 01:22:24 [214] R25 PG8 E1-6t/std_ppn_pos_s16652 PASS; wall 170 s
+2026-11-25 01:22:25 [215] R25 PG8 E1-6t/std_pnp_neg_s16651 PASS; wall 173 s
+2026-11-25 01:22:30 [216] R25 PG8 E1-6t/std_ppn_neg_s16653 PASS; wall 171 s
+2026-11-25 01:23:48 [217] R25 PG8 E1-6t/std_ppp_pos_s16654 PASS; wall 164 s
+2026-11-25 01:23:52 [218] R25 PG8 E1-6t/std_ppp_neg_s16655 PASS; wall 166 s
+2026-11-25 01:24:08 [219] R25 L0 E1-6t/std_nnn_pos_s16640 PASS; wall 108 s
+2026-11-25 01:24:17 [220] R25 L0 E1-6t/std_nnn_neg_s16641 PASS; wall 108 s
+2026-11-25 01:24:20 [221] R25 L0 E1-6t/std_nnp_pos_s16642 PASS; wall 110 s
+2026-11-25 01:24:20 [222] R25 L0 E1-6t/std_nnp_neg_s16643 PASS; wall 106 s
+2026-11-25 01:25:44 [223] R25 L0 E1-6t/std_npn_pos_s16644 PASS; wall 113 s
+2026-11-25 01:25:44 [224] R25 L0 E1-6t/std_npn_neg_s16645 PASS; wall 109 s
+2026-11-25 01:26:10 [225] R25 L0 E1-6t/std_npp_pos_s16646 PASS; wall 116 s
+2026-11-25 01:26:11 [226] R25 L0 E1-6t/std_npp_neg_s16647 PASS; wall 110 s
+2026-11-25 01:26:17 [227] R25 L0 E1-6t/std_pnn_pos_s16648 PASS; wall 113 s
+2026-11-25 01:26:17 [228] R25 L0 E1-6t/std_pnn_neg_s16649 PASS; wall 113 s
+2026-11-25 01:27:37 [229] R25 L0 E1-6t/std_pnp_pos_s16650 PASS; wall 107 s
+2026-11-25 01:27:38 [230] R25 L0 E1-6t/std_pnp_neg_s16651 PASS; wall 108 s
+2026-11-25 01:28:00 [231] R25 L0 E1-6t/std_ppn_neg_s16653 PASS; wall 106 s
+2026-11-25 01:28:02 [232] R25 L0 E1-6t/std_ppn_pos_s16652 PASS; wall 108 s
+2026-11-25 01:28:09 [233] R25 L0 E1-6t/std_ppp_neg_s16655 PASS; wall 108 s
+2026-11-25 01:28:10 [234] R25 L0 E1-6t/std_ppp_pos_s16654 PASS; wall 109 s
+2026-11-25 01:28:23 [235] R25 PG20 E1-6/twist_nnn_s16620 PASS; wall 45 s
+2026-11-25 01:28:24 [236] R25 PG20 E1-6/twist_nnp_s16621 PASS; wall 45 s
+2026-11-25 01:28:50 [237] R25 PG20 E1-6/twist_npn_s16622 PASS; wall 46 s
+2026-11-25 01:28:51 [238] R25 PG20 E1-6/twist_npp_s16623 PASS; wall 46 s
+2026-11-25 01:28:56 [239] R25 PG20 E1-6/twist_pnn_s16624 PASS; wall 45 s
+2026-11-25 01:28:57 [240] R25 PG20 E1-6/twist_pnp_s16625 PASS; wall 45 s
+2026-11-25 01:29:09 [241] R25 PG20 E1-6/twist_ppn_s16626 PASS; wall 44 s
+2026-11-25 01:29:10 [242] R25 PG20 E1-6/twist_ppp_s16627 PASS; wall 44 s
+2026-11-25 01:29:29 [243] R25 PG8 E1-6/twist_nnn_s16620 PASS; wall 38 s
+2026-11-25 01:29:30 [244] R25 PG8 E1-6/twist_nnp_s16621 PASS; wall 38 s
+2026-11-25 01:29:35 [245] R25 PG8 E1-6/twist_npn_s16622 PASS; wall 38 s
+2026-11-25 01:29:36 [246] R25 PG8 E1-6/twist_npp_s16623 PASS; wall 38 s
+2026-11-25 01:29:49 [247] R25 PG8 E1-6/twist_pnn_s16624 PASS; wall 38 s
+2026-11-25 01:29:50 [248] R25 PG8 E1-6/twist_pnp_s16625 PASS; wall 38 s
+2026-11-25 01:30:05 [249] R25 L0 E1-6/twist_nnn_s16620 PASS; wall 28 s
+2026-11-25 01:30:06 [250] R25 L0 E1-6/twist_nnp_s16621 PASS; wall 28 s
+2026-11-25 01:30:13 [251] R25 PG8 E1-6/twist_ppn_s16626 PASS; wall 42 s
+2026-11-25 01:30:14 [252] R25 PG8 E1-6/twist_ppp_s16627 PASS; wall 42 s
+2026-11-25 01:30:22 [253] R25 L0 E1-6/twist_npn_s16622 PASS; wall 31 s
+2026-11-25 01:30:23 [254] R25 L0 E1-6/twist_npp_s16623 PASS; wall 30 s
+2026-11-25 01:30:37 [255] R25 L0 E1-6/twist_pnn_s16624 PASS; wall 29 s
+2026-11-25 01:30:37 [256] R25 L0 E1-6/twist_pnp_s16625 PASS; wall 30 s
+2026-11-25 01:30:44 [257] R25 L0 E1-6/twist_ppn_s16626 PASS; wall 29 s
+2026-11-25 01:30:45 [258] R25 L0 E1-6/twist_ppp_s16627 PASS; wall 30 s
+2026-11-25 01:30:57 [259] R25 PG20 E1-6/opposed_UR_2Nm_s16611 PASS; wall 33 s
+2026-11-25 01:30:58 [260] R25 PG20 E1-6/opposed_UR_1Nm_s16610 PASS; wall 35 s
+2026-11-25 01:31:11 [261] R25 PG20 E1-6/opposed_UF_1Nm_s16612 PASS; wall 33 s
+2026-11-25 01:31:12 [262] R25 PG20 E1-6/opposed_UF_2Nm_s16613 PASS; wall 34 s
+2026-11-25 01:31:19 [263] R25 PG20 E1-6/opposed_RF_2Nm_s16615 PASS; wall 33 s
+2026-11-25 01:31:20 [264] R25 PG20 E1-6/opposed_RF_1Nm_s16614 PASS; wall 34 s
+2026-11-25 01:31:27 [265] R25 PG8 E1-6/opposed_UR_1Nm_s16610 PASS; wall 28 s
+2026-11-25 01:31:27 [266] R25 PG8 E1-6/opposed_UR_2Nm_s16611 PASS; wall 27 s
+2026-11-25 01:31:39 [267] R25 PG8 E1-6/opposed_UF_1Nm_s16612 PASS; wall 26 s
+2026-11-25 01:31:41 [268] R25 PG8 E1-6/opposed_UF_2Nm_s16613 PASS; wall 27 s
+2026-11-25 01:31:46 [269] R25 L0 E1-6/opposed_UR_1Nm_s16610 PASS; wall 19 s
+2026-11-25 01:31:46 [270] R25 L0 E1-6/opposed_UR_2Nm_s16611 PASS; wall 19 s
+2026-11-25 01:31:50 [271] R25 PG8 E1-6/opposed_RF_1Nm_s16614 PASS; wall 29 s
+2026-11-25 01:31:50 [272] R25 PG8 E1-6/opposed_RF_2Nm_s16615 PASS; wall 28 s
+2026-11-25 01:31:57 [273] R25 L0 E1-6/opposed_UF_1Nm_s16612 PASS; wall 18 s
+2026-11-25 01:32:00 [274] R25 L0 E1-6/opposed_UF_2Nm_s16613 PASS; wall 18 s
+2026-11-25 01:32:06 [275] R25 L0 E1-6/opposed_RF_2Nm_s16615 PASS; wall 19 s
+2026-11-25 01:32:07 [276] R25 L0 E1-6/opposed_RF_1Nm_s16614 PASS; wall 20 s
+2026-11-25 01:32:15 [277] R25 PG20 E1-6/openpad_U_s16600 PASS; wall 24 s
+2026-11-25 01:32:15 [278] R25 PG20 E1-6/openpad_R_s16601 PASS; wall 24 s
+2026-11-25 01:32:26 [279] R25 PG20 E1-6/openpad_F_s16602 PASS; wall 28 s
+2026-11-25 01:32:26 [280] R25 PG20 E1-6/openpad_D_s16603 PASS; wall 26 s
+2026-11-25 01:32:34 [281] R25 PG20 E1-6/openpad_B_s16605 PASS; wall 25 s
+2026-11-25 01:32:36 [282] R25 PG20 E1-6/openpad_L_s16604 PASS; wall 28 s
+2026-11-25 01:32:38 [283] R25 PG8 E1-6/openpad_U_s16600 PASS; wall 21 s
+2026-11-25 01:32:38 [284] R25 PG8 E1-6/openpad_R_s16601 PASS; wall 20 s
+2026-11-25 01:32:50 [285] R25 PG8 E1-6/openpad_D_s16603 PASS; wall 22 s
+2026-11-25 01:32:51 [286] R25 PG8 E1-6/openpad_F_s16602 PASS; wall 23 s
+2026-11-25 01:32:51 [287] R25 L0 E1-6/openpad_U_s16600 PASS; wall 13 s
+2026-11-25 01:32:51 [288] R25 L0 E1-6/openpad_R_s16601 PASS; wall 13 s
+2026-11-25 01:32:56 [289] R25 PG8 E1-6/openpad_L_s16604 PASS; wall 22 s
+2026-11-25 01:32:56 [290] R25 PG8 E1-6/openpad_B_s16605 PASS; wall 20 s
+2026-11-25 01:33:03 [291] R25 L0 E1-6/openpad_F_s16602 PASS; wall 13 s
+2026-11-25 01:33:03 [292] R25 L0 E1-6/openpad_D_s16603 PASS; wall 12 s
+2026-11-25 01:33:03 [293] R25 L0 E1-6/openpad_B_s16605 PASS; wall 12 s
+2026-11-25 01:33:04 [294] R25 L0 E1-6/openpad_L_s16604 PASS; wall 12 s
+2026-11-25 01:33:07 R2 trials complete: 354 / 354

@@ -1,0 +1,1071 @@
+{
+ "gate": {
+  "pass": true,
+  "trials": [
+   {
+    "arm": "L0",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "arm": "PG8",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "arm": "PG20",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   }
+  ]
+ },
+ "reuse": {
+  "pass": true,
+  "changed_or_missing": []
+ },
+ "arms": {
+  "L0": {
+   "arm": "L0",
+   "n": 184,
+   "rows": {
+    "E1-1": {
+     "n": 20,
+     "expected": 20,
+     "passed": 20,
+     "failed": []
+    },
+    "E1-2": {
+     "n": 24,
+     "expected": 24,
+     "passed": 24,
+     "failed": []
+    },
+    "E1-3": {
+     "n": 22,
+     "expected": 22,
+     "passed": 22,
+     "failed": []
+    },
+    "E1-4": {
+     "n": 40,
+     "expected": 40,
+     "passed": 40,
+     "failed": []
+    },
+    "E1-5": {
+     "n": 42,
+     "expected": 42,
+     "passed": 42,
+     "failed": []
+    },
+    "E1-5s": {
+     "n": 20,
+     "expected": 20,
+     "passed": 20,
+     "failed": []
+    },
+    "E1-6a": {
+     "n": 0,
+     "expected": 6,
+     "passed": 0,
+     "failed": []
+    },
+    "E1-6b": {
+     "n": 0,
+     "expected": 6,
+     "passed": 0,
+     "failed": []
+    },
+    "E1-6c": {
+     "n": 0,
+     "expected": 8,
+     "passed": 0,
+     "failed": []
+    },
+    "E1-6t": {
+     "n": 16,
+     "expected": 16,
+     "passed": 16,
+     "failed": []
+    }
+   },
+   "e16m": {
+    "moves": 1376,
+    "ok": 1376,
+    "pass": true
+   },
+   "complete": false,
+   "signal1": {
+    "complete": true,
+    "slip_seeds": [],
+    "rest_over_0p5_seeds": [],
+    "integrity_failures": [],
+    "out_of_regime_seeds": [],
+    "rest_lengths_s": [
+     60.0
+    ],
+    "max_rest_deg": 0.005132706652076411,
+    "signal_met": true
+   },
+   "signals": {
+    "1_rest_60s_no_slips": true,
+    "2_option_a_rule": false,
+    "3_no_operational_trial_out_of_regime": null,
+    "all_met": false
+   },
+   "reading": "signal(s) missed: negative result kept and reported",
+   "operational_out_of_regime": [],
+   "abuse_labelled_out_of_regime": [],
+   "turner_Nm_E12_E13_E14": {
+    "n_moves": 1376,
+    "median": 0.10289375031331938,
+    "p99": 0.16834690860305845,
+    "max": 0.1852499202399791,
+    "above_0.45": 0,
+    "above_0.5": 0,
+    "at_clip": 0
+   },
+   "turner_Nm_E13_E14": {
+    "n_moves": 1352,
+    "median": 0.10316359156562499,
+    "p99": 0.16873655363185291,
+    "max": 0.1852499202399791,
+    "above_0.45": 0,
+    "above_0.5": 0,
+    "at_clip": 0
+   },
+   "chamfer_flags": [
+    {
+     "trial": "E1-3/B2_s16210",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/B2_s16211",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/D2_s16206",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/D2_s16207",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/F2_s16204",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/F2_s16205",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/L2_s16208",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/L2_s16209",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/R2_s16202",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/R2_s16203",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/U2_s16200",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/U2_s16201",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/halves_s16230",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/halves_s16231",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/halves_s16232",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/halves_s16233",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/halves_s16234",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/halves_s16235",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/halves_s16236",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/halves_s16237",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/halves_s16238",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-3/halves_s16239",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16400",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16401",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16402",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16403",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16404",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16405",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": false,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16406",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16407",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16408",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16409",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16410",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16411",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16412",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16413",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16414",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16415",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16416",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16417",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16418",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16419",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16300",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16301",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16302",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16303",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16304",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16305",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16306",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16307",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16308",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16309",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16310",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16311",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16312",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16313",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16314",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16315",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16316",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16317",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16318",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16319",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_nnn_neg_s16641",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_nnn_pos_s16640",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_nnp_neg_s16643",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_nnp_pos_s16642",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_npn_neg_s16645",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_npn_pos_s16644",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_npp_neg_s16647",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_npp_pos_s16646",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_pnn_neg_s16649",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_pnn_pos_s16648",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_pnp_neg_s16651",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_pnp_pos_s16650",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_ppn_neg_s16653",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_ppn_pos_s16652",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_ppp_neg_s16655",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-6t/std_ppp_pos_s16654",
+     "reference": "ER7 L0 frozen chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    }
+   ],
+   "r2_trouble": [],
+   "max_nontarget_drift_deg": 0.7281147021593666,
+   "max_solver_niter": 36,
+   "steps_at_iteration_limit": 0,
+   "rest_wall_s": [
+    285.85423048399934,
+    293.83319071000005,
+    295.6212974650007,
+    298.41655639800047,
+    303.8401720739985,
+    305.8749501279999,
+    306.17659140199976,
+    306.1773493219989,
+    307.8098666139995,
+    308.11826768799983,
+    309.4296044290004,
+    312.7831235150006,
+    319.27430509499936,
+    319.52042642999913,
+    320.38405817400053,
+    321.438435383001,
+    327.05090933800057,
+    327.1579368220009,
+    333.66295278799953,
+    335.429817102
+   ]
+  },
+  "PG8": {
+   "arm": "PG8",
+   "n": 184,
+   "rows": {
+    "E1-1": {
+     "n": 20,
+     "expected": 20,
+     "passed": 20,
+     "failed": []
+    },
+    "E1-2": {
+     "n": 24,
+     "expected": 24,
+     "passed": 24,
+     "failed": []
+    },
+    "E1-3": {
+     "n": 22,
+     "expected": 22,
+     "passed": 22,
+     "failed": []
+    },
+    "E1-4": {
+     "n": 40,
+     "expected": 40,
+     "passed": 40,
+     "failed": []
+    },
+    "E1-5": {
+     "n": 42,
+     "expected": 42,
+     "passed": 42,
+     "failed": []
+    },
+    "E1-5s": {
+     "n": 20,
+     "expected": 20,
+     "passed": 20,
+     "failed": []
+    },
+    "E1-6a": {
+     "n": 0,
+     "expected": 6,
+     "passed": 0,
+     "failed": []
+    },
+    "E1-6b": {
+     "n": 0,
+     "expected": 6,
+     "passed": 0,
+     "failed": []
+    },
+    "E1-6c": {
+     "n": 0,
+     "expected": 8,
+     "passed": 0,
+     "failed": []
+    },
+    "E1-6t": {
+     "n": 16,
+     "expected": 16,
+     "passed": 16,
+     "failed": []
+    }
+   },
+   "e16m": {
+    "moves": 1376,
+    "ok": 1376,
+    "pass": true
+   },
+   "complete": false,
+   "signal1": {
+    "complete": true,
+    "slip_seeds": [],
+    "rest_over_0p5_seeds": [],
+    "integrity_failures": [],
+    "out_of_regime_seeds": [],
+    "rest_lengths_s": [
+     60.0
+    ],
+    "max_rest_deg": 0.0040296777000198205,
+    "signal_met": true
+   },
+   "signals": {
+    "1_rest_60s_no_slips": true,
+    "2_option_a_rule": false,
+    "3_no_operational_trial_out_of_regime": true,
+    "all_met": false
+   },
+   "reading": "signal(s) missed: negative result kept and reported",
+   "operational_out_of_regime": [],
+   "abuse_labelled_out_of_regime": [],
+   "turner_Nm_E12_E13_E14": {
+    "n_moves": 1376,
+    "median": 0.1956181015967599,
+    "p99": 0.22460483366292783,
+    "max": 0.23433154962581781,
+    "above_0.45": 0,
+    "above_0.5": 0,
+    "at_clip": 0
+   },
+   "turner_Nm_E13_E14": {
+    "n_moves": 1352,
+    "median": 0.1956693082255696,
+    "p99": 0.22461302168153785,
+    "max": 0.23433154962581781,
+    "above_0.45": 0,
+    "above_0.5": 0,
+    "at_clip": 0
+   },
+   "chamfer_flags": [],
+   "r2_trouble": [],
+   "max_nontarget_drift_deg": 0.5679657135968074,
+   "max_solver_niter": 35,
+   "steps_at_iteration_limit": 0,
+   "rest_wall_s": [
+    548.1831586490007,
+    551.8530536870003,
+    552.057475956999,
+    554.3979380929995,
+    555.9366189339999,
+    557.2253547670007,
+    559.418398830001,
+    560.4637979520012,
+    560.5320848709998,
+    567.4520908590002,
+    574.8673338389999,
+    577.8587009729999,
+    577.8589938329987,
+    589.2311771130007,
+    589.8268594649999,
+    590.1489548710015,
+    595.7782874999994,
+    598.2360027049999,
+    604.7339801950002,
+    606.8196413959995
+   ]
+  },
+  "PG20": {
+   "arm": "PG20",
+   "n": 184,
+   "rows": {
+    "E1-1": {
+     "n": 20,
+     "expected": 20,
+     "passed": 20,
+     "failed": []
+    },
+    "E1-2": {
+     "n": 24,
+     "expected": 24,
+     "passed": 24,
+     "failed": []
+    },
+    "E1-3": {
+     "n": 22,
+     "expected": 22,
+     "passed": 22,
+     "failed": []
+    },
+    "E1-4": {
+     "n": 40,
+     "expected": 40,
+     "passed": 40,
+     "failed": []
+    },
+    "E1-5": {
+     "n": 42,
+     "expected": 42,
+     "passed": 42,
+     "failed": []
+    },
+    "E1-5s": {
+     "n": 20,
+     "expected": 20,
+     "passed": 20,
+     "failed": []
+    },
+    "E1-6a": {
+     "n": 0,
+     "expected": 6,
+     "passed": 0,
+     "failed": []
+    },
+    "E1-6b": {
+     "n": 0,
+     "expected": 6,
+     "passed": 0,
+     "failed": []
+    },
+    "E1-6c": {
+     "n": 0,
+     "expected": 8,
+     "passed": 0,
+     "failed": []
+    },
+    "E1-6t": {
+     "n": 16,
+     "expected": 16,
+     "passed": 16,
+     "failed": []
+    }
+   },
+   "e16m": {
+    "moves": 1376,
+    "ok": 1376,
+    "pass": true
+   },
+   "complete": false,
+   "signal1": {
+    "complete": true,
+    "slip_seeds": [],
+    "rest_over_0p5_seeds": [],
+    "integrity_failures": [],
+    "out_of_regime_seeds": [],
+    "rest_lengths_s": [
+     60.0
+    ],
+    "max_rest_deg": 0.011430852555559439,
+    "signal_met": true
+   },
+   "signals": {
+    "1_rest_60s_no_slips": true,
+    "2_option_a_rule": false,
+    "3_no_operational_trial_out_of_regime": true,
+    "all_met": false
+   },
+   "reading": "signal(s) missed: negative result kept and reported",
+   "operational_out_of_regime": [],
+   "abuse_labelled_out_of_regime": [],
+   "turner_Nm_E12_E13_E14": {
+    "n_moves": 1376,
+    "median": 0.27477420830626054,
+    "p99": 0.3027384117744879,
+    "max": 0.3146863149887109,
+    "above_0.45": 0,
+    "above_0.5": 0,
+    "at_clip": 0
+   },
+   "turner_Nm_E13_E14": {
+    "n_moves": 1352,
+    "median": 0.27483125569797595,
+    "p99": 0.30243287656666135,
+    "max": 0.3146863149887109,
+    "above_0.45": 0,
+    "above_0.5": 0,
+    "at_clip": 0
+   },
+   "chamfer_flags": [
+    {
+     "trial": "E1-4/scr20inv_s16400",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": false,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16401",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16402",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16403",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16404",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/scr20inv_s16405",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16300",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16301",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16302",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16303",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16304",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16305",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16306",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16307",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16308",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16309",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16310",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16311",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16312",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16313",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16314",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16315",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16316",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16317",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16318",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    },
+    {
+     "trial": "E1-4/sexy6_s16319",
+     "reference": "D14 Stage 3b chamfer",
+     "chamfer_pass": true,
+     "rounded_pass": true
+    }
+   ],
+   "r2_trouble": [],
+   "max_nontarget_drift_deg": 0.7429405132696457,
+   "max_solver_niter": 35,
+   "steps_at_iteration_limit": 0,
+   "rest_wall_s": [
+    631.0290744909998,
+    633.2624830940003,
+    637.8521640939998,
+    638.0393562939989,
+    638.6695095079995,
+    639.1791387339999,
+    639.9329451860012,
+    640.6805862480014,
+    645.4928980770001,
+    646.4682074200009,
+    647.5522801469997,
+    649.2273579689991,
+    650.2753053779998,
+    651.0140937529995,
+    656.51739189,
+    664.4144417650004,
+    672.6825211699997,
+    673.6438520529991,
+    698.2234903709996,
+    707.0770491610001
+   ]
+  }
+ }
+}
