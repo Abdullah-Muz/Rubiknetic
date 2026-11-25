@@ -1,0 +1,152 @@
+{
+ "note": "UNSCORED D15 R3 static pre-check (proposal section 3.1, P-84)",
+ "arm": "L0",
+ "control": {
+  "fit_R2.5_equals_R0": true,
+  "composite_R2.5_equals_R0": true
+ },
+ "fit": {
+  "R1.8": {
+   "piece_magnets": 48,
+   "min_depth_mm": 0.400000000000001,
+   "wall_mm": 0.4,
+   "n_violating": 0,
+   "violating": [],
+   "fits": true
+  },
+  "R2.5": {
+   "piece_magnets": 48,
+   "min_depth_mm": 0.400000000000001,
+   "wall_mm": 0.4,
+   "n_violating": 0,
+   "violating": [],
+   "fits": true
+  },
+  "R3.6": {
+   "piece_magnets": 48,
+   "min_depth_mm": 0.400000000000001,
+   "wall_mm": 0.4,
+   "n_violating": 0,
+   "violating": [],
+   "fits": true
+  }
+ },
+ "composite": [
+  {
+   "arm": "L0",
+   "edge_radius": 0.0018,
+   "noslip_iterations": 10,
+   "V4": {
+    "poses": 12,
+    "max_rel_net_force": 4.0907967857862896e-17,
+    "max_rel_net_torque": 2.997551200662194e-17,
+    "pass": true
+   },
+   "V6": {
+    "max_abs_magnet_qfrc": 0.015410819064326668,
+    "max_change_from_ctrl_time_qvel_act": 0.0,
+    "installed_matches_direct": 1.734723475976807e-18,
+    "pass": true
+   },
+   "V5": {
+    "integrator": "RK4",
+    "duration_s": 0.5,
+    "timestep_s": 0.0005,
+    "energy_exchanged_J": 0.0024021127222998012,
+    "max_drift_J": 1.7331369550482867e-06,
+    "drift_rel": 0.0007215052561683983,
+    "stats": {
+     "calls": 4001,
+     "clamped_z": 0,
+     "near_perpendicular": 0,
+     "max_force_N": 1.643380848815739,
+     "max_near_tilt_deg": 1.7075472925031877e-06,
+     "list_rebuilds": 49,
+     "list_pairs": 188
+    },
+    "pass": true
+   },
+   "models_built_rounded": 3,
+   "pass": true
+  },
+  {
+   "arm": "L0",
+   "edge_radius": 0.0025,
+   "noslip_iterations": 10,
+   "V4": {
+    "poses": 12,
+    "max_rel_net_force": 4.0907967857862896e-17,
+    "max_rel_net_torque": 2.997551200662194e-17,
+    "pass": true
+   },
+   "V6": {
+    "max_abs_magnet_qfrc": 0.015410819064326668,
+    "max_change_from_ctrl_time_qvel_act": 0.0,
+    "installed_matches_direct": 1.734723475976807e-18,
+    "pass": true
+   },
+   "V5": {
+    "integrator": "RK4",
+    "duration_s": 0.5,
+    "timestep_s": 0.0005,
+    "energy_exchanged_J": 0.0024020490182634358,
+    "max_drift_J": 1.7752753158628565e-06,
+    "drift_rel": 0.0007390670641460489,
+    "stats": {
+     "calls": 4001,
+     "clamped_z": 0,
+     "near_perpendicular": 0,
+     "max_force_N": 1.6433808488453798,
+     "max_near_tilt_deg": 1.7075472925031877e-06,
+     "list_rebuilds": 49,
+     "list_pairs": 188
+    },
+    "pass": true
+   },
+   "models_built_rounded": 3,
+   "pass": true
+  },
+  {
+   "arm": "L0",
+   "edge_radius": 0.0036,
+   "noslip_iterations": 10,
+   "V4": {
+    "poses": 12,
+    "max_rel_net_force": 4.0907967857862896e-17,
+    "max_rel_net_torque": 2.997551200662194e-17,
+    "pass": true
+   },
+   "V6": {
+    "max_abs_magnet_qfrc": 0.015410819064326668,
+    "max_change_from_ctrl_time_qvel_act": 0.0,
+    "installed_matches_direct": 1.734723475976807e-18,
+    "pass": true
+   },
+   "V5": {
+    "integrator": "RK4",
+    "duration_s": 0.5,
+    "timestep_s": 0.0005,
+    "energy_exchanged_J": 0.002402077478376466,
+    "max_drift_J": 1.7956378013592178e-06,
+    "drift_rel": 0.0007475353386906016,
+    "stats": {
+     "calls": 4001,
+     "clamped_z": 0,
+     "near_perpendicular": 0,
+     "max_force_N": 1.6433808488354518,
+     "max_near_tilt_deg": 1.7075472925031877e-06,
+     "list_rebuilds": 49,
+     "list_pairs": 188
+    },
+    "pass": true
+   },
+   "models_built_rounded": 3,
+   "pass": true
+  }
+ ],
+ "runnable": {
+  "R1.8": true,
+  "R2.5": true,
+  "R3.6": true
+ }
+}
