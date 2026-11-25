@@ -97,3 +97,27 @@ failures and 0 E1-2 moves at the clip.
 
 **Not covered by R1.** E1-3, E1-4 (the long sequences, where the chamfer jam happened), E1-6, E1-7, 60 s rests, and
 fresh seeds. These are the R2 / Stage 3c questions. R2 needs the user's approval.
+
+## Turning-torque realism (desk check, P-81 item 4; 2026-11-24)
+
+**No new web search was needed.** The question is covered by `docs/research/TURNING_TORQUE_FINDINGS.md`
+(2026-11-21), the basis of P-67's realism reference, which is three days old.
+
+**What the evidence is, from that report (`FACT` / `UNVERIFIED` as labelled there).**
+- The only verified figure for a standard 3x3 is **0.09 N·m** (TwistyPuzzles museum, method not stated).
+- A snippet-only bench report implies about **0.10–0.20 N·m** breakaway.
+- Speedcube figures of 0.02–0.05 N·m are unverified.
+- No source quantifies the magnets' effect or separates breakaway from running torque.
+- The report's reading: about 0.14 N·m realistic, 0.4 N·m high, 1.0 N·m far too high.
+- **P-67's 0.2 N·m is a reference level chosen by the user, not a measurement.**
+
+**Reading (`INFERENCE`).**
+- The R1 medians at R 2.5 mm (L0 0.10, PG8 0.19, PG20 0.27 N·m) lie in or near the plausibly realistic range. The
+  chamfer's peaks of up to 0.97 N·m did not.
+- §R1's earlier note, that L0's torque is "about half the realism reference", is literally true. But it should not be
+  read as "too low": L0's median is next to the only verified real figure.
+- Whether the model needs tension-spring friction cannot be settled from published data. No such data exists, so no
+  model change is proposed.
+- The only route is open item **O-09**: a real-cube bench measurement (`docs/research/REAL_CUBE_MEASUREMENT_GUIDE.md`,
+  `experiments/R1_real_cube_bench/PROTOCOL.md`; about 30–45 min with a luggage scale). It needs the user and the cube
+  the robot will use.
