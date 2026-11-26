@@ -35,7 +35,7 @@ def row(r: dict) -> dict:
 
 
 def main() -> None:
-    rows = [row(json.loads(p.read_text())) for p in sorted((HERE / "results").glob("*_s*.json"))]
+    rows = [row(json.loads(p.read_text())) for p in sorted((HERE / "results").glob("*_s*.json")) if not p.name.startswith("diag_")]
     groups = defaultdict(list)
     for x in rows:
         groups[x["group"]].append(x)

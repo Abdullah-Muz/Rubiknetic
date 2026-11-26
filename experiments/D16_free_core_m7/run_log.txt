@@ -36,3 +36,22 @@ U_fixed_F30_s21000     pass True  pass_rel_core True  moves_ok 5 core slip   0.0
 U_fixed_F30_s21001     pass True  pass_rel_core True  moves_ok 5 core slip   0.00 mm rot   0.00 deg squeeze  30.0 N 
 U_fixed_F50_s21001     pass False pass_rel_core False moves_ok 4 core slip   0.00 mm rot   0.00 deg squeeze  50.0 N 
 U_fixed_F50_s21000     pass False pass_rel_core False moves_ok 4 core slip   0.00 mm rot   0.00 deg squeeze  50.0 N 
+D16: 18 trials, 6 workers
+S_R_free_F20_s21001    pass True  pass_rel_core True  moves_ok 5 core slip   0.11 mm rot   0.28 deg squeeze  20.0 N 
+S_U_free_F20_s21003    pass True  pass_rel_core True  moves_ok 5 core slip   0.39 mm rot   0.64 deg squeeze  19.9 N 
+S_U_free_F20_s21002    pass True  pass_rel_core True  moves_ok 5 core slip   0.72 mm rot   0.48 deg squeeze  20.0 N 
+S_R_free_F20_s21000    pass False pass_rel_core False moves_ok 4 core slip   1.41 mm rot   1.16 deg squeeze  20.0 N 
+S_U_free_F20_s21000    pass False pass_rel_core False moves_ok 4 core slip   0.48 mm rot   0.32 deg squeeze  20.0 N 
+S_U_free_F20_s21001    pass False pass_rel_core False moves_ok 3 core slip   2.10 mm rot   0.64 deg squeeze  20.0 N 
+S_R_free_F20_s21003    pass True  pass_rel_core True  moves_ok 5 core slip   0.28 mm rot   0.54 deg squeeze  19.9 N 
+S_R_free_F20_s21002    pass True  pass_rel_core True  moves_ok 5 core slip   0.28 mm rot   0.24 deg squeeze  20.0 N 
+S_F_free_F20_s21001    pass True  pass_rel_core True  moves_ok 5 core slip   0.45 mm rot   0.40 deg squeeze  20.0 N 
+S_F_free_F20_s21002    pass True  pass_rel_core True  moves_ok 5 core slip   0.67 mm rot   0.30 deg squeeze  20.0 N 
+S_F_free_F20_s21003    pass True  pass_rel_core True  moves_ok 5 core slip   0.69 mm rot   0.91 deg squeeze  19.9 N 
+S_F_free_F20_s21000    pass False pass_rel_core False moves_ok 4 core slip   3.89 mm rot   1.25 deg squeeze  20.0 N 
+S_U_fixed_F20_s21000   pass True  pass_rel_core True  moves_ok 5 core slip   0.00 mm rot   0.00 deg squeeze  20.0 N 
+S_U_fixed_F20_s21001   pass True  pass_rel_core True  moves_ok 5 core slip   0.00 mm rot   0.00 deg squeeze  20.0 N 
+S_U_fixed_F50_s21001   pass False pass_rel_core False moves_ok 4 core slip   0.00 mm rot   0.00 deg squeeze  50.0 N 
+S_U_fixed_F50_s21000   pass False pass_rel_core False moves_ok 4 core slip   0.00 mm rot   0.00 deg squeeze  50.0 N 
+S_U_free_F50_s21000    pass False pass_rel_core False moves_ok 4 core slip   2.92 mm rot   2.18 deg squeeze  49.9 N 
+S_U_free_F50_s21001    pass False pass_rel_core False moves_ok 1 core slip   9.26 mm rot   0.96 deg squeeze  50.0 N 

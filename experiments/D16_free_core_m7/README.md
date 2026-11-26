@@ -86,3 +86,47 @@ is therefore at most about kp × 6 mm = 12 N. Measured with the U pads closed on
 - The turning side is the G1 rig: world-fixed and step-closing. It does not follow the cube when the cube slides.
 - The core's mass and inertia are assumed.
 - Nothing here is scored or pre-registered.
+
+## D16b: settle-then-turn (UNSCORED; P-99 item 2)
+**Procedure change.** This is a controller-side change; G1's checks are unchanged. Before each move:
+1. Wait until every cubie and the core have |ω| < 1°/s and the core has |v| < 1 mm/s, for at most 2 s.
+2. Ramp the turning pads closed over 0.3 s instead of a step.
+
+The penetration is now split into **pad-cubie** and **cubie-cubie** contacts.
+
+| Configuration | Trials | G1 pass | Observed move correct | Failed checks | Max cubie-cubie pen. mm | Max pad-cubie pen. mm |
+|---|---|---|---|---|---|---|
+| Free core, 20 N (U, R, F) | 12 | **8** (was 5/12) | 60/60 | `ok_causal` only | 0.13 | 0.39 |
+| Fixed core, 20 N (U) | 2 | 2 | 10/10 | – | 0.11 | 0.28 |
+| Fixed core, 50 N (U) | 2 | 0 | 10/10 | `ok_penetration` | **0.07** | **0.64** |
+| Free core, 50 N (U) | 2 | 0 | 9/10 (one jam again, `S_U_free_F50_s21001`) | causal, penetration, oracle | 0.33 | 0.95 |
+
+**Two findings:**
+- **The 50 N fixed-core penetration failure is the pads sinking into the cube, not cubies overlapping** (`FACT`).
+  Cubie-cubie penetration is 0.07 mm. G1's single metric takes the deepest of all contacts, pads included.
+- **The rest check sometimes never passes.** Four waits reached the 2 s limit with the cube still moving.
+
+## D16c: why the causality check still fails (`diag_first_move.py`, UNSCORED)
+`S_U_free_F20_s21001` was logged step by step over the first move's 0.3 s ramp, before the pads touch. The cube had
+passed the rest check at t0.
+
+| Variant | Median over steps of max-cubie \|ω\| (°/s) | Steps with layer \|ω\| relative to the core > 5°/s |
+|---|---|---|
+| Fixed core | **0.0** | 15/601 |
+| Free core, 1.7 g, I 2e-8 (as run) | **45.5** | 184/601 |
+| Free core, 1.7 g, I 2e-7 | 45.5 | 190/601 |
+| Free core, 17 g, I 2e-6 | 42.8 | 50/601 |
+
+**Readings:**
+- **Velocities:** with a free core, individual cubies show angular velocities of tens to hundreds of °/s that change
+  sign from one 0.5 ms step to the next. The turning layer's mean speed about its axis swings ±5–12°/s.
+- **Displacement:** the same cubies barely move. Turn errors are ≤ 0.24° and drift ≤ 0.44° over whole moves.
+- **Contacts:** before the pads touch, the layer's only contacts are with other cubies, at 1–4 N.
+- **Interpretation (`INFERENCE`):** high-frequency jitter of the free, compliantly held assembly. It is not a layer
+  rotation, but G1's instantaneous-speed threshold (5°/s) cannot tell the two apart, and it also defeats the rest
+  check.
+- **Core inertia** reduces the jitter but does not remove it, so the core's assumed inertia is not the main cause.
+- **Not yet identified:** the source. Candidates are the stand-in pad dynamics (10 g pads on a saturated servo), the
+  soft-contact parameters, NoSlip with a floating assembly, and the timestep.
+- **Before G2's causality criterion can be fixed,** we need either the source of the jitter or a filtered layer speed
+  (e.g. over 20 ms) as the measure. That is a `PROPOSAL` for the user.

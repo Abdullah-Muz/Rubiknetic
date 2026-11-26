@@ -46,6 +46,9 @@ STAB_W, STAB_DEPTH, STAB_T = 0.030, 0.030, 0.004      # P-97 stabiliser pad (m)
 STAB_OPEN, STAB_OVERSHOOT, STAB_KP = 0.014, 0.030, 2000.0
 SIDE_AXIS = {"U": 1, "D": 1, "R": 1, "L": 1, "F": 0, "B": 0}   # stabiliser pads on the +-y faces (U, R) or +-x (F)
 CORE_MASS, CORE_I = 0.0017, 2e-8                      # D6 (Paulus 2023 BOM; ASSUMPTION)
+import os  # noqa: E402
+CORE_MASS = float(os.environ.get("D16_CORE_MASS", CORE_MASS))   # D16c diagnostic overrides only
+CORE_I = float(os.environ.get("D16_CORE_I", CORE_I))
 SEEDS = (21000, 21001, 21002, 21003)
 # D16b (user, 2026-11-26: "Settle-then-turn test"): before each move wait until the cube is at rest, then close the
 # turning pads on a ramp instead of a step. A controller-side change; every G1 check is unchanged.
