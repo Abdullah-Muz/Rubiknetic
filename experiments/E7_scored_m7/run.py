@@ -172,6 +172,8 @@ def install(r: float, n: int) -> dict:
         log["noslip_wrapper_calls"] += 1
         return D13.with_noslip(xml(p), n)
 
+    M7Trial.m7_edge_radius = r                       # labels for tests (no effect on the trial)
+    wrapped.m7_noslip = n
     scored.Trial = M7Trial
     scored.build_m1_xml = wrapped if n else xml
     return log
@@ -295,6 +297,8 @@ def build_m7_jobs(commit: str, env: dict, validated_tilt: float) -> list[dict]:
     plus = M4.SEED_SHIFT - _M5["SEED_SHIFT"]
     rx = [s - SEED_PLUS + plus for s in REST_X_SEEDS]          # REST-X follows the active seed map
     jobs += [_rest_job(base, "REST-X", f"rest_s{s}", s, {}) for s in rx]
+    lo, hi = M4.SCORED_SEED_RANGE                  # M4 checks its own jobs at build time; these are appended after
+    assert all(lo <= j["kw"]["seed"] <= hi for j in jobs), "a seed outside the active range"
     keys = [R.key_of(j) for j in jobs]
     assert len(keys) == len(set(keys)), "duplicate record keys"
     return jobs
@@ -392,7 +396,7 @@ def selfcheck(n_workers: int) -> int:
     ok = all(not r["diffs"] for r in rows)
     SELFCHECK_OUT.mkdir(parents=True, exist_ok=True)
     out = {"note": "UNSCORED M7 self-check (pre-registration section 6.2); rehearsal seeds only", "pass": ok,
-           "environment": env, "head": scored._git("rev-parse", "HEAD"),
+           "environment": env, "head": scored._git("rev-parse", "HEAD"), **provenance(),
            "trials": [{**r, "n_diffs": len(r["diffs"]), "diffs": r["diffs"][:20]} for r in rows]}
     (SELFCHECK_OUT / "selfcheck.json").write_text(json.dumps(out, indent=1, default=str))
     for r in rows:
@@ -402,11 +406,37 @@ def selfcheck(n_workers: int) -> int:
     return 0 if ok else 1
 
 
+MIN_FREE_DISK_GB = 3.0                     # 75 rest60 records at about 11.4 MB each, about 0.85 GB (review 1, O10)
+
+
+def provenance() -> dict:
+    """Which code produced a self-check or smoke result (review 1, B-R8): HEAD, a clean-tree flag and SHA-256s."""
+    import hashlib
+    st = scored._git("status", "--porcelain", "--", "experiments/E7_scored_m7/run.py",
+                     "experiments/E7_scored_m7/analyze.py", *M7_FROZEN_PATHS)
+    return {"tree_clean_for_m7_paths": st == "", "dirty": st.splitlines()[:20],
+            "sha256": {p: hashlib.sha256((REPO / p).read_bytes()).hexdigest()
+                       for p in ("experiments/E7_scored_m7/run.py", "experiments/E7_scored_m7/analyze.py")}}
+
+
+def free_disk_gb(path: Path) -> float:
+    import shutil
+    path.mkdir(parents=True, exist_ok=True)
+    return shutil.disk_usage(path).free / 1e9
+
+
 def main(argv: list[str] | None = None) -> None:
     argv = sys.argv[1:] if argv is None else argv
     if argv[:1] == ["selfcheck"]:
         n = int(argv[argv.index("--jobs") + 1]) if "--jobs" in argv else 6
         sys.exit(selfcheck(n))
+    if argv[:1] == ["provenance"]:
+        print(json.dumps(provenance(), indent=1))
+        return
+    if argv[:1] in (["all"], ["smoke"]) and "--dry-run" not in argv:
+        free = free_disk_gb(OUT.parent)
+        if free < MIN_FREE_DISK_GB:
+            raise SystemExit(f"refusing: {free:.1f} GB free disk, at least {MIN_FREE_DISK_GB} GB needed")
     R.main(argv)
 
 

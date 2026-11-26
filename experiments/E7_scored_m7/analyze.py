@@ -76,6 +76,8 @@ def _overrides(rec: dict) -> dict:
 def m7_record_problems(key: tuple, rec: dict) -> list[str]:
     """M7's per-record checks (section 6.1); empty = fine."""
     tag, probs = "/".join(key), []
+    if rec.get("harness_exception"):                     # M5 section 2 (U1 iii): a failing record, not a violation
+        return [] if rec.get("pass") is False else [f"{tag}: harness-exception record is not failing"]
     ov = _overrides(rec)
     r_want, n_want = float(ov.get("edge_radius", E7.EDGE_R)), int(ov.get("noslip", E7.NOSLIP))
     p = rec.get("params") or {}
@@ -84,12 +86,13 @@ def m7_record_problems(key: tuple, rec: dict) -> list[str]:
     m7 = rec.get("m7") or {}
     if not A._close(m7.get("edge_radius"), r_want) or m7.get("noslip") != n_want:
         probs.append(f"{tag}: m7 block {m7.get('edge_radius')!r} / {m7.get('noslip')!r} != {r_want} / {n_want}")
-    if rec.get("harness_exception"):
-        return probs                                     # a failing record; M5's rules already make it fail
     if m7.get("kind") == "rest60":
         n_got = (rec.get("compiled_options") or {}).get("noslip_iterations")
-        if rec.get("rest_s") != E7.REST_S:
-            probs.append(f"{tag}: rest length {rec.get('rest_s')} != {E7.REST_S}")
+        n_samples = len((rec.get("timeseries") or {}).get("t") or [])
+        want_samples = round(E7.REST_S / E7.D13.SAMPLE_S)            # measured length, not only the stored label
+        if rec.get("rest_s") != E7.REST_S or n_samples != want_samples:
+            probs.append(f"{tag}: rest length {rec.get('rest_s')} s, {n_samples} samples "
+                         f"(registered {E7.REST_S} s, {want_samples} samples)")
         ev = E7._plain(E7.D13A.events(rec))
         ok = E7.e11_pass(rec) and not ev
         if bool(rec.get("pass_m1_criteria")) != ok or rec.get("n_slip_events") != len(ev):
@@ -148,22 +151,85 @@ def clopper_pearson_upper(k: int, n: int, conf: float = 0.95) -> float:
     return 1.0 if k >= n else float(beta.ppf(1 - (1 - conf) / 2, k + 1, n - k))
 
 
+# Rehearsal maxima the margins are shown beside (section 0 item 8; FACT: D15 R1 + R2 L0 R25 on 16000-16655, and R4
+# on 19000-19655, r4_analysis.json margins_rehearsal_R1_R2 / margins_fresh, turner_Nm_E12_E13_E14)
+REHEARSAL_MAX = {"max_nontarget_drift_deg": (0.7281, 0.7810), "max_penetration_mm": (0.2932, 0.2916),
+                 "max_abs_turn_error_deg": (0.3682, 0.3848), "max_rest_deg_0_10s": (0.0051, 0.0055),
+                 "max_turner_Nm": (0.185, 0.193)}
+LIMITS = {"max_nontarget_drift_deg": 1.0, "max_penetration_mm": 0.5, "max_abs_turn_error_deg": 2.0,
+          "max_rest_deg_0_10s": 0.5, "max_turner_Nm": 1.0}
+R3_E17 = REPO / "experiments/D15_rounded_edges/results/r3"
+R3_TAG = {"noslip=0": "noslip_ref=0"}               # R3's tag for M7's NoSlip-0 reference arm
+
+
+def _mx(xs):
+    xs = [x for x in xs if x is not None]
+    return max(xs) if xs else None
+
+
+def margins(by: dict, rests: dict) -> dict:
+    mv = [x for e in ("E1-2", "E1-3", "E1-4") for r in by.get(e, []) for x in r.get("per_move", [])]
+    return {"max_nontarget_drift_deg": _mx(abs(x["nontarget_drift_deg"]) for x in mv
+                                           if x.get("nontarget_drift_deg") is not None),
+            "max_penetration_mm": _mx(x.get("penetration_mm") for x in mv),
+            "max_abs_turn_error_deg": _mx(abs(x["turn_error_deg"]) for x in mv if x.get("turn_error_deg") is not None),
+            "max_rest_deg_0_10s": _mx(r.get("rest_rotation_deg") for r in rests.values()),
+            "max_turner_Nm": _mx(x.get("max_turner_torque_Nm") for x in mv)}
+
+
+def _r3_pass(tid: str):
+    """R3's pass flag for the same E1-7 sequence trial (None for rests, whose R3 records carry no flag, or if absent)."""
+    import gzip
+    import json
+    tag, tail = tid.split("__")
+    p = R3_E17 / "E1-7" / f"{R3_TAG.get(tag, tag)}__{tail}.json.gz"
+    if tail == "rest60" or not p.exists():
+        return None
+    return bool(json.loads(gzip.decompress(p.read_bytes())).get("pass"))
+
+
 def m7_sections(st: dict, vd: dict) -> list[str]:
     recs = st["records"]
-    rests = {k: r for k, r in recs.items() if k[0] == "magnets" and k[1] in ("E1-1", "REST-X")}
+    rest60 = {k: r for k, r in recs.items() if (r.get("m7") or {}).get("kind") == "rest60"}
+    rests = {k: r for k, r in rest60.items() if k[1] in ("E1-1", "REST-X")}
+    e11 = {k: r for k, r in rest60.items() if k[1] == "E1-1"}
     n_slip = sum(1 for r in rests.values() if r.get("n_slip_events"))
     L = ["", "## Slip events over 60 s (E1-1 is a criterion; REST-X reported)", "",
-         f"Rests with at least one D11 slip event: {n_slip} / {len(rests)}; 95 % Clopper-Pearson upper bound on the "
-         f"per-rest rate {clopper_pearson_upper(n_slip, len(rests)) if rests else float('nan'):.3f}.",
-         f"Largest 0-10 s rest rotation: {max((r.get('rest_rotation_deg') or 0) for r in rests.values()) if rests else '–'} deg."]
+         f"Rests with at least one D11 slip event: {n_slip} / {len(rests)}; two-sided 95 % Clopper-Pearson upper bound "
+         f"on the per-rest rate {clopper_pearson_upper(n_slip, len(rests)) if rests else float('nan'):.3f}."]
+    failed = [(k, r) for k, r in sorted(rest60.items()) if not r.get("pass")]
+    if failed:
+        L += ["", "Failed 60 s rests with their E1-1 reasons (`e11_fail_reasons`; M4 lists them as 'M1 criteria'):", ""]
+        L += [f"* {'/'.join(k)}: {'; '.join(r.get('e11_fail_reasons') or [])}" for k, r in failed]
+    warm = {k: (r.get("warmup_10s") or {}).get("rest_rotation_deg") for k, r in rest60.items()}
+    for label, keys in (("E1-1", [k for k in warm if k[1] == "E1-1"]), ("REST-X", [k for k in warm if k[1] == "REST-X"]),
+                        ("E1-7 rests", [k for k in warm if k[1] == "E1-7"])):
+        vals = [warm[k] for k in keys if warm[k] is not None]
+        if vals:
+            if label == "E1-1":
+                L += ["", "## NoSlip-off E1-1 (reported; section 0 item 6)", "",
+                      "Each 60 s rest is preceded by M5's 10 s E1-1 with rounded edges and **no NoSlip**, recorded and not "
+                      "judged. M1's E1-1 limit is 0.5 deg.", "", "| rests | warm-ups | above 0.5 deg | largest (deg) |",
+                      "|---|---|---|---|"]
+            L.append(f"| {label} | {len(vals)} | {sum(v > 0.5 for v in vals)} | {max(vals):.4f} |")
+    m = margins(vd.get("by", {}), e11)
+    L += ["", "## Margins beside the rehearsals (reported; section 0 item 8)", "",
+          "| quantity | M7 scored | R1 + R2 rehearsal | R4 fresh seeds | limit |", "|---|---|---|---|---|"]
+    for q, lim in LIMITS.items():
+        v = m.get(q)
+        a, b = REHEARSAL_MAX[q]
+        L.append(f"| {q} | {'–' if v is None else f'{v:.4f}'} | {a} | {b} | {lim} |")
     by = vd.get("by", {})
-    mv = [x for e in ("E1-2", "E1-3", "E1-4") for r in by.get(e, []) for x in r.get("per_move", [])]
-    tq = [x.get("max_turner_torque_Nm") for x in mv if x.get("max_turner_torque_Nm") is not None]
-    pen = [x.get("penetration_mm") for x in mv if x.get("penetration_mm") is not None]
-    L += ["", "## Margins and turner torque (reported; section 4.3)", "",
-          f"* Penetration over E1-2…E1-4: {A._q(pen)} mm (limit 0.5).",
-          "* Moves with peak turner torque above " + ", ".join(f"{t} N m: {sum(x > t for x in tq)}" for t in TORQUE_LEVELS)
-          + f" (of {len(tq)})."]
+    tq = [x.get("max_turner_torque_Nm") for e in ("E1-2", "E1-3", "E1-4") for r in by.get(e, [])
+          for x in r.get("per_move", []) if x.get("max_turner_torque_Nm") is not None]
+    L += ["", "* Moves with peak turner torque above " + ", ".join(f"{t} N m: {sum(x > t for x in tq)}"
+                                                                  for t in TORQUE_LEVELS) + f" (of {len(tq)})."]
+    L += ["", "## E1-7 against R3 (reported; R3's `noslip_ref=0` is M7's `noslip=0`)", "",
+          "| trial | M7 | R3 |", "|---|---|---|"]
+    for k, r in sorted(recs.items()):
+        if k[0] == "magnets" and k[1] == "E1-7":
+            r3 = _r3_pass(k[2])
+            L.append(f"| {k[2]} | {'pass' if r.get('pass') else 'FAIL'} | {'–' if r3 is None else ('pass' if r3 else 'FAIL')} |")
     L += ["", "## E1-7 rests (reported)", "", "| setting | pass | 0-10 s rotation (deg) | slip events |", "|---|---|---|---|"]
     for k, r in sorted(recs.items()):
         if k[1] == "E1-7" and k[2].endswith("__rest60"):
@@ -176,6 +242,10 @@ def report(st: dict, vd: dict) -> str:
     text = A.report(st, vd)
     assert text.startswith(M5_TITLE)
     text = "# G1 scored results — M7 (auto-generated by analyze.py)" + text[len(M5_TITLE):]
+    if st["manifest"] is not None:
+        missing = [a for a in M5_RESTATED if a not in text]
+        if missing:                                  # M5's template drifted: say so rather than print M5's wording
+            text += "\n**Report template mismatch:** M5 restated line(s) not found: " + " | ".join(missing) + "\n"
     for a, b in zip(M5_RESTATED, M7_RESTATED):
         text = text.replace(a, b)
     if st["manifest"] is None:

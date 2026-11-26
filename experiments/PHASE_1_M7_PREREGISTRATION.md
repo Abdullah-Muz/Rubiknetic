@@ -1,6 +1,10 @@
 # Phase 1 (G1) Pre-registration: M7, the L0 magnetic contact cube with rounded edges and NoSlip 10
 
-**Status: DRAFT, revision 1, NOT APPROVED. Nothing here is in force.**
+**Status: DRAFT, revision 2, NOT APPROVED. Nothing here is in force.**
+- **Revision 2 (P-89)** makes every required change of review 1 and adopts most of its optional ones
+  ([`M7_PREREGISTRATION_REVIEW1_2026-11-25.md`](M7_PREREGISTRATION_REVIEW1_2026-11-25.md); two reviewer subagents,
+  the user having widened P-86 Q8 to two for that round). The response, item by item, is in §9. It is the text sent to
+  review 2.
 - Revision 0 (`01938af`) was written by the main session on 2026-11-25, after P-83 (L0 chosen as the working
   candidate) and P-85 (R3, the E1-7 rehearsal).
 - §8 was answered the same day (P-86): Q3 yes, Q4 criterion, Q8 one reviewer subagent per round, and the defaults for
@@ -40,6 +44,8 @@ No scored seed (17000–17999) has been touched. The simulations behind this rev
 - `INFERENCE`: reasoning, not computed by project code.
 - `PROPOSAL`: needs approval.
 - `TODO`: still to be produced.
+- `ASSUMPTION`: taken as given for the model, not established.
+- `UNVERIFIED`: from a source that was not read, or that conflicts with another.
 
 ---
 
@@ -60,8 +66,13 @@ No scored seed (17000–17999) has been touched. The simulations behind this rev
 2. **Independence (as M5 §0 item 2).**
    - Held out: the seeds, the setup draws and the E1-4 scrambles, which are drawn from the scored seeds.
    - Not held out: every other move string is fixed by M1 and has been seen many times.
-3. **Clearance.** The 0.05 mm piece gap is an `ASSUMPTION` (M5 §0 item 3). The CAD's piece gap is 0.25 mm, and real
-   cube clearances are unverified (P-77).
+3. **Clearance.** The 0.05 mm piece gap is an `ASSUMPTION` (M5 §0 item 3). Real cube clearances are unverified
+   (P-77). The project's CAD figures conflict and are `UNVERIFIED`:
+   - `ER9_anchored_core_layouts/side_checks/README.md:56` gives the CAD's "piece gap" as 0.25 mm;
+   - `docs/research/CUBE_MECHANISM_FINDINGS.md:71` gives the same CAD's neighbour clearance as 0.033–0.038 mm.
+
+   `docs/research/MAGNET_POCKET_WALL_FINDINGS.md:99-102` records this as unresolved; the two may measure different
+   things.
    - R3 shows drift fragility at 0.1 mm: 1.005–1.095° against ≤ 1.0°.
    - M5 §4 already expected that flip from P-25.
 4. **Turning torque is uncalibrated (P-83 (2)).**
@@ -70,12 +81,24 @@ No scored seed (17000–17999) has been touched. The simulations behind this rev
    - L0's R2 turner median is 0.103 N·m and its max 0.185 N·m.
    - Torque is reported, never judged (§4.3).
 5. **Rounded edges are a modelling choice.**
-   - Real speedcube pieces are rounded or bevelled at their edges (corner cutting), but R 2.5 mm was chosen because
-     it removed the chamfer's catch (P-78–P-80), not from a measured profile.
+   - R 2.5 mm was chosen because it removed the chamfer's catch (P-78–P-80), not from a measured profile.
+   - Real-cube edge geometry is unverified (P-78; P-82 lists the physical credibility of the rounded edge as lacking).
+     Whether real speedcube pieces have rounded edges of this size is `UNVERIFIED`. Corner cutting is a turning
+     tolerance, not evidence of an edge profile.
    - R3 shows the outcome holds over R 1.8–3.6 mm.
    - Static checks: the magnets keep the 0.4 mm wall at those radii, and V4–V6 pass (`r3_static.json`).
-6. **NoSlip 10 is a solver setting chosen post hoc** (P-73). R3 shows the outcome holds over NoSlip 5–20 and, for
-   sequences, with NoSlip off.
+6. **NoSlip 10 is a solver setting chosen post hoc** (P-73), and **E1-1 passes only with it** (review 1, R2).
+   - **Sequences:** R3 shows the outcome holds over NoSlip 5–20, and with NoSlip off (the 0 reference arm).
+   - **Rests: without NoSlip, the M7 geometry fails M1's E1-1 limit at a rate like M5's.** Each 60 s rest is preceded
+     by a 10 s warm-up that is exactly M5's E1-1 trial with rounded edges and no NoSlip. It is recorded
+     (`warmup_10s`), not judged. `FACT` from the committed D15 records:
+     - R2 L0 (rehearsal seeds): 3 / 20 warm-ups above 0.5° (`rest_s16003` 0.709°, `rest_s16005` 0.549°,
+       `rest_s16018` 0.694°);
+     - R4 L0 (fresh seeds): 1 / 20 (`rest_s19008` 0.577°);
+     - the judged 60 s rests of those seeds, with NoSlip 10: at most 0.0051° and 0.0055°.
+   - `INFERENCE`: rounded edges removed the turning catch and jam; NoSlip removed the rest slips. The E1-1 result is a
+     property of the model *with* this solver post-process.
+   - The scored run reports the NoSlip-off warm-ups for E1-1, REST-X and the E1-7 rests (§4.3).
 7. **Known fragilities (R3, P-85; E1-7 is reported, not judged):**
    - gap 0.1 mm: drift (both sequences);
    - μ 1.0: a jam at the clip (sexy6);
@@ -106,19 +129,21 @@ No scored seed (17000–17999) has been touched. The simulations behind this rev
 | Cubies, rig, contacts | M5 §1 unchanged: B1 (`radial_preload = 0`), piece gap 0.05 mm, face gap 0.85 mm, implicitfast at 0.5 ms, M1's contact and solver settings | `FACT`, M5 §1 |
 | **Edge profile** | `edge_profile = "rounded"`, `edge_radius = 0.0025` (`M1Params`, R0). The chamfer value is unused under the rounded profile | P-79, P-80; R0 shows a byte-identical chamfer default |
 | **NoSlip** | `noslip_iterations = 10` on the trial model, applied by wrapping `scored.build_m1_xml` (D13 `with_noslip`). The magnet model has no NoSlip | P-73; D14 Stage 3 proof checks |
-| Magnets | **M5's 48 × 4×2 mm N35** at M5's positions, with M5's table and V3 record (validated near-pair tilt 5°). Identical to M5 | `FACT`, M5 §1; L0 = M5 magnets (ER7 GS1) |
+| Magnets | **M5's 48 × 4×2 mm N35** at M5's positions, with M5's table and V3 record (validated near-pair tilt 5°). Identical to M5 | `FACT`, M5 §1; L0 = M5 magnets (ER9 Part G's gate GS1, `er9g_layouts.py`) |
 | Turner | M1's rig: turn_kp 5, kv 0.2, torque clip 1 N·m. Clip = peak ≥ 0.999 N·m | `FACT`, M5 §1, §4 |
 | Execution path | M5's runner (`E5_scored_m5/run.py`) and M4's, loaded unchanged in M7's own module instances (as E6), with the edge and NoSlip installs applied per trial by a wrapper around `M4.run_trial` (§6.1). The self-check reproduces the D15 rehearsal records with 0 differences (§6.2) | `FACT`, `E7_scored_m7/results_selfcheck/selfcheck.json` |
-| Software | MuJoCo 4.0.1, Python 3.12.3, NumPy 2.5.4, SciPy 1.18.1, in WSL Ubuntu 24.04 (`~/.venvs/rubiknetic`) | `FACT`, every R2/R3 record |
+| Software | MuJoCo 4.0.1, Python 3.12.3, NumPy 2.5.4, SciPy 1.18.1, in WSL (`~/.venvs/rubiknetic`; Ubuntu 24.04.5 per `/etc/os-release`) | `FACT`: the versions appear in all 357 R2, 74 R3 and 214 R4 records, whose platform string ends in `glibc2.39` |
 
 **Abstractions (to be published with any verdict; VALIDATION_PLAN G1 "Pass"):**
-- The cube is contact-emergent (B1). `m1_model.py`'s docstring (line 13) states that no constraint is switched at
-  runtime and nothing writes cubie state, so the VALIDATION_PLAN "switch timing" item does not apply (`FACT`).
+- The cube is contact-emergent (B1). `m1_model.py`'s docstring (lines 11-13) states that no constraint is switched
+  at runtime and nothing writes cubie state, and every trial's edit audit (M1 rule 2, `edit_audit_violations`) checks
+  the second part. `INFERENCE`: the VALIDATION_PLAN "switch timing" item therefore does not apply.
 - B1 has no radial freedom, so there is no magnetic preload.
 - Magnets have no collision geometry.
 - The ideal-magnet law may overstate force by up to 1.5× (M5 §7; D8 V2). E1-7's 0.67 scale covers this (passed, R3).
-- NoSlip is a solver post-process that removes contact slip velocity. It is a numerical choice, not a physical law,
-  and its effect is bounded by R3's NoSlip 5 / 20 / 0 arms.
+- NoSlip is a solver post-process that removes contact slip velocity. It is a numerical choice, not a physical law.
+  For sequences, R3's NoSlip 5 / 20 / 0 arms bound its effect: all pass. For rests, the NoSlip-off evidence is the
+  warm-ups of §0 item 6, which fail E1-1 in 3 / 20 rehearsal and 1 / 20 fresh seeds. The rest result depends on it.
 - **Lateral-offset disclosure (carried from M5):** corner–edge magnet pairs that cross a turning boundary pass lateral
   offsets of 6–8 mm, while V3a validates 0–6 mm (D12 PROTOCOL; review G11).
 - **Part G's "composite review" does not apply:** M7 has one magnet type, M5's.
@@ -134,11 +159,15 @@ M5 §2 unchanged, except as noted:
 - **Location check** as M5 revision 8: no path in a OneDrive folder.
 - **Environment:** M5's check compares every record's environment (MuJoCo, NumPy, SciPy, Python, CPU) with the
   manifest. The run is started from WSL with `~/.venvs/rubiknetic`, the environment of every D15 record.
-- **No other jobs in WSL** during the run (P-82 (b)). The start log records the load at start.
+- **No other jobs in WSL** during the run (P-82 (b)). Each record stores the 1-minute load average at its start
+  (`loadavg_start`); M5's start log does not record the load, and M5's runner is not changed for it.
+- **Disk:** the runner refuses to start with less than 3 GB free. The 75 60 s rest records are about 11.4 MB each
+  (about 0.85 GB in all).
 
 ## 3. Trials and seeds (PROPOSAL)
 **Seed map: M5 scored seed + 7000** (17000–17655). Q2.
-- `FACT`: no record anywhere uses 17000–17999 (seed search in §6.4 below, to be repeated before fixing).
+- `FACT` within §6.4's scope: no `.json`, `.json.gz` or `.jsonl` file under `experiments/` uses 17000–17999. The full
+  search (tracked text, untracked files elsewhere) is `TODO`, repeated as the last step before fixing.
 - D12's and Part G's runners refuse that block in code. The lapsed M6 draft and the never-run E6 runner named it
   (P-66).
 
@@ -149,7 +178,7 @@ M5 §2 unchanged, except as noted:
 | E1-3 | Half turns | 22 | M5 list + 7000 | yes |
 | E1-4 | 20 × sexy6; 20 × scramble(20, s) + inverse (scrambles from 17400–17419) | 40 | M5 list + 7000 | yes |
 | E1-5 | U offset 0…20°, both signs, then R | 42 | 17500–17541 | yes |
-| E1-5s | Snap-back from ±1, 2, 3, 5, 8°, 2 seeds | 20 | M5 list + 7000 | yes |
+| E1-5s | Snap-back from ±1, 2, 3, 5, 8°, 2 repetitions (seed = base + 10·rep + \|δ\|) | 20 | 17551–17568 (10 seeds) | yes |
 | E1-6a/b/c | Open pad (6), opposed torques (6), corner twist (8) | 20 | M5 list + 7000 | yes |
 | E1-6t | Toy-standard torque 0.45 N·m | 16 | 17640–17655 | yes |
 | E1-6m | Energy and impulse per move of E1-2 to E1-4 | (moves) | — | yes (⟨P⟩) |
@@ -200,6 +229,9 @@ M5 §2 unchanged, except as noted:
 ### 4.2 Changed or new (PROPOSAL)
 - **E1-1 procedure:** the 60 s instrumented rest replaces the 10 s rest. M1's criterion still reads 0–10 s, so this
   does not loosen M5.
+  - Before it, each rest60 trial runs M5's 10 s E1-1 trial with rounded edges and **NoSlip 0** as a warm-up (R2–R4's
+    steps). The warm-up is recorded as `warmup_10s`, **not judged**, and reported (§4.3; §0 item 6).
+  - Penetration, integrity and final-solved are judged over the whole 60 s, which is stricter than M1's 10 s.
 - **How E1-1 is judged (implementation):**
   - The worker computes the pass flag as D14's `e11_pass` and 0 events of D11's detector (`d13_analyze.events`).
   - `e11_pass` is copied into `run.py`, and a test checks it equals D14's on R4's records.
@@ -209,13 +241,18 @@ M5 §2 unchanged, except as noted:
   more in any cubie's signed rotation about any of its faces across 200 ms, merged as in D11.
   - This tightens M5.
   - Disclosed: the definition was descriptive and post hoc (D11 PROTOCOL).
-  - Rehearsal: 0 events in L0's 20 R2 rests and in R3's 15.
+  - Rehearsal: 0 events in L0's 20 R2 rests, R3's 15 and R4's 20.
+  - A slip failure is listed in `fail_reasons` only as "M1 criteria" (M4 replaces the list). Its own reasons are kept
+    in `e11_fail_reasons`, which the report prints.
 
-### 4.3 Reported only (never in Option A)
-- **Turner torque per move** (E1-2 to E1-4): median, p99 and max, and counts above 0.2, 0.45 and 0.5 N·m and at the
-  clip. Shown beside R2's L0 values.
-- E1-6n, E1-7 (flips are fragilities), REST-X.
-- Margins against every threshold, beside the §0 item 8 rehearsal maxima.
+### 4.3 Reported only (never in Option A); all written by `analyze.py`
+- **Turner torque per move** (E1-2 to E1-4): median, p99 and max (M5's report), counts above 0.2, 0.45 and 0.5 N·m,
+  and moves at the clip.
+- **Margins** (largest drift, penetration, |turn error|, 0–10 s rest rotation and turner torque) beside the R1 + R2
+  and R4 maxima of §0 item 8 and the limits.
+- **NoSlip-off E1-1** (§0 item 6): for E1-1, REST-X and the E1-7 rests, the warm-ups above 0.5° and the largest.
+- E1-6n (M5's report); REST-X and slips over E1-1 + REST-X; E1-7 against R3's flags (R3's `noslip_ref=0` is M7's
+  `noslip=0`) and the E1-7 rests; failed 60 s rests with their `e11_fail_reasons`.
 
 ### 4.4 Pass logic
 - **Option A:** every §4.1–§4.2 criterion holds in 100 % of the 204 trials (E1-6m per move).
@@ -231,20 +268,24 @@ M5 §2 unchanged, except as noted:
     - the mechanism label is "M7";
     - rounded edges with the registered radius;
     - the registered NoSlip count in the compiled options;
-    - for turn trials, exactly one trial model and one NoSlip-wrapper call;
-    - every 60 s rest is 60 s long, and its stored verdict equals the one re-derived from the record.
+    - for turn trials, exactly one trial model and one NoSlip-wrapper call (none at NoSlip 0);
+    - every 60 s rest is 60 s long, by its label and by its 2,400 samples, and its stored verdict equals the one
+      re-derived from the record.
+  - **A harness-exception record** (M5 §2, U1 iii) is exempt from the M7 checks, because it carries neither edge nor
+    M7 block. It must fail (`pass` False); it is then an ordinary failing trial, not a violation (review 1, R1).
   - Expected counts are as in §3. A missing record gives INCOMPLETE; an extra one gives INVALID.
 - **Secondary (reported):**
   - the margins;
   - the torque report;
-  - slips over 60 seeds (E1-1 + REST-X), with a 95 % Clopper–Pearson interval. 0/60 gives an upper bound of about
-    5 %;
+  - slips over 60 seeds (E1-1 + REST-X), with the two-sided 95 % Clopper–Pearson interval. 0 / 60 gives an upper
+    bound of about 6 % (0.0596);
   - E1-6n;
   - the E1-7 flips against R3;
+  - the NoSlip-off warm-ups;
   - the run procedure.
 - **No hypothesis test** decides the verdict.
 
-## 6. Freeze and integrity (code built: `5e74b69` and the revision-1 commit)
+## 6. Freeze and integrity (code: `5e74b69`, `090fc8f`, and the revision-2 code commit)
 ### 6.1 Code (`FACT`)
 **`experiments/E7_scored_m7/run.py`.** It loads M4's and M5's runners unchanged in fresh module instances (`*_for_m7`),
 as E6 did, and changes only module globals:
@@ -263,20 +304,39 @@ as E6 did, and changes only module globals:
   - the pass flag as in §4.2.
 - **E1-7 factors:** `chamfer` is replaced by `edge_radius` [1.8, 2.5, 3.6] mm, and `noslip` [0, 5, 10, 20] is added;
   the 15 rests and REST-X are appended to the job list.
-- **`selfcheck` mode** (§6.2).
+- **`selfcheck` mode** (§6.2), which records the HEAD, whether the M7 paths are clean, and the SHA-256 of `run.py` and
+  `analyze.py` (`provenance`; also printed by `run.py provenance`).
+- **Guards:** every appended seed (E1-7 rests, REST-X) must lie in the active range; `all` and `smoke` refuse to start
+  with less than 3 GB free disk.
 
-**`experiments/E7_scored_m7/analyze.py`:** §5.
+**`experiments/E7_scored_m7/analyze.py`:** §5 and §4.3.
 
-**Tests:** `tests/test_scored_m7.py`, 14 tests. They cover:
-- isolation from M5's module instances;
-- the counts and the "not run" set;
-- seeds, scrambles and the M5 + 7000 map;
+**Tests:** `tests/test_scored_m7.py`, 31 tests. They cover:
+- isolation from M5's module instances, including that a fresh M5 runner keeps its own seeds, factors and
+  `run_trial`;
+- the counts, the "not run" set, and `v3_not_run` on M7's list;
+- seeds, scrambles, the M5 + 7000 map, and **M5's committed scored manifest mapped onto M7's list** (438 keys, seed
+  + 7000, equal overrides);
 - the E1-7 factors and the `rest60` kinds;
-- `e11_pass` equal to D14's;
-- the per-trial installs and the overrides they consume;
-- the M7 record checks, including re-derived rest verdicts and the mechanism-check replacement;
-- the frozen paths and the self-check list;
-- Clopper–Pearson.
+- `e11_pass` equal to D14's on all 20 R4 records, with each of its seven conditions broken in turn, and its limits
+  equal to `scored.THRESHOLDS`;
+- the per-trial installs: radius, profile handed to the base class, and `noslip_iterations` in the XML;
+- **every one of the 501 runnable jobs** through `run_trial` with stand-ins: its registered edge and NoSlip, and for
+  rests the `d13_rest` cfg, unwrapped XML and 60 s;
+- the rest60 path: overrides consumed, warm-up and rest installs, cfg, length, the stored verdict, and a genuine slip
+  failing the rest;
+- the M7 record checks, including harness-exception records (failing, not violations) and NoSlip 0;
+- **the full verdict on synthetic runs** through M5's run procedure:
+  - a complete valid set gives PASS;
+  - an E1-1 slip gives NOT PASSED;
+  - a failing REST-X rest gives PASS;
+  - a reported-only harness exception gives PASS;
+  - an Option A harness exception gives NOT PASSED;
+  - an inconsistent stored rest verdict gives INVALID;
+  - a missing record gives INCOMPLETE;
+  - an extra record gives INVALID;
+- the report text (M7 title, restated lines, new sections);
+- the frozen paths, the self-check list, and Clopper–Pearson.
 
 M5's tests pass in the same session, and so does the full repository suite.
 
@@ -290,6 +350,12 @@ M5's tests pass in the same session, and so does the full repository suite.
 is test-checked against D14's.
 
 ### 6.2 Self-checks before the first start (rehearsal seeds only; committed)
+**Provenance (review 1, B-R8).** The revision-1 results below ran on code that differed from any commit:
+- the self-check ran at `5e74b69` with the 16-trial list added but not yet committed (committed in `090fc8f`);
+- the smoke ran at `e795a2c`, before the E7 code was committed.
+
+**Both are re-run at the revision-2 code commit**, with provenance recorded. Those results replace these before the
+text is fixed (§6.7).
 | ID | Check | Result (`FACT`) |
 |---|---|---|
 | SC1 / SC2 | `run.py selfcheck`, rehearsal map (+6000): the first trial of each of the 10 Option A sub-experiments reproduces R1's or R2's committed L0 R25 record. For E1-1 that is R2's 60 s `rest_s16000` | **0 differences each** |
@@ -311,9 +377,12 @@ is test-checked against D14's.
 
 ### 6.4 Seed search (to be repeated and recorded before fixing)
 - `git grep` and `rg --no-ignore` for `17[0-9]{3}` seeds across all files, as in the ER9 skeleton §9.2.
-- `FACT` (2026-11-25, this draft): a scan of all 5,590 `.json`, `.json.gz` and `.jsonl` files under `experiments/`
-  (decompressed) for `"seed": 17xxx` or `_s17xxx` found **0 matches**. Tracked text and untracked files outside
-  `experiments/` are still to be searched as above.
+- `FACT` (2026-11-25): a scan of all 5,590 `.json`, `.json.gz` and `.jsonl` files under `experiments/`
+  (decompressed) for `"seed": 17xxx` or `_s17xxx` found **0 matches**. Review 1's rescan of the current 5,814 such
+  files (5,740 tracked + 74 ignored) also found 0.
+- Tracked text and untracked files outside `experiments/` are still to be searched as above. `git grep` will hit
+  synthetic `_s17xxx` keys in `tests/test_scored_m6.py` and `tests/test_scored_m7.py`. These stub the trial before any
+  step and simulate nothing.
 
 ### 6.5 Review (Q8)
 - Independent review of the text and the code together, until a review requires no changes (M5 precedent: 8
@@ -333,6 +402,12 @@ is test-checked against D14's.
 - Cap: 35 CPU-h.
 - The cost is projected again after 25 % of the trials. Over the cap, the run pauses for the user; it is never
   abandoned (INCOMPLETE is final).
+
+### 6.7 Revision-2 evidence (re-run at the revision-2 code commit; B-R8)
+`TODO`, filled in before review 2:
+- the self-check (16 trials) with its provenance block;
+- the smoke with a forced interruption and a resume, with M7's verdict script on it;
+- the M7 and M5 tests and the full suite.
 
 ## 7. Prerequisites before this text can be fixed
 1. The user's answers to §8.
@@ -354,6 +429,51 @@ is test-checked against D14's.
 | Q4 | Slip rule | **A criterion (0 events over 60 s)**, disclosed post hoc | NoSlip was adopted to remove slips. A pass with slips would undercut the claim. It tightens M5 and never loosens it |
 | Q5 | E1-6n no-magnet arm | **Keep, reported** (M5 precedent) | Shows what the magnets contribute. R3 found L0 sequences pass even without magnets, which is worth confirming on fresh seeds |
 | Q6 | E1-7 | **R3's list and rests, at seed 17000** | Same design as the rehearsal, so flips are comparable |
-| Q7 | REST-X | **Yes, 40 × 60 s rests** | 20 rests cannot bound the slip rate usefully. 60 gives a bound of about 5 % if 0 |
+| Q7 | REST-X | **Yes, 40 × 60 s rests** | 20 rests cannot bound the slip rate usefully. 60 give a two-sided 95 % upper bound of about 6 % if 0 |
 | Q8 | Review | **Answered: one reviewer subagent per round** (P-86), text and code together, iterated until no changes are required | CLAUDE.md forbids subagents by default, and the user permitted this one. M5 needed 8 rounds |
 | Q9 | Turner torque | **Reported only** | A threshold now would be post hoc. The torque is uncalibrated (P-83) |
+
+## 9. Response to review 1 (revision 2)
+Every required item was checked against the code or records by the main session before it was acted on. The review
+is [`M7_PREREGISTRATION_REVIEW1_2026-11-25.md`](M7_PREREGISTRATION_REVIEW1_2026-11-25.md).
+
+**Required**
+
+| Item | Verified | Change |
+|---|---|---|
+| A-R1 / B-R3: a harness-exception record made the run INVALID | yes: the checks ran before the early return | `analyze.py`: the exemption is first, and such a record must fail. Tests: exception records (seq, rest60, `noslip=0`, REST-X, an E1-7 rest) give no violation; synthetic runs give PASS for a reported-only exception and NOT PASSED for an Option A one (§5) |
+| A-R2: undisclosed NoSlip dependence of E1-1 | yes: R2 3/20 and R4 1/20 warm-ups above 0.5° | §0 item 6, §1 abstractions and §4.2 state it; §4.3 and `analyze.py` report the NoSlip-off warm-ups |
+| A-R3: the seed FACT went beyond its search | yes | §3 limits it to §6.4's scope; the full search stays `TODO` before fixing |
+| A-R4 / B-R2: the start-log load claim | yes: M5's start log has no load | §2 corrected (`loadavg_start` per record) |
+| A-R5 / B-R1: "about 5 %" | yes: 0.0596 two-sided | §5 and Q7 say about 6 % (two-sided 95 %) |
+| B-R4: CAD gap 0.25 mm miscited and contested | yes: `side_checks/README.md:56` against `CUBE_MECHANISM_FINDINGS.md:71` | §0 item 3 cites both, `UNVERIFIED` |
+| B-R5: unlabelled speedcube-edge claim | yes: P-78 says edge geometry is unverified | §0 item 5 relabelled `UNVERIFIED` |
+| B-R6: rest60 path untested | yes | Tests for the rest60 path (installs, cfg, 60 s, verdict) and a genuine slip failing the rest |
+| B-R7: no full-verdict tests for M7 | yes | Synthetic-run tests: PASS, NOT PASSED, INCOMPLETE and INVALID cases (§6.1) |
+| B-R8: evidence not tied to commits | yes | Disclosed in §6.2; self-check and smoke re-run at the revision-2 code commit with provenance (§6.7) |
+
+**Optional (adopted unless stated)**
+- **A-O1:** stub test over all 501 jobs.
+- **A-O2:** provenance; see B-R8.
+- **A-O3:** not adopted as a check. The equality of E1-7 `nominal__rest60` and E1-1 `rest_s17000` under worker reuse
+  is reported in the scored write-up.
+- **A-O4:** rest length is checked by sample count. Re-deriving the 0–10 s rotation is not adopted: the stored scalar
+  comes from D13's own code, which is frozen.
+- **A-O5:** `e11_pass` is tested on all 20 records with each condition broken, and its limits against
+  `scored.THRESHOLDS`.
+- **A-O6:** `e11_fail_reasons` are printed.
+- **A-O7 / B-O8:** margins beside the rehearsals, E1-7 against R3, and torque counts are written by `analyze.py`.
+- **A-O8:** a seed-range assert on the appended jobs.
+- **A-O9:** a report-template guard and test.
+- **A-O10:** the disk guard; the storage is noted in §2.
+- **A-O11:** noted. B1's ball joints make pop zero for either edge; R4's largest per-move pop is 8.3e-14 mm.
+- **A-O12:** test restores via a fixture.
+- **B-O1:** file count and the synthetic test keys noted (§6.4).
+- **B-O2:** the E1-5s seeds corrected.
+- **B-O3:** GS1 attributed to ER9 Part G.
+- **B-O4:** software provenance cited.
+- **B-O5:** switch timing relabelled `INFERENCE`, citing lines 11-13 and the edit audit.
+- **B-O6:** labels `ASSUMPTION` and `UNVERIFIED` added.
+- **B-O7:** the tag mapping is stated.
+- **B-O9:** tests strengthened (M5 manifest map, `v3_not_run`, isolation, record-check cases, profile and XML
+  checks).

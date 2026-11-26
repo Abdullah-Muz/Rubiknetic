@@ -110,35 +110,72 @@ def test_e11_kind(jobs):
 
 
 def test_e11_pass_equals_d14():
+    """On all 20 R4 rest records, and with each of e11_pass's seven conditions broken in turn (review 1, O5)."""
     an3 = _load("d14s3_analyze", REPO / "experiments/D14_noslip_rest_rehearsal/d14s3_analyze.py")
-    files = sorted(glob.glob(str(REPO / "experiments/D15_rounded_edges/results/r4/L0/E1-1/*.json.gz")))[:5]
-    assert files
+    from rubiknetic.cube_physics import scored
+    th = scored.THRESHOLDS
+    assert E7.E11_THRESH == {k: th[k] for k in E7.E11_THRESH}           # the same limits as M1's
+    files = sorted(glob.glob(str(REPO / "experiments/D15_rounded_edges/results/r4/L0/E1-1/*.json.gz")))
+    assert len(files) == 20
+    breaks = [{"integrity_ok": False}, {"aborted": "x"}, {"t0_solved": False}, {"final_solved": False},
+              {"rest_rotation_deg": 0.5001}, {"penetration_mm": 0.5001}, {"radial_offset_mm_t0": 0.5001}]
     for f in files:
         rec = json.loads(gzip.decompress(Path(f).read_bytes()))["record"]
-        assert E7.e11_pass(rec) == an3.e11_pass(rec)
-        bad = dict(rec, rest_rotation_deg=0.51)
-        assert E7.e11_pass(bad) is False and an3.e11_pass(bad) is False
+        assert E7.e11_pass(rec) == an3.e11_pass(rec) is True
+        for b in breaks:
+            bad = {**rec, **b}
+            assert E7.e11_pass(bad) is False and an3.e11_pass(bad) is False, b
 
 
-def test_run_trial_installs_and_consumes(monkeypatch):
+@pytest.fixture
+def restore_scored():
+    """Whatever a test installs, scored.Trial and scored.build_m1_xml are restored afterwards (review 1, O12)."""
     from rubiknetic.cube_physics import scored
+    E7.install(E7.EDGE_R, 0)                                             # make sure _ORIG holds the originals
+    orig = (E7._ORIG["trial"], E7._ORIG["xml"])
+    try:
+        yield scored
+    finally:
+        scored.Trial, scored.build_m1_xml = orig
+
+
+def test_run_trial_installs_and_consumes(monkeypatch, restore_scored):
+    scored = restore_scored
+    from rubiknetic.cube_physics.m1_model import M1Params
     seen = {}
 
     def fake(kind, kw, magnets_on):
         seen["kw"], seen["trial"], seen["xml"] = kw, scored.Trial, scored.build_m1_xml
+        seen["xml_text"] = scored.build_m1_xml(M1Params())
         return {"pass": True}, None, None
     monkeypatch.setattr(E7, "_m4_run_trial", fake)
     rec, _, _ = E7.run_trial("seq", {"moves": "U", "seed": 1, "overrides": {"gap": 5e-5, "edge_radius": 0.0036,
                                                                             "noslip": 5}}, True)
     assert seen["kw"]["overrides"] == {"gap": 5e-5}
-    assert seen["trial"] is not E7._ORIG["trial"] and issubclass(seen["trial"], E7._ORIG["trial"])
-    assert seen["xml"] is not E7._ORIG["xml"]
+    assert issubclass(seen["trial"], E7._ORIG["trial"]) and seen["trial"].m7_edge_radius == 0.0036
+    assert 'noslip_iterations="5"' in seen["xml_text"]
     assert rec["m7"]["edge_radius"] == 0.0036 and rec["m7"]["noslip"] == 5
     E7.run_trial("seq", {"moves": "U", "seed": 1, "overrides": {"noslip": 0}}, True)
-    assert seen["xml"] is E7._ORIG["xml"]                                # NoSlip 0: unwrapped
+    assert seen["xml"] is E7._ORIG["xml"] and "noslip_iterations" not in seen["xml_text"]   # NoSlip 0: unwrapped
     E7.run_trial("seq", {"moves": "U", "seed": 1}, True)
-    assert seen["xml"] is not E7._ORIG["xml"]                            # default NoSlip 10
-    scored.Trial, scored.build_m1_xml = E7._ORIG["trial"], E7._ORIG["xml"]
+    assert 'noslip_iterations="10"' in seen["xml_text"] and seen["trial"].m7_edge_radius == 0.0025   # defaults
+
+
+def test_m7trial_passes_rounded_edge_to_the_base(monkeypatch, restore_scored):
+    """The subclass hands the base the rounded profile and the radius (as r1_run.install_edge)."""
+    scored = restore_scored
+    from rubiknetic.cube_physics.m1_model import M1Params
+    got = {}
+
+    class Stub:
+        def __init__(self, params, *a, **k):
+            got["p"] = params
+            raise RuntimeError("stop before building a model")
+    monkeypatch.setitem(E7._ORIG, "trial", Stub)
+    E7.install(0.0018, 0)
+    with pytest.raises(RuntimeError):
+        scored.Trial(M1Params())
+    assert got["p"].edge_profile == "rounded" and got["p"].edge_radius == 0.0018
 
 
 def _good_seq():
@@ -207,5 +244,281 @@ def test_selfcheck_list():
 
 
 def test_clopper_pearson():
-    assert AN.clopper_pearson_upper(0, 60) == pytest.approx(0.0596, abs=5e-4)
+    assert AN.clopper_pearson_upper(0, 60) == pytest.approx(0.0596, abs=5e-4)       # two-sided 95 % (about 6 %)
     assert AN.clopper_pearson_upper(60, 60) == 1.0
+
+
+# ---- review 1 additions -----------------------------------------------------------------------------------------------
+def _job(jobs, tid, exp=None, magnets=True):
+    return next(j for j in jobs if j["tid"] == tid and j["magnets"] == magnets and (exp is None or j["exp"] == exp))
+
+
+def test_harness_exception_records_are_failing_not_invalid(jobs):
+    """Review 1, R1 / B-R3: M5's exception record (no edge, no m7 block) is a failing trial, never a violation."""
+    for tid, exp in (("U_s17100", "E1-2"), ("rest_s17000", "E1-1"), ("noslip=0__6move", "E1-7"),
+                     ("rest_s17700", "REST-X"), ("timestep=0.00075__rest60", "E1-7")):
+        j = dict(_job(jobs, tid, exp), commit="c", startup=None, magnet_info=None)
+        rec = R.exception_record(j, ValueError("boom"))
+        assert rec["pass"] is False and rec.get("harness_exception")
+        assert AN.m7_record_problems(R.key_of(j), rec) == [], tid
+        assert AN.m7_record_problems(R.key_of(j), {**rec, "pass": True})  # an exception record may not pass
+
+
+def test_m7_record_checks_more_cases():
+    k = ("magnets", "E1-7", "noslip=0__6move")
+    r = _good_seq()
+    r["spec"]["overrides"]["noslip"] = 0
+    r["m7"].update(noslip=0, noslip_wrapper_calls=1, options={"noslip_iterations": 0})
+    assert AN.m7_record_problems(k, r)                                   # NoSlip 0 must not call the wrapper
+    r["m7"]["noslip_wrapper_calls"] = 0
+    assert AN.m7_record_problems(k, r) == []
+    r = _good_seq()
+    r["params"]["edge_profile"] = "chamfer"                              # right radius, wrong profile
+    assert AN.m7_record_problems(("magnets", "E1-2", "U_s17100"), r)
+
+
+@pytest.fixture(scope="module")
+def r4_rest():
+    f = REPO / "experiments/D15_rounded_edges/results/r4/L0/E1-1/rest_s19000.json.gz"
+    return json.loads(gzip.decompress(f.read_bytes()))["record"]
+
+
+def _with_slip(rec, size=0.3):
+    rec = json.loads(json.dumps(rec))
+    rows = rec["timeseries"]["rot_deg"]["U"]
+    for i in range(1200, len(rows)):                                     # a 0.3 deg step at about 30 s
+        rows[i][0] += size
+    return rec
+
+
+def _rest60_capture(monkeypatch, scored, rec):
+    seen = {"warm": [], "rest": []}
+
+    def warm(kind, kw, magnets_on):
+        seen["warm"].append((kind, scored.Trial, scored.build_m1_xml))
+        return {"rest_rotation_deg": 0.1, "pass": True, "fail_reasons": [], "seed": kw["seed"]}, None, None
+
+    def d13_rest(sc, d10, seed, ms, cfg, duration_s=None):
+        seen["rest"].append((sc.Trial, sc.build_m1_xml, cfg, duration_s, seed))
+        return json.loads(json.dumps(rec)), None
+    monkeypatch.setattr(E7, "_m4_run_trial", warm)
+    monkeypatch.setattr(E7.D13, "d13_rest", d13_rest)
+    monkeypatch.setattr(M4, "magnet_availability", lambda mp: {"table_file": "t"})
+    monkeypatch.setattr(M4, "use_magnets", lambda mp, gap: None)
+    return seen
+
+
+def test_rest60_path(monkeypatch, restore_scored, r4_rest):
+    """Review 1, B-R6: overrides consumed on the rest path; warm-up and rest with the edge and the unwrapped XML; the
+    rest's NoSlip from cfg; 60 s; the stored verdict."""
+    seen = _rest60_capture(monkeypatch, restore_scored, r4_rest)
+    rec, _, _ = E7.run_trial("rest60", {"seed": 19000, "overrides": {"gap": 5e-5, "edge_radius": 0.0036, "noslip": 20,
+                                                                     "magnet_scale": 0.67}}, True)
+    (kind, wt, wx), = seen["warm"]
+    (rt, rx, cfg, dur, seed), = seen["rest"]
+    assert kind == "rest" and wt.m7_edge_radius == 0.0036 and rt.m7_edge_radius == 0.0036
+    assert wx is E7._ORIG["xml"] and rx is E7._ORIG["xml"]               # d13_rest applies NoSlip itself
+    assert cfg == {"noslip_iterations": 20, "params": {"gap": 5e-5}} and dur == 60.0 and seed == 19000
+    assert rec["m7"] == {"edge_radius": 0.0036, "noslip": 20, "kind": "rest60"} and rec["rest_s"] == 60.0
+    assert rec["pass"] is True and rec["n_slip_events"] == 0 and rec["ok_e11"] is True
+    assert rec["warmup_10s"]["rest_rotation_deg"] == 0.1
+
+
+def test_rest60_slip_fails(monkeypatch, restore_scored, r4_rest):
+    _rest60_capture(monkeypatch, restore_scored, _with_slip(r4_rest))
+    rec, _, _ = E7.run_trial("rest60", {"seed": 19000, "overrides": {"gap": 5e-5}}, True)
+    assert rec["pass"] is False and rec["ok_no_slip"] is False and rec["n_slip_events"] >= 1
+    assert rec["ok_e11"] is True and any("slip event" in x for x in rec["e11_fail_reasons"])
+
+
+def test_every_job_installs_its_registered_edge_and_noslip(jobs, monkeypatch, restore_scored, r4_rest):
+    """Review 1, O1: all 501 runnable jobs through run_trial with stand-ins (no simulation)."""
+    scored = restore_scored
+    seen = _rest60_capture(monkeypatch, scored, r4_rest)
+    run, _, _ = R.prepare([dict(j) for j in jobs])
+    assert len(run) == 501
+    for j in run:
+        ov = j["kw"].get("overrides", {})
+        r_want, n_want = ov.get("edge_radius", E7.EDGE_R), ov.get("noslip", E7.NOSLIP)
+        seen["warm"].clear()
+        seen["rest"].clear()
+        rec, _, _ = E7.run_trial(j["kind"], j["kw"], j["magnets"])
+        assert rec["m7"]["edge_radius"] == r_want and rec["m7"]["noslip"] == n_want, j["tid"]
+        if j["kind"] == "rest60":
+            (rt, rx, cfg, dur, _s), = seen["rest"]
+            assert rt.m7_edge_radius == r_want and rx is E7._ORIG["xml"] and dur == 60.0
+            assert cfg.get("noslip_iterations", 0) == n_want
+            assert not {"edge_radius", "noslip", "magnet", "magnet_scale", "face_gap_mm"} & set(cfg["params"])
+        else:
+            (_k, t, x), = seen["warm"]
+            assert t.m7_edge_radius == r_want
+            assert (x is E7._ORIG["xml"]) == (n_want == 0) and getattr(x, "m7_noslip", 0) == n_want
+
+
+def test_v3_not_run_on_m7_list(jobs):
+    assert R.v3_not_run(jobs) == {("magnets", "E1-7", "magnet=4x1.5_N35__6move"): "failed V3",
+                                  ("magnets", "E1-7", "magnet=4x1.5_N35__sexy6"): "failed V3"}
+
+
+def test_m5_scored_manifest_maps_to_m7(jobs):
+    """Review 1, B-O9: every key of M5's committed scored manifest (except the 4 chamfer arms) is in M7's list with
+    seed + 7000 and the same overrides."""
+    man = json.loads((REPO / "experiments/E5_scored_m5/results/MANIFEST.json").read_text())
+    m7 = {R.key_of(j): j for j in jobs}
+    n = 0
+    for t in man["trials"] + man["not_run"]:
+        if t["tid"].startswith("chamfer="):
+            continue
+        tid = t["tid"]
+        if tid.endswith(f"_s{t['seed']}"):
+            tid = tid[: -len(f"_s{t['seed']}")] + f"_s{t['seed'] + 7000}"
+        j = m7[(t["arm"], t["exp"], tid)]
+        assert j["kw"]["seed"] == t["seed"] + 7000 and R._norm(j["kw"].get("overrides", {})) == R._norm(t["overrides"])
+        n += 1
+    assert n == 438
+
+
+def test_m5_runner_untouched_by_m7():
+    """M7's patches live in its own module instances; M5's registered M4 name is not M7's module."""
+    assert sys.modules.get("e4_scored_m4_run_for_m5") is not M4
+    m5 = _load("e5_scored_m5_run_isolation_check", REPO / "experiments/E5_scored_m5/run.py")
+    assert m5.M4 is not M4 and m5.M4.SCORED_SEED_RANGE == (10000, 10999)
+    assert m5.M4.run_trial is not E7.run_trial and any(n == "chamfer" for n, _ in m5.M4.E17_FACTORS)
+
+
+# ---- full verdict on synthetic runs (review 1, B-R7): stand-in trials, M5's run procedure, M7's verdict ------------------
+ENV = {"commit": "c0", "mujoco": "x", "numpy": "x", "scipy": "x", "python": "x", "cpu": "x"}
+
+
+def _fake_rest_record(seed, n, slip=False):
+    rows = [[0.0] for _ in range(2400)]
+    if slip:
+        for i in range(1200, 2400):
+            rows[i][0] = 0.3
+    return {"timeseries": {"t": [0.525 + 0.025 * i for i in range(2400)], "rot_deg": {"U": rows}},
+            "members": {"U": ["c0"]}, "integrity_ok": True, "aborted": None, "t0_solved": True, "final_solved": True,
+            "rest_rotation_deg": 0.001, "penetration_mm": 0.01, "radial_offset_mm_t0": 0.0, "seed": seed,
+            "compiled_options": {"noslip_iterations": n}, "warmup_10s": {"rest_rotation_deg": 0.2}}
+
+
+def _fake_m7_record(job, mutate=None):
+    ov = job["kw"].get("overrides", {})
+    gap = ov.get("gap", R.GAP)
+    r, n = ov.get("edge_radius", E7.EDGE_R), ov.get("noslip", E7.NOSLIP)
+    mp = R.magnet_params_for(dict(ov)) if job["magnets"] else None
+    rec = {"params": {"gap": gap, "edge_profile": "rounded", "edge_radius": r}, "pass": True, "fail_reasons": [],
+           "environment": job["env"], "magnet_table": job.get("magnet_info"),
+           "magnets": None if mp is None else {"params": {"wall": mp.wall}, "layout_gap": gap},
+           "magnet_stats": {"max_near_tilt_deg": 1.0}}
+    if job["kind"] == "rest60":
+        rec.update(_fake_rest_record(job["kw"]["seed"], n), rest_s=60.0, n_slip_events=0, ok_e11=True,
+                   m7={"edge_radius": r, "noslip": n, "kind": "rest60"})
+    else:
+        rec["m7"] = {"edge_radius": r, "noslip": n, "kind": job["kind"], "n_trials": 1,
+                     "noslip_wrapper_calls": 1 if n else 0, "options": {"noslip_iterations": n}}
+    if job["kind"] == "seq":
+        rec["sequence"] = job["kw"]["moves"]
+        rec["per_move"] = [{"e16m_P_ok": True, "nontarget_drift_deg": 0.1, "max_turner_torque_Nm": 0.2,
+                            "penetration_mm": 0.1, "turn_error_deg": 0.1} for _ in job["kw"]["moves"].split()]
+    rec.update(R._metadata(job))
+    rec["pass_m1_criteria"] = rec["pass"]
+    if mutate:
+        mutate(R.key_of(job), rec)
+    return rec
+
+
+def _m7_split(jobs):
+    run, not_run = [], []
+    for j in jobs:
+        j = dict(j)
+        if j["tid"].startswith("magnet=4x1.5_N35__"):
+            not_run.append((j, "failed V3"))
+            continue
+        mp = R.magnet_params_for(dict(j["kw"].get("overrides", {}))) if j["magnets"] else None
+        if mp is not None:
+            j["magnet_info"] = {"table_file": M4._rel(M4.table_path(mp)), "table_sha256": "abc"}
+        run.append(j)
+    return run, not_run
+
+
+def _m7_make(tmp, mutate=None, stop_after=None):
+    jobs = R.build_m5_jobs("c0", ENV, 5.0)
+    run, not_run = _m7_split(jobs)
+    dirs = {"magnets": tmp / "results", "no_magnets": tmp / "results_nomag"}
+    try:
+        R.execute(dirs, run, not_run, "c0", ENV, "c0", {"gap": R.GAP}, 1,
+                  runner=lambda j: (R.key_of(j), _fake_m7_record(j, mutate)), stop_after=stop_after,
+                  check_git=False, log=lambda s: None)
+    except R.Interrupted:
+        pass
+    reg = R.build_m5_jobs("c0", ENV, 5.0)
+    return AN.A.analyse(dirs, reg, derived_not_run=R.v3_not_run(reg))
+
+
+def _slip_e11(key, rec):
+    if key == ("magnets", "E1-1", "rest_s17003"):
+        rec.update(_fake_rest_record(17003, 10, slip=True))
+        rec["n_slip_events"], rec["pass"], rec["pass_m1_criteria"] = 1, False, False
+
+
+def _fail_rest_x(key, rec):
+    if key == ("magnets", "REST-X", "rest_s17705"):
+        rec.update(_fake_rest_record(17705, 10, slip=True))
+        rec["n_slip_events"], rec["pass"], rec["pass_m1_criteria"] = 1, False, False
+
+
+def _exception_e17(key, rec):
+    if key == ("magnets", "E1-7", "timestep=0.00075__6move"):
+        for k in ("m7", "per_move", "sequence"):
+            rec.pop(k, None)
+        rec.update(params={"gap": R.GAP}, harness_exception="boom", pass_m1_criteria=False)
+        rec["pass"], rec["fail_reasons"] = False, ["harness exception"]
+
+
+def _exception_e12(key, rec):
+    if key == ("magnets", "E1-2", "U_s17100"):
+        for k in ("m7", "per_move"):
+            rec.pop(k, None)
+        rec.update(params={"gap": R.GAP}, harness_exception="boom", pass_m1_criteria=False)
+        rec["pass"], rec["fail_reasons"] = False, ["harness exception"]
+
+
+def _inconsistent_rest(key, rec):
+    if key == ("magnets", "E1-1", "rest_s17004"):
+        rec.update(_fake_rest_record(17004, 10, slip=True))              # a slip the stored flag hides
+
+
+@pytest.mark.parametrize("mutate,word", [
+    (None, "PASS"),
+    (_slip_e11, "NOT PASSED"),                    # the slip rule is a criterion (P-86 Q4)
+    (_fail_rest_x, "PASS"),                       # REST-X is reported only
+    (_exception_e17, "PASS"),                     # a reported-only harness exception is a failing record, not INVALID
+    (_exception_e12, "NOT PASSED"),               # an Option A harness exception fails the trial
+    (_inconsistent_rest, "INVALID"),              # a stored rest verdict that disagrees with the record
+])
+def test_full_verdict(tmp_path, mutate, word):
+    st, vd = _m7_make(tmp_path, mutate)
+    assert vd["verdict"] == word, (word, st["violations"][:5])
+    if word != "INVALID":
+        assert st["violations"] == [] and st["missing"] == []
+    assert sum(1 for k in st["records"] if k[1] == "REST-X") == 40
+
+
+def test_full_verdict_missing_and_extra(tmp_path):
+    st, vd = _m7_make(tmp_path / "a", stop_after=500)                   # one record never written
+    assert vd["verdict"].startswith("INCOMPLETE") and len(st["missing"]) == 1
+    st, vd = _m7_make(tmp_path / "b")
+    extra = tmp_path / "b" / "results" / "REST-X" / "rest_s17999.json"
+    extra.write_text(json.dumps({"x": 1}))
+    st, vd = AN.A.analyse({"magnets": tmp_path / "b" / "results", "no_magnets": tmp_path / "b" / "results_nomag"},
+                          R.build_m5_jobs("c0", ENV, 5.0))
+    assert vd["verdict"] == "INVALID"
+
+
+def test_report_text(tmp_path):
+    st, vd = _m7_make(tmp_path)
+    text = AN.report(st, vd)
+    assert text.startswith("# G1 scored results — M7") and "M5 seeds" not in text
+    assert all(x in text for x in AN.M7_RESTATED) and "Report template mismatch" not in text
+    for heading in ("NoSlip-off E1-1", "Margins beside the rehearsals", "E1-7 against R3", "E1-7 rests"):
+        assert heading in text
