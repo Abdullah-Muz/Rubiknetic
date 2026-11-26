@@ -1,11 +1,18 @@
 # Phase 1 (G1) Pre-registration: M7, the L0 magnetic contact cube with rounded edges and NoSlip 10
 
-**Status: DRAFT, revision 3, NOT APPROVED. Nothing here is in force.**
+**Status: DRAFT, revision 4, NOT APPROVED. Nothing here is in force.**
+- **Revision 4 (P-91)** is a text-only revision. It makes review 3's one required change: two typos, a SHA-256 suffix
+  and a section reference
+  ([`M7_PREREGISTRATION_REVIEW3_2026-11-26.md`](M7_PREREGISTRATION_REVIEW3_2026-11-26.md), one reviewer subagent).
+  - It adopts review 3's text optionals (line endings, stale text) and declines its code optionals, with reasons (§11).
+  - **No code changed**: `run.py`, `analyze.py` and the tests are as at `1b5c758`, so the §6.8 evidence stands.
+  - The user approved the text on 2026-11-26, conditional on a review requiring no changes. It is the text sent to
+    review 4.
 - **Revision 3 (P-90)** makes review 2's one required change and adopts its optional ones
   ([`M7_PREREGISTRATION_REVIEW2_2026-11-25.md`](M7_PREREGISTRATION_REVIEW2_2026-11-25.md), one reviewer subagent).
   - The required change: the rest-length check expected 2,400 samples for every rest, but a 0.75 ms rest has 2,425
     and an aborted rest has fewer. Either would have made the run INVALID.
-  - Response in §9. It is the text sent to review 3.
+  - Response in §10. It is the text sent to review 3.
 - **Revision 2 (P-89)** makes every required change of review 1 and adopts most of its optional ones
   ([`M7_PREREGISTRATION_REVIEW1_2026-11-25.md`](M7_PREREGISTRATION_REVIEW1_2026-11-25.md); two reviewer subagents,
   the user having widened P-86 Q8 to two for that round). The response, item by item, is in §9. It is the text sent to
@@ -281,8 +288,11 @@ M5 §2 unchanged, except as noted:
     - every 60 s rest is 60 s long: by its label, and by its sample count. The count is the number `d13_rest` takes at
       the record's compiled timestep: 2,400 at 0.5 and 0.25 ms, 2,425 at 0.75 ms. An aborted rest may have fewer; it
       is then a failing trial, as in M1, and must be stored as failing;
-    - a rest record that is intact and not aborted must carry every field `e11_pass` reads; a malformed record is a
-      violation, not a crash;
+    - a rest record that is intact and not aborted must carry every field `e11_pass` reads; a record missing one is a
+      violation, not a crash. Other malformations (a field present but `None`, a missing `timeseries`) would stop the
+      verdict script with an error rather than give a verdict. They cannot come from the runner, because the worker
+      evaluates the same functions on the same record and an exception there is stored as an exception record
+      (review 3, O2);
     - its stored verdict equals the one re-derived from the record.
   - **A harness-exception record** (M5 §2, U1 iii) is exempt from the M7 checks, because it carries neither edge nor
     M7 block. It must fail (`pass` False); it is then an ordinary failing trial, not a violation (review 1, R1).
@@ -298,7 +308,7 @@ M5 §2 unchanged, except as noted:
   - the run procedure.
 - **No hypothesis test** decides the verdict.
 
-## 6. Freeze and integrity (code: `5e74b69`, `090fc8f`, and the revision-2 code commit)
+## 6. Freeze and integrity (code: `5e74b69`, `090fc8f`, `d5ba4cd`, and finally `1b5c758`)
 ### 6.1 Code (`FACT`)
 **`experiments/E7_scored_m7/run.py`.** It loads M4's and M5's runners unchanged in fresh module instances (`*_for_m7`),
 as E6 did, and changes only module globals:
@@ -374,13 +384,14 @@ is test-checked against D14's.
 - the self-check ran at `5e74b69` with the 16-trial list added but not yet committed (committed in `090fc8f`);
 - the smoke ran at `e795a2c`, before the E7 code was committed.
 
-**Both are re-run at the revision-2 code commit**, with provenance recorded. Those results replace these before the
-text is fixed (§6.7).
-| ID | Check | Result (`FACT`) |
+Both were re-run at the revision-2 code commit (§6.7), and again at the final code commit `1b5c758` (§6.8). **§6.8 is
+the evidence for fixing.** The table describes the checks; its results column is §6.8's.
+
+| ID | Check | Result at `1b5c758` (`FACT`, §6.8) |
 |---|---|---|
 | SC1 / SC2 | `run.py selfcheck`, rehearsal map (+6000): the first trial of each of the 10 Option A sub-experiments reproduces R1's or R2's committed L0 R25 record. For E1-1 that is R2's 60 s `rest_s16000` | **0 differences each** |
-| SC3 | E1-7 `nominal__sexy6`, `edge_radius=0.0018__6move`, `noslip=5__6move`, `nominal__rest60` and `magnet_scale=0.67__rest60` reproduce R3's records | **0 differences each** |
-| SC5 | E1-7 `magnet=none__6move`, the no-magnet path that E1-6n also uses, reproduces R3's record | **0 differences** (16 / 16 in all) |
+| SC3 | E1-7 `nominal__sexy6`, `edge_radius=0.0018__6move`, `noslip=5__6move`, `nominal__rest60`, `magnet_scale=0.67__rest60` and `timestep=0.00075__rest60` (the 2,425-sample rest) reproduce R3's records | **0 differences each** |
+| SC5 | E1-7 `magnet=none__6move`, the no-magnet path that E1-6n also uses, reproduces R3's record | **0 differences** (17 / 17 in all) |
 | SC4 | The seed list equals M5's + 7000, lies in 17000–17999, and the scrambles come from 17400–17419 | unit tests pass |
 
 - Comparison: `er9g_run.gs_diff` with the rehearsal's logging blocks and M7's bookkeeping fields removed on both sides
@@ -424,8 +435,18 @@ text is fixed (§6.7).
   abandoned (INCOMPLETE is final).
 
 ### 6.8 Revision-3 evidence (at the revision-3 code commit `1b5c758`; `FACT`)
-These replace §6.7 as the evidence for fixing. Both the self-check and the smoke provenance record the SHA-256
-`run.py` `576e221c…9b1b9a0a` and `analyze.py` `07950313…804f6ce4`, with the M7 paths clean.
+These replace §6.7 as the evidence for fixing. Both the self-check and the smoke provenance record these SHA-256s,
+with the M7 paths clean:
+- `run.py` `576e221cdfe0252633ded2407f2586bc68412106d443589fa9d747b82b1b9a0a`;
+- `analyze.py` `079503134a927feefd0973193cee502c711d368c956110839125f978804f6ce4`.
+
+They are hashes of the working-copy bytes, which have CRLF line endings on this machine. Git stores the files with LF
+(`.gitattributes` `eol=lf`), so a fresh clone gives the LF blobs (`git show <commit>:<path> | sha256sum`):
+- `run.py` `1636a3e15f8bedcd5962c54e237656f92ccc1b5ca9a4951a8ee46fbdcb5d4c6f`;
+- `analyze.py` `095f71f93093308c99e9269e72a7255133e972be03edff8731bb877163444265`.
+
+Both pairs identify the same committed content at `1b5c758`. The freeze check uses `git status`, which line endings
+do not affect (review 3, O1).
 
 - **Self-check** (`results_selfcheck/selfcheck.json`; 6 workers): HEAD `1b5c758`, clean, **17 / 17 trials, 0
   differences**. This includes E1-7 `timestep=0.00075__rest60`, the 2,425-sample rest, reproducing R3's record
@@ -543,3 +564,29 @@ D13 samples every `round(0.025/dt)` steps over `round(60/dt)` steps, which gives
 | O6: labels and evidence | §0 item 6's rate is labelled `INFERENCE`; the full suite is recorded in §6.8 |
 | O7: NoSlip-off table header | Always printed |
 | O8: no E1-7 rest through the full procedure before scoring | The self-check adds `timestep=0.00075__rest60` (17 trials) |
+
+## 11. Response to review 3 (revision 4; text only)
+Review 3 found review 2's R1 fully resolved and no code defect. Both parts of its one required change were verified by
+the main session.
+
+| Item | Change |
+|---|---|
+| **R1 (a): `run.py` SHA-256 suffix** | Verified with `sha256sum`: the hash ends `…82b1b9a0a`. §6.8 now gives both full SHA-256s |
+| **R1 (b): "Response in §9"** | Now "§10" in the revision-3 status bullet |
+| O1: line endings | Adopted. §6.8 gives both the working-copy (CRLF) and the git-blob (LF) SHA-256s, verified with `git show 1b5c758:<path> \| sha256sum` |
+| O3: stale text | Adopted. The §6 heading lists `1b5c758`; §6.2's table points to §6.8 and lists the 0.75 ms rest (17 / 17) |
+
+**Declined, with reasons.** None of these changes a verdict, and each would change frozen code, which means repeating
+the self-check, the smoke and a full review for checks the runner cannot trigger. Revision 2 showed that a
+well-meant extra check can itself introduce a defect.
+- **O2 (`None` or missing-series rests crash):** not adopted in code. §5 now states the narrower scope. Such a record
+  cannot come from the runner, and a crash stops the verdict rather than give a false PASS.
+- **O4 (report test on exception rests):** not adopted. Review 3's probe shows the path works; it is reporting only.
+- **O5 (self-check applies the record checks):** not adopted. `run.py` would have to import `analyze.py`, which loads
+  `run.py` under another module name and would wrap `M4.run_trial` a second time. The same assurance comes from the
+  self-check reproducing R3's records exactly, together with the test that R3's records pass the record checks.
+- **O6 (`pass` implies `pass_m1_criteria`):** not adopted. It is guaranteed by M5's frozen `apply_m4_criteria`
+  (E4 `run.py:472-473, 517`) and is not reachable otherwise.
+- **O7 (compiled against registered timestep):** not adopted. The self-check's 0-difference reproduction of R3's
+  0.75 ms rest shows the override reaches the compiled model. The record checks then match the sample count to the
+  compiled timestep.
