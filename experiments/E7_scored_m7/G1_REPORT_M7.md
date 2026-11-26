@@ -104,6 +104,13 @@ them. Nothing sets a layer angle.
 10. **Simulation only.** Turns come from a rig, not xArm7 grippers (G2). Nothing here establishes sim-to-real
     transfer.
 11. **Throughput (E1-8, §4).** About 0.3× real time per CPU core. The magnet force law is the main cost.
+12. **Addendum 2026-11-26 (after sign-off; user-approved, DECISION_LOG P-99): the rig's grip is capped at about 11.5 N.**
+    - The rig pad servo (kp 2000 N/m, target 6 mm beyond contact) saturates at about 11.5 N, whatever `grip_force` is
+      set (D16-0, [`../D16_free_core_m7/grip_probe.py`](../D16_free_core_m7/README.md)).
+    - The scored trials, drawn at 10–20 N, therefore squeezed at about 10–11.6 N.
+    - E1-7's 30 and 50 N grip levels ran at about 11.5 N.
+    - G1 gives no evidence on squeeze above about 11.6 N. O-10 stays open, as already listed in §7.
+    - The verdict is unchanged: no pre-registered criterion depends on the squeeze level.
 
 **Reported findings beyond Option A** (`FACT`, RESULTS.md):
 - **No magnets (E1-6n):** the long sequences fail (E1-3 11/22, E1-4 22/40, E1-5s 8/20). The magnets are needed.

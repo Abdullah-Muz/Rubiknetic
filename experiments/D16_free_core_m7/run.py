@@ -46,7 +46,10 @@ STAB_W, STAB_DEPTH, STAB_T = 0.030, 0.030, 0.004      # P-97 stabiliser pad (m)
 STAB_OPEN, STAB_OVERSHOOT, STAB_KP = 0.014, 0.030, 2000.0
 SIDE_AXIS = {"U": 1, "D": 1, "R": 1, "L": 1, "F": 0, "B": 0}   # stabiliser pads on the +-y faces (U, R) or +-x (F)
 CORE_MASS, CORE_I = 0.0017, 2e-8                      # D6 (Paulus 2023 BOM; ASSUMPTION)
-SEEDS = (21000, 21001, 21002, 21003)                  # unscored; outside every scored and rehearsal range used so far
+SEEDS = (21000, 21001, 21002, 21003)
+# D16b (user, 2026-11-26: "Settle-then-turn test"): before each move wait until the cube is at rest, then close the
+# turning pads on a ramp instead of a step. A controller-side change; every G1 check is unchanged.
+REST_W_DPS, REST_V_MMPS, MAX_WAIT_S, RAMP_S = 1.0, 1.0, 2.0, 0.3                  # unscored; outside every scored and rehearsal range used so far
 
 _ORIG_TRIAL = E7._ORIG.get("trial", scored.Trial)
 _ORIG_XML = E7._ORIG.get("xml", scored.build_m1_xml)
@@ -105,6 +108,10 @@ class Tracker:
         self.m, self.core, self.geoms, self.acts, self.mon = m, core, stab_geoms, stab_acts, mon
         self._turn = None
         self.rel_motion_t: list[float | None] = []    # one entry per turn, in move order
+        names = [mujoco.mj_id2name(m, mujoco.mjtObj.mjOBJ_GEOM, g) or "" for g in range(m.ngeom)]
+        self.pad_ids = np.array([g for g, n in enumerate(names) if n.startswith(("pad_", "stab_"))])
+        self.pen_cubie: list[float] = []              # per turn: deepest cubie-cubie contact (mm, >= 0)
+        self.pen_pad: list[float] = []                # per turn: deepest pad-cubie contact (mm, >= 0)
         self.p0, self.R0 = d.xpos[core].copy(), d.xmat[core].reshape(3, 3).copy()
         self.slip = self.rot = 0.0
         self.k, self.f6 = 0, np.zeros(6)
@@ -118,6 +125,16 @@ class Tracker:
             if t is not self._turn:
                 self._turn = t
                 self.rel_motion_t.append(None)
+                self.pen_cubie.append(0.0)
+                self.pen_pad.append(0.0)
+            n = d.ncon
+            if n:
+                dist = d.contact.dist[:n]
+                pm = np.isin(d.contact.geom1[:n], self.pad_ids) | np.isin(d.contact.geom2[:n], self.pad_ids)
+                if pm.any():
+                    self.pen_pad[-1] = max(self.pen_pad[-1], float(-dist[pm].min()) * 1000)
+                if (~pm).any():
+                    self.pen_cubie[-1] = max(self.pen_cubie[-1], float(-dist[~pm].min()) * 1000)
             if self.rel_motion_t[-1] is None:
                 ax = t["axis"]
                 w = float(np.mean(d.cvel[t["bodies"], :3] @ ax) - d.cvel[self.core, :3] @ ax)
@@ -180,7 +197,33 @@ class HoldTrial(_ORIG_TRIAL):
         self.t0_obs = self.ro.observe(d)
         self.tracker = Tracker(m, d, self.ro.core, [gid("stab_a_g"), gid("stab_b_g")], acts, self.mon)
         self.sim.hooks.append(self.tracker)
+        self.waits: list[dict] = []
+        if CFG.get("settle"):
+            self._orig_turn = self.rig.turn
+            self.rig.turn = self._settled_turn
         HoldTrial.last = self
+
+    def _settled_turn(self, move, timing=None, record: bool = True):
+        """D16b: wait for rest (all cubies and core: |w| < 1 deg/s, core |v| < 1 mm/s; at most 2 s), then ramp the
+        turning pads closed over 0.3 s; then the unchanged rig turn (its close step then holds the same target)."""
+        sim, d, dt = self.sim, self.sim.d, self.model.opt.timestep
+        ids = np.append(self.ro.body_ids, self.ro.core)
+        t0, rested = float(d.time), False
+        while d.time - t0 < MAX_WAIT_S:
+            w = np.degrees(np.linalg.norm(d.cvel[ids, :3], axis=1)).max()
+            v = np.linalg.norm(d.cvel[self.ro.core, 3:]) * 1000
+            if w < REST_W_DPS and v < REST_V_MMPS:
+                rested = True
+                break
+            self.rig._hold_others()
+            sim.step()
+        a, b, _ = self.rig.act[move.face]
+        n = max(1, int(round(RAMP_S / dt)))
+        for k in range(1, n + 1):
+            d.ctrl[a] = d.ctrl[b] = self.rig.close_target * k / n
+            sim.step()
+        self.waits.append({"move": str(move), "wait_s": float(d.time) - t0 - n * dt, "rested": rested})
+        return self._orig_turn(move, timing, record)
 
 
 def configure(cfg: dict) -> None:
@@ -212,6 +255,9 @@ def run_one(cfg: dict) -> dict:
                   "series_cols": ["t", "squeeze_a_N", "squeeze_b_N", "core_slip_mm", "dx_mm", "dy_mm", "dz_mm",
                                   "core_w_dps"],
                   "series": None if tk is None else tk.series,
+                  "pen_cubie_mm_per_move": None if tk is None else tk.pen_cubie,
+                  "pen_pad_mm_per_move": None if tk is None else tk.pen_pad,
+                  "settle_waits": None if tr is None else tr.waits,
                   "nq": int(tr.model.nq) if tr else None, "wall_s": time.perf_counter() - t0}
     # supplementary check (not G1's): causality with the layer speed relative to the core
     rel = tk.rel_motion_t if tk is not None else []
@@ -244,6 +290,17 @@ def plan() -> list[dict]:
         for s in SEEDS[:2]:
             jobs.append({"name": f"U_fixed_F{force:g}_s{s}", "face": "U", "free": False, "force": force, "mu": 0.8,
                          "seed": s})
+    for face in ("U", "R", "F"):                      # D16b: settle-then-turn
+        for s in SEEDS:
+            jobs.append({"name": f"S_{face}_free_F20_s{s}", "face": face, "free": True, "force": 20.0, "mu": 0.8,
+                         "seed": s, "settle": True})
+    for free in (True, False):
+        for force in (20.0, 50.0):
+            for s in SEEDS[:2]:
+                if free and force == 20.0:
+                    continue                          # already above
+                jobs.append({"name": f"S_U_{'free' if free else 'fixed'}_F{force:g}_s{s}", "face": "U", "free": free,
+                             "force": force, "mu": 0.8, "seed": s, "settle": True})
     return jobs
 
 
