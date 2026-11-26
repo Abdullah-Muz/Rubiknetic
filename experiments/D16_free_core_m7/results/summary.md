@@ -1,5 +1,29 @@
 | Trial | G1 pass | pass (rel. core) | observed ok | failed checks | max err ° | max drift ° | max pen mm | max τ N·m | core slip mm | core rot ° | squeeze N (median) | samples < 1 N |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
+| D1000_F_free_F20_s21000 | False | False | 0/1 | ok_causal, ok_drift, ok_oracle, ok_penetration, ok_turn_error | 178.57 | 90.77 | 0.60 | 0.245 | 2.11 | 90.75 | 19.8 | 7/272 |
+| D1000_F_free_F20_s21001 | False | False | 0/1 | ok_causal, ok_drift, ok_oracle, ok_penetration, ok_turn_error | 153.82 | 89.16 | 0.91 | 0.347 | 11.12 | 89.10 | 19.6 | 25/296 |
+| D1000_F_free_F20_s21002 | False | False | 0/1 | ok_causal, ok_drift, ok_oracle, ok_penetration, ok_turn_error | 179.07 | 90.43 | 0.71 | 0.263 | 2.66 | 90.33 | 19.9 | 8/275 |
+| D1000_F_free_F20_s21003 | True | True | 5/5 | - | 0.15 | 0.27 | 0.17 | 0.154 | 0.53 | 0.88 | 19.9 | 0/1405 |
+| D1000_R_free_F20_s21000 | False | False | 0/1 | ok_causal, ok_drift, ok_oracle, ok_penetration, ok_turn_error | 177.41 | 91.31 | 0.55 | 0.218 | 0.90 | 91.22 | 19.7 | 1/259 |
+| D1000_R_free_F20_s21001 | False | False | 0/1 | ok_causal, ok_drift, ok_oracle, ok_penetration, ok_turn_error | 139.45 | 89.65 | 0.59 | 0.350 | 1.02 | 89.68 | 19.8 | 0/259 |
+| D1000_R_free_F20_s21002 | False | False | 5/5 | ok_penetration | 0.16 | 0.35 | 0.88 | 0.116 | 7.82 | 0.55 | 19.9 | 60/1360 |
+| D1000_R_free_F20_s21003 | True | True | 5/5 | - | 0.16 | 0.49 | 0.15 | 0.117 | 0.28 | 0.47 | 19.9 | 0/1405 |
+| D1000_U_fixed_F10_s21000 | True | True | 5/5 | - | 0.11 | 0.11 | 0.28 | 0.149 | 0.00 | 0.00 | 10.0 | 6/1359 |
+| D1000_U_fixed_F10_s21001 | True | True | 5/5 | - | 0.05 | 0.16 | 0.27 | 0.125 | 0.00 | 0.00 | 10.0 | 0/1356 |
+| D1000_U_fixed_F30_s21000 | True | True | 5/5 | - | 0.09 | 0.17 | 0.28 | 0.156 | 0.00 | 0.00 | 30.0 | 5/1359 |
+| D1000_U_fixed_F30_s21001 | True | True | 5/5 | - | 0.04 | 0.05 | 0.27 | 0.151 | 0.00 | 0.00 | 30.0 | 0/1356 |
+| D1000_U_fixed_F50_s21000 | True | True | 5/5 | - | 0.07 | 0.19 | 0.32 | 0.137 | 0.00 | 0.00 | 50.0 | 17/1359 |
+| D1000_U_fixed_F50_s21001 | True | True | 5/5 | - | 0.10 | 0.22 | 0.32 | 0.125 | 0.00 | 0.00 | 50.0 | 2/1356 |
+| D1000_U_free_F10_s21000 | False | False | 0/1 | ok_causal, ok_drift, ok_oracle, ok_turn_error | 90.03 | 61.90 | 0.47 | 1.000 | 11.48 | 62.03 | 7.2 | 113/451 |
+| D1000_U_free_F10_s21001 | False | False | 0/1 | ok_causal, ok_oracle, ok_penetration, ok_turn_error | 89.79 | 0.65 | 6.34 | 0.265 | 18.06 | 14.30 | 9.1 | 184/425 |
+| D1000_U_free_F20_s21000 | False | False | 0/1 | ok_causal, ok_oracle, ok_penetration, ok_turn_error | 90.09 | 0.96 | 5.79 | 0.542 | 19.80 | 14.29 | 19.0 | 165/451 |
+| D1000_U_free_F20_s21001 | False | False | 0/1 | ok_causal, ok_oracle, ok_penetration, ok_turn_error | 89.93 | 0.26 | 7.72 | 1.000 | 19.37 | 24.01 | 19.2 | 173/451 |
+| D1000_U_free_F20_s21002 | False | False | 0/1 | ok_causal, ok_oracle, ok_penetration, ok_turn_error | 89.87 | 0.41 | 7.47 | 1.000 | 19.26 | 11.29 | 19.4 | 151/450 |
+| D1000_U_free_F20_s21003 | False | False | 2/3 | ok_oracle, ok_penetration, ok_turn_error | 179.25 | 0.44 | 4.90 | 0.109 | 19.42 | 23.96 | 18.9 | 69/886 |
+| D1000_U_free_F30_s21000 | False | False | 0/1 | ok_drift, ok_oracle, ok_turn_error | 178.28 | 90.32 | 0.36 | 0.260 | 0.29 | 90.32 | 30.0 | 4/251 |
+| D1000_U_free_F30_s21001 | False | False | 0/1 | ok_drift, ok_oracle, ok_turn_error | 178.16 | 90.62 | 0.37 | 0.222 | 0.20 | 90.60 | 29.9 | 1/251 |
+| D1000_U_free_F50_s21000 | False | False | 0/1 | ok_drift, ok_oracle, ok_turn_error | 179.14 | 90.59 | 0.15 | 0.270 | 0.40 | 90.57 | 49.7 | 0/256 |
+| D1000_U_free_F50_s21001 | False | False | 0/1 | ok_drift, ok_oracle, ok_turn_error | 44.99 | 90.27 | 0.15 | 0.246 | 0.22 | 90.34 | 50.0 | 0/251 |
 | F_fixed_F20_s21000 | True | True | 5/5 | - | 0.07 | 0.37 | 0.29 | 0.119 | 0.00 | 0.00 | 20.0 | 0/1209 |
 | F_fixed_F20_s21001 | True | True | 5/5 | - | 0.05 | 0.09 | 0.28 | 0.123 | 0.00 | 0.00 | 20.0 | 0/1206 |
 | F_fixed_F20_s21002 | True | True | 5/5 | - | 0.07 | 0.10 | 0.27 | 0.100 | 0.00 | 0.00 | 20.0 | 0/1210 |
@@ -57,6 +81,15 @@
 
 | Group | trials | G1 pass | pass (rel. core) | observed-move ok | max core slip mm | max core rot ° |
 |---|---|---|---|---|---|---|
+| D1000_F_free_F20 | 4 | 1 | 1 | 5/8 | 11.12 | 90.75 |
+| D1000_R_free_F20 | 4 | 1 | 1 | 10/12 | 7.82 | 91.22 |
+| D1000_U_fixed_F10 | 2 | 2 | 2 | 10/10 | 0.00 | 0.00 |
+| D1000_U_fixed_F30 | 2 | 2 | 2 | 10/10 | 0.00 | 0.00 |
+| D1000_U_fixed_F50 | 2 | 2 | 2 | 10/10 | 0.00 | 0.00 |
+| D1000_U_free_F10 | 2 | 0 | 0 | 0/2 | 18.06 | 62.03 |
+| D1000_U_free_F20 | 4 | 0 | 0 | 2/6 | 19.80 | 24.01 |
+| D1000_U_free_F30 | 2 | 0 | 0 | 0/2 | 0.29 | 90.60 |
+| D1000_U_free_F50 | 2 | 0 | 0 | 0/2 | 0.40 | 90.57 |
 | F_fixed_F20 | 4 | 4 | 4 | 20/20 | 0.00 | 0.00 |
 | F_free_F20 | 4 | 2 | 2 | 20/20 | 1.55 | 0.82 |
 | R_fixed_F20 | 4 | 4 | 4 | 20/20 | 0.00 | 0.00 |

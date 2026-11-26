@@ -130,3 +130,63 @@ passed the rest check at t0.
   soft-contact parameters, NoSlip with a floating assembly, and the timestep.
 - **Before G2's causality criterion can be fixed,** we need either the source of the jitter or a filtered layer speed
   (e.g. over 20 ms) as the measure. That is a `PROPOSAL` for the user.
+
+## D16d: jitter source screen (`diag_first_move.py`, UNSCORED)
+`S_U_free_F20_s21001` was logged over the first move's ramp, changing one factor at a time.
+
+| Change | Median max-cubie \|ω\| (°/s) | Steps with layer \|ω\| > 5°/s |
+|---|---|---|
+| As run (stabiliser pad 10 g, slide damping 100, pad solref 1 ms, dt 0.5 ms) | 45.5 | 184/601 |
+| NoSlip off / magnets off / gravity off | 47.2 / 40.3 / 48.3 | 201 / 110 / 173 |
+| **Stabiliser slide damping 1000** | **0.0** | **0/601** |
+| Stabiliser pad mass 0.1 kg | 0.0 | 7/601 |
+| Stabiliser pad solref 5 ms | 0.0 | 15/601 |
+| Timestep 0.25 ms | 0.0 | 24/1201 |
+
+**Finding (`FACT` for this trial):** the jitter comes from the **stand-in stabiliser's own dynamics**: a light pad on a
+saturated servo against a stiff contact, at dt 0.5 ms. NoSlip, the magnets and gravity do not cause it.
+
+## D16e: settle-then-turn with the damped stabiliser (slide damping 1000) (UNSCORED)
+**First attempt invalid** (`results_invalid_D1000_v1/`, kept). The hold phase switched gravity on after a fixed 0.3 s,
+but the damped pads need about 0.7 s to close, so the free cube fell before it was caught.
+- **Fix:** gravity stays off until both pads squeeze at ≥ 90 % of the set force; the cube's centre is now recorded at
+  t0.
+- **Earlier runs were not affected:** their pads closed within 0.3 s, and the cube centre was within 0.5 mm of the rig
+  at t0 (checked on four configurations).
+
+**Rerun** (`results/D1000_*`):
+
+| Configuration | Trials | G1 pass | Cube centre at t0 |
+|---|---|---|---|
+| Fixed core, 10 / 30 / 50 N | 6 | **6** | 0 |
+| Free core, 20 N, U / R / F | 12 | 2 (R s21003, F s21003) | **13–15 mm along the turn axis in 5 of 12**; ≈ 1 mm in 4 U trials |
+| Free core, 10 / 30 / 50 N (U) | 6 | 0 | 15–16 mm along +z at 30 and 50 N |
+
+**The free core fails at t0, before any turn** (`INFERENCE`, consistent in direction):
+- **Squeezed out:** in the failing trials the cube has been squeezed out of the stabiliser along the face axis by
+  13–16 mm before the first move.
+  - Every ejection points away from the end the pads cover: +z for U, +x for R, −y for F.
+  - That is a "watermelon-seed" ejection: two flat opposed pads with nothing stopping the cube axially, possibly
+    helped by the rounded edges at the covered end.
+- **Wrong layer:** the world-fixed turning rig then grips the wrong layer. The whole cube or the wrong layers turn
+  (drift about 90°).
+- **No ejection:** turns pass.
+- **The four U trials at 20 N with a small offset still fail.** Large cubie penetration (2–8 mm) and about 19 mm of
+  creep. That is not yet explained.
+
+## Overall conclusion of D16 (`INFERENCE`)
+1. **The cube works with a free core when it is held centred.** With the light stand-in, all 60/60 observed moves at
+   20 N were correct, and the remaining failures were fixture jitter. With the damped stand-in, turns pass whenever the
+   cube was not ejected.
+2. **The free-core result depends strongly on the stand-in fixture's dynamics**, which are not a validated model of arm
+   A:
+   - A light pad gives jitter, creep and transient contact loss.
+   - A damped pad gives axial ejection.
+   - Tuning a world-fixed slide-pad stand-in further would be tuning a proxy, not the system.
+3. **Design signals for G2** (`PROPOSAL`):
+   - **Axial ejection:** a two-flat-pad stabiliser has nothing stopping the cube along the face axis. A **shoulder or
+     end stop on the stabiliser** (C2's idea, applied to arm A) or a palm contact would block it.
+   - **The turning side must follow the cube**, not be world-fixed.
+   - **Grip:** 50 N adds nothing.
+   - **Causality:** measure it with a speed filtered over a window, robust to contact jitter, or with a model free of
+     fixture jitter.

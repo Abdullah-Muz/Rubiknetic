@@ -49,6 +49,9 @@ CORE_MASS, CORE_I = 0.0017, 2e-8                      # D6 (Paulus 2023 BOM; ASS
 import os  # noqa: E402
 CORE_MASS = float(os.environ.get("D16_CORE_MASS", CORE_MASS))   # D16c diagnostic overrides only
 CORE_I = float(os.environ.get("D16_CORE_I", CORE_I))
+STAB_MASS = float(os.environ.get("D16_STAB_MASS", 0.01))       # D16d screen overrides only (defaults = D16 as run)
+STAB_DAMP = float(os.environ.get("D16_STAB_DAMP", 100))
+STAB_SOLREF = os.environ.get("D16_STAB_SOLREF")                 # e.g. "0.005 1"; default: the rig pad solref
 SEEDS = (21000, 21001, 21002, 21003)
 # D16b (user, 2026-11-26: "Settle-then-turn test"): before each move wait until the cube is at rest, then close the
 # turning pads on a ramp instead of a step. A controller-side change; every G1 check is unchanged.
@@ -79,11 +82,11 @@ def stabiliser_xml(face: str, force: float, mu: float, p) -> tuple[str, str]:
         ax[b] = sg
         bodies.append(
             f'    <body name="stab_{nm}" pos="{f3(pos)}">\n'
-            f'      <joint name="stab_{nm}_slide" type="slide" axis="{f3(ax)}" range="-0.06 0.001" damping="100"/>\n'
+            f'      <joint name="stab_{nm}_slide" type="slide" axis="{f3(ax)}" range="-0.06 0.001" damping="{STAB_DAMP:g}"/>\n'
             f'      <geom name="stab_{nm}_g" type="box" size="{f3(half)}" contype="2" conaffinity="0" '
             f'condim="{p.pad_condim}" friction="{mu} {p.pad_friction[1]} {p.pad_friction[2]}" '
-            f'solref="{p.pad_solref[0]} {p.pad_solref[1]}" solimp="{" ".join(map(str, p.pad_solimp))}" '
-            f'mass="0.01" rgba="0.2 0.6 0.9 1"/>\n    </body>')
+            f'solref="{STAB_SOLREF or f"{p.pad_solref[0]} {p.pad_solref[1]}"}" solimp="{" ".join(map(str, p.pad_solimp))}" '
+            f'mass="{STAB_MASS:g}" rgba="0.2 0.6 0.9 1"/>\n    </body>')
         acts.append(f'    <position name="stab_{nm}" joint="stab_{nm}_slide" kp="{STAB_KP}" '
                     f'forcerange="{-force} {force}" ctrlrange="-0.06 0.001"/>')
     return "\n".join(bodies), "\n".join(acts)
@@ -190,7 +193,24 @@ class HoldTrial(_ORIG_TRIAL):
         g = m.opt.gravity.copy()
         m.opt.gravity[:] = 0.0
         d.ctrl[acts] = -(STAB_OPEN + STAB_OVERSHOOT)
-        self.sim.step(int(round(0.3 / dt)))
+        # D16e fix: gravity stays off until both stabiliser pads squeeze at >= 90 % of the set force (at least 0.3 s,
+        # at most 3 s). D16-D16c used a fixed 0.3 s, enough for their pads (damping 100: closing in ~0.07-0.14 s) but
+        # not for the damped pads of D16e's first attempt (damping 1000: ~0.7 s), whose cube fell before it was caught.
+        sg = [gid("stab_a_g"), gid("stab_b_g")]
+        f6, t_hold = np.zeros(6), 0.0
+        while True:
+            self.sim.step(1)
+            t_hold += dt
+            tot = {x: 0.0 for x in sg}
+            for i in range(d.ncon):
+                c = d.contact[i]
+                for x in sg:
+                    if x in (c.geom1, c.geom2):
+                        mujoco.mj_contactForce(m, d, i, f6)
+                        tot[x] += f6[0]
+            if (t_hold >= 0.3 and min(tot.values()) >= 0.9 * CFG["force"]) or t_hold >= 3.0:
+                break
+        self.hold_s = t_hold
         m.opt.gravity[:] = g
         self.sim.step(int(round(0.3 / dt)))
         self.sim.step(int(round(settle_s / dt)))
@@ -198,6 +218,7 @@ class HoldTrial(_ORIG_TRIAL):
         self.mon.new_window()
         self.timing = scored.TurnTiming(turn_s_per_quarter=setup.turn_s_per_quarter) if setup else scored.TurnTiming()
         self.t0_obs = self.ro.observe(d)
+        self.core_offset_t0_mm = [float(x) * 1000 for x in d.xpos[self.ro.core]]   # cube centre vs rig centre
         self.tracker = Tracker(m, d, self.ro.core, [gid("stab_a_g"), gid("stab_b_g")], acts, self.mon)
         self.sim.hooks.append(self.tracker)
         self.waits: list[dict] = []
@@ -261,6 +282,8 @@ def run_one(cfg: dict) -> dict:
                   "pen_cubie_mm_per_move": None if tk is None else tk.pen_cubie,
                   "pen_pad_mm_per_move": None if tk is None else tk.pen_pad,
                   "settle_waits": None if tr is None else tr.waits,
+                  "hold_s": None if tr is None else tr.hold_s,
+                  "core_offset_t0_mm": None if tr is None else tr.core_offset_t0_mm,
                   "nq": int(tr.model.nq) if tr else None, "wall_s": time.perf_counter() - t0}
     # supplementary check (not G1's): causality with the layer speed relative to the core
     rel = tk.rel_motion_t if tk is not None else []
@@ -279,6 +302,14 @@ def run_one(cfg: dict) -> dict:
 
 
 def plan() -> list[dict]:
+    if STAB_DAMP != 100:                              # D16e: settle-then-turn with a damped stabiliser (D16d screen)
+        tag = f"D{STAB_DAMP:g}_"
+        jobs = [{"name": f"{tag}{f}_free_F20_s{s}", "face": f, "free": True, "force": 20.0, "mu": 0.8, "seed": s,
+                 "settle": True, "stab_damp": STAB_DAMP} for f in ("U", "R", "F") for s in SEEDS]
+        jobs += [{"name": f"{tag}U_{'free' if fr else 'fixed'}_F{F:g}_s{s}", "face": "U", "free": fr, "force": F,
+                  "mu": 0.8, "seed": s, "settle": True, "stab_damp": STAB_DAMP}
+                 for fr in (True, False) for F in (10.0, 30.0, 50.0) for s in SEEDS[:2]]
+        return jobs
     jobs = []
     for face in ("U", "R", "F"):
         for free in (True, False):

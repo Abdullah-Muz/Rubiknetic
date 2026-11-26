@@ -23,15 +23,20 @@ def main(name: str = "S_U_free_F20_s21001") -> None:
     cfg = next(j for j in D16.plan() if j["name"] == name)
     D16.configure(cfg)
     E7, M4, scored = D16.E7, D16.M4, D16.scored
-    E7.install(E7.EDGE_R, E7.NOSLIP)
+    import os
+    E7.install(E7.EDGE_R, int(os.environ.get("D16_NOSLIP", E7.NOSLIP)))
     ov = {}
-    mp = E7.R.magnet_params_for(ov)
+    mp = None if os.environ.get("D16_NOMAG") else E7.R.magnet_params_for(ov)
     ms = M4.use_magnets(mp, E7.R.GAP)
-    ms.reset_neighbour_list()
-    ms.reset_stats()
+    if ms is not None:
+        ms.reset_neighbour_list()
+        ms.reset_stats()
     setup = scored.draw_setup(cfg["seed"])
-    tr = scored.Trial(scored.params_for(setup), setup)
+    pkw = {"timestep": float(os.environ["D16_TIMESTEP"])} if os.environ.get("D16_TIMESTEP") else {}
+    tr = scored.Trial(scored.params_for(setup, **pkw), setup)
     m, d, ro = tr.model, tr.sim.d, tr.ro
+    if os.environ.get("D16_GRAVITY_OFF"):
+        m.opt.gravity[:] = 0.0
     mv = parse(f"{cfg['face']}")[0]
     members = ro.layer_members(d, mv.face)
     bodies = ro.body_ids[members]
@@ -70,9 +75,9 @@ def main(name: str = "S_U_free_F20_s21001") -> None:
         d.ctrl[a] = d.ctrl[b] = tr.rig.close_target * k / n
         tr.sim.step()
         log()
-    for r in rows[:12] + rows[12:200:10] + rows[200::50]:
-        print(json.dumps(r))
     tag = f"_m{D16.CORE_MASS:g}_I{D16.CORE_I:g}" if cfg["free"] else ""
+    tag += "".join(f"_{k[4:].lower()}{v.replace(' ', '-')}" for k, v in sorted(os.environ.items())
+                   if k.startswith("D16_") and k not in ("D16_CORE_MASS", "D16_CORE_I"))
     w = np.array([r["w_max_all"] for r in rows]); wr = np.abs([r["w_rel"] for r in rows])
     print(f"SUMMARY {name}{tag}: w_max_all median {np.median(w):.1f} max {w.max():.1f} deg/s; |w_rel| > 5 in "
           f"{int((wr > 5).sum())}/{len(wr)} steps before pad contact")
