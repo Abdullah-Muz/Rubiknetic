@@ -84,6 +84,14 @@ share the stabiliser finger, so the only extra artefact is C2's turner tip. C6 a
 - Held by fixed stand-in pads in place of arm A, with the G1 rig turning a layer.
 - It shows whether G1's behaviour survives without the fixed core. If it does not, the result goes to the user before
   anything else in G2.
+- Precedent (`FACT`, [`../../experiments/D6_free_core/README.md`](../../experiments/D6_free_core/README.md), M2,
+  unscored, 2026-11-13):
+  - A **one-layer** holder was ambiguous. The wrong layer turned (D instead of U), or the cube slid 13 mm.
+  - A **two-layer** stabiliser (30 N) gave 5/5 correct turns with 0.00° drift.
+  - M7 has no switch rule, so the question for M7 is whether contact alone picks the right layer. D6's
+    `run_free.py` and `run_stab.py` are the starting point for the M7 rehearsal.
+
+*(Approved 2026-11-26 as P-97: C1 + C2, 20 N default, free-core rehearsal first, sizes and §4 accepted.)*
 
 **P5. Re-derive the requirements list for M7** (§4), to be fixed in the G2 pre-registration (step 3).
 
