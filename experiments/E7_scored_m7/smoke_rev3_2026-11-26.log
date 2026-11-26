@@ -1,0 +1,25 @@
+NOT RUN ('magnets', 'E1-7', 'smoke_magnet=4x1.5_N35__6move'): failed V3
+start-up checks: {'max_abs_magnet_qfrc': 0.03674838541285853, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 8.673617379884035e-19, 'buf_matches_step_qfrc': 8.673617379884035e-19, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 5.329070518200751e-15, 'displacement_vs_qvel_before': 13.54196649619511, 'integrator': 'implicitfast', 'pass': True, 'gap': 5e-05}
+start 1: commit 1b5c7582ba5c289a822b281afe012428c67fb6e7+smoke; 19 of 19 trials to run; 1 registered not run; orphans moved 0; ledger lines reconciled 0
+PASS magnets/E1-7/smoke_magnet=none__6move 
+PASS no_magnets/E1-2/smoke_seq_s18000 
+PASS magnets/E1-7/smoke_gap=0.0001__6move 
+PASS magnets/E1-2/smoke_seq_s18000 
+NOT RUN ('magnets', 'E1-7', 'smoke_magnet=4x1.5_N35__6move'): failed V3
+start-up checks: {'max_abs_magnet_qfrc': 0.03674838541285853, 'max_change_from_ctrl_time_qvel_act': 0.0, 'installed_matches_direct': 8.673617379884035e-19, 'buf_matches_step_qfrc': 8.673617379884035e-19, 'callback_calls_in_one_step': 1, 'displacement_vs_qvel_after': 5.329070518200751e-15, 'displacement_vs_qvel_before': 13.54196649619511, 'integrator': 'implicitfast', 'pass': True, 'gap': 5e-05}
+start 2: commit 1b5c7582ba5c289a822b281afe012428c67fb6e7+smoke; 14 of 19 trials to run; 1 registered not run; orphans moved 1; ledger lines reconciled 1
+PASS magnets/E1-7/smoke_face_gap_mm=0.35__6move 
+PASS magnets/E1-7/smoke_magnet_scale=0.67__6move 
+PASS magnets/E1-7/smoke_face_gap_mm=1.35__6move 
+PASS magnets/E1-7/smoke_magnet=3x1.5_N35__6move 
+PASS magnets/E1-7/smoke_magnet=4x2_N52__6move 
+PASS no_magnets/E1-6/smoke_opposed_s18004 
+PASS magnets/E1-6/smoke_openpad_s18003 
+PASS magnets/E1-7/smoke_timestep=0.00025__6move 
+PASS magnets/E1-6/smoke_opposed_s18004 
+PASS magnets/E1-5/smoke_forgive_s18002 
+PASS magnets/E1-5s/smoke_snap_s18006 
+PASS magnets/E1-6/smoke_twist_s18005 
+PASS magnets/E1-6t/smoke_twist_std_s18007 
+PASS magnets/E1-1/smoke_rest_s18001 
+complete: 14 records written this start in 332 s

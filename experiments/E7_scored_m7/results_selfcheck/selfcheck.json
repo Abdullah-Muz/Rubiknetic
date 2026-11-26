@@ -9,12 +9,12 @@
   "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
   "scipy": "1.18.1"
  },
- "head": "d5ba4cd66227e954f50b8311da4897aaa35d49fb",
+ "head": "1b5c7582ba5c289a822b281afe012428c67fb6e7",
  "tree_clean_for_m7_paths": true,
  "dirty": [],
  "sha256": {
-  "experiments/E7_scored_m7/run.py": "f1c8f4ce12990659ee1c1f75b23eccb91b027613baaf099dc6afea47d874d9a3",
-  "experiments/E7_scored_m7/analyze.py": "9a6df235aeb276fd780541477d47a5d28d6d36459fcb1dcd7cb70cc8d3b0d269"
+  "experiments/E7_scored_m7/run.py": "576e221cdfe0252633ded2407f2586bc68412106d443589fa9d747b82b1b9a0a",
+  "experiments/E7_scored_m7/analyze.py": "079503134a927feefd0973193cee502c711d368c956110839125f978804f6ce4"
  },
  "trials": [
   {
@@ -148,6 +148,15 @@
    "sub": "E1-7",
    "kind": "rest60",
    "ref": "experiments/D15_rounded_edges/results/r3/rests/nominal__rest60.json.gz",
+   "diffs": [],
+   "pass": true,
+   "n_diffs": 0
+  },
+  {
+   "tid": "timestep=0.00075__rest60",
+   "sub": "E1-7",
+   "kind": "rest60",
+   "ref": "experiments/D15_rounded_edges/results/r3/rests/timestep=0.00075__rest60.json.gz",
    "diffs": [],
    "pass": true,
    "n_diffs": 0

@@ -162,6 +162,9 @@ M5 §2 unchanged, except as noted:
 - the resume rule; INVALID and INCOMPLETE are final;
 - harness exceptions become failing records;
 - `MemoryError` / `OSError` / killed worker are interruptions.
+- **Before a resume**, any worker processes left by the stopped start are found and stopped. A start whose parent
+  was killed can leave its pool's workers running, and their results are never written (§6.8). This is procedural and
+  does not change M5's resume rule.
 - **Location check** as M5 revision 8: no path in a OneDrive folder.
 - **Environment:** M5's check compares every record's environment (MuJoCo, NumPy, SciPy, Python, CPU) with the
   manifest. The run is started from WSL with `~/.venvs/rubiknetic`, the environment of every D15 record.
@@ -420,14 +423,26 @@ text is fixed (§6.7).
 - The cost is projected again after 25 % of the trials. Over the cap, the run pauses for the user; it is never
   abandoned (INCOMPLETE is final).
 
-### 6.8 Revision-3 evidence (re-run at the revision-3 code commit)
-`TODO`, filled in before review 3:
-- the self-check, now 17 trials: SC3 adds E1-7 `timestep=0.00075__rest60`, the 2,425-sample rest (review 2, O8);
-- the smoke with an interruption and resume, with its `provenance` output committed beside it (review 2, O1);
-- the M7 and M5 tests;
-- the full repository suite (review 2, O6).
+### 6.8 Revision-3 evidence (at the revision-3 code commit `1b5c758`; `FACT`)
+These replace §6.7 as the evidence for fixing. Both the self-check and the smoke provenance record the SHA-256
+`run.py` `576e221c…9b1b9a0a` and `analyze.py` `07950313…804f6ce4`, with the M7 paths clean.
 
-These replace §6.7 as the evidence for fixing.
+- **Self-check** (`results_selfcheck/selfcheck.json`; 6 workers): HEAD `1b5c758`, clean, **17 / 17 trials, 0
+  differences**. This includes E1-7 `timestep=0.00075__rest60`, the 2,425-sample rest, reproducing R3's record
+  (review 2, O8).
+- **Smoke** (`smoke_rev3_2026-11-26/`, log `smoke_rev3_2026-11-26.log`, provenance
+  `smoke_rev3_2026-11-26.provenance.json`):
+  - commit `1b5c758+smoke`;
+  - start 1 killed after 5 records (`after_link`);
+  - start 2 resumed: 1 orphan moved, 1 ledger line reconciled, 14 records written (332 s);
+  - the revision-3 verdict script (`--smoke-dir`): **19 records, 2 starts, 0 integrity violations, 0 missing**.
+- **A side effect of the simulated kill:** `--stop-after` ends the parent with `os._exit`, which leaves the worker
+  processes of that start running, idle once their trials end. Their results are never written. Six such workers
+  were found idle about 10 minutes later and stopped by process ID. This happens only with the smoke test's
+  `--stop-after`, which the scored run does not use. After a real interruption, any stray workers of the stopped
+  start are to be checked for and stopped before resuming.
+- **Tests:** the 35 M7 tests pass (revision-3 code), and **the full repository suite, 384 tests, passes** (pytest
+  exit 0).
 
 ### 6.7 Revision-2 evidence (re-run at the revision-2 code commit `d5ba4cd`; B-R8; `FACT`)
 These replaced the revision-1 results of §6.2 and §6.3, and are in turn replaced by §6.8. They ran with 2 workers, because
