@@ -9,7 +9,13 @@
   "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
   "scipy": "1.18.1"
  },
- "head": "5e74b691e84b8f880ecbc836b9b5b99bd555f937",
+ "head": "d5ba4cd66227e954f50b8311da4897aaa35d49fb",
+ "tree_clean_for_m7_paths": true,
+ "dirty": [],
+ "sha256": {
+  "experiments/E7_scored_m7/run.py": "f1c8f4ce12990659ee1c1f75b23eccb91b027613baaf099dc6afea47d874d9a3",
+  "experiments/E7_scored_m7/analyze.py": "9a6df235aeb276fd780541477d47a5d28d6d36459fcb1dcd7cb70cc8d3b0d269"
+ },
  "trials": [
   {
    "tid": "rest_s16000",

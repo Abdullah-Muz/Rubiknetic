@@ -403,11 +403,19 @@ text is fixed (§6.7).
 - The cost is projected again after 25 % of the trials. Over the cap, the run pauses for the user; it is never
   abandoned (INCOMPLETE is final).
 
-### 6.7 Revision-2 evidence (re-run at the revision-2 code commit; B-R8)
-`TODO`, filled in before review 2:
-- the self-check (16 trials) with its provenance block;
-- the smoke with a forced interruption and a resume, with M7's verdict script on it;
-- the M7 and M5 tests and the full suite.
+### 6.7 Revision-2 evidence (re-run at the revision-2 code commit `d5ba4cd`; B-R8; `FACT`)
+These replace the revision-1 results of §6.2 and §6.3 as the evidence for fixing. They ran with 2 workers, because
+memory was held by paused jobs of another project; worker count does not affect results.
+
+- **Self-check** (`results_selfcheck/selfcheck.json`):
+  - HEAD `d5ba4cd`, M7 paths clean (`tree_clean_for_m7_paths` true);
+  - SHA-256 `run.py` `f1c8f4ce…74d9a3`, `analyze.py` `9a6df235…d0d269`;
+  - **16 / 16 trials, 0 differences**.
+- **Smoke** (`smoke_rev2_2026-11-25/`, log `smoke_rev2_2026-11-25.log`): commit `d5ba4cd+smoke`.
+  - Start 1 was killed after 5 records (`after_link`).
+  - Start 2 resumed: 1 orphan moved, 1 ledger line reconciled, 14 records written (323 s).
+  - M7's revision-2 verdict script (`--smoke-dir`): **19 records, 2 starts, 0 integrity violations, 0 missing**.
+- **Tests:** at `d5ba4cd`, the 31 M7 tests and M5's 83 pass together (114).
 
 ## 7. Prerequisites before this text can be fixed
 1. The user's answers to §8.
