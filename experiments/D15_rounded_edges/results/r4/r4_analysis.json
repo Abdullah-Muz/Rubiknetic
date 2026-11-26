@@ -1,0 +1,219 @@
+{
+ "gate": {
+  "pass": true,
+  "trials": [
+   {
+    "sub": "E1-1",
+    "tid": "rest_s16000",
+    "ref": "results/r2/R25/L0/E1-1/rest_s16000.json.gz",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "sub": "E1-2",
+    "tid": "U_s16100",
+    "ref": "results/r1/R25/L0/E1-2/U_s16100.json.gz",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "sub": "E1-3",
+    "tid": "U2_s16200",
+    "ref": "results/r2/R25/L0/E1-3/U2_s16200.json.gz",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "sub": "E1-4",
+    "tid": "sexy6_s16300",
+    "ref": "results/r2/R25/L0/E1-4/sexy6_s16300.json.gz",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "sub": "E1-5",
+    "tid": "forgive_+0_s16500",
+    "ref": "results/r1/R25/L0/E1-5/forgive_+0_s16500.json.gz",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "sub": "E1-5s",
+    "tid": "snap_+1_s16551",
+    "ref": "results/r1/R25/L0/E1-5s/snap_+1_s16551.json.gz",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "sub": "E1-6a",
+    "tid": "openpad_U_s16600",
+    "ref": "results/r2/R25/L0/E1-6/openpad_U_s16600.json.gz",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "sub": "E1-6b",
+    "tid": "opposed_UR_1Nm_s16610",
+    "ref": "results/r2/R25/L0/E1-6/opposed_UR_1Nm_s16610.json.gz",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "sub": "E1-6c",
+    "tid": "twist_nnn_s16620",
+    "ref": "results/r2/R25/L0/E1-6/twist_nnn_s16620.json.gz",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   },
+   {
+    "sub": "E1-6t",
+    "tid": "std_nnn_pos_s16640",
+    "ref": "results/r2/R25/L0/E1-6t/std_nnn_pos_s16640.json.gz",
+    "n_diffs": 0,
+    "diffs": [],
+    "pass": true
+   }
+  ]
+ },
+ "complete": true,
+ "rows": {
+  "E1-1": {
+   "n": 20,
+   "expected": 20,
+   "passed": 20,
+   "failed": []
+  },
+  "E1-2": {
+   "n": 24,
+   "expected": 24,
+   "passed": 24,
+   "failed": []
+  },
+  "E1-3": {
+   "n": 22,
+   "expected": 22,
+   "passed": 22,
+   "failed": []
+  },
+  "E1-4": {
+   "n": 40,
+   "expected": 40,
+   "passed": 40,
+   "failed": []
+  },
+  "E1-5": {
+   "n": 42,
+   "expected": 42,
+   "passed": 42,
+   "failed": []
+  },
+  "E1-5s": {
+   "n": 20,
+   "expected": 20,
+   "passed": 20,
+   "failed": []
+  },
+  "E1-6a": {
+   "n": 6,
+   "expected": 6,
+   "passed": 6,
+   "failed": []
+  },
+  "E1-6b": {
+   "n": 6,
+   "expected": 6,
+   "passed": 6,
+   "failed": []
+  },
+  "E1-6c": {
+   "n": 8,
+   "expected": 8,
+   "passed": 8,
+   "failed": []
+  },
+  "E1-6t": {
+   "n": 16,
+   "expected": 16,
+   "passed": 16,
+   "failed": []
+  }
+ },
+ "e16m": {
+  "moves": 1376,
+  "ok": 1376,
+  "pass": true
+ },
+ "signal1": {
+  "complete": true,
+  "slip_seeds": [],
+  "rest_over_0p5_seeds": [],
+  "integrity_failures": [],
+  "out_of_regime_seeds": [],
+  "rest_lengths_s": [
+   60.0
+  ],
+  "max_rest_deg": 0.005526120989511657,
+  "signal_met": true
+ },
+ "signals": {
+  "1_rest_60s_no_slips": true,
+  "2_option_a_with_slip_rule": true,
+  "all_met": true
+ },
+ "reading": "meets the rehearsal signals on fresh seeds (not a candidate)",
+ "turner_Nm_E12_E13_E14": {
+  "n_moves": 1376,
+  "median": 0.1029423878519764,
+  "p99": 0.16992550697066044,
+  "max": 0.19321935846615368,
+  "above_0.45": 0,
+  "above_0.5": 0,
+  "at_clip": 0
+ },
+ "margins_fresh": {
+  "max_rest_deg_0_10s": 0.005526120989511657,
+  "max_nontarget_drift_deg": 0.7810026789127736,
+  "max_penetration_mm": 0.29158005887101995,
+  "max_abs_turn_error_deg": 0.3848001998919557,
+  "moves": 1376
+ },
+ "margins_rehearsal_R1_R2": {
+  "max_rest_deg_0_10s": 0.005132706652076411,
+  "max_nontarget_drift_deg": 0.7281147021593666,
+  "max_penetration_mm": 0.2931561318643186,
+  "max_abs_turn_error_deg": 0.3682050292177159,
+  "moves": 1376
+ },
+ "trouble": [],
+ "rest_wall_s": [
+  331.1770722479996,
+  347.0233838639979,
+  352.4956440770038,
+  359.33436330399854,
+  359.5304934790038,
+  360.95027817200025,
+  360.9621809859964,
+  365.04917818399554,
+  367.6846823300002,
+  370.11734649000573,
+  375.50875404399994,
+  375.84521351799776,
+  379.800432608994,
+  383.6761284420063,
+  386.54715694000333,
+  386.82087524799863,
+  402.0070808790042,
+  407.4456622479993,
+  416.40227559600316,
+  416.55604401099845
+ ]
+}

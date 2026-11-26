@@ -1,0 +1,218 @@
+2026-11-25 15:10:08 NOTE (before any R4 computation): the user approved starting with another project's job running in WSL ('can we go ahead even with polypanda running?', 2026-11-25), a change to PROTOCOL_R4 section 1 (WSL free of other jobs); affects wall time only; disclosed in the write-up
+2026-11-25 15:11:46 R4 start: commit b6df25cf5bf01e74b54fc187908a7f37cd88c883, 0 / 214 present, 6 workers, free 12.0 GB
+2026-11-25 15:12:02 [1] GATE U_s16100 PASS peak 0.102 N.m; wall 15 s
+2026-11-25 15:12:02 [2] GATE snap_+1_s16551 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 15:12:04 [3] GATE forgive_+0_s16500 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 15:12:13 [4] GATE U2_s16200 PASS peak 0.140 N.m; wall 24 s
+2026-11-25 15:12:14 [5] GATE openpad_U_s16600 PASS peak 0.000 N.m; wall 11 s
+2026-11-25 15:12:20 [6] GATE opposed_UR_1Nm_s16610 PASS peak 0.000 N.m; wall 17 s
+2026-11-25 15:12:28 [7] GATE twist_nnn_s16620 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 15:13:41 [8] GATE std_nnn_pos_s16640 PASS peak 0.000 N.m; wall 86 s
+2026-11-25 15:16:20 [9] GATE sexy6_s16300 PASS peak 0.149 N.m; wall 263 s
+2026-11-25 15:17:05 [10] GATE rest_s16000 rest 0-10 s 0.000978 deg; no event; wall 305 s
+2026-11-25 15:17:09 R4 gate: PASS [('E1-1', 0), ('E1-2', 0), ('E1-3', 0), ('E1-4', 0), ('E1-5', 0), ('E1-5s', 0), ('E1-6a', 0), ('E1-6b', 0), ('E1-6c', 0), ('E1-6t', 0)]
+2026-11-25 15:22:08 [1] sexy6_s19302 PASS peak 0.158 N.m; wall 287 s
+2026-11-25 15:22:15 [2] sexy6_s19303 PASS peak 0.123 N.m; wall 295 s
+2026-11-25 15:22:34 [3] sexy6_s19301 PASS peak 0.163 N.m; wall 314 s
+2026-11-25 15:22:39 [4] sexy6_s19304 PASS peak 0.130 N.m; wall 317 s
+2026-11-25 15:22:40 [5] sexy6_s19305 PASS peak 0.129 N.m; wall 318 s
+2026-11-25 15:22:48 [6] sexy6_s19300 PASS peak 0.108 N.m; wall 326 s
+2026-11-25 15:27:58 [7] sexy6_s19307 PASS peak 0.152 N.m; wall 330 s
+2026-11-25 15:28:00 [8] sexy6_s19306 PASS peak 0.124 N.m; wall 339 s
+2026-11-25 15:28:00 [9] sexy6_s19309 PASS peak 0.133 N.m; wall 308 s
+2026-11-25 15:28:02 [10] sexy6_s19311 PASS peak 0.155 N.m; wall 303 s
+2026-11-25 15:28:15 [11] sexy6_s19310 PASS peak 0.154 N.m; wall 323 s
+2026-11-25 15:28:31 [12] sexy6_s19308 PASS peak 0.109 N.m; wall 343 s
+2026-11-25 15:33:27 [13] sexy6_s19315 PASS peak 0.113 N.m; wall 312 s
+2026-11-25 15:33:32 [14] sexy6_s19317 PASS peak 0.135 N.m; wall 288 s
+2026-11-25 15:33:41 [15] sexy6_s19314 PASS peak 0.117 N.m; wall 328 s
+2026-11-25 15:33:42 [16] sexy6_s19316 PASS peak 0.113 N.m; wall 315 s
+2026-11-25 15:33:52 [17] sexy6_s19313 PASS peak 0.117 N.m; wall 338 s
+2026-11-25 15:33:55 [18] sexy6_s19312 PASS peak 0.107 N.m; wall 343 s
+2026-11-25 15:39:06 [19] sexy6_s19318 PASS peak 0.148 N.m; wall 325 s
+2026-11-25 15:39:11 [20] sexy6_s19319 PASS peak 0.112 N.m; wall 326 s
+2026-11-25 15:43:03 [21] scr20inv_s19402 PASS peak 0.170 N.m; wall 530 s
+2026-11-25 15:43:11 [22] scr20inv_s19401 PASS peak 0.178 N.m; wall 547 s
+2026-11-25 15:43:57 [23] scr20inv_s19400 PASS peak 0.171 N.m; wall 592 s
+2026-11-25 15:44:23 [24] scr20inv_s19403 PASS peak 0.163 N.m; wall 604 s
+2026-11-25 15:48:41 [25] scr20inv_s19404 PASS peak 0.176 N.m; wall 553 s
+2026-11-25 15:50:13 [26] scr20inv_s19405 PASS peak 0.171 N.m; wall 636 s
+2026-11-25 15:54:00 [27] scr20inv_s19408 PASS peak 0.184 N.m; wall 581 s
+2026-11-25 15:54:06 [28] scr20inv_s19407 PASS peak 0.171 N.m; wall 630 s
+2026-11-25 15:54:19 [29] scr20inv_s19406 PASS peak 0.171 N.m; wall 652 s
+2026-11-25 15:56:57 [30] scr20inv_s19409 PASS peak 0.160 N.m; wall 728 s
+2026-11-25 16:01:15 [31] scr20inv_s19410 PASS peak 0.132 N.m; wall 733 s
+2026-11-25 16:04:05 [32] scr20inv_s19411 PASS peak 0.138 N.m; wall 812 s
+2026-11-25 16:06:13 [33] scr20inv_s19412 PASS peak 0.149 N.m; wall 717 s
+2026-11-25 16:06:25 [34] scr20inv_s19414 PASS peak 0.174 N.m; wall 710 s
+2026-11-25 16:06:45 [35] scr20inv_s19413 PASS peak 0.157 N.m; wall 742 s
+2026-11-25 16:08:15 [36] scr20inv_s19415 PASS peak 0.164 N.m; wall 663 s
+2026-11-25 16:11:45 [37] scr20inv_s19416 PASS peak 0.116 N.m; wall 613 s
+2026-11-25 16:13:26 [38] rest_s19000 rest 0-10 s 0.000757 deg; no event; wall 387 s
+2026-11-25 16:13:39 [39] scr20inv_s19417 PASS peak 0.169 N.m; wall 557 s
+2026-11-25 16:14:59 [40] rest_s19001 rest 0-10 s 0.002325 deg; no event; wall 387 s
+2026-11-25 16:17:53 [41] scr20inv_s19418 PASS peak 0.167 N.m; wall 680 s
+2026-11-25 16:18:28 [42] scr20inv_s19419 PASS peak 0.180 N.m; wall 703 s
+2026-11-25 16:18:42 [43] rest_s19002 rest 0-10 s 0.000966 deg; no event; wall 402 s
+2026-11-25 16:20:40 [44] rest_s19003 rest 0-10 s 0.000623 deg; no event; wall 417 s
+2026-11-25 16:20:52 [45] rest_s19004 rest 0-10 s 0.002680 deg; no event; wall 416 s
+2026-11-25 16:22:02 [46] rest_s19005 rest 0-10 s 0.000880 deg; no event; wall 407 s
+2026-11-25 16:24:19 [47] rest_s19006 rest 0-10 s 0.000588 deg; no event; wall 370 s
+2026-11-25 16:24:44 [48] rest_s19007 rest 0-10 s 0.001903 deg; no event; wall 361 s
+2026-11-25 16:25:17 [49] rest_s19008 rest 0-10 s 0.000406 deg; no event; wall 380 s
+2026-11-25 16:26:54 [50] rest_s19009 rest 0-10 s 0.005526 deg; no event; wall 360 s
+2026-11-25 16:27:06 [51] rest_s19010 rest 0-10 s 0.000818 deg; no event; wall 359 s
+2026-11-25 16:28:25 [52] rest_s19011 rest 0-10 s 0.001750 deg; no event; wall 368 s
+2026-11-25 16:30:46 [53] rest_s19013 rest 0-10 s 0.001046 deg; no event; wall 347 s
+2026-11-25 16:30:51 [54] rest_s19012 rest 0-10 s 0.001022 deg; no event; wall 376 s
+2026-11-25 16:31:26 [55] rest_s19014 rest 0-10 s 0.000574 deg; no event; wall 352 s
+2026-11-25 16:31:47 [56] U2_s19200 PASS peak 0.137 N.m; wall 21 s
+2026-11-25 16:32:07 [57] U2_s19201 PASS peak 0.113 N.m; wall 18 s
+2026-11-25 16:32:25 [58] R2_s19202 PASS peak 0.119 N.m; wall 18 s
+2026-11-25 16:32:42 [59] rest_s19015 rest 0-10 s 0.000841 deg; no event; wall 331 s
+2026-11-25 16:32:54 [60] R2_s19203 PASS peak 0.113 N.m; wall 27 s
+2026-11-25 16:33:12 [61] F2_s19204 PASS peak 0.112 N.m; wall 29 s
+2026-11-25 16:33:19 [62] F2_s19205 PASS peak 0.113 N.m; wall 24 s
+2026-11-25 16:33:27 [63] rest_s19016 rest 0-10 s 0.001521 deg; no event; wall 365 s
+2026-11-25 16:33:34 [64] D2_s19206 PASS peak 0.112 N.m; wall 21 s
+2026-11-25 16:33:46 [65] D2_s19207 PASS peak 0.107 N.m; wall 24 s
+2026-11-25 16:33:55 [66] L2_s19208 PASS peak 0.108 N.m; wall 26 s
+2026-11-25 16:34:02 [67] L2_s19209 PASS peak 0.193 N.m; wall 26 s
+2026-11-25 16:34:19 [68] B2_s19210 PASS peak 0.105 N.m; wall 32 s
+2026-11-25 16:34:27 [69] B2_s19211 PASS peak 0.106 N.m; wall 30 s
+2026-11-25 16:34:42 [70] rest_s19017 rest 0-10 s 0.000406 deg; no event; wall 361 s
+2026-11-25 16:36:25 [71] halves_s19230 PASS peak 0.142 N.m; wall 136 s
+2026-11-25 16:36:25 [72] halves_s19231 PASS peak 0.140 N.m; wall 120 s
+2026-11-25 16:36:38 [73] halves_s19233 PASS peak 0.127 N.m; wall 111 s
+2026-11-25 16:36:40 [74] halves_s19232 PASS peak 0.133 N.m; wall 127 s
+2026-11-25 16:37:23 [75] rest_s19019 rest 0-10 s 0.001044 deg; no event; wall 376 s
+2026-11-25 16:37:27 [76] rest_s19018 rest 0-10 s 0.001785 deg; no event; wall 384 s
+2026-11-25 16:38:32 [77] halves_s19235 PASS peak 0.146 N.m; wall 123 s
+2026-11-25 16:38:35 [78] halves_s19236 PASS peak 0.179 N.m; wall 114 s
+2026-11-25 16:38:44 [79] halves_s19234 PASS peak 0.155 N.m; wall 135 s
+2026-11-25 16:38:49 [80] forgive_+0_s19500 PASS peak 0.000 N.m; wall 16 s
+2026-11-25 16:39:00 [81] halves_s19237 PASS peak 0.142 N.m; wall 136 s
+2026-11-25 16:39:00 [82] forgive_+1_s19501 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:39:11 [83] forgive_+2_s19502 PASS peak 0.000 N.m; wall 24 s
+2026-11-25 16:39:14 [84] forgive_+3_s19503 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:39:23 [85] forgive_+5_s19505 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:39:25 [86] forgive_+4_s19504 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:39:33 [87] forgive_+6_s19506 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:39:36 [88] forgive_+7_s19507 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:39:38 [89] halves_s19238 PASS peak 0.124 N.m; wall 130 s
+2026-11-25 16:39:42 [90] halves_s19239 PASS peak 0.155 N.m; wall 130 s
+2026-11-25 16:39:45 [91] forgive_+8_s19508 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:39:48 [92] forgive_+9_s19509 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:39:56 [93] forgive_+10_s19510 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:39:58 [94] forgive_+11_s19511 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:40:00 [95] forgive_+12_s19512 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:40:06 [96] forgive_+13_s19513 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:40:09 [97] forgive_+14_s19514 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:40:12 [98] forgive_+15_s19515 PASS peak 0.000 N.m; wall 24 s
+2026-11-25 16:40:21 [99] forgive_+16_s19516 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:40:24 [100] forgive_+17_s19517 PASS peak 0.000 N.m; wall 24 s
+2026-11-25 16:40:25 [101] forgive_+18_s19518 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:40:29 [102] forgive_+0_s19521 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:40:33 [103] forgive_+19_s19519 PASS peak 0.000 N.m; wall 25 s
+2026-11-25 16:40:35 [104] forgive_+20_s19520 PASS peak 0.000 N.m; wall 24 s
+2026-11-25 16:40:42 [105] forgive_-1_s19522 PASS peak 0.000 N.m; wall 20 s
+2026-11-25 16:40:44 [106] forgive_-2_s19523 PASS peak 0.000 N.m; wall 20 s
+2026-11-25 16:40:46 [107] forgive_-3_s19524 PASS peak 0.000 N.m; wall 20 s
+2026-11-25 16:40:51 [108] forgive_-4_s19525 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:40:56 [109] forgive_-5_s19526 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:40:57 [110] forgive_-6_s19527 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:41:04 [111] forgive_-7_s19528 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:41:06 [112] forgive_-8_s19529 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:41:09 [113] forgive_-9_s19530 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:41:13 [114] forgive_-10_s19531 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:41:20 [115] forgive_-11_s19532 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:41:22 [116] forgive_-12_s19533 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:41:30 [117] forgive_-13_s19534 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:41:31 [118] forgive_-14_s19535 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:41:33 [119] forgive_-15_s19536 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:41:37 [120] forgive_-16_s19537 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:41:43 [121] forgive_-17_s19538 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:41:46 [122] forgive_-18_s19539 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:41:49 [123] U_s19100 PASS peak 0.110 N.m; wall 15 s
+2026-11-25 16:41:52 [124] forgive_-19_s19540 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:41:53 [125] U_s19101 PASS peak 0.106 N.m; wall 15 s
+2026-11-25 16:41:54 [126] forgive_-20_s19541 PASS peak 0.000 N.m; wall 23 s
+2026-11-25 16:42:02 [127] Up_s19102 PASS peak 0.111 N.m; wall 17 s
+2026-11-25 16:42:05 [128] Up_s19103 PASS peak 0.098 N.m; wall 17 s
+2026-11-25 16:42:11 [129] R_s19104 PASS peak 0.136 N.m; wall 19 s
+2026-11-25 16:42:13 [130] R_s19105 PASS peak 0.099 N.m; wall 19 s
+2026-11-25 16:42:14 [131] Rp_s19106 PASS peak 0.095 N.m; wall 18 s
+2026-11-25 16:42:15 [132] Rp_s19107 PASS peak 0.098 N.m; wall 18 s
+2026-11-25 16:42:19 [133] F_s19108 PASS peak 0.101 N.m; wall 17 s
+2026-11-25 16:42:22 [134] F_s19109 PASS peak 0.098 N.m; wall 16 s
+2026-11-25 16:42:27 [135] Fp_s19110 PASS peak 0.094 N.m; wall 16 s
+2026-11-25 16:42:30 [136] Fp_s19111 PASS peak 0.096 N.m; wall 17 s
+2026-11-25 16:42:30 [137] D_s19112 PASS peak 0.102 N.m; wall 15 s
+2026-11-25 16:42:34 [138] D_s19113 PASS peak 0.095 N.m; wall 17 s
+2026-11-25 16:42:39 [139] Dp_s19114 PASS peak 0.110 N.m; wall 18 s
+2026-11-25 16:42:41 [140] Dp_s19115 PASS peak 0.105 N.m; wall 17 s
+2026-11-25 16:42:47 [141] L_s19116 PASS peak 0.149 N.m; wall 18 s
+2026-11-25 16:42:49 [142] L_s19117 PASS peak 0.096 N.m; wall 17 s
+2026-11-25 16:42:50 [143] Lp_s19118 PASS peak 0.143 N.m; wall 18 s
+2026-11-25 16:42:52 [144] Lp_s19119 PASS peak 0.093 N.m; wall 17 s
+2026-11-25 16:42:56 [145] B_s19120 PASS peak 0.097 N.m; wall 17 s
+2026-11-25 16:42:59 [146] B_s19121 PASS peak 0.096 N.m; wall 18 s
+2026-11-25 16:43:03 [147] Bp_s19122 PASS peak 0.098 N.m; wall 16 s
+2026-11-25 16:43:06 [148] snap_+1_s19551 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:07 [149] Bp_s19123 PASS peak 0.102 N.m; wall 17 s
+2026-11-25 16:43:08 [150] snap_-1_s19551 PASS peak 0.000 N.m; wall 14 s
+2026-11-25 16:43:12 [151] snap_+2_s19552 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:15 [152] snap_-2_s19552 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:19 [153] snap_+3_s19553 PASS peak 0.000 N.m; wall 14 s
+2026-11-25 16:43:22 [154] snap_-3_s19553 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:23 [155] snap_+5_s19555 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:24 [156] snap_-5_s19555 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:28 [157] snap_+8_s19558 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:32 [158] snap_-8_s19558 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:35 [159] snap_+1_s19561 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:37 [160] snap_-1_s19561 PASS peak 0.000 N.m; wall 14 s
+2026-11-25 16:43:40 [161] snap_+2_s19562 PASS peak 0.000 N.m; wall 16 s
+2026-11-25 16:43:41 [162] snap_-2_s19562 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:44 [163] snap_+3_s19563 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:48 [164] snap_-3_s19563 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:43:51 [165] snap_+5_s19565 PASS peak 0.000 N.m; wall 14 s
+2026-11-25 16:43:53 [166] snap_-5_s19565 PASS peak 0.000 N.m; wall 14 s
+2026-11-25 16:43:55 [167] snap_+8_s19568 PASS peak 0.000 N.m; wall 14 s
+2026-11-25 16:43:56 [168] snap_-8_s19568 PASS peak 0.000 N.m; wall 14 s
+2026-11-25 16:45:29 [169] std_nnn_pos_s19640 PASS peak 0.000 N.m; wall 100 s
+2026-11-25 16:45:31 [170] std_nnn_neg_s19641 PASS peak 0.000 N.m; wall 98 s
+2026-11-25 16:45:33 [171] std_nnp_pos_s19642 PASS peak 0.000 N.m; wall 96 s
+2026-11-25 16:45:35 [172] std_nnp_neg_s19643 PASS peak 0.000 N.m; wall 98 s
+2026-11-25 16:45:39 [173] std_npn_pos_s19644 PASS peak 0.000 N.m; wall 100 s
+2026-11-25 16:45:40 [174] std_npn_neg_s19645 PASS peak 0.000 N.m; wall 100 s
+2026-11-25 16:47:12 [175] std_npp_neg_s19647 PASS peak 0.000 N.m; wall 96 s
+2026-11-25 16:47:14 [176] std_npp_pos_s19646 PASS peak 0.000 N.m; wall 101 s
+2026-11-25 16:47:16 [177] std_pnn_pos_s19648 PASS peak 0.000 N.m; wall 99 s
+2026-11-25 16:47:17 [178] std_pnn_neg_s19649 PASS peak 0.000 N.m; wall 98 s
+2026-11-25 16:47:21 [179] std_pnp_pos_s19650 PASS peak 0.000 N.m; wall 98 s
+2026-11-25 16:47:24 [180] std_pnp_neg_s19651 PASS peak 0.000 N.m; wall 100 s
+2026-11-25 16:47:48 [181] twist_nnn_s19620 PASS peak 0.000 N.m; wall 24 s
+2026-11-25 16:47:51 [182] twist_nnp_s19621 PASS peak 0.000 N.m; wall 24 s
+2026-11-25 16:48:15 [183] twist_npn_s19622 PASS peak 0.000 N.m; wall 25 s
+2026-11-25 16:48:18 [184] twist_npp_s19623 PASS peak 0.000 N.m; wall 25 s
+2026-11-25 16:48:46 [185] twist_pnn_s19624 PASS peak 0.000 N.m; wall 28 s
+2026-11-25 16:48:49 [186] twist_pnp_s19625 PASS peak 0.000 N.m; wall 29 s
+2026-11-25 16:49:01 [187] std_ppn_pos_s19652 PASS peak 0.000 N.m; wall 104 s
+2026-11-25 16:49:04 [188] std_ppn_neg_s19653 PASS peak 0.000 N.m; wall 105 s
+2026-11-25 16:49:07 [189] std_ppp_pos_s19654 PASS peak 0.000 N.m; wall 106 s
+2026-11-25 16:49:07 [190] std_ppp_neg_s19655 PASS peak 0.000 N.m; wall 105 s
+2026-11-25 16:49:13 [191] twist_ppn_s19626 PASS peak 0.000 N.m; wall 26 s
+2026-11-25 16:49:17 [192] twist_ppp_s19627 PASS peak 0.000 N.m; wall 26 s
+2026-11-25 16:49:22 [193] opposed_UR_1Nm_s19610 PASS peak 0.000 N.m; wall 20 s
+2026-11-25 16:49:25 [194] opposed_UR_2Nm_s19611 PASS peak 0.000 N.m; wall 19 s
+2026-11-25 16:49:29 [195] opposed_UF_2Nm_s19613 PASS peak 0.000 N.m; wall 20 s
+2026-11-25 16:49:30 [196] opposed_UF_1Nm_s19612 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:49:37 [197] opposed_RF_1Nm_s19614 PASS peak 0.000 N.m; wall 21 s
+2026-11-25 16:49:39 [198] openpad_U_s19600 PASS peak 0.000 N.m; wall 16 s
+2026-11-25 16:49:40 [199] opposed_RF_2Nm_s19615 PASS peak 0.000 N.m; wall 22 s
+2026-11-25 16:49:42 [200] openpad_R_s19601 PASS peak 0.000 N.m; wall 16 s
+2026-11-25 16:49:45 [201] openpad_F_s19602 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:49:46 [202] openpad_D_s19603 PASS peak 0.000 N.m; wall 15 s
+2026-11-25 16:49:52 [203] openpad_L_s19604 PASS peak 0.000 N.m; wall 13 s
+2026-11-25 16:49:53 [204] openpad_B_s19605 PASS peak 0.000 N.m; wall 12 s
+2026-11-25 16:49:54 R4 trials complete: 204 / 204

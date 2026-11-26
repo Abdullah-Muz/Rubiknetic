@@ -1,0 +1,85 @@
+{
+ "pass": true,
+ "trials": [
+  {
+   "sub": "E1-1",
+   "tid": "rest_s16000",
+   "ref": "results/r2/R25/L0/E1-1/rest_s16000.json.gz",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "sub": "E1-2",
+   "tid": "U_s16100",
+   "ref": "results/r1/R25/L0/E1-2/U_s16100.json.gz",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "sub": "E1-3",
+   "tid": "U2_s16200",
+   "ref": "results/r2/R25/L0/E1-3/U2_s16200.json.gz",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "sub": "E1-4",
+   "tid": "sexy6_s16300",
+   "ref": "results/r2/R25/L0/E1-4/sexy6_s16300.json.gz",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "sub": "E1-5",
+   "tid": "forgive_+0_s16500",
+   "ref": "results/r1/R25/L0/E1-5/forgive_+0_s16500.json.gz",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "sub": "E1-5s",
+   "tid": "snap_+1_s16551",
+   "ref": "results/r1/R25/L0/E1-5s/snap_+1_s16551.json.gz",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "sub": "E1-6a",
+   "tid": "openpad_U_s16600",
+   "ref": "results/r2/R25/L0/E1-6/openpad_U_s16600.json.gz",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "sub": "E1-6b",
+   "tid": "opposed_UR_1Nm_s16610",
+   "ref": "results/r2/R25/L0/E1-6/opposed_UR_1Nm_s16610.json.gz",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "sub": "E1-6c",
+   "tid": "twist_nnn_s16620",
+   "ref": "results/r2/R25/L0/E1-6/twist_nnn_s16620.json.gz",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  },
+  {
+   "sub": "E1-6t",
+   "tid": "std_nnn_pos_s16640",
+   "ref": "results/r2/R25/L0/E1-6t/std_nnn_pos_s16640.json.gz",
+   "n_diffs": 0,
+   "diffs": [],
+   "pass": true
+  }
+ ]
+}

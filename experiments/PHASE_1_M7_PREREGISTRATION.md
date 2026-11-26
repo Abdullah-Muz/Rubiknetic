@@ -79,6 +79,12 @@ No simulation was run for this draft, and no scored seed was touched.
 
    For comparison: M5's rehearsal maximum rest was 0.290°, and its scored run then failed at 0.560° (P-51). Rehearsal
    maxima do not bound scored maxima.
+   **Fresh-seed rehearsal R4 (§7 item 2; P-87; seeds 19000–19655, never used before; same configuration and list):**
+   - 204 / 204, both signals met; 0 slip events in 20 rests of 60 s; no move at the clip.
+   - Largest drift **0.781°** (up 0.05° from the rehearsal), penetration 0.292 mm, rest 0.0055°, turner torque
+     max 0.193 N·m.
+   - The drift tail grows with new seeds, as expected. 0.22° of margin remains, and drift is the most likely route to
+     a scored failure.
 9. **Provenance.** The author has seen M5's scored results and every rehearsal record. No change to this text may be
    made in light of this run's scored results.
 
@@ -260,7 +266,7 @@ A new `experiments/E7_scored_m7/run.py`:
 ## 7. Prerequisites before this text can be fixed
 1. The user's answers to §8.
 2. **Fresh-seed rehearsal (if Q3)** on 19000–19655 under this exact configuration, reported and committed before the
-   text is fixed.
+   text is fixed. **Done** (D15 R4, P-87): 204 / 204, both signals met.
 3. The §6.1 code, SC1–SC5, the smoke run, and the seed search, all committed.
 4. Review(s) per Q8.
 5. The user's approval, the Status-line commit, an idle machine and an explicit go.

@@ -9,6 +9,7 @@
 | R1 | done 2026-11-24: both radii meet the screen; **R 2.5 mm selected** (below) |
 | R2 | done 2026-11-25 (P-81, P-82): all three arms **meet the rehearsal signals**, no move at the clip; unscored (below) |
 | R3 | done 2026-11-25 (P-84, P-85): E1-7 rehearsal of L0; nominal and all 15 rests pass; 4 / 58 sequence fragilities (gap 0.1 mm drift ×2, μ 1.0 jam, 0.75 ms penetration); unscored (below) |
+| R4 | done 2026-11-25 (P-86, P-87): M7's Option A on fresh seeds 19000–19655: **204 / 204, both signals met**, 0 slip events, no move at the clip; unscored (below) |
 
 ## R0 — implementation and static checks (`FACT`; all checks done 2026-11-24)
 
@@ -271,3 +272,51 @@ The NoSlip 0 reference (outside the band) also passed both.
   peak torque.
 - E1-7 is reported, not pass/fail, for G1 (M5 pre-registration §5). These fragilities are disclosed limits unless
   the user chooses to investigate.
+
+## R4 — fresh-seed rehearsal of M7's Option A battery (`FACT`; UNSCORED; protocol `PROTOCOL_R4.md`, fixed at `b6df25c` before any computation)
+
+**Run.**
+- 2026-11-25, 15:11–16:49, one start, 6 workers.
+- **Deviation, approved by the user before any computation:** another project's job ran in WSL ("can we go ahead
+  even with polypanda running?"), against §1's "WSL free of other jobs". It affects wall time only. It is logged at
+  the head of `results/r4/r4_run_log.txt`.
+- **Gate:** the first trial of all 10 sub-experiments, at rehearsal seeds, reproduces R1/R2's committed L0 R25 records
+  with **0 differences each**.
+- 204 / 204 trials on seeds 19000–19655 (M5's scored seeds + 9000), never simulated before. E1-4's scrambles were
+  drawn from them.
+- 0 proof errors, 0 harness exceptions, 0 trouble records.
+
+**Signals (both met; reading: "meets the rehearsal signals on fresh seeds (not a candidate)").**
+
+| Sub-exp. | E1-1 | E1-2 | E1-3 | E1-4 | E1-5 | E1-5s | E1-6a | E1-6b | E1-6c | E1-6t |
+|---|---|---|---|---|---|---|---|---|---|---|
+| passed | 20 / 20 | 24 / 24 | 22 / 22 | 40 / 40 | 42 / 42 | 20 / 20 | 6 / 6 | 6 / 6 | 8 / 8 | 16 / 16 |
+
+- **Signal 1:** all 20 rests ran 60 s with **0 D11 slip events**. The largest 0–10 s rotation was 0.0055°.
+- **Signal 2:** Option A with the slip rule. E1-6m ⟨P⟩ holds on 1376 / 1376 moves.
+- **Turner torque** (E1-2 to E1-4): median 0.103, p99 0.170, max 0.193 N·m. 0 moves above 0.45 N·m, 0 at the clip.
+
+**Margins: fresh seeds against the rehearsal (R1 + R2 L0, same 204-trial list on 16000–16655).**
+
+| Quantity | R4 (fresh) | Rehearsal | Limit |
+|---|---|---|---|
+| largest 0–10 s rest rotation | 0.0055° | 0.0051° | 0.5° |
+| largest non-target drift | **0.781°** | 0.728° | 1.0° |
+| largest penetration | 0.292 mm | 0.293 mm | 0.5 mm |
+| largest \|turn error\| | 0.385° | 0.368° | 2.0° |
+| turner torque max | 0.193 N·m | 0.185 N·m | clip 1.0 |
+
+**Predictions (`PROTOCOL_R4.md` §2).**
+- Gate passes: held.
+- Both signals met, with no move at the clip: held.
+- Drift and penetration below the limits, possibly above the rehearsal maxima: held. Drift rose to 0.781°;
+  penetration did not rise.
+- "If a trial fails, most likely drift": no trial failed. Drift is still the closest margin.
+
+**Reading (`INFERENCE`).**
+- On seeds that informed no choice, M7 behaves as rehearsed. Every quantity except drift is within a few per cent of
+  its rehearsal maximum.
+- Drift's tail grew by 0.05°, leaving 0.22° (22 %) of margin. It stays the most likely route to a scored failure.
+- Rest holding is about 100× inside its limit, with no slip events in 20 fresh 60 s rests.
+- This is evidence about the tails, not M7's verdict. Per `PROTOCOL_R4.md` §4, it informs the M7 disclosure and stop
+  rules only.
