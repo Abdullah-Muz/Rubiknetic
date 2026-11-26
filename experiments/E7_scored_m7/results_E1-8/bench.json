@@ -1,0 +1,272 @@
+{
+ "experiment": "E1-8",
+ "mechanism": "M7",
+ "scored": true,
+ "source_commit": "c91b153bac03f5d467afe3b3076ef7e2d7a2fcbe",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
+  "scipy": "1.18.1"
+ },
+ "logical_cpus": 16,
+ "loadavg": {
+  "start": [
+   4.45703125,
+   1.50390625,
+   0.59326171875
+  ],
+  "after_single": [
+   1.70654296875,
+   1.36328125,
+   0.63916015625
+  ],
+  "end": [
+   5.80615234375,
+   2.439453125,
+   1.0419921875
+  ]
+ },
+ "base_overrides": {
+  "radial_preload": 0.0,
+  "gap": 5e-05
+ },
+ "edge_radius": 0.0025,
+ "noslip_iterations": 10,
+ "single_process": [
+  {
+   "scenario": "cube_only",
+   "timestep_s": 0.00025,
+   "magnets": true,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 814.4470114637121,
+   "raw_realtime_factor": 0.20361175286592803,
+   "audited_steps_per_s": 790.944481060123,
+   "audited_realtime_factor": 0.19773612026503076,
+   "mean_contacts": 36.0,
+   "nv": 66
+  },
+  {
+   "scenario": "cube_only",
+   "timestep_s": 0.0005,
+   "magnets": true,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 852.3206184305503,
+   "raw_realtime_factor": 0.42616030921527515,
+   "audited_steps_per_s": 781.9775231691345,
+   "audited_realtime_factor": 0.3909887615845673,
+   "mean_contacts": 36.0,
+   "nv": 66
+  },
+  {
+   "scenario": "cube_only",
+   "timestep_s": 0.001,
+   "magnets": true,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 888.5529850578447,
+   "raw_realtime_factor": 0.8885529850578447,
+   "audited_steps_per_s": 854.2629821223859,
+   "audited_realtime_factor": 0.8542629821223859,
+   "mean_contacts": 36.0,
+   "nv": 66
+  },
+  {
+   "scenario": "rig_idle",
+   "timestep_s": 0.00025,
+   "magnets": true,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 806.4917104996932,
+   "raw_realtime_factor": 0.20162292762492331,
+   "audited_steps_per_s": 771.1449425761394,
+   "audited_realtime_factor": 0.19278623564403485,
+   "mean_contacts": 36.0,
+   "nv": 84
+  },
+  {
+   "scenario": "rig_idle",
+   "timestep_s": 0.0005,
+   "magnets": true,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 858.2236830225633,
+   "raw_realtime_factor": 0.4291118415112816,
+   "audited_steps_per_s": 787.413098933107,
+   "audited_realtime_factor": 0.3937065494665535,
+   "mean_contacts": 36.0,
+   "nv": 84
+  },
+  {
+   "scenario": "rig_idle",
+   "timestep_s": 0.001,
+   "magnets": true,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 879.0291237420635,
+   "raw_realtime_factor": 0.8790291237420634,
+   "audited_steps_per_s": 827.9970962901508,
+   "audited_realtime_factor": 0.8279970962901508,
+   "mean_contacts": 36.0,
+   "nv": 84
+  },
+  {
+   "scenario": "turning",
+   "timestep_s": 0.00025,
+   "magnets": true,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 660.3698874640913,
+   "raw_realtime_factor": 0.16509247186602283,
+   "audited_steps_per_s": 576.1754441867341,
+   "audited_realtime_factor": 0.14404386104668354,
+   "mean_contacts": 54.1,
+   "nv": 84
+  },
+  {
+   "scenario": "turning",
+   "timestep_s": 0.0005,
+   "magnets": true,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 644.8003462715847,
+   "raw_realtime_factor": 0.32240017313579233,
+   "audited_steps_per_s": 602.8338396572078,
+   "audited_realtime_factor": 0.3014169198286039,
+   "mean_contacts": 55.95,
+   "nv": 84
+  },
+  {
+   "scenario": "turning",
+   "timestep_s": 0.001,
+   "magnets": true,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 560.0275043728024,
+   "raw_realtime_factor": 0.5600275043728024,
+   "audited_steps_per_s": 492.90940018947043,
+   "audited_realtime_factor": 0.49290940018947044,
+   "mean_contacts": 82.0,
+   "nv": 84
+  },
+  {
+   "scenario": "turning",
+   "timestep_s": 0.0005,
+   "magnets": false,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 1090.111636588463,
+   "raw_realtime_factor": 0.5450558182942314,
+   "audited_steps_per_s": 914.5264075936294,
+   "audited_realtime_factor": 0.45726320379681473,
+   "mean_contacts": 57.6,
+   "nv": 84
+  },
+  {
+   "scenario": "turning",
+   "timestep_s": 0.0005,
+   "magnets": true,
+   "noslip_iterations": 0,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 703.3764062629089,
+   "raw_realtime_factor": 0.35168820313145444,
+   "audited_steps_per_s": 610.2287286458852,
+   "audited_realtime_factor": 0.3051143643229426,
+   "mean_contacts": 80.5,
+   "nv": 84
+  },
+  {
+   "scenario": "rig_idle",
+   "timestep_s": 0.0005,
+   "magnets": false,
+   "noslip_iterations": 10,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 3036.6429910678357,
+   "raw_realtime_factor": 1.518321495533918,
+   "audited_steps_per_s": 2416.642432371076,
+   "audited_realtime_factor": 1.2083212161855381,
+   "mean_contacts": 40.0,
+   "nv": 84
+  },
+  {
+   "scenario": "rig_idle",
+   "timestep_s": 0.0005,
+   "magnets": true,
+   "noslip_iterations": 0,
+   "edge_radius": 0.0025,
+   "raw_steps_per_s": 921.4429012318126,
+   "raw_realtime_factor": 0.4607214506159063,
+   "audited_steps_per_s": 778.5816298238417,
+   "audited_realtime_factor": 0.38929081491192086,
+   "mean_contacts": 52.3,
+   "nv": 84
+  }
+ ],
+ "parallel_turning_dt0.5ms_M7": [
+  {
+   "processes": 1,
+   "per_process_raw_steps_per_s": [
+    587.5567695614146
+   ],
+   "aggregate_raw_steps_per_s": 587.5567695614146,
+   "aggregate_realtime_factor": 0.29377838478070734,
+   "wall_s": 10.52512816300441
+  },
+  {
+   "processes": 4,
+   "per_process_raw_steps_per_s": [
+    527.3925086759243,
+    515.6487225063875,
+    520.5075026847662,
+    530.0604290636053
+   ],
+   "aggregate_raw_steps_per_s": 2093.6091629306834,
+   "aggregate_realtime_factor": 1.0468045814653417,
+   "wall_s": 11.796250370010966
+  },
+  {
+   "processes": 8,
+   "per_process_raw_steps_per_s": [
+    473.97683391399346,
+    482.7382034521812,
+    480.73593766753874,
+    480.6372790830706,
+    468.76137092467803,
+    471.72979954295954,
+    473.21542685576264,
+    485.3601118257781
+   ],
+   "aggregate_raw_steps_per_s": 3817.1549632659626,
+   "aggregate_realtime_factor": 1.9085774816329812,
+   "wall_s": 12.985896308004158
+  },
+  {
+   "processes": 16,
+   "per_process_raw_steps_per_s": [
+    377.7992834606368,
+    379.2318625876971,
+    378.50626238663045,
+    382.9670202499884,
+    377.82865245007025,
+    381.8396817857319,
+    373.7809476753589,
+    375.3266979050387,
+    368.772375353152,
+    371.98939718339943,
+    369.0425193019463,
+    378.6213059580818,
+    368.7407517896954,
+    365.44353236838396,
+    379.8798235915077,
+    380.2822020223946
+   ],
+   "aggregate_raw_steps_per_s": 6010.052316069714,
+   "aggregate_realtime_factor": 3.0050261580348567,
+   "wall_s": 16.91147947400168
+  }
+ ]
+}
