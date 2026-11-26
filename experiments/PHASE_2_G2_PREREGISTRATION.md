@@ -1,6 +1,6 @@
 # Phase 2 (G2) Pre-registration: two-arm, contact-driven layer turns of the free-core M7 cube
 
-**Status: DRAFT revision 0, NOT IN FORCE (2026-11-26).**
+**Status: DRAFT revision 0, NOT IN FORCE (2026-11-26); §8 answered (P-105).**
 - This is G2 step 3 (user: "1 2 than 3"; P-95, P-97). Nothing here is fixed.
 - Before it can be fixed: the open items of §7 must be built or piloted, the questions of §8 answered, reviews run
   until "ACCEPTABLE AS IS" (as M5 and M7), and the user's approval recorded in `docs/DECISION_LOG.md`.
@@ -46,9 +46,9 @@
 | Grippers | Two Gripper G2 models (four-bar, tendon drive). Force setting by `set_grip_force` (calibrated at 57 mm). Ramped closing at 0.5 rad/s | P2, R2-08 |
 | Stabiliser fingertip (arm A) | **One flat box per finger**, 30 wide × 30 deep × 4 mm. **Gripped from the D end** (P-04): covers D and 11 mm of E; the U layer projects 27 mm beyond | P-97, D17 |
 | Turner fingertip (arm B) | **The candidate chosen in §7 P-1:** C1 (one box, 25 wide × 14 deep × 4 mm, insertion 14 mm by control) or C2 (C1 plus a 3 mm shoulder abutting the U end face) | P-03, P-97 |
-| Fingertip contact | μ 0.8, condim 4, rig-pad solimp; contact time constant **[decision, §8 Q3]** (rigid 0.001 s or soft 0.01 s) | P-97, D17 |
+| Fingertip contact | μ 0.8, condim 4, rig-pad solimp; contact time constant **0.01 s ("soft")** for scoring (§8 Q3, P-105); rigid 0.001 s in the G2-6 screen | P-97, D17, P-105 |
 | Grip | 20 N on both grippers (scored); 10 / 30 N sensitivity; 50 N stress (reported only) | P-97, P-99 |
-| Layout | **[to design, §7 P-2]**: two arm bases and a cube pose such that arm A grips from the D end and arm B reaches the U layer coaxially, with collision clearance | VALIDATION_PLAN G2 item 1 |
+| Layout | **Both arms on one table facing each other, cube axis horizontal** (§8 Q2, P-105). Arm A grips from the D end, arm B from the U end, coaxially; base positions and poses designed in §7 P-2 | VALIDATION_PLAN G2 item 1, P-105 |
 
 ## 2. Controllers (classical; PROPOSAL)
 **Inputs allowed:**
@@ -94,7 +94,7 @@ fixed settle time **[pilot]**.
   the smoke 18000, D16 21000–21003.
 - **Per seed:** a legal scramble state of the cube (colours only; same physics), a setup misalignment ±1° per layer
   (as G1), and a grasp offset within the controller's nominal tolerance **[pilot]**.
-- Only U-family moves: one stabiliser grasp, no regrasp or role swap (that is Phase 4, G4).
+- Only U-family moves: one stabiliser grasp, no regrasp or role swap (that is Phase 4, G4; §8 Q5, P-105).
 
 ## 4. Criteria (stated before any data; G1 values unless marked)
 **Categorical (all trials; VALIDATION_PLAN cross-cutting):**
@@ -126,8 +126,8 @@ fixed settle time **[pilot]**.
 - rotation ≤ **[pilot]**°;
 - the pads stay on D and E only.
 
-**Pass logic: [§8 Q4]**
-- **Recommended:** zero tolerance on the scored trials (as G1's Option A). Every scored trial passes every criterion.
+**Pass logic (§8 Q4, P-105):**
+- **Zero tolerance** on the scored trials (as G1's Option A). Every scored trial passes every criterion.
 - G2-7 passes when every negative case is detected or safely stopped.
 - G2-5, G2-6 and G2-8 are reported only.
 
@@ -167,7 +167,7 @@ fixed settle time **[pilot]**.
 | P-7 | **Independent reviews** (one reviewer subagent per round, as P-86 Q8) until "ACCEPTABLE AS IS" | review |
 | P-8 | The user's approval; DECISION_LOG entry; code and text frozen | decision |
 
-## 8. Questions for the user (recommended option first; answers recorded in DECISION_LOG)
+## 8. Questions for the user (recommended option first; **all answered 2026-11-26, P-105: the recommended option each time**)
 1. **Order of the remaining work:** P-1 (C1/C2 pilot) → P-2/P-3 (real arm B and layout) → P-4 … P-8?
 2. **Layout:** both arms on one table facing each other, cube axis horizontal (the natural P-04 pose), or arm A
    pointing down as in D17 with arm B below?
