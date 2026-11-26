@@ -32,15 +32,22 @@ Each milestone produces: (1) run command; (2) versioned code/assets/dependencies
 
 **Tests:**
 
-- [ ] Logic: move + inverse identity, 4× quarter-turn identity, valid generated scrambles, parity and orientation invariants.
-- [ ] Physically actuated one quarter-turn from both direction signs; state agrees with logical oracle.
-- [ ] Physically actuated half-turn and reverse-turn trials.
-- [ ] Consecutive nonparallel-axis turns, including `R U R' U'` and repetition/inverse sequences.
-- [ ] No target-angle setter, teleportation, hidden layer actuator or programmatic forced turn during scored trials.
-- [ ] Trace switch timing, force/torque, angular velocity, penetration, continuity and solver tolerance sensitivity.
-- [ ] CPU benchmark in several contact/topology configurations.
+- [x] Logic: move + inverse identity, 4× quarter-turn identity, valid generated scrambles, parity and orientation invariants. *(`tests/test_cube_logic.py`, 59 tests, PH1-02)*
+- [x] Physically actuated one quarter-turn from both direction signs; state agrees with logical oracle. *(M7 E1-2 24/24)*
+- [x] Physically actuated half-turn and reverse-turn trials. *(M7 E1-3 22/22, E1-2 counter-clockwise)*
+- [x] Consecutive nonparallel-axis turns, including `R U R' U'` and repetition/inverse sequences. *(M7 E1-4 40/40)*
+- [x] No target-angle setter, teleportation, hidden layer actuator or programmatic forced turn during scored trials. *(M1 rule 2 edit audit on every trial; observed-move oracle; E1-6a)*
+- [x] Trace switch timing, force/torque, angular velocity, penetration, continuity and solver tolerance sensitivity. *(No switches in M7; torque, penetration and E1-6m per move; E1-7 sensitivity, with fragilities at 0.75 ms and a 0.1 mm gap)*
+- [x] CPU benchmark in several contact/topology configurations. *(M7 E1-8, `experiments/E7_scored_m7/results_E1-8/bench.json`)*
 
 **Pass:** all categorical invariants hold; calibrated quantitative tolerances met in pre-registered trials; mechanism abstraction and limitations published. A one-turn-only demo is insufficient.
+
+**G1 sign-off (2026-11-26, DECISION_LOG P-95):** **PASS for mechanism M7**, approved by the user, with the
+limitations of [`../experiments/E7_scored_m7/G1_REPORT_M7.md`](../experiments/E7_scored_m7/G1_REPORT_M7.md) §3 as its
+stated scope. Evidence: the scored battery under
+[`../experiments/PHASE_1_M7_PREREGISTRATION.md`](../experiments/PHASE_1_M7_PREREGISTRATION.md) revision 4 (204/204,
+P-93), E1-8, the logic tests, and the published abstraction and limitations. Next authorised phase: **G2, starting with
+design**.
 
 ### G2 — Two-arm manipulation (Phase 2)
 

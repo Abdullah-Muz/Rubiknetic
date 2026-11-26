@@ -1,8 +1,10 @@
 # G1 report: M7, a contact-driven Rubik's cube in MuJoCo
 
-**Status.** The scored battery returned PASS (P-93). This report is the "mechanism abstraction and limitations
-published" item of G1 (VALIDATION_PLAN G1 "Pass"), with E1-8 and the evidence map. **G1 is passed only when the user
-signs off (§7).**
+**Status: G1 PASSED for M7**, signed off by the user on 2026-11-26 (§7; DECISION_LOG P-95), with the §3 limitations
+as its stated scope.
+- The scored battery returned PASS (P-93).
+- This report is the "mechanism abstraction and limitations published" item of G1 (VALIDATION_PLAN G1 "Pass"), with
+  E1-8 and the evidence map.
 
 **Labels:**
 - `FACT`: from a committed record or file.
@@ -148,14 +150,14 @@ them. Nothing sets a layer angle.
   - establish fidelity to a specific real cube (torque, clearance and edge are uncalibrated);
   - establish anything about robot grasping (G2), learning (G3) or sim-to-real transfer.
 
-## 7. Sign-off (VALIDATION_PLAN sign-off protocol; filled in when the user signs off)
+## 7. Sign-off (VALIDATION_PLAN sign-off protocol; **signed off 2026-11-26, P-95**)
 | Field | Value |
 |---|---|
 | `gate_id` | G1 (mechanism M7) |
-| `date` | — |
-| `approver` | — (the user) |
+| `date` | 2026-11-26 |
+| `approver` | The user (project owner), answering "PASS, with the limitations" and "G2, starting with design" |
 | `test_evidence_paths` | `experiments/E7_scored_m7/RESULTS.md`, `results/`, `results_nomag/`; `results_E1-8/bench.json`; `tests/test_cube_logic.py`; this report; reviews `experiments/M7_PREREGISTRATION_REVIEW{1..4}_*.md` |
 | `tolerances_and_trial_counts_pre_registered` | `experiments/PHASE_1_M7_PREREGISTRATION.md` revision 4 (in force at `2708ba4`): M1/M4/M5 criteria plus the 60 s slip rule; 204 Option A trials |
-| `PASS/CONDITIONAL/BLOCKED` | — (proposed: PASS, with the §3 limitations) |
+| `PASS/CONDITIONAL/BLOCKED` | **PASS**, with the §3 limitations as its stated scope |
 | `unresolved_risks` | §3 items 1–11; open items O-09 (real-cube torque), O-10 (gripper squeeze), O-12, O-13 |
-| `next_authorized_phase` | — (proposed: G2, robot and gripper, beginning with its Phase 0-style design work) |
+| `next_authorized_phase` | **G2** (robot and gripper), **starting with design**: the robot model source and licences (O-12, O-13), and the gripper and fingertip choice for the user's approval, before any controller or training work |
