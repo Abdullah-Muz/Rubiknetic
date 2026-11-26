@@ -68,3 +68,53 @@ middle layer (E).
 - One run per setting.
 - Pad compliance is represented by contact softness, not a deformable pad.
 - The G2 model's inertials and linkage constraints come from P2 (not identified).
+
+## Stage B: turning the U layer with a second G2 (`turn.py`; UNSCORED)
+**Setup:**
+- **Arm A** as in stage A: P-04 orientation, P-97 stabiliser fingertips on D+E.
+- **Turner:** a **second G2 gripper model** (`B_`, attached with its four-bar, tendon and drive) on a **compliant
+  mount**, a `PROPOSAL` stand-in for arm B:
+  - x/y/z slides with springs of 2000 N/m and dampers of 60 N·s/m, gravity-compensated;
+  - a roll hinge on the cube axis with a position servo, as the G1 turner: kp 5, kv 0.2, ±1 N·m.
+- **Turner fingertips (C1):** one box per finger, 25 wide × 14 deep × 4 mm, inserted 14 mm into the U layer.
+- **Per move:**
+  1. Wait for rest.
+  2. Ramp the turner closed.
+  3. Roll on a cosine ramp, 1 s per quarter turn.
+  4. Open, roll back.
+- **Checks:** as G1's, in the core frame: observed move against the logical oracle, turn error ≤ 2°, drift ≤ 1°,
+  cubie-cubie penetration ≤ 0.5 mm, causality with the layer speed relative to the core. Plus edit audit and numerical
+  failures.
+
+**Results:** sequence U U′ U2 U′ U, the same grip on both grippers (`results/turn_*`):
+
+| Grip | Pad contact | Pass | Moves correct | Max turn err ° | Max drift ° | Max cubie pen. mm | Max pad pen. mm | Max roll torque N·m | Mount excursion mm | Core slip / rot per move |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 10 N | rigid | **yes** | 5/5 | 0.18 | 0.20 | 0.08 | 0.08 | 0.113 | 1.7 | 0.03 mm / 0.21° |
+| 10 N | soft | **yes** | 5/5 | 0.08 | 0.17 | 0.07 | 0.69 | 0.099 | 1.3 | 0.06 mm / 0.39° |
+| 20 N | rigid | **yes** | 5/5 | 0.21 | 0.19 | 0.12 | 0.12 | 0.117 | 2.8 | 0.02 mm / 0.17° |
+| 20 N | soft | **yes** | 5/5 | 0.11 | 0.13 | 0.10 | 1.00 | 0.092 | 2.7 | 0.08 mm / 0.26° |
+| 30 N | rigid | **yes** | 5/5 | 0.28 | 0.23 | 0.13 | 0.11 | 0.162 | 2.8 | 0.03 mm / 0.13° |
+| 30 N | soft | **yes** | 5/5 | 0.10 | 0.14 | 0.12 | 1.03 | 0.091 | 2.8 | 0.06 mm / 0.27° |
+| 50 N | rigid | **yes** | 5/5 | 0.12 | 0.33 | 0.14 | 0.13 | 0.254 | 2.9 | 0.02 mm / 0.28° |
+| 50 N | soft | **yes** | 5/5 | 0.05 | 0.12 | 0.14 | 1.21 | 0.088 | 2.9 | 0.14 mm / 0.36° |
+
+- **40/40 moves are correct on every check, causality included.**
+- No rest wait was needed: the cube was always at rest.
+- No audit violations or numerical failures.
+- About 400–500 s wall time per run (WSL, 8 runs in parallel).
+
+**Stage B conclusion (`INFERENCE`):**
+- **Contact-driven turns of the free-core M7 cube work with real G2 grippers on both sides.** This holds for both pad
+  models across 10–50 N, at the P-97 fingertip sizes, in the P-04 orientation.
+- **The D16 causality failures, creep and ejection came from the stand-in fixture,** not the cube.
+- **Turning torque ≤ 0.25 N·m,** close to G1's 0.19 N·m maximum. Rigid pads at 50 N need the most.
+
+**Limits (stage B):**
+- U-face moves only: one stabiliser grasp, no regrasp.
+- One sequence and one run per setting.
+- Arm B is a compliant mount with assumed stiffness, damping and roll gains, not an xArm7 with its controller.
+- Arm A is fixed at one pose.
+- Pad compliance is contact softness: soft-pad "penetration" up to 1.2 mm is pad deformation.
+- The causality check uses the instantaneous speed relative to the core.
+- Not pre-registered; no criterion is claimed.

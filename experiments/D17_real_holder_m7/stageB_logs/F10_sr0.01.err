@@ -1,0 +1,4 @@
+WARNING: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+
+/mnt/c/dev/Rubiknetic/experiments/D17_real_holder_m7/turn.py:93: UserWarning: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+  m = parent.compile()

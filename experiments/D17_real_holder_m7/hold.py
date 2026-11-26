@@ -54,7 +54,7 @@ TIP_HALF = (0.015, 0.002, 0.015)   # P-97 stabiliser fingertip: 30 wide x 4 thic
 FINGERTIPS = ("left_fingertip_p97", "right_fingertip_p97")
 
 
-def robot_spec(robot_path: Path, mu: float = 0.8) -> mujoco.MjSpec:
+def robot_spec(robot_path: Path, mu: float = 0.8, tip_half=None, tag: str = "p97") -> mujoco.MjSpec:
     """The P2 robot spec with the stock G2 pad boxes replaced by one P-97 fingertip box per finger.
 
     The stock model has two pad boxes per finger whose faces differ by ~0.06 mm, so only one box touches a flat
@@ -71,10 +71,11 @@ def robot_spec(robot_path: Path, mu: float = 0.8) -> mujoco.MjSpec:
             g.contype, g.conaffinity = 0, 0
         tip_z = float(p2.pos[2] + p2.size[2]) + EXT
         ft = p2.parent.add_geom()
-        ft.name = f"{side}_fingertip_p97"
+        th = tip_half or TIP_HALF
+        ft.name = f"{side}_fingertip_{tag}"
         ft.type = mujoco.mjtGeom.mjGEOM_BOX
-        ft.size = list(TIP_HALF)
-        ft.pos = [float(p2.pos[0]), float(p2.pos[1]), tip_z - TIP_HALF[2]]
+        ft.size = list(th)
+        ft.pos = [float(p2.pos[0]), float(p2.pos[1]), tip_z - th[2]]
         ft.quat = list(p2.quat)
         ft.contype, ft.conaffinity, ft.condim, ft.priority = 1, 1, p.pad_condim, 1
         ft.friction = [mu, p.pad_friction[1], p.pad_friction[2]]
