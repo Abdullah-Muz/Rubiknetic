@@ -1,6 +1,11 @@
 # Phase 1 (G1) Pre-registration: M7, the L0 magnetic contact cube with rounded edges and NoSlip 10
 
-**Status: DRAFT, revision 2, NOT APPROVED. Nothing here is in force.**
+**Status: DRAFT, revision 3, NOT APPROVED. Nothing here is in force.**
+- **Revision 3 (P-90)** makes review 2's one required change and adopts its optional ones
+  ([`M7_PREREGISTRATION_REVIEW2_2026-11-25.md`](M7_PREREGISTRATION_REVIEW2_2026-11-25.md), one reviewer subagent).
+  - The required change: the rest-length check expected 2,400 samples for every rest, but a 0.75 ms rest has 2,425
+    and an aborted rest has fewer. Either would have made the run INVALID.
+  - Response in §9. It is the text sent to review 3.
 - **Revision 2 (P-89)** makes every required change of review 1 and adopts most of its optional ones
   ([`M7_PREREGISTRATION_REVIEW1_2026-11-25.md`](M7_PREREGISTRATION_REVIEW1_2026-11-25.md); two reviewer subagents,
   the user having widened P-86 Q8 to two for that round). The response, item by item, is in §9. It is the text sent to
@@ -89,7 +94,8 @@ No scored seed (17000–17999) has been touched. The simulations behind this rev
    - Static checks: the magnets keep the 0.4 mm wall at those radii, and V4–V6 pass (`r3_static.json`).
 6. **NoSlip 10 is a solver setting chosen post hoc** (P-73), and **E1-1 passes only with it** (review 1, R2).
    - **Sequences:** R3 shows the outcome holds over NoSlip 5–20, and with NoSlip off (the 0 reference arm).
-   - **Rests: without NoSlip, the M7 geometry fails M1's E1-1 limit at a rate like M5's.** Each 60 s rest is preceded
+   - **Rests: without NoSlip, the M7 geometry fails M1's E1-1 limit** (`INFERENCE`: at a rate comparable to M5's,
+     which failed 1/20 scored and 0/20 in rehearsal). Each 60 s rest is preceded
      by a 10 s warm-up that is exactly M5's E1-1 trial with rounded edges and no NoSlip. It is recorded
      (`warmup_10s`), not judged. `FACT` from the committed D15 records:
      - R2 L0 (rehearsal seeds): 3 / 20 warm-ups above 0.5° (`rest_s16003` 0.709°, `rest_s16005` 0.549°,
@@ -269,8 +275,12 @@ M5 §2 unchanged, except as noted:
     - rounded edges with the registered radius;
     - the registered NoSlip count in the compiled options;
     - for turn trials, exactly one trial model and one NoSlip-wrapper call (none at NoSlip 0);
-    - every 60 s rest is 60 s long, by its label and by its 2,400 samples, and its stored verdict equals the one
-      re-derived from the record.
+    - every 60 s rest is 60 s long: by its label, and by its sample count. The count is the number `d13_rest` takes at
+      the record's compiled timestep: 2,400 at 0.5 and 0.25 ms, 2,425 at 0.75 ms. An aborted rest may have fewer; it
+      is then a failing trial, as in M1, and must be stored as failing;
+    - a rest record that is intact and not aborted must carry every field `e11_pass` reads; a malformed record is a
+      violation, not a crash;
+    - its stored verdict equals the one re-derived from the record.
   - **A harness-exception record** (M5 §2, U1 iii) is exempt from the M7 checks, because it carries neither edge nor
     M7 block. It must fail (`pass` False); it is then an ordinary failing trial, not a violation (review 1, R1).
   - Expected counts are as in §3. A missing record gives INCOMPLETE; an extra one gives INVALID.
@@ -311,7 +321,14 @@ as E6 did, and changes only module globals:
 
 **`experiments/E7_scored_m7/analyze.py`:** §5 and §4.3.
 
-**Tests:** `tests/test_scored_m7.py`, 31 tests. They cover:
+**Tests:** `tests/test_scored_m7.py`, 35 tests (revision 3). Revision 3 adds:
+- all 15 committed R3 rests (including 0.75 ms, 2,425 samples) dressed as M7 records pass the record checks;
+- aborted and malformed rests;
+- full-verdict cases: an aborted E1-1 gives NOT PASSED, a failing E1-7 rest gives PASS, and an explicitly missing
+  REST-X record gives INCOMPLETE;
+- an exception record produced by M5's `run_job` from a raising trial.
+
+The synthetic rest stand-ins now carry their timestep and its sample count. The revision-2 tests cover:
 - isolation from M5's module instances, including that a fresh M5 runner keeps its own seeds, factors and
   `run_trial`;
 - the counts, the "not run" set, and `v3_not_run` on M7's list;
@@ -338,7 +355,7 @@ as E6 did, and changes only module globals:
 - the report text (M7 title, restated lines, new sections);
 - the frozen paths, the self-check list, and Clopper–Pearson.
 
-M5's tests pass in the same session, and so does the full repository suite.
+M5's tests pass in the same session. The full repository suite is recorded in §6.8.
 
 **Frozen paths** (`M7_FROZEN_PATHS`): M5's (with M4's), plus:
 - `src/rubiknetic/cube_physics/m1_model.py`;
@@ -403,8 +420,17 @@ text is fixed (§6.7).
 - The cost is projected again after 25 % of the trials. Over the cap, the run pauses for the user; it is never
   abandoned (INCOMPLETE is final).
 
+### 6.8 Revision-3 evidence (re-run at the revision-3 code commit)
+`TODO`, filled in before review 3:
+- the self-check, now 17 trials: SC3 adds E1-7 `timestep=0.00075__rest60`, the 2,425-sample rest (review 2, O8);
+- the smoke with an interruption and resume, with its `provenance` output committed beside it (review 2, O1);
+- the M7 and M5 tests;
+- the full repository suite (review 2, O6).
+
+These replace §6.7 as the evidence for fixing.
+
 ### 6.7 Revision-2 evidence (re-run at the revision-2 code commit `d5ba4cd`; B-R8; `FACT`)
-These replace the revision-1 results of §6.2 and §6.3 as the evidence for fixing. They ran with 2 workers, because
+These replaced the revision-1 results of §6.2 and §6.3, and are in turn replaced by §6.8. They ran with 2 workers, because
 memory was held by paused jobs of another project; worker count does not affect results.
 
 - **Self-check** (`results_selfcheck/selfcheck.json`):
@@ -485,3 +511,20 @@ is [`M7_PREREGISTRATION_REVIEW1_2026-11-25.md`](M7_PREREGISTRATION_REVIEW1_2026-
 - **B-O7:** the tag mapping is stated.
 - **B-O9:** tests strengthened (M5 manifest map, `v3_not_run`, isolation, record-check cases, profile and XML
   checks).
+
+## 10. Response to review 2 (revision 3)
+Review 2 found every review-1 required item resolved, and required one change. It was verified by the main session:
+D13 samples every `round(0.025/dt)` steps over `round(60/dt)` steps, which gives 2,425 at 0.75 ms; R3's committed
+0.75 ms rest has 2,425 samples.
+
+| Item | Change |
+|---|---|
+| **R1: rest-length check** | `analyze.py` derives the expected count from the record's compiled timestep (`rest_samples`). An aborted rest may be shorter but must be stored as failing (§5). Tests: all 15 R3 rests pass the checks, aborted and malformed rests are covered, an aborted E1-1 gives NOT PASSED, and the stand-ins carry their timestep. Self-check and smoke are re-run at the new commit (§6.8) |
+| O1: smoke provenance | `provenance` output committed with the revision-3 smoke |
+| O2: exception rests in the report | Rests are selected by experiment and tag; reasons fall back to `fail_reasons`; the denominator and exception count are stated |
+| O3: turner figure source | Comment corrected (0.185 N·m from `r2_analysis.json`) |
+| O4: malformed rest crashes the verdict | A missing `e11_pass` field on an intact, non-aborted rest is a violation |
+| O5: full-verdict gaps | Added a failing E1-7 rest (PASS), an explicitly missing REST-X record (INCOMPLETE), and an exception record through `run_job` |
+| O6: labels and evidence | §0 item 6's rate is labelled `INFERENCE`; the full suite is recorded in §6.8 |
+| O7: NoSlip-off table header | Always printed |
+| O8: no E1-7 rest through the full procedure before scoring | The self-check adds `timestep=0.00075__rest60` (17 trials) |

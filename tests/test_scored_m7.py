@@ -238,7 +238,7 @@ def test_frozen_paths():
 
 def test_selfcheck_list():
     js = E7.selfcheck_jobs({})
-    assert len(js) == 16 and all(16000 <= j["kw"]["seed"] <= 16999 for j in js)
+    assert len(js) == 17 and all(16000 <= j["kw"]["seed"] <= 16999 for j in js)
     assert all(E7.selfcheck_ref(j).exists() for j in js)
     assert M4.SCORED_SEED_RANGE == (17000, 17999)                        # restored after the self-check build
 
@@ -390,15 +390,17 @@ def test_m5_runner_untouched_by_m7():
 ENV = {"commit": "c0", "mujoco": "x", "numpy": "x", "scipy": "x", "python": "x", "cpu": "x"}
 
 
-def _fake_rest_record(seed, n, slip=False):
-    rows = [[0.0] for _ in range(2400)]
+def _fake_rest_record(seed, n, slip=False, dt=0.0005):
+    """A stand-in 60 s rest with d13_rest's sample count for its timestep (2,425 at 0.75 ms; review 2, R1)."""
+    ns = AN.rest_samples(dt)
+    rows = [[0.0] for _ in range(ns)]
     if slip:
-        for i in range(1200, 2400):
+        for i in range(ns // 2, ns):
             rows[i][0] = 0.3
-    return {"timeseries": {"t": [0.525 + 0.025 * i for i in range(2400)], "rot_deg": {"U": rows}},
+    return {"timeseries": {"t": [0.5 + 0.025 * (i + 1) for i in range(ns)], "rot_deg": {"U": rows}},
             "members": {"U": ["c0"]}, "integrity_ok": True, "aborted": None, "t0_solved": True, "final_solved": True,
             "rest_rotation_deg": 0.001, "penetration_mm": 0.01, "radial_offset_mm_t0": 0.0, "seed": seed,
-            "compiled_options": {"noslip_iterations": n}, "warmup_10s": {"rest_rotation_deg": 0.2}}
+            "compiled_options": {"noslip_iterations": n, "timestep": dt}, "warmup_10s": {"rest_rotation_deg": 0.2}}
 
 
 def _fake_m7_record(job, mutate=None):
@@ -411,7 +413,8 @@ def _fake_m7_record(job, mutate=None):
            "magnets": None if mp is None else {"params": {"wall": mp.wall}, "layout_gap": gap},
            "magnet_stats": {"max_near_tilt_deg": 1.0}}
     if job["kind"] == "rest60":
-        rec.update(_fake_rest_record(job["kw"]["seed"], n), rest_s=60.0, n_slip_events=0, ok_e11=True,
+        rec.update(_fake_rest_record(job["kw"]["seed"], n, dt=ov.get("timestep", 0.0005)), rest_s=60.0,
+                   n_slip_events=0, ok_e11=True,
                    m7={"edge_radius": r, "noslip": n, "kind": "rest60"})
     else:
         rec["m7"] = {"edge_radius": r, "noslip": n, "kind": job["kind"], "n_trials": 1,
@@ -513,6 +516,96 @@ def test_full_verdict_missing_and_extra(tmp_path):
     st, vd = AN.A.analyse({"magnets": tmp_path / "b" / "results", "no_magnets": tmp_path / "b" / "results_nomag"},
                           R.build_m5_jobs("c0", ENV, 5.0))
     assert vd["verdict"] == "INVALID"
+
+
+# ---- review 2 additions -----------------------------------------------------------------------------------------------
+def _dress_r3_rest(o, jobs):
+    """An R3 rest output as the M7 record its job would give (R3's rest path is M7's: SC3)."""
+    rec = json.loads(json.dumps(o["record"]))
+    j = _job(jobs, f"{o['setting']}__rest60", "E1-7")
+    ov = j["kw"]["overrides"]
+    ev = E7.D13A.events(rec)
+    rec.update(spec={"seed": j["kw"]["seed"], "overrides": ov}, rest_s=60.0, n_slip_events=len(ev),
+               pass_m1_criteria=E7.e11_pass(rec) and not ev,
+               m7={"edge_radius": ov.get("edge_radius", E7.EDGE_R), "noslip": ov.get("noslip", E7.NOSLIP),
+                   "kind": "rest60"})
+    return R.key_of(j), rec
+
+
+def test_r3_rests_pass_the_m7_record_checks(jobs):
+    """Review 2, R1: all 15 committed R3 rests, including timestep 0.75 ms (2,425 samples), give no problem."""
+    files = sorted(glob.glob(str(REPO / "experiments/D15_rounded_edges/results/r3/rests/*.json.gz")))
+    assert len(files) == 15
+    n = {}
+    for f in files:
+        o = json.loads(gzip.decompress(Path(f).read_bytes()))
+        k, rec = _dress_r3_rest(o, jobs)
+        assert AN.m7_record_problems(k, rec) == [], k
+        n[o["setting"]] = len(rec["timeseries"]["t"])
+    assert n["timestep=0.00075"] == 2425 and AN.rest_samples(0.00075) == 2425
+    assert {v for s, v in n.items() if s != "timestep=0.00075"} == {2400}
+    assert AN.rest_samples(0.0005) == AN.rest_samples(0.00025) == 2400
+
+
+def test_aborted_and_malformed_rests(r4_rest):
+    k = ("magnets", "E1-1", "rest_s17000")
+    base = dict(json.loads(json.dumps(r4_rest)), spec={"overrides": {"gap": 5e-5}}, rest_s=60.0,
+                m7={"edge_radius": 0.0025, "noslip": 10, "kind": "rest60"})
+    ab = dict(base, aborted="NumericalFailure at 20 s")
+    ab["timeseries"] = {kk: (v[:800] if kk == "t" else {f: rows[:800] for f, rows in v.items()} if kk == "rot_deg" else v)
+                        for kk, v in base["timeseries"].items()}
+    ab.update(n_slip_events=len(E7.D13A.events(ab)), pass_m1_criteria=False)
+    assert AN.m7_record_problems(k, ab) == []                            # an aborted rest is a failing trial
+    assert AN.m7_record_problems(k, dict(ab, pass_m1_criteria=True))     # and may not be stored as passing
+    full = dict(base, n_slip_events=0, pass_m1_criteria=True)
+    assert AN.m7_record_problems(k, full) == []
+    short = dict(full, timeseries={**full["timeseries"], "t": full["timeseries"]["t"][:2399]})
+    assert AN.m7_record_problems(k, short)                               # not aborted: the count must be exact
+    bad = {kk: v for kk, v in full.items() if kk != "penetration_mm"}
+    probs = AN.m7_record_problems(k, bad)                                # malformed: a violation, not a crash
+    assert probs and "lacks" in probs[-1]
+
+
+def _aborted_e11(key, rec):
+    if key == ("magnets", "E1-1", "rest_s17002"):
+        rec["timeseries"] = {"t": rec["timeseries"]["t"][:800], "rot_deg": {"U": rec["timeseries"]["rot_deg"]["U"][:800]}}
+        rec.update(aborted="NumericalFailure", n_slip_events=0, pass_m1_criteria=False)
+        rec["pass"] = False
+
+
+def _fail_e17_rest(key, rec):
+    if key == ("magnets", "E1-7", "timestep=0.00075__rest60"):
+        rec.update(_fake_rest_record(17000, 10, slip=True, dt=0.00075))
+        rec["n_slip_events"], rec["pass"], rec["pass_m1_criteria"] = 1, False, False
+
+
+def test_full_verdict_more_cases(tmp_path):
+    st, vd = _m7_make(tmp_path / "abort", _aborted_e11)
+    assert st["violations"] == [] and vd["verdict"] == "NOT PASSED"     # aborted E1-1: failing, not INVALID
+    st, vd = _m7_make(tmp_path / "e17", _fail_e17_rest)
+    assert st["violations"] == [] and vd["verdict"] == "PASS"           # a failing E1-7 rest is reported only
+    # an explicitly missing REST-X record (file and ledger line removed): INCOMPLETE, not INVALID
+    st, vd = _m7_make(tmp_path / "miss")
+    res = tmp_path / "miss" / "results"
+    (res / "REST-X" / "rest_s17705.json").unlink()
+    led = res / R.LEDGER
+    led.write_text("".join(x + "\n" for x in led.read_text().splitlines()
+                           if not ('"REST-X"' in x and '"rest_s17705"' in x)))
+    st, vd = AN.A.analyse({"magnets": res, "no_magnets": tmp_path / "miss" / "results_nomag"},
+                          R.build_m5_jobs("c0", ENV, 5.0))
+    assert st["violations"] == [] and st["missing"] == [("magnets", "REST-X", "rest_s17705")]
+    assert vd["verdict"] == "INCOMPLETE"
+
+
+def test_exception_record_through_run_job(jobs, monkeypatch):
+    """Review 2, O5: the exception record M5's run_job writes, from a raising trial, passes M7's record checks."""
+    def boom(kind, kw, magnets_on):
+        raise ValueError("boom")
+    monkeypatch.setattr(M4, "run_trial", boom)
+    for tid, exp in (("U_s17100", "E1-2"), ("rest_s17000", "E1-1"), ("timestep=0.00075__rest60", "E1-7")):
+        j = dict(_job(jobs, tid, exp), commit="c", startup=None, magnet_info=None)
+        key, rec = R.run_job(j)
+        assert rec["pass"] is False and rec.get("harness_exception") and AN.m7_record_problems(key, rec) == []
 
 
 def test_report_text(tmp_path):

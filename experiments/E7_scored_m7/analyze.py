@@ -69,6 +69,17 @@ REST_EXPS = ("E1-1", "E1-7", "REST-X")
 TORQUE_LEVELS = (0.2, 0.45, 0.5)
 
 
+E11_KEYS = ("t0_solved", "final_solved", "rest_rotation_deg", "penetration_mm", "radial_offset_mm_t0")
+
+
+def rest_samples(dt) -> int | None:
+    """Samples d13_rest takes over REST_S at timestep dt: one every round(SAMPLE_S/dt) steps of round(REST_S/dt)
+    (d13_run.py:190-193, 214). 2,400 at 0.5 and 0.25 ms; 2,425 at 0.75 ms (review 2, R1)."""
+    if not dt:
+        return None
+    return len(range(0, int(round(E7.REST_S / dt)), int(round(E7.D13.SAMPLE_S / dt))))
+
+
 def _overrides(rec: dict) -> dict:
     return (rec.get("spec") or {}).get("overrides") or {}
 
@@ -87,12 +98,22 @@ def m7_record_problems(key: tuple, rec: dict) -> list[str]:
     if not A._close(m7.get("edge_radius"), r_want) or m7.get("noslip") != n_want:
         probs.append(f"{tag}: m7 block {m7.get('edge_radius')!r} / {m7.get('noslip')!r} != {r_want} / {n_want}")
     if m7.get("kind") == "rest60":
-        n_got = (rec.get("compiled_options") or {}).get("noslip_iterations")
+        opts = rec.get("compiled_options") or {}
+        n_got = opts.get("noslip_iterations")
         n_samples = len((rec.get("timeseries") or {}).get("t") or [])
-        want_samples = round(E7.REST_S / E7.D13.SAMPLE_S)            # measured length, not only the stored label
-        if rec.get("rest_s") != E7.REST_S or n_samples != want_samples:
+        want_samples = rest_samples(opts.get("timestep"))
+        aborted = bool(rec.get("aborted"))                 # an aborted rest stops sampling: a failing trial (M1)
+        length_ok = (rec.get("rest_s") == E7.REST_S and want_samples is not None
+                     and (n_samples <= want_samples if aborted else n_samples == want_samples))
+        if not length_ok:
             probs.append(f"{tag}: rest length {rec.get('rest_s')} s, {n_samples} samples "
-                         f"(registered {E7.REST_S} s, {want_samples} samples)")
+                         f"(registered {E7.REST_S} s, {want_samples} samples at timestep {opts.get('timestep')}"
+                         f"{', aborted' if aborted else ''})")
+        if rec.get("integrity_ok") and not aborted:
+            lacking = [k for k in E11_KEYS if k not in rec]
+            if lacking:                                   # review 2, O4: a malformed record is a violation, not a crash
+                probs.append(f"{tag}: rest record lacks {lacking}")
+                return probs
         ev = E7._plain(E7.D13A.events(rec))
         ok = E7.e11_pass(rec) and not ev
         if bool(rec.get("pass_m1_criteria")) != ok or rec.get("n_slip_events") != len(ev):
@@ -151,8 +172,9 @@ def clopper_pearson_upper(k: int, n: int, conf: float = 0.95) -> float:
     return 1.0 if k >= n else float(beta.ppf(1 - (1 - conf) / 2, k + 1, n - k))
 
 
-# Rehearsal maxima the margins are shown beside (section 0 item 8; FACT: D15 R1 + R2 L0 R25 on 16000-16655, and R4
-# on 19000-19655, r4_analysis.json margins_rehearsal_R1_R2 / margins_fresh, turner_Nm_E12_E13_E14)
+# Rehearsal maxima the margins are shown beside (section 0 item 8). FACT: D15 R1 + R2 L0 R25 on 16000-16655 and R4 on
+# 19000-19655, from r4_analysis.json (margins_rehearsal_R1_R2, margins_fresh, turner_Nm_E12_E13_E14), except the
+# rehearsal turner maximum 0.185, which is r2/r2_analysis.json arms/L0/turner_Nm_E12_E13_E14 (review 2, O3)
 REHEARSAL_MAX = {"max_nontarget_drift_deg": (0.7281, 0.7810), "max_penetration_mm": (0.2932, 0.2916),
                  "max_abs_turn_error_deg": (0.3682, 0.3848), "max_rest_deg_0_10s": (0.0051, 0.0055),
                  "max_turner_Nm": (0.185, 0.193)}
@@ -188,30 +210,36 @@ def _r3_pass(tid: str):
     return bool(json.loads(gzip.decompress(p.read_bytes())).get("pass"))
 
 
+def is_rest(k: tuple) -> bool:
+    """A 60 s rest key, whether its record ran or is a harness-exception record (review 2, O2)."""
+    return k[1] in ("E1-1", "REST-X") or (k[1] == "E1-7" and k[2].endswith("__rest60"))
+
+
 def m7_sections(st: dict, vd: dict) -> list[str]:
     recs = st["records"]
-    rest60 = {k: r for k, r in recs.items() if (r.get("m7") or {}).get("kind") == "rest60"}
+    rest60 = {k: r for k, r in recs.items() if k[0] == "magnets" and is_rest(k)}
     rests = {k: r for k, r in rest60.items() if k[1] in ("E1-1", "REST-X")}
     e11 = {k: r for k, r in rest60.items() if k[1] == "E1-1"}
     n_slip = sum(1 for r in rests.values() if r.get("n_slip_events"))
+    n_exc = sum(1 for r in rests.values() if r.get("harness_exception"))
     L = ["", "## Slip events over 60 s (E1-1 is a criterion; REST-X reported)", "",
-         f"Rests with at least one D11 slip event: {n_slip} / {len(rests)}; two-sided 95 % Clopper-Pearson upper bound "
-         f"on the per-rest rate {clopper_pearson_upper(n_slip, len(rests)) if rests else float('nan'):.3f}."]
+         f"Rests with at least one D11 slip event: {n_slip} / {len(rests)} E1-1 + REST-X records "
+         f"({n_exc} of them harness-exception records, counted without slips); two-sided 95 % Clopper-Pearson upper "
+         f"bound on the per-rest rate {clopper_pearson_upper(n_slip, len(rests)) if rests else float('nan'):.3f}."]
     failed = [(k, r) for k, r in sorted(rest60.items()) if not r.get("pass")]
     if failed:
-        L += ["", "Failed 60 s rests with their E1-1 reasons (`e11_fail_reasons`; M4 lists them as 'M1 criteria'):", ""]
-        L += [f"* {'/'.join(k)}: {'; '.join(r.get('e11_fail_reasons') or [])}" for k, r in failed]
+        L += ["", "Failed 60 s rests with their reasons (`e11_fail_reasons`, else `fail_reasons`; M4 lists E1-1 reasons "
+              "as 'M1 criteria'):", ""]
+        L += [f"* {'/'.join(k)}: {'; '.join(r.get('e11_fail_reasons') or r.get('fail_reasons') or [])}"
+              for k, r in failed]
     warm = {k: (r.get("warmup_10s") or {}).get("rest_rotation_deg") for k, r in rest60.items()}
-    for label, keys in (("E1-1", [k for k in warm if k[1] == "E1-1"]), ("REST-X", [k for k in warm if k[1] == "REST-X"]),
-                        ("E1-7 rests", [k for k in warm if k[1] == "E1-7"])):
-        vals = [warm[k] for k in keys if warm[k] is not None]
-        if vals:
-            if label == "E1-1":
-                L += ["", "## NoSlip-off E1-1 (reported; section 0 item 6)", "",
-                      "Each 60 s rest is preceded by M5's 10 s E1-1 with rounded edges and **no NoSlip**, recorded and not "
-                      "judged. M1's E1-1 limit is 0.5 deg.", "", "| rests | warm-ups | above 0.5 deg | largest (deg) |",
-                      "|---|---|---|---|"]
-            L.append(f"| {label} | {len(vals)} | {sum(v > 0.5 for v in vals)} | {max(vals):.4f} |")
+    L += ["", "## NoSlip-off E1-1 (reported; section 0 item 6)", "",
+          "Each 60 s rest is preceded by M5's 10 s E1-1 with rounded edges and **no NoSlip**, recorded and not judged. "
+          "M1's E1-1 limit is 0.5 deg.", "", "| rests | warm-ups | above 0.5 deg | largest (deg) |", "|---|---|---|---|"]
+    for label, exp in (("E1-1", "E1-1"), ("REST-X", "REST-X"), ("E1-7 rests", "E1-7")):
+        vals = [warm[k] for k in warm if k[1] == exp and warm[k] is not None]
+        L.append(f"| {label} | {len(vals)} | {sum(v > 0.5 for v in vals)} | "
+                 f"{'–' if not vals else f'{max(vals):.4f}'} |")
     m = margins(vd.get("by", {}), e11)
     L += ["", "## Margins beside the rehearsals (reported; section 0 item 8)", "",
           "| quantity | M7 scored | R1 + R2 rehearsal | R4 fresh seeds | limit |", "|---|---|---|---|---|"]

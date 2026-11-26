@@ -318,7 +318,8 @@ R.smoke_jobs = smoke_m7_jobs
 
 # ---- self-check (section 6.2; unscored; rehearsal seeds) -------------------------------------------------------------
 SC_E17 = ("nominal__sexy6", "edge_radius=0.0018__6move", "noslip=5__6move", "magnet=none__6move",
-          "nominal__rest60", "magnet_scale=0.67__rest60")        # magnet=none: the no-magnet path (E1-6n's)
+          "nominal__rest60", "magnet_scale=0.67__rest60",        # magnet=none: the no-magnet path (E1-6n's)
+          "timestep=0.00075__rest60")                             # 2,425 samples (review 2, R1 / O8)
 
 
 def selfcheck_jobs(env: dict) -> list[dict]:
