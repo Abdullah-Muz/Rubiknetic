@@ -30,8 +30,11 @@ The work is simulation only. Fingertips are MuJoCo primitives, with **no CAD** (
    - Two pads 45 mm wide, 10 mm high and 5 mm thick, friction 0.8, condim 4, clamp the target layer's opposite side
      faces at a randomised grip (e.g. 14.0 N in `D15 r2 R25/L0/E1-3/U2_s16200`).
    - A torque-limited actuator then rotates the pads.
-   - **E1-7 passed at grip 10, 30 and 50 N.** The cube stays legal and non-jamming under these squeezes with rig pads.
-     This is partial evidence for **O-10**: the G2 gripper's real fingers still have to be checked.
+   - ~~E1-7 passed at grip 10, 30 and 50 N … partial evidence for O-10.~~ **Correction (2026-11-26, D16-0):** the rig
+     servo saturates at kp × overshoot ≈ 11.5 N. E1-7's 30 and 50 N levels actually applied about 11.5 N, so G1 gives
+     **no** evidence for O-10 above about 11.6 N. See
+     [`../../experiments/D16_free_core_m7/README.md`](../../experiments/D16_free_core_m7/README.md). D16 is the first
+     real squeeze test: penetration exceeds 0.5 mm at 50 N.
 2. **Turning torque needed (M7):** median 0.103 N·m, max 0.191 N·m over 1,376 scored moves. In E1-7, cubie friction
    μ 0.5 gave up to 0.37 N·m.
 3. **Torque capacity of a coaxial friction grasp:** τ ≈ μ·F·a with a = 57 mm (`INFERENCE`, as in the feasibility

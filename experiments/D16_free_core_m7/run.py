@@ -1,0 +1,278 @@
+"""D16: UNSCORED free-core M7 rehearsal (P-97 item 3; carries out P-09's free-core condition for M7).
+
+Question: does M7's G1 behaviour survive when the core is a free body and the cube is held only by a two-layer
+stabiliser, as arm A will hold it in G2?
+
+Model: M7 exactly as scored in G1 (experiments/E7_scored_m7/run.py: L0 magnets, rounded edges R 2.5 mm, NoSlip 10,
+gap 0.05 mm, timestep 0.5 ms), plus
+  * core_free: a free joint on the core, 1.7 g, diaginertia 2e-8 (as D6; ASSUMPTION) -- or the fixed core (baseline);
+  * a stand-in stabiliser (arm A's fingertips, P-97 sizes): two flat pads 30 mm wide x 30 mm deep x 4 mm on the two
+    opposite side faces, covering the two layers opposite the turned face from that face's far end face (insertion
+    30 mm, so 8 mm short of the target-layer boundary), on world-fixed slides. Unlike the G1 rig pads, whose servo
+    saturates at grip_kp x overshoot = 12 N (D16-0, grip_probe.py), the stabiliser target is 30 mm beyond contact
+    (kp 2000 -> 60 N), so its squeeze is the requested force (forcerange).
+The layer is turned by the unchanged G1 rig (pads ~10-11.6 N, torque limit 1 N.m).
+
+Setup (before t = 0, logged, as D6): setup misalignment; gravity off for 0.3 s while the stabiliser closes; 0.3 s with
+gravity; then the harness's 0.5 s settle. Trials run through E7's run_trial("seq", ...) so every G1 per-move check
+(oracle on the observed move, turn error, drift, penetration, radial pop, causality, edit audit) is applied unchanged;
+the layer angles are in the core frame (CubeReadout). Added: core slip and rotation in the world from t = 0, and the
+measured stabiliser squeeze.
+Usage (WSL): python experiments/D16_free_core_m7/run.py [--workers 2] [--only NAME]
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import multiprocessing
+import sys
+import time
+from pathlib import Path
+
+import mujoco
+import numpy as np
+from scipy.spatial.transform import Rotation
+
+HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
+from grip_probe import load_e7  # noqa: E402
+
+E7 = load_e7()
+M4, scored = E7.M4, E7.scored
+from rubiknetic.cube_logic.notation import FACE_NORMAL  # noqa: E402
+
+OUT = HERE / "results"
+STAB_W, STAB_DEPTH, STAB_T = 0.030, 0.030, 0.004      # P-97 stabiliser pad (m)
+STAB_OPEN, STAB_OVERSHOOT, STAB_KP = 0.014, 0.030, 2000.0
+SIDE_AXIS = {"U": 1, "D": 1, "R": 1, "L": 1, "F": 0, "B": 0}   # stabiliser pads on the +-y faces (U, R) or +-x (F)
+CORE_MASS, CORE_I = 0.0017, 2e-8                      # D6 (Paulus 2023 BOM; ASSUMPTION)
+SEEDS = (21000, 21001, 21002, 21003)                  # unscored; outside every scored and rehearsal range used so far
+
+_ORIG_TRIAL = E7._ORIG.get("trial", scored.Trial)
+_ORIG_XML = E7._ORIG.get("xml", scored.build_m1_xml)
+_ORIG_M4_XML = M4.build_m1_xml
+CFG: dict = {}                                        # this worker's trial configuration
+
+
+def stabiliser_xml(face: str, force: float, mu: float, p) -> tuple[str, str]:
+    n = np.array(FACE_NORMAL[face], float)
+    a = int(np.argmax(np.abs(n)))
+    s = n[a]
+    b = SIDE_AXIS[face]
+    w = 3 - a - b
+    H = 1.5 * p.pitch - p.gap / 2                     # outer face of the cube
+    half = np.zeros(3)
+    half[a], half[b], half[w] = STAB_DEPTH / 2, STAB_T / 2, STAB_W / 2
+    f3 = lambda v: " ".join(f"{x:.6f}" for x in v)   # noqa: E731
+    bodies, acts = [], []
+    for sg, nm in ((-1, "a"), (1, "b")):
+        pos = np.zeros(3)
+        pos[a] = -s * (H - STAB_DEPTH / 2)
+        pos[b] = sg * (H + STAB_OPEN + STAB_T / 2)
+        ax = np.zeros(3)
+        ax[b] = sg
+        bodies.append(
+            f'    <body name="stab_{nm}" pos="{f3(pos)}">\n'
+            f'      <joint name="stab_{nm}_slide" type="slide" axis="{f3(ax)}" range="-0.06 0.001" damping="100"/>\n'
+            f'      <geom name="stab_{nm}_g" type="box" size="{f3(half)}" contype="2" conaffinity="0" '
+            f'condim="{p.pad_condim}" friction="{mu} {p.pad_friction[1]} {p.pad_friction[2]}" '
+            f'solref="{p.pad_solref[0]} {p.pad_solref[1]}" solimp="{" ".join(map(str, p.pad_solimp))}" '
+            f'mass="0.01" rgba="0.2 0.6 0.9 1"/>\n    </body>')
+        acts.append(f'    <position name="stab_{nm}" joint="stab_{nm}_slide" kp="{STAB_KP}" '
+                    f'forcerange="{-force} {force}" ctrlrange="-0.06 0.001"/>')
+    return "\n".join(bodies), "\n".join(acts)
+
+
+def g2_xml(xml: str, p) -> str:
+    """Free core (if CFG['free']) and the stabiliser, appended after the cubies so body ids are unchanged."""
+    if CFG["free"]:
+        tag = '<body name="core" pos="0 0 0">'
+        assert xml.count(tag) == 1
+        xml = xml.replace(tag, tag + '\n      <freejoint name="core_free"/>\n'
+                          f'      <inertial pos="0 0 0" mass="{CORE_MASS}" diaginertia="{CORE_I} {CORE_I} {CORE_I}"/>')
+    bodies, acts = stabiliser_xml(CFG["face"], CFG["force"], CFG["mu"], p)
+    assert xml.count("  </worldbody>") == 1 and xml.count("  <actuator>\n") == 1
+    xml = xml.replace("  </worldbody>", bodies + "\n  </worldbody>")
+    return xml.replace("  <actuator>\n", "  <actuator>\n" + acts + "\n")
+
+
+class Tracker:
+    """Step hook: core slip and rotation from t = 0 (world frame); stabiliser squeeze every 20 steps; and, per turn,
+    the first time the turning layer's angular speed RELATIVE TO THE CORE exceeds the G1 causality speed (5 deg/s).
+    G1's check uses the world-frame layer speed, which a free cube moving as a whole also trips."""
+
+    def __init__(self, m, d, core, stab_geoms, stab_acts, mon):
+        self.m, self.core, self.geoms, self.acts, self.mon = m, core, stab_geoms, stab_acts, mon
+        self._turn = None
+        self.rel_motion_t: list[float | None] = []    # one entry per turn, in move order
+        self.p0, self.R0 = d.xpos[core].copy(), d.xmat[core].reshape(3, 3).copy()
+        self.slip = self.rot = 0.0
+        self.k, self.f6 = 0, np.zeros(6)
+        self.squeeze: list[float] = []
+        self.act_force: list[float] = []
+        self.series: list[list[float]] = []           # t, squeeze a, squeeze b, slip mm, dx dy dz mm, |w_core| deg/s
+
+    def __call__(self, d) -> None:
+        t = self.mon.turn
+        if t is not None:
+            if t is not self._turn:
+                self._turn = t
+                self.rel_motion_t.append(None)
+            if self.rel_motion_t[-1] is None:
+                ax = t["axis"]
+                w = float(np.mean(d.cvel[t["bodies"], :3] @ ax) - d.cvel[self.core, :3] @ ax)
+                if abs(np.degrees(w)) > scored.THRESHOLDS["causal_speed_dps"]:
+                    self.rel_motion_t[-1] = float(d.time)
+        self.slip = max(self.slip, float(np.linalg.norm(d.xpos[self.core] - self.p0)))
+        self.rot = max(self.rot, float(np.linalg.norm(
+            Rotation.from_matrix(d.xmat[self.core].reshape(3, 3) @ self.R0.T).as_rotvec())))
+        self.k += 1
+        if self.k % 20:
+            return
+        tot = {g: 0.0 for g in self.geoms}
+        for i in range(d.ncon):
+            c = d.contact[i]
+            for g in self.geoms:
+                if g in (c.geom1, c.geom2):
+                    mujoco.mj_contactForce(self.m, d, i, self.f6)
+                    tot[g] += self.f6[0]
+        self.squeeze.append(float(min(tot.values())))
+        self.act_force.append(float(np.mean(np.abs(d.actuator_force[self.acts]))))
+        w = d.cvel[self.core, :3]                     # core angular velocity (world)
+        self.series.append([float(d.time), *[float(v) for v in tot.values()],
+                            float(np.linalg.norm(d.xpos[self.core] - self.p0) * 1000),
+                            *[float(v) * 1000 for v in d.xpos[self.core] - self.p0],
+                            float(np.degrees(np.linalg.norm(w)))])
+
+
+class HoldTrial(_ORIG_TRIAL):
+    """scored.Trial.__init__ with the stabiliser hold phase before the settle (setup, before t = 0)."""
+    last = None
+
+    def __init__(self, params, setup, allow_test_wrench: bool = False, settle_s: float = 0.5):
+        self.params = params
+        self.model = mujoco.MjModel.from_xml_string(scored.build_m1_xml(params))
+        m = self.model
+        self.sim = scored.AuditedSim(m, allow_test_wrench=allow_test_wrench)
+        self.ro = scored.CubeReadout(m, params.pitch)
+        self.rig = scored.TurnRig(self.sim, pad_close_target=-(params.pad_open_clearance + params.grip_overshoot))
+        self.mon = scored.Monitor(m, self.ro)
+        self.sim.hooks.append(self.mon)
+        self.setup = setup
+        if setup is not None:
+            scored.apply_setup_misalignment(self.sim, setup.misalign_deg)
+        self.sim.log_setup({"type": "d16_stabiliser_hold", "face": CFG["face"], "force_N": CFG["force"],
+                            "free_core": CFG["free"], "gravity_off_s": 0.3, "gravity_on_s": 0.3})
+        d, dt = self.sim.d, m.opt.timestep
+        aid = lambda n: mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_ACTUATOR, n)  # noqa: E731
+        gid = lambda n: mujoco.mj_name2id(m, mujoco.mjtObj.mjOBJ_GEOM, n)  # noqa: E731
+        acts = [aid("stab_a"), aid("stab_b")]
+        g = m.opt.gravity.copy()
+        m.opt.gravity[:] = 0.0
+        d.ctrl[acts] = -(STAB_OPEN + STAB_OVERSHOOT)
+        self.sim.step(int(round(0.3 / dt)))
+        m.opt.gravity[:] = g
+        self.sim.step(int(round(0.3 / dt)))
+        self.sim.step(int(round(settle_s / dt)))
+        self.mon.start_trial(d)
+        self.mon.new_window()
+        self.timing = scored.TurnTiming(turn_s_per_quarter=setup.turn_s_per_quarter) if setup else scored.TurnTiming()
+        self.t0_obs = self.ro.observe(d)
+        self.tracker = Tracker(m, d, self.ro.core, [gid("stab_a_g"), gid("stab_b_g")], acts, self.mon)
+        self.sim.hooks.append(self.tracker)
+        HoldTrial.last = self
+
+
+def configure(cfg: dict) -> None:
+    CFG.clear()
+    CFG.update(cfg)
+    E7._ORIG.clear()
+    E7._ORIG.update(trial=HoldTrial, xml=lambda p: g2_xml(_ORIG_XML(p), p))
+    M4.build_m1_xml = lambda p: g2_xml(_ORIG_M4_XML(p), p)   # the magnet system's model must match (nv, body ids)
+    M4.use_magnets(None, E7.R.GAP)                           # drop any cached magnet system
+
+
+def run_one(cfg: dict) -> dict:
+    configure(cfg)
+    f = cfg["face"]
+    seq = f"{f} {f}' {f}2 {f}' {f}"
+    kw = {"moves": seq, "seed": cfg["seed"], "overrides": {}}
+    t0 = time.perf_counter()
+    HoldTrial.last = None
+    rec, _, _ = E7.run_trial("seq", kw, True)
+    rec = E7._plain(rec)
+    tr = HoldTrial.last
+    tk = tr.tracker if tr is not None else None
+    rec["d16"] = {**cfg, "study": "D16", "scored": False, "sequence": seq,
+                  "core_slip_mm": None if tk is None else tk.slip * 1000,
+                  "core_rot_deg": None if tk is None else float(np.degrees(tk.rot)),
+                  "stab_squeeze_N_min": None if not (tk and tk.squeeze) else min(tk.squeeze),
+                  "stab_squeeze_N_median": None if not (tk and tk.squeeze) else float(np.median(tk.squeeze)),
+                  "stab_actuator_N_median": None if not (tk and tk.act_force) else float(np.median(tk.act_force)),
+                  "series_cols": ["t", "squeeze_a_N", "squeeze_b_N", "core_slip_mm", "dx_mm", "dy_mm", "dz_mm",
+                                  "core_w_dps"],
+                  "series": None if tk is None else tk.series,
+                  "nq": int(tr.model.nq) if tr else None, "wall_s": time.perf_counter() - t0}
+    # supplementary check (not G1's): causality with the layer speed relative to the core
+    rel = tk.rel_motion_t if tk is not None else []
+    for i, pm in enumerate(rec.get("per_move", [])):
+        rt = rel[i] if i < len(rel) else None
+        tf = pm.get("t_pad_force_s")
+        pm["d16_t_layer_motion_rel_core_s"] = rt
+        pm["d16_ok_causal_rel_core"] = bool(rt is None or (tf is not None and tf <= rt))
+        pm["d16_ok_all_rel_core"] = bool(all(v for k, v in pm.items() if k.startswith("ok_")
+                                             and k not in ("ok_all", "ok_causal")) and pm["d16_ok_causal_rel_core"])
+    pms = rec.get("per_move", [])
+    rec["d16"]["pass_rel_core"] = bool(rec.get("integrity_ok") and "aborted" not in rec and rec.get("t0_solved")
+                                       and len(pms) == len(seq.split()) and all(pm["d16_ok_all_rel_core"] for pm in pms)
+                                       and rec.get("final_matches_oracle"))
+    return rec
+
+
+def plan() -> list[dict]:
+    jobs = []
+    for face in ("U", "R", "F"):
+        for free in (True, False):
+            for s in SEEDS:
+                jobs.append({"name": f"{face}_{'free' if free else 'fixed'}_F20_s{s}", "face": face, "free": free,
+                             "force": 20.0, "mu": 0.8, "seed": s})
+    for force in (10.0, 30.0, 50.0):
+        for s in SEEDS[:2]:
+            jobs.append({"name": f"U_free_F{force:g}_s{s}", "face": "U", "free": True, "force": force, "mu": 0.8,
+                         "seed": s})
+    for force in (10.0, 30.0, 50.0):                  # added after the first 30: fixed-core controls for the sweep
+        for s in SEEDS[:2]:
+            jobs.append({"name": f"U_fixed_F{force:g}_s{s}", "face": "U", "free": False, "force": force, "mu": 0.8,
+                         "seed": s})
+    return jobs
+
+
+def worker(cfg: dict) -> str:
+    try:
+        rec = run_one(cfg)
+    except Exception as e:  # noqa: BLE001  (harness error: recorded, never a pass)
+        rec = {"d16": {**cfg, "study": "D16", "scored": False}, "pass": False, "harness_error": repr(e)}
+    (OUT / f"{cfg['name']}.json").write_text(json.dumps(rec, indent=1))
+    d = rec["d16"]
+    return (f"{cfg['name']:22s} pass {rec.get('pass')!s:5s} pass_rel_core {d.get('pass_rel_core')!s:5s} moves_ok {rec.get('moves_completed_ok')} "
+            f"core slip {d.get('core_slip_mm') or 0:6.2f} mm rot {d.get('core_rot_deg') or 0:6.2f} deg "
+            f"squeeze {d.get('stab_squeeze_N_median') or 0:5.1f} N {rec.get('harness_error', '')}")
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--workers", type=int, default=2)
+    ap.add_argument("--only", default=None)
+    a = ap.parse_args()
+    OUT.mkdir(exist_ok=True)
+    jobs = [j for j in plan() if a.only is None or j["name"] == a.only]
+    jobs = [j for j in jobs if not (OUT / f"{j['name']}.json").exists()]
+    print(f"D16: {len(jobs)} trials, {a.workers} workers", flush=True)
+    ctx = multiprocessing.get_context("spawn")
+    with ctx.Pool(a.workers, maxtasksperchild=1) as pool:
+        for line in pool.imap_unordered(worker, jobs):
+            print(line, flush=True)
+
+
+if __name__ == "__main__":
+    main()

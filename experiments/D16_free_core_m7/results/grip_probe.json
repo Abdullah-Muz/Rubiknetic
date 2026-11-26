@@ -1,0 +1,86 @@
+[
+ {
+  "grip_force_requested_N": 10.0,
+  "grip_overshoot_m": 0.006,
+  "grip_kp": 2000.0,
+  "actuator_force_N": [
+   -10.0,
+   -10.0
+  ],
+  "pad_normal_force_N": [
+   13.077757765187046,
+   13.544806474750036
+  ],
+  "kp_x_overshoot_N": 12.0
+ },
+ {
+  "grip_force_requested_N": 16.5,
+  "grip_overshoot_m": 0.006,
+  "grip_kp": 2000.0,
+  "actuator_force_N": [
+   -11.528064176243259,
+   -11.52807914994007
+  ],
+  "pad_normal_force_N": [
+   9.948701614358392,
+   9.948531192415572
+  ],
+  "kp_x_overshoot_N": 12.0
+ },
+ {
+  "grip_force_requested_N": 20.0,
+  "grip_overshoot_m": 0.006,
+  "grip_kp": 2000.0,
+  "actuator_force_N": [
+   -11.557969423278571,
+   -11.55798234757497
+  ],
+  "pad_normal_force_N": [
+   8.733242407695938,
+   8.733158100959914
+  ],
+  "kp_x_overshoot_N": 12.0
+ },
+ {
+  "grip_force_requested_N": 30.0,
+  "grip_overshoot_m": 0.006,
+  "grip_kp": 2000.0,
+  "actuator_force_N": [
+   -11.512152076276632,
+   -11.512143250664437
+  ],
+  "pad_normal_force_N": [
+   11.098351281408828,
+   11.09871546603812
+  ],
+  "kp_x_overshoot_N": 12.0
+ },
+ {
+  "grip_force_requested_N": 50.0,
+  "grip_overshoot_m": 0.006,
+  "grip_kp": 2000.0,
+  "actuator_force_N": [
+   -11.580175456105763,
+   -11.580165832979496
+  ],
+  "pad_normal_force_N": [
+   15.200089457521585,
+   15.199881849018011
+  ],
+  "kp_x_overshoot_N": 12.0
+ },
+ {
+  "grip_force_requested_N": 50.0,
+  "grip_overshoot_m": 0.03,
+  "grip_kp": 2000.0,
+  "actuator_force_N": [
+   -50.0,
+   -50.0
+  ],
+  "pad_normal_force_N": [
+   69.90014377460187,
+   69.89741714172919
+  ],
+  "kp_x_overshoot_N": 60.0
+ }
+]
