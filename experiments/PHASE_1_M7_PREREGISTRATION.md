@@ -1,6 +1,17 @@
 # Phase 1 (G1) Pre-registration: M7, the L0 magnetic contact cube with rounded edges and NoSlip 10
 
-**Status: DRAFT, revision 4, NOT APPROVED. Nothing here is in force.**
+**Status: revision 4, IN FORCE (P-92, 2026-11-26).**
+- The user approved revision 4 on condition that a review require no changes (P-91). Review 4 returned ACCEPTABLE AS
+  IS ([`M7_PREREGISTRATION_REVIEW4_2026-11-26.md`](M7_PREREGISTRATION_REVIEW4_2026-11-26.md)), so the condition is
+  met.
+- The final seed search found no simulation on 17000–17999
+  ([`E7_scored_m7/seed_search_2026-11-26.md`](E7_scored_m7/seed_search_2026-11-26.md)).
+- **This text is frozen from here to the end of the run** (freeze rule below). Review 4's optional notes O1–O3 are
+  cosmetic and not adopted, as M5's revision-7 optionals were not (P-48).
+- The scored run starts only on the user's explicit go (P-63).
+
+(The draft history follows.)
+- *Before the freeze:* DRAFT, revision 4, NOT APPROVED.
 - **Revision 4 (P-91)** is a text-only revision. It makes review 3's one required change: two typos, a SHA-256 suffix
   and a section reference
   ([`M7_PREREGISTRATION_REVIEW3_2026-11-26.md`](M7_PREREGISTRATION_REVIEW3_2026-11-26.md), one reviewer subagent).
