@@ -1,19 +1,31 @@
 # Phase 1 (G1) Pre-registration: M7, the L0 magnetic contact cube with rounded edges and NoSlip 10
 
-**Status: DRAFT, revision 0, NOT APPROVED. Nothing here is in force.** §8 was answered on 2026-11-25 (P-86):
-Q3 yes, Q4 criterion, Q8 one reviewer subagent per round, and the defaults for Q1, Q2, Q5, Q6, Q7 and Q9. The text
-is revised after the fresh-seed rehearsal (§7 item 2). Written by the main session on 2026-11-25,
-after P-83 (L0 chosen as the working candidate) and P-85 (R3, the E1-7 rehearsal). It is built from:
+**Status: DRAFT, revision 1, NOT APPROVED. Nothing here is in force.**
+- Revision 0 (`01938af`) was written by the main session on 2026-11-25, after P-83 (L0 chosen as the working
+  candidate) and P-85 (R3, the E1-7 rehearsal).
+- §8 was answered the same day (P-86): Q3 yes, Q4 criterion, Q8 one reviewer subagent per round, and the defaults for
+  Q1, Q2, Q5, Q6, Q7 and Q9.
+- **Revision 1 (P-88)** adds:
+  - the fresh-seed rehearsal (R4, P-87);
+  - the §6 code as built (`experiments/E7_scored_m7/`), with its self-check and smoke results;
+  - the resolved TODOs (switched constraints, E1-1 radial pop, E1-5s function).
+
+  It is the text sent to the first independent review.
+
+The text is built from:
 - `PHASE_1_M5_PREREGISTRATION.md`, revision 8, the last text in force (it governed M5's scored run);
 - the ER9 skeleton `ER9_anchored_core_layouts/proposals/G1_SCORED_PREREG_DRAFT.md`. That skeleton was written for a
   Part G arm (PG8/PG20) and is superseded for that purpose by P-83. It is kept as a source.
 
-No simulation was run for this draft, and no scored seed was touched.
+No scored seed (17000–17999) has been touched. The simulations behind this revision are:
+- the unscored R4 rehearsal (19000–19655);
+- the self-check (rehearsal seeds 16000–16655);
+- the smoke run (18000–18099).
 
 **Path to force (as M5's, PROPOSAL):**
 1. The user settles §8's questions.
 2. The text is revised.
-3. The §6 code is built and self-checked on rehearsal seeds.
+3. The §6 code is built and self-checked on rehearsal seeds (**done**, §6).
 4. Independent review of text and code (§6.5) continues until a review requires no changes.
 5. The user approves the text, and a Status-line commit is made.
 6. The user gives an explicit go. Per P-63, the main session stops before any scored run.
@@ -96,12 +108,12 @@ No simulation was run for this draft, and no scored seed was touched.
 | **NoSlip** | `noslip_iterations = 10` on the trial model, applied by wrapping `scored.build_m1_xml` (D13 `with_noslip`). The magnet model has no NoSlip | P-73; D14 Stage 3 proof checks |
 | Magnets | **M5's 48 × 4×2 mm N35** at M5's positions, with M5's table and V3 record (validated near-pair tilt 5°). Identical to M5 | `FACT`, M5 §1; L0 = M5 magnets (ER7 GS1) |
 | Turner | M1's rig: turn_kp 5, kv 0.2, torque clip 1 N·m. Clip = peak ≥ 0.999 N·m | `FACT`, M5 §1, §4 |
-| Execution path | M5's runner (`E5_scored_m5/run.py`) loaded unchanged, as ER7 did, plus the two installs above. R3's gate 1 and smoke equivalence show this path reproduces the ER9-path records exactly (0 differences) | `FACT`, R3 (P-85) |
+| Execution path | M5's runner (`E5_scored_m5/run.py`) and M4's, loaded unchanged in M7's own module instances (as E6), with the edge and NoSlip installs applied per trial by a wrapper around `M4.run_trial` (§6.1). The self-check reproduces the D15 rehearsal records with 0 differences (§6.2) | `FACT`, `E7_scored_m7/results_selfcheck/selfcheck.json` |
 | Software | MuJoCo 4.0.1, Python 3.12.3, NumPy 2.5.4, SciPy 1.18.1, in WSL Ubuntu 24.04 (`~/.venvs/rubiknetic`) | `FACT`, every R2/R3 record |
 
 **Abstractions (to be published with any verdict; VALIDATION_PLAN G1 "Pass"):**
-- The cube is contact-emergent (B1). There are no switched constraints, so the "switch timing" item does not apply.
-  TODO: confirm in `M1Params`.
+- The cube is contact-emergent (B1). `m1_model.py`'s docstring (line 13) states that no constraint is switched at
+  runtime and nothing writes cubie state, so the VALIDATION_PLAN "switch timing" item does not apply (`FACT`).
 - B1 has no radial freedom, so there is no magnetic preload.
 - Magnets have no collision geometry.
 - The ideal-magnet law may overstate force by up to 1.5× (M5 §7; D8 V2). E1-7's 0.67 scale covers this (passed, R3).
@@ -119,8 +131,9 @@ M5 §2 unchanged, except as noted:
 - the resume rule; INVALID and INCOMPLETE are final;
 - harness exceptions become failing records;
 - `MemoryError` / `OSError` / killed worker are interruptions.
-- **Location check** as M5 revision 8: no path in a OneDrive folder. Additionally (PROPOSAL), the run must execute in
-  the recorded WSL environment, and every record's environment block is compared with the manifest.
+- **Location check** as M5 revision 8: no path in a OneDrive folder.
+- **Environment:** M5's check compares every record's environment (MuJoCo, NumPy, SciPy, Python, CPU) with the
+  manifest. The run is started from WSL with `~/.venvs/rubiknetic`, the environment of every D15 record.
 - **No other jobs in WSL** during the run (P-82 (b)). The start log records the load at start.
 
 ## 3. Trials and seeds (PROPOSAL)
@@ -142,11 +155,19 @@ M5 §2 unchanged, except as noted:
 | E1-6m | Energy and impulse per move of E1-2 to E1-4 | (moves) | — | yes (⟨P⟩) |
 | **Total Option A** | | **204** | | |
 | E1-6n | No-magnet rerun of E1-2 to E1-6t on the same seeds (Q5) | 184 | as above | never |
-| E1-7 | R3's list: M5's factors with edge radius 1.8 / 3.6 mm in place of the chamfer, NoSlip 5 / 20 (+ 0 reference), both sequences; plus R3's 15 one-seed 60 s rests (Q6) | 58 (+2 not run, V3) + 15 | 17000 | never |
+| E1-7 | R3's list: M5's factors with edge radius 1.8 / 3.6 mm in place of the chamfer, NoSlip 5 / 20, and the reference NoSlip 0 (tag `noslip=0`, outside the band), both sequences; plus R3's 15 one-seed 60 s rests (Q6) | 58 (+2 not run, V3) + 15 | 17000 | never |
 | REST-X | 40 extra 60 s rests (E1-1 configuration), reported (Q7) | 40 | 17700–17739 | never |
 | E1-8 | Throughput on a quiet machine, after the verdict | — | — | sign-off only |
 
-- The exact list is M5's runner list + 7000, checked by a unit test (as M5 §2).
+- The exact list is M5's runner list + 7000, checked by a unit test (`tests/test_scored_m7.py`,
+  `test_m5_list_plus_7000`).
+- **Totals (`run.py all --dry-run`, `FACT`):** 501 runnable trials, made up of:
+  - 204 Option A;
+  - 184 E1-6n;
+  - 73 E1-7 (58 sequences + 15 rests);
+  - 40 REST-X.
+
+  There are also 2 registered "not run" trials (E1-7 4×1.5 N35, failed V3).
 - **Smoke seeds:** 18000–18099.
 - **Fresh-seed rehearsal (Q3):** 19000–19655.
 - 10000–10999 (M5's scored range) and 16000–16999 (rehearsal) are never used in scored mode.
@@ -157,14 +178,16 @@ M5 §2 unchanged, except as noted:
   - solved and valid;
   - rest rotation ≤ 0.5° over the first 10 s;
   - radial offset ≤ 0.5 mm;
-  - pop ≤ 0.3 mm;
-  - penetration ≤ 0.5 mm.
+  - penetration ≤ 0.5 mm;
+  - pop ≤ 0.3 mm: **not evaluated on the 60 s record.** B1 has no radial joint, so pop is identically zero (D14
+    `e11_pass`). `FACT`: the largest value in M5's 20 scored E1-1 records is 7.6e-14 mm. Omitting it loosens
+    nothing.
 - **E1-2 and E1-3:** oracle agreement; turn error ≤ 2°; non-target drift ≤ 1°; penetration ≤ 0.5 mm; pop ≤ 0.3 mm;
   causality.
 - **E1-4:** E1-2's criteria per move, every state agreeing with the oracle, and a growth slope < 0.005°/move.
 - **E1-5:** categorical: never an illegal or oracle-mismatched state.
-- **E1-5s:** from ≥ 3°, |U error| ≤ 0.5° after 1 s. TODO: name M5's frozen function, since two definitions exist
-  (ER9 SUMMARY).
+- **E1-5s:** from ≥ 3°, |U error| ≤ 0.5° after 1 s, judged by M5's code unchanged: `d8_1b_stage1.run_snap`'s
+  `U_err_after_1s_deg`, checked in `E4_scored_m4/run.py` `apply_m4_criteria`.
 - **E1-6a:** rotation ≤ 0.5°; stays solved.
 - **E1-6b:** categorical; radial change ≤ 0.5 mm.
 - **E1-6c:** M1's categorical criterion.
@@ -177,6 +200,11 @@ M5 §2 unchanged, except as noted:
 ### 4.2 Changed or new (PROPOSAL)
 - **E1-1 procedure:** the 60 s instrumented rest replaces the 10 s rest. M1's criterion still reads 0–10 s, so this
   does not loosen M5.
+- **How E1-1 is judged (implementation):**
+  - The worker computes the pass flag as D14's `e11_pass` and 0 events of D11's detector (`d13_analyze.events`).
+  - `e11_pass` is copied into `run.py`, and a test checks it equals D14's on R4's records.
+  - M4's criteria then add rule 2 (magnet validity), as for every trial.
+  - The verdict script re-derives the flag from the stored record and makes any disagreement INVALID.
 - **Slip rule (Q4):** E1-1 passes only with **0 D11 slip events over 0–60 s**. A slip event is a change of 0.2° or
   more in any cubie's signed rotation about any of its faces across 200 ms, merged as in D11.
   - This tightens M5.
@@ -196,8 +224,16 @@ M5 §2 unchanged, except as noted:
 - **A failure is final.** It is documented in full, and G1 stays not passed.
 
 ## 5. Analysis
-- **Primary:** the verdict of the frozen `analyze.py`, M5's with M7's folders, seeds, the slip rule and E1-1's
-  60 s record format. Expected counts are as in §3. A missing record gives INCOMPLETE; an extra one gives INVALID.
+- **Primary:** the verdict of `E7_scored_m7/analyze.py`.
+  - It is **M5's `analyze.py` loaded unchanged** on M7's runner: manifest, ledger, record, seed, gap, wall, table and
+    environment checks, E1-4 scrambles, and Option A.
+  - M7 adds per-record checks, each a violation (INVALID):
+    - the mechanism label is "M7";
+    - rounded edges with the registered radius;
+    - the registered NoSlip count in the compiled options;
+    - for turn trials, exactly one trial model and one NoSlip-wrapper call;
+    - every 60 s rest is 60 s long, and its stored verdict equals the one re-derived from the record.
+  - Expected counts are as in §3. A missing record gives INCOMPLETE; an extra one gives INVALID.
 - **Secondary (reported):**
   - the margins;
   - the torque report;
@@ -208,35 +244,70 @@ M5 §2 unchanged, except as noted:
   - the run procedure.
 - **No hypothesis test** decides the verdict.
 
-## 6. Freeze and integrity (TODO)
-### 6.1 Code
-A new `experiments/E7_scored_m7/run.py`:
-- It loads M5's runner unchanged in its own module instance and patches only:
-  - the seeds and the smoke seeds;
-  - the edge install (`r1_run.install_edge`);
-  - the NoSlip wrapper;
-  - E1-1's 60 s rest steps (R2's);
-  - the R3 E1-7 list and rests;
-  - REST-X;
-  - the label, folders and frozen paths.
-- `analyze.py` is M5's with the §5 changes.
-- Tests are ported from `test_scored_m5.py`, plus R3's proof checks on every record (edge, NoSlip, magnet parameters,
-  seed).
-- Frozen paths: M5's, plus `m1_model.py`, D13's `with_noslip` and `d13_rest`, D14 Stage 1, `r1_run.py`
-  (`install_edge`), the new runner, `analyze.py`, the tests and this text.
+## 6. Freeze and integrity (code built: `5e74b69` and the revision-1 commit)
+### 6.1 Code (`FACT`)
+**`experiments/E7_scored_m7/run.py`.** It loads M4's and M5's runners unchanged in fresh module instances (`*_for_m7`),
+as E6 did, and changes only module globals:
+- **Seeds:** +7000 (range 17000–17999); smoke base 18000.
+- **Folders, label and manifest:** folders `E7_scored_m7/results*`; mechanism "M7"; the manifest adds the edge
+  radius, NoSlip and rest length.
+- **Per-trial installs** (`install`, and `run_trial` wrapping `M4.run_trial`, which M5's `run_job` calls):
+  - a `scored.Trial` subclass setting `edge_profile = "rounded"` and the radius, as `r1_run.install_edge`;
+  - `scored.build_m1_xml` wrapped with D13's `with_noslip` when NoSlip > 0, as `d14s3_run.worker`;
+  - both are rebuilt from the originals for every trial;
+  - E1-7's `edge_radius` and `noslip` overrides are consumed here.
+- **Kind `rest60`** (E1-1, the E1-7 rests, REST-X), following R2–R4's steps:
+  - a 10 s warm-up E1-1 through M4's rest trial, with the edge and without NoSlip;
+  - a magnet-system reset;
+  - `d13_rest` (variant V2's NoSlip, the setting's parameters);
+  - the pass flag as in §4.2.
+- **E1-7 factors:** `chamfer` is replaced by `edge_radius` [1.8, 2.5, 3.6] mm, and `noslip` [0, 5, 10, 20] is added;
+  the 15 rests and REST-X are appended to the job list.
+- **`selfcheck` mode** (§6.2).
+
+**`experiments/E7_scored_m7/analyze.py`:** §5.
+
+**Tests:** `tests/test_scored_m7.py`, 14 tests. They cover:
+- isolation from M5's module instances;
+- the counts and the "not run" set;
+- seeds, scrambles and the M5 + 7000 map;
+- the E1-7 factors and the `rest60` kinds;
+- `e11_pass` equal to D14's;
+- the per-trial installs and the overrides they consume;
+- the M7 record checks, including re-derived rest verdicts and the mechanism-check replacement;
+- the frozen paths and the self-check list;
+- Clopper–Pearson.
+
+M5's tests pass in the same session, and so does the full repository suite.
+
+**Frozen paths** (`M7_FROZEN_PATHS`): M5's (with M4's), plus:
+- `src/rubiknetic/cube_physics/m1_model.py`;
+- `d10_rest.py`, `d13_run.py`, `d13_analyze.py`, `d11_analyze.py`;
+- this text;
+- `E7_scored_m7/run.py` and `analyze.py`.
+
+`r1_run.py` and D14's code are not imported. Their two functions are copied: the edge install, and `e11_pass`, which
+is test-checked against D14's.
 
 ### 6.2 Self-checks before the first start (rehearsal seeds only; committed)
-| ID | Check | Pass |
+| ID | Check | Result (`FACT`) |
 |---|---|---|
-| SC1 | In self-check mode with the rehearsal seed map (+6000), the runner reproduces R1/R2's L0 R25 record for the first trial of each sub-experiment | 0 differences (`gs_diff`, logging stripped) |
-| SC2 | It reproduces R2's L0 `rest_s16000` (60 s) | 0 differences |
-| SC3 | It reproduces R3's `nominal__sexy6` and one non-nominal E1-7 record | 0 differences |
-| SC4 | The seed list equals M5's + 7000, lies in 17000–17999, and the scrambles come from 17400–17419 | unit test |
-| SC5 | The E1-6n model equals M5's no-magnet model plus edge and NoSlip (static comparison) | identical |
+| SC1 / SC2 | `run.py selfcheck`, rehearsal map (+6000): the first trial of each of the 10 Option A sub-experiments reproduces R1's or R2's committed L0 R25 record. For E1-1 that is R2's 60 s `rest_s16000` | **0 differences each** |
+| SC3 | E1-7 `nominal__sexy6`, `edge_radius=0.0018__6move`, `noslip=5__6move`, `nominal__rest60` and `magnet_scale=0.67__rest60` reproduce R3's records | **0 differences each** |
+| SC5 | E1-7 `magnet=none__6move`, the no-magnet path that E1-6n also uses, reproduces R3's record | **0 differences** (16 / 16 in all) |
+| SC4 | The seed list equals M5's + 7000, lies in 17000–17999, and the scrambles come from 17400–17419 | unit tests pass |
 
-### 6.3 Smoke run
-- Seeds 18000–18099, every trial kind, with one forced interruption and a resume (M5 precedent).
-- It measures steps/s and memory.
+- Comparison: `er9g_run.gs_diff` with the rehearsal's logging blocks and M7's bookkeeping fields removed on both sides
+  (`run.py selfcheck_compare`). For rests, every field of the rehearsal's record must equal M7's.
+- The result is committed as `results_selfcheck/selfcheck.json`.
+
+### 6.3 Smoke run (`FACT`; `smoke_2026-11-25/`, log `smoke_2026-11-25.log`)
+- M5's smoke list on 18000+.
+- **Start 1** was killed after 5 records (`--stop-after 5 --stop-point after_link`), between writing the record and
+  its ledger line.
+- **Start 2** resumed with the same command. It moved 1 orphan, reconciled 1 ledger line and wrote the remaining 14
+  (332 s).
+- `analyze.py --smoke-dir`: **19 records, 2 starts, 0 integrity violations, 0 missing.**
 
 ### 6.4 Seed search (to be repeated and recorded before fixing)
 - `git grep` and `rg --no-ignore` for `17[0-9]{3}` seeds across all files, as in the ER9 skeleton §9.2.
@@ -252,7 +323,7 @@ A new `experiments/E7_scored_m7/run.py`:
 ### 6.6 Cost and stop rules (`INFERENCE` from R1–R3 L0 wall times)
 | Part | Estimate |
 |---|---|
-| Option A | about 9.6 CPU-h (E1-4 about 6.2) |
+| Option A (204) | about 9.6 CPU-h (E1-4 about 6.2). R4 ran this list in 1 h 38 min on 6 workers |
 | E1-6n | about 4–7 CPU-h |
 | E1-7 + rests | about 3.8 CPU-h (R3) |
 | REST-X | about 3.4 CPU-h |
@@ -267,7 +338,8 @@ A new `experiments/E7_scored_m7/run.py`:
 1. The user's answers to §8.
 2. **Fresh-seed rehearsal (if Q3)** on 19000–19655 under this exact configuration, reported and committed before the
    text is fixed. **Done** (D15 R4, P-87): 204 / 204, both signals met.
-3. The §6.1 code, SC1–SC5, the smoke run, and the seed search, all committed.
+3. The §6.1 code, SC1–SC5 and the smoke run, committed (**done**). The seed search is repeated as the last step
+   before fixing.
 4. Review(s) per Q8.
 5. The user's approval, the Status-line commit, an idle machine and an explicit go.
 
@@ -283,5 +355,5 @@ A new `experiments/E7_scored_m7/run.py`:
 | Q5 | E1-6n no-magnet arm | **Keep, reported** (M5 precedent) | Shows what the magnets contribute. R3 found L0 sequences pass even without magnets, which is worth confirming on fresh seeds |
 | Q6 | E1-7 | **R3's list and rests, at seed 17000** | Same design as the rehearsal, so flips are comparable |
 | Q7 | REST-X | **Yes, 40 × 60 s rests** | 20 rests cannot bound the slip rate usefully. 60 gives a bound of about 5 % if 0 |
-| Q8 | Review | **Independent review by a fresh session**, text and code together, iterated until no changes are required. Options: a separate Claude Code session you start, or up to 2 subagents if you allow them (as P-73) | CLAUDE.md forbids subagents by default. M5 needed 8 rounds |
+| Q8 | Review | **Answered: one reviewer subagent per round** (P-86), text and code together, iterated until no changes are required | CLAUDE.md forbids subagents by default, and the user permitted this one. M5 needed 8 rounds |
 | Q9 | Turner torque | **Reported only** | A threshold now would be post hoc. The torque is uncalibrated (P-83) |

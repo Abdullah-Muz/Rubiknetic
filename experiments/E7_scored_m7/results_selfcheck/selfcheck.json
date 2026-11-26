@@ -9,7 +9,7 @@
   "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
   "scipy": "1.18.1"
  },
- "head": "e795a2c3ce400050576a417bd2b1f6915334b470",
+ "head": "5e74b691e84b8f880ecbc836b9b5b99bd555f937",
  "trials": [
   {
    "tid": "rest_s16000",
@@ -115,6 +115,15 @@
    "sub": "E1-7",
    "kind": "seq",
    "ref": "experiments/D15_rounded_edges/results/r3/E1-7/edge_radius=0.0018__6move.json.gz",
+   "diffs": [],
+   "pass": true,
+   "n_diffs": 0
+  },
+  {
+   "tid": "magnet=none__6move",
+   "sub": "E1-7",
+   "kind": "seq",
+   "ref": "experiments/D15_rounded_edges/results/r3/E1-7/magnet=none__6move.json.gz",
    "diffs": [],
    "pass": true,
    "n_diffs": 0

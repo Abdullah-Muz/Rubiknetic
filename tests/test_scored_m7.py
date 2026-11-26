@@ -201,7 +201,7 @@ def test_frozen_paths():
 
 def test_selfcheck_list():
     js = E7.selfcheck_jobs({})
-    assert len(js) == 15 and all(16000 <= j["kw"]["seed"] <= 16999 for j in js)
+    assert len(js) == 16 and all(16000 <= j["kw"]["seed"] <= 16999 for j in js)
     assert all(E7.selfcheck_ref(j).exists() for j in js)
     assert M4.SCORED_SEED_RANGE == (17000, 17999)                        # restored after the self-check build
 
