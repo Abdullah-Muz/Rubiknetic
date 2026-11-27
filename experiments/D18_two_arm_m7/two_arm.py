@@ -60,6 +60,11 @@ STICKER_HALF, STICKER_T = 0.0065, 0.0002
 FACE_RGBA = {"U": [1, 1, 1, 1], "D": [1, 0.85, 0, 1], "R": [0.8, 0.05, 0.05, 1], "L": [1, 0.45, 0, 1],
              "F": [0, 0.6, 0.15, 1], "B": [0, 0.25, 0.8, 1]}         # standard scheme; cube-frame faces
 STAND_KP, STAND_KV, STAND_DROP, STAND_GAP = 20000.0, 300.0, 0.030, 0.0001
+# P-109 (2): J7 stall guard (robot state only). If |J7 command - J7 angle| exceeds GUARD_LAG_DEG for GUARD_HOLD_S
+# during a roll, arm B freezes the roll at the current angle and opens. Threshold [pilot].
+GUARD = False         # off by default: the lag rule false-triggers (D18 guard test, P-111); --guard to enable
+GUARD_LAG_DEG, GUARD_HOLD_S = 3.0, 0.005
+JAM_BLOCK = False      # G2-7 negative test: a world-fixed block above the cube's top face beside the U layer
 
 
 def add_stickers(cube, p) -> None:
@@ -118,6 +123,14 @@ def build(L: float, Hc: float, mu: float):
     tbl = parent.worldbody.add_geom()
     tbl.name, tbl.type, tbl.size, tbl.pos = "table", mujoco.mjtGeom.mjGEOM_PLANE, [1.5, 1.0, 0.01], [L / 2, 0, 0]
     tbl.rgba = [0.6, 0.55, 0.5, 1]
+    if JAM_BLOCK:
+        # above the top face (world +z = cube +y), over the U layer (world x from C+12 to C+26 mm), |y| <= 5 mm,
+        # 1.5 mm clear of the face: a U-layer corner reaches it about 38-40 deg into a turn
+        jb = parent.worldbody.add_geom()
+        jb.name, jb.type = "jam_block", mujoco.mjtGeom.mjGEOM_BOX
+        jb.size = [0.007, 0.005, 0.005]
+        jb.pos = [C[0] + 0.019, 0.0, C[2] + half + 0.0015 + 0.005]
+        jb.rgba = [0.9, 0.1, 0.1, 1]
     excl = ["link_base", "B_link_base"]
     if STAND:
         # under D and E only (world x from 2.5 mm inside the D face to 2.5 mm before the E/U boundary), 40 mm wide,
@@ -428,9 +441,20 @@ class TwoArm:
         axis_sign = float(np.sign(self.acc["axis_world"] @ zB))
         start = float(d.ctrl[self.aB[6]])
         n = self.secs(abs(delta) / (np.pi / 2))
+        q7 = self.qB[6]
+        lag_max, over, jam = 0.0, 0, None
+        hold_n = max(1, self.secs(GUARD_HOLD_S))
         for k in range(1, n + 1):
             d.ctrl[self.aB[6]] = start + axis_sign * delta * (0.5 - 0.5 * np.cos(np.pi * k / n))
             self.step(1)
+            lag = abs(np.degrees(float(d.ctrl[self.aB[6]]) - float(d.qpos[q7])))
+            lag_max = max(lag_max, lag)
+            over = over + 1 if lag > GUARD_LAG_DEG else 0
+            if GUARD and over >= hold_n:
+                jam = {"t": float(d.time), "lag_deg": lag,
+                       "roll_done_deg": float(np.degrees(axis_sign * (float(d.qpos[q7]) - start)))}
+                d.ctrl[self.aB[6]] = float(d.qpos[q7])          # freeze the roll where it is
+                break
         self.step(self.secs(0.3))
         d.ctrl[self.gB] = self.th_open
         self.step(self.secs(0.3))
@@ -451,6 +475,7 @@ class TwoArm:
         p1, R1 = self.rel()
         tf, tm = a["t_force"], a["t_motion"]
         return {"move": str(mv), "obs": obs, "turn_error_deg": float(np.mean(err)), "grasp_err_mm": grasp_err,
+                "j7_lag_max_deg": lag_max, "jam_stop": jam,
                 "nontarget_drift_deg": float(drift.max()), "pen_cubie_mm": a["pen_cubie"], "pen_pad_mm": a["pen_pad"],
                 "max_roll_torque_Nm": a["tau_roll"], "max_tool_torque_on_layer_Nm": a["tau_tool"], "t_tip_force_s": tf, "t_layer_motion_rel_core_s": tm,
                 "ok_causal": bool(tm is None or (tf is not None and tf <= tm)),
@@ -526,9 +551,13 @@ def main() -> None:
     ap.add_argument("--no-stickers", action="store_true")
     ap.add_argument("--no-stand", action="store_true", help="D18 v1 gravity-off setup instead of the stand")
     ap.add_argument("--tag", default="")
+    ap.add_argument("--guard", action="store_true", help="enable the J7 lag guard (false-triggers; P-111)")
+    ap.add_argument("--jam-block", action="store_true")
+    ap.add_argument("--guard-lag", type=float, default=3.0)
     a = ap.parse_args()
-    global STICKERS, STAND
+    global STICKERS, STAND, GUARD, JAM_BLOCK, GUARD_LAG_DEG
     STICKERS, STAND = not a.no_stickers, not a.no_stand
+    GUARD, JAM_BLOCK, GUARD_LAG_DEG = a.guard, a.jam_block, a.guard_lag
     H.TIP_SOLREF = (0.01, 1.0)                         # soft pads, as scored (P-105)
     viewer, holder = None, {}
     if a.view:
@@ -560,6 +589,8 @@ def main() -> None:
     name = f"two_arm_F{a.grip:g}_L{a.L:g}_H{a.H:g}_{a.seq.replace(' ', '_').replace(chr(39), 'p')}"
     if STAND:
         name += "_stand"
+    if JAM_BLOCK:
+        name += "_jam" + ("_guard" if GUARD else "_noguard")
     name += a.tag
     (OUT / f"{name}.json").write_text(json.dumps(rec, indent=1, default=float))
     print(json.dumps({k: v for k, v in rec.items() if k not in ("per_move", "scene", "approach")}, default=float))

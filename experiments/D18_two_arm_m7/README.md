@@ -122,3 +122,20 @@ The U turn passes every check: error −0.16°, drift 0.19°, fingertip torque 0
 - `contype = conaffinity = 0` and density 0, added in the G2 scene builder. The frozen G1 model is not changed.
 - **Physics invariance (`FACT`):** the same U turn without and with stickers (gravity-off setup) gives **identical
   final `qpos` SHA-256** (`e83b4955…`) and identical per-move numbers (`results/*_nostk.json`, `results/*_stk.json`).
+
+## J7 jam guard, first attempt (P-109 (2); UNSCORED; logs `logs/jam_guard.txt`, `jam_noguard.txt`, `guard_normal.txt`)
+**Rule tested:** stop the roll and open if J7's lag (command − angle) exceeds 3° for 5 ms. **It does not work (`FACT`):**
+1. **False trigger on a normal turn** (no obstacle): lag 3.16° at the first move, then stop.
+   - J7 keeps the model's servo (kp 800, kv 80), whose velocity term makes it trail by about (kv/kp)·ω ≈ 0.1 s of
+     motion: **up to about 14° at normal turning speed**.
+   - A fixed lag threshold cannot separate a jam from normal motion.
+2. **The obstacle test produced a push-through, not a stall.**
+   - A world-fixed block above the top face beside the U layer, guard off: the U corner hit it and **pushed the whole
+     cube about 2.2 mm (2.5°) in arm A's grip**.
+   - The turn still mostly completed (error 3.07°, failing ≤ 2°), and the final state did not match the oracle.
+   - Fingertip torque on the layer was 1.67 N·m, against ≤ 0.28 normally. The J7 motor torque was 6.86 N·m, against
+     about 5.9 normally: the cube's share is hidden under J7's own friction and damping.
+
+**PROPOSAL (for the user):** guard on the **estimated external torque at J7**: the motor torque minus J7's modelled
+friction, damping and inertia (robot state only; a real xArm reports current-based joint torque). Normal ≤ 0.3 N·m;
+push-through about 1.7 N·m; threshold [pilot], about 0.8–1 N·m. The lag guard is off by default (`--guard` enables it).
