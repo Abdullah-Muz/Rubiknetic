@@ -1,8 +1,8 @@
 """G2 trial kinds (experiments/PHASE_2_G2_PREREGISTRATION.md §3; DRAFT, not in force).
 
 Every trial builds the D18 two-arm scene (`experiments/D18_two_arm_m7/two_arm.py`) in its own process, configured from
-the job's overrides, and returns a record with `pass` and `fail_reasons`. Limits marked [pilot] are provisional and
-are fixed by the pilots before the pre-registration is frozen (VALIDATION_PLAN threshold policy).
+the job's overrides, and returns a record with `pass` and `fail_reasons`. The limits below were fixed from the P-5
+pilot (P-118) and approved by the user (P-119).
 
 Kinds:
   seq   G2-2/G2-3/G2-4: a U-family move sequence from a seeded start (cube start offset, layer misalignment).
@@ -28,11 +28,12 @@ from rubiknetic.cube_physics.rig import EditAuditError, NumericalFailure  # noqa
 
 L, HC = 1.0, 0.30                       # D18 layout (P-108)
 GRIP = 20.0                             # P-97
-CUBE_TOL = 0.001                        # start offset, uniform +-1 mm per axis [pilot]
-MISALIGN_DEG = 1.0                      # setup misalignment per face, uniform +-1 deg (as G1) [pilot]
-HOLD_SLIP_MM, HOLD_ROT_DEG = 1.0, 1.0   # G2-1 limits [pilot]
-MOVE_SLIP_MM = 1.0                      # per-move core slip limit relative to arm A [pilot]
-JAM_SLIP_MM = 0.5                       # G2-7e: cube shift allowed before the guard stops [pilot]
+CUBE_TOL = 0.001                        # start offset, uniform +-1 mm per axis (P-119)
+MISALIGN_DEG = 1.0                      # setup misalignment per face, uniform +-1 deg (as G1; P-119)
+HOLD_SLIP_MM, HOLD_ROT_DEG = 1.0, 1.0   # G2-1 limits (P-119)
+MOVE_SLIP_MM = 1.0                      # per-move core slip limit relative to arm A (P-119)
+JAM_SLIP_MM = 0.5                       # G2-7e: cube shift allowed before the guard stops (P-119)
+FT_STOP = 0.8                           # F/T stop on |tau_z| (P-119; pilot P-118)
 NEG_CASES = ("two_layer", "offcentre", "collision", "open_midturn", "jam")
 Refused = TA.H.M4.Refused               # magnet-availability refusal: an interruption, never a trial result
 
@@ -57,7 +58,7 @@ def configure(ov: dict, start: dict) -> None:
     TA.K_P = ov.get("kp", TA.K_P)
     TA.D_P = ov.get("dp", TA.D_P)
     TA.KI_P = ov.get("ki", TA.KI_P)
-    TA.FT_STOP = ov.get("ft_stop", TA.FT_STOP)
+    TA.FT_STOP = ov.get("ft_stop", FT_STOP)
     TA.CUBE_OFF = np.array(start["cube_offset_m"]) + np.array(ov.get("extra_offset_m", [0.0, 0.0, 0.0]))
     TA.SETUP_MISALIGN = start["misalign_deg"]
     TA.JAM_BLOCK = bool(ov.get("jam_block", False))
@@ -160,7 +161,7 @@ NEG_SETUP = {                       # case -> (overrides, sequence); acceptance 
 
 
 def neg_outcome(case: str, rec: dict) -> tuple[bool, str]:
-    """Provisional acceptance [pilot]: the negative case must be detected (guard stop or a failed check), never
+    """Acceptance (P-119): the negative case must be detected (guard stop or a failed check), never
     reported as a clean pass. 'collision' must be detected as robot contact; 'jam' as a guard stop with the cube shift
     within JAM_SLIP_MM. 'offcentre' is reported: accepted if it completes cleanly or is detected."""
     pms = rec.get("per_move", [])

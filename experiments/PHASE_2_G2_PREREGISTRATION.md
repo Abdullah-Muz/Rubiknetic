@@ -7,7 +7,7 @@
 - Gate: `docs/VALIDATION_PLAN.md` G2.
   - **Pass** = repeatable physical turns with prescribed classical controllers; no RL.
   - The five G2 checklist items map to §3 (table in §5).
-- **Labels:** `FACT`, `INFERENCE`, `ASSUMPTION`, `PROPOSAL`. Every number marked **[pilot]** is set from pilot data
+- **Labels:** `FACT`, `INFERENCE`, `ASSUMPTION`, `PROPOSAL`. Numbers once marked **[pilot]** were set from pilot data (P-118, P-119)
   before the text is fixed (VALIDATION_PLAN threshold policy), never after scored data.
 
 ## 0. Disclosure (read first)
@@ -63,17 +63,17 @@
 
 **Arm B (turner):**
 1. Joint-space approach to the coaxial pre-grasp pose.
-2. A Cartesian impedance hold during grasp and turn; gains **[pilot]**, starting from D17's mount (2000 N/m,
-   60 N·s/m).
+2. A Cartesian impedance hold during grasp and turn; gains from the tuning study (P-115): K_P 4000 N/m, D_P
+   60 N·s/m, KI_P 8000 (integral only while open).
 3. Ramped closing.
-4. **J7 roll** on a cosine ramp, 1 s per quarter turn, through J7's position servo with a torque limit **[pilot]**
-   (D17: ±1 N·m).
+4. **J7 roll** on a cosine ramp, 1 s per quarter turn, under torque control with velocity feedforward and a 2 N·m
+   (+ 20 % of modelled losses) budget (P-113, P-114).
 5. Open, retract, roll back.
 6. Turn completion is judged from **J7's angle** (R2-07), not from cube state.
 
 **Rest rule:** before each turn, wait until arm B's joint velocities and gripper drive are at rest, at most 2 s.
 D16b's cube-velocity rest check reads cube state, so it is not allowed in the scored controller. It is replaced by a
-fixed settle time **[pilot]**.
+fixed settle time of 0.3 s (D18).
 
 **Mounting:** the arm bases are placed by the scene file. There is no simulated table approach or handoff (Phase 4).
 
@@ -82,13 +82,13 @@ gravity on (R2-09); the stand then lowers clear of the cube before arm B approac
 
 **Jam guard (P-114; replaces P-109 (2) after P-111 and P-113):** a **wrist F/T sensor on arm B** (the UFACTORY
 6-axis sensor, modelled). The roll freezes and the turner opens when |τ_z| about the tool axis exceeds
-**[pilot, 0.6 N·m in D18]** on two consecutive 200 Hz samples. J7 runs velocity feedforward with a generous torque
+**0.8 N·m** (P-119; pilot P-118) on two consecutive 200 Hz samples. J7 runs velocity feedforward with a generous torque
 budget. G2-7 tests it.
 
 **Gains (P-109 (3), P-115):** from the tuning study on pilot seeds: **K_P 4000 N/m, D_P 60 N·s/m, KI_P 8000** (axis
 terms K_R 50, D_R 2 unchanged). The G2-6 screen varies them ±50 %.
 
-## 3. Trials (PROPOSAL; counts [pilot] from cost)
+## 3. Trials (PROPOSAL; counts P-109 (4))
 Trial counts: the full plan, about 120 scored trials (P-109 (4)).
 
 | ID | Test | Starts | Scored |
@@ -106,7 +106,7 @@ Trial counts: the full plan, about 120 scored trials (P-109 (4)).
 - **Seeds:** scored 30000–30999; pilot and rehearsal 29000–29999. Both ranges are unused so far: G1 used 17000–17739,
   the smoke 18000, D16 21000–21003.
 - **Per seed:** a legal scramble state of the cube (colours only; same physics), a setup misalignment ±1° per layer
-  (as G1), and a grasp offset within the controller's nominal tolerance **[pilot]**.
+  (as G1), and a cube start offset uniform ±1 mm per axis (P-119).
 - Only U-family moves: one stabiliser grasp, no regrasp or role swap (that is Phase 4, G4; §8 Q5, P-105).
 
 ## 4. Criteria (stated before any data; G1 values unless marked)
@@ -129,14 +129,14 @@ Trial counts: the full plan, about 120 scored trials (P-109 (4)).
 | Non-target drift (D, E relative to the core) | ≤ 1° | 0.33° |
 | Cubie-cubie penetration | ≤ 0.5 mm | 0.14 mm |
 | Causality: turner fingertip force > 0.5 N before the U layer exceeds 5°/s relative to the core | as G1, relative to the core | passed |
-| Core slip relative to arm A's gripper, per move | ≤ 1 mm **[pilot]** | 0.14 mm |
+| Core slip relative to arm A's gripper, per move | ≤ 1 mm (P-119) | 0.19 mm (P-118) |
 | Turning torque (J7) | reported, never judged (uncalibrated) | 0.25 N·m |
 
 **Pad penetration** (fingertip into cubie) is reported, not judged: it is the stand-in for pad compliance.
 
 **60 s hold (G2-1):**
-- core slip ≤ **[pilot]** mm;
-- rotation ≤ **[pilot]**°;
+- core slip ≤ 1.0 mm (P-119; pilot ≤ 0.09);
+- rotation ≤ 1.0° (P-119; pilot ≤ 0.27°);
 - the pads stay on D and E only.
 
 **Pass logic (§8 Q4, P-105):**
@@ -175,7 +175,7 @@ Trial counts: the full plan, about 120 scored trials (P-109 (4)).
 | P-2 | **Two-arm layout.** *Built (D18, P-108):* L = 1.0 m, H = 0.30 m, both arms reach with ≥ 25.8° joint margin, no collisions in the U-sequence runs. Open: R2-09 gravity-on grasp from a support | design + build |
 | P-3 | **Arm B controller.** *Built (D18, P-108):* Cartesian impedance (joints 1–6, integral term only while open) + J7 roll on the model's servo; fixed 0.3 s settle; 20/20 moves pass at 10–50 N. Open: gain tuning, the J7 torque limit for cube safety (the fingertip torque is measured from contacts) | build + pilot |
 | P-4 | **Runner and analysis** in the M5/M7 style: manifest, ledger, resume, environment check, audit. Tests including the controller-reads-no-cube-state test | build |
-| P-5 | **Pilots** fixing every **[pilot]** number: slip limits, 60 s hold limits, grasp-offset tolerance, trial counts from cost | pilot |
+| P-5 | ~~Pilots fixing every [pilot] number~~ **Done** (P-118: 56/56 pass; limits approved P-119) | pilot |
 | P-6 | Self-checks reproducing pilot records; a smoke run with a forced kill and resume | build |
 | P-7 | **Independent reviews** (one reviewer subagent per round, as P-86 Q8) until "ACCEPTABLE AS IS" | review |
 | P-8 | The user's approval; DECISION_LOG entry; code and text frozen | decision |
