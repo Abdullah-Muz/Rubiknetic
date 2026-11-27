@@ -85,8 +85,8 @@ gravity on (R2-09); the stand then lowers clear of the cube before arm B approac
 **[pilot, 0.6 N·m in D18]** on two consecutive 200 Hz samples. J7 runs velocity feedforward with a generous torque
 budget. G2-7 tests it.
 
-**Gains (P-109 (3)):** arm B's impedance and integral gains come from a **short tuning study on pilot seeds** before
-the freeze. The G2-6 screen then varies them ±50 %.
+**Gains (P-109 (3), P-115):** from the tuning study on pilot seeds: **K_P 4000 N/m, D_P 60 N·s/m, KI_P 8000** (axis
+terms K_R 50, D_R 2 unchanged). The G2-6 screen varies them ±50 %.
 
 ## 3. Trials (PROPOSAL; counts [pilot] from cost)
 Trial counts: the full plan, about 120 scored trials (P-109 (4)).

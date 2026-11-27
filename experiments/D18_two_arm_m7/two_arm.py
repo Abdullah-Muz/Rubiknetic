@@ -44,7 +44,7 @@ from rubiknetic.cube_physics.magnets import MagnetSystem  # noqa: E402
 from rubiknetic.cube_physics.readout import CubeReadout  # noqa: E402
 from rubiknetic.cube_physics.rig import AuditedSim, EditAuditError, NumericalFailure  # noqa: E402
 
-K_P, D_P, K_R, D_R, K_Q, D_Q = 2000.0, 60.0, 50.0, 2.0, 2.0, 1.0
+K_P, D_P, K_R, D_R, K_Q, D_Q = 4000.0, 60.0, 50.0, 2.0, 2.0, 1.0   # K_P 4000 from the P-109 (3) tuning study (P-115)
 # integral action against joint friction (the model's arm joints have ~1 N.m frictionloss, which leaves a 2-5 mm
 # static error under pure impedance; D18 finding). Active only while arm B's fingers are open; frozen while gripping.
 KI_P, KI_R, I_P_MAX, I_R_MAX = 8000.0, 200.0, 25.0, 3.0
@@ -87,6 +87,8 @@ FT = True
 FT_T, FT_R, FT_M = 0.035, 0.0375, 0.6
 FT_STOP, FT_NOISE, FT_RATE, FT_N = 0.6, 0.01, 200.0, 2
 FT_BUDGET = 2.0
+CUBE_OFF = np.zeros(3) # P-109 (3) tuning study: cube start offset (m) from a pilot seed; arm targets stay nominal
+OUT_DIR = None
 J7_ERR = 0.0           # plant error test: the SIMULATOR's J7 damping, friction, armature scaled by (1 + J7_ERR)
 JAM_BLOCK = False      # G2-7 negative test: a world-fixed block above the cube's top face beside the U layer
 
@@ -187,6 +189,8 @@ def build(L: float, Hc: float, mu: float):
     mujoco.mju_mat2Quat(q, Rc.flatten())
     xml = D13.with_noslip(H.build_m1_xml(p), E7.NOSLIP)
     tag = '<body name="core" pos="0 0 0">'
+    Cn = C.copy()
+    C = C + CUBE_OFF                                    # actual cube start (setup); arm targets use the nominal Cn
     xml = xml.replace(tag, f'<body name="core" pos="{" ".join(f"{v:.9g}" for v in C)}" '
                            f'quat="{" ".join(f"{v:.9g}" for v in q)}">\n      <freejoint name="core_free"/>\n'
                            '      <inertial pos="0 0 0" mass="0.0017" diaginertia="2e-8 2e-8 2e-8"/>', 1)
@@ -279,7 +283,8 @@ def build(L: float, Hc: float, mu: float):
         m.dof_damping[v7] *= 1 + J7_ERR
         m.dof_frictionloss[v7] *= 1 + J7_ERR
         m.dof_armature[v7] *= 1 + J7_ERR
-    info = {"L": L, "H": Hc, "cube_centre": C.tolist(), "ik": sol, "impedance": [K_P, D_P, K_R, D_R, K_Q, D_Q],
+    info = {"L": L, "H": Hc, "cube_centre": Cn.tolist(), "cube_start": C.tolist(),
+            "cube_offset_mm": (CUBE_OFF * 1e3).tolist(), "ik": sol, "impedance": [K_P, D_P, K_R, D_R, K_Q, D_Q],
             "roll": (f"ffb: kp {J7_KP}, kv {J7_KV}, budget {BUDGET} N.m, model D {J7_D_M} F {J7_F_M} arm {J7_ARM_M}; "
                      f"plant error {J7_ERR:+.0%}" if ROLL_MODE == "ffb" else "B_act7 model servo (kp 800, kv 80)"),
             "pad_mu": mu, "nq": m.nq, "nv": m.nv, "nu": m.nu}
@@ -737,6 +742,11 @@ def main() -> None:
     ap.add_argument("--j7-err", type=float, default=0.0, help="plant error on J7 damping/friction/armature")
     ap.add_argument("--budget", type=float, default=0.6)
     ap.add_argument("--no-ft", action="store_true", help="no wrist F/T sensor (D18 v1 tool)")
+    ap.add_argument("--kp", type=float, default=None)
+    ap.add_argument("--dp", type=float, default=None)
+    ap.add_argument("--ki", type=float, default=None)
+    ap.add_argument("--seed", type=int, default=None, help="pilot seed: cube start offset uniform +-1 mm per axis")
+    ap.add_argument("--out", default=None)
     ap.add_argument("--ft-stop", type=float, default=0.6)
     ap.add_argument("--guard", action="store_true", help="enable the J7 lag guard (false-triggers; P-111)")
     ap.add_argument("--jam-block", action="store_true")
@@ -745,8 +755,17 @@ def main() -> None:
     global STICKERS, STAND, GUARD, JAM_BLOCK, GUARD_LAG_DEG, ENV, ROLL_MODE, J7_ERR, BUDGET
     ENV = not a.plain_env
     ROLL_MODE, J7_ERR, BUDGET = a.roll, a.j7_err, a.budget
-    global FT, FT_STOP
+    global FT, FT_STOP, K_P, D_P, KI_P, CUBE_OFF
     FT, FT_STOP = not a.no_ft, a.ft_stop
+    if a.kp is not None:
+        K_P = a.kp
+    if a.dp is not None:
+        D_P = a.dp
+    if a.ki is not None:
+        KI_P = a.ki
+    if a.seed is not None:
+        assert 29000 <= a.seed <= 29999, "tuning uses pilot seeds only (29000-29999)"
+        CUBE_OFF = np.random.default_rng(a.seed).uniform(-0.001, 0.001, 3)
     STICKERS, STAND = not a.no_stickers, not a.no_stand
     GUARD, JAM_BLOCK, GUARD_LAG_DEG = a.guard, a.jam_block, a.guard_lag
     H.TIP_SOLREF = (0.01, 1.0)                         # soft pads, as scored (P-105)
@@ -776,7 +795,8 @@ def main() -> None:
             while v.is_running():
                 time.sleep(0.1)
         return
-    OUT.mkdir(parents=True, exist_ok=True)
+    out = OUT if a.out is None else Path(a.out)
+    out.mkdir(parents=True, exist_ok=True)
     name = f"two_arm_F{a.grip:g}_L{a.L:g}_H{a.H:g}_{a.seq.replace(' ', '_').replace(chr(39), 'p')}"
     if STAND:
         name += "_stand"
@@ -787,7 +807,9 @@ def main() -> None:
     if JAM_BLOCK:
         name += "_jam" + ("" if ROLL_MODE == "ffb" else ("_guard" if GUARD else "_noguard"))
     name += a.tag
-    (OUT / f"{name}.json").write_text(json.dumps(rec, indent=1, default=float))
+    if a.seed is not None:
+        name += f"_kp{K_P:g}_dp{D_P:g}_ki{KI_P:g}_s{a.seed}"
+    (out / f"{name}.json").write_text(json.dumps(rec, indent=1, default=float))
     print(json.dumps({k: v for k, v in rec.items() if k not in ("per_move", "scene", "approach")}, default=float))
 
 

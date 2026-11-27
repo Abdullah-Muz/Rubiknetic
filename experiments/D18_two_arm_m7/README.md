@@ -211,3 +211,36 @@ feedforward, budget B = 0.6 + 0.2·(|D·q̇| + F).
 - It is **insensitive to J7 model error,** because the sensor does not see J7's own losses.
 - **Open:** the threshold's margin against real-cube torques (O-09, uncalibrated) and real sensor noise and offset
   drift. Set by a pilot and the real sensor's datasheet.
+
+## Arm B gain tuning study (P-109 (3); UNSCORED; pilot seeds 29001–29002 only; `tune.sh`, `tune_analyze.py`, `results/tune/`)
+**Design:**
+- 11 configurations: K_P {1000, 2000, 4000} N/m × D_P {30, 60, 120} N·s/m at KI_P 8000, plus KI_P {4000, 16000} at
+  (2000, 60).
+- Each from 2 pilot seeds, which offset the cube start uniformly by ±1 mm per axis; arm targets stay nominal.
+- Sequence U U′ U2 U′ U, F/T guard on, soft pads, 20 N.
+
+**Selection rule** (in `tune_analyze.py`, written before the results):
+1. Eligible = all moves of both seeds pass and no guard stop.
+2. Rank by worst-case F/T torque, then core slip, then turn error.
+3. Keep the nominal if it is within 10 % of the best.
+
+`results/tune/summary.md`:
+- **8/11 eligible.** All three K_P 1000 configurations fail one move each (seed 29002, first U, `ok_causal` only;
+  turns accurate). `INFERENCE`: with the softer arm, the grasp lands less accurately and one turner pad touches the
+  layer first.
+- **Selected: K_P 4000, D_P 60, KI_P 8000.**
+  - Worst F/T 0.154 N·m, against nominal 0.242 (−36 %).
+  - Core slip 0.088 mm (0.121), grasp error 0.71 mm (1.29).
+  - Turn error 0.87° (0.76), drift 0.17° (0.22).
+- **Adopted as `K_P = 4000` in `two_arm.py`.** D_P, KI_P, K_R and D_R are unchanged.
+
+**Limits:**
+- K_P 4000 is the **edge of the grid**; the optimum may be stiffer.
+- Two seeds per configuration; one sequence.
+
+**Harness incident (`FACT`):** one run (`kp2000_dp30_ki8000_s29002`) crashed at start-up. M4's
+`magnet_availability` refused, "no passing V3 record for 4x2 mm", although the record exists and every other run read
+it.
+- `INFERENCE`: a transient file-read failure on `/mnt/c` with 8 parallel processes.
+- The log is kept as `logs/tune/..._CRASHED_startup.txt`. The configuration was rerun alone and passed.
+- The G2 runner must treat this as a harness error (a failing record and a resume), never a silent pass.
