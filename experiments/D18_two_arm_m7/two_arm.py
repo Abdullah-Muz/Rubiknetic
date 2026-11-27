@@ -94,6 +94,8 @@ FT_BUDGET = 2.0
 SETUP_MISALIGN = None  # {face: deg}: setup misalignment of layers before t0 (as G1's draw_setup), via scored's
 OPEN_MIDTURN = False   # G2-7d negative test: arm B's gripper opens halfway through the roll
 PAD_MU = 0.8           # fingertip friction (P-97, both arms); the G2-6 screen varies it
+SIM_STARTED = False    # set by the first control step; the G2 runner treats an exception before it as a model-load
+                       # error (review 3 item 1; trials.reset_phase / simulation_started)
 CUBE_OFF = np.zeros(3) # P-109 (3) tuning study: cube start offset (m) from a pilot seed; arm targets stay nominal
 OUT_DIR = None
 J7_ERR = 0.0           # plant error test: the SIMULATOR's J7 damping, friction, armature scaled by (1 + J7_ERR)
@@ -573,7 +575,9 @@ class TwoArm:
         return float(self.d.ctrl[self.aB[6]]) if ROLL_MODE == "servo" else self.j7[0]
 
     def ctrl_step(self, n: int = 1) -> None:
+        global SIM_STARTED
         for _ in range(n):
+            SIM_STARTED = True
             self.impedance()
             if ROLL_MODE == "ffb":
                 self.j7_control()

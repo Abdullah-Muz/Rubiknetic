@@ -1,4 +1,4 @@
-"""Tests for the G2 runner (experiments/E8_scored_g2; pre-registration revision 2, DRAFT).
+"""Tests for the G2 runner (experiments/E8_scored_g2; pre-registration revision 4, DRAFT).
 
 Fast tests: job list, seeds, run procedure with a synthetic runner (manifest, ledger, resume, tampering), harness
 exceptions, refusals, criteria, negative-case acceptance, the independent verdict recomputation, frozen-path coverage.
@@ -83,16 +83,68 @@ def test_limits_agree_between_trials_and_analyze(T):
                                                                          th["nontarget_drift_deg"])
 
 
-def test_frozen_paths_cover_every_loaded_module(T):
-    """Review 1 item 5: every repository module a trial loads is frozen."""
+def _frozen(f: str) -> bool:
     import fnmatch
+    return any(f == p or f.startswith(p.rstrip("/") + "/") or fnmatch.fnmatch(f, p) for p in R.FROZEN_PATHS)
+
+
+def test_frozen_paths_cover_every_loaded_module(T):
+    """Review 1 item 5: every repository module in sys.modules after loading a trial is frozen."""
     files = {Path(m.__file__).resolve() for m in list(sys.modules.values()) if getattr(m, "__file__", None)}
     repo_files = sorted(str(f.relative_to(REPO)).replace("\\", "/") for f in files if f.is_relative_to(REPO)
                         and "tests" not in f.relative_to(REPO).parts[:1])
+    missing = [f for f in repo_files if not _frozen(f)]
+    assert not missing, missing
 
-    def frozen(f):
-        return any(f == p or f.startswith(p.rstrip("/") + "/") or fnmatch.fnmatch(f, p) for p in R.FROZEN_PATHS)
-    missing = [f for f in repo_files if not frozen(f)]
+
+_OPEN_PROBE = r"""
+import importlib.util, json, sys
+from pathlib import Path
+opened = set()
+def hook(event, args):
+    if event == "open" and isinstance(args[0], (str, bytes)) or event == "open" and hasattr(args[0], "__fspath__"):
+        p = args[0].decode() if isinstance(args[0], bytes) else str(args[0])
+        opened.add(p)
+sys.addaudithook(hook)
+spec = importlib.util.spec_from_file_location("trials", sys.argv[1])
+T = importlib.util.module_from_spec(spec); sys.modules["trials"] = T; spec.loader.exec_module(T)
+T.reset_phase()
+T.configure({}, T.start_draw(29001))
+r = T.TA.TwoArm(T.L, T.HC, T.DEFAULTS["grip"])          # builds the model and runs the start sequence
+assert T.simulation_started()
+T.MagnetSystem.uninstall()
+print("OPENED" + json.dumps(sorted(opened)))
+"""
+
+
+def test_every_repository_file_a_trial_opens_is_frozen_or_an_artifact(T, tmp_path):
+    """Review 3 item 2: records every file opened (Python `open` audit events, which include imports through
+    spec_from_file_location) while a fresh process imports `trials`, builds the scene and runs the start sequence.
+    Every repository .py file must be frozen; every other repository file must be frozen or a hashed artifact."""
+    import subprocess
+    probe = tmp_path / "probe.py"
+    probe.write_text(_OPEN_PROBE)
+    out = subprocess.run([sys.executable, str(probe), str(E8 / "trials.py")], capture_output=True, text=True,
+                         timeout=900, cwd=str(tmp_path))
+    assert out.returncode == 0, out.stderr[-3000:]
+    opened = json.loads(out.stdout.split("OPENED", 1)[1])
+    arts = {k.replace("\\", "/") for k in R.artifacts()}
+    seen, missing = set(), []
+    for p in opened:
+        f = Path(p)
+        if not f.is_absolute():
+            f = tmp_path / f
+        f = f.resolve()
+        if f.parent.name == "__pycache__" and f.suffix == ".pyc":
+            f = f.parent.parent / (f.name.split(".")[0] + ".py")
+        if not f.is_relative_to(REPO):
+            continue
+        rel = str(f.relative_to(REPO)).replace("\\", "/")
+        seen.add(rel)
+        if not (_frozen(rel) or rel in arts):
+            missing.append(rel)
+    assert "experiments/E1_scored/run.py" in seen                     # the review-3 case is visible to this test
+    assert "experiments/D18_two_arm_m7/two_arm.py" in seen
     assert not missing, missing
 
 
@@ -128,6 +180,26 @@ def test_interrupt_then_resume_completes(tmp_path):
     with pytest.raises(R.Interrupted):
         _ex(out, stop_after=2)
     assert _ex(out) == 2 and len(R.read_lines(out / R.LEDGER)) == 4 and len(R.read_lines(out / R.STARTS)) == 2
+
+
+def test_resumes_are_limited_then_not_passed(tmp_path):
+    """Review 3 S5: the first start and at most 5 resumes; an incomplete run after them is NOT PASSED."""
+    assert R.MAX_STARTS == A.MAX_STARTS == 6
+    out = tmp_path / "results"
+    jobs = _jobs()
+    for j in jobs:
+        j["scored"], j["smoke"] = True, False
+
+    def bad(j):
+        raise OSError("persistent load error")
+    for _ in range(R.MAX_STARTS):
+        with pytest.raises(R.Interrupted):
+            _ex(out, jobs, runner=bad)
+    with pytest.raises(SystemExit, match="5 resumes"):
+        _ex(out, jobs)
+    assert len(R.read_lines(out / R.STARTS)) == 6
+    res = _verdict(out)
+    assert res["status"] == "NOT PASSED" and "not passed" in res["problems"][-1]
 
 
 def test_resume_moves_orphans_and_reconciles(tmp_path):
@@ -209,15 +281,21 @@ def test_record_never_overwritten(tmp_path):
 
 
 # ---- harness exceptions and interruptions ----------------------------------------------------------------------------
-def _fake_trials(exc: BaseException):
+def _fake_trials(exc: BaseException, started: bool = True):
+    """A stand-in `trials` module. `started`: whether run_trial takes its first control step before raising."""
     m = types.ModuleType("trials")
 
     class Refused(Exception):
         pass
 
     def run_trial(kind, kw):
+        m.started = started
         raise exc
-    m.Refused, m.run_trial = Refused, run_trial
+
+    def reset_phase():
+        m.started = False
+    m.Refused, m.run_trial, m.reset_phase, m.simulation_started = Refused, run_trial, reset_phase, lambda: m.started
+    m.started = False
     return m
 
 
@@ -229,7 +307,7 @@ def test_harness_exception_is_a_failing_record(monkeypatch):
 
 
 def test_interruptions_propagate(monkeypatch):
-    for exc in (MemoryError(), OSError("disk")):
+    for exc in (MemoryError(), OSError("disk")):                       # after the first step: an interruption
         monkeypatch.setitem(sys.modules, "trials", _fake_trials(exc))
         with pytest.raises(type(exc)):
             R.run_job(_jobs(1)[0])
@@ -241,27 +319,67 @@ def test_interruptions_propagate(monkeypatch):
         R.run_job(_jobs(1)[0])
 
 
-def test_transient_load_errors_are_retried_then_interrupt(monkeypatch):
-    """P-127: a model-load read failure is retried; a persistent one interrupts the run (never a failed record)."""
+LOAD_ERRORS = [                                    # review 3 item 1: what an empty file gives in each loader
+    ValueError("Error: stl_decoder: STL file 'x.stl' is empty"),
+    ValueError("ParseXML: empty file '/mnt/c/dev/Rubiknetic/third_party_cad/robot/generated/xarm7_g2_1305+.xml'"),
+    json.JSONDecodeError("Expecting value", "", 0),
+    EOFError("No data left in file"),
+    FileNotFoundError("[Errno 2] No such file or directory: 'x.npz'"),
+    RuntimeError("an unexpected message"),
+]
+
+
+@pytest.mark.parametrize("err", LOAD_ERRORS, ids=lambda e: type(e).__name__)
+def test_errors_before_the_first_step_are_retried_then_interrupt(monkeypatch, err):
+    """P-127, review 3 item 1: any exception before the first control step is a load error, whatever its message:
+    retried, and a persistent one interrupts the run (never a failed record)."""
     calls = {"n": 0}
     ft = _fake_trials(None)
 
     def flaky(kind, kw):
         calls["n"] += 1
         if calls["n"] < 3:
-            raise ValueError("Error: stl_decoder: STL file 'x.stl' is empty")
+            raise err                                   # before the first step (the flag is never set)
+        ft.started = True
         return {"pass": True, "fail_reasons": []}
     ft.run_trial = flaky
     monkeypatch.setitem(sys.modules, "trials", ft)
     monkeypatch.setattr(R.time, "sleep", lambda s: None)
     key, rec = R.run_job(_jobs(1)[0])
-    assert rec["pass"] is True and len(rec["load_retries"]) == 2
-    ft.run_trial = lambda kind, kw: (_ for _ in ()).throw(ValueError("stl_decoder: STL file 'y.stl' is empty"))
+    assert rec["pass"] is True and len(rec["load_retries"]) == 2 and calls["n"] == 3
+    ft2 = _fake_trials(err, started=False)
+    monkeypatch.setitem(sys.modules, "trials", ft2)
     with pytest.raises(OSError, match="model load failed 3 times"):
         R.run_job(_jobs(1)[0])
-    ft.run_trial = lambda kind, kw: (_ for _ in ()).throw(ValueError("a genuine bug"))
-    key, rec = R.run_job(_jobs(1)[0])                                    # other exceptions: a failing record
-    assert rec["pass"] is False and "a genuine bug" in rec["fail_reasons"][0]
+
+
+def test_errors_after_the_first_step_are_failing_records(monkeypatch):
+    """Review 3 item 1: after the first step, even a load-like message is a failing record, and is not retried."""
+    for err in (ValueError("STL file 'x.stl' is empty"), EOFError("No data left in file"), ValueError("a genuine bug")):
+        ft = _fake_trials(err, started=True)
+        calls = {"n": 0}
+        inner = ft.run_trial
+
+        def counted(kind, kw, inner=inner, calls=calls):
+            calls["n"] += 1
+            return inner(kind, kw)
+        ft.run_trial = counted
+        monkeypatch.setitem(sys.modules, "trials", ft)
+        key, rec = R.run_job(_jobs(1)[0])
+        assert rec["pass"] is False and str(err) in rec["fail_reasons"][0] and calls["n"] == 1
+        assert rec["load_retries"] == []
+
+
+def test_phase_flag_is_set_by_the_first_control_step(T):
+    """The real flag: reset_phase clears it; constructing the scene (start sequence) sets it."""
+    T.reset_phase()
+    assert not T.simulation_started()
+    T.configure({}, T.start_draw(29001))
+    r = T.TA.TwoArm(T.L, T.HC, T.DEFAULTS["grip"])
+    try:
+        assert T.simulation_started() and r.d.time > 0
+    finally:
+        T.MagnetSystem.uninstall()
 
 
 def test_execute_turns_runner_errors_into_interrupted(tmp_path):
@@ -529,6 +647,8 @@ def test_roll_commands_ignore_cube_state(T):
         m, d = r.m, r.d
         q7 = r.qB[6]
         state = (d.qpos.copy(), d.qvel.copy(), r.roll0)
+        sign0 = r.roll_sign                                           # review 3 S3: the value set at construction
+        assert sign0 == float(np.sign(np.array([1.0, 0, 0]) @ r.a_d)) and sign0 in (-1.0, 1.0)
         core_q = m.jnt_qposadr[[j for j in range(m.njnt) if m.jnt_bodyid[j] == r.core][0]]
 
         def reset(turn_cube: bool):
@@ -539,7 +659,7 @@ def test_roll_commands_ignore_cube_state(T):
                 mujoco.mju_mulQuat(out, qz, d.qpos[core_q + 3:core_q + 7].copy())
                 d.qpos[core_q + 3:core_q + 7] = out
             mujoco.mj_forward(m, d)
-            r.j7, r.integ, r.roll_sign = [state[2], 0.0, 0.0], True, float(np.sign(np.array([1.0, 0, 0]) @ r.a_d))
+            r.j7, r.integ, r.roll_sign = [state[2], 0.0, 0.0], True, sign0
             d.ctrl[r.gB] = r.th_open
 
         def commands():
@@ -575,3 +695,75 @@ def test_roll_commands_ignore_cube_state(T):
         assert b1 != b2                                               # the test can see the bug
     finally:
         T.MagnetSystem.uninstall()
+
+
+# ---- model audit positive controls (review 3 S3) ------------------------------------------------------------------------
+_AUDIT_BASE = """
+<mujoco>
+  <worldbody>
+    <body name="core" pos="0 0 1">
+      <freejoint/>
+      <geom type="sphere" size="0.01"/>
+      <site name="core_site"/>
+      <body name="cubie" pos="0.02 0 0">
+        <joint name="cubie_j" type="hinge"/>
+        <geom name="cubie_g" type="box" size="0.01 0.01 0.01"/>
+        <site name="cubie_site"/>
+      </body>
+    </body>
+    <body name="arm" pos="1 0 1">
+      <joint name="arm_j" type="hinge"/>
+      <geom type="capsule" size="0.01 0.05"/>
+      <site name="arm_site"/>
+      <body name="arm2" pos="0 0 0.1">
+        <joint name="arm2_j" type="hinge"/>
+        <geom type="sphere" size="0.01"/>
+      </body>
+    </body>
+  </worldbody>
+  {extra}
+</mujoco>
+"""
+_FORBIDDEN = {
+    "joint actuator": ("actuators_on_cube", '<actuator><motor joint="cubie_j"/></actuator>'),
+    "site actuator": ("actuators_on_cube", '<actuator><motor site="cubie_site" gear="0 0 0 0 0 1"/></actuator>'),
+    "body actuator": ("actuators_on_cube", '<actuator><adhesion body="cubie" ctrlrange="0 1"/></actuator>'),
+    "tendon (joint)": ("tendons_on_cube", '<tendon><fixed name="t"><joint joint="cubie_j" coef="1"/></fixed></tendon>'),
+    "tendon (site)": ("tendons_on_cube", '<tendon><spatial name="t"><site site="arm_site"/><site site="cubie_site"/>'
+                      '</spatial></tendon>'),
+    "tendon actuator": ("actuators_on_cube", '<tendon><fixed name="t"><joint joint="cubie_j" coef="1"/></fixed></tendon>'
+                        '<actuator><motor tendon="t"/></actuator>'),
+    "connect": ("equalities_on_cube", '<equality><connect body1="cubie" body2="arm" anchor="0 0 0"/></equality>'),
+    "weld": ("equalities_on_cube", '<equality><weld body1="arm" body2="core"/></equality>'),
+    "joint equality": ("equalities_on_cube", '<equality><joint joint1="arm_j" joint2="cubie_j"/></equality>'),
+    "tendon equality": ("equalities_on_cube", '<tendon><fixed name="t"><joint joint="cubie_j" coef="1"/></fixed>'
+                        '<fixed name="u"><joint joint="arm_j" coef="1"/></fixed></tendon>'
+                        '<equality><tendon tendon1="u" tendon2="t"/></equality>'),
+}
+
+
+def _audit(T, extra: str, gravcomp: bool = False):
+    import mujoco
+    xml = _AUDIT_BASE.replace("{extra}", extra)
+    if gravcomp:
+        xml = xml.replace('<body name="cubie" pos="0.02 0 0">', '<body name="cubie" pos="0.02 0 0" gravcomp="1">')
+    return T.TA.model_audit(mujoco.MjModel.from_xml_string(xml))
+
+
+def test_model_audit_clean_and_robot_only_elements(T):
+    """Elements that act only on robot bodies are not findings."""
+    clean = _audit(T, '<actuator><motor joint="arm_j"/></actuator>'
+                      '<tendon><fixed name="u"><joint joint="arm_j" coef="1"/></fixed></tendon>'
+                      '<equality><weld body1="arm" body2="arm2"/><joint joint1="arm_j" joint2="arm2_j"/></equality>')
+    assert clean["n_cube_bodies"] == 2
+    assert not any(clean[k] for k in ("actuators_on_cube", "equalities_on_cube", "tendons_on_cube", "gravcomp_on_cube"))
+
+
+@pytest.mark.parametrize("case", list(_FORBIDDEN))
+def test_model_audit_flags_each_forbidden_element(T, case):
+    key, extra = _FORBIDDEN[case]
+    assert _audit(T, extra)[key], case
+
+
+def test_model_audit_flags_gravcomp(T):
+    assert _audit(T, "", gravcomp=True)["gravcomp_on_cube"]

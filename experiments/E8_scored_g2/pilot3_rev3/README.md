@@ -33,7 +33,9 @@ The 10-move sequences that ran:
 ## Harness crashes (`FACT`, P-127)
 - 2 of 48 trials crashed while MuJoCo read mesh files from `/mnt/c` under 8-process load: the file read returned empty.
 - This is the same class as the P-115 magnet-record refusal.
-- The runner now retries such model-load errors up to 3 times before any simulation step, then interrupts the run, so
-  they are never recorded as a failed trial (`run.LOAD_ERROR_MARKERS`, test
-  `test_transient_load_errors_are_retried_then_interrupt`).
-- The 2 trials were re-run with that code (`rerun/`, `rerun_crashed.py`).
+- The runner now retries model-load errors up to 3 times, then interrupts the run, so they are never recorded as a
+  failed trial. Revision 3 matched them by message; revision 4 (review 3 item 1) classifies by phase: any exception
+  before the first control step.
+- The 2 trials were re-run (`rerun/`, `rerun_crashed.py`) at commit `6e4a0de` (the revision-3 code with the
+  message-based retry). `rerun_crashed.py` does not write `source_commit` or `head`, so those fields are null in
+  the two re-run records (review 3 S6).

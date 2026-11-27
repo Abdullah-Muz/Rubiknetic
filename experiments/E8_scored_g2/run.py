@@ -56,6 +56,7 @@ FROZEN_PATHS = [                         # review 1 item 5: every repository mod
     "experiments/D16_free_core_m7/grip_probe.py",
     "experiments/P2_robot_model/build_model.py",
     "experiments/E7_scored_m7/run.py", "experiments/E5_scored_m5/run.py", "experiments/E4_scored_m4/run.py",
+    "experiments/E1_scored/run.py",      # review 3 item 2: executed by E4's runner via spec_from_file_location
     "experiments/D8_alignment/magnets.py", "experiments/D8_alignment/d8_1b_stage1.py",
     "experiments/D8_alignment/results/d8_1b_checks*.json",
     "experiments/D10_m5_rest_diagnostic/d10_rest.py", "experiments/D11_rest_slip_count/d11_analyze.py",
@@ -63,6 +64,7 @@ FROZEN_PATHS = [                         # review 1 item 5: every repository mod
     "src/rubiknetic/__init__.py", "src/rubiknetic/cube_physics", "src/rubiknetic/cube_logic",
 ]
 MIN_FREE_GB = 2.0
+MAX_STARTS = 6                           # review 3 S5: the first start and at most 5 resumes; then G2 is not passed
 
 
 class Interrupted(Exception):
@@ -192,26 +194,22 @@ def exception_record(j: dict, exc: BaseException) -> dict:
     return rec
 
 
-# Transient model-load failures (pilot 3, P-127; the P-115 refusal): reading the robot meshes or the magnet records from
-# /mnt/c under parallel load occasionally returns an empty file. These errors can only occur while the model is being
-# built, before any simulation step, so the trial is retried in the same worker (at most LOAD_ATTEMPTS times); if it
-# still fails, the run is interrupted (resume), never recorded as a failed trial.
-LOAD_ERROR_MARKERS = ("stl_decoder", "is empty", "error opening file", "could not open", "no such file",
-                      "no passing v3 record")
+# Model-load failures (pilot 3, P-127; the P-115 refusal): reading the robot meshes, calibration or magnet records from
+# /mnt/c under parallel load occasionally returns an empty file. Review 3 item 1: classified by PHASE, not by message.
+# Any exception (OSError included) raised before the trial's first control step is a load error: the trial is retried in
+# the same worker (at most LOAD_ATTEMPTS times) and, if it persists, the run is interrupted (resume), never recorded as
+# a failed trial. A magnet-availability refusal is always an interruption. After the first step, MemoryError and
+# OSError interrupt the run and any other exception is a failing record.
 LOAD_ATTEMPTS = 3
 
 
-def is_load_error(exc: BaseException) -> bool:
-    return any(k in str(exc).lower() for k in LOAD_ERROR_MARKERS)
-
-
 def run_job(j: dict) -> tuple[tuple, dict]:
-    """Runs one trial in this (fresh) worker. Interruptions propagate; a transient model-load error is retried (and
-    interrupts the run if it persists); any other exception is a failing record."""
+    """Runs one trial in this (fresh) worker: see the load-error rule above."""
     import trials as T
     load0 = os.getloadavg()[0] if hasattr(os, "getloadavg") else None
     retries = []
     for attempt in range(1, LOAD_ATTEMPTS + 1):
+        T.reset_phase()
         try:
             t0 = time.perf_counter()
             rec = T.run_trial(j["kind"], j["kw"])
@@ -219,15 +217,17 @@ def run_job(j: dict) -> tuple[tuple, dict]:
             rec["loadavg_start"], rec["wall_s"], rec["load_retries"] = load0, time.perf_counter() - t0, retries
             json.dumps(rec, default=list)        # a record that cannot be saved is a failed trial, not a crash
             break
-        except (MemoryError, OSError):
+        except MemoryError:
             raise
-        except Exception as e:  # noqa: BLE001  (T.Refused included: retried like any load error)
-            if is_load_error(e) or isinstance(e, T.Refused):
+        except Exception as e:  # noqa: BLE001
+            if isinstance(e, T.Refused) or not T.simulation_started():
                 retries.append(f"{type(e).__name__}: {e}")
                 if attempt < LOAD_ATTEMPTS:
                     time.sleep(2.0)
                     continue
                 raise OSError(f"model load failed {LOAD_ATTEMPTS} times: {retries}") from e
+            if isinstance(e, OSError):
+                raise
             rec = exception_record(j, e)
             rec["load_retries"] = retries
             break
@@ -431,6 +431,9 @@ def execute(out: Path, jobs: list[dict], commit: str, env: dict, head: str, n_wo
     else:
         manifest = json.loads(man.read_text())
         starts = read_lines(out / STARTS)
+        if len(starts) >= MAX_STARTS:
+            raise SystemExit(f"refusing resume: {len(starts)} starts used (the first and {MAX_STARTS - 1} resumes); "
+                             "G2 is not passed by this pre-registration (§6)")
         probs = resume_problems(manifest, body, head, check_git)
         probs += [f"file that would make the run INVALID: {f}" for f in foreign_files(out, starts, manifest)
                   if not is_inflight_tmp(out, f, manifest)]

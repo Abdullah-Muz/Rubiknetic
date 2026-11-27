@@ -1,10 +1,12 @@
 # Phase 2 (G2) Pre-registration: two-arm, contact-driven layer turns of the free-core M7 cube
 
-**Status: DRAFT revision 3, NOT IN FORCE (2026-11-27).**
+**Status: DRAFT revision 4, NOT IN FORCE (2026-11-27).**
 - Revision 2 answered review 1 (`G2_PREREGISTRATION_REVIEW1_2026-11-27.md`, P-122): all 7 required items, and every
   suggestion except per-trial F/T noise seeding (P-123). §9 maps each item to its change.
-- Revision 3 answers review 2 (`G2_PREREGISTRATION_REVIEW2_2026-11-27.md`, P-126): all 4 required items and all 6
+- Revision 3 answered review 2 (`G2_PREREGISTRATION_REVIEW2_2026-11-27.md`, P-126): all 4 required items and all 6
   suggestions, with pilot 3 (P-127). §10 maps each item to its change.
+- Revision 4 answers review 3 (`G2_PREREGISTRATION_REVIEW3_2026-11-27.md`, P-128): both required items and all 5
+  suggestions. §11 maps each item to its change.
 - The text states what the code does at the commit that introduces this revision.
 - Before it is in force: review rounds until "ACCEPTABLE AS IS" (one reviewer subagent per round, P-121), then the
   user's approval recorded in `docs/DECISION_LOG.md`.
@@ -15,6 +17,9 @@
 
   No other change to a frozen path. The scored run refuses to start
   while `FROZEN = False` or with uncommitted changes in the frozen paths (§6).
+- **After the freeze, frozen files are never edited** (review 3 S7). The verdict checks the frozen paths against the
+  manifest commit, so an edit would make a re-run of the verdict INVALID. Results, the verdict and any discussion go in
+  a separate report.
 - Gate: `docs/VALIDATION_PLAN.md` G2. **Pass** = repeatable physical turns with prescribed classical controllers; no
   RL. Mapping in §5.
 - **Labels:** `FACT`, `INFERENCE`, `ASSUMPTION`, `PROPOSAL`.
@@ -42,10 +47,18 @@
    - Review 2 found the U′ peak correlated with the U-face start misalignment (r = −0.82). Some scored starts lie beyond
      the piloted range.
    - **Pilot 3 forced the U face to ±0.80 … ±1.00° on 34 first turns (U′, U2, U): the maximum was 0.47 N·m** (P-127).
-   - **The worst first turn seen anywhere is 0.674 N·m, about 110 first turns in all, a 1.49× margin to the stop.**
+   - **The worst first turn seen anywhere is 0.674 N·m, over about 120 piloted first turns, a 1.49× margin to the
+     stop.**
    - `INFERENCE`: a false stop in a scored trial is a failure; the margin is stated, not guaranteed.
-4. **The G1 rig's grip was capped at about 11.5 N** (G1 report §3 item 12). G2 is the first squeeze test above that.
-5. **`ASSUMPTION`s:**
+4. **The tightest margin is the first-move turn error, not the F/T stop** (review 3 finding 4).
+   - The pilot maximum is **1.75° against the 2° limit** (1.14×; U2 `U2_m0.95_8_s29423`). U′ reached 1.60°.
+   - Review 3's fit: the first-move error is a bias of about 0.6–0.8° minus 0.2–0.4 × the U face's start
+     misalignment, with a U′ residual sd of 0.36°. A U′ start at −1° (scored `Up_s30131` is at −0.97°) needs a +2.7 sd
+     residual to exceed 2°.
+   - `INFERENCE`: a few percent chance of a turn-error failure over about 100 scored first moves. The 2° limit is G1's
+     and is kept; a failure counts.
+5. **The G1 rig's grip was capped at about 11.5 N** (G1 report §3 item 12). G2 is the first squeeze test above that.
+6. **`ASSUMPTION`s:**
    - M7's clearance (0.05 mm), rounded edge (R 2.5 mm), uncalibrated turning torque, and core mass and inertia
      (1.7 g, 2e-8);
    - pad friction μ 0.8; pad compliance as a contact time constant (0.01 s);
@@ -56,7 +69,7 @@
    - **only collision geometry can touch the cube:** the G2 finger and knuckle meshes are visual-only, the stock pads
      are disabled, and the four fingertip boxes are the collision geometry of the fingers. A finger body cannot register
      a cube contact.
-6. **Simulation only.** Nothing here establishes sim-to-real transfer.
+7. **Simulation only.** Nothing here establishes sim-to-real transfer.
 
 ## 1. System under test (frozen; `experiments/D18_two_arm_m7/two_arm.py`, `layout.py`)
 | Part | Configuration | Source |
@@ -82,8 +95,9 @@
 - **Tests:**
   - `test_controllers_ignore_cube_state`: scrambling every cube joint state leaves arm B's control outputs
     **bit-identical** (`np.array_equal`), with a positive control;
-  - `test_roll_commands_ignore_cube_state`: the J7 and gripper command sequence of a whole move is identical with the
-    cube state scrambled.
+  - `test_roll_commands_ignore_cube_state`: the J7 and gripper command sequence issued inside a whole move is identical
+    with the cube turned 180° about world z, physics stubbed (J7 follows its command), with a positive control. The
+    roll sign is the value set at construction, checked against the nominal layout.
 
 **Setup (before t0, logged setup writes):**
 1. Arm A at its IK grasp pose, gripper open; arm B at its pre-grasp pose (gripper base 40 mm outside the grasp along
@@ -164,7 +178,9 @@ of the limits; a test checks the copies agree) both apply the following. A trial
 - the final state matches the oracle.
 
 **Before t0** (review 2 S6): the cube's shift while the stand drops (in arm A's grip) ≤ **1 mm**, and the cube centre's
-offset from nominal at t0 ≤ **3 mm**. The start draw itself gives ≤ 1.7 mm; the pilots saw 0.06–0.09 mm and 0.8–1.14 mm.
+offset from nominal at t0 ≤ **3 mm**. The start draw itself gives ≤ 1.7 mm. Over 156 pilot records (offcentre
+excluded) the stand-drop shift was ≤ 0.12 mm and **the t0 offset up to 2.08 mm** (pilot 3 `U2_m1.00_4_s29419`), a 1.44×
+margin.
 
 **Start sequence and approach** (no judged contact may occur):
 - non-fingertip robot–cube, arm–arm, robot–table, robot–stand or robot–jam-block contact;
@@ -196,8 +212,9 @@ offset from nominal at t0 ≤ **3 mm**. The start draw itself gives ≤ 1.7 mm; 
   - The bound catches a layer left grossly off, which the readout would round. Growth from t0 is reported.
 
 **Note on causality (review 1 S8, review 2 S7).**
-- The causality check decides at grasp time whether the fingertips touched before the layer moved. Over 140 pilot moves
-  the gap was at least 3 steps (1.5 ms) and typically 19.
+- The causality check decides at grasp time whether the fingertips touched before the layer moved. Over 244 pilot moves
+  the gap was **at least 2 steps (1.0 ms)**: 2 steps twice (pilot-3 re-run `rand10_s29448`), 3 steps 13 times, 4 steps
+  16 times.
 - Timing the onset from the roll start was not adopted. The judged **drive** check covers the roll itself: the fingertip
   torque impulse has the commanded sign.
 
@@ -248,7 +265,8 @@ trial. Otherwise:
 - a record's metadata (experiment, trial ID, spec, commit, scored / smoke) differs from its manifest entry;
 - a record's stored `pass` differs from the independent recomputation.
 
-**INCOMPLETE:** a manifest trial without a record.
+**INCOMPLETE:** a manifest trial without a record. After 6 starts (5 resumes) an incomplete run is **NOT PASSED**;
+more than 6 logged starts are INVALID (§6).
 
 **PASS:** every one of the 128 scored trials passes (**zero tolerance**, P-105).
 
@@ -299,12 +317,21 @@ On a resume:
 
 **Errors and interruptions:**
 - A harness exception becomes a failing record.
-- **Transient model-load errors** (`run.LOAD_ERROR_MARKERS`: an empty or unreadable mesh or record file, the magnet
-  availability refusal) can only happen while the model is built, before any simulation step.
+- **Model-load errors are classified by phase, not by message** (review 3 item 1). Any exception raised before the
+  trial's first control step (`trials.simulation_started()`, set by `TwoArm.ctrl_step`, cleared by
+  `trials.reset_phase()` before every attempt) is a load error, whatever its type or text: an empty mesh, robot XML,
+  calibration, magnet table or V3 record, or the magnet-availability refusal.
   - The trial is retried in the same worker, at most 3 times; the record lists the retries.
   - If the error persists, the run is interrupted (resume), never recorded as a failed trial.
+  - A deterministic error before the first step therefore interrupts every resume; it can never produce a record, so it
+    cannot produce a pass.
   - Pilot 3 had 2 such crashes in 48 trials (P-127).
-- MemoryError, OSError, the magnet-availability refusal or a broken worker pool are interruptions (exit 3).
+- After the first step: MemoryError, OSError, the magnet-availability refusal or a broken worker pool are interruptions
+  (exit 3); any other exception is a failing record (not retried).
+- **Repeated interruptions** (review 3 S5): at most **5 resumes** of the scored run (`run.MAX_STARTS` = 6 starts; the
+  runner refuses a seventh). If the run is still INCOMPLETE after the fifth resume, the verdict is **NOT PASSED**
+  (`analyze.MAX_STARTS`, an independent copy) and G2 is not passed by this pre-registration. A code fix requires a new revision, review and
+  freeze, and a fresh run in an empty folder.
 - **Every trial runs in its own spawned process** (`max_tasks_per_child = 1`, whatever `--jobs` is). Settings never
   carry over, and `trials.configure` takes its defaults from fixed constants.
 
@@ -312,12 +339,23 @@ On a resume:
 - this file; `experiments/E8_scored_g2/{run,trials,analyze,selfcheck}.py`; `tests/test_scored_g2.py`;
 - `experiments/D18_two_arm_m7/{two_arm,layout}.py`; `experiments/D17_real_holder_m7/{hold,turn}.py`;
   `experiments/D16_free_core_m7/grip_probe.py`; `experiments/P2_robot_model/build_model.py`;
-- `experiments/E{4,5,7}_scored_*/run.py`; `experiments/D8_alignment/{magnets,d8_1b_stage1}.py` and
+- `experiments/E{4,5,7}_scored_*/run.py`, and `experiments/E1_scored/run.py` (executed by E4's runner through
+  `spec_from_file_location`, review 3 item 2); `experiments/D8_alignment/{magnets,d8_1b_stage1}.py` and
   `results/d8_1b_checks*.json`;
 - `experiments/D10…/d10_rest.py`, `D11…/d11_analyze.py`, `D13…/{d13_run,d13_analyze}.py`;
 - `src/rubiknetic/__init__.py`, `src/rubiknetic/cube_physics/`, `src/rubiknetic/cube_logic/`.
 
-`test_frozen_paths_cover_every_loaded_module` checks that every repository module a trial loads is frozen.
+Coverage tests:
+- `test_frozen_paths_cover_every_loaded_module`: every repository module in `sys.modules` after loading a trial is
+  frozen;
+- `test_every_repository_file_a_trial_opens_is_frozen_or_an_artifact` (review 3 item 2): a fresh process records every
+  file opened (Python `open` audit events, which include modules executed through `spec_from_file_location`) while it
+  imports `trials`, builds the scene and runs the start sequence. Every repository file must be frozen or a hashed
+  artifact. Files MuJoCo reads in C (the robot XML and meshes) do not raise audit events; they are artifacts.
+
+**The verdict is read-only and may be re-run** (review 3 S5). `analyze.py` re-hashes the artifacts from disk; an
+INVALID caused by an artifact hash must reproduce on a re-run of the verdict to stand (a transient empty read is not a
+result). Every other INVALID cause stands as found.
 
 **Procedure (as G1 §2):**
 - Before a resume, leftover worker processes of the stopped start are found and stopped.
@@ -332,9 +370,10 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
 - The search is repeated and recorded at the freeze.
 
 ## 7. Evidence before the freeze
-- **Tests:** `tests/test_scored_g2.py`, 41 tests pass.
+- **Tests:** `tests/test_scored_g2.py`, TESTS_PLACEHOLDER tests pass.
 - **Self-check:** `selfcheck.py` re-runs three pilot trials and requires the **physics identity** (final qpos SHA-256,
-  the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot records. Result: P-124.
+  the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot records. Result: P-124
+  (revision-2 code); **re-run at the revision-4 code: P-129** (review 3 S6).
 - **Smoke:** a smoke run killed after a record link and resumed gives PASS, with the ledger reconciled (P-120).
 - **Revision-2 pilot** (`run.py pilot2`, seeds 29300–29353; P-124): 20 U′ and 20 U2 first turns with the stop
   disabled; 4 × U U′ U2 U′ U and 2 holds at the fixed settings; 2 each of jam, two_layer, collision and open_midturn.
@@ -350,7 +389,8 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
 | P-1 … P-6 | fingertips, layout, controller, runner, pilots and limits, self-check and smoke | done (P-106 … P-120) |
 | P-6b | revision-2 code, tests, self-check and pilot | P-123, P-124 |
 | P-6c | revision-3 code, tests, pilot 3 and the re-runs | P-127 |
-| P-7 | independent reviews until "ACCEPTABLE AS IS" | **open** (review 1: P-122) |
+| P-6d | revision-4 code, tests, self-check at the revision-4 code | P-129 |
+| P-7 | independent reviews until "ACCEPTABLE AS IS" | **open** (reviews 1–3: P-122, P-126, P-128) |
 | P-8 | the user's approval; freeze commit; DECISION_LOG | **open** |
 
 ## 8. Limitations (to be stated with any G2 result)
@@ -372,9 +412,12 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
      - 2° core rotation: about 1 mm at the cube's corner radius;
      - 1° hold rotation;
      - 4° end misalignment, from the start draw plus the turn-error limit.
+   - **Pilot margins differ by criterion** (review 3 finding 4):
+     - slips are 5–10× below their limits (per-move ≤ 0.20 mm of 1 mm; total ≤ 0.38 mm of 2 mm);
+     - others are close: first-move turn error 1.75° of 2° (1.14×), t0 offset 2.08 of 3 mm (1.44×), end misalignment
+       2.83° of 4° (1.4×), total core rotation 1.24° of 2° (1.6×), per-move core rotation 0.93° of 2° (2.1×).
    - **A PASS therefore shows that the turns succeed and the cube stays within these task tolerances.** It does not
-     establish tight stabilisation (the pilot values are 5–10× below the limits), robustness beyond ±1 mm / ±1°, or
-     anything on hardware.
+     establish tight stabilisation, robustness beyond ±1 mm / ±1°, or anything on hardware.
 
 ## 9. Response to review 1 (P-122)
 | Item | Change in revision 2 |
@@ -412,3 +455,15 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
 | S9 stale text | the `two_arm.py` docstring and defaults (`FT_STOP` 1.0), unused constants removed, the `run.py` docstring, the `trials.py` docstring |
 | S10 disclosures | the pilot-2 README (pre-P-125 stored results), hold sampling 0.1 s, the jam-window basis, the freeze-commit scope, the penetration limit in the agreement test |
 | P-127 | transient model-load errors retried, then interrupt (§6) |
+
+## 11. Response to review 3 (P-128)
+| Item | Change in revision 4 |
+|---|---|
+| R1 load-error retry by message | classified by phase: any exception before the first control step is a load error (retried, then an interruption); after it, a failing record or an interruption as before; `LOAD_ERROR_MARKERS` removed; tests for ParseXML "empty file", JSONDecodeError, EOFError, FileNotFoundError and an arbitrary message before the first step, load-like messages after it, and the real flag (§6) |
+| R2 unfrozen E1 runner | `experiments/E1_scored/run.py` frozen; an audit-hook coverage test in a fresh process (§6) |
+| S3 test gaps | the roll test keeps the construction-time `roll_sign` and checks it against the nominal layout; `model_audit` positive controls on synthetic models (each actuator, tendon and equality type, gravity compensation) and a robot-only negative; the §2 test wording |
+| S4 stale evidence | §4.1 pre-t0 and causality numbers; §0.3 first-turn count; §0.4 the first-move turn error as the tightest margin; §8 item 8 margins per criterion |
+| S5 interruptions and verdict re-runs | at most 5 resumes, then not passed; the verdict is read-only and may be re-run; an artifact-hash INVALID must reproduce (§6) |
+| S6 evidence at the final code | `selfcheck.py` re-run at the revision-4 code (P-129); the pilot-3 re-run commit in its README |
+| S7 no edits after the freeze | stated in the status block |
+| stale docstrings | `trials.py`, `analyze.py` and the test file name revision 4 |

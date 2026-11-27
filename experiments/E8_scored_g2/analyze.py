@@ -1,4 +1,4 @@
-"""G2 verdict and report (experiments/PHASE_2_G2_PREREGISTRATION.md revision 2 §4.4; DRAFT, not in force).
+"""G2 verdict and report (experiments/PHASE_2_G2_PREREGISTRATION.md revision 4 §4.4; DRAFT, not in force).
 
 INVALID     no manifest; a record that does not parse; a ledger SHA-256 mismatch; a record without a ledger line; a
             ledger key with more than one line or without a record; any file or directory the run procedure does not
@@ -6,7 +6,7 @@ INVALID     no manifest; a record that does not parse; a ledger SHA-256 mismatch
             list (`build_jobs`, or `smoke_jobs` / `pilot_jobs` with --mode); for a scored run, the manifest's frozen
             paths differ from `run.FROZEN_PATHS`; an artifact SHA-256 differs from the manifest; a record's metadata
             differs from its manifest entry; a record's stored `pass` disagrees with the independent recomputation.
-INCOMPLETE  a manifest trial has no record.
+INCOMPLETE  a manifest trial has no record (NOT PASSED once MAX_STARTS starts are used; more starts are INVALID).
 PASS        every scored trial passes (zero tolerance, P-105); NOT PASSED otherwise.
 
 The recomputation below is deliberately independent of `trials.py`: it re-derives pass/fail from the raw fields with
@@ -192,6 +192,9 @@ def expected_jobs(mode: str) -> list[dict]:
             "pilot3": R.pilot3_jobs}[mode]()
 
 
+MAX_STARTS = 6        # review 3 S5 (independent copy of run.MAX_STARTS): the first start and at most 5 resumes
+
+
 def starts_problems(out: Path, manifest: dict, starts: list[dict]) -> list[str]:
     """Review 2 S5: the start log must be consistent with the ledger and the folder.
     - every start is numbered 1..K in order;
@@ -199,6 +202,8 @@ def starts_problems(out: Path, manifest: dict, starts: list[dict]) -> list[str]:
     - every record listed as present at a start still exists with the SHA-256 the ledger gives it (a record deleted
       together with its ledger line is caught)."""
     probs = []
+    if len(starts) > MAX_STARTS:
+        probs.append(f"{len(starts)} starts logged; at most {MAX_STARTS} are allowed")
     ks = [s.get("k") for s in starts]
     if ks != list(range(1, len(starts) + 1)):
         probs.append(f"STARTS.txt numbering {ks}")
@@ -309,6 +314,9 @@ def verdict(out: Path, mode: str = "scored", check_artifacts: bool = True, **tes
     """test_kw: expected, recompute_fn, check_code (unit tests only)."""
     status, probs, manifest, recs = integrity(out, mode, check_artifacts, **test_kw)
     res = {"status": status, "problems": probs, "mode": mode}
+    if status == "INCOMPLETE" and len(R.read_lines(out / R.STARTS)) >= MAX_STARTS:
+        res["status"] = "NOT PASSED"                    # review 3 S5: the resumes are used up
+        res["problems"] = probs + [f"incomplete after {MAX_STARTS} starts: G2 is not passed by this pre-registration"]
     if status is not None:
         return res
     tinfo = {(t["exp"], t["tid"]): t for t in manifest["trials"]}
