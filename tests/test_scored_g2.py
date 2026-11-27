@@ -73,7 +73,8 @@ def test_limits_agree_between_trials_and_analyze(T):
     assert L["move_slip_mm"] == T.MOVE_SLIP_MM and L["pen_mm"] == T.PEN_MM
     assert (L["hold_slip_mm"], L["hold_rot_deg"]) == (T.HOLD_SLIP_MM, T.HOLD_ROT_DEG)
     assert (L["total_slip_mm"], L["total_rot_deg"]) == (T.TOTAL_SLIP_MM, T.TOTAL_ROT_DEG)
-    assert L["residual_growth_deg"] == T.RESIDUAL_GROWTH_DEG and L["jam_slip_mm"] == T.JAM_SLIP_MM
+    assert L["residual_end_deg"] == T.RESIDUAL_END_MAX_DEG and L["jam_slip_mm"] == T.JAM_SLIP_MM
+    assert T.FT_STOP == 1.0                                       # P-125
     assert tuple(L["jam_roll_deg"]) == T.JAM_ROLL_DEG and L["move_rot_deg"] == T.TA.CORE_ROT_MOVE_DEG
     th = T.TA.T
     assert (L["turn_error_deg"], L["drift_deg"], L["rollback_deg"]) == (th["turn_error_deg"], th["nontarget_drift_deg"],
@@ -269,7 +270,8 @@ def test_seq_reasons_and_recompute_agree(T):
         (_rec(approach={"cube_stand": 1}), False),
         (_rec(start={"contacts": {"robot_cube_nonpad": 1}}), False),
         (_rec(trial={**_rec()["trial"], "core_slip_total_mm": 2.1}), False),
-        (_rec(trial={**_rec()["trial"], "residual_end_deg": [0.5] * 25 + [1.6]}), False),
+        (_rec(trial={**_rec()["trial"], "residual_end_deg": [0.5] * 25 + [1.6]}), True),     # growth alone is fine
+        (_rec(trial={**_rec()["trial"], "residual_end_deg": [0.5] * 25 + [4.1]}), False),    # P-125: absolute 4 deg
         (_rec(trial={**_rec()["trial"], "model_audit": {**AUDIT, "actuators_on_cube": ["x"]}}), False),
     ]
     for rec, ok in cases:

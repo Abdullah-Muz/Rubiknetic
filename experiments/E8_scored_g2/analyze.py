@@ -25,7 +25,7 @@ sys.path.insert(0, str(HERE))
 import run as R  # noqa: E402
 
 LIMITS = {"turn_error_deg": 2.0, "drift_deg": 1.0, "pen_mm": 0.5, "move_slip_mm": 1.0, "move_rot_deg": 2.0,
-          "rollback_deg": 1.0, "total_slip_mm": 2.0, "total_rot_deg": 2.0, "residual_growth_deg": 1.0,
+          "rollback_deg": 1.0, "total_slip_mm": 2.0, "total_rot_deg": 2.0, "residual_end_deg": 4.0,
           "hold_slip_mm": 1.0, "hold_rot_deg": 1.0, "jam_slip_mm": 0.5, "jam_roll_deg": (20.0, 50.0)}
 ZERO = ("robot_cube_nonpad", "arm_arm", "robot_table", "robot_stand", "robot_block")
 
@@ -113,8 +113,8 @@ def recompute_seq(rec: dict, moves: str) -> list[str]:
             out.append("total slip")
         if t["core_rot_total_deg"] > LIMITS["total_rot_deg"]:
             out.append("total rotation")
-        if _growth(t["residual_t0_deg"], t["residual_end_deg"]) > LIMITS["residual_growth_deg"]:
-            out.append("residual growth")
+        if max(t["residual_end_deg"]) > LIMITS["residual_end_deg"]:
+            out.append("end misalignment")
     return out
 
 
@@ -130,8 +130,8 @@ def recompute_hold(rec: dict) -> list[str]:
         out.append("rotation")
     out += ["start " + x for x in _contacts(rec["start"].get("contacts", {}), False)]
     out += ["hold " + x for x in _contacts(rec["contacts"], True)]
-    if _growth(rec["residual_t0_deg"], rec["residual_end_deg"]) > LIMITS["residual_growth_deg"]:
-        out.append("residual growth")
+    if max(rec["residual_end_deg"]) > LIMITS["residual_end_deg"]:
+        out.append("end misalignment")
     return out
 
 
@@ -267,8 +267,9 @@ def verdict(out: Path, mode: str = "scored", check_artifacts: bool = True, **tes
     tr = [r["trial"] for r in turns if r.get("trial")]
     res["trial_max"] = {"core_slip_total_mm": max((t["core_slip_total_mm"] for t in tr), default=None),
                         "core_rot_total_deg": max((t["core_rot_total_deg"] for t in tr), default=None),
-                        "residual_growth_deg": max((_growth(t["residual_t0_deg"], t["residual_end_deg"]) for t in tr),
-                                                   default=None)}
+                        "residual_end_deg": max((max(t["residual_end_deg"]) for t in tr), default=None),
+                        "residual_growth_deg (reported)": max((_growth(t["residual_t0_deg"], t["residual_end_deg"])
+                                                               for t in tr), default=None)}
     holds = [r for k, r in scored.items() if k[0] == "G2-1"]
     res["holds"] = {"n": len(holds), "pass": sum(r["pass"] for r in holds),
                     "slip_max_mm": max((r.get("core_slip_mm", 0) for r in holds), default=None),

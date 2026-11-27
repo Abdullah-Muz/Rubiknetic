@@ -34,11 +34,11 @@ MISALIGN_DEG = 1.0                      # setup misalignment per face, uniform +
 HOLD_SLIP_MM, HOLD_ROT_DEG = 1.0, 1.0   # G2-1 limits (P-119)
 MOVE_SLIP_MM = 1.0                      # per-move core slip relative to arm A (P-119)
 TOTAL_SLIP_MM, TOTAL_ROT_DEG = 2.0, 2.0 # from t0 to the end of a trial (revision 2)
-RESIDUAL_GROWTH_DEG = 1.0               # every cubie's end misalignment <= its t0 misalignment + 1 deg (revision 2)
+RESIDUAL_END_MAX_DEG = 4.0              # every cubie's end misalignment (absolute) <= 4 deg (P-125; replaces growth)
 PEN_MM = 0.5                            # cubie-cubie penetration (G1)
 JAM_SLIP_MM = 0.5                       # G2-7 jam: cube shift allowed before the guard stops (P-119)
 JAM_ROLL_DEG = (20.0, 50.0)             # G2-7 jam: the stop must happen in this roll window (pilot 26-44 deg; rev. 2)
-FT_STOP = 0.8                           # F/T stop on |tau_z| (P-119; pilot P-118)
+FT_STOP = 1.0                           # F/T stop on |tau_z| (P-125; was 0.8, P-119; U' first turns reach 0.67)
 NEG_CASES = ("two_layer", "offcentre", "collision", "open_midturn", "jam")
 NEG_REPORTED_ONLY = ("offcentre",)      # review 1 item 3: it cannot fail, so it is reported, not scored
 CONTACT_ZERO = ("robot_cube_nonpad", "arm_arm", "robot_table", "robot_stand", "robot_block")
@@ -108,9 +108,8 @@ def _trial_reasons(rec: dict) -> list[str]:
         out.append(f"total core slip {t['core_slip_total_mm']:.2f} mm")
     if t["core_rot_total_deg"] > TOTAL_ROT_DEG:
         out.append(f"total core rotation {t['core_rot_total_deg']:.2f} deg")
-    grow = [e - s for s, e in zip(t["residual_t0_deg"], t["residual_end_deg"])]
-    if max(grow) > RESIDUAL_GROWTH_DEG:
-        out.append(f"a cubie's misalignment grew by {max(grow):.2f} deg")
+    if max(t["residual_end_deg"]) > RESIDUAL_END_MAX_DEG:
+        out.append(f"a cubie is misaligned by {max(t['residual_end_deg']):.2f} deg at the end")
     return out
 
 
@@ -187,9 +186,8 @@ def run_hold(hold_s: float, ov: dict, start: dict) -> dict:
             reasons.append(f"core rotation {rec['core_rot_deg']:.2f} deg > {HOLD_ROT_DEG}")
         reasons += _contact_reasons("start", rec["start"].get("contacts", {}), cube_stand=False)
         reasons += _contact_reasons("hold", rec["contacts"], cube_stand=True)
-        grow = [e - s for s, e in zip(rec["residual_t0_deg"], rec["residual_end_deg"])]
-        if max(grow) > RESIDUAL_GROWTH_DEG:
-            reasons.append(f"a cubie's misalignment grew by {max(grow):.2f} deg")
+        if max(rec["residual_end_deg"]) > RESIDUAL_END_MAX_DEG:
+            reasons.append(f"a cubie is misaligned by {max(rec['residual_end_deg']):.2f} deg at the end")
     rec["fail_reasons"], rec["pass"] = reasons, not reasons
     return rec
 

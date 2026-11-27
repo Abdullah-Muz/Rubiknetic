@@ -1,6 +1,6 @@
 # Phase 2 (G2) Pre-registration: two-arm, contact-driven layer turns of the free-core M7 cube
 
-**Status: DRAFT revision 2, NOT IN FORCE (2026-11-27).**
+**Status: DRAFT revision 2 (amended P-125), NOT IN FORCE (2026-11-27).**
 - Revision 2 answers review 1 (`G2_PREREGISTRATION_REVIEW1_2026-11-27.md`, P-122): all 7 required items, and every
   suggestion except per-trial F/T noise seeding (P-123). §9 maps each item to its change.
 - The text states what the code does at the commit that introduces this revision.
@@ -27,9 +27,11 @@
    - **Revision-2 pilot** (§7, P-124).
 2. **Move strings:** U, U′, U2 and U U′ U2 U′ U were run many times in rehearsals. The 20 random 10-move sequences are
    drawn from the scored seeds and are new.
-3. **First-turn torque tail (`FACT`).** With the ±1° start misalignment, the first turn's F/T τ_z reached 0.47 N·m once
-   (smoke) and at most 0.35 in 30 U pilot turns. The revision-2 pilot adds U′ and U2 first turns (§7). The stop is
-   0.8 N·m.
+3. **First-turn torque tail (`FACT`).** With the ±1° start misalignment, the first turn's F/T τ_z reached:
+   - U: 0.35 N·m (30 pilot turns) and 0.47 once (smoke);
+   - **U′: 0.67 N·m (p95 0.52; 20 turns);**
+   - U2: 0.49 (20 turns).
+   - The stop was therefore raised from 0.8 to **1.0 N·m** after pilot 2 (P-125).
    - `INFERENCE`: the tail is estimated from about 75 first turns. A false stop in a scored trial is a failure.
 4. **The G1 rig's grip was capped at about 11.5 N** (G1 report §3 item 12). G2 is the first squeeze test above that.
 5. **`ASSUMPTION`s:**
@@ -110,7 +112,7 @@ here.
 5. Roll back to the start angle (1 s, open).
 
 **Guards during a roll:**
-- **F/T stop:** |τ_z| > **0.8 N·m** on two consecutive 200 Hz samples.
+- **F/T stop:** |τ_z| > **1.0 N·m** on two consecutive 200 Hz samples (P-125).
 - **Stall rule:** J7 following error > 2° for 20 ms.
 - Either freezes the roll at the current angle; the move then opens and rolls back as usual.
 
@@ -169,7 +171,9 @@ of the limits; a test checks the copies agree) both apply the following. A trial
 
 **Trial level (from t0 to the end):**
 - total core slip ≤ **2 mm** and rotation ≤ **2°**, relative to arm A's gripper;
-- every cubie's misalignment (angle to the nearest cube rotation, core frame) at the end ≤ its t0 value + **1°**.
+- every cubie's misalignment (angle to the nearest cube rotation, core frame) at the end ≤ **4°** (P-125). The bound
+  is derived: start misalignment of up to three faces (√3·1° ≈ 1.7°) plus the 2° turn-error limit. It catches a layer
+  left grossly off, which the readout would round. Growth from t0 is reported.
 
 **Reported, not judged:**
 - J7 actuator torque; fingertip torque on the layer; F/T peak; pad penetration;
@@ -182,7 +186,7 @@ Pass if all hold:
 - the cube is solved at t0 and at the end;
 - over 60 s, relative to arm A's gripper: core slip ≤ **1.0 mm** and rotation ≤ **1.0°**;
 - during the hold: none of the §4.1 contacts (cube–stand included), cubie penetration ≤ 0.5 mm;
-- misalignment growth ≤ **1°** per cubie.
+- every cubie's misalignment at the end ≤ **4°** (P-125).
 
 ### 4.3 Negative cases (G2-7; `trials.neg_outcome`, `analyze.recompute_neg`)
 Any abort, edit-audit violation, numerical failure, harness exception or model-audit finding **fails** a negative
@@ -193,7 +197,7 @@ trial. Otherwise:
 | `two_layer` | Turner inserted 25 mm (6 mm across the U/E boundary) | a guard stop, or a failure of the observed-move, turn-error or drift check | the offline checks detect a two-layer grip |
 | `open_midturn` | Arm B opens halfway through the roll | a failure of the observed-move or turn-error check | the checks detect an incomplete turn |
 | `collision` | Turner driven 34 mm deep, into arm A's fingertips | arm–arm or non-fingertip robot–cube contact recorded (approach or move) | the contact monitor detects a collision |
-| `jam` | A world-fixed block above the top face beside the U layer | a guard stop after **20–50°** of roll, core slip ≤ **0.5 mm**, cubie penetration ≤ 0.5 mm | the **online** guard stops a blocked turn safely |
+| `jam` | A world-fixed block above the top face beside the U layer | a guard stop after **20–50°** of roll, core slip ≤ **0.5 mm**, cubie penetration ≤ 0.5 mm. Pilot 1 at a 1.0 N·m stop: 41–44°, ≤ 0.27 mm | the **online** guard stops a blocked turn safely |
 | `offcentre` | Cube 5 mm sideways | **reported only**: "clean" or "detected" | robustness to a larger placement error |
 
 - `two_layer`, `open_midturn` and `collision` test the offline checks; only `jam` tests the controller online.
@@ -318,7 +322,8 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
      - 1 mm per-move and 2 mm total core slip: within the C1 turner's verified ±2 mm axial tolerance (P-106), so arm
        B's nominal grasp stays valid over a sequence;
      - 2° core rotation: about 1 mm at the cube's corner radius;
-     - 1° hold and misalignment growth.
+     - 1° hold rotation;
+     - 4° end misalignment, from the start draw plus the turn-error limit.
    - **A PASS therefore shows that the turns succeed and the cube stays within these task tolerances.** It does not
      establish tight stabilisation (the pilot values are 5–10× below the limits), robustness beyond ±1 mm / ±1°, or
      anything on hardware.
@@ -343,3 +348,4 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
 | S15 wording | §4.3 "what it tests" column |
 | S16 independent verdict | `analyze.recompute_*`; a disagreement makes the run INVALID |
 | S17 limits | justified from the task (§8 item 8) |
+| P-125 (after pilot 2) | F/T stop 0.8 → 1.0 N·m (U′ first turns reach 0.67 N·m); the misalignment-growth rule (+1°, which failed 11/48 healthy pilot trials by double-counting the turn error) replaced by an absolute end bound of 4° |
