@@ -118,3 +118,48 @@ middle layer (E).
 - Pad compliance is contact softness: soft-pad "penetration" up to 1.2 mm is pad deformation.
 - The causality check uses the instantaneous speed relative to the core.
 - Not pre-registered; no criterion is claimed.
+
+## P-1 pilot: C1 vs C2 turner fingertip (G2 pre-registration §7, P-105; UNSCORED)
+`pilot_c1c2.sh`, `results/pilot_*`.
+
+**Setup:**
+- Sequence U U′ U2 U′ U, grip 20 N, soft pads (0.01 s), μ 0.8.
+- The turner mount is now **actuated**: position actuators kp 2000 N/m, kv 60 N·s/m, the same dynamics as stage B's
+  springs. So the controller can command grasp offsets.
+- Deliberate grasp errors: **axial −2 / 0 / +2 mm** × **lateral 0 / 1 mm**.
+
+**Procedures:**
+- **C1:** insertion set by command (nominal 14 mm).
+- **C2:**
+  1. Pre-close to a 58 mm gap.
+  2. Push axially (command +2 mm deeper than nominal) so the shoulder seats on the U face.
+  3. Close.
+
+  Closing first fails: the 20 N grip's pad friction (about 32 N) blocks the 6 N axial push, so the shoulder never
+  seated (smoke test, `FACT`).
+- **Causality:** the tool contact counted is pads plus shoulder. The pads-only result is reported too.
+
+| Turner | Runs pass | Moves correct | Insertion (all offsets) mm | Shoulder force N | Max roll torque N·m | Max drift ° | Max core slip mm | Pads-only causal |
+|---|---|---|---|---|---|---|---|---|
+| **C1** | 6/6 | 30/30 | 12.2–16.4 (follows the error) | – | **0.094** | 0.27 | 0.09 | 30/30 |
+| **C2, 3 mm shoulder** | 6/6 | 30/30 | **13.7–14.2** | 1.5–17.3 | 0.274 | 0.42 | 0.28 | 17/30 |
+| **C2, 5 mm shoulder** | 6/6 | 30/30 | **13.9–14.2** | 2.7–18.7 | 0.266 | 0.21 | 0.22 | 18/30 |
+
+**Findings (`FACT` for these runs; interpretation `INFERENCE`):**
+1. **Both candidates pass everything** at ±2 mm axial and 1 mm lateral error.
+2. **C2's shoulder does its job:** insertion stays at 14 ± 0.3 mm whatever the axial error.
+   - **The cost is an axial load on the U layer** (up to about 19 N with the +2 mm error). It roughly **triples the
+     turning torque**, 0.09 → 0.27 N·m, presumably by pressing U against E.
+   - **Seating nudges the U layer before the side pads grip** (pads-only causality 17–18/30). This is tool contact,
+     but it is an extra disturbance.
+3. **C1's insertion follows the arm's axial error.** At +2 mm it reaches 16.35 mm, 0.15 mm short of the end of the
+   flat band (16.5 mm) and 2.7 mm short of the U/E boundary.
+   - A larger error would put the pad on the rounded edge, then across the boundary. That is negative test G2-7a's
+     territory.
+4. **A 5 mm shoulder sits more precisely than 3 mm** (13.9–14.2 vs 13.7–14.2): 3 mm barely clears the 2.5 mm edge
+   rounding. Otherwise they are similar.
+
+**Recommendation (`PROPOSAL`, for the user's choice):**
+- **C1 as the G2 turner fingertip:** simplest, lowest torque, no seating disturbance.
+- **Condition:** arm B's axial grasp error stays within about ±2 mm. G2-6 and G2-7a must test it.
+- **Contingency:** C2 with a 5 mm shoulder, if the real arm B's axial error proves larger.
