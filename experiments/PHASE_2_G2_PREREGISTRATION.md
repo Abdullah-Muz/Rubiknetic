@@ -77,7 +77,18 @@ fixed settle time **[pilot]**.
 
 **Mounting:** the arm bases are placed by the scene file. There is no simulated table approach or handoff (Phase 4).
 
+**Cube start (P-109 (1)):** the cube rests on an **actuated stand that drops away**. Arm A ramps its gripper closed with
+gravity on (R2-09); the stand then lowers clear of the cube before arm B approaches. No gravity-off setup phase.
+
+**Jam guard (P-109 (2)):** **stall detection on J7.** If J7 lags its commanded angle by more than **[pilot]** degrees,
+arm B stops the roll and opens. It uses robot state only. G2-7 tests it.
+
+**Gains (P-109 (3)):** arm B's impedance and integral gains come from a **short tuning study on pilot seeds** before
+the freeze. The G2-6 screen then varies them ±50 %.
+
 ## 3. Trials (PROPOSAL; counts [pilot] from cost)
+Trial counts: the full plan, about 120 scored trials (P-109 (4)).
+
 | ID | Test | Starts | Scored |
 |---|---|---|---|
 | G2-1 | **Stabilisation under load:** arm A holds while arm B turns (inside every turn trial), plus a 60 s hold without turning | in every trial + 20 holds | yes |
