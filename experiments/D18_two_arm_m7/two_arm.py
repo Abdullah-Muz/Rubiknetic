@@ -17,6 +17,7 @@ Checks per move: as D17 stage B (oracle, turn error, drift, cubie penetration, c
 slip relative to arm A) plus: robot contacts with the cube other than fingertips, arm-arm contacts, robot-table
 contacts (bases excluded), actuator saturation flags.
 Usage (WSL): python two_arm.py [--seq "U U' U2 U' U"] [--grip 20] [--L 1.0] [--H 0.30] [--view]
+  --view opens the MuJoCo viewer (needs a display, e.g. WSLg) and does not write a result file.
 """
 from __future__ import annotations
 
@@ -434,14 +435,15 @@ def main() -> None:
     ap.add_argument("--view", action="store_true")
     a = ap.parse_args()
     H.TIP_SOLREF = (0.01, 1.0)                         # soft pads, as scored (P-105)
-    viewer = None
+    viewer, holder = None, {}
     if a.view:
         import mujoco.viewer
 
         def viewer(r):
             v = mujoco.viewer.launch_passive(r.m, r.d)
+            holder["v"] = v
             v.cam.lookat[:] = r.d.xpos[r.core]
-            v.cam.distance, v.cam.azimuth, v.cam.elevation = 1.2, 90, -20
+            v.cam.distance, v.cam.azimuth, v.cam.elevation = 1.4, 90, -20
             every = max(1, int(round(1 / 60 / r.m.opt.timestep)))
             k = [0]
 
@@ -451,6 +453,14 @@ def main() -> None:
                     v.sync()
             r.sim.hooks.append(hook)
     rec = run(a.seq, a.grip, a.L, a.H, viewer)
+    if a.view:                                        # viewing only: never overwrite a recorded result
+        print(json.dumps({k: v for k, v in rec.items() if k not in ("per_move", "scene", "approach")}, default=float))
+        v = holder.get("v")
+        if v is not None:
+            print("sequence done; close the viewer window to exit", flush=True)
+            while v.is_running():
+                time.sleep(0.1)
+        return
     OUT.mkdir(parents=True, exist_ok=True)
     name = f"two_arm_F{a.grip:g}_L{a.L:g}_H{a.H:g}_{a.seq.replace(' ', '_').replace(chr(39), 'p')}"
     (OUT / f"{name}.json").write_text(json.dumps(rec, indent=1, default=float))
