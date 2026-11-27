@@ -149,3 +149,31 @@ push-through about 1.7 N·m; threshold [pilot], about 0.8–1 N·m. The lag guar
 
 **Visual only (`FACT`):** the same U turn gives the identical final `qpos` SHA-256 (`e83b4955…`) with and without the
 environment, and the same hash as the sticker check.
+
+## Option A: velocity feedforward + J7 torque budget (P-113; UNSCORED; `logs/ffb_rev1/`, `logs/ffb_rev2/`)
+**The test matrix (both revisions):**
+- normal U U′ U2 U′ U, and the jam block with one U;
+- the simulator's J7 damping, friction and armature at **0 / +20 % / −20 %** relative to the controller's model.
+
+**Revision 1:** feedforward from the commanded rate and acceleration, fixed budget 0.6 N·m.
+- Normal, exact model: 5/5, lag 0.07° (was about 14°).
+- Normal, ±20 %: **false stall stop** about 28° into the first turn.
+- Jam, exact model: stopped at 59°, after pushing (1.49 N·m, 0.9 mm).
+- Jam, +20 %: stopped at 26°.
+- Jam, −20 %: **no stop**, push-through (1.7 N·m, 1.7 mm).
+
+**Revision 2:** damping feedforward from the *measured* rate, friction along the commanded direction, no inertia
+feedforward, budget B = 0.6 + 0.2·(|D·q̇| + F).
+- Normal, exact model: 5/5.
+- Normal, +20 %: **false stop** at 4° (static friction + inertia exceed ff + B).
+- Normal, −20 %: 4th move **over-pushes** (error −7.9°, drift 1.27°, no stop).
+- Jam, exact model and −20 %: **no stop**, push-through (1.71 N·m, cube 1.9 mm, 2.5°).
+
+**Root cause (`INFERENCE`, a feasibility limit, not a tuning issue):**
+- J7's modelled losses peak at about 6 N·m during a 1 s quarter turn; the cube needs about 0.3 N·m.
+- Robustness to a fraction U of model error needs an allowance of about U × 6 N·m: about 1.2 N·m at U = 20 %.
+- Arm A's 20 N grip resists only μ·F·a ≈ 0.9 N·m. So **no budget is both wide enough to avoid false stops and narrow
+  enough to prevent push-through.**
+- Feasibility requires B0 + U·L_peak < τ_grip(A) − τ_turn. That means a J7 model better than about 10 %, slower turns
+  (L_peak falls with speed), or a stronger arm A grip, or a sensor that does not see J7's losses at all (a wrist F/T
+  sensor, option C of the research note).

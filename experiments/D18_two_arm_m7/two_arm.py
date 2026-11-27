@@ -65,6 +65,21 @@ STAND_KP, STAND_KV, STAND_DROP, STAND_GAP = 20000.0, 300.0, 0.030, 0.0001
 GUARD = False         # off by default: the lag rule false-triggers (D18 guard test, P-111); --guard to enable
 GUARD_LAG_DEG, GUARD_HOLD_S = 3.0, 0.005
 ENV = True             # visual-only room (sky gradient, wood table, grey floor, lights; user 2026-11-26); --plain-env
+# P-113 (user: option A, docs/research/G2_JAM_DETECTION_RESEARCH_2026-11-26.md): J7 under torque control with
+# velocity/acceleration feedforward and a TORQUE BUDGET. tau = clip(tau_ff + PD, tau_ff - BUDGET, tau_ff + BUDGET),
+# tau_ff = the controller's MODEL of J7's own losses (damping, friction, inertia) along the commanded motion, so J7
+# can push the layer by at most about BUDGET beyond its own losses (arm A's grip holds ~0.9 N.m). Stall rule: if the
+# J7 following error exceeds STALL_LAG_DEG for STALL_HOLD_S during a roll, freeze and open. Robot state only.
+ROLL_MODE = "ffb"      # "ffb" (P-113) or "servo" (D18 v1: the model's position servo)
+J7_D_M, J7_F_M, J7_ARM_M = 2.0, 1.0, 0.1                      # controller model = Menagerie nominal values
+J7_KP, J7_KV, BUDGET = 800.0, 80.0, 0.6
+# P-113 revision 2 (after the first matrix): the loss model uses the MEASURED J7 rate for damping (at a stall it
+# vanishes, so no feedforward torque is pushed into a blocked layer), friction along the commanded direction (needed
+# to break away), no inertia feedforward (the PD covers it, ~0.06 deg), and a budget that grows with the modelled loss:
+# B = BUDGET + U_MODEL * (|D q_dot| + F), the time-varying threshold idea of the collision literature.
+U_MODEL = 0.2
+STALL_LAG_DEG, STALL_HOLD_S = 2.0, 0.02
+J7_ERR = 0.0           # plant error test: the SIMULATOR's J7 damping, friction, armature scaled by (1 + J7_ERR)
 JAM_BLOCK = False      # G2-7 negative test: a world-fixed block above the cube's top face beside the U layer
 
 
@@ -199,9 +214,24 @@ def build(L: float, Hc: float, mu: float):
     # 1 N.m friction, 2 N.m.s/rad damping and 0.1 kg.m2 armature (Menagerie), so D17's 1 N.m roll limit cannot even
     # overcome it (D18 finding). The cube-relevant torque is measured from the fingertip contacts instead.
     a7 = m.actuator("B_act7").id
-    m.actuator_ctrlrange[a7] = m.jnt_range[m.joint("B_joint7").id]
+    j7 = m.joint("B_joint7").id
+    if ROLL_MODE == "ffb":
+        lim = float(m.actuator_forcerange[a7, 1])
+        m.actuator_gainprm[a7, :] = 0
+        m.actuator_gainprm[a7, 0] = 1.0
+        m.actuator_biasprm[a7, :] = 0
+        m.actuator_ctrlrange[a7] = [-lim, lim]
+    else:
+        m.actuator_ctrlrange[a7] = m.jnt_range[j7]
+    v7 = m.jnt_dofadr[j7]
+    if J7_ERR:
+        m.dof_damping[v7] *= 1 + J7_ERR
+        m.dof_frictionloss[v7] *= 1 + J7_ERR
+        m.dof_armature[v7] *= 1 + J7_ERR
     info = {"L": L, "H": Hc, "cube_centre": C.tolist(), "ik": sol, "impedance": [K_P, D_P, K_R, D_R, K_Q, D_Q],
-            "roll": "B_act7 model servo (kp 800, kv 80, +-30.6 N.m)", "pad_mu": mu, "nq": m.nq, "nv": m.nv, "nu": m.nu}
+            "roll": (f"ffb: kp {J7_KP}, kv {J7_KV}, budget {BUDGET} N.m, model D {J7_D_M} F {J7_F_M} arm {J7_ARM_M}; "
+                     f"plant error {J7_ERR:+.0%}" if ROLL_MODE == "ffb" else "B_act7 model servo (kp 800, kv 80)"),
+            "pad_mu": mu, "nq": m.nq, "nv": m.nv, "nu": m.nu}
     return m, p, info, (pA, RA), (pB, RB), half
 
 
@@ -247,7 +277,17 @@ class TwoArm:
         d.ctrl[self.gA] = d.ctrl[self.gB] = self.th_open
         self.q0B = qBpre.copy()                       # posture reference for the impedance null space
         self.roll0 = float(qBpre[6])
-        d.ctrl[self.aB[6]] = self.roll0
+        self.j7 = [self.roll0, 0.0, 0.0]                  # commanded J7 angle, rate, acceleration
+        self.j7_budget_used = 0.0
+        if ROLL_MODE == "servo":
+            d.ctrl[self.aB[6]] = self.roll0
+        else:
+            # link inertia about J7 from the robot's own model (mass matrix), with the controller's nominal armature
+            mujoco.mj_forward(m, d)
+            M = np.zeros((m.nv, m.nv))
+            mujoco.mj_fullM(m, d, M)                      # MuJoCo 4 signature (m, d, dst)
+            v7 = self.vB[6]
+            self.j7_inertia = float(M[v7, v7] - m.dof_armature[v7] + J7_ARM_M)
         mujoco.mj_forward(m, d)
         self.p_d = self.pB_pre.copy()
         self.a_d = RBt[:, 2].copy()
@@ -336,9 +376,33 @@ class TwoArm:
         hi = m.actuator_ctrlrange[self.aB[:6], 1]
         d.ctrl[self.aB[:6]] = np.clip(tau, lo, hi)
 
+    def j7_control(self) -> None:
+        d = self.d
+        q, qd = float(d.qpos[self.qB[6]]), float(d.qvel[self.vB[6]])
+        qc, qdc, qddc = self.j7
+        loss_d, loss_f = J7_D_M * qd, J7_F_M * np.tanh(qdc / 0.02)
+        ff = loss_d + loss_f
+        B = BUDGET + U_MODEL * (abs(loss_d) + J7_F_M)
+        tau = ff + J7_KP * (qc - q) + J7_KV * (qdc - qd)
+        tau = float(np.clip(tau, ff - B, ff + B))
+        self.j7_budget_used = max(self.j7_budget_used, abs(tau - ff))
+        lim = self.m.actuator_ctrlrange[self.aB[6], 1]
+        d.ctrl[self.aB[6]] = float(np.clip(tau, -lim, lim))
+
+    def set_roll(self, q: float, qd: float = 0.0, qdd: float = 0.0) -> None:
+        if ROLL_MODE == "servo":
+            self.d.ctrl[self.aB[6]] = q
+        else:
+            self.j7 = [q, qd, qdd]
+
+    def roll_cmd(self) -> float:
+        return float(self.d.ctrl[self.aB[6]]) if ROLL_MODE == "servo" else self.j7[0]
+
     def ctrl_step(self, n: int = 1) -> None:
         for _ in range(n):
             self.impedance()
+            if ROLL_MODE == "ffb":
+                self.j7_control()
             self.sim.step(1)
 
     # ---- per-step monitoring ------------------------------------------------------------------------------------
@@ -473,22 +537,31 @@ class TwoArm:
         delta = -np.pi / 2 * {1: 1, 2: 2, 3: -1}[mv.quarter_turns]
         zB = d.xmat[self.bodyB].reshape(3, 3)[:, 2]        # J7 axis ~ gripper axis
         axis_sign = float(np.sign(self.acc["axis_world"] @ zB))
-        start = float(d.ctrl[self.aB[6]])
+        start = self.roll_cmd()
         n = self.secs(abs(delta) / (np.pi / 2))
         q7 = self.qB[6]
         lag_max, over, jam = 0.0, 0, None
-        hold_n = max(1, self.secs(GUARD_HOLD_S))
+        self.j7_budget_used = 0.0
+        if ROLL_MODE == "servo":
+            lag_lim, hold_n, guard_on = GUARD_LAG_DEG, max(1, self.secs(GUARD_HOLD_S)), GUARD
+        else:
+            lag_lim, hold_n, guard_on = STALL_LAG_DEG, max(1, self.secs(STALL_HOLD_S)), True
+        A, Tn = axis_sign * delta, n * m.opt.timestep
         for k in range(1, n + 1):
-            d.ctrl[self.aB[6]] = start + axis_sign * delta * (0.5 - 0.5 * np.cos(np.pi * k / n))
+            ph = np.pi * k / n
+            self.set_roll(start + A * (0.5 - 0.5 * np.cos(ph)), A * np.pi / (2 * Tn) * np.sin(ph),
+                          A * np.pi ** 2 / (2 * Tn ** 2) * np.cos(ph))
             self.step(1)
-            lag = abs(np.degrees(float(d.ctrl[self.aB[6]]) - float(d.qpos[q7])))
+            lag = abs(np.degrees(self.roll_cmd() - float(d.qpos[q7])))
             lag_max = max(lag_max, lag)
-            over = over + 1 if lag > GUARD_LAG_DEG else 0
-            if GUARD and over >= hold_n:
+            over = over + 1 if lag > lag_lim else 0
+            if guard_on and over >= hold_n:
                 jam = {"t": float(d.time), "lag_deg": lag,
                        "roll_done_deg": float(np.degrees(axis_sign * (float(d.qpos[q7]) - start)))}
-                d.ctrl[self.aB[6]] = float(d.qpos[q7])          # freeze the roll where it is
+                self.set_roll(float(d.qpos[q7]))           # freeze the roll where it is
                 break
+        if ROLL_MODE == "ffb":
+            self.set_roll(self.roll_cmd())                 # hold: no rate or acceleration feedforward
         self.step(self.secs(0.3))
         d.ctrl[self.gB] = self.th_open
         self.step(self.secs(0.3))
@@ -496,11 +569,15 @@ class TwoArm:
         _, r1 = ro.poses(d)
         obs = ro.observe(d)
         a = dict(self.acc)
-        end = float(d.ctrl[self.aB[6]])
+        end = self.roll_cmd()
         n = self.secs(1.0)
+        A, Tn = self.roll0 - end, n * m.opt.timestep
         for k in range(1, n + 1):
-            d.ctrl[self.aB[6]] = end + (self.roll0 - end) * (0.5 - 0.5 * np.cos(np.pi * k / n))
+            ph = np.pi * k / n
+            self.set_roll(end + A * (0.5 - 0.5 * np.cos(ph)), A * np.pi / (2 * Tn) * np.sin(ph),
+                          A * np.pi ** 2 / (2 * Tn ** 2) * np.cos(ph))
             self.step(1)
+        self.set_roll(self.roll0)
         nominal = -90.0 * {1: 1, 2: 2, 3: -1}[mv.quarter_turns]
         rot = ro.rotation_about_deg(r0, r1, members, mv.face)
         err = (rot - nominal + 180.0) % 360.0 - 180.0
@@ -509,7 +586,7 @@ class TwoArm:
         p1, R1 = self.rel()
         tf, tm = a["t_force"], a["t_motion"]
         return {"move": str(mv), "obs": obs, "turn_error_deg": float(np.mean(err)), "grasp_err_mm": grasp_err,
-                "j7_lag_max_deg": lag_max, "jam_stop": jam,
+                "j7_lag_max_deg": lag_max, "jam_stop": jam, "j7_budget_used_Nm": self.j7_budget_used,
                 "nontarget_drift_deg": float(drift.max()), "pen_cubie_mm": a["pen_cubie"], "pen_pad_mm": a["pen_pad"],
                 "max_roll_torque_Nm": a["tau_roll"], "max_tool_torque_on_layer_Nm": a["tau_tool"], "t_tip_force_s": tf, "t_layer_motion_rel_core_s": tm,
                 "ok_causal": bool(tm is None or (tf is not None and tf <= tm)),
@@ -586,12 +663,16 @@ def main() -> None:
     ap.add_argument("--no-stand", action="store_true", help="D18 v1 gravity-off setup instead of the stand")
     ap.add_argument("--tag", default="")
     ap.add_argument("--plain-env", action="store_true", help="no sky, floor, textures or extra lights")
+    ap.add_argument("--roll", default="ffb", choices=("ffb", "servo"))
+    ap.add_argument("--j7-err", type=float, default=0.0, help="plant error on J7 damping/friction/armature")
+    ap.add_argument("--budget", type=float, default=0.6)
     ap.add_argument("--guard", action="store_true", help="enable the J7 lag guard (false-triggers; P-111)")
     ap.add_argument("--jam-block", action="store_true")
     ap.add_argument("--guard-lag", type=float, default=3.0)
     a = ap.parse_args()
-    global STICKERS, STAND, GUARD, JAM_BLOCK, GUARD_LAG_DEG, ENV
+    global STICKERS, STAND, GUARD, JAM_BLOCK, GUARD_LAG_DEG, ENV, ROLL_MODE, J7_ERR, BUDGET
     ENV = not a.plain_env
+    ROLL_MODE, J7_ERR, BUDGET = a.roll, a.j7_err, a.budget
     STICKERS, STAND = not a.no_stickers, not a.no_stand
     GUARD, JAM_BLOCK, GUARD_LAG_DEG = a.guard, a.jam_block, a.guard_lag
     H.TIP_SOLREF = (0.01, 1.0)                         # soft pads, as scored (P-105)
@@ -625,8 +706,10 @@ def main() -> None:
     name = f"two_arm_F{a.grip:g}_L{a.L:g}_H{a.H:g}_{a.seq.replace(' ', '_').replace(chr(39), 'p')}"
     if STAND:
         name += "_stand"
+    if ROLL_MODE == "ffb":
+        name += f"_ffb{BUDGET:g}" + (f"_err{J7_ERR:+g}" if J7_ERR else "")
     if JAM_BLOCK:
-        name += "_jam" + ("_guard" if GUARD else "_noguard")
+        name += "_jam" + ("" if ROLL_MODE == "ffb" else ("_guard" if GUARD else "_noguard"))
     name += a.tag
     (OUT / f"{name}.json").write_text(json.dumps(rec, indent=1, default=float))
     print(json.dumps({k: v for k, v in rec.items() if k not in ("per_move", "scene", "approach")}, default=float))
