@@ -87,6 +87,9 @@ FT = True
 FT_T, FT_R, FT_M = 0.035, 0.0375, 0.6
 FT_STOP, FT_NOISE, FT_RATE, FT_N = 0.6, 0.01, 200.0, 2
 FT_BUDGET = 2.0
+SETUP_MISALIGN = None  # {face: deg}: setup misalignment of layers before t0 (as G1's draw_setup), via scored's
+OPEN_MIDTURN = False   # G2-7d negative test
+PAD_MU = 0.8           # fingertip friction (P-97); G2-6 screen varies it: arm B's gripper opens halfway through the roll
 CUBE_OFF = np.zeros(3) # P-109 (3) tuning study: cube start offset (m) from a pilot seed; arm targets stay nominal
 OUT_DIR = None
 J7_ERR = 0.0           # plant error test: the SIMULATOR's J7 damping, friction, armature scaled by (1 + J7_ERR)
@@ -292,7 +295,8 @@ def build(L: float, Hc: float, mu: float):
 
 
 class TwoArm:
-    def __init__(self, L: float, Hc: float, grip: float, mu: float = 0.8):
+    def __init__(self, L: float, Hc: float, grip: float, mu: float | None = None):
+        mu = PAD_MU if mu is None else mu
         self.m, self.p, self.info, (pA, RA), (pB, RB), self.half = build(L, Hc, mu)
         m = self.m
         cal = LY.calib()
@@ -302,6 +306,8 @@ class TwoArm:
         self.sim = AuditedSim(m)
         self.d = d = self.sim.d
         self.ro = CubeReadout(m, self.p.pitch)
+        if SETUP_MISALIGN:                                  # setup writes before the first step (logged)
+            scored.apply_setup_misalignment(self.sim, SETUP_MISALIGN)
         J = lambda pre: [m.joint(pre + j).id for j in bm.ARM_JOINTS]  # noqa: E731
         self.qA = np.array([m.jnt_qposadr[j] for j in J("")])
         self.qB = np.array([m.jnt_qposadr[j] for j in J("B_")])
@@ -617,6 +623,8 @@ class TwoArm:
             self.set_roll(start + A * (0.5 - 0.5 * np.cos(ph)), A * np.pi / (2 * Tn) * np.sin(ph),
                           A * np.pi ** 2 / (2 * Tn ** 2) * np.cos(ph))
             self.step(1)
+            if OPEN_MIDTURN and k == n // 2:
+                d.ctrl[self.gB] = self.th_open             # G2-7d: the turner lets go mid-turn
             if FT and k % self.ft_every == 0:              # 200 Hz sample, with noise (robot-side sensor)
                 tz = float(d.sensordata[self.ft_adr + 2]) + float(self.ft_rng.normal(0.0, FT_NOISE))
                 ft_max = max(ft_max, abs(tz))
