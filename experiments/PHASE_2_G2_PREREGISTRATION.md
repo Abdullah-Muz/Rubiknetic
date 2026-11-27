@@ -370,7 +370,7 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
 - The search is repeated and recorded at the freeze.
 
 ## 7. Evidence before the freeze
-- **Tests:** `tests/test_scored_g2.py`, TESTS_PLACEHOLDER tests pass.
+- **Tests:** `tests/test_scored_g2.py`, 62 tests pass.
 - **Self-check:** `selfcheck.py` re-runs three pilot trials and requires the **physics identity** (final qpos SHA-256,
   the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot records. Result: P-124
   (revision-2 code); **re-run at the revision-4 code: P-129** (review 3 S6).
