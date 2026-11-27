@@ -1,0 +1,90 @@
+{
+ "commit": "6d7777bd3735c32077fb3eb1a329cb10cba92b32+smoke",
+ "created": "2026-11-27T17:41:09+00:00",
+ "environment": {
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
+  "mujoco": "4.0.1",
+  "n_cpu": 16,
+  "numpy": "2.5.4",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "scipy": "1.18.1"
+ },
+ "environment_compared": [
+  "mujoco",
+  "numpy",
+  "scipy",
+  "python",
+  "cpu"
+ ],
+ "frozen_paths": [
+  "experiments/PHASE_2_G2_PREREGISTRATION.md",
+  "experiments/E8_scored_g2/run.py",
+  "experiments/E8_scored_g2/trials.py",
+  "experiments/E8_scored_g2/analyze.py",
+  "experiments/D18_two_arm_m7/two_arm.py",
+  "experiments/D18_two_arm_m7/layout.py",
+  "experiments/D17_real_holder_m7/hold.py",
+  "experiments/D17_real_holder_m7/turn.py",
+  "experiments/P2_robot_model/build_model.py",
+  "experiments/E7_scored_m7/run.py",
+  "src/rubiknetic/cube_physics/m1_model.py",
+  "src/rubiknetic/cube_physics/magnets.py",
+  "src/rubiknetic/cube_physics/rig.py",
+  "src/rubiknetic/cube_physics/readout.py",
+  "src/rubiknetic/cube_logic"
+ ],
+ "gate": "G2",
+ "trials": [
+  {
+   "exp": "G2-1",
+   "kind": "hold",
+   "kw": {
+    "hold_s": 5.0,
+    "seed": 29100
+   },
+   "reported_only": false,
+   "tid": "hold5_s29100"
+  },
+  {
+   "exp": "G2-2",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "seed": 29101
+   },
+   "reported_only": false,
+   "tid": "U_s29101"
+  },
+  {
+   "exp": "G2-3",
+   "kind": "seq",
+   "kw": {
+    "moves": "U2",
+    "seed": 29102
+   },
+   "reported_only": false,
+   "tid": "U2_s29102"
+  },
+  {
+   "exp": "G2-4",
+   "kind": "seq",
+   "kw": {
+    "moves": "U U' U2",
+    "seed": 29103
+   },
+   "reported_only": false,
+   "tid": "seq3_s29103"
+  },
+  {
+   "exp": "G2-7",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "seed": 29104
+   },
+   "reported_only": false,
+   "tid": "jam_s29104"
+  }
+ ]
+}

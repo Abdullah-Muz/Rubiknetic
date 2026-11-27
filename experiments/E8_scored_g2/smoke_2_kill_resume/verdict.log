@@ -1,0 +1,26 @@
+# G2 verdict: **PASS**
+
+- scored trials: 5 (reported only: 0)
+- turn trials: 3, failures 0, exact 95 % upper bound on the per-trial failure rate 0.632
+- moves: 5
+- G2-1 holds: 1/1 pass; max slip 0.01637866109196997 mm, max rotation 0.03341318024026673 deg
+
+| per-move maximum | value |
+|---|---|
+| turn_error_deg | 0.936 |
+| nontarget_drift_deg | 0.234 |
+| pen_cubie_mm | 0.137 |
+| pen_pad_mm | 1.038 |
+| ft_tau_z_max_Nm | 0.471 |
+| max_tool_torque_on_layer_Nm | 0.553 |
+| core_slip_mm | 0.131 |
+| core_rot_deg | 0.819 |
+| grasp_err_mm | 0.702 |
+| armB_track_err_mm | 1.957 |
+
+| G2-7 negative case | pass | outcome |
+|---|---|---|
+| jam_s29104 | True | guard stop |
+
+| G2-6 screen (reported only) | turns pass | reasons |
+|---|---|---|

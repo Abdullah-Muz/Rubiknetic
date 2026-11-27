@@ -1,0 +1,24 @@
+start 2: commit 6d7777bd3735c32077fb3eb1a329cb10cba92b32+smoke; 3 of 5 trials to run; orphans moved 1; ledger lines reconciled 1
+WARNING: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+
+WARNING: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+
+/mnt/c/dev/Rubiknetic/experiments/D18_two_arm_m7/two_arm.py:260: UserWarning: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+  m = parent.compile()
+/mnt/c/dev/Rubiknetic/experiments/D18_two_arm_m7/two_arm.py:260: UserWarning: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+  m = parent.compile()
+start {"stand": true, "stickers": false, "stand_load_N": 0.883, "stand_load_after_grasp_N": 0.745, "settle_on_stand_mm": 0.212, "settle_rot_deg": 0.081, "grasp_shift_mm": 1.127, "grasp_rot_deg": 0.192, "stand_drop_shift_mm": 0.103, "stand_drop_rot_deg": 0.029, "stand_contact_after_drop_N": 0.0, "core_offset_from_nominal_mm": 0.269}
+approach {"pen_pad": 0.372, "pen_cubie": 0.026, "robot_cube_nonpad": 0, "arm_arm": 0, "robot_table": 0, "t_force": null, "t_motion": null, "tau_roll": 0.0, "tau_tool": 0.0, "saturated_steps": 0, "track_err_mm": 6.836, "final_err_mm": 1.133, "final_axis_err_deg": 0.066}
+PASS G2-1/hold5_s29100 
+WARNING: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+
+/mnt/c/dev/Rubiknetic/experiments/D18_two_arm_m7/two_arm.py:260: UserWarning: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+  m = parent.compile()
+start {"stand": true, "stickers": false, "stand_load_N": 0.884, "stand_load_after_grasp_N": 1.156, "settle_on_stand_mm": 0.197, "settle_rot_deg": 0.131, "grasp_shift_mm": 0.713, "grasp_rot_deg": 0.112, "stand_drop_shift_mm": 0.109, "stand_drop_rot_deg": 0.022, "stand_contact_after_drop_N": 0.0, "core_offset_from_nominal_mm": 1.482}
+approach {"pen_pad": 0.351, "pen_cubie": 0.027, "robot_cube_nonpad": 0, "arm_arm": 0, "robot_table": 0, "t_force": null, "t_motion": null, "tau_roll": 0.0, "tau_tool": 0.0, "saturated_steps": 0, "track_err_mm": 6.836, "final_err_mm": 1.133, "final_axis_err_deg": 0.066}
+{"move": "U2", "turn_error_deg": 0.936, "grasp_err_mm": 0.702, "j7_lag_max_deg": 0.063, "jam_stop": null, "j7_budget_used_Nm": 2.24, "ft_tau_z_max_Nm": 0.252, "nontarget_drift_deg": 0.201, "pen_cubie_mm": 0.113, "pen_pad_mm": 1.036, "max_roll_torque_Nm": 6.111, "max_tool_torque_on_layer_Nm": 0.28, "t_tip_force_s": 6.471, "t_layer_motion_rel_core_s": 6.481, "ok_causal": true, "robot_cube_nonpad_max": 0, "arm_arm_max": 0, "robot_table_max": 0, "saturated_steps": 0, "armB_track_err_mm": 1.324, "core_slip_mm": 0.036, "core_rot_deg": 0.266, "observed_move": "U2", "ok_oracle": true, "ok_turn_error": true, "ok_drift": true, "ok_penetration_cubie": true, "ok_no_nonpad_cube_contact": true, "ok_no_arm_arm": true, "ok_no_table": true, "ok_all": true}
+PASS G2-3/U2_s29102 
+{"move": "U", "turn_error_deg": 59.475, "grasp_err_mm": 0.702, "j7_lag_max_deg": 0.02, "jam_stop": {"t": 8.238499999998577, "by": "ft", "tau_z_Nm": 0.8228317449853403, "roll_done_deg": -35.19823745887068}, "j7_budget_used_Nm": 3.162, "ft_tau_z_max_Nm": 0.823, "nontarget_drift_deg": 0.133, "pen_cubie_mm": 0.157, "pen_pad_mm": 0.885, "max_roll_torque_Nm": 6.805, "max_tool_torque_on_layer_Nm": 0.829, "t_tip_force_s": 6.487, "t_layer_motion_rel_core_s": 6.498, "ok_causal": true, "robot_cube_nonpad_max": 0, "arm_arm_max": 0, "robot_table_max": 0, "saturated_steps": 0, "armB_track_err_mm": 2.972, "core_slip_mm": 0.143, "core_rot_deg": 0.295, "observed_move": null, "ok_oracle": false, "ok_turn_error": false, "ok_drift": true, "ok_penetration_cubie": true, "ok_no_nonpad_cube_contact": true, "ok_no_arm_arm": true, "ok_no_table": true, "ok_all": false}
+PASS G2-7/jam_s29104 
+complete: 3 records written this start in 193 s
+exit 0

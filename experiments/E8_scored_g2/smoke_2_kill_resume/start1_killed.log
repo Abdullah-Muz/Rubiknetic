@@ -1,0 +1,29 @@
+start 1: commit 6d7777bd3735c32077fb3eb1a329cb10cba92b32+smoke; 5 of 5 trials to run; orphans moved 0; ledger lines reconciled 0
+WARNING: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+
+/mnt/c/dev/Rubiknetic/experiments/D18_two_arm_m7/two_arm.py:260: UserWarning: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+  m = parent.compile()
+start {"stand": true, "stickers": false, "stand_load_N": 0.883, "stand_load_after_grasp_N": 0.79, "settle_on_stand_mm": 0.269, "settle_rot_deg": 0.354, "grasp_shift_mm": 1.175, "grasp_rot_deg": 0.638, "stand_drop_shift_mm": 0.111, "stand_drop_rot_deg": 0.023, "stand_contact_after_drop_N": 0.0, "core_offset_from_nominal_mm": 0.882}
+approach {"pen_pad": 0.453, "pen_cubie": 0.028, "robot_cube_nonpad": 0, "arm_arm": 0, "robot_table": 0, "t_force": null, "t_motion": null, "tau_roll": 0.0, "tau_tool": 0.0, "saturated_steps": 0, "track_err_mm": 6.836, "final_err_mm": 1.133, "final_axis_err_deg": 0.066}
+{"move": "U", "turn_error_deg": 0.253, "grasp_err_mm": 0.702, "j7_lag_max_deg": 0.062, "jam_stop": null, "j7_budget_used_Nm": 2.213, "ft_tau_z_max_Nm": 0.357, "nontarget_drift_deg": 0.23, "pen_cubie_mm": 0.128, "pen_pad_mm": 0.868, "max_roll_torque_Nm": 6.179, "max_tool_torque_on_layer_Nm": 0.395, "t_tip_force_s": 6.482, "t_layer_motion_rel_core_s": 7.823, "ok_causal": true, "robot_cube_nonpad_max": 0, "arm_arm_max": 0, "robot_table_max": 0, "saturated_steps": 0, "armB_track_err_mm": 1.159, "core_slip_mm": 0.049, "core_rot_deg": 0.778, "observed_move": "U", "ok_oracle": true, "ok_turn_error": true, "ok_drift": true, "ok_penetration_cubie": true, "ok_no_nonpad_cube_contact": true, "ok_no_arm_arm": true, "ok_no_table": true, "ok_all": true}
+{"move": "U'", "turn_error_deg": 0.011, "grasp_err_mm": 0.514, "j7_lag_max_deg": 0.066, "jam_stop": null, "j7_budget_used_Nm": 2.213, "ft_tau_z_max_Nm": 0.145, "nontarget_drift_deg": 0.232, "pen_cubie_mm": 0.126, "pen_pad_mm": 0.969, "max_roll_torque_Nm": 6.078, "max_tool_torque_on_layer_Nm": 0.159, "t_tip_force_s": 11.293, "t_layer_motion_rel_core_s": 11.333, "ok_causal": true, "robot_cube_nonpad_max": 0, "arm_arm_max": 0, "robot_table_max": 0, "saturated_steps": 0, "armB_track_err_mm": 1.957, "core_slip_mm": 0.028, "core_rot_deg": 0.389, "observed_move": "U'", "ok_oracle": true, "ok_turn_error": true, "ok_drift": true, "ok_penetration_cubie": true, "ok_no_nonpad_cube_contact": true, "ok_no_arm_arm": true, "ok_no_table": true, "ok_all": true}
+{"move": "U2", "turn_error_deg": -0.107, "grasp_err_mm": 0.673, "j7_lag_max_deg": 0.068, "jam_stop": null, "j7_budget_used_Nm": 2.24, "ft_tau_z_max_Nm": 0.119, "nontarget_drift_deg": 0.127, "pen_cubie_mm": 0.112, "pen_pad_mm": 1.001, "max_roll_torque_Nm": 5.989, "max_tool_torque_on_layer_Nm": 0.115, "t_tip_force_s": 16.121, "t_layer_motion_rel_core_s": 16.139, "ok_causal": true, "robot_cube_nonpad_max": 0, "arm_arm_max": 0, "robot_table_max": 0, "saturated_steps": 0, "armB_track_err_mm": 1.512, "core_slip_mm": 0.107, "core_rot_deg": 0.819, "observed_move": "U2", "ok_oracle": true, "ok_turn_error": true, "ok_drift": true, "ok_penetration_cubie": true, "ok_no_nonpad_cube_contact": true, "ok_no_arm_arm": true, "ok_no_table": true, "ok_all": true}
+PASS G2-4/seq3_s29103 
+WARNING: Attaching a spec with an empty prefix may prevent the model from being saved correctly.
+
+start {"stand": true, "stickers": false, "stand_load_N": 0.881, "stand_load_after_grasp_N": 1.232, "settle_on_stand_mm": 0.261, "settle_rot_deg": 0.55, "grasp_shift_mm": 0.559, "grasp_rot_deg": 0.051, "stand_drop_shift_mm": 0.109, "stand_drop_rot_deg": 0.027, "stand_contact_after_drop_N": 0.0, "core_offset_from_nominal_mm": 1.732}
+approach {"pen_pad": 0.359, "pen_cubie": 0.032, "robot_cube_nonpad": 0, "arm_arm": 0, "robot_table": 0, "t_force": null, "t_motion": null, "tau_roll": 0.0, "tau_tool": 0.0, "saturated_steps": 0, "track_err_mm": 6.836, "final_err_mm": 1.133, "final_axis_err_deg": 0.066}
+{"move": "U", "turn_error_deg": 0.646, "grasp_err_mm": 0.702, "j7_lag_max_deg": 0.055, "jam_stop": null, "j7_budget_used_Nm": 2.213, "ft_tau_z_max_Nm": 0.471, "nontarget_drift_deg": 0.234, "pen_cubie_mm": 0.137, "pen_pad_mm": 1.038, "max_roll_torque_Nm": 6.332, "max_tool_torque_on_layer_Nm": 0.553, "t_tip_force_s": 6.48, "t_layer_motion_rel_core_s": 6.492, "ok_causal": true, "robot_cube_nonpad_max": 0, "arm_arm_max": 0, "robot_table_max": 0, "saturated_steps": 0, "armB_track_err_mm": 1.294, "core_slip_mm": 0.131, "core_rot_deg": 0.505, "observed_move": "U", "ok_oracle": true, "ok_turn_error": true, "ok_drift": true, "ok_penetration_cubie": true, "ok_no_nonpad_cube_contact": true, "ok_no_arm_arm": true, "ok_no_table": true, "ok_all": true}
+exit 3
+/home/fwdev/g2smoke_2/results/G2-2/:
+total 24
+drwxr-xr-x 2 fwdev fwdev 4096 Nov 27 09:47 .
+drwxr-xr-x 4 fwdev fwdev 4096 Nov 27 09:47 ..
+-rw-r--r-- 2 fwdev fwdev 4852 Nov 27 09:47 .U_s29101.json.tmp
+-rw-r--r-- 2 fwdev fwdev 4852 Nov 27 09:47 U_s29101.json
+
+/home/fwdev/g2smoke_2/results/G2-4/:
+total 16
+drwxr-xr-x 2 fwdev fwdev 4096 Nov 27 09:45 .
+drwxr-xr-x 4 fwdev fwdev 4096 Nov 27 09:47 ..
+-rw-r--r-- 1 fwdev fwdev 6975 Nov 27 09:45 seq3_s29103.json
