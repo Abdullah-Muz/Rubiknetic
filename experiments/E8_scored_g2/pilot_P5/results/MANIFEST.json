@@ -1,0 +1,732 @@
+{
+ "commit": "0ab31b542f307148f6c48e5ba047e2fa28e58106+smoke",
+ "created": "2026-11-27T06:01:13+00:00",
+ "environment": {
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
+  "mujoco": "4.0.1",
+  "n_cpu": 16,
+  "numpy": "2.5.4",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "scipy": "1.18.1"
+ },
+ "environment_compared": [
+  "mujoco",
+  "numpy",
+  "scipy",
+  "python",
+  "cpu"
+ ],
+ "frozen_paths": [
+  "experiments/PHASE_2_G2_PREREGISTRATION.md",
+  "experiments/E8_scored_g2/run.py",
+  "experiments/E8_scored_g2/trials.py",
+  "experiments/E8_scored_g2/analyze.py",
+  "experiments/D18_two_arm_m7/two_arm.py",
+  "experiments/D18_two_arm_m7/layout.py",
+  "experiments/D17_real_holder_m7/hold.py",
+  "experiments/D17_real_holder_m7/turn.py",
+  "experiments/P2_robot_model/build_model.py",
+  "experiments/E7_scored_m7/run.py",
+  "src/rubiknetic/cube_physics/m1_model.py",
+  "src/rubiknetic/cube_physics/magnets.py",
+  "src/rubiknetic/cube_physics/rig.py",
+  "src/rubiknetic/cube_physics/readout.py",
+  "src/rubiknetic/cube_logic"
+ ],
+ "gate": "G2",
+ "trials": [
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29200
+   },
+   "reported_only": false,
+   "tid": "U_s29200"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29201
+   },
+   "reported_only": false,
+   "tid": "U_s29201"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29202
+   },
+   "reported_only": false,
+   "tid": "U_s29202"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29203
+   },
+   "reported_only": false,
+   "tid": "U_s29203"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29204
+   },
+   "reported_only": false,
+   "tid": "U_s29204"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29205
+   },
+   "reported_only": false,
+   "tid": "U_s29205"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29206
+   },
+   "reported_only": false,
+   "tid": "U_s29206"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29207
+   },
+   "reported_only": false,
+   "tid": "U_s29207"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29208
+   },
+   "reported_only": false,
+   "tid": "U_s29208"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29209
+   },
+   "reported_only": false,
+   "tid": "U_s29209"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29210
+   },
+   "reported_only": false,
+   "tid": "U_s29210"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29211
+   },
+   "reported_only": false,
+   "tid": "U_s29211"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29212
+   },
+   "reported_only": false,
+   "tid": "U_s29212"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29213
+   },
+   "reported_only": false,
+   "tid": "U_s29213"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29214
+   },
+   "reported_only": false,
+   "tid": "U_s29214"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29215
+   },
+   "reported_only": false,
+   "tid": "U_s29215"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29216
+   },
+   "reported_only": false,
+   "tid": "U_s29216"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29217
+   },
+   "reported_only": false,
+   "tid": "U_s29217"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29218
+   },
+   "reported_only": false,
+   "tid": "U_s29218"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29219
+   },
+   "reported_only": false,
+   "tid": "U_s29219"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29220
+   },
+   "reported_only": false,
+   "tid": "U_s29220"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29221
+   },
+   "reported_only": false,
+   "tid": "U_s29221"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29222
+   },
+   "reported_only": false,
+   "tid": "U_s29222"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29223
+   },
+   "reported_only": false,
+   "tid": "U_s29223"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29224
+   },
+   "reported_only": false,
+   "tid": "U_s29224"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29225
+   },
+   "reported_only": false,
+   "tid": "U_s29225"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29226
+   },
+   "reported_only": false,
+   "tid": "U_s29226"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29227
+   },
+   "reported_only": false,
+   "tid": "U_s29227"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29228
+   },
+   "reported_only": false,
+   "tid": "U_s29228"
+  },
+  {
+   "exp": "P-U",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29229
+   },
+   "reported_only": false,
+   "tid": "U_s29229"
+  },
+  {
+   "exp": "P-jam",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "overrides": {
+     "ft_stop": 0.6
+    },
+    "seed": 29230
+   },
+   "reported_only": false,
+   "tid": "jam0.6_s29230"
+  },
+  {
+   "exp": "P-jam",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "overrides": {
+     "ft_stop": 0.6
+    },
+    "seed": 29231
+   },
+   "reported_only": false,
+   "tid": "jam0.6_s29231"
+  },
+  {
+   "exp": "P-jam",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "overrides": {
+     "ft_stop": 0.6
+    },
+    "seed": 29232
+   },
+   "reported_only": false,
+   "tid": "jam0.6_s29232"
+  },
+  {
+   "exp": "P-jam",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "overrides": {
+     "ft_stop": 0.8
+    },
+    "seed": 29233
+   },
+   "reported_only": false,
+   "tid": "jam0.8_s29233"
+  },
+  {
+   "exp": "P-jam",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "overrides": {
+     "ft_stop": 0.8
+    },
+    "seed": 29234
+   },
+   "reported_only": false,
+   "tid": "jam0.8_s29234"
+  },
+  {
+   "exp": "P-jam",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "overrides": {
+     "ft_stop": 0.8
+    },
+    "seed": 29235
+   },
+   "reported_only": false,
+   "tid": "jam0.8_s29235"
+  },
+  {
+   "exp": "P-jam",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "overrides": {
+     "ft_stop": 0.8
+    },
+    "seed": 29236
+   },
+   "reported_only": false,
+   "tid": "jam0.8_s29236"
+  },
+  {
+   "exp": "P-jam",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "overrides": {
+     "ft_stop": 1.0
+    },
+    "seed": 29237
+   },
+   "reported_only": false,
+   "tid": "jam1_s29237"
+  },
+  {
+   "exp": "P-jam",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "overrides": {
+     "ft_stop": 1.0
+    },
+    "seed": 29238
+   },
+   "reported_only": false,
+   "tid": "jam1_s29238"
+  },
+  {
+   "exp": "P-jam",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "overrides": {
+     "ft_stop": 1.0
+    },
+    "seed": 29239
+   },
+   "reported_only": false,
+   "tid": "jam1_s29239"
+  },
+  {
+   "exp": "P-neg",
+   "kind": "neg",
+   "kw": {
+    "case": "two_layer",
+    "seed": 29240
+   },
+   "reported_only": false,
+   "tid": "two_layer_s29240"
+  },
+  {
+   "exp": "P-neg",
+   "kind": "neg",
+   "kw": {
+    "case": "two_layer",
+    "seed": 29241
+   },
+   "reported_only": false,
+   "tid": "two_layer_s29241"
+  },
+  {
+   "exp": "P-neg",
+   "kind": "neg",
+   "kw": {
+    "case": "offcentre",
+    "seed": 29242
+   },
+   "reported_only": false,
+   "tid": "offcentre_s29242"
+  },
+  {
+   "exp": "P-neg",
+   "kind": "neg",
+   "kw": {
+    "case": "offcentre",
+    "seed": 29243
+   },
+   "reported_only": false,
+   "tid": "offcentre_s29243"
+  },
+  {
+   "exp": "P-neg",
+   "kind": "neg",
+   "kw": {
+    "case": "collision",
+    "seed": 29244
+   },
+   "reported_only": false,
+   "tid": "collision_s29244"
+  },
+  {
+   "exp": "P-neg",
+   "kind": "neg",
+   "kw": {
+    "case": "collision",
+    "seed": 29245
+   },
+   "reported_only": false,
+   "tid": "collision_s29245"
+  },
+  {
+   "exp": "P-neg",
+   "kind": "neg",
+   "kw": {
+    "case": "open_midturn",
+    "seed": 29246
+   },
+   "reported_only": false,
+   "tid": "open_midturn_s29246"
+  },
+  {
+   "exp": "P-neg",
+   "kind": "neg",
+   "kw": {
+    "case": "open_midturn",
+    "seed": 29247
+   },
+   "reported_only": false,
+   "tid": "open_midturn_s29247"
+  },
+  {
+   "exp": "P-hold",
+   "kind": "hold",
+   "kw": {
+    "hold_s": 60.0,
+    "seed": 29250
+   },
+   "reported_only": false,
+   "tid": "hold60_s29250"
+  },
+  {
+   "exp": "P-hold",
+   "kind": "hold",
+   "kw": {
+    "hold_s": 60.0,
+    "seed": 29251
+   },
+   "reported_only": false,
+   "tid": "hold60_s29251"
+  },
+  {
+   "exp": "P-hold",
+   "kind": "hold",
+   "kw": {
+    "hold_s": 60.0,
+    "seed": 29252
+   },
+   "reported_only": false,
+   "tid": "hold60_s29252"
+  },
+  {
+   "exp": "P-hold",
+   "kind": "hold",
+   "kw": {
+    "hold_s": 60.0,
+    "seed": 29253
+   },
+   "reported_only": false,
+   "tid": "hold60_s29253"
+  },
+  {
+   "exp": "P-rand",
+   "kind": "seq",
+   "kw": {
+    "moves": "U U U2 U2 U' U2 U' U2 U2 U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29260
+   },
+   "reported_only": false,
+   "tid": "rand10_s29260"
+  },
+  {
+   "exp": "P-rand",
+   "kind": "seq",
+   "kw": {
+    "moves": "U U' U2 U2 U U U' U U2 U2",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29261
+   },
+   "reported_only": false,
+   "tid": "rand10_s29261"
+  },
+  {
+   "exp": "P-rand",
+   "kind": "seq",
+   "kw": {
+    "moves": "U' U U2 U2 U2 U U2 U U' U",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29262
+   },
+   "reported_only": false,
+   "tid": "rand10_s29262"
+  },
+  {
+   "exp": "P-rand",
+   "kind": "seq",
+   "kw": {
+    "moves": "U2 U U' U' U2 U U2 U2 U2 U'",
+    "overrides": {
+     "ft_stop": 5.0
+    },
+    "seed": 29263
+   },
+   "reported_only": false,
+   "tid": "rand10_s29263"
+  }
+ ]
+}

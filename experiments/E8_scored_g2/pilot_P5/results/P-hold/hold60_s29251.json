@@ -1,0 +1,67 @@
+{
+ "kind": "hold",
+ "hold_s": 60.0,
+ "start_draw": {
+  "cube_offset_m": [
+   -3.528342346256514e-05,
+   0.0008326885189598801,
+   -0.00024642724911139397
+  ],
+  "misalign_deg": {
+   "U": -0.22082111189903753,
+   "D": -0.9026395766000932,
+   "F": -0.29788416662735684,
+   "B": -0.9311248794955282,
+   "L": 0.9052872663535063,
+   "R": 0.6032956124456073
+  }
+ },
+ "start": {
+  "stand": true,
+  "stickers": false,
+  "stand_load_N": 0.8818541361072711,
+  "stand_load_after_grasp_N": 0.6135316566849474,
+  "settle_on_stand_mm": 0.33006262046459517,
+  "settle_rot_deg": 0.7024100186241679,
+  "grasp_shift_mm": 1.2439946851549277,
+  "grasp_rot_deg": 0.4273216569563771,
+  "stand_drop_shift_mm": 0.08763825065446666,
+  "stand_drop_rot_deg": 0.02422171407506038,
+  "stand_contact_after_drop_N": 0.0,
+  "core_offset_from_nominal_mm": 1.161055162391433
+ },
+ "t0_solved": true,
+ "core_slip_mm": 0.048707744593808465,
+ "core_rot_deg": 0.18678368917725363,
+ "final_solved": true,
+ "robot_cube_nonpad_max": 0,
+ "arm_arm_max": 0,
+ "robot_table_max": 0,
+ "pen_cubie_mm": 0.03663433840189784,
+ "audit_violations": [],
+ "numerical_failures": [],
+ "fail_reasons": [],
+ "pass": true,
+ "experiment": "P-hold",
+ "trial_id": "hold60_s29251",
+ "spec": {
+  "seed": 29251,
+  "hold_s": 60.0
+ },
+ "reported_only": false,
+ "source_commit": "0ab31b542f307148f6c48e5ba047e2fa28e58106+smoke",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "python": "3.12.3",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "n_cpu": 16
+ },
+ "smoke": true,
+ "scored": false,
+ "mechanism": "M7 free core, two xArm7",
+ "loadavg_start": 4.91064453125,
+ "wall_s": 932.1214097369957
+}
