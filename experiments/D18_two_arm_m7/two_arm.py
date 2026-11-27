@@ -3,19 +3,23 @@ M7 cube held horizontally by arm A (P-97 stabiliser, from the D end), U turned b
 
 Scene: table plane z = 0; arm A base at the origin; arm B ("B_") base at (L, 0, 0) yawed 180 deg; cube centre
 (L/2, 0, H); layout.py's IK for the grasp poses. Cube +z (U) = world +x.
-Controllers (classical; they read only robot joint states, robot kinematics derived from them, commanded targets and
-time; never the cube or cubie state):
-  * arm A: its joint position servos hold the IK grasp pose (actuator gravity compensation); gripper ramps closed in
-    the setup phase (gravity off, before t0, logged, as D17);
-  * arm B: joints 1-6 under Cartesian impedance at the gripper base (position K_P 2000 N/m, D_P 60 N.s/m; gripper
-    axis direction K_R 50 N.m/rad, D_R 2 N.m.s/rad; weak joint posture and damping), as torque (motor) actuators
-    clamped to the URDF peak efforts, with the model's actuator gravity compensation; J7 is the roll: a position servo
-    kp 5, kv 0.2, +-1 N.m (as the G1 turner). Approach: from 40 mm outside along the axis to the grasp pose in 1 s.
-Per move: (rest: fixed 0.3 s settle; the cube-state rest check of D16b/D17 is not allowed here) -> ramp B closed ->
-roll on a cosine ramp, 1 s per quarter -> hold 0.3 s -> open -> roll back.
-Checks per move: as D17 stage B (oracle, turn error, drift, cubie penetration, causality relative to the core, core
-slip relative to arm A) plus: robot contacts with the cube other than fingertips, arm-arm contacts, robot-table
-contacts (bases excluded), actuator saturation flags.
+Controllers (classical; they read only robot joint states, robot kinematics derived from them, the F/T sample,
+commanded targets and time; never the cube or cubie state; the roll direction comes from the nominal layout):
+  * arm A: its joint position servos hold the IK grasp pose (actuator gravity compensation); with STAND (default) the
+    cube starts on a stand, arm A ramps closed with gravity on and the stand drops away (P-109, P-110);
+  * arm B: joints 1-6 under Cartesian impedance at the gripper base (position K_P 4000 N/m (P-115), D_P 60 N.s/m;
+    axis direction K_R 50 N.m/rad, D_R 2 N.m.s/rad; weak posture and damping; integral term that integrates only while
+    the fingers are open and is held, not zeroed, while gripping), as torque actuators clamped to the URDF peak
+    efforts, with actuator gravity compensation; J7 (roll) under torque control with velocity feedforward and a torque
+    budget (P-113, P-114); the wrist F/T sensor (P-114) stops a roll at |tau_z| > FT_STOP on two samples; a stall rule
+    (lag > 2 deg for 20 ms) as backup. Approach: from 40 mm outside along the axis to the grasp pose in 1 s.
+Per move: fixed 0.3 s settle -> ramp B closed -> roll on a cosine ramp, 1 s per quarter -> hold 0.3 s -> open ->
+roll back (1 s). Each move is measured from its start (the previous move's end) through its roll-back.
+Checks (G2 pre-registration revision 2 §4): oracle, turn error, drift, cubie penetration, causality (fingertip-cubie
+force before layer motion), drive (fingertip torque impulse in the commanded direction during the roll), roll-back
+rotation and state, contacts (non-fingertip robot-cube, arm-arm, robot-table, robot-stand, robot-block, cube-stand
+after the drop) over the start sequence, the approach and every move, core slip and rotation relative to arm A per
+move and from t0, and every cubie's residual misalignment at the end relative to t0.
 Usage (WSL): python two_arm.py [--seq "U U' U2 U' U"] [--grip 20] [--L 1.0] [--H 0.30] [--view]
   --view opens the MuJoCo viewer (needs a display, e.g. WSLg) and does not write a result file.
 """
@@ -88,12 +92,58 @@ FT_T, FT_R, FT_M = 0.035, 0.0375, 0.6
 FT_STOP, FT_NOISE, FT_RATE, FT_N = 0.6, 0.01, 200.0, 2
 FT_BUDGET = 2.0
 SETUP_MISALIGN = None  # {face: deg}: setup misalignment of layers before t0 (as G1's draw_setup), via scored's
-OPEN_MIDTURN = False   # G2-7d negative test
-PAD_MU = 0.8           # fingertip friction (P-97); G2-6 screen varies it: arm B's gripper opens halfway through the roll
+OPEN_MIDTURN = False   # G2-7d negative test: arm B's gripper opens halfway through the roll
+PAD_MU = 0.8           # fingertip friction (P-97, both arms); the G2-6 screen varies it
 CUBE_OFF = np.zeros(3) # P-109 (3) tuning study: cube start offset (m) from a pilot seed; arm targets stay nominal
 OUT_DIR = None
 J7_ERR = 0.0           # plant error test: the SIMULATOR's J7 damping, friction, armature scaled by (1 + J7_ERR)
 JAM_BLOCK = False      # G2-7 negative test: a world-fixed block above the cube's top face beside the U layer
+
+
+CORE_ROT_MOVE_DEG = 2.0       # per-move core rotation in arm A's grip (revision 2; justified in the pre-registration)
+CONTACT_KEYS = ("pen_cubie", "robot_cube_nonpad", "arm_arm", "robot_table", "robot_stand", "robot_block", "cube_stand")
+
+
+def _cube_rotations() -> list[np.ndarray]:
+    import itertools
+    out = []
+    for perm in itertools.permutations(range(3)):
+        for signs in itertools.product((-1.0, 1.0), repeat=3):
+            M = np.zeros((3, 3))
+            for i, (j, sgn) in enumerate(zip(perm, signs)):
+                M[i, j] = sgn
+            if np.linalg.det(M) > 0:
+                out.append(M)
+    return out
+
+
+CUBE_ROTS = _cube_rotations()                       # the 24 proper rotations of the cube
+
+
+def lattice_residual_deg(rots: np.ndarray) -> list[float]:
+    """Per cubie: angle (deg) from its rotation in the core frame to the nearest of the 24 cube rotations."""
+    out = []
+    for R in rots:
+        best = min(np.degrees(np.arccos(np.clip((np.trace(Q.T @ R) - 1) / 2, -1.0, 1.0))) for Q in CUBE_ROTS)
+        out.append(float(best))
+    return out
+
+
+def model_audit(m) -> dict:
+    """No actuator or equality constraint may act on a cube body (CLAUDE.md, P-16; magnets act through MagnetSystem)."""
+    core = m.body("core").id
+    cube = {b for b in range(m.nbody) if m.body_rootid[b] == core}
+    acts = [m.actuator(i).name for i in range(m.nu)
+            if m.actuator_trntype[i] == mujoco.mjtTrn.mjTRN_JOINT and m.jnt_bodyid[m.actuator_trnid[i, 0]] in cube]
+    eqs = []
+    for i in range(m.neq):
+        if m.eq_type[i] == mujoco.mjtEq.mjEQ_JOINT:
+            bodies = {m.jnt_bodyid[m.eq_obj1id[i]]} | ({m.jnt_bodyid[m.eq_obj2id[i]]} if m.eq_obj2id[i] >= 0 else set())
+        else:
+            bodies = {m.eq_obj1id[i], m.eq_obj2id[i]}
+        if bodies & cube:
+            eqs.append(i)
+    return {"actuators_on_cube": acts, "equalities_on_cube": eqs, "n_cube_bodies": len(cube)}
 
 
 def add_stickers(cube, p) -> None:
@@ -268,9 +318,9 @@ def build(L: float, Hc: float, mu: float):
         m.actuator_gainprm[a, 0] = 1.0
         m.actuator_biasprm[a, :] = 0
         m.actuator_ctrlrange[a] = [-lim, lim]
-    # J7 (roll) keeps the model's own position servo (kp 800, kv 80) and URDF peak limit (30.6 N.m): the joint has
-    # 1 N.m friction, 2 N.m.s/rad damping and 0.1 kg.m2 armature (Menagerie), so D17's 1 N.m roll limit cannot even
-    # overcome it (D18 finding). The cube-relevant torque is measured from the fingertip contacts instead.
+    # J7 (roll): ROLL_MODE "ffb" (default) turns it into a torque actuator driven by j7_control (P-113, P-114);
+    # "servo" keeps the model's position servo (kp 800, kv 80). The joint has 1 N.m friction, 2 N.m.s/rad damping and
+    # 0.1 kg.m2 armature (Menagerie).
     a7 = m.actuator("B_act7").id
     j7 = m.joint("B_joint7").id
     if ROLL_MODE == "ffb":
@@ -341,6 +391,9 @@ class TwoArm:
         d.ctrl[self.aA] = qA
         d.ctrl[self.gA] = d.ctrl[self.gB] = self.th_open
         self.q0B = qBpre.copy()                       # posture reference for the impedance null space
+        # review 1 item 1: the roll direction from the NOMINAL layout (cube U = world +x), never from the cube state
+        self.roll_sign = float(np.sign(np.array([1.0, 0.0, 0.0]) @ RBt[:, 2]))
+        self.model_audit = model_audit(m)
         self.roll0 = float(qBpre[6])
         self.j7 = [self.roll0, 0.0, 0.0]                  # commanded J7 angle, rate, acceleration
         self.ft_rng = np.random.default_rng(29000)        # F/T noise (pilot seed range)
@@ -374,7 +427,10 @@ class TwoArm:
         self.pads = np.array(self.tipsA + self.tipsB)
         self.cubie = np.array(self.ro.geom_ids)
         self.table = m.geom("table").id
+        self.stand_g = m.geom("stand_g").id if STAND else -1
+        self.block_g = m.geom("jam_block").id if JAM_BLOCK else -1
         self.f6 = np.zeros(6)
+        self.new_acc()                                    # the start sequence is monitored too (review 1 item 2)
         dt = m.opt.timestep
         self.start = {"stand": STAND, "stickers": STICKERS}
         if STAND:
@@ -390,20 +446,21 @@ class TwoArm:
             def rot(Ra, Rb):
                 return float(np.degrees(np.linalg.norm(Rotation.from_matrix(Rb @ Ra.T).as_rotvec())))
             c0, R0 = pose()
-            self.ctrl_step(int(round(0.3 / dt)))
+            self.step(int(round(0.3 / dt)))
             c1, R1 = pose()
             self.start["stand_load_N"] = self.force_on([sg])
             for k in range(int(H.SETUP_S / dt)):
                 d.ctrl[self.gA] = min(bm.DRIVE_RANGE[1], self.th_open + H.CLOSE_RATE * k * dt)
-                self.ctrl_step()
-            self.ctrl_step(int(round(0.3 / dt)))
+                self.step(1)
+            self.step(int(round(0.3 / dt)))
             c2, R2 = pose()
             self.start["stand_load_after_grasp_N"] = self.force_on([sg])
             n = int(round(0.5 / dt))
             for k in range(1, n + 1):
                 d.ctrl[sa] = -STAND_DROP * k / n
-                self.ctrl_step()
-            self.ctrl_step(int(round(0.5 / dt)))
+                self.step(1)
+            self.stand_dropped = True
+            self.step(int(round(0.5 / dt)))
             c3, R3 = pose()
             self.start.update({
                 "settle_on_stand_mm": float(np.linalg.norm(c1 - c0) * 1e3), "settle_rot_deg": rot(R0, R1),
@@ -421,6 +478,9 @@ class TwoArm:
             m.opt.gravity[:] = g
             for _ in range(int(round(0.5 / dt))):
                 self.ctrl_step()
+        self.start["contacts"] = {k: v for k, v in self.acc.items() if k in CONTACT_KEYS}
+        self.p_t0, self.R_t0 = self.rel()                 # t0: end of the start sequence
+        self.residual_t0 = lattice_residual_deg(self.ro.poses(d)[1])
 
     # ---- arm B impedance (robot state only) -------------------------------------------------------------------
     def impedance(self) -> None:
@@ -479,7 +539,8 @@ class TwoArm:
     def contacts(self) -> dict:
         d = self.d
         n = d.ncon
-        out = {"pen_pad": 0.0, "pen_cubie": 0.0, "robot_cube_nonpad": 0, "arm_arm": 0, "robot_table": 0}
+        out = {"pen_pad": 0.0, "pen_cubie": 0.0, "robot_cube_nonpad": 0, "arm_arm": 0, "robot_table": 0,
+               "robot_stand": 0, "robot_block": 0, "cube_stand": 0}
         if not n:
             return out
         g1, g2, dist = d.contact.geom1[:n], d.contact.geom2[:n], d.contact.dist[:n]
@@ -498,7 +559,25 @@ class TwoArm:
         aA2, aB2 = np.isin(g2, self.gA_all), np.isin(g2, self.gB_all)
         out["arm_arm"] = int(((aA1 & aB2) | (aB1 & aA2)).sum())
         out["robot_table"] = int((((g1 == self.table) & rob2) | ((g2 == self.table) & rob1)).sum())
+        for key, g in (("robot_stand", self.stand_g), ("robot_block", self.block_g)):
+            if g >= 0:
+                out[key] = int((((g1 == g) & rob2) | ((g2 == g) & rob1)).sum())
+        if self.stand_g >= 0 and getattr(self, "stand_dropped", False):
+            out["cube_stand"] = int((((g1 == self.stand_g) & cub2) | ((g2 == self.stand_g) & cub1)).sum())
         return out
+
+    def tips_cubie_force(self) -> float:
+        """Normal force between arm B's fingertips and cubies only (review 1 item 7 / suggestion 8)."""
+        d, tot = self.d, 0.0
+        cub = set(self.cubie.tolist())
+        tips = set(self.tipsB)
+        for i in range(d.ncon):
+            c = d.contact[i]
+            g1, g2 = int(c.geom1), int(c.geom2)
+            if (g1 in tips and g2 in cub) or (g2 in tips and g1 in cub):
+                mujoco.mj_contactForce(self.m, d, i, self.f6)
+                tot += self.f6[0]
+        return tot
 
     def force_on(self, geoms) -> float:
         d, tot = self.d, 0.0
@@ -536,9 +615,9 @@ class TwoArm:
             a = self.acc
             for k in ("pen_pad", "pen_cubie"):
                 a[k] = max(a[k], c[k])
-            for k in ("robot_cube_nonpad", "arm_arm", "robot_table"):
+            for k in ("robot_cube_nonpad", "arm_arm", "robot_table", "robot_stand", "robot_block", "cube_stand"):
                 a[k] = max(a[k], c[k])
-            if a["t_force"] is None and self.force_on(self.tipsB) > T["causal_force_N"]:
+            if a["t_force"] is None and a.get("bodies") is not None and self.tips_cubie_force() > T["causal_force_N"]:
                 a["t_force"] = float(self.d.time)
             if a["t_motion"] is None and a.get("bodies") is not None:
                 ax = a["axis_world"]
@@ -547,7 +626,10 @@ class TwoArm:
                     a["t_motion"] = float(self.d.time)
             a["tau_roll"] = max(a["tau_roll"], abs(float(self.d.actuator_force[self.aB[6]])))
             if a.get("axis_world") is not None:
-                a["tau_tool"] = max(a["tau_tool"], abs(self.tool_torque(a["axis_world"])))
+                tt = self.tool_torque(a["axis_world"])
+                a["tau_tool"] = max(a["tau_tool"], abs(tt))
+                if a.get("rolling"):
+                    a["drive_impulse"] += tt * a["roll_dir"] * self.m.opt.timestep
             fr = self.m.actuator_forcerange
             satA = np.abs(self.d.actuator_force[self.aA]) >= 0.99 * fr[self.aA, 1]
             satB = np.abs(self.d.ctrl[self.aB[:6]]) >= 0.99 * self.m.actuator_ctrlrange[self.aB[:6], 1]
@@ -560,8 +642,9 @@ class TwoArm:
 
     def new_acc(self) -> None:
         self.acc = {"pen_pad": 0.0, "pen_cubie": 0.0, "robot_cube_nonpad": 0, "arm_arm": 0, "robot_table": 0,
-                    "t_force": None, "t_motion": None, "tau_roll": 0.0, "tau_tool": 0.0, "saturated_steps": 0, "track_err_mm": 0.0,
-                    "bodies": None}
+                    "robot_stand": 0, "robot_block": 0, "cube_stand": 0,
+                    "t_force": None, "t_motion": None, "tau_roll": 0.0, "tau_tool": 0.0, "saturated_steps": 0,
+                    "track_err_mm": 0.0, "bodies": None, "rolling": False, "roll_dir": 0.0, "drive_impulse": 0.0}
 
     def approach(self) -> dict:
         self.new_acc()
@@ -571,7 +654,7 @@ class TwoArm:
             self.p_d = self.pB_pre + s * (self.pB_grasp - self.pB_pre)
             self.step(1)
         self.step(self.secs(1.0))
-        out = {k: v for k, v in self.acc.items() if k != "bodies"}
+        out = {k: v for k, v in self.acc.items() if k not in ("bodies", "rolling", "roll_dir", "drive_impulse")}
         out["final_err_mm"] = float(np.linalg.norm(self.p_d - self.d.xpos[self.bodyB]) * 1e3)
         a = self.d.xmat[self.bodyB].reshape(3, 3)[:, 2]
         out["final_axis_err_deg"] = float(np.degrees(np.arccos(np.clip(a @ self.a_d, -1, 1))))
@@ -593,20 +676,22 @@ class TwoArm:
     def move(self, mv) -> dict:
         m, d, ro = self.m, self.d, self.ro
         self.new_acc()
-        self.step(self.secs(SETTLE_S))                     # fixed settle (no cube-state rest check)
-        _, r0 = ro.poses(d)
+        _, r0 = ro.poses(d)                                # move start = the previous move's end (gapless)
+        p0, R0 = self.rel()
         members = ro.layer_members(d, mv.face)
-        Rc = d.xmat[self.core].reshape(3, 3)
+        Rc = d.xmat[self.core].reshape(3, 3)               # checks only (never used by a controller)
         self.acc["bodies"] = ro.body_ids[members]
         self.acc["axis_world"] = Rc @ np.array(FACE_NORMAL[mv.face], float)
-        p0, R0 = self.rel()
+        self.step(self.secs(SETTLE_S))                     # fixed settle (no cube-state rest check)
         grasp_err = float(np.linalg.norm(self.p_d - d.xpos[self.bodyB]) * 1e3)
         self.integ = False                                  # gripping: pure impedance (compliant)
         self.ramp_grip(bm.DRIVE_RANGE[1])
         self.step(self.secs(0.3))
         delta = -np.pi / 2 * {1: 1, 2: 2, 3: -1}[mv.quarter_turns]
         zB = d.xmat[self.bodyB].reshape(3, 3)[:, 2]        # J7 axis ~ gripper axis
-        axis_sign = float(np.sign(self.acc["axis_world"] @ zB))
+        axis_sign_measured = float(np.sign(self.acc["axis_world"] @ zB))     # logged only
+        axis_sign = self.roll_sign                         # controller: nominal layout (review 1 item 1)
+        self.acc["rolling"], self.acc["roll_dir"] = True, float(np.sign(delta))
         start = self.roll_cmd()
         n = self.secs(abs(delta) / (np.pi / 2))
         q7 = self.qB[6]
@@ -642,6 +727,7 @@ class TwoArm:
                        "roll_done_deg": float(np.degrees(axis_sign * (float(d.qpos[q7]) - start)))}
                 self.set_roll(float(d.qpos[q7]))           # freeze the roll where it is
                 break
+        self.acc["rolling"] = False
         if ROLL_MODE == "ffb":
             self.set_roll(self.roll_cmd())                 # hold: no rate or acceleration feedforward
         self.step(self.secs(0.3))
@@ -650,7 +736,6 @@ class TwoArm:
         self.integ = True
         _, r1 = ro.poses(d)
         obs = ro.observe(d)
-        a = dict(self.acc)
         end = self.roll_cmd()
         n = self.secs(1.0)
         A, Tn = self.roll0 - end, n * m.opt.timestep
@@ -660,6 +745,10 @@ class TwoArm:
                           A * np.pi ** 2 / (2 * Tn ** 2) * np.cos(ph))
             self.step(1)
         self.set_roll(self.roll0)
+        _, r2 = ro.poses(d)                                # after the roll-back (review 1 item 2)
+        obs2 = ro.observe(d)
+        a = dict(self.acc)                                 # accumulators cover settle, grasp, roll, open, roll-back
+        rb = np.abs(ro.rotation_about_deg(r1, r2, list(range(26)), mv.face))
         nominal = -90.0 * {1: 1, 2: 2, 3: -1}[mv.quarter_turns]
         rot = ro.rotation_about_deg(r0, r1, members, mv.face)
         err = (rot - nominal + 180.0) % 360.0 - 180.0
@@ -668,6 +757,12 @@ class TwoArm:
         p1, R1 = self.rel()
         tf, tm = a["t_force"], a["t_motion"]
         return {"move": str(mv), "obs": obs, "turn_error_deg": float(np.mean(err)), "grasp_err_mm": grasp_err,
+                "axis_sign_measured": axis_sign_measured, "roll_sign_used": axis_sign,
+                "rollback_rot_deg": float(rb.max()),
+                "rollback_state_unchanged": bool(obs.valid and obs2.valid and obs.state == obs2.state),
+                "drive_impulse_Nms": a["drive_impulse"],
+                "robot_stand_max": a["robot_stand"], "robot_block_max": a["robot_block"],
+                "cube_stand_max": a["cube_stand"],
                 "j7_lag_max_deg": lag_max, "jam_stop": jam, "j7_budget_used_Nm": self.j7_budget_used,
                 "ft_tau_z_max_Nm": ft_max if FT else None,
                 "nontarget_drift_deg": float(drift.max()), "pen_cubie_mm": a["pen_cubie"], "pen_pad_mm": a["pen_pad"],
@@ -715,6 +810,11 @@ def run(seq: str, grip: float, L: float, Hc: float, viewer=None) -> dict:
             pm["ok_no_nonpad_cube_contact"] = pm["robot_cube_nonpad_max"] == 0
             pm["ok_no_arm_arm"] = pm["arm_arm_max"] == 0
             pm["ok_no_table"] = pm["robot_table_max"] == 0
+            pm["ok_no_stand_block"] = (pm["robot_stand_max"] == 0 and pm["robot_block_max"] == 0
+                                       and pm["cube_stand_max"] == 0)
+            pm["ok_drive"] = pm["drive_impulse_Nms"] > 0.0 or pm["jam_stop"] is not None
+            pm["ok_rollback"] = pm["rollback_rot_deg"] <= T["nontarget_drift_deg"] and pm["rollback_state_unchanged"]
+            pm["ok_core_rot"] = pm["core_rot_deg"] <= CORE_ROT_MOVE_DEG
             pm["ok_all"] = all(v for k, v in pm.items() if k.startswith("ok_"))
             rec["per_move"].append(pm)
             print(json.dumps({k: (round(v, 3) if isinstance(v, float) else v) for k, v in pm.items()}), flush=True)
@@ -724,6 +824,11 @@ def run(seq: str, grip: float, L: float, Hc: float, viewer=None) -> dict:
     except (NumericalFailure, EditAuditError) as e:
         rec["aborted"] = f"{type(e).__name__}: {e}"
     final = r.ro.observe(r.d)
+    pT, RT = r.rel()
+    rec["trial"] = {"core_slip_total_mm": float(np.linalg.norm(pT - r.p_t0) * 1e3),
+                    "core_rot_total_deg": float(np.degrees(np.linalg.norm(Rotation.from_matrix(RT @ r.R_t0.T).as_rotvec()))),
+                    "residual_t0_deg": r.residual_t0, "residual_end_deg": lattice_residual_deg(r.ro.poses(r.d)[1]),
+                    "model_audit": r.model_audit}
     rec.update({"final_matches_oracle": bool(final.valid and final.state == expect),
                 "audit_violations": r.sim.violations, "numerical_failures": r.sim.numerical_failures,
                 "sim_time_s": float(r.d.time), "wall_s": time.perf_counter() - t_wall,

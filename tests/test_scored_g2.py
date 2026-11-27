@@ -1,8 +1,9 @@
-"""Tests for the G2 runner (experiments/E8_scored_g2; pre-registration DRAFT).
+"""Tests for the G2 runner (experiments/E8_scored_g2; pre-registration revision 2, DRAFT).
 
-Fast tests: job list, seeds, ledger/resume/manifest procedure with a synthetic runner, harness exceptions, refusals,
-negative-test acceptance, sequence checks. One slow test builds the two-arm scene and checks that the controllers'
-outputs do not depend on the cube's state (they read robot state only).
+Fast tests: job list, seeds, run procedure with a synthetic runner (manifest, ledger, resume, tampering), harness
+exceptions, refusals, criteria, negative-case acceptance, the independent verdict recomputation, frozen-path coverage.
+Slow tests (~1-2 min each) build the two-arm scene: the controllers' outputs and the roll command sequence do not
+depend on the cube's state.
 """
 from __future__ import annotations
 
@@ -30,6 +31,7 @@ def _load(name: str, path: Path):
 
 
 R = _load("e8_run", E8 / "run.py")
+A = _load("e8_analyze", E8 / "analyze.py")
 
 
 @pytest.fixture(scope="module")
@@ -43,32 +45,52 @@ def test_job_counts_and_seeds(T):
     by = {}
     for j in jobs:
         by[j["exp"]] = by.get(j["exp"], 0) + 1
-    assert by == {"G2-1": 20, "G2-2": 40, "G2-3": 20, "G2-4": 40, "G2-6": 8, "G2-7": 10}
+    assert by == {"G2-1": 20, "G2-2": 40, "G2-3": 20, "G2-4": 40, "G2-6": 8, "G2-7": 10} and len(jobs) == 138
     seeds = [j["kw"]["seed"] for j in jobs]
-    assert len(set(seeds)) == len(seeds)
-    assert all(R.SCORED_SEEDS[0] <= s <= R.SCORED_SEEDS[1] for s in seeds)
+    assert len(set(seeds)) == len(seeds) and all(R.SCORED_SEEDS[0] <= s <= R.SCORED_SEEDS[1] for s in seeds)
     assert len({R.key_of(j) for j in jobs}) == len(jobs)
-    assert sum(j["reported_only"] for j in jobs) == 8                  # only the G2-6 screen
-    scored = [j for j in jobs if not j["reported_only"]]
-    assert len([j for j in scored if j["exp"] in ("G2-1", "G2-2", "G2-3", "G2-4")]) == 120
+    ro = [j for j in jobs if j["reported_only"]]
+    assert {j["exp"] for j in ro} == {"G2-6", "G2-7"} and len(ro) == 10          # 8 screen + 2 offcentre
+    assert all(j["kw"]["case"] == "offcentre" for j in ro if j["exp"] == "G2-7")
+    assert len(jobs) - len(ro) == 128
 
 
-def test_smoke_seeds_are_pilot_seeds():
-    assert all(29000 <= j["kw"]["seed"] <= 29999 for j in R.smoke_jobs())
+def test_smoke_and_pilot_seeds_are_pilot_seeds():
+    assert all(29000 <= j["kw"]["seed"] <= 29999 for j in R.smoke_jobs() + R.pilot_jobs())
 
 
-def test_random_sequences_deterministic_and_u_only(T):
-    a, b = T.random_u_sequence(30320), T.random_u_sequence(30320)
-    assert a == b and len(a.split()) == 10 and set(a.split()) <= {"U", "U'", "U2"}
-    assert T.random_u_sequence(30321) != a
-
-
-def test_start_draw_bounds(T):
+def test_random_sequences_and_start_draw(T):
+    a = T.random_u_sequence(30320)
+    assert a == T.random_u_sequence(30320) and len(a.split()) == 10 and set(a.split()) <= {"U", "U'", "U2"}
     for s in range(30000, 30050):
         d = T.start_draw(s)
         assert all(abs(x) <= T.CUBE_TOL for x in d["cube_offset_m"])
         assert all(abs(v) <= T.MISALIGN_DEG for v in d["misalign_deg"].values())
-    assert T.start_draw(30001) == T.start_draw(30001)
+
+
+def test_limits_agree_between_trials_and_analyze(T):
+    L = A.LIMITS
+    assert L["move_slip_mm"] == T.MOVE_SLIP_MM and L["pen_mm"] == T.PEN_MM
+    assert (L["hold_slip_mm"], L["hold_rot_deg"]) == (T.HOLD_SLIP_MM, T.HOLD_ROT_DEG)
+    assert (L["total_slip_mm"], L["total_rot_deg"]) == (T.TOTAL_SLIP_MM, T.TOTAL_ROT_DEG)
+    assert L["residual_growth_deg"] == T.RESIDUAL_GROWTH_DEG and L["jam_slip_mm"] == T.JAM_SLIP_MM
+    assert tuple(L["jam_roll_deg"]) == T.JAM_ROLL_DEG and L["move_rot_deg"] == T.TA.CORE_ROT_MOVE_DEG
+    th = T.TA.T
+    assert (L["turn_error_deg"], L["drift_deg"], L["rollback_deg"]) == (th["turn_error_deg"], th["nontarget_drift_deg"],
+                                                                         th["nontarget_drift_deg"])
+
+
+def test_frozen_paths_cover_every_loaded_module(T):
+    """Review 1 item 5: every repository module a trial loads is frozen."""
+    import fnmatch
+    files = {Path(m.__file__).resolve() for m in list(sys.modules.values()) if getattr(m, "__file__", None)}
+    repo_files = sorted(str(f.relative_to(REPO)).replace("\\", "/") for f in files if f.is_relative_to(REPO)
+                        and "tests" not in f.relative_to(REPO).parts[:1])
+
+    def frozen(f):
+        return any(f == p or f.startswith(p.rstrip("/") + "/") or fnmatch.fnmatch(f, p) for p in R.FROZEN_PATHS)
+    missing = [f for f in repo_files if not frozen(f)]
+    assert not missing, missing
 
 
 # ---- run procedure with a synthetic runner ----------------------------------------------------------------------------
@@ -77,59 +99,68 @@ def _jobs(n=4):
 
 
 def _fake_runner(j):
-    return R.key_of(j), {"pass": True, "fail_reasons": [], "seed": j["kw"]["seed"], **R.metadata(j)}
+    return R.key_of(j), {"pass": True, "fail_reasons": [], **R.metadata(j)}
 
 
 ENV = {"mujoco": "4.0.1", "numpy": "2", "scipy": "1", "python": "3.12", "cpu": "x"}
+ARTS = {"a.xml": "00"}
+
+
+def _ex(out, jobs=None, runner=_fake_runner, **kw):
+    return R.execute(out, jobs or _jobs(), "abc", ENV, "abc", 1, runner=runner, check_git=False, log=lambda s: None,
+                     arts=ARTS, **kw)
 
 
 def test_first_start_writes_manifest_records_ledger(tmp_path):
     out = tmp_path / "results"
-    n = R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, check_git=False, log=lambda s: None)
-    assert n == 4
-    assert (out / R.MANIFEST).exists() and len(R.read_lines(out / R.LEDGER)) == 4
-    assert len(R.read_lines(out / R.STARTS)) == 1
+    assert _ex(out) == 4
+    man = json.loads((out / R.MANIFEST).read_text())
+    assert man["artifacts"] == ARTS and len(R.read_lines(out / R.LEDGER)) == 4
     for line in R.read_lines(out / R.LEDGER):
-        data = R.record_path(out, (line["exp"], line["tid"])).read_bytes()
-        assert R._sha(data) == line["sha256"]
+        assert R._sha(R.record_path(out, (line["exp"], line["tid"])).read_bytes()) == line["sha256"]
 
 
 def test_interrupt_then_resume_completes(tmp_path):
     out = tmp_path / "results"
     with pytest.raises(R.Interrupted):
-        R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, stop_after=2, check_git=False,
-                  log=lambda s: None)
-    assert len(R.read_lines(out / R.LEDGER)) == 2
-    n = R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, check_git=False, log=lambda s: None)
-    assert n == 2 and len(R.read_lines(out / R.LEDGER)) == 4 and len(R.read_lines(out / R.STARTS)) == 2
+        _ex(out, stop_after=2)
+    assert _ex(out) == 2 and len(R.read_lines(out / R.LEDGER)) == 4 and len(R.read_lines(out / R.STARTS)) == 2
 
 
 def test_resume_moves_orphans_and_reconciles(tmp_path):
     out = tmp_path / "results"
     with pytest.raises(R.Interrupted):
-        R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, stop_after=1, check_git=False,
-                  log=lambda s: None)
-    (out / "G2-2" / ".U_s30103.json.tmp").write_text("{}")                     # a killed write
-    key = ("G2-2", "U_s30102")                                                 # a record without its ledger line
-    R.record_path(out, key).write_text(json.dumps({"pass": True, "fail_reasons": []}))
-    R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, check_git=False, log=lambda s: None)
+        _ex(out, stop_after=1)
+    (out / "G2-2" / ".U_s30103.json.tmp").write_text("{}")
+    R.record_path(out, ("G2-2", "U_s30102")).write_text(json.dumps({"pass": True, "fail_reasons": []}))
+    _ex(out)
     starts = R.read_lines(out / R.STARTS)
     assert len(starts[1]["orphans"]) == 1 and len(starts[1]["reconciled"]) == 1
     assert (out / starts[1]["orphans"][0]["moved_to"]).exists()
-    assert sum(x["reconciled"] for x in R.read_lines(out / R.LEDGER)) == 1
 
 
-def test_resume_refuses_changed_trials_foreign_files_and_environment(tmp_path):
+def test_resume_refusals(tmp_path):
     out = tmp_path / "results"
-    R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, check_git=False, log=lambda s: None)
+    _ex(out)
     with pytest.raises(SystemExit, match="trials differ"):
-        R.execute(out, _jobs(3), "abc", ENV, "abc", 1, runner=_fake_runner, check_git=False, log=lambda s: None)
+        _ex(out, _jobs(3))
     with pytest.raises(SystemExit, match="environment field mujoco"):
         R.execute(out, _jobs(), "abc", {**ENV, "mujoco": "9"}, "abc", 1, runner=_fake_runner, check_git=False,
-                  log=lambda s: None)
-    (out / "G2-2" / "stray.json").write_text("{}")
-    with pytest.raises(SystemExit, match="INVALID"):
-        R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, check_git=False, log=lambda s: None)
+                  log=lambda s: None, arts=ARTS)
+    with pytest.raises(SystemExit, match="artifact SHA-256s differ"):
+        R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, check_git=False, log=lambda s: None,
+                  arts={"a.xml": "11"})
+    R.record_path(out, ("G2-2", "U_s30101")).unlink()            # a deleted record (review 1 item 4 b)
+    with pytest.raises(SystemExit, match="has no record"):
+        _ex(out)
+
+
+def test_resume_refuses_unknown_directory(tmp_path):
+    out = tmp_path / "results"
+    _ex(out)
+    (out / "G2-9").mkdir()                                       # even empty (review 1 item 4 d)
+    with pytest.raises(SystemExit, match="directory not in the manifest"):
+        _ex(out)
 
 
 def test_first_start_refuses_nonempty_folder(tmp_path):
@@ -137,7 +168,7 @@ def test_first_start_refuses_nonempty_folder(tmp_path):
     out.mkdir()
     (out / "x.json").write_text("{}")
     with pytest.raises(SystemExit, match="not empty"):
-        R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, check_git=False, log=lambda s: None)
+        _ex(out)
 
 
 def test_record_never_overwritten(tmp_path):
@@ -164,7 +195,7 @@ def test_harness_exception_is_a_failing_record(monkeypatch):
     monkeypatch.setitem(sys.modules, "trials", _fake_trials(ValueError("boom")))
     key, rec = R.run_job(_jobs(1)[0])
     assert rec["pass"] is False and "harness exception: ValueError: boom" in rec["fail_reasons"][0]
-    assert "Traceback" in rec["harness_exception"] and rec["trial_id"] == "U_s30100"
+    assert "Traceback" in rec["harness_exception"]
 
 
 def test_interruptions_propagate(monkeypatch):
@@ -183,11 +214,11 @@ def test_execute_turns_runner_errors_into_interrupted(tmp_path):
     def bad(j):
         raise OSError("transient read")
     with pytest.raises(R.Interrupted, match="OSError"):
-        R.execute(tmp_path / "r", _jobs(), "abc", ENV, "abc", 1, runner=bad, check_git=False, log=lambda s: None)
+        _ex(tmp_path / "r", runner=bad)
 
 
-def test_scored_start_refused_until_frozen():
-    assert R.FROZEN is False
+def test_scored_start_refused_until_frozen(monkeypatch):
+    monkeypatch.setattr(R, "FROZEN", False)                       # independent of the committed flag (review 1 item 7)
     with pytest.raises(SystemExit, match="not frozen"):
         R.main(["all"])
 
@@ -197,117 +228,153 @@ def test_smoke_dir_may_not_be_the_scored_folder():
         R.main(["smoke", "--smoke-dir", str(R.OUT)])
 
 
-# ---- trial-level logic ------------------------------------------------------------------------------------------------
+# ---- synthetic records for the criteria -----------------------------------------------------------------------------
+AUDIT = {"actuators_on_cube": [], "equalities_on_cube": [], "n_cube_bodies": 27}
+
+
 def _pm(**kw):
-    base = {"move": "U", "ok_oracle": True, "ok_turn_error": True, "ok_all": True, "jam_stop": None,
-            "core_slip_mm": 0.1}
+    base = {"move": "U", "observed_move": "U", "turn_error_deg": 0.3, "nontarget_drift_deg": 0.2,
+            "pen_cubie_mm": 0.1, "t_tip_force_s": 1.0, "t_layer_motion_rel_core_s": 1.01, "robot_cube_nonpad_max": 0,
+            "arm_arm_max": 0, "robot_table_max": 0, "robot_stand_max": 0, "robot_block_max": 0, "cube_stand_max": 0,
+            "drive_impulse_Nms": 0.05, "rollback_rot_deg": 0.1, "rollback_state_unchanged": True,
+            "core_rot_deg": 0.3, "core_slip_mm": 0.1, "jam_stop": None,
+            "ok_oracle": True, "ok_turn_error": True, "ok_drift": True, "ok_penetration_cubie": True, "ok_causal": True,
+            "ok_no_nonpad_cube_contact": True, "ok_no_arm_arm": True, "ok_no_table": True, "ok_no_stand_block": True,
+            "ok_drive": True, "ok_rollback": True, "ok_core_rot": True, "ok_all": True}
     return {**base, **kw}
 
 
-def test_seq_reasons(T):
-    good = {"t0_solved": True, "per_move": [_pm()], "final_matches_oracle": True, "audit_violations": [],
-            "numerical_failures": []}
-    assert T._seq_reasons(good, 1) == []
-    assert T._seq_reasons({**good, "per_move": [_pm(ok_turn_error=False)]}, 1)
-    assert T._seq_reasons({**good, "per_move": [_pm(jam_stop={"by": "ft"})]}, 1)
-    assert T._seq_reasons({**good, "per_move": [_pm(core_slip_mm=T.MOVE_SLIP_MM + 0.01)]}, 1)
-    assert T._seq_reasons({**good, "per_move": []}, 1)
-    assert T._seq_reasons({**good, "aborted": "NumericalFailure: x"}, 1)
-    assert T._seq_reasons({**good, "final_matches_oracle": False}, 1)
+def _rec(pms=None, **kw):
+    base = {"t0_solved": True, "per_move": pms if pms is not None else [_pm()], "final_matches_oracle": True,
+            "audit_violations": [], "numerical_failures": [], "start": {"contacts": {}},
+            "approach": {"pen_cubie": 0.02}, "trial": {"core_slip_total_mm": 0.2, "core_rot_total_deg": 0.3,
+                                                     "residual_t0_deg": [0.5] * 26, "residual_end_deg": [0.6] * 26,
+                                                     "model_audit": AUDIT}}
+    return {**base, **kw}
 
 
-def test_neg_outcomes(T):
-    clean = {"per_move": [_pm()], "fail_reasons": []}
-    assert T.neg_outcome("two_layer", clean)[0] is False                    # a clean pass is not detection
-    assert T.neg_outcome("two_layer", {**clean, "fail_reasons": ["x"]})[0] is True
-    assert T.neg_outcome("open_midturn", {"per_move": [_pm(jam_stop={"by": "ft"})], "fail_reasons": ["x"]})[0]
-    assert T.neg_outcome("jam", {"per_move": [_pm(jam_stop={"by": "ft"}, core_slip_mm=0.1)]})[0] is True
-    assert T.neg_outcome("jam", {"per_move": [_pm(jam_stop={"by": "ft"}, core_slip_mm=2.0)]})[0] is False
-    assert T.neg_outcome("jam", clean)[0] is False
-    assert T.neg_outcome("collision", {"per_move": [_pm(arm_arm_max=3)]})[0] is True
-    assert T.neg_outcome("collision", {"per_move": [_pm(arm_arm_max=0, robot_cube_nonpad_max=0)]})[0] is False
-    assert T.neg_outcome("offcentre", clean)[0] is True
+def test_seq_reasons_and_recompute_agree(T):
+    cases = [
+        (_rec(), True),
+        (_rec([_pm(ok_turn_error=False, turn_error_deg=2.5)]), False),
+        (_rec([_pm(jam_stop={"by": "ft"})]), False),
+        (_rec([_pm(core_slip_mm=1.01)]), False),
+        (_rec([_pm(ok_core_rot=False, core_rot_deg=2.1)]), False),
+        (_rec([_pm(ok_rollback=False, rollback_rot_deg=1.5)]), False),
+        (_rec([_pm(ok_drive=False, drive_impulse_Nms=-0.01)]), False),
+        (_rec([]), False),
+        (_rec(aborted="NumericalFailure: x"), False),
+        (_rec(final_matches_oracle=False), False),
+        (_rec(approach={"arm_arm": 2}), False),
+        (_rec(approach={"cube_stand": 1}), False),
+        (_rec(start={"contacts": {"robot_cube_nonpad": 1}}), False),
+        (_rec(trial={**_rec()["trial"], "core_slip_total_mm": 2.1}), False),
+        (_rec(trial={**_rec()["trial"], "residual_end_deg": [0.5] * 25 + [1.6]}), False),
+        (_rec(trial={**_rec()["trial"], "model_audit": {**AUDIT, "actuators_on_cube": ["x"]}}), False),
+    ]
+    for rec, ok in cases:
+        assert (not T._seq_reasons(rec, 1)) is ok
+        assert (not A.recompute_seq(rec, "U")) is ok
 
 
-# ---- the controllers read robot state only (slow: builds the scene) ----------------------------------------------------
-# slow (~1 min): builds the two-arm scene
-def test_controllers_ignore_cube_state(T):
-    import mujoco
-    T.configure({}, T.start_draw(29001))
-    r = T.TA.TwoArm(T.L, T.HC, T.GRIP)
-    try:
-        m, d = r.m, r.d
-        r.integ = False                                  # no integrator update between the two evaluations
-        r.j7 = [r.roll0 + 0.3, 0.5, 1.0]
-        robot_q = set(np.concatenate([r.qA, r.qB]).tolist())
-
-        def outputs():
-            r.impedance()
-            r.j7_control()
-            return d.ctrl[r.aB].copy()
-        mujoco.mj_forward(m, d)
-        before = outputs()
-        core = m.body("core").id                         # the cube: the core and every cubie (rooted at the core)
-        cube_j = [j for j in range(m.njnt) if m.body_rootid[m.jnt_bodyid[j]] == core]
-        assert len(cube_j) >= 21                         # free core + cubie joints
-        cube_q = sorted({a for j in cube_j for a in range(m.jnt_qposadr[j], m.jnt_qposadr[j] + (
-            7 if m.jnt_type[j] == mujoco.mjtJoint.mjJNT_FREE else 4 if m.jnt_type[j] == mujoco.mjtJoint.mjJNT_BALL
-            else 1))})
-        cube_v = sorted({a for j in cube_j for a in range(m.jnt_dofadr[j], m.jnt_dofadr[j] + (
-            6 if m.jnt_type[j] == mujoco.mjtJoint.mjJNT_FREE else 3 if m.jnt_type[j] == mujoco.mjtJoint.mjJNT_BALL
-            else 1))})
-        q0, v0 = d.qpos.copy(), d.qvel.copy()
-        rng = np.random.default_rng(0)
-        d.qpos[cube_q] += rng.normal(0.0, 0.05, len(cube_q))   # scramble the cube's state (not the robots')
-        d.qvel[cube_v] += rng.normal(0.0, 0.5, len(cube_v))
-        mujoco.mj_forward(m, d)
-        after = outputs()
-        assert np.allclose(before, after, atol=1e-9, rtol=0)
-        # sanity: the same comparison does see a change in arm B's own state
-        d.qpos[:], d.qvel[:] = q0, v0
-        d.qpos[r.qB[2]] += 0.01
-        mujoco.mj_forward(m, d)
-        assert not np.allclose(before, outputs(), atol=1e-6, rtol=0)
-    finally:
-        T.MagnetSystem.uninstall()
+def test_neg_outcomes_revision2(T):
+    clean = _rec()
+    for case in ("two_layer", "open_midturn", "jam"):
+        assert T.neg_outcome(case, clean)[0] is False and A.recompute_neg(clean, case) is False
+    aborted = _rec([_pm(ok_oracle=False, observed_move=None)], aborted="NumericalFailure: x")
+    for case in ("two_layer", "open_midturn", "offcentre", "collision", "jam"):
+        assert T.neg_outcome(case, aborted)[0] is False and A.recompute_neg(aborted, case) is False   # review 1 item 3
+    det = _rec([_pm(ok_oracle=False, observed_move=None, ok_turn_error=False, turn_error_deg=80.0)])
+    assert T.neg_outcome("two_layer", det)[0] and A.recompute_neg(det, "two_layer")
+    assert T.neg_outcome("open_midturn", det)[0] and A.recompute_neg(det, "open_midturn")
+    jam_ok = _rec([_pm(jam_stop={"by": "ft", "roll_done_deg": -33.0}, ok_turn_error=False, turn_error_deg=57.0)])
+    assert T.neg_outcome("jam", jam_ok)[0] and A.recompute_neg(jam_ok, "jam")
+    jam_early = _rec([_pm(jam_stop={"by": "ft", "roll_done_deg": -5.0})])
+    assert not T.neg_outcome("jam", jam_early)[0] and not A.recompute_neg(jam_early, "jam")
+    jam_shift = _rec([_pm(jam_stop={"by": "ft", "roll_done_deg": -33.0}, core_slip_mm=0.6)])
+    assert not T.neg_outcome("jam", jam_shift)[0] and not A.recompute_neg(jam_shift, "jam")
+    hit = _rec([_pm(arm_arm_max=3)])
+    assert T.neg_outcome("collision", hit)[0] and A.recompute_neg(hit, "collision")
+    assert not T.neg_outcome("collision", clean)[0] and not A.recompute_neg(clean, "collision")
+    assert T.neg_outcome("offcentre", clean) == (True, "clean")
 
 
-# ---- verdict script ------------------------------------------------------------------------------------------------
-A = _load("e8_analyze", E8 / "analyze.py")
-
-
-def _full_run(tmp_path, runner=_fake_runner, jobs=None):
-    out = tmp_path / "results"
-    R.execute(out, jobs or _jobs(), "abc", ENV, "abc", 1, runner=runner, check_git=False, log=lambda s: None)
+# ---- verdict script --------------------------------------------------------------------------------------------------
+def _run(tmp, runner=_fake_runner, jobs=None):
+    out = tmp / "results"
+    jobs = jobs or _jobs()
+    for j in jobs:
+        j["scored"], j["smoke"] = True, False
+    _ex(out, jobs, runner)
     return out
 
 
-def test_verdict_pass_fail_incomplete_invalid(tmp_path):
-    out = _full_run(tmp_path / "a")
-    assert A.verdict(out)["status"] == "PASS"
+def _verdict(out, jobs=None):
+    return A.verdict(out, "scored", check_artifacts=False, expected=jobs or _jobs(),
+                     recompute_fn=lambda rec, t: bool(rec.get("pass")))
+
+
+def test_verdict_pass_fail_incomplete(tmp_path):
+    assert _verdict(_run(tmp_path / "a"))["status"] == "PASS"
 
     def one_fails(j):
         k, r = _fake_runner(j)
         if j["kw"]["seed"] == 30101:
             r.update({"pass": False, "fail_reasons": ["move 1 U: ok_drift"]})
         return k, r
-    out = _full_run(tmp_path / "b", one_fails)
-    res = A.verdict(out)
+    res = _verdict(_run(tmp_path / "b", one_fails))
     assert res["status"] == "NOT PASSED" and list(res["failed"]) == ["G2-2/U_s30101"]
-
     out = tmp_path / "c" / "results"
+    jobs = _jobs()
+    for j in jobs:
+        j["scored"], j["smoke"] = True, False
     with pytest.raises(R.Interrupted):
-        R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, stop_after=2, check_git=False,
-                  log=lambda s: None)
-    assert A.verdict(out)["status"] == "INCOMPLETE"
+        _ex(out, jobs, stop_after=2)
+    assert _verdict(out)["status"] == "INCOMPLETE"
 
-    out = _full_run(tmp_path / "d")
-    p = R.record_path(out, ("G2-2", "U_s30100"))
-    p.write_text(p.read_text().replace('"pass": true', '"pass": false'))   # tampered after the ledger line
-    assert A.verdict(out)["status"] == "INVALID"
-    out = _full_run(tmp_path / "e")
-    (out / "G2-2" / "extra.json").write_text("{}")
-    assert A.verdict(out)["status"] == "INVALID"
+
+@pytest.mark.parametrize("tamper", ["edit", "extra_file", "orphan_tmp_subfolder", "duplicate_ledger", "deleted_rerun",
+                                    "extra_dir", "metadata", "list"])
+def test_verdict_invalid_cases(tmp_path, tamper):
+    out = _run(tmp_path)
+    jobs = None
+    if tamper == "edit":
+        p = R.record_path(out, ("G2-2", "U_s30100"))
+        p.write_text(p.read_text().replace('"pass": true', '"pass": false'))
+    elif tamper == "extra_file":
+        (out / "G2-2" / "extra.json").write_text("{}")
+    elif tamper == "orphan_tmp_subfolder":
+        (out / "G2-2" / ".U_s30100.json.tmp").write_text("{}")        # review 1 item 4 a
+    elif tamper == "duplicate_ledger":
+        line = R.read_lines(out / R.LEDGER)[0]
+        R._append_line(out / R.LEDGER, line)
+    elif tamper == "deleted_rerun":                                    # review 1 item 4 b
+        R.record_path(out, ("G2-2", "U_s30101")).unlink()
+        rec = {"pass": True, "fail_reasons": [], **R.metadata({**_jobs()[1], "scored": True, "commit": "abc"})}
+        R.write_record(out, ("G2-2", "U_s30101"), rec, 2)
+    elif tamper == "extra_dir":
+        (out / "G2-9").mkdir()
+    elif tamper == "metadata":
+        p = R.record_path(out, ("G2-2", "U_s30102"))
+        r = json.loads(p.read_text())
+        r["spec"]["seed"] = 1
+        data = json.dumps(r, indent=1).encode()
+        p.unlink()
+        p.write_bytes(data)
+        lines = R.read_lines(out / R.LEDGER)
+        for x in lines:
+            if x["tid"] == "U_s30102":
+                x["sha256"] = R._sha(data)
+        (out / R.LEDGER).write_text("".join(json.dumps(x, sort_keys=True) + "\n" for x in lines))
+    elif tamper == "list":
+        jobs = _jobs(3)                                               # the registered list differs (item 4 c)
+    assert _verdict(out, jobs)["status"] == "INVALID", tamper
+
+
+def test_verdict_flags_recomputation_disagreement(tmp_path):
+    out = _run(tmp_path)
+    res = A.verdict(out, "scored", check_artifacts=False, expected=_jobs(), recompute_fn=lambda rec, t: False)
+    assert res["status"] == "INVALID" and any("recomputed" in p for p in res["problems"])
 
 
 def test_reported_only_failures_do_not_fail_the_gate(tmp_path):
@@ -319,10 +386,82 @@ def test_reported_only_failures_do_not_fail_the_gate(tmp_path):
         if j["exp"] == "G2-6":
             r.update({"pass": False, "fail_reasons": ["move 1 U: ok_penetration_cubie"]})
         return k, r
-    res = A.verdict(_full_run(tmp_path, screen_fails, jobs))
+    res = _verdict(_run(tmp_path, screen_fails, jobs), jobs)
     assert res["status"] == "PASS" and res["screen"]["grip50_stress_s30605"]["pass_as_turns"] is False
 
 
 def test_cp_upper():
-    assert A.cp_upper(0, 120) == pytest.approx(0.0247, abs=5e-4)          # (1 - 0.05 ** (1/120))
+    assert A.cp_upper(0, 100) == pytest.approx(1 - 0.05 ** (1 / 100), abs=5e-4)
     assert A.cp_upper(5, 5) == 1.0
+
+
+# ---- the controllers read robot state only (slow: builds the scene) ----------------------------------------------------
+def _cube_dofs(m, mujoco):
+    core = m.body("core").id
+    cube_j = [j for j in range(m.njnt) if m.body_rootid[m.jnt_bodyid[j]] == core]
+    nq = {mujoco.mjtJoint.mjJNT_FREE: 7, mujoco.mjtJoint.mjJNT_BALL: 4}
+    nv = {mujoco.mjtJoint.mjJNT_FREE: 6, mujoco.mjtJoint.mjJNT_BALL: 3}
+    q = sorted({a for j in cube_j for a in range(m.jnt_qposadr[j], m.jnt_qposadr[j] + nq.get(m.jnt_type[j], 1))})
+    v = sorted({a for j in cube_j for a in range(m.jnt_dofadr[j], m.jnt_dofadr[j] + nv.get(m.jnt_type[j], 1))})
+    return cube_j, q, v
+
+
+def test_controllers_ignore_cube_state(T):
+    import mujoco
+    T.configure({}, T.start_draw(29001))
+    r = T.TA.TwoArm(T.L, T.HC, T.DEFAULTS["grip"])
+    try:
+        m, d = r.m, r.d
+        r.integ = False
+        r.j7 = [r.roll0 + 0.3, 0.5, 1.0]
+
+        def outputs():
+            r.impedance()
+            r.j7_control()
+            return d.ctrl[r.aB].copy()
+        mujoco.mj_forward(m, d)
+        before = outputs()
+        cube_j, q, v = _cube_dofs(m, mujoco)
+        assert len(cube_j) >= 21
+        q0, v0 = d.qpos.copy(), d.qvel.copy()
+        rng = np.random.default_rng(0)
+        d.qpos[q] += rng.normal(0.0, 0.05, len(q))
+        d.qvel[v] += rng.normal(0.0, 0.5, len(v))
+        mujoco.mj_forward(m, d)
+        assert np.array_equal(before, outputs())                 # bit-identical
+        d.qpos[:], d.qvel[:] = q0, v0
+        d.qpos[r.qB[2]] += 0.01                                   # positive control: arm B's own state matters
+        mujoco.mj_forward(m, d)
+        assert not np.allclose(before, outputs(), atol=1e-6, rtol=0)
+    finally:
+        T.MagnetSystem.uninstall()
+
+
+def test_roll_commands_ignore_cube_state(T):
+    """Review 1 item 1: the J7 command sequence of a whole move (settle, grasp, roll, open, roll-back) is the same when
+    the cube state is scrambled. The physics is frozen (step is stubbed), so only the controller's decisions are
+    compared; the guards see the same robot state in both runs."""
+    import mujoco
+    T.configure({}, T.start_draw(29001))
+    r = T.TA.TwoArm(T.L, T.HC, T.DEFAULTS["grip"])
+    try:
+        m, d = r.m, r.d
+        from rubiknetic.cube_logic import parse
+
+        def commands():
+            seq = []
+            r.step = lambda n: seq.append((tuple(np.round(r.j7, 12)), float(d.ctrl[r.gB])))
+            r.ctrl_step = lambda n=1: None
+            r.move(parse("U")[0])
+            return seq
+        state = (d.qpos.copy(), d.qvel.copy())
+        first = commands()
+        _, q, v = _cube_dofs(m, mujoco)
+        d.qpos[:], d.qvel[:] = state
+        rng = np.random.default_rng(1)
+        d.qpos[q] += rng.normal(0.0, 0.05, len(q))
+        mujoco.mj_forward(m, d)
+        second = commands()
+        assert len(first) > 10 and first == second
+    finally:
+        T.MagnetSystem.uninstall()

@@ -45,16 +45,22 @@ ENV_COMPARED = ("mujoco", "numpy", "scipy", "python", "cpu")
 SCORED_SEEDS = (30000, 30999)
 SMOKE_SEED_BASE = 29100                  # pilot range 29000-29999 (never scored)
 FROZEN = False                           # set True only when the pre-registration is frozen (with its review record)
-FROZEN_PATHS = [
+FROZEN_PATHS = [                         # review 1 item 5: every repository module a trial loads (tested), and data
     "experiments/PHASE_2_G2_PREREGISTRATION.md",
     "experiments/E8_scored_g2/run.py", "experiments/E8_scored_g2/trials.py", "experiments/E8_scored_g2/analyze.py",
+    "experiments/E8_scored_g2/selfcheck.py", "tests/test_scored_g2.py",
     "experiments/D18_two_arm_m7/two_arm.py", "experiments/D18_two_arm_m7/layout.py",
     "experiments/D17_real_holder_m7/hold.py", "experiments/D17_real_holder_m7/turn.py",
-    "experiments/P2_robot_model/build_model.py", "experiments/E7_scored_m7/run.py",
-    "src/rubiknetic/cube_physics/m1_model.py", "src/rubiknetic/cube_physics/magnets.py",
-    "src/rubiknetic/cube_physics/rig.py", "src/rubiknetic/cube_physics/readout.py",
-    "src/rubiknetic/cube_logic",
+    "experiments/D16_free_core_m7/grip_probe.py",
+    "experiments/P2_robot_model/build_model.py",
+    "experiments/E7_scored_m7/run.py", "experiments/E5_scored_m5/run.py", "experiments/E4_scored_m4/run.py",
+    "experiments/D8_alignment/magnets.py", "experiments/D8_alignment/d8_1b_stage1.py",
+    "experiments/D8_alignment/results/d8_1b_checks*.json",
+    "experiments/D10_m5_rest_diagnostic/d10_rest.py", "experiments/D11_rest_slip_count/d11_analyze.py",
+    "experiments/D13_rest_slip_mechanism/d13_run.py", "experiments/D13_rest_slip_mechanism/d13_analyze.py",
+    "src/rubiknetic/__init__.py", "src/rubiknetic/cube_physics", "src/rubiknetic/cube_logic",
 ]
+MIN_FREE_GB = 2.0
 
 
 class Interrupted(Exception):
@@ -85,7 +91,9 @@ def build_jobs(base: int = 30000) -> list[dict]:
     J += [job("G2-6", f"{name}_s{base + 600 + i}", "sens",
               {"seed": base + 600 + i, "moves": "U U' U2 U' U", "overrides": ov}, reported_only=True)
           for i, (name, ov) in enumerate(SENS)]
-    J += [job("G2-7", f"{c}_s{base + 700 + 2 * i + k}", "neg", {"seed": base + 700 + 2 * i + k, "case": c})
+    from trials import NEG_REPORTED_ONLY
+    J += [job("G2-7", f"{c}_s{base + 700 + 2 * i + k}", "neg", {"seed": base + 700 + 2 * i + k, "case": c},
+              reported_only=c in NEG_REPORTED_ONLY)
           for i, c in enumerate(NEG_CASES) for k in range(2)]
     return J
 
@@ -116,6 +124,21 @@ def pilot_jobs() -> list[dict]:
     return J
 
 
+def pilot2_jobs() -> list[dict]:
+    """Revision-2 pilot (UNSCORED; review 1 suggestion 9 and a check of the revision-2 criteria), seeds 29300-29399:
+    20 U' and 20 U2 single turns with the F/T stop disabled (first-turn torque tail), 4 x U U' U2 U' U and 2 x 60 s
+    holds at the fixed settings, and 2 each of the jam, two_layer, collision and open_midturn cases."""
+    off = {"ft_stop": 5.0}
+    J = [job("P2-Up", f"Up_s{29300 + i}", "seq", {"seed": 29300 + i, "moves": "U'", "overrides": off}) for i in range(20)]
+    J += [job("P2-U2", f"U2_s{29320 + i}", "seq", {"seed": 29320 + i, "moves": "U2", "overrides": off})
+          for i in range(20)]
+    J += [job("P2-seq", f"seq5_s{29340 + i}", "seq", {"seed": 29340 + i, "moves": "U U' U2 U' U"}) for i in range(4)]
+    J += [job("P2-hold", f"hold60_s{29344 + i}", "hold", {"seed": 29344 + i, "hold_s": 60.0}) for i in range(2)]
+    for i, c in enumerate(("jam", "two_layer", "collision", "open_midturn")):
+        J += [job("P2-neg", f"{c}_s{29346 + 2 * i + k}", "neg", {"seed": 29346 + 2 * i + k, "case": c}) for k in range(2)]
+    return J
+
+
 def key_of(j: dict) -> tuple[str, str]:
     return j["exp"], j["tid"]
 
@@ -128,7 +151,8 @@ def _now() -> str:
 def metadata(j: dict) -> dict:
     return {"experiment": j["exp"], "trial_id": j["tid"], "kind": j["kind"], "spec": j["kw"],
             "reported_only": j["reported_only"], "source_commit": j.get("commit"), "environment": j.get("env"),
-            "smoke": j.get("smoke", False), "scored": j.get("scored", False), "mechanism": "M7 free core, two xArm7"}
+            "smoke": j.get("smoke", False), "scored": j.get("scored", False), "head": j.get("head"),
+            "mechanism": "M7 free core, two xArm7"}
 
 
 def exception_record(j: dict, exc: BaseException) -> dict:
@@ -201,9 +225,33 @@ def _norm(x):
     return json.loads(json.dumps(x, sort_keys=True, default=list))
 
 
-def manifest_body(jobs: list[dict], commit: str, env: dict) -> dict:
+def artifacts() -> dict:
+    """SHA-256 of the physics-defining files git cannot see or that live outside the frozen code (review 1 item 5):
+    the generated robot model, its gripper calibration, every mesh it references, the magnet near-field table in use,
+    and the V3 check records."""
+    import glob
+    gen = REPO / "third_party_cad" / "robot" / "generated"
+    xml_p = gen / "xarm7_g2_1305+.xml"
+    files = [xml_p, gen / "xarm7_g2_1305+_gripper_calibration.json"]
+    txt = xml_p.read_text()
+    m = re.search(r'meshdir="([^"]+)"', txt)
+    meshdir = (xml_p.parent / m.group(1)).resolve() if m else xml_p.parent
+    for f in sorted(set(re.findall(r'<mesh[^>]*file="([^"]+)"', txt))):
+        files.append((meshdir / f).resolve())
+    import trials as T
+    mp = T.TA.H.R.magnet_params_for({})
+    files.append(Path(T.TA.H.M4.table_path(mp)))
+    files += [Path(x) for x in sorted(glob.glob(str(REPO / "experiments/D8_alignment/results/d8_1b_checks*.json")))]
+    out = {}
+    for f in files:
+        f = Path(f).resolve()
+        out[str(f.relative_to(REPO)) if f.is_relative_to(REPO) else str(f)] = _sha(f.read_bytes())
+    return out
+
+
+def manifest_body(jobs: list[dict], commit: str, env: dict, arts: dict | None = None) -> dict:
     return {"gate": "G2", "commit": commit, "environment": env, "environment_compared": list(ENV_COMPARED),
-            "frozen_paths": FROZEN_PATHS,
+            "frozen_paths": FROZEN_PATHS, "artifacts": arts or {},
             "trials": [{"exp": j["exp"], "tid": j["tid"], "kind": j["kind"], "kw": j["kw"],
                         "reported_only": j["reported_only"]} for j in jobs]}
 
@@ -226,10 +274,28 @@ def _git(*args: str) -> str:
     return subprocess.run(cmd, capture_output=True, text=True, check=True).stdout.strip()
 
 
+def ledger_problems(out: Path, manifest: dict) -> list[str]:
+    """Review 1 item 4 (b): a ledger key with more than one line, or whose record is missing, means a record was
+    deleted or rewritten; the run is then INVALID and may not be resumed."""
+    seen: dict = {}
+    for x in read_lines(out / LEDGER):
+        k = (x["exp"], x["tid"])
+        seen[k] = seen.get(k, 0) + 1
+    keys = {(t["exp"], t["tid"]) for t in manifest["trials"]}
+    probs = [f"ledger key {k} has {n} lines" for k, n in seen.items() if n > 1]
+    probs += [f"ledger key {k} has no record" for k in seen if not record_path(out, k).exists()]
+    probs += [f"ledger key {k} is not a manifest trial" for k in seen if k not in keys]
+    return probs
+
+
 def resume_problems(manifest: dict, body: dict, head: str, check_git: bool = True) -> list[str]:
     probs = []
     if _norm(manifest.get("trials")) != _norm(body["trials"]):
         probs.append("trials differ from the manifest")
+    if _norm(manifest.get("artifacts", {})) != _norm(body.get("artifacts", {})):
+        changed = sorted(k for k in set(manifest.get("artifacts", {})) | set(body.get("artifacts", {}))
+                         if manifest.get("artifacts", {}).get(k) != body.get("artifacts", {}).get(k))
+        probs.append(f"artifact SHA-256s differ from the manifest: {changed}")
     for k in ENV_COMPARED:
         if manifest.get("environment", {}).get(k) != body["environment"].get(k):
             probs.append(f"environment field {k} differs from the manifest")
@@ -244,11 +310,14 @@ def resume_problems(manifest: dict, body: dict, head: str, check_git: bool = Tru
 def foreign_files(out: Path, starts: list[dict], manifest: dict) -> list[str]:
     logged = {o["moved_to"] for s in starts for o in s.get("orphans", [])}
     records = {record_path(out, (t["exp"], t["tid"])) for t in manifest["trials"]}
+    exps = {t["exp"] for t in manifest["trials"]}
     bad = []
     for p in out.iterdir():
         if p.is_file():
             if p.name not in (MANIFEST, STARTS, LEDGER):
                 bad.append(p.name)
+        elif p.name not in exps and p.name != INTERRUPTED:
+            bad.append(f"{p.name}/ (directory not in the manifest)")
         elif p.name == INTERRUPTED:
             bad += [str(f.relative_to(out)) for f in p.iterdir() if str(f.relative_to(out)) not in logged]
         else:
@@ -287,8 +356,9 @@ def apply_resume(out: Path, plan: dict, start_k: int) -> None:
 
 
 def execute(out: Path, jobs: list[dict], commit: str, env: dict, head: str, n_workers: int, runner=run_job,
-            stop_after: int | None = None, stop_point: str | None = None, check_git: bool = True, log=print) -> int:
-    body = manifest_body(jobs, commit, env)
+            stop_after: int | None = None, stop_point: str | None = None, check_git: bool = True, log=print,
+            arts: dict | None = None) -> int:
+    body = manifest_body(jobs, commit, env, arts)
     man = out / MANIFEST
     if not man.exists():
         if out.exists() and any(out.iterdir()):
@@ -299,7 +369,9 @@ def execute(out: Path, jobs: list[dict], commit: str, env: dict, head: str, n_wo
         manifest = json.loads(man.read_text())
         starts = read_lines(out / STARTS)
         probs = resume_problems(manifest, body, head, check_git)
-        probs += [f"file that would make the run INVALID: {f}" for f in foreign_files(out, starts, manifest)]
+        probs += [f"file that would make the run INVALID: {f}" for f in foreign_files(out, starts, manifest)
+                  if not f.endswith(".json.tmp")]
+        probs += ledger_problems(out, manifest)
         if probs:
             raise SystemExit("refusing resume:\n  " + "\n  ".join(probs))
         commit = manifest["commit"]
@@ -309,7 +381,7 @@ def execute(out: Path, jobs: list[dict], commit: str, env: dict, head: str, n_wo
     if start_k > 1:
         apply_resume(out, plan, start_k)
     for j in jobs:
-        j["commit"], j["env"] = commit, env
+        j["commit"], j["env"], j["head"] = commit, env, head
     todo = [j for j in jobs if not record_path(out, key_of(j)).exists()]
     todo.sort(key=lambda j: -(len(j["kw"].get("moves", "").split()) + j["kw"].get("hold_s", 0) / 10))
     log(f"start {start_k}: commit {commit}; {len(todo)} of {len(jobs)} trials to run; orphans moved "
@@ -325,7 +397,7 @@ def execute(out: Path, jobs: list[dict], commit: str, env: dict, head: str, n_wo
         if stop_after is not None and written >= stop_after:
             raise Interrupted(f"stopped after {written} records (--stop-after)")
 
-    if n_workers <= 1:
+    if runner is not run_job:              # injected runners (unit tests) run in-process; real trials never do
         for j in todo:
             try:
                 key, rec = runner(j)
@@ -333,8 +405,8 @@ def execute(out: Path, jobs: list[dict], commit: str, env: dict, head: str, n_wo
                 raise Interrupted(f"{type(e).__name__}: {e}") from e
             _write(key, rec)
         return written
-    ex = ProcessPoolExecutor(max_workers=n_workers, mp_context=multiprocessing.get_context("spawn"),
-                             max_tasks_per_child=1)
+    ex = ProcessPoolExecutor(max_workers=max(1, n_workers), mp_context=multiprocessing.get_context("spawn"),
+                             max_tasks_per_child=1)   # review 1 item 6: one trial per spawned process, always
     try:
         futs = [ex.submit(runner, j) for j in todo]
         for fut in as_completed(futs):
@@ -390,14 +462,14 @@ def require_clean_commit() -> str:
 
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("experiment", choices=["all", "smoke", "pilot"])
-    ap.add_argument("--jobs", type=int, default=4)
+    ap.add_argument("experiment", choices=["all", "smoke", "pilot", "pilot2"])
+    ap.add_argument("--jobs", type=int, default=8)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--smoke-dir", type=Path)
     ap.add_argument("--stop-after", type=int)
     ap.add_argument("--stop-point", choices=["after_tmp", "after_link", "after_ledger"], default="after_ledger")
     a = ap.parse_args(argv)
-    smoke = a.experiment in ("smoke", "pilot")      # both unscored, both into --smoke-dir
+    smoke = a.experiment in ("smoke", "pilot", "pilot2")      # unscored, into --smoke-dir
     if smoke != (a.smoke_dir is not None):
         raise SystemExit("'smoke'/'pilot' require --smoke-dir, and --smoke-dir is only for them")
     if a.stop_after is not None and not smoke:
@@ -406,7 +478,7 @@ def main(argv: list[str] | None = None) -> None:
         sd = a.smoke_dir.resolve()
         if sd == OUT.resolve() or sd.is_relative_to(OUT.resolve()):
             raise SystemExit(f"refusing: --smoke-dir {a.smoke_dir} would write into the scored folder")
-    jobs = pilot_jobs() if a.experiment == "pilot" else smoke_jobs() if smoke else build_jobs()
+    jobs = {"pilot": pilot_jobs, "pilot2": pilot2_jobs, "smoke": smoke_jobs, "all": build_jobs}[a.experiment]()
     if not smoke:
         seeds = [j["kw"]["seed"] for j in jobs]
         assert all(SCORED_SEEDS[0] <= s <= SCORED_SEEDS[1] for s in seeds) and len(set(seeds)) == len(seeds)
@@ -429,10 +501,15 @@ def main(argv: list[str] | None = None) -> None:
     for j in jobs:
         j["smoke"], j["scored"] = smoke, not smoke
     out = a.smoke_dir / "results" if smoke else OUT
+    import shutil
+    free_gb = shutil.disk_usage(out.parent if out.parent.exists() else REPO).free / 1e9
+    if free_gb < MIN_FREE_GB:
+        raise SystemExit(f"refusing: {free_gb:.1f} GB free < {MIN_FREE_GB} GB")
+    arts = artifacts()
     t0 = time.perf_counter()
     try:
         n = execute(out, jobs, commit, env, head, a.jobs, stop_after=a.stop_after,
-                    stop_point=a.stop_point if a.stop_after else None, log=lambda s: print(s, flush=True))
+                    stop_point=a.stop_point if a.stop_after else None, log=lambda s: print(s, flush=True), arts=arts)
     except Interrupted as e:
         print(f"INTERRUPTED after {time.perf_counter() - t0:.0f} s: {e}. Resume with the same command.", flush=True)
         sys.exit(3)

@@ -1,6 +1,6 @@
 """G2 self-check (pre-registration §7 P-6; UNSCORED): re-run pilot trials with the current code and compare them with the
-committed pilot records (pilot_P5/results). Volatile fields (wall time, load, commit, environment, smoke/scored flags)
-are ignored; every physics field must be identical, including each record's final qpos SHA-256.
+committed pilot records (pilot_P5/results). Revision 2 compares the physics identity (final qpos SHA-256, the start
+sequence, observed moves, guard stops, F/T peaks): the simulation must be bit-identical to the pilot's.
 Usage (WSL, repo root): python experiments/E8_scored_g2/selfcheck.py [--jobs 3]
 """
 from __future__ import annotations
@@ -43,6 +43,16 @@ def diff(a, b, path=""):
     return [] if a == b else [f"{path}: {a!r} != {b!r}"]
 
 
+def physics(rec: dict, ref_keys: dict) -> dict:
+    """The physics identity of a record (revision 2): the final qpos hash, the start sequence (the keys the pilot record
+    had), and per move the observed move, guard stop and F/T peak. Measurement fields that revision 2 added or
+    redefined (contacts, move windows) are not compared; the simulation itself must be bit-identical."""
+    return {"final_qpos_sha256": rec.get("final_qpos_sha256"),
+            "start": {k: rec.get("start", {}).get(k) for k in ref_keys.get("start", {})},
+            "moves": [{k: pm.get(k) for k in ("move", "observed_move", "jam_stop", "ft_tau_z_max_Nm")}
+                      for pm in rec.get("per_move", [])]}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--jobs", type=int, default=3)
@@ -57,11 +67,11 @@ def main() -> None:
     for key, rec in results:
         ref = json.loads((HERE / "pilot_P5" / "results" / key[0] / f"{key[1]}.json").read_text())
         new = json.loads(json.dumps(rec, default=list))
-        d = diff(strip(ref), strip(new))
+        d = diff(physics(ref, ref), physics(new, ref))
         bad += bool(d)
         print(f"{'IDENTICAL' if not d else 'DIFFERS'} {key[0]}/{key[1]}  qpos sha {new.get('final_qpos_sha256', '')[:12]}"
               + ("" if not d else "\n  " + "\n  ".join(d[:10])), flush=True)
-    print(f"self-check: {len(results) - bad}/{len(results)} identical")
+    print(f"self-check: {len(results) - bad}/{len(results)} physics-identical")
     sys.exit(1 if bad else 0)
 
 
