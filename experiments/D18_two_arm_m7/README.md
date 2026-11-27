@@ -89,3 +89,36 @@ Compared with D17's compliant mount, the turn error is larger (0.5–0.6° vs �
 - The joint friction, damping and armature are Menagerie's.
 - Arm B's grasp error is 0.4–1.3 mm. The C1 tolerance is about ±2 mm (P-106).
 - Not pre-registered.
+
+## Drop-away stand (P-109 (1), R2-09) and visual stickers (UNSCORED)
+### The stand
+**Design:**
+- An actuated stand under **D and E only**: world x from 2.5 mm inside the D face to 2.5 mm before the E/U boundary,
+  40 mm wide, top 0.1 mm below the cube.
+- A stiff vertical slide servo (20000 N/m, 300 N·s/m), gravity-compensated.
+
+**Sequence (gravity on from the first step; no gravity-off setup):**
+1. The cube settles 0.3 s.
+2. Arm A ramps closed (2 s), then holds 0.3 s.
+3. The stand lowers 30 mm (0.5 s).
+4. Settle 0.5 s, then arm B approaches.
+
+**Result** (`results/two_arm_F20_L1_H0.3_U_stand.json`, one U turn):
+
+| Measure | Value |
+|---|---|
+| Stand load at rest | 0.884 N (= cube weight) |
+| Stand load after the grasp | 1.298 N |
+| Settle on stand | 0.19 mm, 0.11° |
+| Shift during arm A's grasp | 0.51 mm, 0.09° |
+| Shift as the stand drops | 0.11 mm, 0.03° |
+| Stand contact after the drop | 0 N (clear) |
+| Cube centre vs nominal at t0 | 0.59 mm |
+
+The U turn passes every check: error −0.16°, drift 0.19°, fingertip torque 0.24 N·m.
+
+### Visual stickers
+- One 13 × 13 × 0.2 mm tile per outward cubie face, in the standard colour scheme.
+- `contype = conaffinity = 0` and density 0, added in the G2 scene builder. The frozen G1 model is not changed.
+- **Physics invariance (`FACT`):** the same U turn without and with stickers (gravity-off setup) gives **identical
+  final `qpos` SHA-256** (`e83b4955…`) and identical per-move numbers (`results/*_nostk.json`, `results/*_stk.json`).

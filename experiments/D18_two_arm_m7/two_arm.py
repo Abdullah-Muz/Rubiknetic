@@ -54,6 +54,37 @@ SETTLE_S = 0.3
 T = scored.THRESHOLDS
 OUT = HERE / "results"
 YAW180 = np.array([[-1.0, 0, 0], [0, -1.0, 0], [0, 0, 1.0]])
+STICKERS = True        # visual-only stickers (no mass, no collision; user 2026-11-26); --no-stickers to omit
+STAND = True           # P-109 (1): actuated stand under D+E, gravity-on grasp, then it drops away; --no-stand = D18 v1
+STICKER_HALF, STICKER_T = 0.0065, 0.0002
+FACE_RGBA = {"U": [1, 1, 1, 1], "D": [1, 0.85, 0, 1], "R": [0.8, 0.05, 0.05, 1], "L": [1, 0.45, 0, 1],
+             "F": [0, 0.6, 0.15, 1], "B": [0, 0.25, 0.8, 1]}         # standard scheme; cube-frame faces
+STAND_KP, STAND_KV, STAND_DROP, STAND_GAP = 20000.0, 300.0, 0.030, 0.0001
+
+
+def add_stickers(cube, p) -> None:
+    """One thin coloured tile per outward cubie face: visual only (contype = conaffinity = 0, density 0), in the
+    cubie body (body origin = core centre, the cubie geom at home * pitch). Physics unchanged (checked: identical
+    qpos with and without)."""
+    from rubiknetic.cube_logic.geometric import HOME_POSITIONS
+    from rubiknetic.cube_logic.notation import FACES
+    from rubiknetic.cube_physics.m1_model import cubie_name
+    h = (p.pitch - p.gap) / 2
+    for home in HOME_POSITIONS:
+        body = cube.body(cubie_name(home))
+        for f in FACES:
+            n = np.array(FACE_NORMAL[f], float)
+            if np.dot(home, n) != 1:
+                continue
+            g = body.add_geom()
+            g.name = f"{cubie_name(home)}_st{f}"
+            g.type = mujoco.mjtGeom.mjGEOM_BOX
+            size = np.full(3, STICKER_HALF)
+            size[int(np.argmax(np.abs(n)))] = STICKER_T / 2
+            g.size = size.tolist()
+            g.pos = (np.array(home, float) * p.pitch + n * (h + STICKER_T / 2)).tolist()
+            g.contype, g.conaffinity, g.density, g.group = 0, 0, 0.0, 1
+            g.rgba = FACE_RGBA[f]
 
 
 def build(L: float, Hc: float, mu: float):
@@ -70,6 +101,8 @@ def build(L: float, Hc: float, mu: float):
                            f'quat="{" ".join(f"{v:.9g}" for v in q)}">\n      <freejoint name="core_free"/>\n'
                            '      <inertial pos="0 0 0" mass="0.0017" diaginertia="2e-8 2e-8 2e-8"/>', 1)
     cube = mujoco.MjSpec.from_string(xml)
+    if STICKERS:
+        add_stickers(cube, p)
     parent = H.robot_spec(rp, mu)                                  # arm A, P-97 stabiliser fingertips
     for k in ("timestep", "integrator", "cone", "impratio", "solver", "iterations", "tolerance", "gravity",
               "noslip_iterations"):
@@ -85,10 +118,28 @@ def build(L: float, Hc: float, mu: float):
     tbl = parent.worldbody.add_geom()
     tbl.name, tbl.type, tbl.size, tbl.pos = "table", mujoco.mjtGeom.mjGEOM_PLANE, [1.5, 1.0, 0.01], [L / 2, 0, 0]
     tbl.rgba = [0.6, 0.55, 0.5, 1]
-    for b in ("link_base", "B_link_base"):
+    excl = ["link_base", "B_link_base"]
+    if STAND:
+        # under D and E only (world x from 2.5 mm inside the D face to 2.5 mm before the E/U boundary), 40 mm wide,
+        # top 0.1 mm below the cube's lower face; a stiff vertical slide servo lowers it by STAND_DROP after the grasp
+        x0, x1 = C[0] - half + 0.0025, C[0] + 0.5 * p.pitch - 0.0025
+        top = C[2] - half - STAND_GAP
+        hz = (top - 0.010) / 2
+        st = parent.worldbody.add_body(name="stand", pos=[(x0 + x1) / 2, 0.0, top - hz])
+        st.add_joint(name="stand_z", type=mujoco.mjtJoint.mjJNT_SLIDE, axis=[0, 0, 1], range=[-0.05, 0.001])
+        sg = st.add_geom()
+        sg.name, sg.type, sg.size = "stand_g", mujoco.mjtGeom.mjGEOM_BOX, [(x1 - x0) / 2, 0.020, hz]
+        sg.friction, sg.condim, sg.rgba = [0.5, 0.005, 0.0001], 3, [0.35, 0.35, 0.4, 1]
+        sa = parent.add_actuator(name="stand_z", target="stand_z", trntype=mujoco.mjtTrn.mjTRN_JOINT)
+        sa.set_to_position(kp=STAND_KP, kv=STAND_KV)
+        sa.forcelimited, sa.forcerange = mujoco.mjtLimited.mjLIMITED_TRUE, [-200.0, 200.0]
+        excl.append("stand")
+    for b in excl:
         ex = parent.add_exclude()
         ex.bodyname1, ex.bodyname2 = "world", b
     m = parent.compile()
+    if STAND:
+        m.body_gravcomp[m.body("stand").id] = 1.0
     # arm B joints 1-6 -> torque (motor) actuators, ctrl = torque, range = URDF peak effort; J7 -> roll servo
     for i in range(1, 7):
         a = m.actuator(f"B_act{i}").id
@@ -167,16 +218,52 @@ class TwoArm:
         self.cubie = np.array(self.ro.geom_ids)
         self.table = m.geom("table").id
         self.f6 = np.zeros(6)
-        # setup (before t0): gravity off while arm A closes, as D17 (R2-09 gravity-on grasp is for the prereg)
-        g = m.opt.gravity.copy()
-        m.opt.gravity[:] = 0.0
         dt = m.opt.timestep
-        for k in range(int(H.SETUP_S / dt)):
-            d.ctrl[self.gA] = min(bm.DRIVE_RANGE[1], self.th_open + H.CLOSE_RATE * k * dt)
-            self.ctrl_step()
-        m.opt.gravity[:] = g
-        for _ in range(int(round(0.5 / dt))):
-            self.ctrl_step()
+        self.start = {"stand": STAND, "stickers": STICKERS}
+        if STAND:
+            # P-109 (1): gravity on from the first step. The cube settles on the stand; arm A ramps closed; the stand
+            # lowers STAND_DROP clear; settle. Recorded: core shifts and rotation in each phase, stand load.
+            sa = m.actuator("stand_z").id
+            sg = m.geom("stand_g").id
+            d.ctrl[sa] = 0.0
+
+            def pose():
+                return d.xpos[self.core].copy(), d.xmat[self.core].reshape(3, 3).copy()
+
+            def rot(Ra, Rb):
+                return float(np.degrees(np.linalg.norm(Rotation.from_matrix(Rb @ Ra.T).as_rotvec())))
+            c0, R0 = pose()
+            self.ctrl_step(int(round(0.3 / dt)))
+            c1, R1 = pose()
+            self.start["stand_load_N"] = self.force_on([sg])
+            for k in range(int(H.SETUP_S / dt)):
+                d.ctrl[self.gA] = min(bm.DRIVE_RANGE[1], self.th_open + H.CLOSE_RATE * k * dt)
+                self.ctrl_step()
+            self.ctrl_step(int(round(0.3 / dt)))
+            c2, R2 = pose()
+            self.start["stand_load_after_grasp_N"] = self.force_on([sg])
+            n = int(round(0.5 / dt))
+            for k in range(1, n + 1):
+                d.ctrl[sa] = -STAND_DROP * k / n
+                self.ctrl_step()
+            self.ctrl_step(int(round(0.5 / dt)))
+            c3, R3 = pose()
+            self.start.update({
+                "settle_on_stand_mm": float(np.linalg.norm(c1 - c0) * 1e3), "settle_rot_deg": rot(R0, R1),
+                "grasp_shift_mm": float(np.linalg.norm(c2 - c1) * 1e3), "grasp_rot_deg": rot(R1, R2),
+                "stand_drop_shift_mm": float(np.linalg.norm(c3 - c2) * 1e3), "stand_drop_rot_deg": rot(R2, R3),
+                "stand_contact_after_drop_N": self.force_on([sg]),
+                "core_offset_from_nominal_mm": float(np.linalg.norm(c3 - np.array(self.info["cube_centre"])) * 1e3)})
+        else:
+            # D18 v1 setup (before t0): gravity off while arm A closes, as D17
+            g = m.opt.gravity.copy()
+            m.opt.gravity[:] = 0.0
+            for k in range(int(H.SETUP_S / dt)):
+                d.ctrl[self.gA] = min(bm.DRIVE_RANGE[1], self.th_open + H.CLOSE_RATE * k * dt)
+                self.ctrl_step()
+            m.opt.gravity[:] = g
+            for _ in range(int(round(0.5 / dt))):
+                self.ctrl_step()
 
     # ---- arm B impedance (robot state only) -------------------------------------------------------------------
     def impedance(self) -> None:
@@ -382,6 +469,8 @@ def run(seq: str, grip: float, L: float, Hc: float, viewer=None) -> dict:
     prev = r.ro.observe(r.d)
     rec = {"study": "D18 two-arm", "scored": False, "sequence": seq, "grip_N": grip, "scene": r.info,
            "t0_solved": bool(prev.valid and prev.state == SOLVED), "per_move": []}
+    rec["start"] = r.start
+    print("start", json.dumps({k: (round(v, 3) if isinstance(v, float) else v) for k, v in r.start.items()}), flush=True)
     rec["approach"] = r.approach()
     print("approach", json.dumps({k: (round(v, 3) if isinstance(v, float) else v) for k, v in rec["approach"].items()}),
           flush=True)
@@ -418,7 +507,8 @@ def run(seq: str, grip: float, L: float, Hc: float, viewer=None) -> dict:
     final = r.ro.observe(r.d)
     rec.update({"final_matches_oracle": bool(final.valid and final.state == expect),
                 "audit_violations": r.sim.violations, "numerical_failures": r.sim.numerical_failures,
-                "sim_time_s": float(r.d.time), "wall_s": time.perf_counter() - t_wall})
+                "sim_time_s": float(r.d.time), "wall_s": time.perf_counter() - t_wall,
+                "final_qpos_sha256": __import__("hashlib").sha256(r.d.qpos.tobytes()).hexdigest()})
     rec["pass"] = bool(rec["t0_solved"] and "aborted" not in rec and not rec["audit_violations"]
                        and not rec["numerical_failures"] and len(rec["per_move"]) == len(moves)
                        and all(pm["ok_all"] for pm in rec["per_move"]) and rec["final_matches_oracle"])
@@ -433,7 +523,12 @@ def main() -> None:
     ap.add_argument("--L", type=float, default=1.0)
     ap.add_argument("--H", type=float, default=0.30)
     ap.add_argument("--view", action="store_true")
+    ap.add_argument("--no-stickers", action="store_true")
+    ap.add_argument("--no-stand", action="store_true", help="D18 v1 gravity-off setup instead of the stand")
+    ap.add_argument("--tag", default="")
     a = ap.parse_args()
+    global STICKERS, STAND
+    STICKERS, STAND = not a.no_stickers, not a.no_stand
     H.TIP_SOLREF = (0.01, 1.0)                         # soft pads, as scored (P-105)
     viewer, holder = None, {}
     if a.view:
@@ -463,6 +558,9 @@ def main() -> None:
         return
     OUT.mkdir(parents=True, exist_ok=True)
     name = f"two_arm_F{a.grip:g}_L{a.L:g}_H{a.H:g}_{a.seq.replace(' ', '_').replace(chr(39), 'p')}"
+    if STAND:
+        name += "_stand"
+    name += a.tag
     (OUT / f"{name}.json").write_text(json.dumps(rec, indent=1, default=float))
     print(json.dumps({k: v for k, v in rec.items() if k not in ("per_move", "scene", "approach")}, default=float))
 
