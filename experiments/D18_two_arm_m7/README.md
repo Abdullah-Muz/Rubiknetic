@@ -139,3 +139,13 @@ The U turn passes every check: error −0.16°, drift 0.19°, fingertip torque 0
 **PROPOSAL (for the user):** guard on the **estimated external torque at J7**: the motor torque minus J7's modelled
 friction, damping and inertia (robot state only; a real xArm reports current-based joint torque). Normal ≤ 0.3 N·m;
 push-through about 1.7 N·m; threshold [pilot], about 0.8–1 N·m. The lag guard is off by default (`--guard` enables it).
+
+## Visual environment (user, 2026-11-26: the all-black room was "very depressing")
+`add_environment` in `two_arm.py`, on by default (`--plain-env` turns it off):
+- a light sky-gradient skybox;
+- a wood-tone checker material on the table plane;
+- a grey checker floor 0.75 m below the table (`contype = conaffinity = 0`);
+- two directional lights and a brighter headlight.
+
+**Visual only (`FACT`):** the same U turn gives the identical final `qpos` SHA-256 (`e83b4955…`) with and without the
+environment, and the same hash as the sticker check.

@@ -64,6 +64,7 @@ STAND_KP, STAND_KV, STAND_DROP, STAND_GAP = 20000.0, 300.0, 0.030, 0.0001
 # during a roll, arm B freezes the roll at the current angle and opens. Threshold [pilot].
 GUARD = False         # off by default: the lag rule false-triggers (D18 guard test, P-111); --guard to enable
 GUARD_LAG_DEG, GUARD_HOLD_S = 3.0, 0.005
+ENV = True             # visual-only room (sky gradient, wood table, grey floor, lights; user 2026-11-26); --plain-env
 JAM_BLOCK = False      # G2-7 negative test: a world-fixed block above the cube's top face beside the U layer
 
 
@@ -90,6 +91,36 @@ def add_stickers(cube, p) -> None:
             g.pos = (np.array(home, float) * p.pitch + n * (h + STICKER_T / 2)).tolist()
             g.contype, g.conaffinity, g.density, g.group = 0, 0, 0.0, 1
             g.rgba = FACE_RGBA[f]
+
+
+def add_environment(sp, L: float) -> None:
+    """Visual-only surroundings: a light sky-gradient skybox, a wood-tone checker material on the table plane, a grey
+    floor 0.75 m below the table (contype = conaffinity = 0), two directional lights and a brighter headlight. No
+    physics change (checked: identical final qpos with and without)."""
+    sky = sp.add_texture()
+    sky.name, sky.type, sky.builtin = "sky", mujoco.mjtTexture.mjTEXTURE_SKYBOX, mujoco.mjtBuiltin.mjBUILTIN_GRADIENT
+    sky.rgb1, sky.rgb2, sky.width, sky.height = [0.75, 0.85, 0.95], [0.97, 0.97, 1.0], 512, 3072
+    wood = sp.add_texture()
+    wood.name, wood.type, wood.builtin = "wood", mujoco.mjtTexture.mjTEXTURE_2D, mujoco.mjtBuiltin.mjBUILTIN_CHECKER
+    wood.rgb1, wood.rgb2, wood.width, wood.height = [0.72, 0.55, 0.38], [0.66, 0.50, 0.34], 512, 512
+    floor = sp.add_texture()
+    floor.name, floor.type, floor.builtin = "floor", mujoco.mjtTexture.mjTEXTURE_2D, mujoco.mjtBuiltin.mjBUILTIN_CHECKER
+    floor.rgb1, floor.rgb2, floor.width, floor.height = [0.80, 0.80, 0.80], [0.70, 0.70, 0.72], 512, 512
+    for name, tex, rep_ in (("table_mat", "wood", [4, 3]), ("floor_mat", "floor", [10, 10])):
+        mt = sp.add_material()
+        mt.name, mt.texrepeat, mt.reflectance = name, rep_, 0.05
+        tx = [""] * 10
+        tx[int(mujoco.mjtTextureRole.mjTEXROLE_RGB)] = tex
+        mt.textures = tx
+    fl = sp.worldbody.add_geom()
+    fl.name, fl.type, fl.size, fl.pos = "floor_vis", mujoco.mjtGeom.mjGEOM_PLANE, [4.0, 4.0, 0.05], [L / 2, 0, -0.75]
+    fl.contype, fl.conaffinity, fl.material = 0, 0, "floor_mat"
+    for pos, dr in (([L / 2, -1.0, 2.0], [0, 0.45, -1.0]), ([L / 2, 1.2, 2.5], [0, -0.45, -1.0])):
+        lt = sp.worldbody.add_light()
+        lt.pos, lt.dir, lt.diffuse, lt.specular = pos, dr, [0.55, 0.55, 0.55], [0.15, 0.15, 0.15]
+        lt.type = mujoco.mjtLightType.mjLIGHT_DIRECTIONAL
+    sp.visual.headlight.ambient = [0.35, 0.35, 0.35]
+    sp.visual.headlight.diffuse = [0.45, 0.45, 0.45]
 
 
 def build(L: float, Hc: float, mu: float):
@@ -123,6 +154,9 @@ def build(L: float, Hc: float, mu: float):
     tbl = parent.worldbody.add_geom()
     tbl.name, tbl.type, tbl.size, tbl.pos = "table", mujoco.mjtGeom.mjGEOM_PLANE, [1.5, 1.0, 0.01], [L / 2, 0, 0]
     tbl.rgba = [0.6, 0.55, 0.5, 1]
+    if ENV:
+        add_environment(parent, L)
+        tbl.material, tbl.rgba = "table_mat", [1, 1, 1, 1]
     if JAM_BLOCK:
         # above the top face (world +z = cube +y), over the U layer (world x from C+12 to C+26 mm), |y| <= 5 mm,
         # 1.5 mm clear of the face: a U-layer corner reaches it about 38-40 deg into a turn
@@ -551,11 +585,13 @@ def main() -> None:
     ap.add_argument("--no-stickers", action="store_true")
     ap.add_argument("--no-stand", action="store_true", help="D18 v1 gravity-off setup instead of the stand")
     ap.add_argument("--tag", default="")
+    ap.add_argument("--plain-env", action="store_true", help="no sky, floor, textures or extra lights")
     ap.add_argument("--guard", action="store_true", help="enable the J7 lag guard (false-triggers; P-111)")
     ap.add_argument("--jam-block", action="store_true")
     ap.add_argument("--guard-lag", type=float, default=3.0)
     a = ap.parse_args()
-    global STICKERS, STAND, GUARD, JAM_BLOCK, GUARD_LAG_DEG
+    global STICKERS, STAND, GUARD, JAM_BLOCK, GUARD_LAG_DEG, ENV
+    ENV = not a.plain_env
     STICKERS, STAND = not a.no_stickers, not a.no_stand
     GUARD, JAM_BLOCK, GUARD_LAG_DEG = a.guard, a.jam_block, a.guard_lag
     H.TIP_SOLREF = (0.01, 1.0)                         # soft pads, as scored (P-105)
