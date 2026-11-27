@@ -97,6 +97,11 @@ def verdict(out: Path) -> dict:
                         for k, r in scored.items() if k[0] == "G2-7"}
     res["screen"] = {k[1]: {"pass_as_turns": r["pass"], "fail_reasons": r["fail_reasons"]}
                      for k, r in recs.items() if ro[k]}
+    rtf = sorted(r["sim_time_s"] / r["wall_s"] for r in recs.values()
+                 if r.get("sim_time_s") and r.get("wall_s"))           # G2-8: real-time factor per trial process
+    res["throughput"] = {"n": len(rtf), "rtf_median": rtf[len(rtf) // 2] if rtf else None,
+                         "rtf_min": rtf[0] if rtf else None, "rtf_max": rtf[-1] if rtf else None,
+                         "note": "simulated s per wall s, one trial per process, other trials in parallel"}
     return res
 
 
@@ -107,9 +112,13 @@ def report(res: dict) -> str:
         return "\n".join(lines)
     lines += [f"- scored trials: {res['n_scored']} (reported only: {res['n_reported_only']})",
               f"- turn trials: {res['turn_trials']}, failures {res['turn_failures']}, exact 95 % upper bound on the "
-              f"per-trial failure rate {res['turn_failure_rate_upper95']:.3f}", f"- moves: {res['moves']}",
+              f"per-trial failure rate "
+              + ("-" if res['turn_failure_rate_upper95'] is None else f"{res['turn_failure_rate_upper95']:.3f}"),
+              f"- moves: {res['moves']}",
               f"- G2-1 holds: {res['holds']['pass']}/{res['holds']['n']} pass; max slip "
-              f"{res['holds']['slip_max_mm']} mm, max rotation {res['holds']['rot_max_deg']} deg", "",
+              f"{res['holds']['slip_max_mm']} mm, max rotation {res['holds']['rot_max_deg']} deg",
+              f"- G2-8 throughput (reported): real-time factor median {res['throughput']['rtf_median']}, range "
+              f"{res['throughput']['rtf_min']}-{res['throughput']['rtf_max']} over {res['throughput']['n']} trials", "",
               "| per-move maximum | value |", "|---|---|"]
     lines += [f"| {k} | {v:.3f} |" if v is not None else f"| {k} | - |" for k, v in res["per_move_max"].items()]
     lines += ["", "| G2-7 negative case | pass | outcome |", "|---|---|---|"]
