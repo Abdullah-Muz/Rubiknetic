@@ -56,7 +56,11 @@ def test_job_counts_and_seeds(T):
 
 
 def test_smoke_and_pilot_seeds_are_pilot_seeds():
-    assert all(29000 <= j["kw"]["seed"] <= 29999 for j in R.smoke_jobs() + R.pilot_jobs())
+    jobs = R.smoke_jobs() + R.pilot_jobs() + R.pilot2_jobs() + R.pilot3_jobs() + R.pilot4_jobs()
+    assert all(29000 <= j["kw"]["seed"] <= 29999 for j in jobs)
+    p4 = [j["kw"]["seed"] for j in R.pilot4_jobs()]                  # P-131: new seeds, unique, none reused
+    old = {j["kw"]["seed"] for j in R.pilot_jobs() + R.pilot2_jobs() + R.pilot3_jobs()}
+    assert len(p4) == len(set(p4)) == 144 and not set(p4) & old and min(p4) >= 29500
 
 
 def test_random_sequences_and_start_draw(T):
@@ -370,14 +374,23 @@ def test_errors_after_the_first_step_are_failing_records(monkeypatch):
         assert rec["load_retries"] == []
 
 
-def test_phase_flag_is_set_by_the_first_control_step(T):
-    """The real flag: reset_phase clears it; constructing the scene (start sequence) sets it."""
+def test_phase_flag_and_magnets_in_the_real_scene(T):
+    """The real phase flag: reset_phase clears it; constructing the scene (start sequence) sets it.
+    P-130 (review 4 N1): the L0 magnets act at every step of the start sequence; positive control: with the passive
+    callback removed, the counter reports the steps without magnet force."""
+    import mujoco
     T.reset_phase()
     assert not T.simulation_started()
     T.configure({}, T.start_draw(29001))
     r = T.TA.TwoArm(T.L, T.HC, T.DEFAULTS["grip"])
     try:
         assert T.simulation_started() and r.d.time > 0
+        assert mujoco.get_mjcb_passive() is not None
+        st = r.magnet_stats()
+        assert st["steps"] >= 7000 and st["steps_without_magnet_force"] == 0 and st["force_evaluations"] >= st["steps"]
+        T.MagnetSystem.uninstall()
+        r.ctrl_step(5)
+        assert r.magnet_stats()["steps_without_magnet_force"] == 5
     finally:
         T.MagnetSystem.uninstall()
 
@@ -404,6 +417,7 @@ def test_smoke_dir_may_not_be_the_scored_folder():
 AUDIT = {"actuators_on_cube": [], "equalities_on_cube": [], "tendons_on_cube": [], "gravcomp_on_cube": [],
          "n_cube_bodies": 27}
 START = {"contacts": {}, "stand_drop_shift_mm": 0.1, "core_offset_from_nominal_mm": 1.0}
+MAGNETS = {"steps": 100000, "steps_without_magnet_force": 0, "force_evaluations": 100003}       # P-130
 
 
 def _pm(**kw):
@@ -423,7 +437,7 @@ def _rec(pms=None, **kw):
             "audit_violations": [], "numerical_failures": [], "start": dict(START),
             "approach": {"pen_cubie": 0.02}, "trial": {"core_slip_total_mm": 0.2, "core_rot_total_deg": 0.3,
                                                      "residual_t0_deg": [0.5] * 26, "residual_end_deg": [0.6] * 26,
-                                                     "model_audit": AUDIT}}
+                                                     "model_audit": AUDIT, "magnets": dict(MAGNETS)}}
     return {**base, **kw}
 
 
@@ -449,6 +463,9 @@ def test_seq_reasons_and_recompute_agree(T):
         (_rec(trial={**_rec()["trial"], "residual_end_deg": [0.5] * 25 + [1.6]}), True),     # growth alone is fine
         (_rec(trial={**_rec()["trial"], "residual_end_deg": [0.5] * 25 + [4.1]}), False),    # P-125: absolute 4 deg
         (_rec(trial={**_rec()["trial"], "model_audit": {**AUDIT, "actuators_on_cube": ["x"]}}), False),
+        (_rec(trial={**_rec()["trial"], "magnets": {**MAGNETS, "steps_without_magnet_force": 1}}), False),  # P-130
+        (_rec(trial={**_rec()["trial"], "magnets": {**MAGNETS, "steps": 0}}), False),
+        (_rec(trial={k: v for k, v in _rec()["trial"].items() if k != "magnets"}), False),
     ]
     for rec, ok in cases:
         assert (not T._seq_reasons(rec, 1)) is ok

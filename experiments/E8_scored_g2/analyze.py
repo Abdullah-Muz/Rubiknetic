@@ -48,6 +48,9 @@ def _integrity(rec: dict) -> list[str]:
     if not audit or any(audit.get(k) for k in ("actuators_on_cube", "equalities_on_cube", "tendons_on_cube",
                                                "gravcomp_on_cube")) or "tendons_on_cube" not in audit:
         out.append("model audit")
+    mag = (rec.get("trial") or {}).get("magnets") or rec.get("magnets")   # P-130
+    if not isinstance(mag, dict) or not mag.get("steps") or mag.get("steps_without_magnet_force") != 0:
+        out.append("magnets")
     return out
 
 
@@ -189,7 +192,7 @@ def recompute(rec: dict, t: dict) -> bool:
 # ---- integrity and verdict -------------------------------------------------------------------------------------------
 def expected_jobs(mode: str) -> list[dict]:
     return {"scored": R.build_jobs, "smoke": R.smoke_jobs, "pilot": R.pilot_jobs, "pilot2": R.pilot2_jobs,
-            "pilot3": R.pilot3_jobs}[mode]()
+            "pilot3": R.pilot3_jobs, "pilot4": R.pilot4_jobs}[mode]()
 
 
 MAX_STARTS = 6        # review 3 S5 (independent copy of run.MAX_STARTS): the first start and at most 5 resumes
@@ -388,7 +391,7 @@ def report(res: dict) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("results", nargs="?", type=Path, default=R.OUT)
-    ap.add_argument("--mode", choices=("scored", "smoke", "pilot", "pilot2", "pilot3"), default="scored")
+    ap.add_argument("--mode", choices=("scored", "smoke", "pilot", "pilot2", "pilot3", "pilot4"), default="scored")
     a = ap.parse_args()
     res = verdict(a.results, a.mode)
     text = report(res)

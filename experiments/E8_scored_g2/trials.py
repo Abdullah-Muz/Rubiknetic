@@ -111,6 +111,9 @@ def _integrity_reasons(rec: dict) -> list[str]:
     if audit is None or any(audit.get(k) for k in ("actuators_on_cube", "equalities_on_cube", "tendons_on_cube",
                                                    "gravcomp_on_cube")):
         out.append(f"model audit: {audit}")
+    mag = rec.get("trial", {}).get("magnets") or rec.get("magnets")      # P-130: the L0 magnets act at every step
+    if not mag or mag.get("steps", 0) <= 0 or mag.get("steps_without_magnet_force", 1) != 0:
+        out.append(f"magnets not active at every step: {mag}")
     return out
 
 
@@ -195,6 +198,7 @@ def run_hold(hold_s: float, ov: dict, start: dict) -> dict:
             ang = np.degrees(np.arccos(np.clip((np.trace(R @ R0.T) - 1) / 2, -1, 1)))
             rot = max(rot, float(ang))
         obs = r.ro.observe(r.d)
+        rec["magnets"] = r.magnet_stats()
         rec.update({"core_slip_mm": slip, "core_rot_deg": rot, "final_solved": bool(obs.valid and obs.state == SOLVED),
                     "contacts": {k: v for k, v in r.acc.items() if k in TA.CONTACT_KEYS},
                     "residual_t0_deg": r.residual_t0, "residual_end_deg": TA.lattice_residual_deg(r.ro.poses(r.d)[1]),

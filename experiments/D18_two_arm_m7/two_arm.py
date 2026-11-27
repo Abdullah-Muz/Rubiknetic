@@ -399,6 +399,15 @@ class TwoArm:
         TU.set_grip(m, cal, "gripper", grip)
         TU.set_grip(m, cal, "B_gripper", grip)
         self.ms = H.install_magnets(m, self.p)
+        # P-130 (review 4 N1): count the magnet force evaluations, so every record shows that the L0 magnets acted at
+        # every simulation step (steps_without_magnet_force must be 0; judged in trials and analyze)
+        self.mag_calls = self.mag_steps = self.mag_missing = 0
+        _apply = self.ms.apply
+
+        def _counted(model, data):
+            self.mag_calls += 1
+            _apply(model, data)
+        self.ms.apply = _counted                         # install()'s callback looks up self.apply at call time
         self.sim = AuditedSim(m)
         self.d = d = self.sim.d
         self.ro = CubeReadout(m, self.p.pitch)
@@ -428,6 +437,9 @@ class TwoArm:
         qBpre, e, _ = LY.ik(m0, d0, "xarm_gripper_base_link", YAW180.T @ (self.pB_pre - np.array([L, 0, 0])),
                             YAW180.T @ RBt, [np.array(sol["B"]["q"])])
         assert e < 1e-5, e
+        # P-130 (review 4 N1): b_robot_spec() -> hold.robot_spec uninstalls the passive callback (so it cannot run on
+        # the IK model). Until P-130 it was never installed again: every D18/G2 trial before P-130 ran WITHOUT magnets.
+        self.ms.install()
         d.qpos[self.qA] = qA
         d.qpos[self.qB] = qBpre
         gq = [m.jnt_qposadr[m.joint(j).id] for j in bm.GRIPPER_JOINTS]
@@ -581,7 +593,16 @@ class TwoArm:
             self.impedance()
             if ROLL_MODE == "ffb":
                 self.j7_control()
+            c0 = self.mag_calls
             self.sim.step(1)
+            self.mag_steps += 1
+            if self.mag_calls == c0:
+                self.mag_missing += 1
+
+    def magnet_stats(self) -> dict:
+        """P-130: simulation steps, and steps in which the magnet force was not evaluated (must be 0)."""
+        return {"steps": self.mag_steps, "steps_without_magnet_force": self.mag_missing,
+                "force_evaluations": self.mag_calls}
 
     # ---- per-step monitoring ------------------------------------------------------------------------------------
     def contacts(self) -> dict:
@@ -876,7 +897,7 @@ def run(seq: str, grip: float, L: float, Hc: float, viewer=None) -> dict:
     rec["trial"] = {"core_slip_total_mm": float(np.linalg.norm(pT - r.p_t0) * 1e3),
                     "core_rot_total_deg": float(np.degrees(np.linalg.norm(Rotation.from_matrix(RT @ r.R_t0.T).as_rotvec()))),
                     "residual_t0_deg": r.residual_t0, "residual_end_deg": lattice_residual_deg(r.ro.poses(r.d)[1]),
-                    "model_audit": r.model_audit}
+                    "model_audit": r.model_audit, "magnets": r.magnet_stats()}
     rec.update({"final_matches_oracle": bool(final.valid and final.state == expect),
                 "audit_violations": r.sim.violations, "numerical_failures": r.sim.numerical_failures,
                 "sim_time_s": float(r.d.time), "wall_s": time.perf_counter() - t_wall,

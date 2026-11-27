@@ -171,6 +171,46 @@ def pilot3_jobs() -> list[dict]:
     return J
 
 
+def pilot4_jobs() -> list[dict]:
+    """Magnets-on re-pilot (UNSCORED; P-130/P-131, user: "Full re-pilot"), new seeds 29500-29699. Every earlier D18/G2
+    pilot ran without the L0 magnets (review 4 N1). This set repeats all of them with the magnets active:
+    - first turns with the F/T stop disabled: 30 U, 20 U', 20 U2 (torque tail, turn error, t0 offset);
+    - the pilot-3 forced-extreme first turns (U face at +-0.80 ... +-1.00 deg), 34;
+    - at the configuration to be frozen (F/T stop 1.0 N.m): 6 jam, 6 two_layer, 2 each of collision, open_midturn and
+      offcentre, 6 x 60 s holds, 4 x U U' U2 U' U, and 12 x 10-move random sequences."""
+    from trials import random_u_sequence
+    off = {"ft_stop": 5.0}
+    J = [job("P4-U", f"U_s{29500 + i}", "seq", {"seed": 29500 + i, "moves": "U", "overrides": off}) for i in range(30)]
+    J += [job("P4-Up", f"Up_s{29530 + i}", "seq", {"seed": 29530 + i, "moves": "U'", "overrides": off})
+          for i in range(20)]
+    J += [job("P4-U2", f"U2_s{29550 + i}", "seq", {"seed": 29550 + i, "moves": "U2", "overrides": off})
+          for i in range(20)]
+    s = 29570
+    for mv, name in (("U'", "Up"), ("U2", "U2")):
+        for i, deg in enumerate([-0.80, -0.85, -0.90, -0.95, -1.00] * 2):
+            J.append(job("P4-ext", f"{name}_m{abs(deg):.2f}_{i}_s{s}", "seq",
+                         {"seed": s, "moves": mv, "overrides": {**off, "misalign_override": {"U": deg}}}))
+            s += 1
+        for deg in (0.80, 0.85, 0.90, 0.95, 1.00):
+            J.append(job("P4-ext", f"{name}_p{deg:.2f}_s{s}", "seq",
+                         {"seed": s, "moves": mv, "overrides": {**off, "misalign_override": {"U": deg}}}))
+            s += 1
+    for deg in (-1.0, -1.0, 1.0, 1.0):
+        J.append(job("P4-ext", f"U_{'m' if deg < 0 else 'p'}1.00_s{s}", "seq",
+                     {"seed": s, "moves": "U", "overrides": {**off, "misalign_override": {"U": deg}}}))
+        s += 1
+    J += [job("P4-neg", f"jam_s{29610 + i}", "neg", {"seed": 29610 + i, "case": "jam"}) for i in range(6)]
+    J += [job("P4-neg", f"two_layer_s{29620 + i}", "neg", {"seed": 29620 + i, "case": "two_layer"}) for i in range(6)]
+    for i, c in enumerate(("collision", "open_midturn", "offcentre")):
+        J += [job("P4-neg", f"{c}_s{29630 + 2 * i + k}", "neg", {"seed": 29630 + 2 * i + k, "case": c})
+              for k in range(2)]
+    J += [job("P4-hold", f"hold60_s{29640 + i}", "hold", {"seed": 29640 + i, "hold_s": 60.0}) for i in range(6)]
+    J += [job("P4-seq", f"seq5_s{29650 + i}", "seq", {"seed": 29650 + i, "moves": "U U' U2 U' U"}) for i in range(4)]
+    J += [job("P4-rand", f"rand10_s{29660 + i}", "seq",
+              {"seed": 29660 + i, "moves": random_u_sequence(29660 + i)}) for i in range(12)]
+    return J
+
+
 def key_of(j: dict) -> tuple[str, str]:
     return j["exp"], j["tid"]
 
@@ -529,14 +569,14 @@ def require_clean_commit() -> str:
 
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("experiment", choices=["all", "smoke", "pilot", "pilot2", "pilot3"])
+    ap.add_argument("experiment", choices=["all", "smoke", "pilot", "pilot2", "pilot3", "pilot4"])
     ap.add_argument("--jobs", type=int, default=8)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--smoke-dir", type=Path)
     ap.add_argument("--stop-after", type=int)
     ap.add_argument("--stop-point", choices=["after_tmp", "after_link", "after_ledger"], default="after_ledger")
     a = ap.parse_args(argv)
-    smoke = a.experiment in ("smoke", "pilot", "pilot2", "pilot3")      # unscored, into --smoke-dir
+    smoke = a.experiment in ("smoke", "pilot", "pilot2", "pilot3", "pilot4")      # unscored, into --smoke-dir
     if smoke != (a.smoke_dir is not None):
         raise SystemExit("'smoke'/'pilot' require --smoke-dir, and --smoke-dir is only for them")
     if a.stop_after is not None and not smoke:
@@ -545,8 +585,8 @@ def main(argv: list[str] | None = None) -> None:
         sd = a.smoke_dir.resolve()
         if sd == OUT.resolve() or sd.is_relative_to(OUT.resolve()):
             raise SystemExit(f"refusing: --smoke-dir {a.smoke_dir} would write into the scored folder")
-    jobs = {"pilot": pilot_jobs, "pilot2": pilot2_jobs, "pilot3": pilot3_jobs, "smoke": smoke_jobs,
-            "all": build_jobs}[a.experiment]()
+    jobs = {"pilot": pilot_jobs, "pilot2": pilot2_jobs, "pilot3": pilot3_jobs, "pilot4": pilot4_jobs,
+            "smoke": smoke_jobs, "all": build_jobs}[a.experiment]()
     if not smoke:
         seeds = [j["kw"]["seed"] for j in jobs]
         assert all(SCORED_SEEDS[0] <= s <= SCORED_SEEDS[1] for s in seeds) and len(set(seeds)) == len(seeds)

@@ -12,11 +12,12 @@ import run as R  # noqa: E402
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("pilot", choices=("pilot", "pilot2", "pilot3"))
+    ap.add_argument("pilot", choices=("pilot", "pilot2", "pilot3", "pilot4"))
     ap.add_argument("keys", nargs="+")
     ap.add_argument("--out", type=Path, required=True)
     a = ap.parse_args()
-    jobs = {R.key_of(j): j for j in {"pilot": R.pilot_jobs, "pilot2": R.pilot2_jobs, "pilot3": R.pilot3_jobs}[a.pilot]()}
+    jobs = {R.key_of(j): j for j in {"pilot": R.pilot_jobs, "pilot2": R.pilot2_jobs, "pilot3": R.pilot3_jobs,
+                                         "pilot4": R.pilot4_jobs}[a.pilot]()}
     todo = [jobs[tuple(k.split("/"))] for k in a.keys]
     for j in todo:
         j["smoke"] = True
