@@ -2,7 +2,8 @@
 
 Every trial builds the D18 two-arm scene (`experiments/D18_two_arm_m7/two_arm.py`) in its own spawned process, configured
 from the job's overrides and the fixed defaults below, and returns a record with `pass` and `fail_reasons`. The limits
-were fixed from the P-5 pilot (P-118, P-119) and review 1 (P-122, revision 2).
+were fixed from the P-5 pilot (P-118, P-119), review 1 (P-122, revision 2), pilot 2 (P-125: F/T stop 1.0 N.m,
+absolute end misalignment 4 deg) and review 2 (P-126, revision 3).
 
 Kinds:
   seq   G2-2/G2-3/G2-4: a U-family move sequence from a seeded start (cube offset, layer misalignment).
@@ -39,6 +40,8 @@ PEN_MM = 0.5                            # cubie-cubie penetration (G1)
 JAM_SLIP_MM = 0.5                       # G2-7 jam: cube shift allowed before the guard stops (P-119)
 JAM_ROLL_DEG = (20.0, 50.0)             # G2-7 jam: the stop must happen in this roll window (pilot 26-44 deg; rev. 2)
 FT_STOP = 1.0                           # F/T stop on |tau_z| (P-125; was 0.8, P-119; U' first turns reach 0.67)
+DROP_SHIFT_MM = 1.0                     # cube shift while the stand drops, in arm A's grip (review 2 S6)
+T0_OFFSET_MM = 3.0                      # cube centre vs nominal at t0 (review 2 S6; start draw <= 1.7 mm)
 NEG_CASES = ("two_layer", "offcentre", "collision", "open_midturn", "jam")
 NEG_REPORTED_ONLY = ("offcentre",)      # review 1 item 3: it cannot fail, so it is reported, not scored
 CONTACT_ZERO = ("robot_cube_nonpad", "arm_arm", "robot_table", "robot_stand", "robot_block")
@@ -94,8 +97,21 @@ def _integrity_reasons(rec: dict) -> list[str]:
     if rec.get("harness_exception"):
         out.append("harness exception")
     audit = rec.get("trial", {}).get("model_audit") or rec.get("model_audit")
-    if audit is None or audit.get("actuators_on_cube") or audit.get("equalities_on_cube"):
+    if audit is None or any(audit.get(k) for k in ("actuators_on_cube", "equalities_on_cube", "tendons_on_cube",
+                                                   "gravcomp_on_cube")):
         out.append(f"model audit: {audit}")
+    return out
+
+
+def _pre_t0_reasons(start: dict) -> list[str]:
+    """Review 2 S6: arm A's stabilisation before t0 (the stand drop) and the cube's position at t0."""
+    out = []
+    if start.get("stand_drop_shift_mm", 0.0) > DROP_SHIFT_MM:
+        out.append(f"stand drop shift {start['stand_drop_shift_mm']:.2f} mm")
+    if start.get("core_offset_from_nominal_mm", 0.0) > T0_OFFSET_MM:
+        out.append(f"cube {start['core_offset_from_nominal_mm']:.2f} mm from nominal at t0")
+    if "stand_drop_shift_mm" not in start:
+        out.append("no stand-drop measurement")
     return out
 
 
@@ -118,6 +134,7 @@ def _seq_reasons(rec: dict, n_moves: int) -> list[str]:
     if not rec.get("t0_solved"):
         out.append("cube not solved at t0")
     out += _contact_reasons("start", rec.get("start", {}).get("contacts", {}), cube_stand=False)
+    out += _pre_t0_reasons(rec.get("start", {}))
     out += _contact_reasons("approach", rec.get("approach", {}), cube_stand=True)
     if len(rec.get("per_move", [])) != n_moves:
         out.append(f"{len(rec.get('per_move', []))}/{n_moves} moves recorded")
@@ -185,6 +202,7 @@ def run_hold(hold_s: float, ov: dict, start: dict) -> dict:
         if rec["core_rot_deg"] > HOLD_ROT_DEG:
             reasons.append(f"core rotation {rec['core_rot_deg']:.2f} deg > {HOLD_ROT_DEG}")
         reasons += _contact_reasons("start", rec["start"].get("contacts", {}), cube_stand=False)
+        reasons += _pre_t0_reasons(rec["start"])
         reasons += _contact_reasons("hold", rec["contacts"], cube_stand=True)
         if max(rec["residual_end_deg"]) > RESIDUAL_END_MAX_DEG:
             reasons.append(f"a cubie is misaligned by {max(rec['residual_end_deg']):.2f} deg at the end")
@@ -254,6 +272,8 @@ def run_neg(case: str, start: dict, extra: dict | None = None) -> dict:
 def run_trial(kind: str, kw: dict) -> dict:
     start = start_draw(kw["seed"])
     ov = kw.get("overrides", {})
+    if "misalign_override" in ov:                     # pilots only (review 2 item 1): force a face's start misalignment
+        start["misalign_deg"] = {**start["misalign_deg"], **ov["misalign_override"]}
     if kind in ("seq", "sens"):
         return run_seq(kw["moves"], ov, start)
     if kind == "hold":

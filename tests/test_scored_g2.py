@@ -75,6 +75,8 @@ def test_limits_agree_between_trials_and_analyze(T):
     assert (L["total_slip_mm"], L["total_rot_deg"]) == (T.TOTAL_SLIP_MM, T.TOTAL_ROT_DEG)
     assert L["residual_end_deg"] == T.RESIDUAL_END_MAX_DEG and L["jam_slip_mm"] == T.JAM_SLIP_MM
     assert T.FT_STOP == 1.0                                       # P-125
+    assert L["pen_mm"] == T.TA.T["penetration_mm"]                # review 2 S10
+    assert (L["drop_shift_mm"], L["t0_offset_mm"]) == (T.DROP_SHIFT_MM, T.T0_OFFSET_MM)
     assert tuple(L["jam_roll_deg"]) == T.JAM_ROLL_DEG and L["move_rot_deg"] == T.TA.CORE_ROT_MOVE_DEG
     th = T.TA.T
     assert (L["turn_error_deg"], L["drift_deg"], L["rollback_deg"]) == (th["turn_error_deg"], th["nontarget_drift_deg"],
@@ -156,6 +158,33 @@ def test_resume_refusals(tmp_path):
         _ex(out)
 
 
+def test_resume_refuses_stray_temporary_files(tmp_path):
+    """Review 2 item 4: only <exp>/.<tid>.json.tmp of a manifest trial is an in-flight file."""
+    for name in (".x.json.tmp", "foo.json.tmp"):
+        out = tmp_path / name / "results"
+        _ex(out)
+        (out / name).write_text("{}")
+        with pytest.raises(SystemExit, match="INVALID"):
+            _ex(out)
+    out = tmp_path / "unknown_tid" / "results"
+    _ex(out)
+    (out / "G2-2" / ".U_s99999.json.tmp").write_text("{}")
+    with pytest.raises(SystemExit, match="INVALID"):
+        _ex(out)
+
+
+def test_verdict_checks_frozen_code_against_the_manifest(monkeypatch):
+    """Review 2 S5: the verdict refuses to pass unless the frozen paths at HEAD equal the manifest commit's."""
+    calls = []
+
+    def fake_git(*args):
+        calls.append(args)
+        return "experiments/E8_scored_g2/analyze.py" if args[0] == "diff" else ""
+    monkeypatch.setattr(A.R, "_git", fake_git)                    # analyze's own copy of the run module
+    probs = A.code_problems({"commit": "abc", "frozen_paths": ["x"]})
+    assert probs and "differ" in probs[0] and calls[0][:2] == ("diff", "--name-only")
+
+
 def test_resume_refuses_unknown_directory(tmp_path):
     out = tmp_path / "results"
     _ex(out)
@@ -230,7 +259,9 @@ def test_smoke_dir_may_not_be_the_scored_folder():
 
 
 # ---- synthetic records for the criteria -----------------------------------------------------------------------------
-AUDIT = {"actuators_on_cube": [], "equalities_on_cube": [], "n_cube_bodies": 27}
+AUDIT = {"actuators_on_cube": [], "equalities_on_cube": [], "tendons_on_cube": [], "gravcomp_on_cube": [],
+         "n_cube_bodies": 27}
+START = {"contacts": {}, "stand_drop_shift_mm": 0.1, "core_offset_from_nominal_mm": 1.0}
 
 
 def _pm(**kw):
@@ -247,7 +278,7 @@ def _pm(**kw):
 
 def _rec(pms=None, **kw):
     base = {"t0_solved": True, "per_move": pms if pms is not None else [_pm()], "final_matches_oracle": True,
-            "audit_violations": [], "numerical_failures": [], "start": {"contacts": {}},
+            "audit_violations": [], "numerical_failures": [], "start": dict(START),
             "approach": {"pen_cubie": 0.02}, "trial": {"core_slip_total_mm": 0.2, "core_rot_total_deg": 0.3,
                                                      "residual_t0_deg": [0.5] * 26, "residual_end_deg": [0.6] * 26,
                                                      "model_audit": AUDIT}}
@@ -268,7 +299,10 @@ def test_seq_reasons_and_recompute_agree(T):
         (_rec(final_matches_oracle=False), False),
         (_rec(approach={"arm_arm": 2}), False),
         (_rec(approach={"cube_stand": 1}), False),
-        (_rec(start={"contacts": {"robot_cube_nonpad": 1}}), False),
+        (_rec(start={**START, "contacts": {"robot_cube_nonpad": 1}}), False),
+        (_rec(start={**START, "stand_drop_shift_mm": 1.1}), False),           # review 2 S6
+        (_rec(start={**START, "core_offset_from_nominal_mm": 3.1}), False),
+        (_rec(trial={**_rec()["trial"], "model_audit": {**AUDIT, "gravcomp_on_cube": [5]}}), False),
         (_rec(trial={**_rec()["trial"], "core_slip_total_mm": 2.1}), False),
         (_rec(trial={**_rec()["trial"], "residual_end_deg": [0.5] * 25 + [1.6]}), True),     # growth alone is fine
         (_rec(trial={**_rec()["trial"], "residual_end_deg": [0.5] * 25 + [4.1]}), False),    # P-125: absolute 4 deg
@@ -313,7 +347,7 @@ def _run(tmp, runner=_fake_runner, jobs=None):
 
 def _verdict(out, jobs=None):
     return A.verdict(out, "scored", check_artifacts=False, expected=jobs or _jobs(),
-                     recompute_fn=lambda rec, t: bool(rec.get("pass")))
+                     recompute_fn=lambda rec, t: bool(rec.get("pass")), check_code=False)
 
 
 def test_verdict_pass_fail_incomplete(tmp_path):
@@ -336,7 +370,8 @@ def test_verdict_pass_fail_incomplete(tmp_path):
 
 
 @pytest.mark.parametrize("tamper", ["edit", "extra_file", "orphan_tmp_subfolder", "duplicate_ledger", "deleted_rerun",
-                                    "extra_dir", "metadata", "list"])
+                                    "extra_dir", "metadata", "list", "root_tmp", "root_tmp_plain",
+                                    "interrupted_unlogged", "starts_emptied", "deleted_with_ledger_line"])
 def test_verdict_invalid_cases(tmp_path, tamper):
     out = _run(tmp_path)
     jobs = None
@@ -370,12 +405,27 @@ def test_verdict_invalid_cases(tmp_path, tamper):
         (out / R.LEDGER).write_text("".join(json.dumps(x, sort_keys=True) + "\n" for x in lines))
     elif tamper == "list":
         jobs = _jobs(3)                                               # the registered list differs (item 4 c)
+    elif tamper == "root_tmp":                                        # review 2 item 4
+        (out / ".x.json.tmp").write_text("{}")
+    elif tamper == "root_tmp_plain":
+        (out / "foo.json.tmp").write_text("{}")
+    elif tamper == "interrupted_unlogged":
+        (out / R.INTERRUPTED).mkdir()
+        (out / R.INTERRUPTED / "k9__G2-2__.U_s30100.json.tmp").write_text("{}")
+    elif tamper == "starts_emptied":                                  # review 2 S5
+        (out / R.STARTS).write_text("")
+    elif tamper == "deleted_with_ledger_line":
+        _ex(out)                                                      # a second start logs the records present
+        R.record_path(out, ("G2-2", "U_s30101")).unlink()
+        lines = [x for x in R.read_lines(out / R.LEDGER) if x["tid"] != "U_s30101"]
+        (out / R.LEDGER).write_text("".join(json.dumps(x, sort_keys=True) + "\n" for x in lines))
     assert _verdict(out, jobs)["status"] == "INVALID", tamper
 
 
 def test_verdict_flags_recomputation_disagreement(tmp_path):
     out = _run(tmp_path)
-    res = A.verdict(out, "scored", check_artifacts=False, expected=_jobs(), recompute_fn=lambda rec, t: False)
+    res = A.verdict(out, "scored", check_artifacts=False, expected=_jobs(), recompute_fn=lambda rec, t: False,
+                    check_code=False)
     assert res["status"] == "INVALID" and any("recomputed" in p for p in res["problems"])
 
 
@@ -440,30 +490,64 @@ def test_controllers_ignore_cube_state(T):
 
 
 def test_roll_commands_ignore_cube_state(T):
-    """Review 1 item 1: the J7 command sequence of a whole move (settle, grasp, roll, open, roll-back) is the same when
-    the cube state is scrambled. The physics is frozen (step is stubbed), so only the controller's decisions are
-    compared; the guards see the same robot state in both runs."""
+    """Review 1 item 1 / review 2 item 3: the J7 and gripper command sequence of a whole move (settle, grasp, roll, open,
+    roll-back) is identical when the cube is turned 180 deg about world z (which flips every cube-derived axis). The
+    stubbed step makes J7 follow its command, so the full roll runs (no stall stop). Positive control: a controller
+    that takes the roll sign from the cube's orientation (the review-1 bug) must give different commands."""
+    import types
+
     import mujoco
+    from rubiknetic.cube_logic import parse
+    from rubiknetic.cube_logic.notation import FACE_NORMAL
     T.configure({}, T.start_draw(29001))
     r = T.TA.TwoArm(T.L, T.HC, T.DEFAULTS["grip"])
     try:
         m, d = r.m, r.d
-        from rubiknetic.cube_logic import parse
+        q7 = r.qB[6]
+        state = (d.qpos.copy(), d.qvel.copy(), r.roll0)
+        core_q = m.jnt_qposadr[[j for j in range(m.njnt) if m.jnt_bodyid[j] == r.core][0]]
+
+        def reset(turn_cube: bool):
+            d.qpos[:], d.qvel[:] = state[0], state[1]
+            if turn_cube:
+                qz = np.array([0.0, 0.0, 0.0, 1.0])                   # 180 deg about world z (w, x, y, z)
+                out = np.zeros(4)
+                mujoco.mju_mulQuat(out, qz, d.qpos[core_q + 3:core_q + 7].copy())
+                d.qpos[core_q + 3:core_q + 7] = out
+            mujoco.mj_forward(m, d)
+            r.j7, r.integ, r.roll_sign = [state[2], 0.0, 0.0], True, float(np.sign(np.array([1.0, 0, 0]) @ r.a_d))
+            d.ctrl[r.gB] = r.th_open
 
         def commands():
             seq = []
-            r.step = lambda n: seq.append((tuple(np.round(r.j7, 12)), float(d.ctrl[r.gB])))
-            r.ctrl_step = lambda n=1: None
+
+            def step(n):
+                for _ in range(n):
+                    d.qpos[q7] = r.j7[0]                               # J7 follows its command
+                    seq.append((tuple(np.round(r.j7, 12)), float(d.ctrl[r.gB])))
+            r.step, r.ctrl_step = step, (lambda n=1: None)
             r.move(parse("U")[0])
             return seq
-        state = (d.qpos.copy(), d.qvel.copy())
+
+        reset(False)
         first = commands()
-        _, q, v = _cube_dofs(m, mujoco)
-        d.qpos[:], d.qvel[:] = state
-        rng = np.random.default_rng(1)
-        d.qpos[q] += rng.normal(0.0, 0.05, len(q))
-        mujoco.mj_forward(m, d)
+        reset(True)
         second = commands()
-        assert len(first) > 10 and first == second
+        assert len(first) > 3000 and first == second                  # the whole move, identical
+        assert max(abs(c[0][0] - state[2]) for c in first) > 1.5      # the roll really ran (about 90 deg)
+
+        orig_move = type(r).move
+
+        def buggy_move(self, mv):                                     # the review-1 bug, re-introduced on purpose
+            Rc = self.d.xmat[self.core].reshape(3, 3)
+            zB = self.d.xmat[self.bodyB].reshape(3, 3)[:, 2]
+            self.roll_sign = float(np.sign((Rc @ np.array(FACE_NORMAL[mv.face], float)) @ zB))
+            return orig_move(self, mv)
+        r.move = types.MethodType(buggy_move, r)
+        reset(False)
+        b1 = commands()
+        reset(True)
+        b2 = commands()
+        assert b1 != b2                                               # the test can see the bug
     finally:
         T.MagnetSystem.uninstall()

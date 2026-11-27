@@ -26,7 +26,8 @@ import run as R  # noqa: E402
 
 LIMITS = {"turn_error_deg": 2.0, "drift_deg": 1.0, "pen_mm": 0.5, "move_slip_mm": 1.0, "move_rot_deg": 2.0,
           "rollback_deg": 1.0, "total_slip_mm": 2.0, "total_rot_deg": 2.0, "residual_end_deg": 4.0,
-          "hold_slip_mm": 1.0, "hold_rot_deg": 1.0, "jam_slip_mm": 0.5, "jam_roll_deg": (20.0, 50.0)}
+          "hold_slip_mm": 1.0, "hold_rot_deg": 1.0, "jam_slip_mm": 0.5, "jam_roll_deg": (20.0, 50.0),
+          "drop_shift_mm": 1.0, "t0_offset_mm": 3.0}
 ZERO = ("robot_cube_nonpad", "arm_arm", "robot_table", "robot_stand", "robot_block")
 
 
@@ -44,8 +45,18 @@ def _integrity(rec: dict) -> list[str]:
     out = [k for k in ("aborted", "harness_exception") if rec.get(k)]
     out += [k for k in ("audit_violations", "numerical_failures") if rec.get(k)]
     audit = (rec.get("trial") or {}).get("model_audit") or rec.get("model_audit")
-    if not audit or audit.get("actuators_on_cube") or audit.get("equalities_on_cube"):
+    if not audit or any(audit.get(k) for k in ("actuators_on_cube", "equalities_on_cube", "tendons_on_cube",
+                                               "gravcomp_on_cube")) or "tendons_on_cube" not in audit:
         out.append("model audit")
+    return out
+
+
+def _pre_t0(start: dict) -> list[str]:
+    out = []
+    if "stand_drop_shift_mm" not in start or start["stand_drop_shift_mm"] > LIMITS["drop_shift_mm"]:
+        out.append("stand drop shift")
+    if start.get("core_offset_from_nominal_mm", 99.0) > LIMITS["t0_offset_mm"]:
+        out.append("t0 offset")
     return out
 
 
@@ -97,6 +108,7 @@ def recompute_seq(rec: dict, moves: str) -> list[str]:
     if not rec.get("t0_solved"):
         out.append("t0")
     out += ["start " + x for x in _contacts(rec.get("start", {}).get("contacts", {}), False)]
+    out += _pre_t0(rec.get("start", {}))
     out += ["approach " + x for x in _contacts(rec.get("approach", {}), True)]
     pms = rec.get("per_move", [])
     if len(pms) != _n_moves(moves):
@@ -129,6 +141,7 @@ def recompute_hold(rec: dict) -> list[str]:
     if rec["core_rot_deg"] > LIMITS["hold_rot_deg"]:
         out.append("rotation")
     out += ["start " + x for x in _contacts(rec["start"].get("contacts", {}), False)]
+    out += _pre_t0(rec["start"])
     out += ["hold " + x for x in _contacts(rec["contacts"], True)]
     if max(rec["residual_end_deg"]) > LIMITS["residual_end_deg"]:
         out.append("end misalignment")
@@ -175,11 +188,60 @@ def recompute(rec: dict, t: dict) -> bool:
 
 # ---- integrity and verdict -------------------------------------------------------------------------------------------
 def expected_jobs(mode: str) -> list[dict]:
-    return {"scored": R.build_jobs, "smoke": R.smoke_jobs, "pilot": R.pilot_jobs, "pilot2": R.pilot2_jobs}[mode]()
+    return {"scored": R.build_jobs, "smoke": R.smoke_jobs, "pilot": R.pilot_jobs, "pilot2": R.pilot2_jobs,
+            "pilot3": R.pilot3_jobs}[mode]()
+
+
+def starts_problems(out: Path, manifest: dict, starts: list[dict]) -> list[str]:
+    """Review 2 S5: the start log must be consistent with the ledger and the folder.
+    - every start is numbered 1..K in order;
+    - every ledger line's start is in 1..K, and reconciled lines match the plans logged in STARTS.txt;
+    - every record listed as present at a start still exists with the SHA-256 the ledger gives it (a record deleted
+      together with its ledger line is caught)."""
+    probs = []
+    ks = [s.get("k") for s in starts]
+    if ks != list(range(1, len(starts) + 1)):
+        probs.append(f"STARTS.txt numbering {ks}")
+    lines = R.read_lines(out / R.LEDGER)
+    if lines and not starts:
+        probs.append("ledger lines but no start logged")
+    planned = {(s["k"], tuple(r["key"])) for s in starts for r in s.get("reconciled", [])}
+    for x in lines:
+        if not 1 <= x.get("start", 0) <= len(starts):
+            probs.append(f"ledger line {x['exp']}/{x['tid']} has start {x.get('start')}")
+        if x.get("reconciled") and (x["start"], (x["exp"], x["tid"])) not in planned:
+            probs.append(f"reconciled ledger line {x['exp']}/{x['tid']} not in the logged plan")
+    ledger = {(x["exp"], x["tid"]): x["sha256"] for x in lines}
+    for s in starts:
+        for k in s.get("present", []):
+            k = tuple(k)
+            p = R.record_path(out, k)
+            if not p.exists():
+                probs.append(f"record {k} present at start {s['k']} is missing")
+            elif k in ledger and ledger[k] != R._sha(p.read_bytes()):
+                probs.append(f"record {k} changed since start {s['k']}")
+    return probs
+
+
+def code_problems(manifest: dict) -> list[str]:
+    """Review 2 S5: the verdict must run the frozen code: no frozen path differs between the manifest commit and HEAD,
+    and none has uncommitted changes."""
+    base = manifest["commit"].split("+")[0]
+    probs = []
+    try:
+        diff = R._git("diff", "--name-only", base, "HEAD", "--", *manifest["frozen_paths"])
+        dirty = R._git("status", "--porcelain", "--", *manifest["frozen_paths"])
+    except Exception as e:  # noqa: BLE001
+        return [f"cannot verify the frozen code: {e}"]
+    if diff:
+        probs.append(f"frozen paths differ between the manifest commit and HEAD: {diff}")
+    if dirty:
+        probs.append(f"frozen paths have uncommitted changes: {dirty}")
+    return probs
 
 
 def integrity(out: Path, mode: str = "scored", check_artifacts: bool = True, expected: list | None = None,
-              recompute_fn=None):
+              recompute_fn=None, check_code: bool = True):
     """expected / recompute_fn are for unit tests only (synthetic runs); a real verdict uses the registered list and
     the independent recomputation."""
     recompute_fn = recompute_fn or recompute
@@ -202,9 +264,12 @@ def integrity(out: Path, mode: str = "scored", check_artifacts: bool = True, exp
         if diff:
             probs.append(f"artifact SHA-256 differs from the manifest: {diff[:5]}")
     probs += [f"foreign or orphan file: {f}" for f in R.foreign_files(out, starts, manifest)
-              if not f.endswith(".json.tmp")]
-    probs += [f"orphan temporary file at verdict time: {f.relative_to(out)}"     # review 1 item 4 a
-              for f in sorted(out.glob("*/.*.json.tmp")) if f.parent.name != R.INTERRUPTED]
+              if not R.is_inflight_tmp(out, f, manifest)]
+    probs += [f"orphan temporary file at verdict time: {f.relative_to(out)}"     # review 1 item 4 a, review 2 item 4
+              for f in sorted(out.rglob("*.json.tmp")) if f.parent.name != R.INTERRUPTED]
+    probs += starts_problems(out, manifest, starts)
+    if check_code and mode == "scored":
+        probs += code_problems(manifest)
     probs += R.ledger_problems(out, manifest)
     ledger = {(x["exp"], x["tid"]): x["sha256"] for x in R.read_lines(out / R.LEDGER)}
     recs, missing = {}, []
@@ -241,6 +306,7 @@ def integrity(out: Path, mode: str = "scored", check_artifacts: bool = True, exp
 
 
 def verdict(out: Path, mode: str = "scored", check_artifacts: bool = True, **test_kw) -> dict:
+    """test_kw: expected, recompute_fn, check_code (unit tests only)."""
     status, probs, manifest, recs = integrity(out, mode, check_artifacts, **test_kw)
     res = {"status": status, "problems": probs, "mode": mode}
     if status is not None:
@@ -314,7 +380,7 @@ def report(res: dict) -> str:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("results", nargs="?", type=Path, default=R.OUT)
-    ap.add_argument("--mode", choices=("scored", "smoke", "pilot", "pilot2"), default="scored")
+    ap.add_argument("--mode", choices=("scored", "smoke", "pilot", "pilot2", "pilot3"), default="scored")
     a = ap.parse_args()
     res = verdict(a.results, a.mode)
     text = report(res)

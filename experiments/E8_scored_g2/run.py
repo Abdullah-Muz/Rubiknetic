@@ -3,14 +3,16 @@ the pre-registration is frozen, see FROZEN below).
 
 Run procedure (as the G1 runners, M5 §2, simplified to one results folder):
   * record key (exp, trial ID); one first start with an empty folder writes MANIFEST.json (trial list, environment,
-    frozen paths, commit), linked atomically; a manifest that exists means every later start is a resume;
+    frozen paths, commit, artifact SHA-256s), linked atomically; a manifest that exists means every later start is a
+    resume;
   * STARTS.txt (append-only start log, the resume plan logged before it is applied), LEDGER.txt (one line per record
     with its SHA-256);
   * records are written by the parent only: temporary file, fsync, os.link to the final name (never overwritten),
     unlink, ledger line;
-  * resume: the trial list, environment and frozen paths must equal the manifest's; orphan temporary files are moved to
-    _interrupted/ (logged); records without a ledger line are reconciled; files a verdict would count as INVALID stop
-    the resume;
+  * resume: the trial list, environment, artifact SHA-256s and frozen paths must equal the manifest's; orphan in-flight
+    temporary files (<exp>/.<tid>.json.tmp of a manifest trial) are moved to _interrupted/ (logged); records without
+    a ledger line are reconciled; any other temporary file, a duplicate or record-less ledger key, or a file a
+    verdict would count as INVALID stops the resume; each start logs the records present at it;
   * harness exceptions become failing records; MemoryError, OSError, a magnet-availability refusal or a broken worker
     pool are interruptions (exit 3, resume with the same command);
   * one trial per worker process (spawn, max_tasks_per_child=1), so module settings never leak between trials;
@@ -136,6 +138,34 @@ def pilot2_jobs() -> list[dict]:
     J += [job("P2-hold", f"hold60_s{29344 + i}", "hold", {"seed": 29344 + i, "hold_s": 60.0}) for i in range(2)]
     for i, c in enumerate(("jam", "two_layer", "collision", "open_midturn")):
         J += [job("P2-neg", f"{c}_s{29346 + 2 * i + k}", "neg", {"seed": 29346 + 2 * i + k, "case": c}) for k in range(2)]
+    return J
+
+
+def pilot3_jobs() -> list[dict]:
+    """Review 2 items 1-2 pilot (UNSCORED; seeds 29400-29499), at the configuration to be frozen:
+    first turns with the U face forced to an extreme start misalignment, F/T stop disabled (U' and U2 at -0.80 ...
+    -1.00 deg, 10 each; U' and U2 at +0.80 ... +1.00 deg, 5 each; U at -1.0 and +1.0 deg, 2 each), and a confirmation
+    set: 4 x two_layer, 2 x jam, 8 x 10-move random sequences."""
+    from trials import random_u_sequence
+    J, s = [], 29400
+    for mv, name in (("U'", "Up"), ("U2", "U2")):
+        for i, deg in enumerate([-0.80, -0.85, -0.90, -0.95, -1.00] * 2):
+            J.append(job("P3-ext", f"{name}_m{abs(deg):.2f}_{i}_s{s}", "seq",
+                         {"seed": s, "moves": mv, "overrides": {"ft_stop": 5.0, "misalign_override": {"U": deg}}}))
+            s += 1
+        for i, deg in enumerate([0.80, 0.85, 0.90, 0.95, 1.00]):
+            J.append(job("P3-ext", f"{name}_p{deg:.2f}_s{s}", "seq",
+                         {"seed": s, "moves": mv, "overrides": {"ft_stop": 5.0, "misalign_override": {"U": deg}}}))
+            s += 1
+    for deg in (-1.0, -1.0, 1.0, 1.0):
+        J.append(job("P3-ext", f"U_{'m' if deg < 0 else 'p'}1.00_s{s}", "seq",
+                     {"seed": s, "moves": "U", "overrides": {"ft_stop": 5.0, "misalign_override": {"U": deg}}}))
+        s += 1
+    s = 29440
+    J += [job("P3-conf", f"two_layer_s{s + i}", "neg", {"seed": s + i, "case": "two_layer"}) for i in range(4)]
+    J += [job("P3-conf", f"jam_s{s + 4 + i}", "neg", {"seed": s + 4 + i, "case": "jam"}) for i in range(2)]
+    J += [job("P3-conf", f"rand10_s{s + 6 + i}", "seq", {"seed": s + 6 + i, "moves": random_u_sequence(s + 6 + i)})
+          for i in range(8)]
     return J
 
 
@@ -322,14 +352,22 @@ def foreign_files(out: Path, starts: list[dict], manifest: dict) -> list[str]:
             bad += [str(f.relative_to(out)) for f in p.iterdir() if str(f.relative_to(out)) not in logged]
         else:
             for f in p.iterdir():
-                if not (f in records or (f.name.startswith(".") and f.name.endswith(".json.tmp"))):
+                if not (f in records or is_inflight_tmp(out, str(f.relative_to(out)), manifest)):
                     bad.append(str(f.relative_to(out)))
     return bad
 
 
+def is_inflight_tmp(out: Path, rel: str, manifest: dict) -> bool:
+    """Review 2 item 4: the only temporary file the procedure leaves is <exp>/.<tid>.json.tmp of a manifest trial."""
+    keys = {(t["exp"], t["tid"]) for t in manifest["trials"]}
+    parts = Path(rel).parts
+    return (len(parts) == 2 and parts[1].startswith(".") and parts[1].endswith(".json.tmp")
+            and (parts[0], parts[1][1:-len(".json.tmp")]) in keys)
+
+
 def plan_resume(out: Path, manifest: dict, start_k: int) -> dict:
     orphans, reconciled = [], []
-    for tmp in sorted(out.glob("*/.*.json.tmp")):
+    for tmp in sorted(p for p in out.glob("*/.*.json.tmp") if is_inflight_tmp(out, str(p.relative_to(out)), manifest)):
         dest = out / INTERRUPTED / f"k{start_k}__{tmp.parent.name}__{tmp.name}"
         orphans.append({"path": str(tmp.relative_to(out)), "moved_to": str(dest.relative_to(out)),
                         "sha256": _sha(tmp.read_bytes())})
@@ -370,14 +408,15 @@ def execute(out: Path, jobs: list[dict], commit: str, env: dict, head: str, n_wo
         starts = read_lines(out / STARTS)
         probs = resume_problems(manifest, body, head, check_git)
         probs += [f"file that would make the run INVALID: {f}" for f in foreign_files(out, starts, manifest)
-                  if not f.endswith(".json.tmp")]
+                  if not is_inflight_tmp(out, f, manifest)]
         probs += ledger_problems(out, manifest)
         if probs:
             raise SystemExit("refusing resume:\n  " + "\n  ".join(probs))
         commit = manifest["commit"]
         start_k = len(starts) + 1
         plan = plan_resume(out, manifest, start_k)
-    _append_line(out / STARTS, {"k": start_k, "time": _now(), "head": head, **plan})
+    present = sorted([t["exp"], t["tid"]] for t in body["trials"] if record_path(out, (t["exp"], t["tid"])).exists())
+    _append_line(out / STARTS, {"k": start_k, "time": _now(), "head": head, "present": present, **plan})
     if start_k > 1:
         apply_resume(out, plan, start_k)
     for j in jobs:
@@ -462,14 +501,14 @@ def require_clean_commit() -> str:
 
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("experiment", choices=["all", "smoke", "pilot", "pilot2"])
+    ap.add_argument("experiment", choices=["all", "smoke", "pilot", "pilot2", "pilot3"])
     ap.add_argument("--jobs", type=int, default=8)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--smoke-dir", type=Path)
     ap.add_argument("--stop-after", type=int)
     ap.add_argument("--stop-point", choices=["after_tmp", "after_link", "after_ledger"], default="after_ledger")
     a = ap.parse_args(argv)
-    smoke = a.experiment in ("smoke", "pilot", "pilot2")      # unscored, into --smoke-dir
+    smoke = a.experiment in ("smoke", "pilot", "pilot2", "pilot3")      # unscored, into --smoke-dir
     if smoke != (a.smoke_dir is not None):
         raise SystemExit("'smoke'/'pilot' require --smoke-dir, and --smoke-dir is only for them")
     if a.stop_after is not None and not smoke:
@@ -478,7 +517,8 @@ def main(argv: list[str] | None = None) -> None:
         sd = a.smoke_dir.resolve()
         if sd == OUT.resolve() or sd.is_relative_to(OUT.resolve()):
             raise SystemExit(f"refusing: --smoke-dir {a.smoke_dir} would write into the scored folder")
-    jobs = {"pilot": pilot_jobs, "pilot2": pilot2_jobs, "smoke": smoke_jobs, "all": build_jobs}[a.experiment]()
+    jobs = {"pilot": pilot_jobs, "pilot2": pilot2_jobs, "pilot3": pilot3_jobs, "smoke": smoke_jobs,
+            "all": build_jobs}[a.experiment]()
     if not smoke:
         seeds = [j["kw"]["seed"] for j in jobs]
         assert all(SCORED_SEEDS[0] <= s <= SCORED_SEEDS[1] for s in seeds) and len(set(seeds)) == len(seeds)

@@ -19,7 +19,8 @@ Checks (G2 pre-registration revision 2 §4): oracle, turn error, drift, cubie pe
 force before layer motion), drive (fingertip torque impulse in the commanded direction during the roll), roll-back
 rotation and state, contacts (non-fingertip robot-cube, arm-arm, robot-table, robot-stand, robot-block, cube-stand
 after the drop) over the start sequence, the approach and every move, core slip and rotation relative to arm A per
-move and from t0, and every cubie's residual misalignment at the end relative to t0.
+move and from t0, the cube's shift during the stand drop and its offset from nominal at t0, and every cubie's
+misalignment at the end (absolute; P-125).
 Usage (WSL): python two_arm.py [--seq "U U' U2 U' U"] [--grip 20] [--L 1.0] [--H 0.30] [--view]
   --view opens the MuJoCo viewer (needs a display, e.g. WSLg) and does not write a result file.
 """
@@ -52,7 +53,6 @@ K_P, D_P, K_R, D_R, K_Q, D_Q = 4000.0, 60.0, 50.0, 2.0, 2.0, 1.0   # K_P 4000 fr
 # integral action against joint friction (the model's arm joints have ~1 N.m frictionloss, which leaves a 2-5 mm
 # static error under pure impedance; D18 finding). Active only while arm B's fingers are open; frozen while gripping.
 KI_P, KI_R, I_P_MAX, I_R_MAX = 8000.0, 200.0, 25.0, 3.0
-ROLL_KP, ROLL_KV, ROLL_TAU = 5.0, 0.2, 1.0
 APPROACH = 0.040
 SETTLE_S = 0.3
 T = scored.THRESHOLDS
@@ -89,7 +89,7 @@ STALL_LAG_DEG, STALL_HOLD_S = 2.0, 0.02
 # roll and opens when |tau_z| > FT_STOP on two consecutive samples. J7 then uses a generous budget (no false stalls).
 FT = True
 FT_T, FT_R, FT_M = 0.035, 0.0375, 0.6
-FT_STOP, FT_NOISE, FT_RATE, FT_N = 0.6, 0.01, 200.0, 2
+FT_STOP, FT_NOISE, FT_RATE, FT_N = 1.0, 0.01, 200.0, 2       # FT_STOP: scored value P-125 (trials.configure sets it)
 FT_BUDGET = 2.0
 SETUP_MISALIGN = None  # {face: deg}: setup misalignment of layers before t0 (as G1's draw_setup), via scored's
 OPEN_MIDTURN = False   # G2-7d negative test: arm B's gripper opens halfway through the roll
@@ -130,20 +130,64 @@ def lattice_residual_deg(rots: np.ndarray) -> list[float]:
 
 
 def model_audit(m) -> dict:
-    """No actuator or equality constraint may act on a cube body (CLAUDE.md, P-16; magnets act through MagnetSystem)."""
+    """No actuator, tendon, equality constraint or gravity compensation may act on a cube body (CLAUDE.md, P-16; the
+    magnets act through MagnetSystem's passive callback, P-16). Review 2 S8: every actuator transmission type (joint,
+    joint-in-parent, tendon, site, slider-crank, body), every tendon's joints and sites, every equality's objects by
+    their object type, and body_gravcomp."""
     core = m.body("core").id
     cube = {b for b in range(m.nbody) if m.body_rootid[b] == core}
-    acts = [m.actuator(i).name for i in range(m.nu)
-            if m.actuator_trntype[i] == mujoco.mjtTrn.mjTRN_JOINT and m.jnt_bodyid[m.actuator_trnid[i, 0]] in cube]
+    T, O = mujoco.mjtTrn, mujoco.mjtObj
+
+    def body_of(objtype, objid) -> set:
+        if objid < 0:
+            return set()
+        if objtype in (O.mjOBJ_JOINT,):
+            return {int(m.jnt_bodyid[objid])}
+        if objtype == O.mjOBJ_SITE:
+            return {int(m.site_bodyid[objid])}
+        if objtype == O.mjOBJ_GEOM:
+            return {int(m.geom_bodyid[objid])}
+        if objtype == O.mjOBJ_BODY:
+            return {int(objid)}
+        if objtype == O.mjOBJ_TENDON:
+            return tendon_bodies(objid)
+        return {-1}                                    # unknown object type: reported as a finding
+
+    def tendon_bodies(t) -> set:
+        out = set()
+        for w in range(m.tendon_adr[t], m.tendon_adr[t] + m.tendon_num[t]):
+            wt, wid = int(m.wrap_type[w]), int(m.wrap_objid[w])
+            if wt == mujoco.mjtWrap.mjWRAP_JOINT:
+                out.add(int(m.jnt_bodyid[wid]))
+            elif wt in (mujoco.mjtWrap.mjWRAP_SITE, mujoco.mjtWrap.mjWRAP_PULLEY) and wid >= 0:
+                if wt == mujoco.mjtWrap.mjWRAP_SITE:
+                    out.add(int(m.site_bodyid[wid]))
+            elif wid >= 0:
+                out.add(int(m.geom_bodyid[wid]))
+        return out
+    trn_obj = {T.mjTRN_JOINT: O.mjOBJ_JOINT, T.mjTRN_JOINTINPARENT: O.mjOBJ_JOINT, T.mjTRN_TENDON: O.mjOBJ_TENDON,
+               T.mjTRN_SITE: O.mjOBJ_SITE, T.mjTRN_SLIDERCRANK: O.mjOBJ_SITE, T.mjTRN_BODY: O.mjOBJ_BODY}
+    acts = []
+    for i in range(m.nu):
+        ot = trn_obj.get(int(m.actuator_trntype[i]))
+        bodies = body_of(ot, int(m.actuator_trnid[i, 0])) if ot is not None else {-1}
+        if int(m.actuator_trntype[i]) in (T.mjTRN_SITE, T.mjTRN_SLIDERCRANK):
+            bodies |= body_of(O.mjOBJ_SITE, int(m.actuator_trnid[i, 1]))
+        if bodies & cube or -1 in bodies:
+            acts.append(m.actuator(i).name)
+    tendons = [t for t in range(m.ntendon) if tendon_bodies(t) & cube]
     eqs = []
     for i in range(m.neq):
-        if m.eq_type[i] == mujoco.mjtEq.mjEQ_JOINT:
-            bodies = {m.jnt_bodyid[m.eq_obj1id[i]]} | ({m.jnt_bodyid[m.eq_obj2id[i]]} if m.eq_obj2id[i] >= 0 else set())
-        else:
-            bodies = {m.eq_obj1id[i], m.eq_obj2id[i]}
-        if bodies & cube:
+        et = int(m.eq_type[i])
+        # joint and tendon equalities carry objtype UNKNOWN in MuJoCo 4: their objects follow from the type
+        ot = (O.mjOBJ_JOINT if et == mujoco.mjtEq.mjEQ_JOINT else O.mjOBJ_TENDON if et == mujoco.mjtEq.mjEQ_TENDON
+              else int(m.eq_objtype[i]))
+        bodies = body_of(ot, int(m.eq_obj1id[i])) | body_of(ot, int(m.eq_obj2id[i]))
+        if bodies & cube or -1 in bodies:
             eqs.append(i)
-    return {"actuators_on_cube": acts, "equalities_on_cube": eqs, "n_cube_bodies": len(cube)}
+    gc = [int(b) for b in cube if m.body_gravcomp[b] != 0.0]
+    return {"actuators_on_cube": acts, "equalities_on_cube": eqs, "tendons_on_cube": tendons,
+            "gravcomp_on_cube": gc, "n_cube_bodies": len(cube)}
 
 
 def add_stickers(cube, p) -> None:
@@ -860,7 +904,7 @@ def main() -> None:
     ap.add_argument("--ki", type=float, default=None)
     ap.add_argument("--seed", type=int, default=None, help="pilot seed: cube start offset uniform +-1 mm per axis")
     ap.add_argument("--out", default=None)
-    ap.add_argument("--ft-stop", type=float, default=0.6)
+    ap.add_argument("--ft-stop", type=float, default=1.0)
     ap.add_argument("--guard", action="store_true", help="enable the J7 lag guard (false-triggers; P-111)")
     ap.add_argument("--jam-block", action="store_true")
     ap.add_argument("--guard-lag", type=float, default=3.0)
