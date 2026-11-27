@@ -1,0 +1,166 @@
+{
+ "study": "D18 two-arm",
+ "scored": false,
+ "sequence": "U",
+ "grip_N": 20.0,
+ "scene": {
+  "L": 1.0,
+  "H": 0.3,
+  "cube_centre": [
+   0.5,
+   0.0,
+   0.3
+  ],
+  "ik": {
+   "L": 1.0,
+   "H": 0.3,
+   "cube_centre": [
+    0.5,
+    0.0,
+    0.3
+   ],
+   "half_mm": 28.474999999999998,
+   "tip_dist_mm": {
+    "p97": 173.02439980542695,
+    "c1": 173.02439980542698
+   },
+   "A": {
+    "roll180": false,
+    "q": [
+     -2.3219995936469733,
+     -0.012247031744805436,
+     2.3250030982663814,
+     0.3126366142832329,
+     3.1447798656630073,
+     1.2665193751433776,
+     0.00797082326863915
+    ],
+    "pos_err_mm": 6.766047187770001e-05,
+    "rot_err_deg": 3.1346401449249455e-05,
+    "limit_margin_deg": 28.91240227061022,
+    "gripper_base": [
+     0.32850060019457306,
+     0.0,
+     0.3
+    ]
+   },
+   "B": {
+    "roll180": true,
+    "q": [
+     0.23106283802478542,
+     -0.13899247354818348,
+     -0.24801226415717942,
+     0.1410911727121036,
+     3.12637024670953,
+     1.2944451557219623,
+     -0.029866708239772805
+    ],
+    "pos_err_mm": 8.582473679306056e-05,
+    "rot_err_deg": 2.9103539443806935e-05,
+    "limit_margin_deg": 19.08357247387645,
+    "gripper_base": [
+     0.687499399805427,
+     0.0,
+     0.3
+    ],
+    "base": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "yaw_deg": 180,
+    "with_ft_sensor": true
+   }
+  },
+  "impedance": [
+   2000.0,
+   60.0,
+   50.0,
+   2.0,
+   2.0,
+   1.0
+  ],
+  "roll": "ffb: kp 800.0, kv 80.0, budget 0.6 N.m, model D 2.0 F 1.0 arm 0.1; plant error +20%",
+  "pad_mu": 0.8,
+  "nq": 120,
+  "nv": 99,
+  "nu": 17
+ },
+ "t0_solved": true,
+ "per_move": [
+  {
+   "move": "U",
+   "turn_error_deg": 64.8383492507036,
+   "grasp_err_mm": 1.0909412084591112,
+   "j7_lag_max_deg": 0.05885182272194946,
+   "jam_stop": {
+    "t": 8.193499999998522,
+    "by": "ft",
+    "tau_z_Nm": 0.6098882752659928,
+    "roll_done_deg": -29.03471320480838
+   },
+   "j7_budget_used_Nm": 3.1220363442489054,
+   "ft_tau_z_max_Nm": 0.6230596614960343,
+   "nontarget_drift_deg": 0.06578301588774467,
+   "pen_cubie_mm": 0.11190393627228266,
+   "pen_pad_mm": 0.9806995802530225,
+   "max_roll_torque_Nm": 7.70480710695851,
+   "max_tool_torque_on_layer_Nm": 0.6477133326148767,
+   "t_tip_force_s": 6.492499999999121,
+   "t_layer_motion_rel_core_s": 6.49549999999912,
+   "ok_causal": true,
+   "robot_cube_nonpad_max": 0,
+   "arm_arm_max": 0,
+   "robot_table_max": 0,
+   "saturated_steps": 0,
+   "armB_track_err_mm": 2.8943245702209763,
+   "core_slip_mm": 0.08840882165549362,
+   "core_rot_deg": 0.15680162744246082,
+   "observed_move": null,
+   "ok_oracle": false,
+   "ok_turn_error": false,
+   "ok_drift": true,
+   "ok_penetration_cubie": true,
+   "ok_no_nonpad_cube_contact": true,
+   "ok_no_arm_arm": true,
+   "ok_no_table": true,
+   "ok_all": false
+  }
+ ],
+ "start": {
+  "stand": true,
+  "stickers": true,
+  "stand_load_N": 0.8838708774654744,
+  "stand_load_after_grasp_N": 1.2980656115266709,
+  "settle_on_stand_mm": 0.19355487698088392,
+  "settle_rot_deg": 0.10997440280737772,
+  "grasp_shift_mm": 0.5104015497960241,
+  "grasp_rot_deg": 0.09379091428792383,
+  "stand_drop_shift_mm": 0.10592946460713736,
+  "stand_drop_rot_deg": 0.029008544521272564,
+  "stand_contact_after_drop_N": 0.0,
+  "core_offset_from_nominal_mm": 0.5901833770882312
+ },
+ "approach": {
+  "pen_pad": 0.331824366670302,
+  "pen_cubie": 0.01892184311180263,
+  "robot_cube_nonpad": 0,
+  "arm_arm": 0,
+  "robot_table": 0,
+  "t_force": null,
+  "t_motion": null,
+  "tau_roll": 2.282552959686655e-05,
+  "tau_tool": 0.0,
+  "saturated_steps": 0,
+  "track_err_mm": 10.553308289067694,
+  "final_err_mm": 1.8380718850417461,
+  "final_axis_err_deg": 0.5413635487708018
+ },
+ "final_matches_oracle": false,
+ "audit_violations": [],
+ "numerical_failures": [],
+ "sim_time_s": 9.793500000000478,
+ "wall_s": 142.44165716299904,
+ "final_qpos_sha256": "9eb78d111cdd51d53444e1a095e98348caec0ff3eeb37ba4f13f895d6c8a1c15",
+ "pass": false
+}

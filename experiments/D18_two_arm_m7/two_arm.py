@@ -79,6 +79,14 @@ J7_KP, J7_KV, BUDGET = 800.0, 80.0, 0.6
 # B = BUDGET + U_MODEL * (|D q_dot| + F), the time-varying threshold idea of the collision literature.
 U_MODEL = 0.2
 STALL_LAG_DEG, STALL_HOLD_S = 2.0, 0.02
+# P-114 (user: "Add the wrist F/T sensor"): UFACTORY 6-axis F/T sensor between arm B's flange and gripper.
+# FACT (retail listings): ~600 g, 400 N / 20 N.m, 200 Hz, for xArm serial >= XI1305. ASSUMPTION: a 75 mm (flange)
+# x 35 mm disc; noise 0.01 N.m (1 sigma). The guard reads the torque about the tool axis at 200 Hz and freezes the
+# roll and opens when |tau_z| > FT_STOP on two consecutive samples. J7 then uses a generous budget (no false stalls).
+FT = True
+FT_T, FT_R, FT_M = 0.035, 0.0375, 0.6
+FT_STOP, FT_NOISE, FT_RATE, FT_N = 0.6, 0.01, 200.0, 2
+FT_BUDGET = 2.0
 J7_ERR = 0.0           # plant error test: the SIMULATOR's J7 damping, friction, armature scaled by (1 + J7_ERR)
 JAM_BLOCK = False      # G2-7 negative test: a world-fixed block above the cube's top face beside the U layer
 
@@ -106,6 +114,37 @@ def add_stickers(cube, p) -> None:
             g.pos = (np.array(home, float) * p.pitch + n * (h + STICKER_T / 2)).tolist()
             g.contype, g.conaffinity, g.density, g.group = 0, 0, 0.0, 1
             g.rgba = FACE_RGBA[f]
+
+
+def add_ft_sensor(sp) -> None:
+    """The F/T sensor between link7 and the gripper (in an un-prefixed robot spec): the gripper base moves FT_T out
+    along its own axis; a welded 'ft_sensor' body (FT_M kg, disc geom) sits in the gap on link7; a site at the gripper
+    base origin carries MuJoCo force/torque sensors, which measure what link7 transmits to the gripper subtree."""
+    g = sp.body("xarm_gripper_base_link")
+    q = np.array(g.quat, float)
+    R = np.zeros(9)
+    mujoco.mju_quat2Mat(R, q / np.linalg.norm(q))
+    R = R.reshape(3, 3)
+    p0 = np.array(g.pos, float)
+    g.pos = (p0 + R[:, 2] * FT_T).tolist()
+    link7 = sp.body("link7")
+    fb = link7.add_body(name="ft_sensor", pos=(p0 + R[:, 2] * FT_T / 2).tolist(), quat=q.tolist())
+    fb.mass, fb.inertia, fb.explicitinertial = FT_M, [FT_M * (3 * FT_R ** 2 + FT_T ** 2) / 12] * 2 + [FT_M * FT_R ** 2 / 2], True
+    fg = fb.add_geom()
+    fg.name, fg.type, fg.size = "ft_disc", mujoco.mjtGeom.mjGEOM_CYLINDER, [FT_R, FT_T / 2, 0]
+    fg.rgba, fg.density = [0.75, 0.75, 0.78, 1], 0.0
+    st = g.add_site()
+    st.name = "ft_site"
+    for nm, ty in (("ft_force", mujoco.mjtSensor.mjSENS_FORCE), ("ft_torque", mujoco.mjtSensor.mjSENS_TORQUE)):
+        se = sp.add_sensor()
+        se.name, se.type, se.objtype, se.objname = nm, ty, mujoco.mjtObj.mjOBJ_SITE, "ft_site"
+
+
+def b_robot_spec(mu: float = 0.8):
+    sp = H.robot_spec(LY.robot_path(), mu, tip_half=TU.TURNER_TIP_HALF, tag="c1")
+    if FT:
+        add_ft_sensor(sp)
+    return sp
 
 
 def add_environment(sp, L: float) -> None:
@@ -161,7 +200,19 @@ def build(L: float, Hc: float, mu: float):
     for key in list(parent.keys):
         parent.delete(key)
     parent.worldbody.add_frame().attach_body(cube.body("core"), "", "")
-    bspec = H.robot_spec(rp, mu, tip_half=TU.TURNER_TIP_HALF, tag="c1")
+    bspec = b_robot_spec(mu)
+    if FT:                                               # arm B's grasp IK with the longer tool (same gripper pose)
+        mB = b_robot_spec(mu)
+        for key in list(mB.keys):
+            mB.delete(key)
+        mB = mB.compile()
+        dB = mujoco.MjData(mB)
+        RBt = RB @ (LY.ROLL180 if sol["B"]["roll180"] else np.eye(3))
+        qB, eB, rB = LY.ik(mB, dB, "xarm_gripper_base_link", YAW180.T @ (pB - np.array([L, 0, 0])), YAW180.T @ RBt,
+                           [np.array(sol["B"]["q"])] + LY.SEEDS)
+        lo, hi = mB.jnt_range[[mB.joint(j).id for j in bm.ARM_JOINTS]].T
+        sol["B"].update({"q": qB.tolist(), "pos_err_mm": eB * 1e3, "rot_err_deg": rB, "with_ft_sensor": True,
+                         "limit_margin_deg": float(np.degrees(np.min(np.minimum(qB - lo, hi - qB))))})
     for key in list(bspec.keys):
         bspec.delete(key)
     fr = parent.worldbody.add_frame(pos=[L, 0, 0], quat=[0, 0, 0, 1.0])
@@ -259,7 +310,10 @@ class TwoArm:
         sol = self.info["ik"]
         qA = np.array(sol["A"]["q"])
         # arm B starts 40 mm outside the grasp pose along its axis (+x world), IK in its own base frame
-        m0 = H.robot_spec(LY.robot_path()).compile()
+        m0 = b_robot_spec()
+        for key in list(m0.keys):
+            m0.delete(key)
+        m0 = m0.compile()
         d0 = mujoco.MjData(m0)
         self.pB_grasp, self.RB = pB, RB
         self.pB_pre = pB + APPROACH * np.array([1.0, 0, 0])
@@ -278,6 +332,11 @@ class TwoArm:
         self.q0B = qBpre.copy()                       # posture reference for the impedance null space
         self.roll0 = float(qBpre[6])
         self.j7 = [self.roll0, 0.0, 0.0]                  # commanded J7 angle, rate, acceleration
+        self.ft_rng = np.random.default_rng(29000)        # F/T noise (pilot seed range)
+        self.ft_every = max(1, int(round(1.0 / FT_RATE / m.opt.timestep)))
+        if FT:
+            sid = m.sensor("B_ft_torque").id
+            self.ft_adr = int(m.sensor_adr[sid])
         self.j7_budget_used = 0.0
         if ROLL_MODE == "servo":
             d.ctrl[self.aB[6]] = self.roll0
@@ -382,7 +441,7 @@ class TwoArm:
         qc, qdc, qddc = self.j7
         loss_d, loss_f = J7_D_M * qd, J7_F_M * np.tanh(qdc / 0.02)
         ff = loss_d + loss_f
-        B = BUDGET + U_MODEL * (abs(loss_d) + J7_F_M)
+        B = (FT_BUDGET if FT else BUDGET) + U_MODEL * (abs(loss_d) + J7_F_M)
         tau = ff + J7_KP * (qc - q) + J7_KV * (qdc - qd)
         tau = float(np.clip(tau, ff - B, ff + B))
         self.j7_budget_used = max(self.j7_budget_used, abs(tau - ff))
@@ -547,11 +606,21 @@ class TwoArm:
         else:
             lag_lim, hold_n, guard_on = STALL_LAG_DEG, max(1, self.secs(STALL_HOLD_S)), True
         A, Tn = axis_sign * delta, n * m.opt.timestep
+        ft_over, ft_max = 0, 0.0
         for k in range(1, n + 1):
             ph = np.pi * k / n
             self.set_roll(start + A * (0.5 - 0.5 * np.cos(ph)), A * np.pi / (2 * Tn) * np.sin(ph),
                           A * np.pi ** 2 / (2 * Tn ** 2) * np.cos(ph))
             self.step(1)
+            if FT and k % self.ft_every == 0:              # 200 Hz sample, with noise (robot-side sensor)
+                tz = float(d.sensordata[self.ft_adr + 2]) + float(self.ft_rng.normal(0.0, FT_NOISE))
+                ft_max = max(ft_max, abs(tz))
+                ft_over = ft_over + 1 if abs(tz) > FT_STOP else 0
+                if ft_over >= FT_N:
+                    jam = {"t": float(d.time), "by": "ft", "tau_z_Nm": tz,
+                           "roll_done_deg": float(np.degrees(axis_sign * (float(d.qpos[q7]) - start)))}
+                    self.set_roll(float(d.qpos[q7]))
+                    break
             lag = abs(np.degrees(self.roll_cmd() - float(d.qpos[q7])))
             lag_max = max(lag_max, lag)
             over = over + 1 if lag > lag_lim else 0
@@ -587,6 +656,7 @@ class TwoArm:
         tf, tm = a["t_force"], a["t_motion"]
         return {"move": str(mv), "obs": obs, "turn_error_deg": float(np.mean(err)), "grasp_err_mm": grasp_err,
                 "j7_lag_max_deg": lag_max, "jam_stop": jam, "j7_budget_used_Nm": self.j7_budget_used,
+                "ft_tau_z_max_Nm": ft_max if FT else None,
                 "nontarget_drift_deg": float(drift.max()), "pen_cubie_mm": a["pen_cubie"], "pen_pad_mm": a["pen_pad"],
                 "max_roll_torque_Nm": a["tau_roll"], "max_tool_torque_on_layer_Nm": a["tau_tool"], "t_tip_force_s": tf, "t_layer_motion_rel_core_s": tm,
                 "ok_causal": bool(tm is None or (tf is not None and tf <= tm)),
@@ -666,6 +736,8 @@ def main() -> None:
     ap.add_argument("--roll", default="ffb", choices=("ffb", "servo"))
     ap.add_argument("--j7-err", type=float, default=0.0, help="plant error on J7 damping/friction/armature")
     ap.add_argument("--budget", type=float, default=0.6)
+    ap.add_argument("--no-ft", action="store_true", help="no wrist F/T sensor (D18 v1 tool)")
+    ap.add_argument("--ft-stop", type=float, default=0.6)
     ap.add_argument("--guard", action="store_true", help="enable the J7 lag guard (false-triggers; P-111)")
     ap.add_argument("--jam-block", action="store_true")
     ap.add_argument("--guard-lag", type=float, default=3.0)
@@ -673,6 +745,8 @@ def main() -> None:
     global STICKERS, STAND, GUARD, JAM_BLOCK, GUARD_LAG_DEG, ENV, ROLL_MODE, J7_ERR, BUDGET
     ENV = not a.plain_env
     ROLL_MODE, J7_ERR, BUDGET = a.roll, a.j7_err, a.budget
+    global FT, FT_STOP
+    FT, FT_STOP = not a.no_ft, a.ft_stop
     STICKERS, STAND = not a.no_stickers, not a.no_stand
     GUARD, JAM_BLOCK, GUARD_LAG_DEG = a.guard, a.jam_block, a.guard_lag
     H.TIP_SOLREF = (0.01, 1.0)                         # soft pads, as scored (P-105)
@@ -706,7 +780,9 @@ def main() -> None:
     name = f"two_arm_F{a.grip:g}_L{a.L:g}_H{a.H:g}_{a.seq.replace(' ', '_').replace(chr(39), 'p')}"
     if STAND:
         name += "_stand"
-    if ROLL_MODE == "ffb":
+    if FT:
+        name += f"_ft{FT_STOP:g}" + (f"_err{J7_ERR:+g}" if J7_ERR else "")
+    elif ROLL_MODE == "ffb":
         name += f"_ffb{BUDGET:g}" + (f"_err{J7_ERR:+g}" if J7_ERR else "")
     if JAM_BLOCK:
         name += "_jam" + ("" if ROLL_MODE == "ffb" else ("_guard" if GUARD else "_noguard"))

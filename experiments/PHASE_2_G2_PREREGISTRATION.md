@@ -80,8 +80,10 @@ fixed settle time **[pilot]**.
 **Cube start (P-109 (1)):** the cube rests on an **actuated stand that drops away**. Arm A ramps its gripper closed with
 gravity on (R2-09); the stand then lowers clear of the cube before arm B approaches. No gravity-off setup phase.
 
-**Jam guard (P-109 (2)):** **stall detection on J7.** If J7 lags its commanded angle by more than **[pilot]** degrees,
-arm B stops the roll and opens. It uses robot state only. G2-7 tests it.
+**Jam guard (P-114; replaces P-109 (2) after P-111 and P-113):** a **wrist F/T sensor on arm B** (the UFACTORY
+6-axis sensor, modelled). The roll freezes and the turner opens when |τ_z| about the tool axis exceeds
+**[pilot, 0.6 N·m in D18]** on two consecutive 200 Hz samples. J7 runs velocity feedforward with a generous torque
+budget. G2-7 tests it.
 
 **Gains (P-109 (3)):** arm B's impedance and integral gains come from a **short tuning study on pilot seeds** before
 the freeze. The G2-6 screen then varies them ±50 %.

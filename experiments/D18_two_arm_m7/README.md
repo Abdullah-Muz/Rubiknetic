@@ -177,3 +177,37 @@ feedforward, budget B = 0.6 + 0.2·(|D·q̇| + F).
 - Feasibility requires B0 + U·L_peak < τ_grip(A) − τ_turn. That means a J7 model better than about 10 %, slower turns
   (L_peak falls with speed), or a stronger arm A grip, or a sensor that does not see J7's losses at all (a wrist F/T
   sensor, option C of the research note).
+
+## Option C: wrist F/T sensor guard on arm B (P-114; UNSCORED; `logs/ft_*.txt`, `results/*_ft0.6*`)
+**Sensor:**
+- The official UFACTORY 6-axis F/T sensor for xArm, serial ≥ XI1305. `FACT` from listings: about 600 g, 400 N /
+  20 N·m, 200 Hz.
+- **Modelled by us:**
+  - a welded 0.6 kg disc, 75 × 35 mm (`ASSUMPTION`, no official dimensions found), between link7 and the gripper;
+  - the gripper moves out 35 mm;
+  - MuJoCo force/torque sensors at the interface site;
+  - sampled at 200 Hz with 0.01 N·m Gaussian noise (`ASSUMPTION`).
+- Arm B's grasp IK is redone for the longer tool.
+- The sensor's τ_z agrees with the torque computed from the contacts: 0.129 vs 0.136 N·m on the first U.
+
+**Guard:**
+- Stop (freeze the roll, open) when the measured torque about the tool axis exceeds **0.6 N·m on two consecutive
+  samples (10 ms)**.
+- J7 runs the revision-2 feedforward controller with a generous budget (2 N·m + 20 % of the losses), so it cannot
+  stall falsely.
+
+| Test | J7 plant error 0 | +20 % | −20 % |
+|---|---|---|---|
+| Normal U U′ U2 U′ U | **5/5 pass**, no stop, F/T max 0.26 N·m | **5/5**, no stop, max 0.24 | **5/5**, no stop, max 0.25 |
+| Jam block (U) | **stopped by F/T** at 29.8°, τ_z 0.64, cube shift **0.09 mm** | **stopped** at 29.0°, 0.61, 0.09 mm | **stopped** at 29.9°, 0.65, 0.08 mm |
+
+- All runs had cubie penetration ≤ 0.14 mm, no audit violations or numerical failures, and no collisions.
+- Without a guard, the same obstacle shoved the cube about 2 mm (P-111).
+- Normal turn error was ≤ 0.87° and drift ≤ 0.22°.
+
+**Conclusion (`INFERENCE`):**
+- The wrist F/T guard separates normal turning (≤ 0.26 N·m) from obstruction (stopped at about 0.6 N·m), with about
+  2.3× margin.
+- It is **insensitive to J7 model error,** because the sensor does not see J7's own losses.
+- **Open:** the threshold's margin against real-cube torques (O-09, uncalibrated) and real sensor noise and offset
+  drift. Set by a pilot and the real sensor's datasheet.
