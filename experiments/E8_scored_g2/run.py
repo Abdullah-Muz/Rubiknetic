@@ -192,20 +192,45 @@ def exception_record(j: dict, exc: BaseException) -> dict:
     return rec
 
 
+# Transient model-load failures (pilot 3, P-127; the P-115 refusal): reading the robot meshes or the magnet records from
+# /mnt/c under parallel load occasionally returns an empty file. These errors can only occur while the model is being
+# built, before any simulation step, so the trial is retried in the same worker (at most LOAD_ATTEMPTS times); if it
+# still fails, the run is interrupted (resume), never recorded as a failed trial.
+LOAD_ERROR_MARKERS = ("stl_decoder", "is empty", "error opening file", "could not open", "no such file",
+                      "no passing v3 record")
+LOAD_ATTEMPTS = 3
+
+
+def is_load_error(exc: BaseException) -> bool:
+    return any(k in str(exc).lower() for k in LOAD_ERROR_MARKERS)
+
+
 def run_job(j: dict) -> tuple[tuple, dict]:
-    """Runs one trial in this (fresh) worker. Interruptions propagate; any other exception is a failing record."""
+    """Runs one trial in this (fresh) worker. Interruptions propagate; a transient model-load error is retried (and
+    interrupts the run if it persists); any other exception is a failing record."""
     import trials as T
-    try:
-        load0 = os.getloadavg()[0] if hasattr(os, "getloadavg") else None
-        t0 = time.perf_counter()
-        rec = T.run_trial(j["kind"], j["kw"])
-        rec.update(metadata(j))
-        rec["loadavg_start"], rec["wall_s"] = load0, time.perf_counter() - t0
-        json.dumps(rec, default=list)            # a record that cannot be saved is a failed trial, not a crash
-    except (MemoryError, OSError, T.Refused):
-        raise
-    except Exception as e:  # noqa: BLE001
-        rec = exception_record(j, e)
+    load0 = os.getloadavg()[0] if hasattr(os, "getloadavg") else None
+    retries = []
+    for attempt in range(1, LOAD_ATTEMPTS + 1):
+        try:
+            t0 = time.perf_counter()
+            rec = T.run_trial(j["kind"], j["kw"])
+            rec.update(metadata(j))
+            rec["loadavg_start"], rec["wall_s"], rec["load_retries"] = load0, time.perf_counter() - t0, retries
+            json.dumps(rec, default=list)        # a record that cannot be saved is a failed trial, not a crash
+            break
+        except (MemoryError, OSError):
+            raise
+        except Exception as e:  # noqa: BLE001  (T.Refused included: retried like any load error)
+            if is_load_error(e) or isinstance(e, T.Refused):
+                retries.append(f"{type(e).__name__}: {e}")
+                if attempt < LOAD_ATTEMPTS:
+                    time.sleep(2.0)
+                    continue
+                raise OSError(f"model load failed {LOAD_ATTEMPTS} times: {retries}") from e
+            rec = exception_record(j, e)
+            rec["load_retries"] = retries
+            break
     return key_of(j), rec
 
 

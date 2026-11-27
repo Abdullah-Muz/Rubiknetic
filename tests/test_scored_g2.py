@@ -236,8 +236,32 @@ def test_interruptions_propagate(monkeypatch):
     ft = _fake_trials(None)
     ft.run_trial = lambda kind, kw: (_ for _ in ()).throw(ft.Refused("no V3 record"))
     monkeypatch.setitem(sys.modules, "trials", ft)
-    with pytest.raises(ft.Refused):
+    monkeypatch.setattr(R.time, "sleep", lambda s: None)
+    with pytest.raises(OSError, match="model load failed"):            # retried, then an interruption (P-127)
         R.run_job(_jobs(1)[0])
+
+
+def test_transient_load_errors_are_retried_then_interrupt(monkeypatch):
+    """P-127: a model-load read failure is retried; a persistent one interrupts the run (never a failed record)."""
+    calls = {"n": 0}
+    ft = _fake_trials(None)
+
+    def flaky(kind, kw):
+        calls["n"] += 1
+        if calls["n"] < 3:
+            raise ValueError("Error: stl_decoder: STL file 'x.stl' is empty")
+        return {"pass": True, "fail_reasons": []}
+    ft.run_trial = flaky
+    monkeypatch.setitem(sys.modules, "trials", ft)
+    monkeypatch.setattr(R.time, "sleep", lambda s: None)
+    key, rec = R.run_job(_jobs(1)[0])
+    assert rec["pass"] is True and len(rec["load_retries"]) == 2
+    ft.run_trial = lambda kind, kw: (_ for _ in ()).throw(ValueError("stl_decoder: STL file 'y.stl' is empty"))
+    with pytest.raises(OSError, match="model load failed 3 times"):
+        R.run_job(_jobs(1)[0])
+    ft.run_trial = lambda kind, kw: (_ for _ in ()).throw(ValueError("a genuine bug"))
+    key, rec = R.run_job(_jobs(1)[0])                                    # other exceptions: a failing record
+    assert rec["pass"] is False and "a genuine bug" in rec["fail_reasons"][0]
 
 
 def test_execute_turns_runner_errors_into_interrupted(tmp_path):
