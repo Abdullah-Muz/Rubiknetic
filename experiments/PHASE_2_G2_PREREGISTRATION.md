@@ -45,7 +45,7 @@
 | Arms | Two xArm7, revision 1305+, `experiments/P2_robot_model/build_model.py`. URDF peak efforts as limits (P-17, O-13 closed). Actuator gravity compensation | P-96 |
 | Grippers | Two Gripper G2 models (four-bar, tendon drive). Force setting by `set_grip_force` (calibrated at 57 mm). Ramped closing at 0.5 rad/s | P2, R2-08 |
 | Stabiliser fingertip (arm A) | **One flat box per finger**, 30 wide × 30 deep × 4 mm. **Gripped from the D end** (P-04): covers D and 11 mm of E; the U layer projects 27 mm beyond | P-97, D17 |
-| Turner fingertip (arm B) | **The candidate chosen in §7 P-1:** C1 (one box, 25 wide × 14 deep × 4 mm, insertion 14 mm by control) or C2 (C1 plus a 3 mm shoulder abutting the U end face) | P-03, P-97 |
+| Turner fingertip (arm B) | **C1** (P-107): one box per finger, 25 wide × 14 deep × 4 mm, insertion 14 mm by control. Contingency: C2 with a 5 mm shoulder (pre-close → seat → grip), if arm B's axial error exceeds about ±2 mm | P-03, P-97, P-106, P-107 |
 | Fingertip contact | μ 0.8, condim 4, rig-pad solimp; contact time constant **0.01 s ("soft")** for scoring (§8 Q3, P-105); rigid 0.001 s in the G2-6 screen | P-97, D17, P-105 |
 | Grip | 20 N on both grippers (scored); 10 / 30 N sensitivity; 50 N stress (reported only) | P-97, P-99 |
 | Layout | **Both arms on one table facing each other, cube axis horizontal** (§8 Q2, P-105). Arm A grips from the D end, arm B from the U end, coaxially; base positions and poses designed in §7 P-2 | VALIDATION_PLAN G2 item 1, P-105 |
@@ -158,7 +158,7 @@ fixed settle time **[pilot]**.
 ## 7. Prerequisites before this text can be fixed (open)
 | # | Item | Kind |
 |---|---|---|
-| P-1 | **C1 vs C2 turner pilot** (G2-5), then the user's choice | pilot + decision |
+| P-1 | ~~C1 vs C2 turner pilot (G2-5), then the user's choice~~ **Done:** P-106 pilot, C1 chosen (P-107) | pilot + decision |
 | P-2 | **Two-arm layout:** base positions, cube pose, IK for both grasps, collision clearance. Arm B as an xArm7, replacing D17's compliant mount | design + build |
 | P-3 | **Arm B controller:** Cartesian impedance + J7 roll, with gains and torque limit from pilots. The settle time replaces the cube-state rest check | build + pilot |
 | P-4 | **Runner and analysis** in the M5/M7 style: manifest, ledger, resume, environment check, audit. Tests including the controller-reads-no-cube-state test | build |
