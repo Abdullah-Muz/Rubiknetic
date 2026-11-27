@@ -159,8 +159,8 @@ fixed settle time **[pilot]**.
 | # | Item | Kind |
 |---|---|---|
 | P-1 | ~~C1 vs C2 turner pilot (G2-5), then the user's choice~~ **Done:** P-106 pilot, C1 chosen (P-107) | pilot + decision |
-| P-2 | **Two-arm layout:** base positions, cube pose, IK for both grasps, collision clearance. Arm B as an xArm7, replacing D17's compliant mount | design + build |
-| P-3 | **Arm B controller:** Cartesian impedance + J7 roll, with gains and torque limit from pilots. The settle time replaces the cube-state rest check | build + pilot |
+| P-2 | **Two-arm layout.** *Built (D18, P-108):* L = 1.0 m, H = 0.30 m, both arms reach with ≥ 25.8° joint margin, no collisions in the U-sequence runs. Open: R2-09 gravity-on grasp from a support | design + build |
+| P-3 | **Arm B controller.** *Built (D18, P-108):* Cartesian impedance (joints 1–6, integral term only while open) + J7 roll on the model's servo; fixed 0.3 s settle; 20/20 moves pass at 10–50 N. Open: gain tuning, the J7 torque limit for cube safety (the fingertip torque is measured from contacts) | build + pilot |
 | P-4 | **Runner and analysis** in the M5/M7 style: manifest, ledger, resume, environment check, audit. Tests including the controller-reads-no-cube-state test | build |
 | P-5 | **Pilots** fixing every **[pilot]** number: slip limits, 60 s hold limits, grasp-offset tolerance, trial counts from cost | pilot |
 | P-6 | Self-checks reproducing pilot records; a smoke run with a forced kill and resume | build |
