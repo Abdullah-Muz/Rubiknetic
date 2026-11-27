@@ -1,0 +1,29 @@
+{
+ "harness_exception": "Traceback (most recent call last):\n  File \"/mnt/c/dev/Rubiknetic/experiments/E8_scored_g2/run.py\", line 201, in run_job\n    rec = T.run_trial(j[\"kind\"], j[\"kw\"])\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/dev/Rubiknetic/experiments/E8_scored_g2/trials.py\", line 278, in run_trial\n    return run_seq(kw[\"moves\"], ov, start)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/dev/Rubiknetic/experiments/E8_scored_g2/trials.py\", line 157, in run_seq\n    rec = TA.run(moves, {**DEFAULTS, **ov}[\"grip\"], L, HC)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/dev/Rubiknetic/experiments/D18_two_arm_m7/two_arm.py\", line 824, in run\n    r = TwoArm(L, Hc, grip)\n        ^^^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/dev/Rubiknetic/experiments/D18_two_arm_m7/two_arm.py\", line 394, in __init__\n    self.m, self.p, self.info, (pA, RA), (pB, RB), self.half = build(L, Hc, mu)\n                                                               ^^^^^^^^^^^^^^^^\n  File \"/mnt/c/dev/Rubiknetic/experiments/D18_two_arm_m7/two_arm.py\", line 280, in build\n    C, half, (pA, RA), (pB, RB), tips = LY.targets(L, Hc)\n                                        ^^^^^^^^^^^^^^^^^\n  File \"/mnt/c/dev/Rubiknetic/experiments/D18_two_arm_m7/layout.py\", line 63, in targets\n    tips = gripper_frames()\n           ^^^^^^^^^^^^^^^^\n  File \"/mnt/c/dev/Rubiknetic/experiments/D18_two_arm_m7/layout.py\", line 40, in gripper_frames\n    m = H.robot_spec(robot_path(), tip_half=tip_half, tag=tag).compile()\n        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nValueError: Error: stl_decoder: STL file '/mnt/c/dev/Rubiknetic/third_party_cad/robot/g2_meshes/base_link_g2.stl' is empty\nElement name 'base_link', id 9, line 28\nRead error while reading '/mnt/c/dev/Rubiknetic/third_party_cad/robot/g2_meshes/base_link_g2.stl'\n",
+ "pass": false,
+ "fail_reasons": [
+  "harness exception: ValueError: Error: stl_decoder: STL file '/mnt/c/dev/Rubiknetic/third_party_cad/robot/g2_meshes/base_link_g2.stl' is empty\nElement name 'base_link', id 9, line 28\nRead error while reading '/mnt/c/dev/Rubiknetic/third_party_cad/robot/g2_meshes/base_link_g2.stl'"
+ ],
+ "experiment": "P3-conf",
+ "trial_id": "rand10_s29448",
+ "kind": "seq",
+ "spec": {
+  "seed": 29448,
+  "moves": "U' U U2 U' U U2 U2 U2 U' U2"
+ },
+ "reported_only": false,
+ "source_commit": "63f2ae2dc5c3e43e9e1190a8079ff853b07662ae+smoke",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "python": "3.12.3",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "n_cpu": 16
+ },
+ "smoke": true,
+ "scored": false,
+ "head": "63f2ae2dc5c3e43e9e1190a8079ff853b07662ae",
+ "mechanism": "M7 free core, two xArm7"
+}

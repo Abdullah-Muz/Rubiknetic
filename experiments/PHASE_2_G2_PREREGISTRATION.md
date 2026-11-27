@@ -1,13 +1,19 @@
 # Phase 2 (G2) Pre-registration: two-arm, contact-driven layer turns of the free-core M7 cube
 
-**Status: DRAFT revision 2 (amended P-125), NOT IN FORCE (2026-11-27).**
-- Revision 2 answers review 1 (`G2_PREREGISTRATION_REVIEW1_2026-11-27.md`, P-122): all 7 required items, and every
+**Status: DRAFT revision 3, NOT IN FORCE (2026-11-27).**
+- Revision 2 answered review 1 (`G2_PREREGISTRATION_REVIEW1_2026-11-27.md`, P-122): all 7 required items, and every
   suggestion except per-trial F/T noise seeding (P-123). §9 maps each item to its change.
+- Revision 3 answers review 2 (`G2_PREREGISTRATION_REVIEW2_2026-11-27.md`, P-126): all 4 required items and all 6
+  suggestions, with pilot 3 (P-127). §10 maps each item to its change.
 - The text states what the code does at the commit that introduces this revision.
 - Before it is in force: review rounds until "ACCEPTABLE AS IS" (one reviewer subagent per round, P-121), then the
   user's approval recorded in `docs/DECISION_LOG.md`.
-- **Freeze procedure:** the freeze commit changes exactly two things: `FROZEN = True` in `run.py`, and this status
-  line ("IN FORCE", with the DECISION_LOG entry). No other change to a frozen path. The scored run refuses to start
+- **Freeze procedure:** the freeze commit changes exactly three things:
+  - `FROZEN = True` in `run.py`;
+  - this status line ("IN FORCE");
+  - the P-7 and P-8 rows of the §7 table (status only), with the DECISION_LOG entry.
+
+  No other change to a frozen path. The scored run refuses to start
   while `FROZEN = False` or with uncommitted changes in the frozen paths (§6).
 - Gate: `docs/VALIDATION_PLAN.md` G2. **Pass** = repeatable physical turns with prescribed classical controllers; no
   RL. Mapping in §5.
@@ -25,6 +31,7 @@
    - **Arm B gain tuning** (P-115).
    - **Pilot P-5** (P-118): 56/56 pass. The F/T stop and the limits were set from it (P-119).
    - **Revision-2 pilot** (§7, P-124).
+   - **Revision-3 pilot** (§7, P-127).
 2. **Move strings:** U, U′, U2 and U U′ U2 U′ U were run many times in rehearsals. The 20 random 10-move sequences are
    drawn from the scored seeds and are new.
 3. **First-turn torque tail (`FACT`).** With the ±1° start misalignment, the first turn's F/T τ_z reached:
@@ -32,7 +39,11 @@
    - **U′: 0.67 N·m (p95 0.52; 20 turns);**
    - U2: 0.49 (20 turns).
    - The stop was therefore raised from 0.8 to **1.0 N·m** after pilot 2 (P-125).
-   - `INFERENCE`: the tail is estimated from about 75 first turns. A false stop in a scored trial is a failure.
+   - Review 2 found the U′ peak correlated with the U-face start misalignment (r = −0.82). Some scored starts lie beyond
+     the piloted range.
+   - **Pilot 3 forced the U face to ±0.80 … ±1.00° on 34 first turns (U′, U2, U): the maximum was 0.47 N·m** (P-127).
+   - **The worst first turn seen anywhere is 0.674 N·m, about 110 first turns in all, a 1.49× margin to the stop.**
+   - `INFERENCE`: a false stop in a scored trial is a failure; the margin is stated, not guaranteed.
 4. **The G1 rig's grip was capped at about 11.5 N** (G1 report §3 item 12). G2 is the first squeeze test above that.
 5. **`ASSUMPTION`s:**
    - M7's clearance (0.05 mm), rounded edge (R 2.5 mm), uncalibrated turning torque, and core mass and inertia
@@ -143,10 +154,17 @@ of the limits; a test checks the copies agree) both apply the following. A trial
 
 **Integrity:**
 - no abort, edit-audit violation, numerical failure or harness exception;
-- the model audit finds no actuator and no equality constraint acting on a cube body;
+- the model audit finds nothing acting on a cube body:
+  - no actuator, of any transmission type (joint, joint-in-parent, tendon, site, slider-crank, body);
+  - no tendon through a cube joint, site or geom;
+  - no equality constraint, by object type (connect, weld, joint, tendon);
+  - no gravity compensation;
 - the cube is solved at t0;
 - every move is recorded;
 - the final state matches the oracle.
+
+**Before t0** (review 2 S6): the cube's shift while the stand drops (in arm A's grip) ≤ **1 mm**, and the cube centre's
+offset from nominal at t0 ≤ **3 mm**. The start draw itself gives ≤ 1.7 mm; the pilots saw 0.06–0.09 mm and 0.8–1.14 mm.
 
 **Start sequence and approach** (no judged contact may occur):
 - non-fingertip robot–cube, arm–arm, robot–table, robot–stand or robot–jam-block contact;
@@ -161,7 +179,7 @@ of the limits; a test checks the copies agree) both apply the following. A trial
 | Turn error (mean layer rotation − nominal, core frame) | ≤ **2°** |
 | Drift (non-target cubies about the face axis) | ≤ **1°** |
 | Cubie–cubie penetration | ≤ **0.5 mm** (fingertip–cubie penetration is reported) |
-| Causality: arm B **fingertip–cubie** normal force > 0.5 N before the U layer's speed relative to the core exceeds 5°/s | as stated |
+| Causality: arm B **fingertip–cubie** normal force > 0.5 N before the U layer's speed relative to the core exceeds 5°/s (both latched from the move start, i.e. decided during the grasp; see the note below) | as stated |
 | **Drive:** the fingertip torque on the layer about its axis, integrated over the roll, has the commanded sign (> 0) | as stated |
 | **Roll-back:** every cubie's rotation about the face axis during the roll-back | ≤ **1°**, and the logical state is unchanged |
 | Contacts: non-fingertip robot–cube, arm–arm, robot–table, robot–stand, robot–block, cube–stand | none |
@@ -171,9 +189,17 @@ of the limits; a test checks the copies agree) both apply the following. A trial
 
 **Trial level (from t0 to the end):**
 - total core slip ≤ **2 mm** and rotation ≤ **2°**, relative to arm A's gripper;
-- every cubie's misalignment (angle to the nearest cube rotation, core frame) at the end ≤ **4°** (P-125). The bound
-  is derived: start misalignment of up to three faces (√3·1° ≈ 1.7°) plus the 2° turn-error limit. It catches a layer
-  left grossly off, which the readout would round. Growth from t0 is reported.
+- every cubie's misalignment (angle to the nearest cube rotation, core frame) at the end ≤ **4°** (P-125).
+  - The single-move derivation is start misalignment of up to three faces (√3·1° ≈ 1.7°) plus the 2° turn-error limit.
+  - Turn errors carry a positive bias, so they accumulate over a sequence (review 2 item 2). **Pilot 3's 10-move
+    sequences ended at 2.00–2.83° (n = 8 incl. the re-runs), a 1.4× margin.**
+  - The bound catches a layer left grossly off, which the readout would round. Growth from t0 is reported.
+
+**Note on causality (review 1 S8, review 2 S7).**
+- The causality check decides at grasp time whether the fingertips touched before the layer moved. Over 140 pilot moves
+  the gap was at least 3 steps (1.5 ms) and typically 19.
+- Timing the onset from the roll start was not adopted. The judged **drive** check covers the roll itself: the fingertip
+  torque impulse has the commanded sign.
 
 **Reported, not judged:**
 - J7 actuator torque; fingertip torque on the layer; F/T peak; pad penetration;
@@ -184,7 +210,8 @@ of the limits; a test checks the copies agree) both apply the following. A trial
 Pass if all hold:
 - integrity as §4.1, and the start-sequence contacts as §4.1;
 - the cube is solved at t0 and at the end;
-- over 60 s, relative to arm A's gripper: core slip ≤ **1.0 mm** and rotation ≤ **1.0°**;
+- over 60 s, relative to arm A's gripper: core slip ≤ **1.0 mm** and rotation ≤ **1.0°**, sampled every 0.1 s;
+- before t0: as §4.1;
 - during the hold: none of the §4.1 contacts (cube–stand included), cubie penetration ≤ 0.5 mm;
 - every cubie's misalignment at the end ≤ **4°** (P-125).
 
@@ -194,10 +221,10 @@ trial. Otherwise:
 
 | Case | Fault | Pass when (the detection it accepts) | What it tests |
 |---|---|---|---|
-| `two_layer` | Turner inserted 25 mm (6 mm across the U/E boundary) | a guard stop, or a failure of the observed-move, turn-error or drift check | the offline checks detect a two-layer grip |
+| `two_layer` | Turner inserted 25 mm (6 mm across the U/E boundary) | a guard stop, or a failure of the observed-move, turn-error or drift check. At 1.0 N·m: 4/4 detected by an F/T stop at 1.05–1.11 N·m (pilot 3) | the offline checks and the guard detect a two-layer grip |
 | `open_midturn` | Arm B opens halfway through the roll | a failure of the observed-move or turn-error check | the checks detect an incomplete turn |
 | `collision` | Turner driven 34 mm deep, into arm A's fingertips | arm–arm or non-fingertip robot–cube contact recorded (approach or move) | the contact monitor detects a collision |
-| `jam` | A world-fixed block above the top face beside the U layer | a guard stop after **20–50°** of roll, core slip ≤ **0.5 mm**, cubie penetration ≤ 0.5 mm. Pilot 1 at a 1.0 N·m stop: 41–44°, ≤ 0.27 mm | the **online** guard stops a blocked turn safely |
+| `jam` | A world-fixed block above the top face beside the U layer | a guard stop after **20–50°** of roll, core slip ≤ **0.5 mm**, cubie penetration ≤ 0.5 mm. At a 1.0 N·m stop: 41–44°, ≤ 0.27 mm (pilot 1, pre-revision-2 code, physics identical per the self-check); 38.0° and 40.8°, ≤ 0.19 mm (pilot 3, revision-3 code) | the **online** guard stops a blocked turn safely |
 | `offcentre` | Cube 5 mm sideways | **reported only**: "clean" or "detected" | robustness to a larger placement error |
 
 - `two_layer`, `open_midturn` and `collision` test the offline checks; only `jam` tests the controller online.
@@ -209,7 +236,12 @@ trial. Otherwise:
 - a record that does not parse;
 - a ledger SHA-256 mismatch;
 - a record without a ledger line, or a ledger key with more than one line or without a record;
-- any file or directory the run procedure does not produce, including any orphan temporary file;
+- any file or directory the run procedure does not produce, including **any** `*.json.tmp` at verdict time (in-flight
+  files are resolved by a resume; an unlogged file in `_interrupted/` is foreign);
+- an inconsistent start log: starts not numbered 1..K, a ledger line whose start is outside 1..K, a reconciled line not
+  in the logged plan, or a record listed as present at a start that is missing or changed;
+- for a scored run, a frozen path that differs between the manifest commit and HEAD, or has uncommitted changes (the
+  verdict must run the frozen code);
 - the manifest's trial list differs from the registered `build_jobs()`;
 - the manifest's frozen paths differ from `run.FROZEN_PATHS`;
 - an artifact SHA-256 (robot model, calibration, meshes, magnet table, V3 records) differs from the manifest;
@@ -258,10 +290,20 @@ trial. Otherwise:
 - foreign files or directories exist;
 - a ledger key has more than one line or no record.
 
-On a resume, orphan temporary files are moved to `_interrupted/` and records without a ledger line are reconciled.
+On a resume:
+- in-flight temporary files (`<exp>/.<tid>.json.tmp` of a manifest trial, the only temporary file the procedure
+  leaves) are moved to `_interrupted/`;
+- any other temporary file refuses the resume;
+- records without a ledger line are reconciled;
+- **each start logs the records present at it.**
 
 **Errors and interruptions:**
 - A harness exception becomes a failing record.
+- **Transient model-load errors** (`run.LOAD_ERROR_MARKERS`: an empty or unreadable mesh or record file, the magnet
+  availability refusal) can only happen while the model is built, before any simulation step.
+  - The trial is retried in the same worker, at most 3 times; the record lists the retries.
+  - If the error persists, the run is interrupted (resume), never recorded as a failed trial.
+  - Pilot 3 had 2 such crashes in 48 trials (P-127).
 - MemoryError, OSError, the magnet-availability refusal or a broken worker pool are interruptions (exit 3).
 - **Every trial runs in its own spawned process** (`max_tasks_per_child = 1`, whatever `--jobs` is). Settings never
   carry over, and `trials.configure` takes its defaults from fixed constants.
@@ -290,18 +332,24 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
 - The search is repeated and recorded at the freeze.
 
 ## 7. Evidence before the freeze
-- **Tests:** `tests/test_scored_g2.py`, 33 tests pass.
+- **Tests:** `tests/test_scored_g2.py`, 41 tests pass.
 - **Self-check:** `selfcheck.py` re-runs three pilot trials and requires the **physics identity** (final qpos SHA-256,
   the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot records. Result: P-124.
 - **Smoke:** a smoke run killed after a record link and resumed gives PASS, with the ledger reconciled (P-120).
 - **Revision-2 pilot** (`run.py pilot2`, seeds 29300–29353; P-124): 20 U′ and 20 U2 first turns with the stop
   disabled; 4 × U U′ U2 U′ U and 2 holds at the fixed settings; 2 each of jam, two_layer, collision and open_midturn.
-  Results in `pilot2_rev2/`.
+  Results in `pilot2_rev2/` (its stored pass/fail used the pre-P-125 rules; see its README).
+- **Revision-3 pilot** (`run.py pilot3`, seeds 29400–29453; P-127):
+  - 34 forced-extreme-misalignment first turns, max F/T 0.47 N·m;
+  - at the frozen configuration: 4 two_layer (all detected at 1.05–1.11 N·m), 2 jam (38.0°, 40.8°), and 8 10-move
+    sequences (all pass after the 2 crash re-runs; end misalignment ≤ 2.83°).
+  - Results in `pilot3_rev3/`.
 
 | # | Prerequisite | Status |
 |---|---|---|
 | P-1 … P-6 | fingertips, layout, controller, runner, pilots and limits, self-check and smoke | done (P-106 … P-120) |
 | P-6b | revision-2 code, tests, self-check and pilot | P-123, P-124 |
+| P-6c | revision-3 code, tests, pilot 3 and the re-runs | P-127 |
 | P-7 | independent reviews until "ACCEPTABLE AS IS" | **open** (review 1: P-122) |
 | P-8 | the user's approval; freeze commit; DECISION_LOG | **open** |
 
@@ -349,3 +397,18 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
 | S16 independent verdict | `analyze.recompute_*`; a disagreement makes the run INVALID |
 | S17 limits | justified from the task (§8 item 8) |
 | P-125 (after pilot 2) | F/T stop 0.8 → 1.0 N·m (U′ first turns reach 0.67 N·m); the misalignment-growth rule (+1°, which failed 11/48 healthy pilot trials by double-counting the turn error) replaced by an absolute end bound of 4° |
+
+## 10. Response to review 2 (P-126)
+| Item | Change in revision 3 |
+|---|---|
+| R1 U′ torque at untested misalignment | pilot 3: 34 first turns with the U face forced to ±0.80 … ±1.00°, max 0.47 N·m; worst anywhere 0.674 N·m; 1.0 N·m stop kept (1.49×); §0.3 |
+| R2 limits unexercised | pilot 3 at the frozen configuration: two_layer 4/4 detected at 1.0 N·m; jam 2/2 in the window; 8 × 10-move sequences pass, end misalignment ≤ 2.83°; the 4° justification now covers accumulation (§4.1) |
+| R3 weak roll-command test | the cube is turned 180° about world z; the stubbed step lets J7 follow, so the whole roll runs; a positive control (the review-1 bug re-introduced) must and does give different commands |
+| R4 stray temporary files | only `<exp>/.<tid>.json.tmp` of a manifest trial is in-flight; any other refuses the resume; any `*.json.tmp` at verdict time is INVALID; tests |
+| S5 frozen code and start log | the verdict checks the frozen paths against the manifest commit and the working tree; each start logs the records present; the start-log consistency checks; tests |
+| S6 pre-t0 stabilisation | judged: stand-drop shift ≤ 1 mm, t0 offset ≤ 3 mm |
+| S7 causality | disclosed (§4.1 note) |
+| S8 model audit | every actuator transmission, tendons, equalities by type (joint and tendon equalities carry objtype UNKNOWN in MuJoCo 4), gravity compensation |
+| S9 stale text | the `two_arm.py` docstring and defaults (`FT_STOP` 1.0), unused constants removed, the `run.py` docstring, the `trials.py` docstring |
+| S10 disclosures | the pilot-2 README (pre-P-125 stored results), hold sampling 0.1 s, the jam-window basis, the freeze-commit scope, the penetration limit in the agreement test |
+| P-127 | transient model-load errors retried, then interrupt (§6) |
