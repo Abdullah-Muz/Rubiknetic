@@ -270,3 +270,59 @@ def test_controllers_ignore_cube_state(T):
         assert not np.allclose(before, outputs(), atol=1e-6, rtol=0)
     finally:
         T.MagnetSystem.uninstall()
+
+
+# ---- verdict script ------------------------------------------------------------------------------------------------
+A = _load("e8_analyze", E8 / "analyze.py")
+
+
+def _full_run(tmp_path, runner=_fake_runner, jobs=None):
+    out = tmp_path / "results"
+    R.execute(out, jobs or _jobs(), "abc", ENV, "abc", 1, runner=runner, check_git=False, log=lambda s: None)
+    return out
+
+
+def test_verdict_pass_fail_incomplete_invalid(tmp_path):
+    out = _full_run(tmp_path / "a")
+    assert A.verdict(out)["status"] == "PASS"
+
+    def one_fails(j):
+        k, r = _fake_runner(j)
+        if j["kw"]["seed"] == 30101:
+            r.update({"pass": False, "fail_reasons": ["move 1 U: ok_drift"]})
+        return k, r
+    out = _full_run(tmp_path / "b", one_fails)
+    res = A.verdict(out)
+    assert res["status"] == "NOT PASSED" and list(res["failed"]) == ["G2-2/U_s30101"]
+
+    out = tmp_path / "c" / "results"
+    with pytest.raises(R.Interrupted):
+        R.execute(out, _jobs(), "abc", ENV, "abc", 1, runner=_fake_runner, stop_after=2, check_git=False,
+                  log=lambda s: None)
+    assert A.verdict(out)["status"] == "INCOMPLETE"
+
+    out = _full_run(tmp_path / "d")
+    p = R.record_path(out, ("G2-2", "U_s30100"))
+    p.write_text(p.read_text().replace('"pass": true', '"pass": false'))   # tampered after the ledger line
+    assert A.verdict(out)["status"] == "INVALID"
+    out = _full_run(tmp_path / "e")
+    (out / "G2-2" / "extra.json").write_text("{}")
+    assert A.verdict(out)["status"] == "INVALID"
+
+
+def test_reported_only_failures_do_not_fail_the_gate(tmp_path):
+    jobs = _jobs(2) + [R.job("G2-6", "grip50_stress_s30605", "sens", {"seed": 30605, "moves": "U"},
+                             reported_only=True)]
+
+    def screen_fails(j):
+        k, r = _fake_runner(j)
+        if j["exp"] == "G2-6":
+            r.update({"pass": False, "fail_reasons": ["move 1 U: ok_penetration_cubie"]})
+        return k, r
+    res = A.verdict(_full_run(tmp_path, screen_fails, jobs))
+    assert res["status"] == "PASS" and res["screen"]["grip50_stress_s30605"]["pass_as_turns"] is False
+
+
+def test_cp_upper():
+    assert A.cp_upper(0, 120) == pytest.approx(0.0247, abs=5e-4)          # (1 - 0.05 ** (1/120))
+    assert A.cp_upper(5, 5) == 1.0
