@@ -99,6 +99,23 @@ def smoke_jobs() -> list[dict]:
             job("G2-7", f"jam_s{b + 4}", "neg", {"seed": b + 4, "case": "jam"})]
 
 
+def pilot_jobs() -> list[dict]:
+    """P-5 pilots (UNSCORED; user 2026-11-26: "Full pilot set"), pilot seeds 29200-29299."""
+    from trials import random_u_sequence
+    off = {"ft_stop": 5.0}                     # measurement runs: the F/T stop effectively disabled
+    J = [job("P-U", f"U_s{29200 + i}", "seq", {"seed": 29200 + i, "moves": "U", "overrides": off}) for i in range(30)]
+    for i, stop in enumerate([0.6] * 3 + [0.8] * 4 + [1.0] * 3):
+        J.append(job("P-jam", f"jam{stop:g}_s{29230 + i}", "neg",
+                     {"seed": 29230 + i, "case": "jam", "overrides": {"ft_stop": stop}}))
+    for i, c in enumerate(("two_layer", "offcentre", "collision", "open_midturn")):
+        J += [job("P-neg", f"{c}_s{29240 + 2 * i + k}", "neg", {"seed": 29240 + 2 * i + k, "case": c})
+              for k in range(2)]
+    J += [job("P-hold", f"hold60_s{29250 + i}", "hold", {"seed": 29250 + i, "hold_s": 60.0}) for i in range(4)]
+    J += [job("P-rand", f"rand10_s{29260 + i}", "seq",
+              {"seed": 29260 + i, "moves": random_u_sequence(29260 + i), "overrides": off}) for i in range(4)]
+    return J
+
+
 def key_of(j: dict) -> tuple[str, str]:
     return j["exp"], j["tid"]
 
@@ -373,23 +390,23 @@ def require_clean_commit() -> str:
 
 def main(argv: list[str] | None = None) -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("experiment", choices=["all", "smoke"])
+    ap.add_argument("experiment", choices=["all", "smoke", "pilot"])
     ap.add_argument("--jobs", type=int, default=4)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--smoke-dir", type=Path)
     ap.add_argument("--stop-after", type=int)
     ap.add_argument("--stop-point", choices=["after_tmp", "after_link", "after_ledger"], default="after_ledger")
     a = ap.parse_args(argv)
-    smoke = a.experiment == "smoke"
+    smoke = a.experiment in ("smoke", "pilot")      # both unscored, both into --smoke-dir
     if smoke != (a.smoke_dir is not None):
-        raise SystemExit("'smoke' requires --smoke-dir, and --smoke-dir is only for 'smoke'")
+        raise SystemExit("'smoke'/'pilot' require --smoke-dir, and --smoke-dir is only for them")
     if a.stop_after is not None and not smoke:
         raise SystemExit("--stop-after is for the smoke test only")
     if smoke:
         sd = a.smoke_dir.resolve()
         if sd == OUT.resolve() or sd.is_relative_to(OUT.resolve()):
             raise SystemExit(f"refusing: --smoke-dir {a.smoke_dir} would write into the scored folder")
-    jobs = smoke_jobs() if smoke else build_jobs()
+    jobs = pilot_jobs() if a.experiment == "pilot" else smoke_jobs() if smoke else build_jobs()
     if not smoke:
         seeds = [j["kw"]["seed"] for j in jobs]
         assert all(SCORED_SEEDS[0] <= s <= SCORED_SEEDS[1] for s in seeds) and len(set(seeds)) == len(seeds)

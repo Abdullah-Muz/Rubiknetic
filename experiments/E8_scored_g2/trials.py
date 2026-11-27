@@ -178,9 +178,9 @@ def neg_outcome(case: str, rec: dict) -> tuple[bool, str]:
     return (stopped or flagged), ("detected" if (stopped or flagged) else "NOT detected (clean pass reported)")
 
 
-def run_neg(case: str, start: dict) -> dict:
+def run_neg(case: str, start: dict, extra: dict | None = None) -> dict:
     ov, moves = NEG_SETUP[case]
-    rec = run_seq(moves, ov, start)
+    rec = run_seq(moves, {**ov, **(extra or {})}, start)
     ok, why = neg_outcome(case, rec)
     rec.update({"negative_case": case, "trial_pass_as_turn": rec["pass"], "turn_fail_reasons": rec["fail_reasons"],
                 "detected_ok": ok, "negative_outcome": why})
@@ -197,5 +197,5 @@ def run_trial(kind: str, kw: dict) -> dict:
     if kind == "hold":
         return run_hold(kw["hold_s"], ov, start)
     if kind == "neg":
-        return run_neg(kw["case"], start)
+        return run_neg(kw["case"], start, ov)
     raise ValueError(kind)
