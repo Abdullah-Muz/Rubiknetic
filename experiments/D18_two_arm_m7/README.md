@@ -1,5 +1,9 @@
 # D18: two xArm7 + G2, facing each other, turning the free-core M7 cube (UNSCORED, 2026-11-26)
 
+> **Magnet-free until P-131 (P-130, found 2026-11-27):** every D18 run recorded below, and the P-115 tuning, ran **without the M7
+> L0 magnets** (`TwoArm.__init__` installed the magnet callback, then building arm B's IK model uninstalled it). Fixed
+> in P-131; the magnets-on evidence is [`../E8_scored_g2/pilot4_magnets/`](../E8_scored_g2/pilot4_magnets/README.md).
+
 **Why:** G2 pre-registration §7 P-2 (layout) and P-3 (arm B controller). The user chose ("proceed with the next part",
 P-105):
 - both arms on one table facing each other;
