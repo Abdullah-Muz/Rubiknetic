@@ -8,6 +8,11 @@
 
 **Simulation research in progress · G1 cube physics passed · G2 two-arm contact turning passed (simulation) · No cube solve claimed**
 
+<img src="docs/media/g2_two_arm_u_turn.gif" alt="Two simulated xArm7 arms: arm A holds the cube's lower layers, arm B grips the top layer and turns it a quarter turn by contact" width="480">
+
+<sub>MuJoCo simulation, 2× speed: arm A holds the free-core cube, arm B turns the U layer by fingertip contact (magnets
+on, pilot seed 29001). Close-up: <a href="docs/media/g2_u_turn_closeup.gif">g2_u_turn_closeup.gif</a>.</sub>
+
 </div>
 
 ## Overview
