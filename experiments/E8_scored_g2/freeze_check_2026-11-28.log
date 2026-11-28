@@ -1,0 +1,11 @@
+== freeze commit check; HEAD 5aab69d
+== G2_REQUIRE_SCENE=1 pytest -rs tests/test_scored_g2.py
+pytest exit 0
+63 passed in 197.31s (0:03:17)
+== selfcheck
+HEAD 5aab69df9c9ba61244b1389ae88112f97f22627b (frozen paths clean)
+IDENTICAL P4-U/U_s29500  qpos sha b84094de2cb6  magnets {"clamped_z": 0, "force_evaluations": 20820, "max_near_tilt_deg": 1.3909351152144596, "near_perpendicular": 0, "sim_steps": 20817, "steps": 20817, "steps_without_magnet_force": 0}  pass True
+IDENTICAL P4-neg/jam_s29610  qpos sha 2cea5024d1a4  magnets {"clamped_z": 0, "force_evaluations": 19800, "max_near_tilt_deg": 1.2098036973032888, "near_perpendicular": 0, "sim_steps": 19797, "steps": 19797, "steps_without_magnet_force": 0}  pass True
+IDENTICAL P4-rand/rand10_s29660  qpos sha 1dfd1ff91b97  magnets {"clamped_z": 0, "force_evaluations": 115373, "max_near_tilt_deg": 1.722875804123562, "near_perpendicular": 0, "sim_steps": 115370, "steps": 115370, "steps_without_magnet_force": 0}  pass True
+self-check: 3/3 physics-identical
+done
