@@ -1,0 +1,27 @@
+== HEAD 662d9fa  5 uncommitted paths under experiments/tests
+(the G2 code is identical at 662d9fa and at 036bd5f, where the smoke run and the self-check ran: 036bd5f only added experiments/D21_camera_placement/; the 'uncommitted changes' are untracked sub-agent folders outside the G2 code)
+== pytest tests/test_scored_g2.py
+pytest exit 0
+..............................................................           [100%]
+== smoke run (run.py smoke, seeds 29100-29104)
+smoke exit 0
+start 1: commit 036bd5f4635b105e56766799cd11ffbd55bdb97f+smoke; 5 of 5 trials to run; orphans moved 0; ledger lines reconciled 0
+start {"stand": true, "stickers": false, "stand_load_N": 0.884, "stand_load_after_grasp_N": 0.663, "settle_on_stand_mm": 0.217, "settle_rot_deg": 0.361, "grasp_shift_mm": 1.276, "grasp_rot_deg": 0.208, "stand_drop_shift_mm": 0.088, "stand_drop_rot_deg": 0.039, "stand_contact_after_drop_N": 0.0, "core_offset_from_nominal_mm": 0.246, "contacts": {"pen_cubie": 0.058178465353015754, "robot_cube_nonpad": 0, "arm_arm": 0, "robot_table": 0, "robot_stand": 0, "robot_block": 0, "cube_stand": 0}}
+# G2 verdict (smoke): **PASS**
+
+- scored trials: 5 (reported only: 0)
+- turn trials: 3, failures 0, exact 95 % upper bound on the per-trial failure rate 0.632
+- moves: 5
+- G2-1 holds: 1/1 pass; max slip 0.012405186254880539 mm, max rotation 0.01630667921949887 deg
+G2-1/hold5_s29100.json pass True magnets {"clamped_z": 0, "force_evaluations": 17203, "max_near_tilt_deg": 1.136671830048458, "near_perpendicular": 0, "sim_steps": 17200, "steps": 17200, "steps_without_magnet_force": 0} label None
+G2-2/U_s29101.json pass True magnets {"clamped_z": 0, "force_evaluations": 20820, "max_near_tilt_deg": 1.5495396504930916, "near_perpendicular": 0, "sim_steps": 20817, "steps": 20817, "steps_without_magnet_force": 0} label None
+G2-3/U2_s29102.json pass True magnets {"clamped_z": 0, "force_evaluations": 22820, "max_near_tilt_deg": 1.432514907869495, "near_perpendicular": 0, "sim_steps": 22817, "steps": 22817, "steps_without_magnet_force": 0} label None
+G2-4/seq3_s29103.json pass True magnets {"clamped_z": 0, "force_evaluations": 42054, "max_near_tilt_deg": 1.5993983704847456, "near_perpendicular": 0, "sim_steps": 42051, "steps": 42051, "steps_without_magnet_force": 0} label None
+G2-7/jam_s29104.json pass True magnets {"clamped_z": 0, "force_evaluations": 19820, "max_near_tilt_deg": 1.6215409097727391, "near_perpendicular": 0, "sim_steps": 19817, "steps": 19817, "steps_without_magnet_force": 0} label False
+== selfcheck
+HEAD 036bd5f4635b105e56766799cd11ffbd55bdb97f (uncommitted changes)
+IDENTICAL P4-U/U_s29500  qpos sha b84094de2cb6  magnets {"clamped_z": 0, "force_evaluations": 20820, "max_near_tilt_deg": 1.3909351152144596, "near_perpendicular": 0, "sim_steps": 20817, "steps": 20817, "steps_without_magnet_force": 0}  pass True
+IDENTICAL P4-neg/jam_s29610  qpos sha 2cea5024d1a4  magnets {"clamped_z": 0, "force_evaluations": 19800, "max_near_tilt_deg": 1.2098036973032888, "near_perpendicular": 0, "sim_steps": 19797, "steps": 19797, "steps_without_magnet_force": 0}  pass True
+IDENTICAL P4-rand/rand10_s29660  qpos sha 1dfd1ff91b97  magnets {"clamped_z": 0, "force_evaluations": 115373, "max_near_tilt_deg": 1.722875804123562, "near_perpendicular": 0, "sim_steps": 115370, "steps": 115370, "steps_without_magnet_force": 0}  pass True
+self-check: 3/3 physics-identical
+done

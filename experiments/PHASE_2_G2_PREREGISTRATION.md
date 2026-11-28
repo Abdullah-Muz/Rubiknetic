@@ -411,15 +411,15 @@ in its own process.
 - The search is repeated and recorded at the freeze.
 
 ## 7. Evidence before the freeze
-- **Tests:** `tests/test_scored_g2.py`, TESTS_PLACEHOLDER pass locally, 0 skipped.
+- **Tests:** `tests/test_scored_g2.py`, 62 tests pass locally, 0 skipped.
 - **Self-check:** `selfcheck.py` re-runs three pilot trials and requires the **physics identity** (final qpos SHA-256,
   the magnet step counts, the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot
   records. Since P-131 the references are pilot-4 records (`pilot4_magnets/`: `U_s29500`, `jam_s29610`,
   `rand10_s29660`). The earlier results (P-124, P-129) were against magnet-free references. Results: at the
-  revision-5 code, 3/3 physics-identical at `114489e` (P-132). **At the revision-6 code: SELFCHECK_PLACEHOLDER**
+  revision-5 code, 3/3 physics-identical at `114489e` (P-132). **At the revision-6 code: 3/3 physics-identical** (G2 code of `662d9fa`; tilt 1.2–1.7°, every step counted; P-136; `rev6_evidence_2026-11-28.log`).
   `selfcheck.py` now prints HEAD (review 5 S5); it is run again at the freeze commit.
 - **Smoke:** a smoke run killed after a record link and resumed gives PASS, with the ledger reconciled (P-120).
-  **At the revision-6 code: SMOKE_PLACEHOLDER**
+  **At the revision-6 code: PASS, 5/5** through `run.py smoke` and `analyze.py --mode smoke` (every trial: 0 steps without magnet force, steps = sim time / dt, tilt 1.1–1.6°; P-136).
 - **Revision-2 pilot** (`run.py pilot2`, seeds 29300–29353; P-124): 20 U′ and 20 U2 first turns with the stop
   disabled; 4 × U U′ U2 U′ U and 2 holds at the fixed settings; 2 each of jam, two_layer, collision and open_midturn.
   Results in `pilot2_rev2/` (its stored pass/fail used the pre-P-125 rules; see its README).
