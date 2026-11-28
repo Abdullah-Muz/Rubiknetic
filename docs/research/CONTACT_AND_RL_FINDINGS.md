@@ -332,3 +332,17 @@ No DOIs were checked for the L-sources, so only arXiv numbers are given.
 - Constrained-RL methods and several follow-up leads were not examined.
 - The CPU table uses idle single-process speeds for the cube alone; the arm, the gripper and the controller will add
   cost that is not yet measured.
+
+## Addendum 2026-11-28: throughput in the two-arm M7 scene (D19)
+- **§1 item 3 and §5 used an M6 cube-only scene** (606 steps/s with magnets, 3,854 without). In the two-arm M7 scene
+  the measured rates are lower and the cost sits elsewhere (`FACT`,
+  [`../../experiments/D19_speed_study/README.md`](../../experiments/D19_speed_study/README.md)):
+  - one process, quiet: about 159 control steps/s with magnets, controllers and monitoring (0.08× real time);
+  - bare `mj_step`: about 200–245 steps/s; with NoSlip off: 1,052 steps/s;
+  - **NoSlip is about 80 % of the step**; the magnet callback about 16–20 %; the controllers are negligible.
+- So the statement in §5 that "the magnet force callback is the main cost (a 6× slowdown)" holds for the M6 cube-only
+  scene, **not** for the two-arm M7 scene. Speeding up the magnet callback alone would gain at most about 1.2× there.
+- At 20 Hz control (100 physics steps per control step), one process gives about 1.6 control steps/s: 100,000 control
+  steps take about 17 h; 1 million about 7 days. Multi-process scaling (Q5) is still unmeasured.
+- See [`PHASE_3_READINESS_2026-11-28.md`](PHASE_3_READINESS_2026-11-28.md) issue 1. This addendum changes no earlier
+  text.
