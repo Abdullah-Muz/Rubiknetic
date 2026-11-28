@@ -1,4 +1,4 @@
-"""G2 verdict and report (experiments/PHASE_2_G2_PREREGISTRATION.md revision 4 §4.4; DRAFT, not in force).
+"""G2 verdict and report (experiments/PHASE_2_G2_PREREGISTRATION.md revision 5 §4.4; DRAFT, not in force).
 
 INVALID     no manifest; a record that does not parse; a ledger SHA-256 mismatch; a record without a ledger line; a
             ledger key with more than one line or without a record; any file or directory the run procedure does not

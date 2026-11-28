@@ -1,12 +1,15 @@
 # Phase 2 (G2) Pre-registration: two-arm, contact-driven layer turns of the free-core M7 cube
 
-**Status: DRAFT revision 4, NOT IN FORCE (2026-11-27).**
+**Status: DRAFT revision 5, NOT IN FORCE (2026-11-28).**
 - Revision 2 answered review 1 (`G2_PREREGISTRATION_REVIEW1_2026-11-27.md`, P-122): all 7 required items, and every
   suggestion except per-trial F/T noise seeding (P-123). §9 maps each item to its change.
 - Revision 3 answered review 2 (`G2_PREREGISTRATION_REVIEW2_2026-11-27.md`, P-126): all 4 required items and all 6
   suggestions, with pilot 3 (P-127). §10 maps each item to its change.
-- Revision 4 answers review 3 (`G2_PREREGISTRATION_REVIEW3_2026-11-27.md`, P-128): both required items and all 5
+- Revision 4 answered review 3 (`G2_PREREGISTRATION_REVIEW3_2026-11-27.md`, P-128): both required items and all 5
   suggestions. §11 maps each item to its change.
+- Revision 5 answers review 4 (`G2_PREREGISTRATION_REVIEW4_2026-11-27.md`, P-130): **the M7 magnets were off in every
+  earlier D18/G2 trial.** They are restored and checked at every step (P-131), every pilot was repeated with them on
+  (pilot 4), and all evidence below is from pilot 4. §12 maps each item to its change.
 - The text states what the code does at the commit that introduces this revision.
 - Before it is in force: review rounds until "ACCEPTABLE AS IS" (one reviewer subagent per round, P-121), then the
   user's approval recorded in `docs/DECISION_LOG.md`.
@@ -37,30 +40,38 @@
    - **Pilot P-5** (P-118): 56/56 pass. The F/T stop and the limits were set from it (P-119).
    - **Revision-2 pilot** (§7, P-124).
    - **Revision-3 pilot** (§7, P-127).
+   - **Pilot 4, magnets on** (§7, P-131): 144/144 pass. The limits were kept (P-131).
+1a. **The magnets were off before P-131 (`FACT`, P-130).** From D18's first commit (`b3b856a`, P-108) to pilot 3, the
+   two-arm scene ran **without the M7 L0 magnets**: `TwoArm.__init__` installed the magnet callback, then building arm
+   B's IK model (`hold.robot_spec`) uninstalled it. This affects D18, the P-115 gain tuning, pilots P5, 2 and 3, and
+   both earlier self-checks. The controller gains (P-115) and the limits (P-119, P-125) were therefore chosen on a
+   magnet-free cube. Pilot 4 repeated every pilot with the magnets on, on new seeds; every limit was rechecked against
+   it and kept. Since P-131, every record carries the number of steps without a magnet-force evaluation, and it must
+   be 0 (§4.1). D17 and G1 are not affected (`INFERENCE`, code reading: they build every model before installing the
+   magnets).
 2. **Move strings:** U, U′, U2 and U U′ U2 U′ U were run many times in rehearsals. The 20 random 10-move sequences are
    drawn from the scored seeds and are new.
-3. **First-turn torque tail (`FACT`).** With the ±1° start misalignment, the first turn's F/T τ_z reached:
-   - U: 0.35 N·m (30 pilot turns) and 0.47 once (smoke);
-   - **U′: 0.67 N·m (p95 0.52; 20 turns);**
-   - U2: 0.49 (20 turns).
-   - The stop was therefore raised from 0.8 to **1.0 N·m** after pilot 2 (P-125).
-   - Review 2 found the U′ peak correlated with the U-face start misalignment (r = −0.82). Some scored starts lie beyond
-     the piloted range.
-   - **Pilot 3 forced the U face to ±0.80 … ±1.00° on 34 first turns (U′, U2, U): the maximum was 0.47 N·m** (P-127).
-   - **The worst first turn seen anywhere is 0.674 N·m, over about 120 piloted first turns, a 1.49× margin to the
-     stop.**
+3. **First-turn torque tail (`FACT`, pilot 4, magnets on).** With the ±1° start misalignment and the stop disabled,
+   the first turn's F/T τ_z reached:
+   - U: 0.24 N·m (30 turns); **U′: 0.37 N·m (p95 0.31; 20 turns)**; U2: 0.28 (20 turns);
+   - the U face forced to ±0.80 … ±1.00° (34 first turns of U′, U2 and U; review 2 item 1): 0.33 N·m.
+   - **The worst of the 120 first turns is 0.373 N·m, a 2.7× margin to the 1.0 N·m stop.** Every move at the frozen
+     configuration stayed ≤ 0.48 N·m.
+   - The stop (1.0 N·m) was set on the magnet-free pilots, where U′ reached 0.67 N·m (P-125). It is kept (P-131).
    - `INFERENCE`: a false stop in a scored trial is a failure; the margin is stated, not guaranteed.
-4. **The tightest margin is the first-move turn error, not the F/T stop** (review 3 finding 4).
-   - The pilot maximum is **1.75° against the 2° limit** (1.14×; U2 `U2_m0.95_8_s29423`). U′ reached 1.60°.
-   - Review 3's fit: the first-move error is a bias of about 0.6–0.8° minus 0.2–0.4 × the U face's start
-     misalignment, with a U′ residual sd of 0.36°. A U′ start at −1° (scored `Up_s30131` is at −0.97°) needs a +2.7 sd
-     residual to exceed 2°.
-   - `INFERENCE`: a few percent chance of a turn-error failure over about 100 scored first moves. The 2° limit is G1's
-     and is kept; a failure counts.
+4. **The tightest margins (pilot 4, magnets on).**
+   - **t0 offset: 2.25 mm against 3 mm (1.33×)**; mean 1.01 mm, sd 0.49 mm over 142 records. 3 mm is about +4 sd.
+   - **Core rotation per move: 1.21° against 2° (1.65×)**; total core rotation 1.12° against 2° (1.8×). The core turns a
+     little more with the magnets on (the detents add resistance).
+   - Turn error is no longer close: 0.31° max against 2° (the first-move turn error of 1.75° in review 3 finding 4 was
+     an artefact of the missing magnets).
+   - Per-move core rotation over 244 moves: mean 0.32°, sd 0.19°, 3 moves above 1°; 2° is beyond the observed tail.
+   - `INFERENCE`: the closest pilot-4 value is the t0 offset at 75 % of its limit; every other is at most 61 %. The
+     tails are estimated from about 120 trials, and a single scored failure is NOT PASSED (zero tolerance).
 5. **The G1 rig's grip was capped at about 11.5 N** (G1 report §3 item 12). G2 is the first squeeze test above that.
 6. **`ASSUMPTION`s:**
    - M7's clearance (0.05 mm), rounded edge (R 2.5 mm), uncalibrated turning torque, and core mass and inertia
-     (1.7 g, 2e-8);
+     (1.7 g, 2e-8); the L0 magnet force law (G1's `MagnetSystem`, unchanged);
    - pad friction μ 0.8; pad compliance as a contact time constant (0.01 s);
    - the F/T sensor's size (75 × 35 mm, 0.6 kg) and noise (0.01 N·m, one stream `default_rng(29000)` shared by every
      trial; see §8);
@@ -74,7 +85,7 @@
 ## 1. System under test (frozen; `experiments/D18_two_arm_m7/two_arm.py`, `layout.py`)
 | Part | Configuration | Source |
 |---|---|---|
-| Cube | **M7** as G1-scored: B1, L0 magnets (unchanged `MagnetSystem`), rounded R 2.5 mm, gap 0.05 mm, NoSlip 10, dt 0.5 ms. **Free core** (free joint, 1.7 g) | P-95, P-97 |
+| Cube | **M7** as G1-scored: B1, L0 magnets (unchanged `MagnetSystem`; **active at every step, checked per record since P-131**), rounded R 2.5 mm, gap 0.05 mm, NoSlip 10, dt 0.5 ms. **Free core** (free joint, 1.7 g) | P-95, P-97, P-131 |
 | Arms | Two xArm7 1305+ (`P2_robot_model/build_model.py`; the generated model and meshes are fingerprinted, §6), actuator gravity compensation. Arm A at the origin; arm B at (1.0, 0, 0) m, yawed 180°; table z = 0 | P-96, P-108 |
 | Cube pose | Centre (0.5, 0, 0.30) m nominal; cube +z (U) = world +x | P-108 |
 | Grippers | Two Gripper G2 models (four-bar, tendon drive). `set_grip_force` calibrated at 57 mm; **20 N on both arms** | P-97 |
@@ -173,14 +184,16 @@ of the limits; a test checks the copies agree) both apply the following. A trial
   - no tendon through a cube joint, site or geom;
   - no equality constraint, by object type (connect, weld, joint, tendon);
   - no gravity compensation;
+- **the magnets act at every step** (P-131): the record's `magnets.steps` > 0 and `magnets.steps_without_magnet_force`
+  = 0. `TwoArm.ctrl_step` counts a step without a magnet-force evaluation;
 - the cube is solved at t0;
 - every move is recorded;
 - the final state matches the oracle.
 
 **Before t0** (review 2 S6): the cube's shift while the stand drops (in arm A's grip) ≤ **1 mm**, and the cube centre's
-offset from nominal at t0 ≤ **3 mm**. The start draw itself gives ≤ 1.7 mm. Over 156 pilot records (offcentre
-excluded) the stand-drop shift was ≤ 0.12 mm and **the t0 offset up to 2.08 mm** (pilot 3 `U2_m1.00_4_s29419`), a 1.44×
-margin.
+offset from nominal at t0 ≤ **3 mm**. The start draw itself gives ≤ 1.7 mm. Over 142 pilot-4 records (offcentre
+excluded) the stand-drop shift was ≤ 0.12 mm and **the t0 offset up to 2.25 mm** (`U2_s29556`; mean 1.01, sd 0.49), a
+1.33× margin.
 
 **Start sequence and approach** (no judged contact may occur):
 - non-fingertip robot–cube, arm–arm, robot–table, robot–stand or robot–jam-block contact;
@@ -207,14 +220,14 @@ margin.
 - total core slip ≤ **2 mm** and rotation ≤ **2°**, relative to arm A's gripper;
 - every cubie's misalignment (angle to the nearest cube rotation, core frame) at the end ≤ **4°** (P-125).
   - The single-move derivation is start misalignment of up to three faces (√3·1° ≈ 1.7°) plus the 2° turn-error limit.
-  - Turn errors carry a positive bias, so they accumulate over a sequence (review 2 item 2). **Pilot 3's 10-move
-    sequences ended at 2.00–2.83° (n = 8 incl. the re-runs), a 1.4× margin.**
+  - Turn errors can accumulate over a sequence (review 2 item 2). **Pilot 4's 5- and 10-move sequences ended at
+    0.61–1.05° (n = 16), a 3.8× margin.** (Magnet-free, they reached 2.83°.)
   - The bound catches a layer left grossly off, which the readout would round. Growth from t0 is reported.
 
 **Note on causality (review 1 S8, review 2 S7).**
-- The causality check decides at grasp time whether the fingertips touched before the layer moved. Over 244 pilot moves
-  the gap was **at least 2 steps (1.0 ms)**: 2 steps twice (pilot-3 re-run `rand10_s29448`), 3 steps 13 times, 4 steps
-  16 times.
+- The causality check decides at grasp time whether the fingertips touched before the layer moved. Over the 244 turn
+  moves of pilot 4 (negative cases excluded) the gap was **at least 3 steps (1.5 ms)**, median 27: 3 steps once, 4
+  steps twice, 5 steps 4 times. (Magnet-free pilots: minimum 2 steps.)
 - Timing the onset from the roll start was not adopted. The judged **drive** check covers the roll itself: the fingertip
   torque impulse has the commanded sign.
 
@@ -238,10 +251,10 @@ trial. Otherwise:
 
 | Case | Fault | Pass when (the detection it accepts) | What it tests |
 |---|---|---|---|
-| `two_layer` | Turner inserted 25 mm (6 mm across the U/E boundary) | a guard stop, or a failure of the observed-move, turn-error or drift check. At 1.0 N·m: 4/4 detected by an F/T stop at 1.05–1.11 N·m (pilot 3) | the offline checks and the guard detect a two-layer grip |
+| `two_layer` | Turner inserted 25 mm (6 mm across the U/E boundary) | a guard stop, or a failure of the observed-move, turn-error or drift check. Pilot 4 (magnets on, 1.0 N·m): 6/6 detected by an F/T stop at 1.10–1.15 N·m after 3.4–3.7° | the offline checks and the guard detect a two-layer grip |
 | `open_midturn` | Arm B opens halfway through the roll | a failure of the observed-move or turn-error check | the checks detect an incomplete turn |
 | `collision` | Turner driven 34 mm deep, into arm A's fingertips | arm–arm or non-fingertip robot–cube contact recorded (approach or move) | the contact monitor detects a collision |
-| `jam` | A world-fixed block above the top face beside the U layer | a guard stop after **20–50°** of roll, core slip ≤ **0.5 mm**, cubie penetration ≤ 0.5 mm. At a 1.0 N·m stop: 41–44°, ≤ 0.27 mm (pilot 1, pre-revision-2 code, physics identical per the self-check); 38.0° and 40.8°, ≤ 0.19 mm (pilot 3, revision-3 code) | the **online** guard stops a blocked turn safely |
+| `jam` | A world-fixed block above the top face beside the U layer | a guard stop after **20–50°** of roll, core slip ≤ **0.5 mm**, cubie penetration ≤ 0.5 mm. Pilot 4 (magnets on, 1.0 N·m): 6/6 stopped at 37.3–44.3°, core slip ≤ 0.22 mm. The window was set on the magnet-free pilots (41–44° and 38.0–40.8°) | the **online** guard stops a blocked turn safely |
 | `offcentre` | Cube 5 mm sideways | **reported only**: "clean" or "detected" | robustness to a larger placement error |
 
 - `two_layer`, `open_midturn` and `collision` test the offline checks; only `jam` tests the controller online.
@@ -325,7 +338,9 @@ On a resume:
   - If the error persists, the run is interrupted (resume), never recorded as a failed trial.
   - A deterministic error before the first step therefore interrupts every resume; it can never produce a record, so it
     cannot produce a pass.
-  - Pilot 3 had 2 such crashes in 48 trials (P-127).
+  - Pilot 3 had 2 such crashes in 48 trials (P-127). Pilot 4 had 3 retries in 144 trials, all `OSError: [Errno 12]
+    Cannot allocate memory` before the first step, with another project's processes running in WSL; all 3 then ran
+    and passed.
 - After the first step: MemoryError, OSError, the magnet-availability refusal or a broken worker pool are interruptions
   (exit 3); any other exception is a failing record (not retried).
 - **Repeated interruptions** (review 3 S5): at most **5 resumes** of the scored run (`run.MAX_STARTS` = 6 starts; the
@@ -353,27 +368,33 @@ Coverage tests:
   imports `trials`, builds the scene and runs the start sequence. Every repository file must be frozen or a hashed
   artifact. Files MuJoCo reads in C (the robot XML and meshes) do not raise audit events; they are artifacts.
 
-**The verdict is read-only and may be re-run** (review 3 S5). `analyze.py` re-hashes the artifacts from disk; an
-INVALID caused by an artifact hash must reproduce on a re-run of the verdict to stand (a transient empty read is not a
-result). Every other INVALID cause stands as found.
+**The verdict is read-only and may be re-run** (review 3 S5, review 4 N2). `analyze.py` reads every record, the
+ledger, the start log and the artifacts from disk. An INVALID that comes from reading a file (a record that does not
+parse, a ledger or artifact SHA-256 mismatch, a record without a ledger line, an inconsistent start log) must reproduce
+on a re-run of the verdict to stand: a transient empty read is not a result. The verdict is deterministic on unchanged
+files. **Every verdict run is reported**, with its output. Every other INVALID cause stands as found.
 
 **Procedure (as G1 §2):**
 - Before a resume, leftover worker processes of the stopped start are found and stopped.
-- No other WSL jobs during the run; each record stores its load average.
+- No other WSL jobs during the run, including other projects' processes (pilot 4's memory errors); each record stores
+  its load average.
 - The runner refuses to start with less than 2 GB free.
 
 **Environment:** WSL Ubuntu-24.04, `~/.venvs/rubiknetic` (Python 3.12.3, MuJoCo 4.0.1, NumPy 2.5.4, SciPy 1.18.1).
-About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8 workers.
+About 0.04–0.05× real time per trial process with the magnets on (the magnet callback runs in Python at every step);
+138 trials take about 3–4 h on 8 workers.
 
 **Seed search (review 1 suggestion 14):**
 - Tracked files contain no record using 30000–30999. The only uses are synthetic test calls.
 - The search is repeated and recorded at the freeze.
 
 ## 7. Evidence before the freeze
-- **Tests:** `tests/test_scored_g2.py`, 62 tests pass.
+- **Tests:** `tests/test_scored_g2.py`, TESTS_PLACEHOLDER tests pass.
 - **Self-check:** `selfcheck.py` re-runs three pilot trials and requires the **physics identity** (final qpos SHA-256,
-  the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot records. Result: P-124
-  (revision-2 code); **re-run at the revision-4 code: P-129** (review 3 S6).
+  the magnet step counts, the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot
+  records. Since P-131 the references are pilot-4 records (`pilot4_magnets/`: `U_s29500`, `jam_s29610`,
+  `rand10_s29660`). The earlier results (P-124, P-129) were against magnet-free references. **Result at the
+  revision-5 code: SELFCHECK_PLACEHOLDER.**
 - **Smoke:** a smoke run killed after a record link and resumed gives PASS, with the ledger reconciled (P-120).
 - **Revision-2 pilot** (`run.py pilot2`, seeds 29300–29353; P-124): 20 U′ and 20 U2 first turns with the stop
   disabled; 4 × U U′ U2 U′ U and 2 holds at the fixed settings; 2 each of jam, two_layer, collision and open_midturn.
@@ -383,6 +404,14 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
   - at the frozen configuration: 4 two_layer (all detected at 1.05–1.11 N·m), 2 jam (38.0°, 40.8°), and 8 10-move
     sequences (all pass after the 2 crash re-runs; end misalignment ≤ 2.83°).
   - Results in `pilot3_rev3/`.
+- **The pilots above (P5, 2, 3) ran without the magnets (P-130).** They are kept as recorded and are not evidence for
+  the system under test.
+- **Pilot 4, magnets on** (`run.py pilot4`, seeds 29500–29671; P-131), at commit `eb90291`: **144/144 pass**
+  (`analyze.py --mode pilot4`: PASS, integrity clean). Every record shows 0 steps without magnet force.
+  - First turns, stop disabled: 30 U, 20 U′, 20 U2 and 34 forced-extreme; F/T max 0.373 N·m; turn error max 0.20°.
+  - At the frozen configuration: 6 jam (37.3–44.3°), 6 two_layer (all detected at 1.10–1.15 N·m), 2 each of
+    collision and open_midturn (detected) and offcentre (clean), 6 holds, 4 × U U′ U2 U′ U, 12 × 10 moves.
+  - Per-move and trial maxima in §0.4 and §8 item 8. Results in `pilot4_magnets/` (README, `verdict_pilot4.md`).
 
 | # | Prerequisite | Status |
 |---|---|---|
@@ -390,14 +419,16 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
 | P-6b | revision-2 code, tests, self-check and pilot | P-123, P-124 |
 | P-6c | revision-3 code, tests, pilot 3 and the re-runs | P-127 |
 | P-6d | revision-4 code, tests, self-check at the revision-4 code | P-129 |
-| P-7 | independent reviews until "ACCEPTABLE AS IS" | **open** (reviews 1–3: P-122, P-126, P-128) |
+| P-6e | magnets restored and checked per step; pilot 4 (magnets on); limits rechecked; self-check at the revision-5 code | P-131, P-132 |
+| P-7 | independent reviews until "ACCEPTABLE AS IS" | **open** (reviews 1–4: P-122, P-126, P-128, P-130) |
 | P-8 | the user's approval; freeze commit; DECISION_LOG | **open** |
 
 ## 8. Limitations (to be stated with any G2 result)
-1. **Simulation only;** every `ASSUMPTION` of §0.5 applies.
+1. **Simulation only;** every `ASSUMPTION` of §0.6 applies.
 2. **Scope:** U-family turns from one grasp. No regrasp, no other faces, no camera state (G4, G5).
-3. **Controllers:** the controllers are first designs, tuned on two pilot seeds. K_P 4000 is at the edge of the tuning
-   grid.
+3. **Controllers:** the controllers are first designs, tuned on two pilot seeds **without the magnets** (P-115,
+   P-130). K_P 4000 is at the edge of the tuning grid. Pilot 4 shows they work with the magnets on; they were not
+   re-tuned.
 4. **F/T sensor:** the sensor model is assumed (size, noise; no offset drift, temperature or bandwidth limit). **The F/T
    noise is one seeded stream shared by every trial,** so false-stop risk is correlated across trials, not independent.
 5. **Joint model:** the J7 and arm joint friction values are Menagerie's.
@@ -412,10 +443,11 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
      - 2° core rotation: about 1 mm at the cube's corner radius;
      - 1° hold rotation;
      - 4° end misalignment, from the start draw plus the turn-error limit.
-   - **Pilot margins differ by criterion** (review 3 finding 4):
-     - slips are 5–10× below their limits (per-move ≤ 0.20 mm of 1 mm; total ≤ 0.38 mm of 2 mm);
-     - others are close: first-move turn error 1.75° of 2° (1.14×), t0 offset 2.08 of 3 mm (1.44×), end misalignment
-       2.83° of 4° (1.4×), total core rotation 1.24° of 2° (1.6×), per-move core rotation 0.93° of 2° (2.1×).
+   - **Pilot margins differ by criterion** (pilot 4, magnets on):
+     - large: turn error 0.31° of 2° (6.5×), drift 0.30° of 1° (3.3×), end misalignment 1.05° of 4° (3.8×), per-move
+       core slip 0.26 of 1 mm (3.9×), total core slip 0.63 of 2 mm (3.2×), F/T 0.48 of 1.0 N·m (2.1×);
+     - closer: t0 offset 2.25 of 3 mm (1.33×), per-move core rotation 1.21° of 2° (1.65×), total core rotation 1.12°
+       of 2° (1.8×).
    - **A PASS therefore shows that the turns succeed and the cube stays within these task tolerances.** It does not
      establish tight stabilisation, robustness beyond ±1 mm / ±1°, or anything on hardware.
 
@@ -467,3 +499,10 @@ About 0.09× real time per trial process; 138 trials take about 1.5–2.5 h on 8
 | S6 evidence at the final code | `selfcheck.py` re-run at the revision-4 code (P-129); the pilot-3 re-run commit in its README |
 | S7 no edits after the freeze | stated in the status block |
 | stale docstrings | `trials.py`, `analyze.py` and the test file name revision 4 |
+
+## 12. Response to review 4 (P-130)
+| Item | Change in revision 5 |
+|---|---|
+| N1 magnets off | restored in `TwoArm.__init__` after arm B's IK model is built; every control step counts whether the magnet force was evaluated; judged in `trials._integrity_reasons` and independently in `analyze._integrity` (P-131); tests: synthetic cases and a real-scene test with a positive control; pilot 4 repeats every pilot with magnets on (144/144 pass); every limit rechecked and kept (P-131); self-check references moved to pilot 4; §0.1a, §0.3, §0.4, §1, §4, §7 and §8 rewritten from pilot 4 |
+| N2 verdict re-run | every file-read INVALID must reproduce on a re-run; every verdict run is reported (§6) |
+| N3 move count | the causality evidence is now pilot 4's 244 turn moves (negative cases excluded), stated as such |

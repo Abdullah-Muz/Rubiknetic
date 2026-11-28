@@ -1,4 +1,4 @@
-"""Tests for the G2 runner (experiments/E8_scored_g2; pre-registration revision 4, DRAFT).
+"""Tests for the G2 runner (experiments/E8_scored_g2; pre-registration revision 5, DRAFT).
 
 Fast tests: job list, seeds, run procedure with a synthetic runner (manifest, ledger, resume, tampering), harness
 exceptions, refusals, criteria, negative-case acceptance, the independent verdict recomputation, frozen-path coverage.

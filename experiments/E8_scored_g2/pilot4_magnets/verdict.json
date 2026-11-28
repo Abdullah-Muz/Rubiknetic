@@ -1,0 +1,137 @@
+{
+ "status": "PASS",
+ "problems": [],
+ "mode": "pilot4",
+ "failed": {},
+ "n_scored": 144,
+ "n_reported_only": 0,
+ "turn_trials": 0,
+ "turn_failures": 0,
+ "turn_failure_rate_upper95": null,
+ "moves": 0,
+ "per_move_max": {
+  "turn_error_deg": null,
+  "nontarget_drift_deg": null,
+  "pen_cubie_mm": null,
+  "pen_pad_mm": null,
+  "ft_tau_z_max_Nm": null,
+  "max_tool_torque_on_layer_Nm": null,
+  "core_slip_mm": null,
+  "core_rot_deg": null,
+  "rollback_rot_deg": null,
+  "grasp_err_mm": null,
+  "armB_track_err_mm": null
+ },
+ "trial_max": {
+  "core_slip_total_mm": null,
+  "core_rot_total_deg": null,
+  "residual_end_deg": null,
+  "residual_growth_deg (reported)": null
+ },
+ "holds": {
+  "n": 0,
+  "pass": 0,
+  "slip_max_mm": null,
+  "rot_max_deg": null
+ },
+ "negatives": {
+  "jam_s29610": {
+   "pass": true,
+   "outcome": "guard stop at 43.6 deg",
+   "reported_only": false
+  },
+  "jam_s29611": {
+   "pass": true,
+   "outcome": "guard stop at 44.3 deg",
+   "reported_only": false
+  },
+  "jam_s29612": {
+   "pass": true,
+   "outcome": "guard stop at 37.3 deg",
+   "reported_only": false
+  },
+  "jam_s29613": {
+   "pass": true,
+   "outcome": "guard stop at 38.7 deg",
+   "reported_only": false
+  },
+  "jam_s29614": {
+   "pass": true,
+   "outcome": "guard stop at 40.8 deg",
+   "reported_only": false
+  },
+  "jam_s29615": {
+   "pass": true,
+   "outcome": "guard stop at 40.8 deg",
+   "reported_only": false
+  },
+  "two_layer_s29620": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "two_layer_s29621": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "two_layer_s29622": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "two_layer_s29623": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "two_layer_s29624": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "two_layer_s29625": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "collision_s29630": {
+   "pass": true,
+   "outcome": "robot contact detected",
+   "reported_only": false
+  },
+  "collision_s29631": {
+   "pass": true,
+   "outcome": "robot contact detected",
+   "reported_only": false
+  },
+  "open_midturn_s29632": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "open_midturn_s29633": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "offcentre_s29634": {
+   "pass": true,
+   "outcome": "clean",
+   "reported_only": false
+  },
+  "offcentre_s29635": {
+   "pass": true,
+   "outcome": "clean",
+   "reported_only": false
+  }
+ },
+ "screen": {},
+ "throughput": {
+  "n": 144,
+  "rtf_median": 0.043217732185568986,
+  "rtf_min": 0.023506419314167276,
+  "rtf_max": 0.06756544774199297,
+  "note": "simulated s per wall s per trial process (holds included); other trials in parallel"
+ }
+}

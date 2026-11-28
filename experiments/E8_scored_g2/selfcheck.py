@@ -1,6 +1,7 @@
 """G2 self-check (pre-registration §7 P-6; UNSCORED): re-run pilot trials with the current code and compare them with the
-committed pilot records (pilot_P5/results). Revision 2 compares the physics identity (final qpos SHA-256, the start
-sequence, observed moves, guard stops, F/T peaks): the simulation must be bit-identical to the pilot's.
+committed pilot records. Revision 2 compares the physics identity (final qpos SHA-256, the start sequence, observed
+moves, guard stops, F/T peaks): the simulation must be bit-identical to the pilot's. Since P-131 the references are
+magnets-on pilot-4 records (pilot4_magnets/results); the earlier P5 references were magnet-free (P-130).
 Usage (WSL, repo root): python experiments/E8_scored_g2/selfcheck.py [--jobs 3]
 """
 from __future__ import annotations
@@ -16,7 +17,8 @@ HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import run as R  # noqa: E402
 
-CHECK = [("P-U", "U_s29200"), ("P-jam", "jam0.8_s29233"), ("P-rand", "rand10_s29260")]
+CHECK = [("P4-U", "U_s29500"), ("P4-neg", "jam_s29610"), ("P4-rand", "rand10_s29660")]
+REF_DIR = HERE / "pilot4_magnets" / "results"
 VOLATILE = {"wall_s", "loadavg_start", "source_commit", "environment", "smoke", "scored"}
 
 
@@ -48,6 +50,7 @@ def physics(rec: dict, ref_keys: dict) -> dict:
     had), and per move the observed move, guard stop and F/T peak. Measurement fields that revision 2 added or
     redefined (contacts, move windows) are not compared; the simulation itself must be bit-identical."""
     return {"final_qpos_sha256": rec.get("final_qpos_sha256"),
+            "magnets": (rec.get("trial") or {}).get("magnets"),
             "start": {k: rec.get("start", {}).get(k) for k in ref_keys.get("start", {})},
             "moves": [{k: pm.get(k) for k in ("move", "observed_move", "jam_stop", "ft_tau_z_max_Nm")}
                       for pm in rec.get("per_move", [])]}
@@ -57,7 +60,7 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--jobs", type=int, default=3)
     a = ap.parse_args()
-    jobs = {R.key_of(j): j for j in R.pilot_jobs()}
+    jobs = {R.key_of(j): j for j in R.pilot4_jobs()}
     todo = [jobs[k] for k in CHECK]
     for j in todo:
         j["smoke"] = True
@@ -65,7 +68,7 @@ def main() -> None:
         results = list(ex.map(R.run_job, todo))
     bad = 0
     for key, rec in results:
-        ref = json.loads((HERE / "pilot_P5" / "results" / key[0] / f"{key[1]}.json").read_text())
+        ref = json.loads((REF_DIR / key[0] / f"{key[1]}.json").read_text())
         new = json.loads(json.dumps(rec, default=list))
         d = diff(physics(ref, ref), physics(new, ref))
         bad += bool(d)

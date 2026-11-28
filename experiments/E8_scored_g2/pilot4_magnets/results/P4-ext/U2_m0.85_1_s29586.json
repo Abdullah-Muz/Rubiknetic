@@ -1,0 +1,312 @@
+{
+ "study": "D18 two-arm",
+ "scored": false,
+ "sequence": "U2",
+ "grip_N": 20.0,
+ "scene": {
+  "L": 1.0,
+  "H": 0.3,
+  "cube_centre": [
+   0.5,
+   0.0,
+   0.3
+  ],
+  "cube_start": [
+   0.49914822526615715,
+   0.0006940273723377458,
+   0.2994361077332924
+  ],
+  "cube_offset_mm": [
+   -0.8517747338428616,
+   0.6940273723377458,
+   -0.5638922667076216
+  ],
+  "ik": {
+   "L": 1.0,
+   "H": 0.3,
+   "cube_centre": [
+    0.5,
+    0.0,
+    0.3
+   ],
+   "half_mm": 28.474999999999998,
+   "tip_dist_mm": {
+    "p97": 173.02439980542695,
+    "c1": 173.02439980542698
+   },
+   "A": {
+    "roll180": false,
+    "q": [
+     -2.3219995936469733,
+     -0.012247031744805436,
+     2.3250030982663814,
+     0.3126366142832329,
+     3.1447798656630073,
+     1.2665193751433776,
+     0.00797082326863915
+    ],
+    "pos_err_mm": 6.766047187770001e-05,
+    "rot_err_deg": 3.1346401449249455e-05,
+    "limit_margin_deg": 28.91240227061022,
+    "gripper_base": [
+     0.32850060019457306,
+     0.0,
+     0.3
+    ]
+   },
+   "B": {
+    "roll180": true,
+    "q": [
+     0.23106283802478542,
+     -0.13899247354818348,
+     -0.24801226415717942,
+     0.1410911727121036,
+     3.12637024670953,
+     1.2944451557219623,
+     -0.029866708239772805
+    ],
+    "pos_err_mm": 8.582473679306056e-05,
+    "rot_err_deg": 2.9103539443806935e-05,
+    "limit_margin_deg": 19.08357247387645,
+    "gripper_base": [
+     0.687499399805427,
+     0.0,
+     0.3
+    ],
+    "base": [
+     1.0,
+     0.0,
+     0.0
+    ],
+    "yaw_deg": 180,
+    "with_ft_sensor": true
+   }
+  },
+  "impedance": [
+   4000.0,
+   60.0,
+   50.0,
+   2.0,
+   2.0,
+   1.0
+  ],
+  "roll": "ffb: kp 800.0, kv 80.0, budget 0.6 N.m, model D 2.0 F 1.0 arm 0.1; plant error +0%",
+  "pad_mu": 0.8,
+  "nq": 120,
+  "nv": 99,
+  "nu": 17
+ },
+ "t0_solved": true,
+ "per_move": [
+  {
+   "move": "U2",
+   "turn_error_deg": -0.04683076750906068,
+   "grasp_err_mm": 0.7018126532865323,
+   "axis_sign_measured": -1.0,
+   "roll_sign_used": -1.0,
+   "rollback_rot_deg": 0.02445447938426985,
+   "rollback_state_unchanged": true,
+   "drive_impulse_Nms": 0.0978563938727816,
+   "robot_stand_max": 0,
+   "robot_block_max": 0,
+   "cube_stand_max": 0,
+   "j7_lag_max_deg": 0.06541060593210463,
+   "jam_stop": null,
+   "j7_budget_used_Nm": 2.23986262495125,
+   "ft_tau_z_max_Nm": 0.18535784620096737,
+   "nontarget_drift_deg": 0.13314853890833214,
+   "pen_cubie_mm": 0.10121462887611131,
+   "pen_pad_mm": 0.9777731450122621,
+   "max_roll_torque_Nm": 11.004465336890547,
+   "max_tool_torque_on_layer_Nm": 0.1872299740652387,
+   "t_tip_force_s": 6.480999999999128,
+   "t_layer_motion_rel_core_s": 6.4939999999991205,
+   "ok_causal": true,
+   "robot_cube_nonpad_max": 0,
+   "arm_arm_max": 0,
+   "robot_table_max": 0,
+   "saturated_steps": 0,
+   "armB_track_err_mm": 1.7565833323987918,
+   "core_slip_mm": 0.14655620794040275,
+   "core_rot_deg": 0.28564842134944024,
+   "observed_move": "U2",
+   "ok_oracle": true,
+   "ok_turn_error": true,
+   "ok_drift": true,
+   "ok_penetration_cubie": true,
+   "ok_no_nonpad_cube_contact": true,
+   "ok_no_arm_arm": true,
+   "ok_no_table": true,
+   "ok_no_stand_block": true,
+   "ok_drive": true,
+   "ok_rollback": true,
+   "ok_core_rot": true,
+   "ok_all": true
+  }
+ ],
+ "start": {
+  "stand": true,
+  "stickers": false,
+  "stand_load_N": 0.8839371782701769,
+  "stand_load_after_grasp_N": 0.7651351217696817,
+  "settle_on_stand_mm": 0.21374125811790928,
+  "settle_rot_deg": 0.23337598320395536,
+  "grasp_shift_mm": 0.9119359850372063,
+  "grasp_rot_deg": 0.16390419571819248,
+  "stand_drop_shift_mm": 0.10158184494714285,
+  "stand_drop_rot_deg": 0.040879819881373076,
+  "stand_contact_after_drop_N": 0.0,
+  "core_offset_from_nominal_mm": 0.8260154411429407,
+  "contacts": {
+   "pen_cubie": 0.050655713762335255,
+   "robot_cube_nonpad": 0,
+   "arm_arm": 0,
+   "robot_table": 0,
+   "robot_stand": 0,
+   "robot_block": 0,
+   "cube_stand": 0
+  }
+ },
+ "approach": {
+  "pen_pad": 0.3580798436731996,
+  "pen_cubie": 0.031848368407553035,
+  "robot_cube_nonpad": 0,
+  "arm_arm": 0,
+  "robot_table": 0,
+  "robot_stand": 0,
+  "robot_block": 0,
+  "cube_stand": 0,
+  "t_force": null,
+  "t_motion": null,
+  "tau_roll": 2.944905322411381e-05,
+  "tau_tool": 0.0,
+  "saturated_steps": 0,
+  "track_err_mm": 6.835570803309438,
+  "final_err_mm": 1.1330445854232774,
+  "final_axis_err_deg": 0.06649375302263846
+ },
+ "trial": {
+  "core_slip_total_mm": 0.13871029401857443,
+  "core_rot_total_deg": 0.27884085312325657,
+  "residual_t0_deg": [
+   0.16652320084403582,
+   0.13456433327093428,
+   0.24548691682313822,
+   0.2698690335088759,
+   0.3206099851796802,
+   0.3478188137391186,
+   0.4420205028610353,
+   0.5253651740532566,
+   0.6657451834478908,
+   0.06832834810093315,
+   0.03154821502079932,
+   0.14380462743650924,
+   0.052122133532596385,
+   0.11161877939428644,
+   0.1540053202010831,
+   0.10919829768648774,
+   0.4866629121074374,
+   0.27539045111803245,
+   0.2864095917339122,
+   0.3999387358390192,
+   0.15116159410426872,
+   0.27391730153544125,
+   0.44857023240028027,
+   0.18058805151821547,
+   0.2713457592787595,
+   0.4152233388275561
+  ],
+  "residual_end_deg": [
+   0.13133100685546148,
+   0.1976391099337487,
+   0.7686656450543324,
+   0.2535269485110054,
+   0.1351271916225916,
+   0.5157991518129714,
+   0.3733251173354529,
+   0.42096764914394,
+   0.5041651894638975,
+   0.1691936343773176,
+   0.06586921491272084,
+   0.5145026034541385,
+   0.14097635983802256,
+   0.13150088442545232,
+   0.1464535761745325,
+   0.08806466420915873,
+   0.4836075151881482,
+   0.3415755705838587,
+   0.4316480460791067,
+   0.4369752697326875,
+   0.1914908495437942,
+   0.415895274238734,
+   0.463259302269752,
+   0.2347788276767435,
+   0.28123409462546356,
+   0.7317218243382946
+  ],
+  "model_audit": {
+   "actuators_on_cube": [],
+   "equalities_on_cube": [],
+   "tendons_on_cube": [],
+   "gravcomp_on_cube": [],
+   "n_cube_bodies": 27
+  },
+  "magnets": {
+   "steps": 22817,
+   "steps_without_magnet_force": 0,
+   "force_evaluations": 22820
+  }
+ },
+ "final_matches_oracle": true,
+ "audit_violations": [],
+ "numerical_failures": [],
+ "sim_time_s": 11.408500000002451,
+ "wall_s": 242.3048721739906,
+ "final_qpos_sha256": "8081ec580b0f3792b4a0e2c63ce15feed395169770bf07d247f72b3255008406",
+ "pass": true,
+ "start_draw": {
+  "cube_offset_m": [
+   -0.0008517747338428616,
+   0.0006940273723377458,
+   -0.0005638922667076216
+  ],
+  "misalign_deg": {
+   "U": -0.85,
+   "D": -0.007268565791108905,
+   "F": -0.3788853291562657,
+   "B": -0.8004491133661553,
+   "L": -0.250766314005312,
+   "R": -0.4053974656183428
+  }
+ },
+ "fail_reasons": [],
+ "experiment": "P4-ext",
+ "trial_id": "U2_m0.85_1_s29586",
+ "kind": "seq",
+ "spec": {
+  "seed": 29586,
+  "moves": "U2",
+  "overrides": {
+   "ft_stop": 5.0,
+   "misalign_override": {
+    "U": -0.85
+   }
+  }
+ },
+ "reported_only": false,
+ "source_commit": "eb9029197661662f554140de49a5a4c22dd91e02+smoke",
+ "environment": {
+  "mujoco": "4.0.1",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "python": "3.12.3",
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "n_cpu": 16
+ },
+ "smoke": true,
+ "head": "eb9029197661662f554140de49a5a4c22dd91e02",
+ "mechanism": "M7 free core, two xArm7",
+ "loadavg_start": 10.431640625,
+ "load_retries": []
+}
