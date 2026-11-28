@@ -1,4 +1,4 @@
-"""Tests for the G2 runner (experiments/E8_scored_g2; pre-registration revision 5, DRAFT).
+"""Tests for the G2 runner (experiments/E8_scored_g2; pre-registration revision 6, DRAFT).
 
 Fast tests: job list, seeds, run procedure with a synthetic runner (manifest, ledger, resume, tampering), harness
 exceptions, refusals, criteria, negative-case acceptance, the independent verdict recomputation, frozen-path coverage.
@@ -31,6 +31,10 @@ def _load(name: str, path: Path):
 
 
 R = _load("e8_run", E8 / "run.py")
+# The scene-building tests need the generated robot model, which is git-ignored (third_party_cad/, GrabCAD terms), so
+# they are skipped on a clean clone such as CI. The freeze evidence requires them to RUN locally (0 skipped, §7).
+ROBOT_XML = REPO / "third_party_cad" / "robot" / "generated" / "xarm7_g2_1305+.xml"
+NEEDS_SCENE = pytest.mark.skipif(not ROBOT_XML.exists(), reason="git-ignored robot model absent (clean clone, e.g. CI)")
 A = _load("e8_analyze", E8 / "analyze.py")
 
 
@@ -79,6 +83,8 @@ def test_limits_agree_between_trials_and_analyze(T):
     assert (L["total_slip_mm"], L["total_rot_deg"]) == (T.TOTAL_SLIP_MM, T.TOTAL_ROT_DEG)
     assert L["residual_end_deg"] == T.RESIDUAL_END_MAX_DEG and L["jam_slip_mm"] == T.JAM_SLIP_MM
     assert T.FT_STOP == 1.0                                       # P-125
+    assert L["magnet_tilt_deg"] == T.MAGNET_TILT_MAX_DEG == T.TA.H.M4.nominal_validated_tilt()   # review 5 S1
+    assert A.DT == T.SIM_DT == 0.0005                            # review 5 S4 (the scene's timestep: real-scene test)
     assert L["pen_mm"] == T.TA.T["penetration_mm"]                # review 2 S10
     assert (L["drop_shift_mm"], L["t0_offset_mm"]) == (T.DROP_SHIFT_MM, T.T0_OFFSET_MM)
     assert tuple(L["jam_roll_deg"]) == T.JAM_ROLL_DEG and L["move_rot_deg"] == T.TA.CORE_ROT_MOVE_DEG
@@ -92,11 +98,23 @@ def _frozen(f: str) -> bool:
     return any(f == p or f.startswith(p.rstrip("/") + "/") or fnmatch.fnmatch(f, p) for p in R.FROZEN_PATHS)
 
 
-def test_frozen_paths_cover_every_loaded_module(T):
-    """Review 1 item 5: every repository module in sys.modules after loading a trial is frozen."""
-    files = {Path(m.__file__).resolve() for m in list(sys.modules.values()) if getattr(m, "__file__", None)}
+def test_frozen_paths_cover_every_loaded_module(tmp_path):
+    """Review 1 item 5: every repository module in sys.modules after a fresh process loads `trials` is frozen. A fresh
+    process, not pytest's (which imports every test file, and on CI keeps its virtualenv inside the checkout)."""
+    import subprocess
+    probe = tmp_path / "mods.py"
+    probe.write_text("import importlib.util, json, sys\n"
+                     "s = importlib.util.spec_from_file_location('trials', sys.argv[1])\n"
+                     "T = importlib.util.module_from_spec(s); sys.modules['trials'] = T; s.loader.exec_module(T)\n"
+                     "print('MODS' + json.dumps(sorted({m.__file__ for m in list(sys.modules.values())"
+                     " if getattr(m, '__file__', None)})))\n")
+    out = subprocess.run([sys.executable, str(probe), str(E8 / "trials.py")], capture_output=True, text=True,
+                         timeout=600, cwd=str(tmp_path))
+    assert out.returncode == 0, out.stderr[-3000:]
+    files = {Path(f).resolve() for f in json.loads(out.stdout.split("MODS", 1)[1])}
     repo_files = sorted(str(f.relative_to(REPO)).replace("\\", "/") for f in files if f.is_relative_to(REPO)
-                        and "tests" not in f.relative_to(REPO).parts[:1])
+                        and not ({".venv", "venv", "site-packages"} & set(f.relative_to(REPO).parts)))
+    assert "experiments/D18_two_arm_m7/two_arm.py" in repo_files
     missing = [f for f in repo_files if not _frozen(f)]
     assert not missing, missing
 
@@ -121,6 +139,7 @@ print("OPENED" + json.dumps(sorted(opened)))
 """
 
 
+@NEEDS_SCENE
 def test_every_repository_file_a_trial_opens_is_frozen_or_an_artifact(T, tmp_path):
     """Review 3 item 2: records every file opened (Python `open` audit events, which include imports through
     spec_from_file_location) while a fresh process imports `trials`, builds the scene and runs the start sequence.
@@ -374,6 +393,7 @@ def test_errors_after_the_first_step_are_failing_records(monkeypatch):
         assert rec["load_retries"] == []
 
 
+@NEEDS_SCENE
 def test_phase_flag_and_magnets_in_the_real_scene(T):
     """The real phase flag: reset_phase clears it; constructing the scene (start sequence) sets it.
     P-130 (review 4 N1): the L0 magnets act at every step of the start sequence; positive control: with the passive
@@ -388,6 +408,9 @@ def test_phase_flag_and_magnets_in_the_real_scene(T):
         assert mujoco.get_mjcb_passive() is not None
         st = r.magnet_stats()
         assert st["steps"] >= 7000 and st["steps_without_magnet_force"] == 0 and st["force_evaluations"] >= st["steps"]
+        assert st["sim_steps"] == st["steps"] == round(r.d.time / r.m.opt.timestep)               # review 5 S4
+        assert r.m.opt.timestep == T.SIM_DT
+        assert 0.0 < st["max_near_tilt_deg"] < T.MAGNET_TILT_MAX_DEG and st["near_perpendicular"] == 0  # review 5 S1
         T.MagnetSystem.uninstall()
         r.ctrl_step(5)
         assert r.magnet_stats()["steps_without_magnet_force"] == 5
@@ -417,7 +440,8 @@ def test_smoke_dir_may_not_be_the_scored_folder():
 AUDIT = {"actuators_on_cube": [], "equalities_on_cube": [], "tendons_on_cube": [], "gravcomp_on_cube": [],
          "n_cube_bodies": 27}
 START = {"contacts": {}, "stand_drop_shift_mm": 0.1, "core_offset_from_nominal_mm": 1.0}
-MAGNETS = {"steps": 100000, "steps_without_magnet_force": 0, "force_evaluations": 100003}       # P-130
+MAGNETS = {"steps": 100000, "steps_without_magnet_force": 0, "force_evaluations": 100003,       # P-130
+           "sim_steps": 100000, "max_near_tilt_deg": 1.5, "near_perpendicular": 0, "clamped_z": 0}  # review 5
 
 
 def _pm(**kw):
@@ -434,6 +458,7 @@ def _pm(**kw):
 
 def _rec(pms=None, **kw):
     base = {"t0_solved": True, "per_move": pms if pms is not None else [_pm()], "final_matches_oracle": True,
+            "sim_time_s": 50.0,
             "audit_violations": [], "numerical_failures": [], "start": dict(START),
             "approach": {"pen_cubie": 0.02}, "trial": {"core_slip_total_mm": 0.2, "core_rot_total_deg": 0.3,
                                                      "residual_t0_deg": [0.5] * 26, "residual_end_deg": [0.6] * 26,
@@ -466,6 +491,11 @@ def test_seq_reasons_and_recompute_agree(T):
         (_rec(trial={**_rec()["trial"], "magnets": {**MAGNETS, "steps_without_magnet_force": 1}}), False),  # P-130
         (_rec(trial={**_rec()["trial"], "magnets": {**MAGNETS, "steps": 0}}), False),
         (_rec(trial={k: v for k, v in _rec()["trial"].items() if k != "magnets"}), False),
+        (_rec(trial={**_rec()["trial"], "magnets": {**MAGNETS, "sim_steps": 99999}}), False),          # review 5 S4
+        (_rec(sim_time_s=50.001), False),
+        (_rec(trial={**_rec()["trial"], "magnets": {**MAGNETS, "max_near_tilt_deg": 5.01}}), False),  # review 5 S1
+        (_rec(trial={**_rec()["trial"], "magnets": {**MAGNETS, "max_near_tilt_deg": 4.99}}), True),
+        (_rec(trial={**_rec()["trial"], "magnets": {**MAGNETS, "near_perpendicular": 1}}), False),
     ]
     for rec, ok in cases:
         assert (not T._seq_reasons(rec, 1)) is ok
@@ -492,6 +522,9 @@ def test_neg_outcomes_revision2(T):
     assert T.neg_outcome("collision", hit)[0] and A.recompute_neg(hit, "collision")
     assert not T.neg_outcome("collision", clean)[0] and not A.recompute_neg(clean, "collision")
     assert T.neg_outcome("offcentre", clean) == (True, "clean")
+    tilted = _rec([_pm(jam_stop={"by": "ft", "roll_done_deg": -33.0}, ok_turn_error=False, turn_error_deg=57.0)],
+                  trial={**_rec()["trial"], "magnets": {**MAGNETS, "max_near_tilt_deg": 7.0}})
+    assert T.neg_outcome("jam", tilted)[0] and A.recompute_neg(tilted, "jam")    # review 5 S1: negatives label only
 
 
 # ---- verdict script --------------------------------------------------------------------------------------------------
@@ -617,6 +650,7 @@ def _cube_dofs(m, mujoco):
     return cube_j, q, v
 
 
+@NEEDS_SCENE
 def test_controllers_ignore_cube_state(T):
     import mujoco
     T.configure({}, T.start_draw(29001))
@@ -648,6 +682,7 @@ def test_controllers_ignore_cube_state(T):
         T.MagnetSystem.uninstall()
 
 
+@NEEDS_SCENE
 def test_roll_commands_ignore_cube_state(T):
     """Review 1 item 1 / review 2 item 3: the J7 and gripper command sequence of a whole move (settle, grasp, roll, open,
     roll-back) is identical when the cube is turned 180 deg about world z (which flips every cube-derived axis). The

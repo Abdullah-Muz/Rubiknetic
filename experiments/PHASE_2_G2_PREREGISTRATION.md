@@ -1,6 +1,6 @@
 # Phase 2 (G2) Pre-registration: two-arm, contact-driven layer turns of the free-core M7 cube
 
-**Status: DRAFT revision 5, NOT IN FORCE (2026-11-28).**
+**Status: DRAFT revision 6, NOT IN FORCE (2026-11-28).**
 - Revision 2 answered review 1 (`G2_PREREGISTRATION_REVIEW1_2026-11-27.md`, P-122): all 7 required items, and every
   suggestion except per-trial F/T noise seeding (P-123). §9 maps each item to its change.
 - Revision 3 answered review 2 (`G2_PREREGISTRATION_REVIEW2_2026-11-27.md`, P-126): all 4 required items and all 6
@@ -10,6 +10,9 @@
 - Revision 5 answers review 4 (`G2_PREREGISTRATION_REVIEW4_2026-11-27.md`, P-130): **the M7 magnets were off in every
   earlier D18/G2 trial.** They are restored and checked at every step (P-131), every pilot was repeated with them on
   (pilot 4), and all evidence below is from pilot 4. §12 maps each item to its change.
+- Review 5 (`G2_PREREGISTRATION_REVIEW5_2026-11-28.md`, P-135) found revision 5 **ACCEPTABLE AS IS** with 6
+  suggestions. Revision 6 applies all 6 (user: "Apply suggestions, then review 6", P-136). §13 maps each to its
+  change.
 - The text states what the code does at the commit that introduces this revision.
 - Before it is in force: review rounds until "ACCEPTABLE AS IS" (one reviewer subagent per round, P-121), then the
   user's approval recorded in `docs/DECISION_LOG.md`.
@@ -47,8 +50,10 @@
    both earlier self-checks. The controller gains (P-115) and the limits (P-119, P-125) were therefore chosen on a
    magnet-free cube. Pilot 4 repeated every pilot with the magnets on, on new seeds; every limit was rechecked against
    it and kept. Since P-131, every record carries the number of steps without a magnet-force evaluation, and it must
-   be 0 (§4.1). D17 and G1 are not affected (`INFERENCE`, code reading: they build every model before installing the
-   magnets).
+   be 0 (§4.1). D17 is not affected (`INFERENCE`, code reading: it builds every model before installing the magnets).
+   **G1 is not affected (`FACT`, D20, P-133):** G1's scored runner, run on rehearsal seeds for E1-2, E1-4 and E1-1,
+   evaluated the magnet force at every one of 5,179 / 103,120 / 142,000 steps and reproduced the committed rehearsal
+   records exactly.
 2. **Move strings:** U, U′, U2 and U U′ U2 U′ U were run many times in rehearsals. The 20 random 10-move sequences are
    drawn from the scored seeds and are new.
 3. **First-turn torque tail (`FACT`, pilot 4, magnets on).** With the ±1° start misalignment and the stop disabled,
@@ -60,14 +65,19 @@
    - The stop (1.0 N·m) was set on the magnet-free pilots, where U′ reached 0.67 N·m (P-125). It is kept (P-131).
    - `INFERENCE`: a false stop in a scored trial is a failure; the margin is stated, not guaranteed.
 4. **The tightest margins (pilot 4, magnets on).**
+   - **The jam window's upper bound: stops at up to 44.3° against 50° (89 % of the bound, 5.7° of headroom;** 6 pilot
+     jams at 37.3–44.3°, mean about 40.9°). The scored `jam` case has 2 trials (review 5 S2).
    - **t0 offset: 2.25 mm against 3 mm (1.33×)**; mean 1.01 mm, sd 0.49 mm over 142 records. 3 mm is about +4 sd.
    - **Core rotation per move: 1.21° against 2° (1.65×)**; total core rotation 1.12° against 2° (1.8×). The core turns a
      little more with the magnets on (the detents add resistance).
    - Turn error is no longer close: 0.31° max against 2° (the first-move turn error of 1.75° in review 3 finding 4 was
      an artefact of the missing magnets).
    - Per-move core rotation over 244 moves: mean 0.32°, sd 0.19°, 3 moves above 1°; 2° is beyond the observed tail.
-   - `INFERENCE`: the closest pilot-4 value is the t0 offset at 75 % of its limit; every other is at most 61 %. The
-     tails are estimated from about 120 trials, and a single scored failure is NOT PASSED (zero tolerance).
+   - The magnet force law stayed far inside its validated range: near-pair tilt ≤ 1.82° against 5° in six probes
+     (review 5 S1), now judged (§4.1).
+   - `INFERENCE`: the closest values are the jam stop at 89 % of the window's upper bound and the t0 offset at 75 % of
+     its limit; every other judged pilot-4 value is at most 61 % of its limit. The tails are estimated from about 120
+     trials, and a single scored failure is NOT PASSED (zero tolerance).
 5. **The G1 rig's grip was capped at about 11.5 N** (G1 report §3 item 12). G2 is the first squeeze test above that.
 6. **`ASSUMPTION`s:**
    - M7's clearance (0.05 mm), rounded edge (R 2.5 mm), uncalibrated turning torque, and core mass and inertia
@@ -85,7 +95,7 @@
 ## 1. System under test (frozen; `experiments/D18_two_arm_m7/two_arm.py`, `layout.py`)
 | Part | Configuration | Source |
 |---|---|---|
-| Cube | **M7** as G1-scored: B1, L0 magnets (unchanged `MagnetSystem`; **active at every step, checked per record since P-131**), rounded R 2.5 mm, gap 0.05 mm, NoSlip 10, dt 0.5 ms. **Free core** (free joint, 1.7 g) | P-95, P-97, P-131 |
+| Cube | **M7** as G1-scored: B1, L0 magnets (unchanged `MagnetSystem`; **active at every step, checked per record since P-131; G1's validity rule judged since P-136**), rounded R 2.5 mm, gap 0.05 mm, NoSlip 10, dt 0.5 ms. **Free core** (free joint, 1.7 g) | P-95, P-97, P-131, P-136 |
 | Arms | Two xArm7 1305+ (`P2_robot_model/build_model.py`; the generated model and meshes are fingerprinted, §6), actuator gravity compensation. Arm A at the origin; arm B at (1.0, 0, 0) m, yawed 180°; table z = 0 | P-96, P-108 |
 | Cube pose | Centre (0.5, 0, 0.30) m nominal; cube +z (U) = world +x | P-108 |
 | Grippers | Two Gripper G2 models (four-bar, tendon drive). `set_grip_force` calibrated at 57 mm; **20 N on both arms** | P-97 |
@@ -185,7 +195,11 @@ of the limits; a test checks the copies agree) both apply the following. A trial
   - no equality constraint, by object type (connect, weld, joint, tendon);
   - no gravity compensation;
 - **the magnets act at every step** (P-131): the record's `magnets.steps` > 0 and `magnets.steps_without_magnet_force`
-  = 0. `TwoArm.ctrl_step` counts a step without a magnet-force evaluation;
+  = 0. `TwoArm.ctrl_step` counts a step without a magnet-force evaluation. Review 5 S4: `magnets.steps` also equals
+  `AuditedSim.steps` (`magnets.sim_steps`) and `round(sim_time_s / 0.0005)`, so no simulation step goes uncounted;
+- **the magnet force law stays in its validated range** (review 5 S1; G1's M4 rule 2): over the whole trial the largest
+  near-pair tilt ≤ **5°** (`MagnetSystem.stats`, the V3-validated tilt) and no near perpendicular pair. Judged for turn
+  trials and holds; recorded and labelled only for negative cases (as G1's rule 3 for abuse trials);
 - the cube is solved at t0;
 - every move is recorded;
 - the final state matches the oracle.
@@ -238,7 +252,8 @@ excluded) the stand-drop shift was ≤ 0.12 mm and **the t0 offset up to 2.25 mm
 
 ### 4.2 Holds (G2-1)
 Pass if all hold:
-- integrity as §4.1, and the start-sequence contacts as §4.1;
+- integrity as §4.1 (the magnet checks included), and the start-sequence contacts as §4.1;
+- the magnet force law in its validated range, as §4.1;
 - the cube is solved at t0 and at the end;
 - over 60 s, relative to arm A's gripper: core slip ≤ **1.0 mm** and rotation ≤ **1.0°**, sampled every 0.1 s;
 - before t0: as §4.1;
@@ -246,8 +261,9 @@ Pass if all hold:
 - every cubie's misalignment at the end ≤ **4°** (P-125).
 
 ### 4.3 Negative cases (G2-7; `trials.neg_outcome`, `analyze.recompute_neg`)
-Any abort, edit-audit violation, numerical failure, harness exception or model-audit finding **fails** a negative
-trial. Otherwise:
+Any abort, edit-audit violation, numerical failure, harness exception, model-audit finding or magnet-check failure
+(steps without magnet force, or an uncounted step; review 5 S3) **fails** a negative trial. A magnet tilt outside the
+validated range is recorded and labelled (`magnet_outside_validated_range`), not judged. Otherwise:
 
 | Case | Fault | Pass when (the detection it accepts) | What it tests |
 |---|---|---|---|
@@ -372,7 +388,9 @@ Coverage tests:
 ledger, the start log and the artifacts from disk. An INVALID that comes from reading a file (a record that does not
 parse, a ledger or artifact SHA-256 mismatch, a record without a ledger line, an inconsistent start log) must reproduce
 on a re-run of the verdict to stand: a transient empty read is not a result. The verdict is deterministic on unchanged
-files. **Every verdict run is reported**, with its output. Every other INVALID cause stands as found.
+files. **Every verdict run is reported**, with its output: `analyze.py` writes each run to
+`verdict_runs/VERDICT_<UTC time>.md` and `.json` beside `results/`, never overwriting one (review 5 S6); `VERDICT.md`
+and `verdict.json` are the latest copy. Every other INVALID cause stands as found.
 
 **Procedure (as G1 §2):**
 - Before a resume, leftover worker processes of the stopped start are found and stopped.
@@ -384,18 +402,24 @@ files. **Every verdict run is reported**, with its output. Every other INVALID c
 About 0.04–0.05× real time per trial process with the magnets on (the magnet callback runs in Python at every step);
 138 trials take about 3–4 h on 8 workers.
 
+**Tests on CI (2026-11-28):** the four scene-building tests need the git-ignored robot model and skip themselves on a
+clean clone (CI). **The freeze evidence requires the whole file to run locally with 0 skipped** (§7). CI runs this file
+in its own process.
+
 **Seed search (review 1 suggestion 14):**
 - Tracked files contain no record using 30000–30999. The only uses are synthetic test calls.
 - The search is repeated and recorded at the freeze.
 
 ## 7. Evidence before the freeze
-- **Tests:** `tests/test_scored_g2.py`, 62 tests pass.
+- **Tests:** `tests/test_scored_g2.py`, TESTS_PLACEHOLDER pass locally, 0 skipped.
 - **Self-check:** `selfcheck.py` re-runs three pilot trials and requires the **physics identity** (final qpos SHA-256,
   the magnet step counts, the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot
   records. Since P-131 the references are pilot-4 records (`pilot4_magnets/`: `U_s29500`, `jam_s29610`,
-  `rand10_s29660`). The earlier results (P-124, P-129) were against magnet-free references. **Result at the
-  revision-5 code: **3/3 physics-identical** at `114489e` (P-132; `selfcheck_rev5_2026-11-28.log`).**
+  `rand10_s29660`). The earlier results (P-124, P-129) were against magnet-free references. Results: at the
+  revision-5 code, 3/3 physics-identical at `114489e` (P-132). **At the revision-6 code: SELFCHECK_PLACEHOLDER**
+  `selfcheck.py` now prints HEAD (review 5 S5); it is run again at the freeze commit.
 - **Smoke:** a smoke run killed after a record link and resumed gives PASS, with the ledger reconciled (P-120).
+  **At the revision-6 code: SMOKE_PLACEHOLDER**
 - **Revision-2 pilot** (`run.py pilot2`, seeds 29300–29353; P-124): 20 U′ and 20 U2 first turns with the stop
   disabled; 4 × U U′ U2 U′ U and 2 holds at the fixed settings; 2 each of jam, two_layer, collision and open_midturn.
   Results in `pilot2_rev2/` (its stored pass/fail used the pre-P-125 rules; see its README).
@@ -420,7 +444,8 @@ About 0.04–0.05× real time per trial process with the magnets on (the magnet 
 | P-6c | revision-3 code, tests, pilot 3 and the re-runs | P-127 |
 | P-6d | revision-4 code, tests, self-check at the revision-4 code | P-129 |
 | P-6e | magnets restored and checked per step; pilot 4 (magnets on); limits rechecked; self-check at the revision-5 code | P-131, P-132 |
-| P-7 | independent reviews until "ACCEPTABLE AS IS" | **open** (reviews 1–4: P-122, P-126, P-128, P-130) |
+| P-6f | review-5 suggestions applied; tests, smoke run and self-check at the revision-6 code | P-136 |
+| P-7 | independent reviews until "ACCEPTABLE AS IS" | **open**: review 5 ACCEPTABLE AS IS for revision 5 (P-135); revision 6 is under review (reviews 1–4: P-122, P-126, P-128, P-130) |
 | P-8 | the user's approval; freeze commit; DECISION_LOG | **open** |
 
 ## 8. Limitations (to be stated with any G2 result)
@@ -446,8 +471,8 @@ About 0.04–0.05× real time per trial process with the magnets on (the magnet 
    - **Pilot margins differ by criterion** (pilot 4, magnets on):
      - large: turn error 0.31° of 2° (6.5×), drift 0.30° of 1° (3.3×), end misalignment 1.05° of 4° (3.8×), per-move
        core slip 0.26 of 1 mm (3.9×), total core slip 0.63 of 2 mm (3.2×), F/T 0.48 of 1.0 N·m (2.1×);
-     - closer: t0 offset 2.25 of 3 mm (1.33×), per-move core rotation 1.21° of 2° (1.65×), total core rotation 1.12°
-       of 2° (1.8×).
+     - closer: the jam stop at up to 44.3° against the window's 50° upper bound (5.7° of headroom), t0 offset 2.25
+       of 3 mm (1.33×), per-move core rotation 1.21° of 2° (1.65×), total core rotation 1.12° of 2° (1.8×).
    - **A PASS therefore shows that the turns succeed and the cube stays within these task tolerances.** It does not
      establish tight stabilisation, robustness beyond ±1 mm / ±1°, or anything on hardware.
 
@@ -506,3 +531,15 @@ About 0.04–0.05× real time per trial process with the magnets on (the magnet 
 | N1 magnets off | restored in `TwoArm.__init__` after arm B's IK model is built; every control step counts whether the magnet force was evaluated; judged in `trials._integrity_reasons` and independently in `analyze._integrity` (P-131); tests: synthetic cases and a real-scene test with a positive control; pilot 4 repeats every pilot with magnets on (144/144 pass); every limit rechecked and kept (P-131); self-check references moved to pilot 4; §0.1a, §0.3, §0.4, §1, §4, §7 and §8 rewritten from pilot 4 |
 | N2 verdict re-run | every file-read INVALID must reproduce on a re-run; every verdict run is reported (§6) |
 | N3 move count | the causality evidence is now pilot 4's 244 turn moves (negative cases excluded), stated as such |
+
+## 13. Response to review 5 (P-135; ACCEPTABLE AS IS, six suggestions)
+| Item | Change in revision 6 |
+|---|---|
+| S1 G1's magnet-validity rule | `magnet_stats()` records the largest near-pair tilt, near perpendicular pairs and z clamps over the whole trial; tilt ≤ 5° (= `M4.nominal_validated_tilt()`, tested) and no perpendicular pair judged for turns and holds in `trials` and independently in `analyze`; negatives labelled only (§4.1–§4.3); tests |
+| S2 jam headroom | stated as the closest margin (§0.4, §8 item 8) |
+| S3 §4.3 text | the magnet check named among the integrity failures |
+| S4 step count | `magnets.steps` must equal `AuditedSim.steps` and `round(sim_time_s / 0.0005)`, in `trials` and `analyze`; tests |
+| S5 self-check provenance | `selfcheck.py` prints HEAD (and flags uncommitted changes) and each trial's magnet stats; re-run at the freeze commit |
+| S6 verdict outputs | every verdict run kept as `verdict_runs/VERDICT_<UTC time>.md/.json` (§6) |
+| CI (2026-11-28, not a review item) | scene tests skip without the git-ignored robot model; the module-coverage test runs in a fresh process; CI runs this file in its own process with the virtualenv outside the checkout; the freeze still needs 0 skipped locally |
+| D20 (P-133) | §0.1a: G1's magnets verified at runtime |

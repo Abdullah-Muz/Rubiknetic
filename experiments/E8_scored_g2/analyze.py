@@ -1,4 +1,4 @@
-"""G2 verdict and report (experiments/PHASE_2_G2_PREREGISTRATION.md revision 5 §4.4; DRAFT, not in force).
+"""G2 verdict and report (experiments/PHASE_2_G2_PREREGISTRATION.md revision 6 §4.4; DRAFT, not in force).
 
 INVALID     no manifest; a record that does not parse; a ledger SHA-256 mismatch; a record without a ledger line; a
             ledger key with more than one line or without a record; any file or directory the run procedure does not
@@ -27,7 +27,8 @@ import run as R  # noqa: E402
 LIMITS = {"turn_error_deg": 2.0, "drift_deg": 1.0, "pen_mm": 0.5, "move_slip_mm": 1.0, "move_rot_deg": 2.0,
           "rollback_deg": 1.0, "total_slip_mm": 2.0, "total_rot_deg": 2.0, "residual_end_deg": 4.0,
           "hold_slip_mm": 1.0, "hold_rot_deg": 1.0, "jam_slip_mm": 0.5, "jam_roll_deg": (20.0, 50.0),
-          "drop_shift_mm": 1.0, "t0_offset_mm": 3.0}
+          "drop_shift_mm": 1.0, "t0_offset_mm": 3.0, "magnet_tilt_deg": 5.0}
+DT = 0.0005                                     # M7 timestep (review 5 S4: magnet steps == sim_time / dt)
 ZERO = ("robot_cube_nonpad", "arm_arm", "robot_table", "robot_stand", "robot_block")
 
 
@@ -49,8 +50,22 @@ def _integrity(rec: dict) -> list[str]:
                                                "gravcomp_on_cube")) or "tendons_on_cube" not in audit:
         out.append("model audit")
     mag = (rec.get("trial") or {}).get("magnets") or rec.get("magnets")   # P-130
-    if not isinstance(mag, dict) or not mag.get("steps") or mag.get("steps_without_magnet_force") != 0:
+    if (not isinstance(mag, dict) or not mag.get("steps") or mag.get("steps_without_magnet_force") != 0
+            or mag.get("sim_steps") != mag.get("steps")                     # review 5 S4
+            or not isinstance(rec.get("sim_time_s"), (int, float))
+            or mag["steps"] != round(rec["sim_time_s"] / DT)):
         out.append("magnets")
+    return out
+
+
+def _magnet_validity(rec: dict) -> list[str]:
+    """Review 5 S1 (G1's rule 2), operational trials only."""
+    mag = (rec.get("trial") or {}).get("magnets") or rec.get("magnets") or {}
+    out = []
+    if not isinstance(mag.get("max_near_tilt_deg"), (int, float)) or mag["max_near_tilt_deg"] > LIMITS["magnet_tilt_deg"]:
+        out.append("magnet tilt")
+    if mag.get("near_perpendicular") != 0:
+        out.append("magnet perpendicular")
     return out
 
 
@@ -107,7 +122,7 @@ def _growth(t0: list, end: list) -> float:
 
 
 def recompute_seq(rec: dict, moves: str) -> list[str]:
-    out = _integrity(rec)
+    out = _integrity(rec) + _magnet_validity(rec)
     if not rec.get("t0_solved"):
         out.append("t0")
     out += ["start " + x for x in _contacts(rec.get("start", {}).get("contacts", {}), False)]
@@ -134,8 +149,8 @@ def recompute_seq(rec: dict, moves: str) -> list[str]:
 
 
 def recompute_hold(rec: dict) -> list[str]:
-    out = _integrity(rec)
-    if out:
+    out = _integrity(rec) + _magnet_validity(rec)
+    if _integrity(rec):
         return out
     if not (rec.get("t0_solved") and rec.get("final_solved")):
         out.append("solved")
@@ -396,6 +411,13 @@ def main() -> None:
     res = verdict(a.results, a.mode)
     text = report(res)
     print(text)
+    # review 5 S6: every verdict run is kept (timestamped, never overwritten); VERDICT.md / verdict.json are the latest
+    from datetime import datetime, timezone
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    runs = a.results.parent / "verdict_runs"
+    runs.mkdir(exist_ok=True)
+    (runs / f"VERDICT_{ts}.md").write_text(text + "\n", encoding="utf-8")
+    (runs / f"verdict_{ts}.json").write_text(json.dumps(res, indent=1, default=list))
     (a.results.parent / "VERDICT.md").write_text(text + "\n", encoding="utf-8")
     (a.results.parent / "verdict.json").write_text(json.dumps(res, indent=1, default=list))
 

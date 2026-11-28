@@ -50,7 +50,8 @@ def physics(rec: dict, ref_keys: dict) -> dict:
     had), and per move the observed move, guard stop and F/T peak. Measurement fields that revision 2 added or
     redefined (contacts, move windows) are not compared; the simulation itself must be bit-identical."""
     return {"final_qpos_sha256": rec.get("final_qpos_sha256"),
-            "magnets": (rec.get("trial") or {}).get("magnets"),
+            "magnets": {k: ((rec.get("trial") or {}).get("magnets") or {}).get(k)          # review 5 S1: the pilot-4
+                        for k in ("steps", "steps_without_magnet_force", "force_evaluations")},  # keys only
             "start": {k: rec.get("start", {}).get(k) for k in ref_keys.get("start", {})},
             "moves": [{k: pm.get(k) for k in ("move", "observed_move", "jam_stop", "ft_tau_z_max_Nm")}
                       for pm in rec.get("per_move", [])]}
@@ -60,6 +61,10 @@ def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--jobs", type=int, default=3)
     a = ap.parse_args()
+    import subprocess
+    head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=HERE, capture_output=True, text=True).stdout.strip()
+    dirty = subprocess.run(["git", "status", "--porcelain"], cwd=HERE, capture_output=True, text=True).stdout.strip()
+    print(f"HEAD {head}{' (uncommitted changes)' if dirty else ''}", flush=True)          # review 5 S5
     jobs = {R.key_of(j): j for j in R.pilot4_jobs()}
     todo = [jobs[k] for k in CHECK]
     for j in todo:
@@ -72,7 +77,9 @@ def main() -> None:
         new = json.loads(json.dumps(rec, default=list))
         d = diff(physics(ref, ref), physics(new, ref))
         bad += bool(d)
+        mag = (new.get("trial") or {}).get("magnets") or new.get("magnets") or {}
         print(f"{'IDENTICAL' if not d else 'DIFFERS'} {key[0]}/{key[1]}  qpos sha {new.get('final_qpos_sha256', '')[:12]}"
+              f"  magnets {json.dumps(mag, sort_keys=True)}  pass {new.get('pass')}"
               + ("" if not d else "\n  " + "\n  ".join(d[:10])), flush=True)
     print(f"self-check: {len(results) - bad}/{len(results)} physics-identical")
     sys.exit(1 if bad else 0)

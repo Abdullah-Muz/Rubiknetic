@@ -69,3 +69,12 @@ integrity clean (`verdict_pilot4.md`).
 ## Timing
 - Median real-time factor 0.043 per trial process (8 workers, with the other load). The magnet callback runs in Python
   at every step.
+
+## Re-analysing with later code (revision 6, P-136)
+- Revision 6 (review 5) added `sim_steps` and the magnet-validity fields (`max_near_tilt_deg`, `near_perpendicular`,
+  `clamped_z`) to the record and judges them. These pilot-4 records predate them, so `analyze.py --mode pilot4` at
+  revision 6 or later reports INVALID ("stored pass ≠ recomputed"). This is expected; the records are kept as recorded
+  (as for `pilot2_rev2/`).
+- The verdict stored here (`verdict_pilot4.md`, PASS) was produced at revision 5 (`114489e`'s code).
+- Review 5 confirmed for all 144 records that `steps` = `sim_time_s` / dt, and measured a near-pair tilt of at most 1.82°
+  in six magnets-on probes at revision 5.

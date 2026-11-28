@@ -45,8 +45,30 @@ jobs:
           python-version: "3.12"
           enable-cache: true
 
+      # The virtualenv lives outside the checkout: the G2 frozen-path tests treat every file under the repository root
+      # as project code. (runner.temp is available in step-level env only, so it is repeated per step.)
       - name: Install locked dependencies
+        env:
+          UV_PROJECT_ENVIRONMENT: ${{ runner.temp }}/venv
         run: uv sync --locked
 
-      - name: Run tests
-        run: uv run --locked pytest
+      # Two pytest processes (2026-11-28 CI diagnosis): loading the G2 trials re-executes experiments/E7_scored_m7/run.py
+      # through D16 grip_probe.load_e7 and re-patches the shared M7/M5 runner modules (seed map, frozen-path list), which
+      # breaks the G1 runner tests when both run in one process. Those modules are frozen (G1 and G2), so the tests are
+      # separated instead.
+      #
+      # Not run on CI (git-ignored inputs; they run locally before any freeze or scored run):
+      # - tests/test_scored_m7.py::test_counts needs the near-field tables (experiments/D8_alignment/results/tables/);
+      # - the four G2 scene tests need third_party_cad/ (GrabCAD terms); they skip themselves when it is absent.
+      - name: Run tests (all but G2)
+        env:
+          UV_PROJECT_ENVIRONMENT: ${{ runner.temp }}/venv
+        run: >-
+          uv run --locked pytest --ignore=tests/test_scored_g2.py
+          --deselect tests/test_scored_m7.py::test_counts
+
+      - name: Run tests (G2, own process)
+        if: success() || failure()
+        env:
+          UV_PROJECT_ENVIRONMENT: ${{ runner.temp }}/venv
+        run: uv run --locked pytest -rs tests/test_scored_g2.py

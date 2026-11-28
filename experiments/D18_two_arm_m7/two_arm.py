@@ -600,9 +600,14 @@ class TwoArm:
                 self.mag_missing += 1
 
     def magnet_stats(self) -> dict:
-        """P-130: simulation steps, and steps in which the magnet force was not evaluated (must be 0)."""
+        """P-130: control steps, and steps in which the magnet force was not evaluated (must be 0). Review 5: the
+        AuditedSim step count (must equal `steps`, S4) and the force law's validity diagnostics over the whole trial
+        (S1, G1's rule 2: near-pair tilt within the validated range; no near perpendicular pair; z clamps counted)."""
+        st = self.ms.stats
         return {"steps": self.mag_steps, "steps_without_magnet_force": self.mag_missing,
-                "force_evaluations": self.mag_calls}
+                "force_evaluations": self.mag_calls, "sim_steps": int(self.sim.steps),
+                "max_near_tilt_deg": float(st.get("max_near_tilt_deg", 0.0)),
+                "near_perpendicular": int(st.get("near_perpendicular", 0)), "clamped_z": int(st.get("clamped_z", 0))}
 
     # ---- per-step monitoring ------------------------------------------------------------------------------------
     def contacts(self) -> dict:
