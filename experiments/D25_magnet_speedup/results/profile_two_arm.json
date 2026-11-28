@@ -1,0 +1,57 @@
+{
+ "scene": "two_arm",
+ "nv": 99,
+ "nbody": 60,
+ "list_pairs": 182,
+ "n_magnets": 48,
+ "magnet_stats": {
+  "calls": 7503,
+  "clamped_z": 0,
+  "near_perpendicular": 0,
+  "max_force_N": 1.770809188458432,
+  "max_near_tilt_deg": 1.5974093422957898,
+  "list_rebuilds": 1,
+  "list_pairs": 182
+ },
+ "us_per_step_median": {
+  "original": 18410.274815032608,
+  "no_callback": 13181.426587470924,
+  "empty_python_callback": 12422.814127494348
+ },
+ "us_per_step_all": {
+  "original": [
+   21220.77318497759,
+   18062.50137000461,
+   18410.274815032608
+  ],
+  "no_callback": [
+   14401.38730496983,
+   12759.871397502138,
+   13181.426587470924
+  ],
+  "empty_python_callback": [
+   12422.814127494348,
+   11814.934319991153,
+   14780.616067509982
+  ]
+ },
+ "callback_share_of_step": 0.2840179345553361,
+ "us_apply_call_median": 3929.871840082342,
+ "stages": {
+  "us_world": 170.44565688896304,
+  "us_neighbour_list_check": 97.64811392718305,
+  "us_dipole_all_pairs": 1268.371053544494,
+  "us_near_geometry": 360.6515888047094,
+  "us_spline_ev_12_calls": 503.5252830324074,
+  "us_near_force_torque": 793.0042639297124,
+  "us_scatter_matmul": 180.40474028869843,
+  "us_body_sum_cross": 142.71455923638618,
+  "us_applyFT_loop": 339.12255719769746,
+  "mean_n_near": 24.0,
+  "mean_n_pairs": 182.0,
+  "us_total_stages": 3855.8878168502515,
+  "stage_copy_equal_to_original": true,
+  "n_bodies": 20
+ },
+ "cprofile_top25_tottime": "         223001 function calls in 2.374 seconds\n\n   Ordered by: internal time\n   List reduced from 63 to 25 due to restriction <25>\n\n   ncalls  tottime  percall  cumtime  percall filename:lineno(function)\n      500    0.838    0.002    2.028    0.004 /mnt/c/dev/Rubiknetic/src/rubiknetic/cube_physics/magnets.py:394(pair_forces)\n     1000    0.245    0.000    0.300    0.000 /mnt/c/dev/Rubiknetic/src/rubiknetic/cube_physics/magnets.py:369(_cutoff)\n     4000    0.131    0.000    0.131    0.000 {built-in method scipy.interpolate._fitpack.pardeu}\n     2500    0.108    0.000    0.247    0.000 /mnt/c/dev/Rubiknetic/src/rubiknetic/cube_physics/magnets.py:378(_cross)\n     4500    0.106    0.000    0.106    0.000 {built-in method numpy._core._multiarray_umath.c_einsum}\n     6000    0.096    0.000    0.376    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/scipy/interpolate/_fitpack2.py:1342(__call__)\n    10000    0.092    0.000    0.092    0.000 {built-in method mujoco._functions.mj_applyFT}\n     2500    0.091    0.000    0.120    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/numpy/lib/_shape_base_impl.py:607(column_stack)\n     5500    0.088    0.000    0.088    0.000 {method 'reduce' of 'numpy.ufunc' objects}\n     2000    0.059    0.000    0.059    0.000 {built-in method scipy.interpolate._fitpack.bispeu}\n      500    0.053    0.000    0.107    0.000 /mnt/c/dev/Rubiknetic/src/rubiknetic/cube_physics/magnets.py:613(world)\n     1000    0.043    0.000    0.078    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/numpy/linalg/_linalg.py:2615(norm)\n     6500    0.036    0.000    0.036    0.000 {method 'reshape' of 'numpy.ndarray' objects}\n      500    0.035    0.000    2.128    0.004 /mnt/c/dev/Rubiknetic/src/rubiknetic/cube_physics/magnets.py:633(forces)\n     3000    0.035    0.000    0.083    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:66(_wrapreduction)\n     1000    0.027    0.000    0.027    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/numpy/_core/_methods.py:96(_clip)\n      500    0.026    0.000    0.066    0.000 /mnt/c/dev/Rubiknetic/src/rubiknetic/cube_physics/magnets.py:619(_update_list)\n     2500    0.025    0.000    0.103    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:2342(sum)\n    12000    0.023    0.000    0.023    0.000 {method 'ravel' of 'numpy.ndarray' objects}\n    12000    0.018    0.000    0.026    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/numpy/_core/shape_base.py:19(atleast_1d)\n    22500    0.016    0.000    0.016    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/numpy/_core/einsumfunc.py:1234(_einsum_dispatcher)\n     7500    0.014    0.000    0.014    0.000 {built-in method numpy.array}\n     6000    0.014    0.000    0.390    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/scipy/interpolate/_fitpack2.py:1598(ev)\n     1000    0.012    0.000    0.051    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/numpy/_core/fromnumeric.py:2245(clip)\n     4500    0.011    0.000    0.117    0.000 /home/fwdev/.venvs/rubiknetic/lib/python3.12/site-packages/numpy/_core/einsumfunc.py:1242(einsum)\n\n\n"
+}
