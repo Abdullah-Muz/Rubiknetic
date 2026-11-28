@@ -276,44 +276,45 @@ L20 entry.
 Levels: **full** = HTML full text read through a summarising fetch; **partial** = first ~100,000 characters of the full
 text; **abstract** = arXiv abstract page or documentation summary only; **docs** = official documentation page.
 
-| ID | Citation | Reference | Level |
-|---|---|---|---|
-| U01 | G. Ma, L. Li, H. Wang, Z. Liu, P.-L. Bacon, D. Tao, "What Makes Value Learning Efficient in Residual Reinforcement Learning?", 2026 | arXiv:2602.10539 | partial (≈ 2/3) |
-| U02 | L. Ankile, Z. Jiang, R. Duan, G. Shi, P. Abbeel, A. Nagabandi, "Residual Off-Policy RL for Finetuning Behavior Cloning Policies", 2025 (ICLR 2026 listing seen in search) | arXiv:2509.19301 | full |
-| U03 | M. Iavorskaia, C. Dietz, S. Albrecht, M. Khadiv, "Res-HIL: Human-Guided Residual Reinforcement Learning for Sample-Efficient Dexterous Manipulation", 2026 | arXiv:2609.30023 | abstract |
-| U04 | J. Stranghöner, P. Hartmann, M. Braun, S. Wrede, K. Neumann, "SHaRe-RL: Structured, Interactive Reinforcement Learning for Contact-Rich Industrial Assembly Tasks", ICRA 2026 | arXiv:2509.13949 | abstract |
-| U05 | L. He, M. Deng, "Constraint-Grounded Reinforcement Learning for Variable Impedance Control in Contact-Rich Robotic Insertion", 2026 | arXiv:2609.13516 | abstract |
-| U06 | T. Liu, R. A. Patamia, B. Champion, A. Cosgun, R. Dazeley, "Hybrid Residual Reinforcement Learning for Contact-Rich Robotic Book Insertion", 2026 | arXiv:2609.19962 | full |
-| U07 | I. Marougkas, D. M. Ramesh, J. H. Doerr, E. Granados, A. Sivaramakrishnan, A. Boularias, K. E. Bekris, "Integrating Model-based Control and RL for Sim2Real Transfer of Tight Insertion Policies", 2025 | arXiv:2505.11858 | full |
-| U08 | J. Luo, C. Xu, J. Wu, S. Levine, "Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning", 2024 | arXiv:2410.21845 | abstract |
-| U09 | A. Bhatt, D. Palenicek, B. Belousov, M. Argus, A. Amiranashvili, T. Brox, J. Peters, "CrossQ: Batch Normalization in Deep Reinforcement Learning for Greater Sample Efficiency and Simplicity", ICLR 2024 | arXiv:1902.05605 | abstract |
-| U10 | M. Nauman, M. Ostaszewski, K. Jankowski, P. Miłoś, M. Cygan, "Bigger, Regularized, Optimistic: scaling for compute and sample-efficient continuous control", NeurIPS 2024 | arXiv:2405.16158 | partial (most) |
-| U11 | H. Lee, Y. Lee, T. Seno, D. Kim, P. Stone, J. Choo, "Hyperspherical Normalization for Scalable Deep Reinforcement Learning" (SimbaV2), ICML 2025 | arXiv:2502.15280 | partial |
-| U12 | X. Liu, C. Neary, K. Gupta, W. A. Suttle, C. Ellis, U. Topcu, D. Fridovich-Keil, "A Multi-Fidelity Control Variate Approach for Policy Gradient Estimation", 2025 | arXiv:2503.05696 | partial |
-| U13 | J. Lyu, K. Xu, J. Xu, M. Yan, J. Yang, Z. Zhang, C. Bai, Z. Lu, X. Li, "ODRL: A Benchmark for Off-Dynamics Reinforcement Learning", NeurIPS 2024 D&B | arXiv:2410.20750 | partial |
-| U14 | A. Kadian, J. Truong, A. Gokaslan, A. Clegg, E. Wijmans, S. Lee, M. Savva, S. Chernova, D. Batra, "Sim2Real Predictivity: Does Evaluation in Simulation Predict Real-World Performance?", RA-L 2020 | arXiv:1912.06321 | abstract |
-| U15 | J. Truong, M. Rudolph, N. Yokoyama, S. Chernova, D. Batra, A. Rai, "Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation", 2022 | arXiv:2207.10821 | abstract |
-| U16 | Z. Lei et al., "PolySim: Bridging the Sim-to-Real Gap for Humanoid Control via Multi-Simulator Dynamics Randomization", 2025 | arXiv:2510.01708 | abstract |
-| U17 | X. Gu, Y.-J. Wang, J. Chen, "Humanoid-Gym: Reinforcement Learning for Humanoid Robot with Zero-Shot Sim2Real Transfer", ICRA 2024 workshop | arXiv:2404.05695 | abstract |
-| U18 | Y. Liu, J. Liu, H. Liang, D. Kanoulas, "A Framework for Deploying Learning-based Quadruped Loco-Manipulation", 2025 | arXiv:2512.18938 | full |
-| U19 | K. Zakka et al., "MuJoCo Playground", 2025 (same paper as C13; new detail: Appendix A.1 Table III) | arXiv:2502.08844 | partial |
-| U20 | A. Paulus, A. R. Geist, P. Schumacher, V. Musil, S. Rappenecker, G. Martius, "Differentiable Simulation of Hard Contacts with Soft Gradients for Learning and Control", ICLR 2026 | arXiv:2506.14186 | abstract |
-| U21 | MuJoCo documentation, Python bindings (rollout, batch, callbacks); "stable" = 4.0.1 per the changelog | https://mujoco.readthedocs.io/en/stable/python.html | docs |
-| U22 | MuJoCo changelog (latest 4.0.1, 2026-11-11; `mujoco.batch` in 3.17.0) | https://mujoco.readthedocs.io/en/stable/changelog.html | docs, partial |
-| U23 | MuJoCo documentation, MJX (adds to L22) | https://mujoco.readthedocs.io/en/stable/mjx.html | docs |
-| U24 | Y. Jia, J. Wu, "MuJoCoUni: Persistent Batched Runtime Primitives for MuJoCo", 2026 | arXiv:2605.24922 | partial |
-| U25 | C. Summers, K. Lowrey, A. Rajeswaran, S. Srinivasa, E. Todorov, "Lyceum: An efficient and scalable ecosystem for robot learning", 2020 | arXiv:2001.07343 | abstract |
-| U26 | MuJoCo GitHub Discussion #1101, "MuJoCo 3" (saran-t, 2023-10-18) | https://github.com/google-deepmind/mujoco/discussions/1101 | read |
-| U27 | Stable-Baselines3 documentation (master): SAC; Vectorized Environments | https://stable-baselines3.readthedocs.io/en/master/modules/sac.html ; https://stable-baselines3.readthedocs.io/en/master/guide/vec_envs.html | docs |
-| U28 | R. Agarwal, M. Schwarzer, P. S. Castro, A. Courville, M. G. Bellemare, "Deep Reinforcement Learning at the Edge of the Statistical Precipice", NeurIPS 2021 | arXiv:2108.13264 | abstract |
-| U29 | H. Kress-Gazit, K. Hashimoto, N. Kuppuswamy, P. Shah, P. Horgan, G. Richardson, S. Feng, B. Burchfiel, "Robot Learning as an Empirical Science: Best Practices for Policy Evaluation", 2024 | arXiv:2409.09491 | abstract |
-| U30 | D. Snyder, A. J. Hancock, A. Badithela, E. Dixon, P. Miller, R. A. Ambrus, A. Majumdar, M. Itkina, H. Nishimura, "Is Your Imitation Learning Policy Better than Mine? Policy Comparison with Near-Optimal Stopping", RSS 2025 | arXiv:2503.10966 | abstract |
-| U31 | S. M. Jordan, A. White, B. Castro da Silva, M. White, P. S. Thomas, "Position: Benchmarking is Limited in Reinforcement Learning Research", ICML 2024 | arXiv:2406.16241 | partial (§2–3) |
-| U32 | A. Patterson, S. Neumann, M. White, A. White, "Empirical Design in Reinforcement Learning", JMLR 25(318):1–63, 2024 | https://jmlr.org/papers/v25/23-0183.html | abstract |
-| U33 | C. Colas, O. Sigaud, P.-Y. Oudeyer, "How Many Random Seeds? Statistical Power Analysis in Deep Reinforcement Learning Experiments", 2018 | arXiv:1806.08295 | abstract |
+| ID | Citation | Identifier | URL(s) opened | Level |
+|---|---|---|---|---|
+| U01 | G. Ma, L. Li, H. Wang, Z. Liu, P.-L. Bacon, D. Tao, "What Makes Value Learning Efficient in Residual Reinforcement Learning?", 2026 | arXiv:2602.10539 | https://arxiv.org/abs/2602.10539 ; https://arxiv.org/html/2602.10539v1 | partial (≈ 2/3) |
+| U02 | L. Ankile, Z. Jiang, R. Duan, G. Shi, P. Abbeel, A. Nagabandi, "Residual Off-Policy RL for Finetuning Behavior Cloning Policies", 2025 (ICLR 2026 listing seen in search) | arXiv:2509.19301 | https://arxiv.org/html/2509.19301v2 | full |
+| U03 | M. Iavorskaia, C. Dietz, S. Albrecht, M. Khadiv, "Res-HIL: Human-Guided Residual Reinforcement Learning for Sample-Efficient Dexterous Manipulation", 2026 | arXiv:2609.30023 | https://arxiv.org/abs/2609.30023 | abstract |
+| U04 | J. Stranghöner, P. Hartmann, M. Braun, S. Wrede, K. Neumann, "SHaRe-RL: Structured, Interactive Reinforcement Learning for Contact-Rich Industrial Assembly Tasks", ICRA 2026 | arXiv:2509.13949 | https://arxiv.org/abs/2509.13949 | abstract |
+| U05 | L. He, M. Deng, "Constraint-Grounded Reinforcement Learning for Variable Impedance Control in Contact-Rich Robotic Insertion", 2026 | arXiv:2609.13516 | https://arxiv.org/abs/2609.13516 | abstract |
+| U06 | T. Liu, R. A. Patamia, B. Champion, A. Cosgun, R. Dazeley, "Hybrid Residual Reinforcement Learning for Contact-Rich Robotic Book Insertion", 2026 | arXiv:2609.19962 | https://arxiv.org/abs/2609.19962 ; https://arxiv.org/html/2609.19962 | full |
+| U07 | I. Marougkas, D. M. Ramesh, J. H. Doerr, E. Granados, A. Sivaramakrishnan, A. Boularias, K. E. Bekris, "Integrating Model-based Control and RL for Sim2Real Transfer of Tight Insertion Policies", 2025 | arXiv:2505.11858 | https://arxiv.org/html/2505.11858v1 | full |
+| U08 | J. Luo, C. Xu, J. Wu, S. Levine, "Precise and Dexterous Robotic Manipulation via Human-in-the-Loop Reinforcement Learning", 2024 | arXiv:2410.21845 | https://arxiv.org/abs/2410.21845 | abstract |
+| U09 | A. Bhatt, D. Palenicek, B. Belousov, M. Argus, A. Amiranashvili, T. Brox, J. Peters, "CrossQ: Batch Normalization in Deep Reinforcement Learning for Greater Sample Efficiency and Simplicity", ICLR 2024 | arXiv:1902.05605 | https://arxiv.org/abs/1902.05605 | abstract |
+| U10 | M. Nauman, M. Ostaszewski, K. Jankowski, P. Miłoś, M. Cygan, "Bigger, Regularized, Optimistic: scaling for compute and sample-efficient continuous control", NeurIPS 2024 | arXiv:2405.16158 | https://arxiv.org/abs/2405.16158 ; https://arxiv.org/html/2405.16158v3 | partial (most) |
+| U11 | H. Lee, Y. Lee, T. Seno, D. Kim, P. Stone, J. Choo, "Hyperspherical Normalization for Scalable Deep Reinforcement Learning" (SimbaV2), ICML 2025 | arXiv:2502.15280 | https://arxiv.org/abs/2502.15280 ; https://arxiv.org/html/2502.15280v2 | partial |
+| U12 | X. Liu, C. Neary, K. Gupta, W. A. Suttle, C. Ellis, U. Topcu, D. Fridovich-Keil, "A Multi-Fidelity Control Variate Approach for Policy Gradient Estimation", 2025 | arXiv:2503.05696 | https://arxiv.org/abs/2503.05696 ; https://arxiv.org/html/2503.05696v4 | partial |
+| U13 | J. Lyu, K. Xu, J. Xu, M. Yan, J. Yang, Z. Zhang, C. Bai, Z. Lu, X. Li, "ODRL: A Benchmark for Off-Dynamics Reinforcement Learning", NeurIPS 2024 D&B | arXiv:2410.20750 | https://arxiv.org/abs/2410.20750 ; https://arxiv.org/html/2410.20750v1 | partial |
+| U14 | A. Kadian, J. Truong, A. Gokaslan, A. Clegg, E. Wijmans, S. Lee, M. Savva, S. Chernova, D. Batra, "Sim2Real Predictivity: Does Evaluation in Simulation Predict Real-World Performance?", RA-L 2020 | arXiv:1912.06321 | https://arxiv.org/abs/1912.06321 | abstract |
+| U15 | J. Truong, M. Rudolph, N. Yokoyama, S. Chernova, D. Batra, A. Rai, "Rethinking Sim2Real: Lower Fidelity Simulation Leads to Higher Sim2Real Transfer in Navigation", 2022 | arXiv:2207.10821 | https://arxiv.org/abs/2207.10821 | abstract |
+| U16 | Z. Lei et al., "PolySim: Bridging the Sim-to-Real Gap for Humanoid Control via Multi-Simulator Dynamics Randomization", 2025 | arXiv:2510.01708 | https://arxiv.org/abs/2510.01708 | abstract |
+| U17 | X. Gu, Y.-J. Wang, J. Chen, "Humanoid-Gym: Reinforcement Learning for Humanoid Robot with Zero-Shot Sim2Real Transfer", ICRA 2024 workshop | arXiv:2404.05695 | https://arxiv.org/abs/2404.05695 | abstract |
+| U18 | Y. Liu, J. Liu, H. Liang, D. Kanoulas, "A Framework for Deploying Learning-based Quadruped Loco-Manipulation", 2025 | arXiv:2512.18938 | https://arxiv.org/html/2512.18938 | full |
+| U19 | K. Zakka et al., "MuJoCo Playground", 2025 (same paper as C13; new detail: Appendix A.1 Table III) | arXiv:2502.08844 | https://arxiv.org/html/2502.08844 | partial |
+| U20 | A. Paulus, A. R. Geist, P. Schumacher, V. Musil, S. Rappenecker, G. Martius, "Differentiable Simulation of Hard Contacts with Soft Gradients for Learning and Control", ICLR 2026 | arXiv:2506.14186 | https://arxiv.org/abs/2506.14186 | abstract |
+| U21 | MuJoCo documentation, Python bindings (rollout, batch, callbacks); "stable" = 4.0.1 per the changelog | — | https://mujoco.readthedocs.io/en/stable/python.html | docs |
+| U22 | MuJoCo changelog (latest 4.0.1, 2026-11-11; `mujoco.batch` in 3.17.0) | — | https://mujoco.readthedocs.io/en/stable/changelog.html | docs, partial |
+| U23 | MuJoCo documentation, MJX (adds to L22) | — | https://mujoco.readthedocs.io/en/stable/mjx.html | docs |
+| U24 | Y. Jia, J. Wu, "MuJoCoUni: Persistent Batched Runtime Primitives for MuJoCo", 2026 | arXiv:2605.24922 | https://arxiv.org/abs/2605.24922 ; https://arxiv.org/html/2605.24922 | partial |
+| U25 | C. Summers, K. Lowrey, A. Rajeswaran, S. Srinivasa, E. Todorov, "Lyceum: An efficient and scalable ecosystem for robot learning", 2020 | arXiv:2001.07343 | https://arxiv.org/abs/2001.07343 | abstract |
+| U26 | MuJoCo GitHub Discussion #1101, "MuJoCo 3" (saran-t, 2023-10-18) | — | https://github.com/google-deepmind/mujoco/discussions/1101 | read |
+| U27 | Stable-Baselines3 documentation (master): SAC; Vectorized Environments | — | https://stable-baselines3.readthedocs.io/en/master/modules/sac.html ; https://stable-baselines3.readthedocs.io/en/master/guide/vec_envs.html | docs |
+| U28 | R. Agarwal, M. Schwarzer, P. S. Castro, A. Courville, M. G. Bellemare, "Deep Reinforcement Learning at the Edge of the Statistical Precipice", NeurIPS 2021 | arXiv:2108.13264 | https://arxiv.org/abs/2108.13264 | abstract |
+| U29 | H. Kress-Gazit, K. Hashimoto, N. Kuppuswamy, P. Shah, P. Horgan, G. Richardson, S. Feng, B. Burchfiel, "Robot Learning as an Empirical Science: Best Practices for Policy Evaluation", 2024 | arXiv:2409.09491 | https://arxiv.org/abs/2409.09491 | abstract |
+| U30 | D. Snyder, A. J. Hancock, A. Badithela, E. Dixon, P. Miller, R. A. Ambrus, A. Majumdar, M. Itkina, H. Nishimura, "Is Your Imitation Learning Policy Better than Mine? Policy Comparison with Near-Optimal Stopping", RSS 2025 | arXiv:2503.10966 | https://arxiv.org/abs/2503.10966 | abstract |
+| U31 | S. M. Jordan, A. White, B. Castro da Silva, M. White, P. S. Thomas, "Position: Benchmarking is Limited in Reinforcement Learning Research", ICML 2024 | arXiv:2406.16241 | https://arxiv.org/abs/2406.16241 ; https://arxiv.org/html/2406.16241 | partial (§2–3) |
+| U32 | A. Patterson, S. Neumann, M. White, A. White, "Empirical Design in Reinforcement Learning", JMLR 25(318):1–63, 2024 | — | https://jmlr.org/papers/v25/23-0183.html | abstract |
+| U33 | C. Colas, O. Sigaud, P.-Y. Oudeyer, "How Many Random Seeds? Statistical Power Analysis in Deep Reinforcement Learning Experiments", 2018 | arXiv:1806.08295 | https://arxiv.org/abs/1806.08295 | abstract |
 
-No DOIs were checked; arXiv identifiers and URLs are given. Venues are as stated on the arXiv page unless marked
-"seen in search".
+"URL(s) opened" lists the exact addresses fetched in this session: an `/abs/` page is the abstract, an `/html/` page the
+full text. U02, U07, U18 and U19 were opened only as HTML full text, not on their abstract pages. No DOIs were checked.
+Venues are as stated on the arXiv page unless marked "seen in search".
 
 ## 8. Limits
 - One session on one day. Search coverage is limited; the "empty" list in §6 is absence in this session's searches,
