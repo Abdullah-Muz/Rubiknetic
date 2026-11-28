@@ -1,0 +1,1762 @@
+[
+ {
+  "scenario": "FIXED",
+  "families": "coax",
+  "n_states": 768,
+  "n_reachable": 768,
+  "matrix": {
+   "U->U": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "D->U": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "R->U": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "L->U": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "F->U": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "B->U": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "U->D": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "D->D": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "R->D": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "L->D": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "F->D": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "B->D": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "U->R": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "D->R": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "R->R": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "L->R": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "F->R": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "B->R": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "U->L": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "D->L": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "R->L": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "L->L": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "F->L": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "B->L": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "U->F": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "D->F": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "R->F": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "L->F": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "F->F": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "B->F": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "U->B": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "D->B": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "R->B": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "L->B": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "F->B": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   },
+   "B->B": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 48
+   }
+  }
+ },
+ {
+  "scenario": "FIXED",
+  "families": "all",
+  "n_states": 2304,
+  "n_reachable": 2304,
+  "matrix": {
+   "U->U": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "D->U": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "R->U": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "L->U": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "F->U": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "B->U": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "U->D": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "D->D": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "R->D": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "L->D": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "F->D": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "B->D": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "U->R": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "D->R": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "R->R": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "L->R": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "F->R": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "B->R": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "U->L": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "D->L": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "R->L": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "L->L": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "F->L": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "B->L": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "U->F": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "D->F": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "R->F": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "L->F": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "F->F": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "B->F": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "U->B": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "D->B": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "R->B": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "L->B": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "F->B": {
+    "best": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   },
+   "B->B": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 128
+   }
+  }
+ },
+ {
+  "scenario": "SYM",
+  "families": "coax",
+  "n_states": 768,
+  "n_reachable": 768,
+  "matrix": {
+   "U->U": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "D->U": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "R->U": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "L->U": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "F->U": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "B->U": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "U->D": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "D->D": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "R->D": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "L->D": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "F->D": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "B->D": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "U->R": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "D->R": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "R->R": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "L->R": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "F->R": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "B->R": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "U->L": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "D->L": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "R->L": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "L->L": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "F->L": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "B->L": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "U->F": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "D->F": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "R->F": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "L->F": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "F->F": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "B->F": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "U->B": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "D->B": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "R->B": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "L->B": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "F->B": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   },
+   "B->B": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 96
+   }
+  }
+ },
+ {
+  "scenario": "SYM",
+  "families": "all",
+  "n_states": 2304,
+  "n_reachable": 2304,
+  "matrix": {
+   "U->U": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "D->U": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "R->U": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "L->U": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "F->U": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "B->U": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "U->D": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "D->D": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "R->D": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "L->D": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "F->D": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "B->D": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "U->R": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "D->R": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "R->R": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "L->R": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "F->R": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "B->R": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "U->L": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "D->L": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "R->L": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "L->L": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "F->L": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "B->L": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "U->F": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "D->F": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "R->F": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "L->F": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "F->F": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "B->F": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "U->B": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "D->B": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "R->B": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "L->B": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "F->B": {
+    "best": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   },
+   "B->B": {
+    "best": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "worst": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "unreachable_from": 0,
+    "n_states": 256
+   }
+  }
+ }
+]

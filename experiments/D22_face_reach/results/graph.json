@@ -1,0 +1,1346 @@
+{
+ "meta": {
+  "L": 1.0,
+  "H": 0.3,
+  "cube_centre": [
+   0.5,
+   0.0,
+   0.3
+  ],
+  "half_mm": 28.474999999999998,
+  "tipdist_mm": 173.02439980542698,
+  "margin_mm": 10.0,
+  "tight_mm": 5.0,
+  "sweep_deg": [
+   -180,
+   -150,
+   -120,
+   -90,
+   -60,
+   -30,
+   30,
+   60,
+   90,
+   120,
+   150,
+   180
+  ],
+  "ik_tol": [
+   0.0001,
+   0.01
+  ],
+  "seeds": 24,
+  "keep": 3,
+  "park": [
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "runtime_s": 584.6164922714233,
+  "mujoco": "4.0.1"
+ },
+ "direction_map": [
+  {
+   "dir": "+x",
+   "turn_A": {
+    "variants": 4,
+    "ik": 0,
+    "collision_free": 0,
+    "best_margin_deg": null
+   },
+   "stab_coax_A": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 31.5
+   },
+   "stab_side_A": {
+    "variants": 8,
+    "ik": 8,
+    "collision_free": 6,
+    "best_margin_deg": 76.6
+   },
+   "turn_B": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 24.3
+   },
+   "stab_coax_B": {
+    "variants": 4,
+    "ik": 0,
+    "collision_free": 0,
+    "best_margin_deg": null
+   },
+   "stab_side_B": {
+    "variants": 8,
+    "ik": 8,
+    "collision_free": 6,
+    "best_margin_deg": 87.0
+   },
+   "pair_Ahold_Bturn": {
+    "checked": 40,
+    "ok": 40,
+    "ok_coax_holder": 16,
+    "half_ok": 40,
+    "best": {
+     "hold": "COAX-p97:n-x:y+y",
+     "turn": "COAX-c1:n+x:y+y",
+     "quarter_clear_mm": 10.0,
+     "approach_clear_mm": 10.0,
+     "margins_deg": [
+      29.6,
+      19.7
+     ]
+    },
+    "fails": []
+   },
+   "pair_Bhold_Aturn": {
+    "checked": 0,
+    "ok": 0,
+    "ok_coax_holder": 0,
+    "half_ok": 0,
+    "best": null,
+    "fails": []
+   }
+  },
+  {
+   "dir": "-x",
+   "turn_A": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 28.4
+   },
+   "stab_coax_A": {
+    "variants": 4,
+    "ik": 0,
+    "collision_free": 0,
+    "best_margin_deg": null
+   },
+   "stab_side_A": {
+    "variants": 8,
+    "ik": 8,
+    "collision_free": 6,
+    "best_margin_deg": 83.6
+   },
+   "turn_B": {
+    "variants": 4,
+    "ik": 0,
+    "collision_free": 0,
+    "best_margin_deg": null
+   },
+   "stab_coax_B": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 27.1
+   },
+   "stab_side_B": {
+    "variants": 8,
+    "ik": 8,
+    "collision_free": 6,
+    "best_margin_deg": 80.3
+   },
+   "pair_Ahold_Bturn": {
+    "checked": 0,
+    "ok": 0,
+    "ok_coax_holder": 0,
+    "half_ok": 0,
+    "best": null,
+    "fails": []
+   },
+   "pair_Bhold_Aturn": {
+    "checked": 40,
+    "ok": 40,
+    "ok_coax_holder": 16,
+    "half_ok": 40,
+    "best": {
+     "hold": "COAX-p97:n+x:y+y",
+     "turn": "COAX-c1:n-x:y+y",
+     "quarter_clear_mm": 10.0,
+     "approach_clear_mm": 10.0,
+     "margins_deg": [
+      27.1,
+      26.4
+     ]
+    },
+    "fails": []
+   }
+  },
+  {
+   "dir": "+y",
+   "turn_A": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 74.3
+   },
+   "stab_coax_A": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 75.6
+   },
+   "stab_side_A": {
+    "variants": 8,
+    "ik": 6,
+    "collision_free": 4,
+    "best_margin_deg": 80.5
+   },
+   "turn_B": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 70.9
+   },
+   "stab_coax_B": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 72.5
+   },
+   "stab_side_B": {
+    "variants": 8,
+    "ik": 6,
+    "collision_free": 4,
+    "best_margin_deg": 83.3
+   },
+   "pair_Ahold_Bturn": {
+    "checked": 32,
+    "ok": 32,
+    "ok_coax_holder": 16,
+    "half_ok": 32,
+    "best": {
+     "hold": "SIDE-p97:n-x:x+y:e-y",
+     "turn": "COAX-c1:n+y:y+x",
+     "quarter_clear_mm": 10.0,
+     "approach_clear_mm": 10.0,
+     "margins_deg": [
+      31.6,
+      64.7
+     ]
+    },
+    "fails": []
+   },
+   "pair_Bhold_Aturn": {
+    "checked": 32,
+    "ok": 32,
+    "ok_coax_holder": 16,
+    "half_ok": 32,
+    "best": {
+     "hold": "SIDE-p97:n+x:x+y:e-y",
+     "turn": "COAX-c1:n+y:y+x",
+     "quarter_clear_mm": 10.0,
+     "approach_clear_mm": 10.0,
+     "margins_deg": [
+      23.4,
+      68.2
+     ]
+    },
+    "fails": []
+   }
+  },
+  {
+   "dir": "-y",
+   "turn_A": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 74.3
+   },
+   "stab_coax_A": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 75.6
+   },
+   "stab_side_A": {
+    "variants": 8,
+    "ik": 6,
+    "collision_free": 4,
+    "best_margin_deg": 79.5
+   },
+   "turn_B": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 70.9
+   },
+   "stab_coax_B": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 72.5
+   },
+   "stab_side_B": {
+    "variants": 8,
+    "ik": 6,
+    "collision_free": 4,
+    "best_margin_deg": 83.6
+   },
+   "pair_Ahold_Bturn": {
+    "checked": 32,
+    "ok": 32,
+    "ok_coax_holder": 16,
+    "half_ok": 32,
+    "best": {
+     "hold": "SIDE-p97:n-x:x+y:e+y",
+     "turn": "COAX-c1:n-y:y+x",
+     "quarter_clear_mm": 10.0,
+     "approach_clear_mm": 10.0,
+     "margins_deg": [
+      29.0,
+      67.2
+     ]
+    },
+    "fails": []
+   },
+   "pair_Bhold_Aturn": {
+    "checked": 32,
+    "ok": 32,
+    "ok_coax_holder": 16,
+    "half_ok": 32,
+    "best": {
+     "hold": "SIDE-p97:n+x:x+y:e+y",
+     "turn": "COAX-c1:n-y:y+x",
+     "quarter_clear_mm": 10.0,
+     "approach_clear_mm": 10.0,
+     "margins_deg": [
+      28.0,
+      70.7
+     ]
+    },
+    "fails": []
+   }
+  },
+  {
+   "dir": "+z",
+   "turn_A": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 81.8
+   },
+   "stab_coax_A": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 0,
+    "best_margin_deg": null
+   },
+   "stab_side_A": {
+    "variants": 8,
+    "ik": 6,
+    "collision_free": 6,
+    "best_margin_deg": 71.4
+   },
+   "turn_B": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 85.3
+   },
+   "stab_coax_B": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 0,
+    "best_margin_deg": null
+   },
+   "stab_side_B": {
+    "variants": 8,
+    "ik": 6,
+    "collision_free": 6,
+    "best_margin_deg": 69.7
+   },
+   "pair_Ahold_Bturn": {
+    "checked": 24,
+    "ok": 24,
+    "ok_coax_holder": 0,
+    "half_ok": 24,
+    "best": {
+     "hold": "SIDE-p97:n-x:x+z:e-z",
+     "turn": "COAX-c1:n+z:y+x",
+     "quarter_clear_mm": 10.0,
+     "approach_clear_mm": 10.0,
+     "margins_deg": [
+      31.6,
+      84.7
+     ]
+    },
+    "fails": []
+   },
+   "pair_Bhold_Aturn": {
+    "checked": 24,
+    "ok": 24,
+    "ok_coax_holder": 0,
+    "half_ok": 24,
+    "best": {
+     "hold": "SIDE-p97:n+x:x+z:e-z",
+     "turn": "COAX-c1:n+z:y+x",
+     "quarter_clear_mm": 10.0,
+     "approach_clear_mm": 10.0,
+     "margins_deg": [
+      27.0,
+      80.9
+     ]
+    },
+    "fails": []
+   }
+  },
+  {
+   "dir": "-z",
+   "turn_A": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 0,
+    "best_margin_deg": null
+   },
+   "stab_coax_A": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 80.7
+   },
+   "stab_side_A": {
+    "variants": 8,
+    "ik": 6,
+    "collision_free": 6,
+    "best_margin_deg": 74.1
+   },
+   "turn_B": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 0,
+    "best_margin_deg": null
+   },
+   "stab_coax_B": {
+    "variants": 4,
+    "ik": 4,
+    "collision_free": 4,
+    "best_margin_deg": 83.3
+   },
+   "stab_side_B": {
+    "variants": 8,
+    "ik": 6,
+    "collision_free": 6,
+    "best_margin_deg": 73.4
+   },
+   "pair_Ahold_Bturn": {
+    "checked": 0,
+    "ok": 0,
+    "ok_coax_holder": 0,
+    "half_ok": 0,
+    "best": null,
+    "fails": []
+   },
+   "pair_Bhold_Aturn": {
+    "checked": 0,
+    "ok": 0,
+    "ok_coax_holder": 0,
+    "half_ok": 0,
+    "best": null,
+    "fails": []
+   }
+  }
+ ],
+ "g2_face_directions": {
+  "U": "+x",
+  "D": "-x",
+  "R": "+y",
+  "L": "-y",
+  "F": "-z",
+  "B": "+z"
+ },
+ "runs": [
+  {
+   "scenario": "FIXED",
+   "families": "coax",
+   "per_face_min": {
+    "U": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "D": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "R": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "L": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "F": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "B": {
+     "handoffs": 2,
+     "reorients": 1
+    }
+   },
+   "tour_cost": {
+    "handoffs": 10,
+    "reorients": 1
+   },
+   "tour": [
+    {
+     "step": "start",
+     "state": "A holds COAX-p97 entering face D, pads on L/R; cube U+x/B+z [COAX-p97:n-x:y+y; holder margin 29.6 deg, clearance 10.0 mm]",
+     "turnable": "U",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+x:y+y",
+      "face_dir": "+x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.6,
+      "margin_turner_deg": 19.7
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-c1 entering face U, pads on L/R; cube U+x/B+z [COAX-c1:n+x:y+y; holder margin 24.3 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "U",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 29.58141245962152,
+      "margin_recv_deg": 19.73147384985123
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds COAX-p97 entering face R, pads on B/F; cube U+x/B+z [COAX-p97:n+y:y+z; holder margin 75.6 deg, clearance 10.0 mm]",
+     "turnable": "L",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n-y:y+x",
+      "face_dir": "-y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 75.6,
+      "margin_turner_deg": 67.2
+     },
+     "faces_so_far": "UL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 24.310110514189365,
+      "margin_recv_deg": 75.5590611198928
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-c1 entering face U, pads on L/R; cube U+x/B+z [COAX-c1:n+x:y+y; holder margin 24.3 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "UL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 75.5590611198928,
+      "margin_recv_deg": 19.73147384985123
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds COAX-p97 entering face L, pads on B/F; cube U+x/B+z [COAX-p97:n-y:y+z; holder margin 71.5 deg, clearance 10.0 mm]",
+     "turnable": "R",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+y:y+x",
+      "face_dir": "+y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 71.5,
+      "margin_turner_deg": 64.7
+     },
+     "faces_so_far": "URL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 24.310110514189365,
+      "margin_recv_deg": 71.49064668382024
+     }
+    },
+    {
+     "step": "reorient",
+     "state": "A holds COAX-p97 entering face L, pads on B/F; cube U-x/B-y [COAX-p97:n+z:y-y; holder margin 80.7 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "URL"
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-c1 entering face D, pads on L/R; cube U-x/B-y [COAX-c1:n+x:y+z; holder margin 20.7 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "URL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 80.68306603866871,
+      "margin_recv_deg": 20.674459359284803
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds COAX-p97 entering face U, pads on B/F; cube U-x/B-y [COAX-p97:n-x:y+y; holder margin 29.6 deg, clearance 10.0 mm]",
+     "turnable": "D",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+x:y+y",
+      "face_dir": "+x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.6,
+      "margin_turner_deg": 19.7
+     },
+     "faces_so_far": "UDRL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 20.674459359284803,
+      "margin_recv_deg": 29.58141245962152
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-c1 entering face D, pads on B/F; cube U-x/B-y [COAX-c1:n+x:y+y; holder margin 24.3 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "UDRL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 29.58141245962152,
+      "margin_recv_deg": 19.73147384985123
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds COAX-p97 entering face F, pads on L/R; cube U-x/B-y [COAX-p97:n+y:y+z; holder margin 75.6 deg, clearance 10.0 mm]",
+     "turnable": "B",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n-y:y+x",
+      "face_dir": "-y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 75.6,
+      "margin_turner_deg": 67.2
+     },
+     "faces_so_far": "UDRLB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 24.310110514189365,
+      "margin_recv_deg": 75.5590611198928
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-c1 entering face D, pads on B/F; cube U-x/B-y [COAX-c1:n+x:y+y; holder margin 24.3 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "UDRLB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 75.5590611198928,
+      "margin_recv_deg": 19.73147384985123
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds COAX-p97 entering face B, pads on L/R; cube U-x/B-y [COAX-p97:n-y:y+z; holder margin 71.5 deg, clearance 10.0 mm]",
+     "turnable": "F",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+y:y+x",
+      "face_dir": "+y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 71.5,
+      "margin_turner_deg": 64.7
+     },
+     "faces_so_far": "UDRLFB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 24.310110514189365,
+      "margin_recv_deg": 71.49064668382024
+     }
+    }
+   ],
+   "no_regrasp_faces": [
+    "U"
+   ],
+   "start_orientations_reachable": [
+    "U-z/B+y",
+    "U-z/B-y",
+    "U-y/B-z",
+    "U+y/B+z",
+    "U-y/B+z",
+    "U+y/B-z",
+    "U-z/B-x",
+    "U-z/B+x",
+    "U-y/B-x",
+    "U+y/B-x",
+    "U-y/B+x",
+    "U+y/B+x",
+    "U+x/B-z",
+    "U+x/B+z",
+    "U+x/B-y",
+    "U+x/B+y"
+   ]
+  },
+  {
+   "scenario": "FIXED",
+   "families": "all",
+   "per_face_min": {
+    "U": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "D": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "R": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "L": {
+     "handoffs": 2,
+     "reorients": 0
+    },
+    "F": {
+     "handoffs": 2,
+     "reorients": 1
+    },
+    "B": {
+     "handoffs": 2,
+     "reorients": 0
+    }
+   },
+   "tour_cost": {
+    "handoffs": 10,
+    "reorients": 1
+   },
+   "tour": [
+    {
+     "step": "start",
+     "state": "A holds COAX-p97 entering face D, pads on L/R; cube U+x/B+z [COAX-p97:n-x:y+y; holder margin 29.6 deg, clearance 10.0 mm]",
+     "turnable": "U",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+x:y+y",
+      "face_dir": "+x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.6,
+      "margin_turner_deg": 19.7
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-c1 entering face U, pads on L/R; cube U+x/B+z [COAX-c1:n+x:y+y; holder margin 24.3 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "U",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 29.58141245962152,
+      "margin_recv_deg": 19.73147384985123
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds SIDE-p97 entering face D, flush with face R, pads on B/F; cube U+x/B+z [SIDE-p97:n-x:x+y:e+y; holder margin 29.0 deg, clearance 10.0 mm]",
+     "turnable": "L",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n-y:y+x",
+      "face_dir": "-y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.0,
+      "margin_turner_deg": 67.2
+     },
+     "faces_so_far": "UL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 24.310110514189365,
+      "margin_recv_deg": 28.996429332394506
+     }
+    },
+    {
+     "step": "reorient",
+     "state": "A holds SIDE-p97 entering face D, flush with face R, pads on B/F; cube U-z/B-y [SIDE-p97:n+z:x+x:e+x; holder margin 82.4 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "UL"
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-c1 entering face R, pads on D/U; cube U-z/B-y [COAX-c1:n+x:y+z; holder margin 20.7 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "UL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 82.44967728966438,
+      "margin_recv_deg": 20.674459359284803
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds COAX-p97 entering face L, pads on B/F; cube U-z/B-y [COAX-p97:n-x:y+y; holder margin 29.6 deg, clearance 10.0 mm]",
+     "turnable": "R",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+x:y+y",
+      "face_dir": "+x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.6,
+      "margin_turner_deg": 19.7
+     },
+     "faces_so_far": "URL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 20.674459359284803,
+      "margin_recv_deg": 29.58141245962152
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-c1 entering face R, pads on B/F; cube U-z/B-y [COAX-c1:n+x:y+y; holder margin 24.3 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "URL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 29.58141245962152,
+      "margin_recv_deg": 19.73147384985123
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds SIDE-p97 entering face L, flush with face F, pads on D/U; cube U-z/B-y [SIDE-p97:n-x:x+y:e+y; holder margin 29.0 deg, clearance 10.0 mm]",
+     "turnable": "B",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n-y:y+x",
+      "face_dir": "-y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.0,
+      "margin_turner_deg": 67.2
+     },
+     "faces_so_far": "URLB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 24.310110514189365,
+      "margin_recv_deg": 28.996429332394506
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-c1 entering face R, pads on B/F; cube U-z/B-y [COAX-c1:n+x:y+y; holder margin 24.3 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "URLB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 28.996429332394506,
+      "margin_recv_deg": 19.73147384985123
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds SIDE-p97 entering face L, flush with face B, pads on D/U; cube U-z/B-y [SIDE-p97:n-x:x+y:e-y; holder margin 31.6 deg, clearance 10.0 mm]",
+     "turnable": "F",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+y:y+x",
+      "face_dir": "+y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 31.6,
+      "margin_turner_deg": 64.7
+     },
+     "faces_so_far": "URLFB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 24.310110514189365,
+      "margin_recv_deg": 31.55109046587418
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-c1 entering face R, pads on B/F; cube U-z/B-y [COAX-c1:n+x:y+y; holder margin 24.3 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "URLFB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 31.55109046587418,
+      "margin_recv_deg": 19.73147384985123
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds SIDE-p97 entering face L, flush with face U, pads on B/F; cube U-z/B-y [SIDE-p97:n-x:x+z:e-z; holder margin 31.6 deg, clearance 10.0 mm]",
+     "turnable": "D",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+z:y+x",
+      "face_dir": "+z",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 31.6,
+      "margin_turner_deg": 84.7
+     },
+     "faces_so_far": "UDRLFB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 24.310110514189365,
+      "margin_recv_deg": 31.553004170543186
+     }
+    }
+   ],
+   "no_regrasp_faces": [
+    "U"
+   ],
+   "start_orientations_reachable": [
+    "U-z/B+y",
+    "U-z/B-y",
+    "U-y/B-z",
+    "U+y/B+z",
+    "U-y/B+z",
+    "U+y/B-z",
+    "U-z/B-x",
+    "U-z/B+x",
+    "U-y/B-x",
+    "U+y/B-x",
+    "U-y/B+x",
+    "U+y/B+x",
+    "U+x/B-z",
+    "U+x/B+z",
+    "U+x/B-y",
+    "U+x/B+y"
+   ]
+  },
+  {
+   "scenario": "SYM",
+   "families": "coax",
+   "per_face_min": {
+    "U": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "D": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "R": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "L": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "F": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "B": {
+     "handoffs": 1,
+     "reorients": 1
+    }
+   },
+   "tour_cost": {
+    "handoffs": 5,
+    "reorients": 1
+   },
+   "tour": [
+    {
+     "step": "start",
+     "state": "A holds COAX-p97 entering face D, pads on L/R; cube U+x/B+z [COAX-p97:n-x:y+y; holder margin 29.6 deg, clearance 10.0 mm]",
+     "turnable": "U",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+x:y+y",
+      "face_dir": "+x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.6,
+      "margin_turner_deg": 19.7
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-p97 entering face U, pads on B/F; cube U+x/B+z [COAX-p97:n+x:y+z; holder margin 25.9 deg, clearance 10.0 mm]",
+     "turnable": "D",
+     "turn": {
+      "turner": "A",
+      "turn_grasp": "COAX-c1:n-x:y+y",
+      "face_dir": "-x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 25.9,
+      "margin_turner_deg": 26.4
+     },
+     "faces_so_far": "UD",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 29.58141245962152,
+      "margin_recv_deg": 25.881257309841306
+     }
+    },
+    {
+     "step": "reorient",
+     "state": "B holds COAX-p97 entering face U, pads on B/F; cube U+z/B-y [COAX-p97:n+z:y-y; holder margin 83.3 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "UD"
+    },
+    {
+     "step": "handoff",
+     "state": "A holds COAX-p97 entering face R, pads on D/U; cube U+z/B-y [COAX-p97:n-x:y+z; holder margin 29.3 deg, clearance 10.0 mm]",
+     "turnable": "L",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+x:y+y",
+      "face_dir": "+x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.3,
+      "margin_turner_deg": 19.7
+     },
+     "faces_so_far": "UDL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 83.30864242416861,
+      "margin_recv_deg": 29.32516602676834
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-p97 entering face L, pads on B/F; cube U+z/B-y [COAX-p97:n+x:y+y; holder margin 27.1 deg, clearance 10.0 mm]",
+     "turnable": "R",
+     "turn": {
+      "turner": "A",
+      "turn_grasp": "COAX-c1:n-x:y+y",
+      "face_dir": "-x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 27.1,
+      "margin_turner_deg": 26.4
+     },
+     "faces_so_far": "UDRL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 29.32516602676834,
+      "margin_recv_deg": 27.105875817742273
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds COAX-p97 entering face F, pads on D/U; cube U+z/B-y [COAX-p97:n+y:y+z; holder margin 75.6 deg, clearance 10.0 mm]",
+     "turnable": "B",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n-y:y+x",
+      "face_dir": "-y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 75.6,
+      "margin_turner_deg": 67.2
+     },
+     "faces_so_far": "UDRLB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 27.105875817742273,
+      "margin_recv_deg": 75.5590611198928
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-p97 entering face B, pads on L/R; cube U+z/B-y [COAX-p97:n-y:y+x; holder margin 55.4 deg, clearance 10.0 mm]",
+     "turnable": "F",
+     "turn": {
+      "turner": "A",
+      "turn_grasp": "COAX-c1:n+y:y+x",
+      "face_dir": "+y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 55.4,
+      "margin_turner_deg": 68.2
+     },
+     "faces_so_far": "UDRLFB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 75.5590611198928,
+      "margin_recv_deg": 55.43866300419652
+     }
+    }
+   ],
+   "no_regrasp_faces": [
+    "U"
+   ],
+   "start_orientations_reachable": [
+    "U-z/B+y",
+    "U-z/B-y",
+    "U-y/B-z",
+    "U+y/B+z",
+    "U-y/B+z",
+    "U+y/B-z",
+    "U-z/B-x",
+    "U-z/B+x",
+    "U-y/B-x",
+    "U+y/B-x",
+    "U-y/B+x",
+    "U+y/B+x",
+    "U+x/B-z",
+    "U+x/B+z",
+    "U+x/B-y",
+    "U+x/B+y"
+   ]
+  },
+  {
+   "scenario": "SYM",
+   "families": "all",
+   "per_face_min": {
+    "U": {
+     "handoffs": 0,
+     "reorients": 0
+    },
+    "D": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "R": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "L": {
+     "handoffs": 1,
+     "reorients": 0
+    },
+    "F": {
+     "handoffs": 1,
+     "reorients": 1
+    },
+    "B": {
+     "handoffs": 1,
+     "reorients": 1
+    }
+   },
+   "tour_cost": {
+    "handoffs": 5,
+    "reorients": 1
+   },
+   "tour": [
+    {
+     "step": "start",
+     "state": "A holds COAX-p97 entering face D, pads on L/R; cube U+x/B+z [COAX-p97:n-x:y+y; holder margin 29.6 deg, clearance 10.0 mm]",
+     "turnable": "U",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+x:y+y",
+      "face_dir": "+x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.6,
+      "margin_turner_deg": 19.7
+     }
+    },
+    {
+     "step": "reorient",
+     "state": "A holds COAX-p97 entering face D, pads on L/R; cube U-z/B+y [COAX-p97:n+z:y-x; holder margin 79.3 deg, clearance 10.0 mm]",
+     "turnable": null,
+     "turn": null,
+     "faces_so_far": "U"
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-p97 entering face L, pads on B/F; cube U-z/B+y [COAX-p97:n+x:y+y; holder margin 27.1 deg, clearance 10.0 mm]",
+     "turnable": "R",
+     "turn": {
+      "turner": "A",
+      "turn_grasp": "COAX-c1:n-x:y+y",
+      "face_dir": "-x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 27.1,
+      "margin_turner_deg": 26.4
+     },
+     "faces_so_far": "UR",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 79.28804219829213,
+      "margin_recv_deg": 27.105875817742273
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds COAX-p97 entering face R, pads on D/U; cube U-z/B+y [COAX-p97:n-x:y+z; holder margin 29.3 deg, clearance 10.0 mm]",
+     "turnable": "L",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n+x:y+y",
+      "face_dir": "+x",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.3,
+      "margin_turner_deg": 19.7
+     },
+     "faces_so_far": "URL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 27.105875817742273,
+      "margin_recv_deg": 29.32516602676834
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds SIDE-p97 entering face L, flush with face U, pads on B/F; cube U-z/B+y [SIDE-p97:n+x:x+z:e-z; holder margin 27.0 deg, clearance 10.0 mm]",
+     "turnable": "D",
+     "turn": {
+      "turner": "A",
+      "turn_grasp": "COAX-c1:n+z:y+x",
+      "face_dir": "+z",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 27.0,
+      "margin_turner_deg": 80.9
+     },
+     "faces_so_far": "UDRL",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 29.32516602676834,
+      "margin_recv_deg": 24.218799710076777
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "A holds SIDE-p97 entering face R, flush with face B, pads on D/U; cube U-z/B+y [SIDE-p97:n-x:x+y:e+y; holder margin 29.0 deg, clearance 10.0 mm]",
+     "turnable": "F",
+     "turn": {
+      "turner": "B",
+      "turn_grasp": "COAX-c1:n-y:y+x",
+      "face_dir": "-y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 29.0,
+      "margin_turner_deg": 67.2
+     },
+     "faces_so_far": "UDRLF",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 1.0603888880467567,
+      "margin_holder_deg": 23.49044216587533,
+      "margin_recv_deg": 28.996429332394506
+     }
+    },
+    {
+     "step": "handoff",
+     "state": "B holds COAX-p97 entering face F, pads on L/R; cube U-z/B+y [COAX-p97:n-y:y+x; holder margin 55.4 deg, clearance 10.0 mm]",
+     "turnable": "B",
+     "turn": {
+      "turner": "A",
+      "turn_grasp": "COAX-c1:n+y:y+x",
+      "face_dir": "+y",
+      "quarter_clear_mm": 10.0,
+      "half_ok": true,
+      "approach_clear_mm": 10.0,
+      "margin_holder_deg": 55.4,
+      "margin_turner_deg": 68.2
+     },
+     "faces_so_far": "UDRLFB",
+     "handoff": {
+      "approach_clear_mm": 10.0,
+      "grasp_clear_mm": 10.0,
+      "margin_holder_deg": 28.996429332394506,
+      "margin_recv_deg": 55.43866300419652
+     }
+    }
+   ],
+   "no_regrasp_faces": [
+    "U"
+   ],
+   "start_orientations_reachable": [
+    "U-z/B+y",
+    "U-z/B-y",
+    "U-y/B-z",
+    "U+y/B+z",
+    "U-y/B+z",
+    "U+y/B-z",
+    "U-z/B-x",
+    "U-z/B+x",
+    "U-y/B-x",
+    "U+y/B-x",
+    "U-y/B+x",
+    "U+y/B+x",
+    "U+x/B-z",
+    "U+x/B+z",
+    "U+x/B-y",
+    "U+x/B+y"
+   ]
+  }
+ ]
+}
