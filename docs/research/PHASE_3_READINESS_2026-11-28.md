@@ -113,6 +113,6 @@ specification, and every `PROPOSAL` needs the user's approval. G3 cannot start b
   map.
 
 ## Decisions for the user (none needed before G2 closes)
-1. The baseline structure: A (keep G2's impedance) or B (hardware admittance) (issue 2).
+1. ~~The baseline structure~~ **Decided: A, keep G2's impedance as B0, disclosed as an abstraction; Q2 admittance check optional (P-134, 2026-11-28).**
 2. Whether to pursue a NoSlip-off training model, validated against full M7 (issue 1).
 3. Approval of the B0 stress map as G3's first experiment (issue 5).

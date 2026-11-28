@@ -1,0 +1,4 @@
+{"sub": "E1-2", "tid": "U_s16100", "kind": "seq", "magnets_flag": true, "apply": 5180, "steps": 5179, "missing": 0, "pass": true, "diffs_vs_rehearsal": 0, "first_diffs": []}
+{"sub": "E1-4", "tid": "sexy6_s16300", "kind": "seq", "magnets_flag": true, "apply": 103121, "steps": 103120, "missing": 0, "pass": true, "diffs_vs_rehearsal": 0, "first_diffs": []}
+{"sub": "E1-1", "tid": "rest_s16000", "kind": "rest60", "magnets_flag": true, "apply": 142002, "steps": 142000, "missing": 0, "pass": true, "diffs_vs_rehearsal": 0, "first_diffs": []}
+SUMMARY {"trials": 3, "all_steps_with_magnet_force": true, "all_identical_to_rehearsal": true}
