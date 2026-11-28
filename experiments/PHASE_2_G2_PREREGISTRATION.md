@@ -1,6 +1,6 @@
 # Phase 2 (G2) Pre-registration: two-arm, contact-driven layer turns of the free-core M7 cube
 
-**Status: DRAFT revision 7, NOT IN FORCE (2026-11-28).**
+**Status: IN FORCE, revision 7 (frozen 2026-11-28, P-141).**
 - Revision 2 answered review 1 (`G2_PREREGISTRATION_REVIEW1_2026-11-27.md`, P-122): all 7 required items, and every
   suggestion except per-trial F/T noise seeding (P-123). §9 maps each item to its change.
 - Revision 3 answered review 2 (`G2_PREREGISTRATION_REVIEW2_2026-11-27.md`, P-126): all 4 required items and all 6
@@ -463,8 +463,8 @@ review 6 S-e). CI runs this file in its own process.
 | P-6e | magnets restored and checked per step; pilot 4 (magnets on); limits rechecked; self-check at the revision-5 code | P-131, P-132 |
 | P-6f | review-5 suggestions applied; tests, smoke run and self-check at the revision-6 code | P-136 |
 | P-6g | review-6 suggestions applied; tests (0 skipped enforced) and self-check at the revision-7 code | P-138 |
-| P-7 | independent reviews until "ACCEPTABLE AS IS" | **open**: reviews 5 and 6 ACCEPTABLE AS IS (P-135, P-137); revision 7 under a short review limited to its changes (reviews 1–4: P-122, P-126, P-128, P-130) |
-| P-8 | the user's approval; freeze commit; DECISION_LOG | **open** |
+| P-7 | independent reviews until "ACCEPTABLE AS IS" | **done**: reviews 5, 6 and 7 ACCEPTABLE AS IS (P-135, P-137, P-139); reviews 1–4: P-122, P-126, P-128, P-130 |
+| P-8 | the user's approval; freeze commit; DECISION_LOG | **done**: approved by the user 2026-11-28 (P-141) |
 
 ## 8. Limitations (to be stated with any G2 result)
 1. **Simulation only;** every `ASSUMPTION` of §0.6 applies.

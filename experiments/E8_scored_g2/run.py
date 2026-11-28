@@ -46,7 +46,7 @@ MANIFEST, STARTS, LEDGER, INTERRUPTED = "MANIFEST.json", "STARTS.txt", "LEDGER.t
 ENV_COMPARED = ("mujoco", "numpy", "scipy", "python", "cpu")
 SCORED_SEEDS = (30000, 30999)
 SMOKE_SEED_BASE = 29100                  # pilot range 29000-29999 (never scored)
-FROZEN = False                           # set True only when the pre-registration is frozen (with its review record)
+FROZEN = True                            # set True only when the pre-registration is frozen (with its review record)
 FROZEN_PATHS = [                         # review 1 item 5: every repository module a trial loads (tested), and data
     "experiments/PHASE_2_G2_PREREGISTRATION.md",
     "experiments/E8_scored_g2/run.py", "experiments/E8_scored_g2/trials.py", "experiments/E8_scored_g2/analyze.py",
