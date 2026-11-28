@@ -1,0 +1,134 @@
+{
+ "study": "D23 admittance Q2",
+ "scored": false,
+ "cfg": {
+  "mode": "adm",
+  "K": 500.0,
+  "M": 1.0,
+  "zeta": 0.8,
+  "D": 35.77708763999664,
+  "ft_lp_hz": 0.0,
+  "delay": 3,
+  "servo_gain": 1.0,
+  "seed": 29002,
+  "tick_hz": 250.0,
+  "ft_force_noise_N": 0.1
+ },
+ "start_draw": {
+  "cube_offset_m": [
+   -0.0007406570220978874,
+   -0.00028186812615534995,
+   0.0006879505996296345
+  ],
+  "misalign_deg": {
+   "U": -0.7311034688381906,
+   "D": 0.5435905900173565,
+   "F": -0.7628450330973493,
+   "B": 0.7007023905341687,
+   "L": -0.5105495490161234,
+   "R": 0.9425973073364586
+  }
+ },
+ "start": {
+  "stand": true,
+  "stickers": false,
+  "stand_load_N": 0.8830296118653853,
+  "stand_load_after_grasp_N": 0.9473258315003757,
+  "settle_on_stand_mm": 0.35688209481710637,
+  "settle_rot_deg": 0.8728207264776304,
+  "grasp_shift_mm": 0.8691865059730844,
+  "grasp_rot_deg": 0.6295687148838409,
+  "stand_drop_shift_mm": 0.10484776743912462,
+  "stand_drop_rot_deg": 0.03909170812382391,
+  "stand_contact_after_drop_N": 0.0,
+  "core_offset_from_nominal_mm": 0.5164131327260539,
+  "contacts": {
+   "pen_cubie": 0.06681707945958552,
+   "robot_cube_nonpad": 0,
+   "arm_arm": 0,
+   "robot_table": 0,
+   "robot_stand": 0,
+   "robot_block": 0,
+   "cube_stand": 0
+  }
+ },
+ "model_audit": {
+  "actuators_on_cube": [],
+  "equalities_on_cube": [],
+  "tendons_on_cube": [],
+  "gravcomp_on_cube": [],
+  "n_cube_bodies": 27
+ },
+ "scene_armB": "position servos (arm A gains x 1.0), admittance mode adm",
+ "t0_solved": true,
+ "f_tare_N": [
+  -0.01984876166129356,
+  0.006335288924820126,
+  7.3714963816596475
+ ],
+ "turn": {
+  "observed_move": "U",
+  "layer_rot_mean_deg": -90.12972506459366,
+  "turn_error_deg": -0.12972506459365718,
+  "final_valid": true,
+  "j7_roll_done_deg": -89.92324868282283
+ },
+ "phases": {
+  "tare": [
+   3.6000000000003696,
+   3.8000000000004364
+  ],
+  "approach": [
+   3.8000000000004364,
+   4.800000000000059
+  ],
+  "settle": [
+   4.800000000000059,
+   5.299999999999782
+  ],
+  "close": [
+   5.299999999999782,
+   6.908499999998891
+  ],
+  "hold": [
+   6.908499999998891,
+   8.408499999998785
+  ],
+  "roll": [
+   8.408499999998785,
+   9.908500000000618
+  ],
+  "roll_hold": [
+   9.908500000000618,
+   10.208500000000985
+  ],
+  "open": [
+   10.208500000000985,
+   10.508500000001352
+  ]
+ },
+ "contacts": {
+  "pen_cubie": 0.11878212454150154,
+  "robot_cube_nonpad": 0,
+  "arm_arm": 0,
+  "robot_table": 0,
+  "robot_stand": 0,
+  "robot_block": 0,
+  "cube_stand": 0
+ },
+ "residual_end_deg_max": 0.6814307934204143,
+ "magnets": {
+  "steps": 21017,
+  "steps_without_magnet_force": 0,
+  "force_evaluations": 21019,
+  "sim_steps": 21017,
+  "max_near_tilt_deg": 1.4177434712500423,
+  "near_perpendicular": 0,
+  "clamped_z": 0
+ },
+ "audit_violations": [],
+ "numerical_failures": [],
+ "sim_time_s": 10.508500000001352,
+ "wall_s": 138.76961657300126,
+ "name": "adm_K500_M1_d3_z0.8_sg1_s29002"
+}
