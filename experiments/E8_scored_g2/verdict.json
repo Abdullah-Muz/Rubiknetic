@@ -1,0 +1,132 @@
+{
+ "status": "PASS",
+ "problems": [],
+ "mode": "scored",
+ "failed": {},
+ "n_scored": 128,
+ "n_reported_only": 10,
+ "turn_trials": 100,
+ "turn_failures": 0,
+ "turn_failure_rate_upper95": 0.029513049607039925,
+ "moves": 360,
+ "per_move_max": {
+  "turn_error_deg": 0.4138649275594801,
+  "nontarget_drift_deg": 0.30720521051037336,
+  "pen_cubie_mm": 0.14380098716117062,
+  "pen_pad_mm": 1.1961809597694288,
+  "ft_tau_z_max_Nm": 0.5030878746597118,
+  "max_tool_torque_on_layer_Nm": 0.5133308041782185,
+  "core_slip_mm": 0.2597997366682072,
+  "core_rot_deg": 1.2366030531111347,
+  "rollback_rot_deg": 0.09175020526468122,
+  "grasp_err_mm": 0.9543975241085284,
+  "armB_track_err_mm": 2.5518076335175492
+ },
+ "trial_max": {
+  "core_slip_total_mm": 0.6555004151633534,
+  "core_rot_total_deg": 1.1877214232518896,
+  "residual_end_deg": 1.064006311058039,
+  "residual_growth_deg (reported)": 0.7881891330953784
+ },
+ "holds": {
+  "n": 20,
+  "pass": 20,
+  "slip_max_mm": 0.1592546823986155,
+  "rot_max_deg": 0.3411680316816005
+ },
+ "negatives": {
+  "two_layer_s30700": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "two_layer_s30701": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "offcentre_s30702": {
+   "pass": true,
+   "outcome": "clean",
+   "reported_only": true
+  },
+  "offcentre_s30703": {
+   "pass": true,
+   "outcome": "clean",
+   "reported_only": true
+  },
+  "collision_s30704": {
+   "pass": true,
+   "outcome": "robot contact detected",
+   "reported_only": false
+  },
+  "collision_s30705": {
+   "pass": true,
+   "outcome": "robot contact detected",
+   "reported_only": false
+  },
+  "open_midturn_s30706": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "open_midturn_s30707": {
+   "pass": true,
+   "outcome": "detected",
+   "reported_only": false
+  },
+  "jam_s30708": {
+   "pass": true,
+   "outcome": "guard stop at 43.6 deg",
+   "reported_only": false
+  },
+  "jam_s30709": {
+   "pass": true,
+   "outcome": "guard stop at 40.8 deg",
+   "reported_only": false
+  }
+ },
+ "screen": {
+  "kp_x0.5_s30600": {
+   "pass_as_turns": true,
+   "fail_reasons": []
+  },
+  "kp_x1.5_s30601": {
+   "pass_as_turns": true,
+   "fail_reasons": []
+  },
+  "mu0.5_s30602": {
+   "pass_as_turns": true,
+   "fail_reasons": []
+  },
+  "grip10_s30603": {
+   "pass_as_turns": true,
+   "fail_reasons": []
+  },
+  "grip30_s30604": {
+   "pass_as_turns": true,
+   "fail_reasons": []
+  },
+  "grip50_stress_s30605": {
+   "pass_as_turns": true,
+   "fail_reasons": []
+  },
+  "rigid_pads_s30606": {
+   "pass_as_turns": true,
+   "fail_reasons": []
+  },
+  "offset2mm_s30607": {
+   "pass_as_turns": false,
+   "fail_reasons": [
+    "cube 3.23 mm from nominal at t0"
+   ]
+  }
+ },
+ "throughput": {
+  "n": 138,
+  "rtf_median": 0.043387376866425,
+  "rtf_min": 0.0374779393314966,
+  "rtf_max": 0.05677356191548755,
+  "note": "simulated s per wall s per trial process (holds included); other trials in parallel"
+ }
+}
