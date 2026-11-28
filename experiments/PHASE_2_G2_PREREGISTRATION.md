@@ -416,14 +416,14 @@ review 6 S-e). CI runs this file in its own process.
 - The search is repeated and recorded at the freeze.
 
 ## 7. Evidence before the freeze
-- **Tests:** `tests/test_scored_g2.py` with `G2_REQUIRE_SCENE=1`: TESTS_PLACEHOLDER
+- **Tests:** `tests/test_scored_g2.py` with `G2_REQUIRE_SCENE=1`: **63 passed, 0 skipped** (P-138; `rev7_evidence_2026-11-28.log`).
 - **Self-check:** `selfcheck.py` re-runs three pilot trials and requires the **physics identity** (final qpos SHA-256,
   the magnet step counts, the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot
   records. Since P-131 the references are pilot-4 records (`pilot4_magnets/`: `U_s29500`, `jam_s29610`,
   `rand10_s29660`). The earlier results (P-124, P-129) were against magnet-free references. Results: at the
   revision-5 code, 3/3 physics-identical at `114489e` (P-132). At the revision-6 code: 3/3 physics-identical (G2
   code of `662d9fa`; tilt 1.2–1.7°, every step counted; P-136; `rev6_evidence_2026-11-28.log`). **At the revision-7
-  code: SELFCHECK_PLACEHOLDER** `selfcheck.py` prints HEAD and whether the frozen paths are clean (review 5 S5,
+  code: 3/3 physics-identical, frozen paths clean** (P-138). `selfcheck.py` prints HEAD and whether the frozen paths are clean (review 5 S5,
   review 6 S-c); it is run again at the freeze commit.
 - **Smoke:** a smoke run killed after a record link and resumed gives PASS, with the ledger reconciled (P-120).
   At the revision-6 code: PASS, 5/5 through `run.py smoke` and `analyze.py --mode smoke`, **in one uninterrupted
