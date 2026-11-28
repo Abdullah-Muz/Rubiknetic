@@ -1,0 +1,5 @@
+HEAD 114489e (revision 5; the hash was lost by the logging command and is filled in from git log)
+IDENTICAL P4-U/U_s29500  qpos sha b84094de2cb6
+IDENTICAL P4-neg/jam_s29610  qpos sha 2cea5024d1a4
+IDENTICAL P4-rand/rand10_s29660  qpos sha 1dfd1ff91b97
+self-check: 3/3 physics-identical

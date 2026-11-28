@@ -389,12 +389,12 @@ About 0.04–0.05× real time per trial process with the magnets on (the magnet 
 - The search is repeated and recorded at the freeze.
 
 ## 7. Evidence before the freeze
-- **Tests:** `tests/test_scored_g2.py`, TESTS_PLACEHOLDER tests pass.
+- **Tests:** `tests/test_scored_g2.py`, 62 tests pass.
 - **Self-check:** `selfcheck.py` re-runs three pilot trials and requires the **physics identity** (final qpos SHA-256,
   the magnet step counts, the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot
   records. Since P-131 the references are pilot-4 records (`pilot4_magnets/`: `U_s29500`, `jam_s29610`,
   `rand10_s29660`). The earlier results (P-124, P-129) were against magnet-free references. **Result at the
-  revision-5 code: SELFCHECK_PLACEHOLDER.**
+  revision-5 code: **3/3 physics-identical** at `114489e` (P-132; `selfcheck_rev5_2026-11-28.log`).**
 - **Smoke:** a smoke run killed after a record link and resumed gives PASS, with the ledger reconciled (P-120).
 - **Revision-2 pilot** (`run.py pilot2`, seeds 29300–29353; P-124): 20 U′ and 20 U2 first turns with the stop
   disabled; 4 × U U′ U2 U′ U and 2 holds at the fixed settings; 2 each of jam, two_layer, collision and open_midturn.
