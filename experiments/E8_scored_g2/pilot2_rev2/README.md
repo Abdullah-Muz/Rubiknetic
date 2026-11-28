@@ -1,5 +1,9 @@
 # G2 pilot 2 (revision 2; UNSCORED; seeds 29300–29353; 2026-11-27)
 
+> **Magnet-free (P-130, found 2026-11-27):** this pilot ran **without the M7 L0 magnets**, through a bug in the two-arm scene
+> (`two_arm.py` installed the magnet callback, then building arm B's IK model uninstalled it). The records below are kept
+> as recorded and are not evidence for the system under test. The magnets-on repeat is [`../pilot4_magnets/`](../pilot4_magnets/README.md) (P-131, P-132).
+
 **Scope:**
 - Run with `run.py pilot2 --smoke-dir /home/fwdev/g2pilot2 --jobs 7` at commit `eded7ef` (the revision-2 code). The records
   are copied here (`results/`, `run_log.txt`). 54 trials. Results: DECISION_LOG P-124.
