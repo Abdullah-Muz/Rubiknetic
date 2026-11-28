@@ -1,0 +1,144 @@
+{
+ "artifacts": {
+  "experiments/D8_alignment/results/d8_1b_checks.json": "c5597a66bc01376fc22d9bf9a2aa0c6faabdf70bd0280fa813fd5824da37df36",
+  "experiments/D8_alignment/results/d8_1b_checks_3x1.5_N35_s1.json": "58380840766c05750c1c9b599be04c30b37381f628169f1109874742e0c53b3e",
+  "experiments/D8_alignment/results/d8_1b_checks_4x1.5_N35_s1.json": "6466aa882b884b6a637ccc1c0544f78ad5ca6af31d4845710e900be2d733146c",
+  "experiments/D8_alignment/results/d8_1b_checks_4x2_N35_s0.67.json": "b7329f202634974831199a74b4571bf5b6cf85d872f3df7fc49734aac54274e1",
+  "experiments/D8_alignment/results/d8_1b_checks_4x2_N52_s1.json": "1b09ea67190414322aa90cb66613f03a8f93baab3daa87d90cedb50d63950b87",
+  "experiments/D8_alignment/results/d8_1b_checks_pair0.35mm_4x2_N35_s1.json": "f198f28bb37bc492b29ac101a68fee244a6b146847f445a3055a88cf171c8240",
+  "experiments/D8_alignment/results/tables/tilt_4x2_1.19T_s1_r8_h1.5_q16x48.npz": "c2ff0fcc4443419c8fa06b43cbbae24f5d541843ac9500a1b75bb378ffd2481f",
+  "third_party_cad/robot/g2_meshes/base_link_g2.stl": "498cc0960eec6ba2cd535f064bf75f07e1ee21dd39420ed79b309af0ff1d2c33",
+  "third_party_cad/robot/g2_meshes/left_finger_g2.stl": "0dcdb9546d41e5adc9e42e8ec1ca3c376bf9174da5683c563a1e0ca0c455cdfd",
+  "third_party_cad/robot/g2_meshes/left_inner_knuckle_g2.stl": "ce9fdbb2256eb218aa5f87f4062c8d85731436324334cb66ec1b81a2a2a9cdfb",
+  "third_party_cad/robot/g2_meshes/left_outer_knuckle_g2.stl": "5b075219e3bb72d4619e234c166fc5f71ee45a0d94b0d2a6ba91b3e08102191b",
+  "third_party_cad/robot/g2_meshes/right_finger_g2.stl": "530ca99d2c01c512cd0e8ae17ca98dba7510331665c4026a94ea1db9113f414b",
+  "third_party_cad/robot/g2_meshes/right_inner_knuckle_g2.stl": "4b5b5b0b3cb04bc7beb0be4d1d10b4470de7b62a61ee7a4b434c5ff0d0729603",
+  "third_party_cad/robot/g2_meshes/right_outer_knuckle_g2.stl": "37665db1aeacfbd95bc1e64ee19e5db8e67f1b78b60b93ca1d3700b0faefde33",
+  "third_party_cad/robot/generated/xarm7_g2_1305+.xml": "a7a031b4811c7c01d1138286b9489478620fef3b041d7512fafc4c8e6e8097da",
+  "third_party_cad/robot/generated/xarm7_g2_1305+_gripper_calibration.json": "2c55021f99e7f32b5dd6a3357d4a6244c8a099c84ae1c793ec32047ad1d36896",
+  "third_party_cad/robot/src/menagerie/ufactory_xarm7/assets/end_tool.stl": "e06112781cdd615b7df536569f50addb445a6f4b4acced6d53b0742018b6c768",
+  "third_party_cad/robot/src/menagerie/ufactory_xarm7/assets/link1.stl": "34b541122df84d2ef5fcb91b715eb19659dc15ad8d44a191dde481f780265636",
+  "third_party_cad/robot/src/menagerie/ufactory_xarm7/assets/link2.stl": "61e641cd47c169ecef779683332e00e4914db729bf02dfb61bfbe69351827455",
+  "third_party_cad/robot/src/menagerie/ufactory_xarm7/assets/link3.stl": "9e2798e7946dd70046c95455d5ba96392d0b54a6069caba91dc4ca66e1379b42",
+  "third_party_cad/robot/src/menagerie/ufactory_xarm7/assets/link4.stl": "c757fee95f873191a0633c355c07a360032960771cabbd7593a6cdb0f1ffb089",
+  "third_party_cad/robot/src/menagerie/ufactory_xarm7/assets/link5.stl": "715ad5787c5dab57589937fd47289882707b5e1eb997e340d567785b02f4ec90",
+  "third_party_cad/robot/src/menagerie/ufactory_xarm7/assets/link6.stl": "85b320aa420497827223d16d492bba8de091173374e361396fc7a5dad7bdb0cb",
+  "third_party_cad/robot/src/menagerie/ufactory_xarm7/assets/link7.stl": "97115d848fbf802cb770cd9be639ae2af993103b9d9bbb0c50c943c738a36f18",
+  "third_party_cad/robot/src/menagerie/ufactory_xarm7/assets/link_base.stl": "cf52275a913a0977595f5d12373f06583513e26fe18b8cf2827c74da94a4f0be",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/collision/link1.obj": "aa269f7379ea559fe744eb70112e784632268d6fcd0d39c7690846adb832a44b",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/collision/link2.obj": "50fab87b0c4c054da8c5c839c6d1033e6b74f128b7ae37c3589a8904f97c8c2c",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/collision/link3.obj": "31ad8e2cf2dac7276a7f3223505c3129c59f3da80065d1c11e155e9a6a180630",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/collision/link4.obj": "f68f76b787a1d36797d157c8cc92a65825b4b1f3b8fac9011cbbb35d000f6210",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/collision/link5.obj": "033f5b027de7d1eec614270b39a1b21c65ffc9be1229d367795efbc45fc91b41",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/collision/link6.obj": "b0c995fec942f63983444b7278144e9f32898d06f537cd5cb9e182bc73cbb393",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/collision/link7.obj": "6af85f65f81897ac003c2dda095d2242f8d84d61f5b37cff2e725996b9a56615",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/collision/link_base.obj": "a3c5a181d32b52915442dbf0940f226c58dcc85fca49ffd3047ca50cf2e6b011",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/visual/link1.stl": "8b6621cd3371670b77773db07dea9d7af3bc24c9c6b09ad2a7ae9242c1cb8b4f",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/visual/link2.stl": "4eb7dd3c4444940af9e0b9ce54cb29720eb86ee19d4dd08a5ee7fbc28f9a063b",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/visual/link3.stl": "890b340654579243f381694cffa149998e823adcee2a42d97907cf8c00d3e0ae",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/visual/link4.stl": "d56738276a5d3484c733af4d7b69e63087e4e340756d67d17354b6c82dc0b4d8",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/visual/link5.stl": "8ca41d66bcf38d6f12af70a9d8a4c5aafccd0ce541b011853f44a97490f830e4",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/visual/link6.stl": "e0681550ce667f134988f297df6d6d3f026677ea9e57b38dae236be3e333d36b",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/visual/link7.stl": "7604bde7881dc09ce16db57007bfc03e3885abe9d12da18e63b91cb1569d6d4f",
+  "third_party_cad/robot/src/xarm_ros2/xarm_description/meshes/xarm7_1305/visual/link_base.stl": "80c82de2d3429765c97f9f8a17c107c3b830869fe1d8a8c681b2593f4fe21fc4"
+ },
+ "commit": "e25d43ad5a0bd8b89aea242557ec1bbeab0a50c6+smoke",
+ "created": "2026-11-28T05:58:53+00:00",
+ "environment": {
+  "cpu": "AMD Ryzen 7 250 w/ Radeon 780M Graphics",
+  "mujoco": "4.0.1",
+  "n_cpu": 16,
+  "numpy": "2.5.4",
+  "os": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "python": "3.12.3",
+  "scipy": "1.18.1"
+ },
+ "environment_compared": [
+  "mujoco",
+  "numpy",
+  "scipy",
+  "python",
+  "cpu"
+ ],
+ "frozen_paths": [
+  "experiments/PHASE_2_G2_PREREGISTRATION.md",
+  "experiments/E8_scored_g2/run.py",
+  "experiments/E8_scored_g2/trials.py",
+  "experiments/E8_scored_g2/analyze.py",
+  "experiments/E8_scored_g2/selfcheck.py",
+  "tests/test_scored_g2.py",
+  "experiments/D18_two_arm_m7/two_arm.py",
+  "experiments/D18_two_arm_m7/layout.py",
+  "experiments/D17_real_holder_m7/hold.py",
+  "experiments/D17_real_holder_m7/turn.py",
+  "experiments/D16_free_core_m7/grip_probe.py",
+  "experiments/P2_robot_model/build_model.py",
+  "experiments/E7_scored_m7/run.py",
+  "experiments/E5_scored_m5/run.py",
+  "experiments/E4_scored_m4/run.py",
+  "experiments/E1_scored/run.py",
+  "experiments/D8_alignment/magnets.py",
+  "experiments/D8_alignment/d8_1b_stage1.py",
+  "experiments/D8_alignment/results/d8_1b_checks*.json",
+  "experiments/D10_m5_rest_diagnostic/d10_rest.py",
+  "experiments/D11_rest_slip_count/d11_analyze.py",
+  "experiments/D13_rest_slip_mechanism/d13_run.py",
+  "experiments/D13_rest_slip_mechanism/d13_analyze.py",
+  "src/rubiknetic/__init__.py",
+  "src/rubiknetic/cube_physics",
+  "src/rubiknetic/cube_logic"
+ ],
+ "gate": "G2",
+ "trials": [
+  {
+   "exp": "G2-1",
+   "kind": "hold",
+   "kw": {
+    "hold_s": 5.0,
+    "seed": 29100
+   },
+   "reported_only": false,
+   "tid": "hold5_s29100"
+  },
+  {
+   "exp": "G2-2",
+   "kind": "seq",
+   "kw": {
+    "moves": "U",
+    "seed": 29101
+   },
+   "reported_only": false,
+   "tid": "U_s29101"
+  },
+  {
+   "exp": "G2-3",
+   "kind": "seq",
+   "kw": {
+    "moves": "U2",
+    "seed": 29102
+   },
+   "reported_only": false,
+   "tid": "U2_s29102"
+  },
+  {
+   "exp": "G2-4",
+   "kind": "seq",
+   "kw": {
+    "moves": "U U' U2",
+    "seed": 29103
+   },
+   "reported_only": false,
+   "tid": "seq3_s29103"
+  },
+  {
+   "exp": "G2-7",
+   "kind": "neg",
+   "kw": {
+    "case": "jam",
+    "seed": 29104
+   },
+   "reported_only": false,
+   "tid": "jam_s29104"
+  }
+ ]
+}

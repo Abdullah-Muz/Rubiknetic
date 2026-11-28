@@ -1,0 +1,27 @@
+== HEAD e25d43a; kill-and-resume smoke at the current run.py (review 7 N1)
+== start 1: --stop-after 2 --stop-point after_link
+exit 3 (3 = interrupted, expected)
+start 1: commit e25d43ad5a0bd8b89aea242557ec1bbeab0a50c6+smoke; 5 of 5 trials to run; orphans moved 0; ledger lines reconciled 0
+{"move": "U", "turn_error_deg": 55.322, "grasp_err_mm": 0.702, "axis_sign_measured": -1.0, "roll_sign_used": -1.0, "rollback_rot_deg": 1.006, "rollback_state_unchanged": false, "drive_impulse_Nms": 0.168, "robot_stand_max": 0, "robot_block_max": 0, "cube_stand_max": 0, "j7_lag_max_deg": 0.016, "jam_stop": {"t": 8.308499999998663, "by": "ft", "tau_z_Nm": 1.0879642394862563, "roll_done_deg": -45.00538385885427}, "j7_budget_used_Nm": 3.186, "ft_tau_z_max_Nm": 1.088, "nontarget_drift_deg": 0.173, "pen_cubie_mm": 0.162, "pen_pad_mm": 0.927, "max_roll_torque_Nm": 7.005, "max_tool_torque_on_layer_Nm": 1.099, "t_tip_force_s": 6.48, "t_layer_motion_rel_core_s": 6.491, "ok_causal": true, "robot_cube_nonpad_max": 0, "arm_arm_max": 0, "robot_table_max": 0, "saturated_steps": 0, "armB_track_err_mm": 4.109, "core_slip_mm": 0.213, "core_rot_deg": 0.469, "observed_move": null, "ok_oracle": false, "ok_turn_error": false, "ok_drift": true, "ok_penetration_cubie": true, "ok_no_nonpad_cube_contact": true, "ok_no_arm_arm": true, "ok_no_table": true, "ok_no_stand_block": true, "ok_drive": true, "ok_rollback": false, "ok_core_rot": true, "ok_all": false}
+files after start 1:
+./G2-1/hold5_s29100.json
+./G2-7/.jam_s29104.json.tmp
+./G2-7/jam_s29104.json
+./LEDGER.txt
+./MANIFEST.json
+./STARTS.txt
+ledger lines: 1
+== start 2: resume (same command, no stop)
+exit 0
+start 2: commit e25d43ad5a0bd8b89aea242557ec1bbeab0a50c6+smoke; 3 of 5 trials to run; orphans moved 1; ledger lines reconciled 1
+ledger lines: 5; reconciled: 1
+{"head": "e25d43ad5a0bd8b89aea242557ec1bbeab0a50c6", "k": 1, "orphans": [], "present": [], "reconciled": [], "time": "2026-11-28T05:58:53+00:00"}
+{"head": "e25d43ad5a0bd8b89aea242557ec1bbeab0a50c6", "k": 2, "orphans": [{"moved_to": "_interrupted/k2__G2-7__.jam_s29104.json.tmp", "path": "G2-7/.jam_s29104.json.tmp", "sha256": "d24bc68d32c17123e0fcb1b943d84b2cf88c5b6741cbeaa2b8db36ff3d32ef01"}], "present": [["G2-1", "hold5_s29100"], ["G2-7", "ja
+== verdict
+# G2 verdict (smoke): **PASS**
+
+- scored trials: 5 (reported only: 0)
+- turn trials: 3, failures 0, exact 95 % upper bound on the per-trial failure rate 0.632
+- moves: 5
+- G2-1 holds: 1/1 pass; max slip 0.012405186254880539 mm, max rotation 0.01630667921949887 deg
+done

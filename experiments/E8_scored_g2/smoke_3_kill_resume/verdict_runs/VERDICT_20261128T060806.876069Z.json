@@ -1,0 +1,52 @@
+{
+ "status": "PASS",
+ "problems": [],
+ "mode": "smoke",
+ "failed": {},
+ "n_scored": 5,
+ "n_reported_only": 0,
+ "turn_trials": 3,
+ "turn_failures": 0,
+ "turn_failure_rate_upper95": 0.6315968501359612,
+ "moves": 5,
+ "per_move_max": {
+  "turn_error_deg": 0.2069476995058679,
+  "nontarget_drift_deg": 0.16391512710334832,
+  "pen_cubie_mm": 0.12608498739832455,
+  "pen_pad_mm": 1.1253516474992762,
+  "ft_tau_z_max_Nm": 0.28169366582975286,
+  "max_tool_torque_on_layer_Nm": 0.3140730202310376,
+  "core_slip_mm": 0.10372821060922582,
+  "core_rot_deg": 0.36524479999265963,
+  "rollback_rot_deg": 0.01863859861976756,
+  "grasp_err_mm": 0.7472125121791179,
+  "armB_track_err_mm": 2.012940198633426
+ },
+ "trial_max": {
+  "core_slip_total_mm": 0.19737351824983612,
+  "core_rot_total_deg": 0.43965670961362385,
+  "residual_end_deg": 0.8853407998451183,
+  "residual_growth_deg (reported)": 0.4069852236029302
+ },
+ "holds": {
+  "n": 1,
+  "pass": 1,
+  "slip_max_mm": 0.012405186254880539,
+  "rot_max_deg": 0.01630667921949887
+ },
+ "negatives": {
+  "jam_s29104": {
+   "pass": true,
+   "outcome": "guard stop at 45.0 deg",
+   "reported_only": false
+  }
+ },
+ "screen": {},
+ "throughput": {
+  "n": 5,
+  "rtf_median": 0.060872563579038946,
+  "rtf_min": 0.057730635654192106,
+  "rtf_max": 0.06850979628302963,
+  "note": "simulated s per wall s per trial process (holds included); other trials in parallel"
+ }
+}

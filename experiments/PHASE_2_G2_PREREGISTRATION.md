@@ -311,7 +311,7 @@ more than 6 logged starts are INVALID (§6).
 ## 5. Mapping to VALIDATION_PLAN G2
 | G2 checklist item | Evidence |
 |---|---|
-| Distinct xArm7 instances with validated tool frames, limits, collision geometry | layout IK at the grasp with the wrist F/T sensor: joint-limit margin arm B 19.1°, arm A 28.9° (pilot-4 `scene.ik`; the earlier "≥ 25.8°" predates the sensor, review 6 S-a); contact checks in the start sequence, the approach and every move; G2-7 `collision` |
+| Distinct xArm7 instances with validated tool frames, limits, collision geometry | layout IK at the grasp with the wrist F/T sensor: joint-limit margin arm B ≥ 19.1° (19.1–22.9° over the pilot-4 records), arm A 28.9° (pilot-4 `scene.ik`; the earlier "≥ 25.8°" predates the sensor, review 6 S-a); contact checks in the start sequence, the approach and every move; G2-7 `collision` |
 | Approved passive fingertip candidate accurately mounted | P-97 / P-107 fingertips; non-fingertip contact checks |
 | Stable classical stabilisation against a physical rotating layer | G2-1 holds; per-move and trial-level core slip and rotation; roll-back and misalignment checks |
 | Contact-driven 90° and 180° turns across multiple starts, no unintentional adjacent-layer rotation | G2-2 … G2-4: observed move, turn error, drift, causality, drive |
@@ -423,12 +423,20 @@ review 6 S-e). CI runs this file in its own process.
   `rand10_s29660`). The earlier results (P-124, P-129) were against magnet-free references. Results: at the
   revision-5 code, 3/3 physics-identical at `114489e` (P-132). At the revision-6 code: 3/3 physics-identical (G2
   code of `662d9fa`; tilt 1.2–1.7°, every step counted; P-136; `rev6_evidence_2026-11-28.log`). **At the revision-7
-  code: 3/3 physics-identical, frozen paths clean** (P-138). `selfcheck.py` prints HEAD and whether the frozen paths are clean (review 5 S5,
+  code: 3/3 physics-identical, frozen paths clean**, at `a377b23` (G2 code of `3368783`; P-138; review 7 N2). `selfcheck.py` prints HEAD and whether the frozen paths are clean (review 5 S5,
   review 6 S-c); it is run again at the freeze commit.
-- **Smoke:** a smoke run killed after a record link and resumed gives PASS, with the ledger reconciled (P-120).
-  At the revision-6 code: PASS, 5/5 through `run.py smoke` and `analyze.py --mode smoke`, **in one uninterrupted
-  start** (every trial: 0 steps without magnet force, steps = sim time / dt, tilt 1.1–1.6°; P-136). `run.py` has not
-  changed since the P-120 kill-and-resume smoke, so that interruption evidence still applies (review 6 S-g).
+- **Smoke:** a smoke run killed after a record link and resumed gave PASS, with the ledger reconciled (P-120, at
+  `6d7777b`). `run.py` has changed since, resume logic included (review 7 N1), so that run is history only.
+  - At the revision-6 code: PASS, 5/5 in one uninterrupted start (every trial: 0 steps without magnet force, steps =
+    sim time / dt, tilt 1.1–1.6°; P-136).
+  - **At the current code (`e25d43a`; review 7 N1): a kill-and-resume smoke** (`smoke_3_kill_resume/`). Start 1
+    stopped itself after 2 records at `after_link` (exit 3): the second record was linked, its ledger line and its
+    temporary file were left behind. Start 2 (the same command) moved the temporary file to `_interrupted/`, reconciled
+    the record, and ran the other 3 trials. Ledger 5 lines (1 reconciled); `analyze.py --mode smoke`: **PASS 5/5**,
+    integrity clean (P-140).
+  - The resume path is also covered by the synthetic tests (`test_interrupt_then_resume_completes`,
+    `test_resume_moves_orphans_and_reconciles`, `test_resume_refusals`, `test_resume_refuses_stray_temporary_files`,
+    `test_resumes_are_limited_then_not_passed`).
 - **Revision-2 pilot** (`run.py pilot2`, seeds 29300–29353; P-124): 20 U′ and 20 U2 first turns with the stop
   disabled; 4 × U U′ U2 U′ U and 2 holds at the fixed settings; 2 each of jam, two_layer, collision and open_midturn.
   Results in `pilot2_rev2/` (its stored pass/fail used the pre-P-125 rules; see its README).
@@ -563,4 +571,13 @@ review 6 S-e). CI runs this file in its own process.
 | S-d verdict-run names | microsecond timestamps, exclusive-create mode; both files named `VERDICT_<time>` (§6) |
 | S-e "0 skipped" | `G2_REQUIRE_SCENE=1` turns the scene-test skips into failures; a test asserts the robot model exists when it is set; the `-rs` summary line is recorded (§6, §7) |
 | S-f coverage test | also asserts that `src/rubiknetic/` modules load from the repository |
-| S-g smoke wording | §7: the revision-6 smoke was one uninterrupted start; P-120 covers interruption |
+| S-g smoke wording | §7: the revision-6 smoke was one uninterrupted start. (The added claim that P-120 still covers interruption was false; review 7 N1 corrected it with a new kill-and-resume smoke at the current code.) |
+
+## 15. Response to review 7 (P-139; ACCEPTABLE AS IS, three suggestions)
+| Item | Change |
+|---|---|
+| N1 false statement about `run.py` | removed; a new kill-and-resume smoke at the current code (`e25d43a`) passes, with the orphan moved and the record reconciled (§7, P-140) |
+| N2 self-check commit | §7 names `a377b23` (G2 code of `3368783`) |
+| N3 arm B margin | §5: "≥ 19.1° (19.1–22.9°)" |
+
+These are text corrections in the reviewer's own terms plus new evidence; no code changed after review 7.
