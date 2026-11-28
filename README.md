@@ -6,7 +6,7 @@
 
 ### Learning-Enabled Bimanual Robotic Manipulation for Physically Solving a Rubik's Cube
 
-**Simulation research in progress · G1 cube physics passed (simulation) · G2 two-arm turning in development · No cube solve claimed**
+**Simulation research in progress · G1 cube physics passed · G2 two-arm contact turning passed (simulation) · No cube solve claimed**
 
 </div>
 
@@ -47,7 +47,7 @@ The final system aims to infer cube state from **simulated cameras**, execute it
 | --- | --- | --- | --- |
 | **0 — Research** | Literature, cube mechanism and fingertip feasibility | Verified reports, comparative design decision, documented open risks | Conditional pass (2026-11-12) |
 | **1 — Cube physics** | Mechanically credible cubie simulation | Verified one-turn and cross-axis consecutive turns driven by external physical torque | **Passed for M7** (2026-11-26), with stated limitations |
-| **2 — Robot integration** | Two xArm7s, grippers, classical controllers | Contact-driven face turn with one arm stabilizing and the other turning | In progress: pilots pass (144/144 with magnets); test plan in review (revision 5), not yet frozen |
+| **2 — Robot integration** | Two xArm7s, grippers, classical controllers | Contact-driven face turn with one arm stabilizing and the other turning | **Passed for M7** (2026-11-28): 128/128 scored trials, with stated limitations |
 | **3 — Reinforcement learning** | Residual Cartesian RL for manipulation | Reproducible learned-vs-classical benchmark; negative results accepted | Not started |
 | **4 — Bimanual autonomy** | Task/motion planning, regrasp and handoff | Legal, coordinated multi-turn sequences and state continuity | Not started |
 | **5 — Perception and recovery** | Cameras, cube-state estimation, feedback | Vision-derived pose/state and independently tested error detection | Not started |
@@ -93,23 +93,21 @@ Everything below is **simulation only**. Nothing here establishes sim-to-real tr
 - The report lists 12 limitations. Among them: assumed clearance, uncalibrated turning torque, a solver setting
   (NoSlip) chosen after rehearsals, and a test-rig grip that never exceeded about 11.5 N.
 
-**Phase 2 — two-arm turning: in progress** (unscored pilots; [decision log](docs/DECISION_LOG.md) P-95 … P-131).
-- **[D17](experiments/D17_real_holder_m7/README.md):** an xArm7 + G2 gripper holds the free-floating cube; a second
-  G2 turns the U layer. 40/40 moves correct across 10–50 N grips. A C1 vs C2 turner-fingertip pilot (90/90 moves)
-  chose **C1**.
-- **[D18](experiments/D18_two_arm_m7/README.md):** **two full xArm7 arms facing each other** (bases 1.0 m apart, cube
-  axis horizontal) turn the U layer. The controllers never read the cube's state. The cube starts on a drop-away
-  stand; arm A grasps it with gravity on, then the stand lowers clear.
-- **A wrist force/torque guard** on the turning arm stops a blocked turn safely (a modelled UFACTORY 6-axis sensor).
-- **A bug found by independent review:** the cube's magnets were switched off in every two-arm run before
-  2026-11-27 (a model-building step removed them). They are restored, and every trial now proves the magnet force
-  acted at every simulation step. All pilots were repeated with the magnets on.
-- **[Pilot 4](experiments/E8_scored_g2/pilot4_magnets/README.md) (magnets on): 144/144 trials pass.**
-  - First turns: turn error ≤ 0.2°, wrist torque ≤ 0.37 N·m (the stop is at 1.0 N·m).
-  - 10-move sequences: every cubie within 1.05° of alignment at the end.
-  - Blocked turns are stopped after 37–44° of roll, and wrong (two-layer) grips are caught within 4°.
-- **The [G2 pre-registration](experiments/PHASE_2_G2_PREREGISTRATION.md) is a draft (revision 5), not in force.**
-  Next: independent review until accepted, the user's approval, then the scored run (138 trials, seeds never used).
+**Phase 2 — two-arm turning: passed for M7** ([G2 report](experiments/E8_scored_g2/G2_REPORT.md)).
+- **Two full xArm7 arms** facing each other (bases 1.0 m apart): arm A holds the free-floating cube's lower two layers,
+  arm B grips the top layer and turns it with its wrist. Only fingertip contact turns the layer; the controllers never
+  read the cube's state.
+- A pre-registered, seven-times independently reviewed battery of **128/128 scored trials** passed with zero tolerance
+  ([pre-registration](experiments/PHASE_2_G2_PREREGISTRATION.md), [verdict](experiments/E8_scored_g2/VERDICT.md)):
+  - 100 turn trials (U, U′, U2, 5-move and 10-move random sequences), 360 moves: turn error ≤ 0.41°, other layers
+    ≤ 0.31°; 95 % upper bound on the per-trial failure rate 3 %;
+  - 20 one-minute holds: the cube moves ≤ 0.16 mm;
+  - negative cases detected: blocked turns are stopped by a wrist force/torque guard, and wrong grips, collisions and
+    a gripper opening mid-turn are caught.
+- **A bug found by review:** the cube's magnets had been switched off in every earlier two-arm run. They were restored,
+  every trial now proves they acted at every step, and all pilots were repeated before the scored run.
+- Limitations include: simulation only; U-family turns from one grasp (no regrasps, no other faces yet); modelled
+  friction, turning torque and force sensor.
 - **Stickers:** the cube carries coloured stickers in the viewer. They are visual only (no mass, no collision), and the
   physics is bit-identical with and without them.
 

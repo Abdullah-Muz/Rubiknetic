@@ -51,13 +51,15 @@ design**.
 
 ### G2 — Two-arm manipulation (Phase 2)
 
-- [ ] Distinct xArm7 instances with validated tool frames, limits, collision geometry.
-- [ ] Approved passive fingertip candidate accurately mounted to selected grippers.
-- [ ] Stable classical stabilization against a physical rotating layer.
-- [ ] Contact-driven 90° and 180° turns across multiple starts, no unintentional adjacent-layer rotation.
-- [ ] Collision/force/clearance logs and sensitivity to alignment and friction.
+- [x] Distinct xArm7 instances with validated tool frames, limits, collision geometry. *(layout IK, joint margins B ≥ 19.1°, A 28.9°; no judged contact in 128 scored trials; G2-7 collision 2/2; P-143)*
+- [x] Approved passive fingertip candidate accurately mounted to selected grippers. *(P-97 stabiliser pads, C1 turner P-107; no non-fingertip robot–cube contact)*
+- [x] Stable classical stabilization against a physical rotating layer. *(G2-1 holds 20/20; per-move core slip ≤ 0.26 mm, rotation ≤ 1.24°)*
+- [x] Contact-driven 90° and 180° turns across multiple starts, no unintentional adjacent-layer rotation. *(G2-2…G2-4 100/100, 360 moves; turn error ≤ 0.41°, drift ≤ 0.31°)*
+- [x] Collision/force/clearance logs and sensitivity to alignment and friction. *(per-move logs; G2-6 screen; G2-7 8/8)*
 
 **Pass:** repeatable physical turns with prescribed classical controllers; no RL needed to pass.
+
+**G2 PASSED for M7 (2026-11-28, user sign-off, P-144)** with the limitations of [`../experiments/E8_scored_g2/G2_REPORT.md`](../experiments/E8_scored_g2/G2_REPORT.md) §6.
 
 ### G3 — RL experimental validity (Phase 3)
 

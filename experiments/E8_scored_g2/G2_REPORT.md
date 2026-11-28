@@ -1,6 +1,6 @@
 # G2 report: two xArm7 arms turn a layer of the free-core M7 cube by contact
 
-**Status: SCORED RUN PASS (2026-11-28, P-143); awaiting the user's sign-off (§8).** §1–§4 were drafted before the
+**Status: G2 PASSED for M7, signed off by the user on 2026-11-28 (§8; DECISION_LOG P-144)**, with the §6 limitations as its stated scope. Scored run PASS (P-143). §1–§4 were drafted before the
 scored run (the skeleton committed at `ad08a50`); §5 and the result fields were filled in after it. This file is not a
 frozen path: under the pre-registration (status block), results and discussion go here, and frozen files are never
 edited after the freeze.
@@ -141,7 +141,7 @@ edited after the freeze.
 | Collision/force/clearance logs; sensitivity to alignment and friction | per-move logs in every record; G2-6 (7/8 turn-pass, 1 start-offset trip by design); G2-7 8/8 |
 
 ## 8. Sign-off (VALIDATION_PLAN sign-off protocol)
-**Proposed for the user's sign-off (not signed yet):**
+**Signed off 2026-11-28 (P-144):**
 - `gate_id`: G2 (two-arm manipulation, M7 free core).
 - `test_evidence_paths`:
   - `experiments/E8_scored_g2/results/`, `VERDICT.md`, `verdict.json`, `verdict_runs/`, `scored_run_log.txt`;
@@ -154,6 +154,5 @@ edited after the freeze.
   - the §6 limitations;
   - open items O-09 (real turning torque), O-10 (squeeze legality, here screened to 50 N), O-12 (G2 CAD licence);
   - the arm B joint-limit margin (19.1°) is the tightest kinematic margin (D22).
-- `next_authorized_phase`: the user's choice, e.g. G3 (residual RL against this controller as B0, P-134), with the
-  D19 throughput limits.
-- `date`, `approver`: to be filled at sign-off.
+- `date`: 2026-11-28. `approver`: the user ("Sign off: PASS").
+- `next_authorized_phase`: to be chosen by the user after sign-off.
