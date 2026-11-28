@@ -1,4 +1,4 @@
-"""G2 verdict and report (experiments/PHASE_2_G2_PREREGISTRATION.md revision 6 §4.4; DRAFT, not in force).
+"""G2 verdict and report (experiments/PHASE_2_G2_PREREGISTRATION.md revision 7 §4.4; DRAFT, not in force).
 
 INVALID     no manifest; a record that does not parse; a ledger SHA-256 mismatch; a record without a ledger line; a
             ledger key with more than one line or without a record; any file or directory the run procedure does not
@@ -413,11 +413,13 @@ def main() -> None:
     print(text)
     # review 5 S6: every verdict run is kept (timestamped, never overwritten); VERDICT.md / verdict.json are the latest
     from datetime import datetime, timezone
-    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")      # review 6 S-d: microseconds, and mode "x"
     runs = a.results.parent / "verdict_runs"
     runs.mkdir(exist_ok=True)
-    (runs / f"VERDICT_{ts}.md").write_text(text + "\n", encoding="utf-8")
-    (runs / f"verdict_{ts}.json").write_text(json.dumps(res, indent=1, default=list))
+    with open(runs / f"VERDICT_{ts}.md", "x", encoding="utf-8") as f:   # refuses to overwrite an earlier run
+        f.write(text + "\n")
+    with open(runs / f"VERDICT_{ts}.json", "x", encoding="utf-8") as f:
+        f.write(json.dumps(res, indent=1, default=list))
     (a.results.parent / "VERDICT.md").write_text(text + "\n", encoding="utf-8")
     (a.results.parent / "verdict.json").write_text(json.dumps(res, indent=1, default=list))
 

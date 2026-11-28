@@ -1,9 +1,9 @@
-"""G2 trial kinds (experiments/PHASE_2_G2_PREREGISTRATION.md revision 6 §3-§4; DRAFT, not in force).
+"""G2 trial kinds (experiments/PHASE_2_G2_PREREGISTRATION.md revision 7 §3-§4; DRAFT, not in force).
 
 Every trial builds the D18 two-arm scene (`experiments/D18_two_arm_m7/two_arm.py`) in its own spawned process, configured
 from the job's overrides and the fixed defaults below, and returns a record with `pass` and `fail_reasons`. The limits
 were fixed from the P-5 pilot (P-118, P-119), review 1 (P-122, revision 2), pilot 2 (P-125: F/T stop 1.0 N.m,
-absolute end misalignment 4 deg), review 2 (P-126, revision 3) and review 3 (P-128, revision 4) and review 4 (P-130, magnets restored: revision 5) and review 5 (P-135, revision 6).
+absolute end misalignment 4 deg), review 2 (P-126, revision 3) and review 3 (P-128, revision 4) and review 4 (P-130, magnets restored: revision 5) and review 5 (P-135, revision 6) and review 6 (P-137, revision 7).
 
 Kinds:
   seq   G2-2/G2-3/G2-4: a U-family move sequence from a seeded start (cube offset, layer misalignment).

@@ -63,8 +63,10 @@ def main() -> None:
     a = ap.parse_args()
     import subprocess
     head = subprocess.run(["git", "rev-parse", "HEAD"], cwd=HERE, capture_output=True, text=True).stdout.strip()
-    dirty = subprocess.run(["git", "status", "--porcelain"], cwd=HERE, capture_output=True, text=True).stdout.strip()
-    print(f"HEAD {head}{' (uncommitted changes)' if dirty else ''}", flush=True)          # review 5 S5
+    dirty = subprocess.run(["git", "status", "--porcelain", "--", *R.FROZEN_PATHS], cwd=R.REPO, capture_output=True,
+                           text=True).stdout.strip()                   # review 6 S-c: the frozen paths only
+    print(f"HEAD {head}{' (uncommitted changes in frozen paths)' if dirty else ' (frozen paths clean)'}",
+          flush=True)                                                   # review 5 S5
     jobs = {R.key_of(j): j for j in R.pilot4_jobs()}
     todo = [jobs[k] for k in CHECK]
     for j in todo:

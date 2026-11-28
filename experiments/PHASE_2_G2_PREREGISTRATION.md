@@ -1,6 +1,6 @@
 # Phase 2 (G2) Pre-registration: two-arm, contact-driven layer turns of the free-core M7 cube
 
-**Status: DRAFT revision 6, NOT IN FORCE (2026-11-28).**
+**Status: DRAFT revision 7, NOT IN FORCE (2026-11-28).**
 - Revision 2 answered review 1 (`G2_PREREGISTRATION_REVIEW1_2026-11-27.md`, P-122): all 7 required items, and every
   suggestion except per-trial F/T noise seeding (P-123). §9 maps each item to its change.
 - Revision 3 answered review 2 (`G2_PREREGISTRATION_REVIEW2_2026-11-27.md`, P-126): all 4 required items and all 6
@@ -11,8 +11,10 @@
   earlier D18/G2 trial.** They are restored and checked at every step (P-131), every pilot was repeated with them on
   (pilot 4), and all evidence below is from pilot 4. §12 maps each item to its change.
 - Review 5 (`G2_PREREGISTRATION_REVIEW5_2026-11-28.md`, P-135) found revision 5 **ACCEPTABLE AS IS** with 6
-  suggestions. Revision 6 applies all 6 (user: "Apply suggestions, then review 6", P-136). §13 maps each to its
+  suggestions. Revision 6 applied all 6 (user: "Apply suggestions, then review 6", P-136). §13 maps each to its
   change.
+- Review 6 (`G2_PREREGISTRATION_REVIEW6_2026-11-28.md`, P-137) found revision 6 **ACCEPTABLE AS IS** with 7
+  suggestions. Revision 7 applies all 7 (user: "Apply all 7, short review 7", P-138). §14 maps each to its change.
 - The text states what the code does at the commit that introduces this revision.
 - Before it is in force: review rounds until "ACCEPTABLE AS IS" (one reviewer subagent per round, P-121), then the
   user's approval recorded in `docs/DECISION_LOG.md`.
@@ -197,9 +199,10 @@ of the limits; a test checks the copies agree) both apply the following. A trial
 - **the magnets act at every step** (P-131): the record's `magnets.steps` > 0 and `magnets.steps_without_magnet_force`
   = 0. `TwoArm.ctrl_step` counts a step without a magnet-force evaluation. Review 5 S4: `magnets.steps` also equals
   `AuditedSim.steps` (`magnets.sim_steps`) and `round(sim_time_s / 0.0005)`, so no simulation step goes uncounted;
-- **the magnet force law stays in its validated range** (review 5 S1; G1's M4 rule 2): over the whole trial the largest
-  near-pair tilt ≤ **5°** (`MagnetSystem.stats`, the V3-validated tilt) and no near perpendicular pair. Judged for turn
-  trials and holds; recorded and labelled only for negative cases (as G1's rule 3 for abuse trials);
+- **the magnet force law stays in its validated range** (review 5 S1): over the whole trial the largest near-pair tilt
+  ≤ **5°** (`MagnetSystem.stats`, the V3-validated tilt; as G1's M4 rule 2), **plus** no near perpendicular pair (the
+  force law's stated precondition, `magnets.py`; G1 did not judge it, so G2 is stricter here; review 6 S-b). Judged
+  for turn trials and holds; recorded and labelled only for negative cases (as G1's rule 3 for abuse trials);
 - the cube is solved at t0;
 - every move is recorded;
 - the final state matches the oracle.
@@ -308,7 +311,7 @@ more than 6 logged starts are INVALID (§6).
 ## 5. Mapping to VALIDATION_PLAN G2
 | G2 checklist item | Evidence |
 |---|---|
-| Distinct xArm7 instances with validated tool frames, limits, collision geometry | layout IK (P-108, ≥ 25.8° joint margin); contact checks in the start sequence, the approach and every move; G2-7 `collision` |
+| Distinct xArm7 instances with validated tool frames, limits, collision geometry | layout IK at the grasp with the wrist F/T sensor: joint-limit margin arm B 19.1°, arm A 28.9° (pilot-4 `scene.ik`; the earlier "≥ 25.8°" predates the sensor, review 6 S-a); contact checks in the start sequence, the approach and every move; G2-7 `collision` |
 | Approved passive fingertip candidate accurately mounted | P-97 / P-107 fingertips; non-fingertip contact checks |
 | Stable classical stabilisation against a physical rotating layer | G2-1 holds; per-move and trial-level core slip and rotation; roll-back and misalignment checks |
 | Contact-driven 90° and 180° turns across multiple starts, no unintentional adjacent-layer rotation | G2-2 … G2-4: observed move, turn error, drift, causality, drive |
@@ -389,7 +392,8 @@ ledger, the start log and the artifacts from disk. An INVALID that comes from re
 parse, a ledger or artifact SHA-256 mismatch, a record without a ledger line, an inconsistent start log) must reproduce
 on a re-run of the verdict to stand: a transient empty read is not a result. The verdict is deterministic on unchanged
 files. **Every verdict run is reported**, with its output: `analyze.py` writes each run to
-`verdict_runs/VERDICT_<UTC time>.md` and `.json` beside `results/`, never overwriting one (review 5 S6); `VERDICT.md`
+`verdict_runs/VERDICT_<UTC time, microseconds>.md` and `.json` beside `results/`, opened in exclusive-create mode so
+an earlier run is never overwritten (review 5 S6, review 6 S-d); `VERDICT.md`
 and `verdict.json` are the latest copy. Every other INVALID cause stands as found.
 
 **Procedure (as G1 §2):**
@@ -403,23 +407,28 @@ About 0.04–0.05× real time per trial process with the magnets on (the magnet 
 138 trials take about 3–4 h on 8 workers.
 
 **Tests on CI (2026-11-28):** the four scene-building tests need the git-ignored robot model and skip themselves on a
-clean clone (CI). **The freeze evidence requires the whole file to run locally with 0 skipped** (§7). CI runs this file
-in its own process.
+clean clone (CI). **The freeze evidence requires the whole file to run locally with 0 skipped**, enforced by running it
+with `G2_REQUIRE_SCENE=1`, which turns the skips into failures, and by recording pytest's `-rs` summary line (§7;
+review 6 S-e). CI runs this file in its own process.
 
 **Seed search (review 1 suggestion 14):**
 - Tracked files contain no record using 30000–30999. The only uses are synthetic test calls.
 - The search is repeated and recorded at the freeze.
 
 ## 7. Evidence before the freeze
-- **Tests:** `tests/test_scored_g2.py`, 62 tests pass locally, 0 skipped.
+- **Tests:** `tests/test_scored_g2.py` with `G2_REQUIRE_SCENE=1`: TESTS_PLACEHOLDER
 - **Self-check:** `selfcheck.py` re-runs three pilot trials and requires the **physics identity** (final qpos SHA-256,
   the magnet step counts, the start sequence, observed moves, guard stops, F/T peaks) to equal the committed pilot
   records. Since P-131 the references are pilot-4 records (`pilot4_magnets/`: `U_s29500`, `jam_s29610`,
   `rand10_s29660`). The earlier results (P-124, P-129) were against magnet-free references. Results: at the
-  revision-5 code, 3/3 physics-identical at `114489e` (P-132). **At the revision-6 code: 3/3 physics-identical** (G2 code of `662d9fa`; tilt 1.2–1.7°, every step counted; P-136; `rev6_evidence_2026-11-28.log`).
-  `selfcheck.py` now prints HEAD (review 5 S5); it is run again at the freeze commit.
+  revision-5 code, 3/3 physics-identical at `114489e` (P-132). At the revision-6 code: 3/3 physics-identical (G2
+  code of `662d9fa`; tilt 1.2–1.7°, every step counted; P-136; `rev6_evidence_2026-11-28.log`). **At the revision-7
+  code: SELFCHECK_PLACEHOLDER** `selfcheck.py` prints HEAD and whether the frozen paths are clean (review 5 S5,
+  review 6 S-c); it is run again at the freeze commit.
 - **Smoke:** a smoke run killed after a record link and resumed gives PASS, with the ledger reconciled (P-120).
-  **At the revision-6 code: PASS, 5/5** through `run.py smoke` and `analyze.py --mode smoke` (every trial: 0 steps without magnet force, steps = sim time / dt, tilt 1.1–1.6°; P-136).
+  At the revision-6 code: PASS, 5/5 through `run.py smoke` and `analyze.py --mode smoke`, **in one uninterrupted
+  start** (every trial: 0 steps without magnet force, steps = sim time / dt, tilt 1.1–1.6°; P-136). `run.py` has not
+  changed since the P-120 kill-and-resume smoke, so that interruption evidence still applies (review 6 S-g).
 - **Revision-2 pilot** (`run.py pilot2`, seeds 29300–29353; P-124): 20 U′ and 20 U2 first turns with the stop
   disabled; 4 × U U′ U2 U′ U and 2 holds at the fixed settings; 2 each of jam, two_layer, collision and open_midturn.
   Results in `pilot2_rev2/` (its stored pass/fail used the pre-P-125 rules; see its README).
@@ -445,7 +454,8 @@ in its own process.
 | P-6d | revision-4 code, tests, self-check at the revision-4 code | P-129 |
 | P-6e | magnets restored and checked per step; pilot 4 (magnets on); limits rechecked; self-check at the revision-5 code | P-131, P-132 |
 | P-6f | review-5 suggestions applied; tests, smoke run and self-check at the revision-6 code | P-136 |
-| P-7 | independent reviews until "ACCEPTABLE AS IS" | **open**: review 5 ACCEPTABLE AS IS for revision 5 (P-135); revision 6 is under review (reviews 1–4: P-122, P-126, P-128, P-130) |
+| P-6g | review-6 suggestions applied; tests (0 skipped enforced) and self-check at the revision-7 code | P-138 |
+| P-7 | independent reviews until "ACCEPTABLE AS IS" | **open**: reviews 5 and 6 ACCEPTABLE AS IS (P-135, P-137); revision 7 under a short review limited to its changes (reviews 1–4: P-122, P-126, P-128, P-130) |
 | P-8 | the user's approval; freeze commit; DECISION_LOG | **open** |
 
 ## 8. Limitations (to be stated with any G2 result)
@@ -540,6 +550,17 @@ in its own process.
 | S3 §4.3 text | the magnet check named among the integrity failures |
 | S4 step count | `magnets.steps` must equal `AuditedSim.steps` and `round(sim_time_s / 0.0005)`, in `trials` and `analyze`; tests |
 | S5 self-check provenance | `selfcheck.py` prints HEAD (and flags uncommitted changes) and each trial's magnet stats; re-run at the freeze commit |
-| S6 verdict outputs | every verdict run kept as `verdict_runs/VERDICT_<UTC time>.md/.json` (§6) |
+| S6 verdict outputs | every verdict run kept as `verdict_runs/VERDICT_<UTC time>.md/.json` (§6; naming fixed in revision 7) |
 | CI (2026-11-28, not a review item) | scene tests skip without the git-ignored robot model; the module-coverage test runs in a fresh process; CI runs this file in its own process with the virtualenv outside the checkout; the freeze still needs 0 skipped locally |
 | D20 (P-133) | §0.1a: G1's magnets verified at runtime |
+
+## 14. Response to review 6 (P-137; ACCEPTABLE AS IS, seven suggestions)
+| Item | Change in revision 7 |
+|---|---|
+| S-a stale joint margin | §5: arm B 19.1°, arm A 28.9° with the wrist F/T sensor (pilot-4 `scene.ik`) |
+| S-b G1 attribution | §4.1: tilt as G1's rule 2; the perpendicular-pair check is the force law's precondition, stricter than G1 |
+| S-c self-check flag | `selfcheck.py` checks only the frozen paths for uncommitted changes |
+| S-d verdict-run names | microsecond timestamps, exclusive-create mode; both files named `VERDICT_<time>` (§6) |
+| S-e "0 skipped" | `G2_REQUIRE_SCENE=1` turns the scene-test skips into failures; a test asserts the robot model exists when it is set; the `-rs` summary line is recorded (§6, §7) |
+| S-f coverage test | also asserts that `src/rubiknetic/` modules load from the repository |
+| S-g smoke wording | §7: the revision-6 smoke was one uninterrupted start; P-120 covers interruption |

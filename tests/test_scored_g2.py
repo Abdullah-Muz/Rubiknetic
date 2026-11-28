@@ -1,4 +1,4 @@
-"""Tests for the G2 runner (experiments/E8_scored_g2; pre-registration revision 6, DRAFT).
+"""Tests for the G2 runner (experiments/E8_scored_g2; pre-registration revision 7, DRAFT).
 
 Fast tests: job list, seeds, run procedure with a synthetic runner (manifest, ledger, resume, tampering), harness
 exceptions, refusals, criteria, negative-case acceptance, the independent verdict recomputation, frozen-path coverage.
@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import importlib.util
 import json
+import os
 import sys
 import types
 from pathlib import Path
@@ -34,7 +35,16 @@ R = _load("e8_run", E8 / "run.py")
 # The scene-building tests need the generated robot model, which is git-ignored (third_party_cad/, GrabCAD terms), so
 # they are skipped on a clean clone such as CI. The freeze evidence requires them to RUN locally (0 skipped, §7).
 ROBOT_XML = REPO / "third_party_cad" / "robot" / "generated" / "xarm7_g2_1305+.xml"
-NEEDS_SCENE = pytest.mark.skipif(not ROBOT_XML.exists(), reason="git-ignored robot model absent (clean clone, e.g. CI)")
+# Review 6 S-e: G2_REQUIRE_SCENE=1 (the freeze evidence) turns the skip into a failure, so "0 skipped" is enforced.
+REQUIRE_SCENE = os.environ.get("G2_REQUIRE_SCENE") == "1"
+NEEDS_SCENE = pytest.mark.skipif(not ROBOT_XML.exists() and not REQUIRE_SCENE,
+                                 reason="git-ignored robot model absent (clean clone, e.g. CI)")
+
+
+def test_scene_inputs_present_when_required():
+    """Review 6 S-e: with G2_REQUIRE_SCENE=1 the robot model must exist (the scene tests then run or fail)."""
+    if REQUIRE_SCENE:
+        assert ROBOT_XML.exists(), ROBOT_XML
 A = _load("e8_analyze", E8 / "analyze.py")
 
 
@@ -115,6 +125,7 @@ def test_frozen_paths_cover_every_loaded_module(tmp_path):
     repo_files = sorted(str(f.relative_to(REPO)).replace("\\", "/") for f in files if f.is_relative_to(REPO)
                         and not ({".venv", "venv", "site-packages"} & set(f.relative_to(REPO).parts)))
     assert "experiments/D18_two_arm_m7/two_arm.py" in repo_files
+    assert any(f.startswith("src/rubiknetic/") for f in repo_files), "rubiknetic not loaded from the repository"  # S-f
     missing = [f for f in repo_files if not _frozen(f)]
     assert not missing, missing
 
