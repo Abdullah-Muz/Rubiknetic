@@ -1,0 +1,6 @@
+{
+  "torch": "2.15.0+cpu",
+  "same_threads_bit_identical": true,
+  "threads_1_vs_2_bit_identical": true,
+  "max_abs_param_diff_1_vs_2": 0.0
+}

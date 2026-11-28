@@ -1,0 +1,63 @@
+{
+  "python": "3.12.3",
+  "platform": "Linux-6.18.58.1-microsoft-standard-WSL2-x86_64-with-glibc2.39",
+  "versions": {
+    "stable_baselines3": "2.9.2",
+    "gymnasium": "1.4.0",
+    "torch": "2.15.0+cpu",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "mujoco": "4.0.1"
+  },
+  "torch_cuda_available": false,
+  "torch_num_threads": 1,
+  "torch_num_interop_threads": 16,
+  "os_cpu_count": 16,
+  "mp_default_start_method_sb3": "forkserver",
+  "main_process_passive_callback": "None",
+  "worker_mujoco_reports": [
+    {
+      "pid": 538493,
+      "mujoco": "4.0.1",
+      "callback_before_install": null,
+      "qvel_after_100_steps": 120.0000000000002,
+      "passive_torque": 0.01
+    },
+    {
+      "pid": 538494,
+      "mujoco": "4.0.1",
+      "callback_before_install": null,
+      "qvel_after_100_steps": -120.0000000000002,
+      "passive_torque": -0.01
+    }
+  ],
+  "worker_pids_distinct": true,
+  "worker_callback_isolated": true,
+  "main_process_passive_callback_after": "None",
+  "sac": {
+    "total_timesteps": 1000,
+    "n_envs": 2,
+    "wall_s": [
+      28.55,
+      13.89
+    ],
+    "mean_ep_return": -1281.43832125,
+    "param_sum_seed0_run1": 1444.83154296875,
+    "param_sum_seed0_run2": 1444.83154296875,
+    "bit_identical_same_seed": true,
+    "differs_other_seed": true
+  },
+  "ppo": {
+    "total_timesteps": 1024,
+    "n_envs": 2,
+    "wall_s": [
+      2.15,
+      3.38
+    ],
+    "mean_ep_return": -1179.2819355000001,
+    "param_sum_seed0_run1": 3.0196661949157715,
+    "param_sum_seed0_run2": 3.0196661949157715,
+    "bit_identical_same_seed": true,
+    "differs_other_seed": true
+  }
+}
